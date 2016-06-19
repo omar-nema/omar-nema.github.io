@@ -1,174 +1,135 @@
+///FRAGILE - DEPENDS ON DIFFERENT CSV AND CONSISTENT NAMING STRUCTURE
+
+$(window).load(function(){ 
+    
+    if ($('.widthchecker').css('float') == 'right'){
+        setLayout('datacopy/categories.csv','datacopy/projects.csv');
+    }
+    else if ($('.widthchecker').css('float') == 'left'){
+        setLayout('datacopy/categories.csv','datacopy/projects.csv');
+    }
+    else if ($('.widthchecker').css('float') == 'none'){
+//        setLayout('datacopy/categories.csv','datacopy/projects.csv');
+    }
+
+});
+
+var setLayout = function(categoryFile, projectFile){
+    d3.csv(categoryFile, function(categories){
+        d3.csv(projectFile, function(projects){ 
+             for (i=0; i<categories.length; i++){
+                var projectsByCategory = projects.filter(function(d){return d.category === categories[i].category;});  
+                if (categories[i].layout == 'left'){
+                      generateCSS($('.leftcontent'), categories[i], projectsByCategory);
+
+                  }
+                else if (categories[i].layout == 'right'){
+                      generateCSS($('.rightcontent'), categories[i], projectsByCategory);
+                  };
+              };       
+        });   
+    });
+};
+    
+var generateCSS = function($contentholder, category, projects){
+    var categoryHolder = $contentholder.find('.' + category.category);
+
+    for (var i=0; i<projects.length; i++){
+        var cardHolder = categoryHolder.find('.cardholder.' +projects[i].title);
+        var cardholderStyle = {
+            'width': projects[i].width,
+            'height': projects[i].height,
+            'position': projects[i].position,
+            'top': projects[i].top,
+            'left': projects[i].left,
+            'border-radius': projects[i].borderradius}
+        cardHolder.css(cardholderStyle);
+ 
+        var numCards = parseInt(projects[i].numCards);
+        var currVal = 6;
+        var offset = 6;
+        //this below needs to be generative
+        var cardCats = ['thumbnail', 'synposis', 'tags'];
+        opacity = [.2, .4, .9];
+        for (var j=0; j<numCards; j++){
+            currOpacity = opacity[j];
+            //very weak please fix
+            var card = cardHolder.find('.card.' + cardCats[j] + '.' + projects[i].title);     
+            var cardStyle = {
+                'width': '85%',
+                'height': '85%',
+                'transform': 'translateX(' + currVal + '%) translateY(' + currVal + '%)',
+                'background-color': projects[i].backgroundcolor,
+                'border-radius': projects[i].borderradius,
+                'position': 'absolute',
+                'font-size': projects[i].fontsize,
+                'opacity': currOpacity,
+                'color': 'white',
+                'z-index': j};  
+                
+            card.css(cardStyle);
+//            if (j == numCards -1){
+//                card.append('<p>' + projects[i].synposis + '</p>')  
+//            };
+      
+            currVal = currVal+offset;
+            }
+    };        
+};
+
+
+
+
+//$(window).resize(function(){
+//   //if this is a new size, recalculate css
+//});
+
+
+//        if (i==numCards-1){
+//            .css(box-shadow: 0 1px 0px 0px grey);
+//        }
+
+
+//
+//{% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
+//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//
+//       {% for category in site.data.categories %}
+//            {% if category.layout == 'left' %}
+//                       <section class="{{category.category}}">
+//                  {% for project in site.data.projects %}
+//                              {% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
+//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//                           
+//                                </div>
+//                            {% endif %}
+//                  {% endfor %}
+//                        </section>
+//            {% endif %}
+//      {% endfor %}
+
+
+
+//d3.csv('datacopy/categories.csv', function(data){
+//
+//    
+//    console.log(data);
+//});
+//
+
+
+
+//$(window).resize(function(event) {
+//  console.log( $(window).width() );
+//   
+//});
 
 
 //project sizing and locations handled here
 //takes input from csv file
-
-//
-//$('.narrative').html('<p>developing a framework to analyze and visualize narratives</p>');
-//
-//var data = $.csv.toObjects('_data/projects.csv');
-//
-//console.log(data);
-
-
-//var projects = [];
-//var categories = [] ;  
-//var categoryWeights = {datavis: 1, research: 2, object: 3};   
-//
-//function project(name, category, date, synposis, tags, numCards, thumbnails, position, width, offset){
-//    this.title =  name;  
-//    this.category = category;    
-//    this.date = date;
-//    this.synposis = synposis;
-//    this.tags = tags;
-//    this.thumbnails = thumbnails;  
-//    this.position = position;
-//    this.width = width;
-//    this.height = .73*parseInt(this.width);
-//    this.offset = offset;
-//};
-//function category (title, projectdata, weight){
-//    this.title =  title;
-//    this.projects = projectdata;
-//    this.weight = weight;
-//};
-////can you have key value in array?
-////how is structure here?
-//function groupByCategory(projects){
-//    var categoryNames = projects.map(function(d) {return d.category});  
-//    categoryNames = categoryNames.filter(function(v,i) { return categoryNames.indexOf(v) == i; });
-//   
-//    for (i=0;i<categoryNames.length; i++){
-//        var name = categoryNames[i];
-//        var projectsByCategory = projects.filter(
-//            function(d){
-//                return d.category === categoryNames[i];
-//            }
-//        );
-//        var newcat = categories.push(new category(categoryNames[i], projectsByCategory, categoryWeights[categoryNames[i]]));
-//    }
-//    //sort categories by order
-//    return categories.sort(function(d){
-//        return -d.weight;
-//    });
-//};
-//
-//
-//
-//var hospital = projects.push(new project('hospital','datavis', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var rx = projects.push(new project('rx', 'datavis', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var personaldata = projects.push(new project('personaldata', 'datavis', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var thesis = projects.push(new project('thesis', 'research', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var narrative = projects.push(new project('narrative', 'research', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null)); 
-//var tools = projects.push(new project('tools', 'object', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var table = projects.push(new project('table', 'object', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//var tea = projects.push(new project('tea', 'object', '2014-2015', 'computational model to predict movement from electrical stimulation', 'research, coding, python, neuro-engineering', null, null, null, null));
-//
-//categories = groupByCategory(projects);
-//
-////helper for generateScatterGrid function
-//
-//console.log(categories);
-//
-////creating pseudo-grid system
-//function generateScatterGrid(categories, leftwidth, rightwidth, leftheights, rightheights){
-//    var leftSideNumDivs = parseInt(categories.length/2) + categories.length%2;
-//    var rightSideNumDivs = parseInt(categories.length/2);
-//    
-//    for (var i=0; i<leftSideNumDivs; i++){
-//        var newString ='<section class="'+ categories[i].title + '" style="height:'+ leftheights[i] +'%"></section>';
-//        $('.leftcontent').append(newString);
-//        var cardholder = ($('.leftcontent').find('.' + categories[i].title));
-//        //add cards       
-//        for (var j=0; j<categories[i].projects.length; j++){
-//            var newCard ='<section class="cardholder '+ categories[i].projects[j].title + '"></section>';
-//            cardholder.append(newCard);
-//        };   
-//    };
-//    $('.leftcontent').css({width: leftwidth+ '%'});
-//    
-//    for (var i=leftSideNumDivs; i<(rightSideNumDivs+leftSideNumDivs); i++){
-//          var newString ='<section class="'+ categories[i].title + '" style="height:'+ rightheights[i-1] +'%"></section>';
-//        $('.rightcontent').append(newString);  
-//        var cardholder = ($('.rightcontent').find('.' + categories[i].title));        
-//        for (var j=0; j<categories[i].projects.length; j++){
-//        var newCard ='<section class="cardholder '+ categories[i].projects[j].title + '"></section>';
-//            cardholder.append(newCard);
-//        };    
-//    };
-//    $('.rightcontent').css({width: rightwidth+ '%'});
-//}
-//
-//
-//var floatLeftWidth = 65;
-//var floatRightWidth = 35;
-//floatLeftHeights = [60, 40];
-//floatRightHeights = [100, 0];
-//generateScatterGrid(categories, floatLeftWidth, floatRightWidth, floatLeftHeights, floatRightHeights);
-//    
-//
-////$('hospital').css({
-////    
-//////       top: 15%;
-//////    left: 5%;
-//////    position: absolute;
-//////    width: 300px;
-//////    height: 235px;
-//////    z-index: 100;
-//////    background-color: blue; 
-////    
-////});
-//
-//
-////now experiment w visual elements
-//
-////function generateSingleCard(){
-////    
-////};
-//
-//var generateProject = function(name, position, width, offset, numCards, cardData){
-//    var height = .78*parseInt(width);
-//    var $container = $('.content');
-//    var stringtoadd = '<div class="cardholder '+ 
-//    name + '"> <div class="card1"> <p>' + name + '</p></div><div class="card2"></div><div class="card3"></div></div>' ;
-//    
-//    $container.append(stringtoadd);
-//    var $project = $container.find('.cardholder.' + name);
-//    
-//    $project.css({'top': position[0] + '%', 'left': position[1] + '%', 'position': 'absolute', 'width': width +'px', 'height': height + 'px', 'z-index': '-5'});
-//    
-//    generateCards($project, numCards);
-//    
-//};
-//
-//var generateCards = function(project, numCards){
-//    
-//    //each card will hold attributes
-//    for (i=0; i<numCards ; i++){
-//        cardNum = i+1;
-//
-//        var opacity = [1, .43, .2];
-//        var translateX = 25-7*i;
-//        var translateY =  25-7*i;
-//        var zindex = numCards - i;
-//        project.find('.card' + cardNum).css(
-//            {
-//            'z-index': zindex,
-//            'background-color': '#FF0000',
-//            'width': '80%',
-//            'height': '80%',
-//            'opacity': opacity[i],
-//            'position': 'absolute',
-//            'transform': 'translateX(' + translateX+  '%) translateY(' + translateY+ '%)',
-//            'border-radius': '9%'
-//            }
-//        ); 
-//    };
-//      
-//};
-//
-//
-//
-//var thesisData = ['thesis', 'n/a', 'modeling spinal cord stimulation in monkeys', 'neuro-engineering, computational model, coding, finite element method']
-////
-//

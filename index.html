@@ -2,26 +2,24 @@
 layout: default
 ---
 <main class="content"> 
-    
+        
     <section class="leftcontent">
        {% for category in site.data.categories %}
             {% if category.layout == 'left' %}
-                       <section class="{{category.category}}">
-                  {% for project in site.data.projects %}
-                              {% if category.category == project.category %}
-                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
-                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
-                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
-                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
-                           
-                                </div>
-                            {% endif %}
-                  {% endfor %}
-                        </section>
+                <section class="{{category.category}}">
+                      {% for project in site.data.projects %}
+                                  {% if category.category == project.category %}
+                                     <div class="cardholder {{project.title}}">
+                                        <div class="card thumbnail {{project.title}}"></div>  
+                                        <div class="card synposis {{project.title}}"></div>
+                                        <div class="card tags {{project.title}}"></div>
+                                    </div>
+                                {% endif %}
+                      {% endfor %}
+                </section>
             {% endif %}
       {% endfor %}
     </section>
-    
     
     <section class="rightcontent">
        {% for category in site.data.categories %}
@@ -29,12 +27,10 @@ layout: default
                        <section class="{{category.category}}">
                   {% for project in site.data.projects %}
                               {% if category.category == project.category %}
-                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
-                                     
-                                        <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(8%) translateY(8%); border-radius: 9%; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>                    
-                                        <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(13%) translateY(13%); border-radius: {{project.border-radius}}; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
-                                        <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
-                                     
+                                 <div class="cardholder {{project.title}}">
+                                    <div class="card thumbnail {{project.title}}"></div>  
+                                    <div class="card synposis {{project.title}}"></div>
+                                    <div class="card tags {{project.title}}"></div>          
                                 </div>
                             {% endif %}
                   {% endfor %}
@@ -44,7 +40,9 @@ layout: default
         
     </section>
     
-</main>    
+</main>   
+
+<div class='widthchecker'></div>
 
 <section class="sidebar">  
     <div class="sidebar-categories">
@@ -55,7 +53,9 @@ layout: default
     <div class="questionmark">?</div>
 </section> 
 <div style="clear:both;"></div>
+
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script type="text/javascript" src="assets/scripts/projectvar.js"></script>
 
 

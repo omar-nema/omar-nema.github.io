@@ -7,12 +7,23 @@ $(window).load(function(){
     }
     else if ($('.widthchecker').css('float') == 'left'){
         setLayout('datacopy/categories.csv','datacopy/projects.csv');
+//        document.location = "indexgrid.html"
     }
     else if ($('.widthchecker').css('float') == 'none'){
-//        setLayout('datacopy/categories.csv','datacopy/projects.csv');
+        setLayout('datacopy/categories.csv','datacopy/projects.csv');
     }
+    
+//    setLayout('datacopy/categories.csv','datacopy/projects.csv');
 
 });
+
+
+
+//how are we changing layouts?
+//break point 600 - 900 - add more spacing around elements, enlarge & leave scattered
+//simply switch to grid layout
+//sustainability of solution?!?!?!
+//similar layout but more padding and bigger size
 
 var setLayout = function(categoryFile, projectFile){
     d3.csv(categoryFile, function(categories){
@@ -30,15 +41,19 @@ var setLayout = function(categoryFile, projectFile){
         });   
     });
 };
+
     
 var generateCSS = function($contentholder, category, projects){
     var categoryHolder = $contentholder.find('.' + category.category);
 
+    
+console.log(projects);
     for (var i=0; i<projects.length; i++){
         var cardHolder = categoryHolder.find('.cardholder.' +projects[i].title);
         var cardholderStyle = {
             'width': projects[i].width,
-            'height': projects[i].height,
+            //maintain aspect ratio           
+            'height': .73*parseInt(projects[i].width)+'vw',            
             'position': projects[i].position,
             'top': projects[i].top,
             'left': projects[i].left,

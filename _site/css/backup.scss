@@ -1,0 +1,247 @@
+
+
+//    .hospital {
+//        background-color: blue;
+//    //    width: 250px;
+//    //    height: 185px;
+////        width: 40%;
+////        padding: 15%; 
+//        height: 18vw;
+//        width: 25vw;
+//        position: absolute;
+//        top: 19%;
+//        left: 5%;
+//        border-radius: 9%;
+//    }
+//
+//    .rx {
+//        background-color: blue;
+////        width: 31%;
+////        padding: 12%;
+//        height: 13vw;
+//        width: 18vw;        
+//        position: absolute;
+//        top: 5%;
+//        left: 52%;  
+//            border-radius: 9%;
+//    }
+//
+//    .personaldata {
+//        background-color: blue;
+////        width: 27%;
+////        padding: 10%;
+//        height: 11vw;
+//        width: 15vw;           
+//        position: absolute;
+//        top: 60%;
+//        right: 5%;    
+//        border-radius: 9%;    
+//    }
+//
+//    .thesis{
+//        background-color: red;
+////        width: 34%;
+////        padding: 13%;
+//       height: 15vw;
+//        width: 22vw;         
+//        position: absolute;
+//        top: 0%;
+//        left: 15%;     
+//                border-radius: 9%;
+//    }
+//    .narrative{
+//        background-color: red;
+////        width: 28%;
+////        padding: 10%;
+//        
+//        width: 15vw;
+//        height: 11vw;
+////        height: 40%;
+//
+////        width: 150px;
+////        height: 110px;
+//        position: absolute;
+//        top: 42%;
+//        left: 60%;   
+//        border-radius: 9%;
+////        color: white;
+////        font-size: 8px;
+//        font-size: 1.5vw;
+//        text-align: center;
+//    }
+//    
+//    .narrative p {
+//        color: white;
+//        font-size: 1.5vw;
+//        position: absolute;
+//        top: 0;
+//        left: 0;
+//        right: 0;
+//        bottom: 0;
+//    }
+//
+//    .tools {
+//        background-color: green;
+////        width: 30%;
+////        padding: 12%;
+//        width: 15vw;
+//        height: 11vw;
+//        position: absolute;
+//        top: 20%;
+//        left: 35%;   
+//            border-radius: 9%;
+//    }
+//    .table {
+//        background-color: green;
+////        width: 30%;
+////        padding: 12%;
+//        width: 14vw;
+//        height: 10vw;        
+//        position: absolute;
+//        top: 50%;
+//        left: 5%;     
+//        border-radius: 9%;
+//    }
+//    .tea {
+//        background-color: green;
+////        width: 150px;
+////        height: 110px;
+//        width: 15vw;
+//        height: 11vw;        
+//        position: absolute;
+//        top: 75%;
+//        left: 20%;    
+//        border-radius: 9%;
+//    }
+//    
+//
+//}
+
+
+
+
+//
+//@media (max-width: 320px){
+//    
+//    html {font-size: 112%;}
+//    
+//    .column{
+//        float: left;
+//        padding-left: 1rem;
+//        padding-right: 1rem;
+//    }
+//    
+//    .column.full {width: 100%;}
+//    .column.two-thirds {width: 66.7%;}
+//    .column.half {width: 50%;}
+//    .column.third {width: 33.3%;}
+//    .column.fourth {width: 25%;}
+//    .column.flow-opposite {float: right;}
+//}
+//
+
+
+
+//.leftcontent:nth-child(2) {
+//    width: 100%;
+//  background-color: black;  
+//}
+
+//
+//<!--
+//       {% for category in site.data.categories %}
+//            {% if category.layout == 'left' %}
+//                       <section class="{{category.category}}">
+//                  {% for project in site.data.projects %}
+//                              {% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
+//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//                           
+//                                </div>
+//                            {% endif %}
+//                  {% endfor %}
+//                        </section>
+//            {% endif %}
+//      {% endfor %}
+//-->
+
+//
+//
+//<!--
+//       {% for category in site.data.categories %}
+//            {% if category.layout == 'right' %}
+//                       <section class="{{category.category}}">
+//                  {% for project in site.data.projects %}
+//                              {% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                     
+//                                        <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(8%) translateY(8%); border-radius: 9%; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>                    
+//                                        <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(13%) translateY(13%); border-radius: {{project.border-radius}}; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                        <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//                                     
+//                                </div>
+//                            {% endif %}
+//                  {% endfor %}
+//                        </section>
+//            {% endif %}
+//      {% endfor %}
+//-->
+
+
+
+
+//$(window).resize(function(){
+//   //if this is a new size, recalculate css
+//});
+
+
+//        if (i==numCards-1){
+//            .css(box-shadow: 0 1px 0px 0px grey);
+//        }
+
+
+//
+//{% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
+//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//
+//       {% for category in site.data.categories %}
+//            {% if category.layout == 'left' %}
+//                       <section class="{{category.category}}">
+//                  {% for project in site.data.projects %}
+//                              {% if category.category == project.category %}
+//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
+//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
+//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
+//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
+//                           
+//                                </div>
+//                            {% endif %}
+//                  {% endfor %}
+//                        </section>
+//            {% endif %}
+//      {% endfor %}
+
+
+
+//d3.csv('datacopy/categories.csv', function(data){
+//
+//    
+//    console.log(data);
+//});
+//
+
+
+
+//$(window).resize(function(event) {
+//  console.log( $(window).width() );
+//   
+//});
+
+
+//project sizing and locations handled here
+//takes input from csv file

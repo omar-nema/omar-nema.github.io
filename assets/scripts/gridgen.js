@@ -1,3 +1,5 @@
+
+
 <section class="about-page">
     <div class="about-header">
         <p>reduce omar nema to:</p>
@@ -24,13 +26,13 @@
                 </div>    
             </div>
         </div>    
-<!--        <div style="clear:both;"></div>    -->
+    <!--    <div style="clear:both;"></div>    -->
         <div class="about-row">
             <div class="col-3">
                 <p class="colheader timeline">[interactive timeline]</p>
                 <p class="colcontent timeline"></p>
             </div>       
         </div>
-<!--                <div style="clear:both;"></div>    -->
     </div>
+
 </section>

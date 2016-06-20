@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/about.css">    
 
 <!--    <link rel="stylesheet" type="text/css" href="styles/main.css"> -->
 </head>
@@ -142,24 +143,12 @@
       
         
     </section>
-    
-</main>   
+      
+</main>  
+
+<!--    references to side bar and about page in -includes folder-->
 
 <div class='widthchecker'></div>
-
-<section class="sidebar">  
-    <div class="sidebar-categories">
-        
-            <div class="button datavis" style="background-color: #4A90E2;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
-        
-            <div class="button research" style="background-color: pink;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
-        
-            <div class="button object" style="background-color: #50E3C2;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
-        
-    </div>
-    <div class="questionmark">?</div>
-</section> 
-<div style="clear:both;"></div>
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
@@ -176,6 +165,57 @@
 
 
 <!--<p>omar nema - data / design / dev</p>-->  
+        <section class="sidebar">  
+    <button class="about-button"></button>
+    <div class="sidebar-categories">
+        
+            <div class="button datavis" style="background-color: #4A90E2;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
+        
+            <div class="button research" style="background-color: pink;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
+        
+            <div class="button object" style="background-color: #50E3C2;  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
+        
+    </div>
+    <div class="questionmark">?</div>
+</section> 
+<div style="clear:both;"></div>  
+        <section class="about-page">
+    <div class="about-header">
+        <p>reduce omar nema to:</p>
+    </div>
+    <div class="about-grid">
+        <div class="about-row">
+            <div class="col-1">
+                <p class="colheader">[statements]</p>
+                
+                <div style="text-align: center;">
+                    <div style="display: inline-block; text-align: left">
+                        <p class="colcontent">developer/data junkie/design<br>data as a means of pursuing truth<br>L/R brain thinker<br>focus on: healthcare
+                         </p>  
+                    </div>
+                </div>         
+            </div> 
+            <div class="col-2">
+                 <p class="colheader">[tags]</p>
+                
+                <div style="text-align: center;">
+                    <div style="display: inline-block; text-align: left">
+                        <p class="colcontent">data visualization<br>data science <br>front-end design<br>healthcare</p>  
+                </div>            
+                </div>    
+            </div>
+        </div>    
+<!--        <div style="clear:both;"></div>    -->
+        <div class="about-row">
+            <div class="col-3">
+                <p class="colheader timeline">[interactive timeline]</p>
+                <p class="colcontent timeline"></p>
+            </div>       
+        </div>
+<!--                <div style="clear:both;"></div>    -->
+    </div>
+</section>
+            
 <!--        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>    -->
     </body>
  

@@ -21,4 +21,5 @@ github_username:  omar-nema
 markdown: kramdown
 
 collections:
-- projects
+    projects:
+        output: true

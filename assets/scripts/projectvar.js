@@ -7,12 +7,23 @@ $(window).load(function(){
     }
     else if ($('.widthchecker').css('float') == 'left'){
         setLayout('datacopy/categories.csv','datacopy/projects.csv');
+//        document.location = "indexgrid.html"
     }
     else if ($('.widthchecker').css('float') == 'none'){
-//        setLayout('datacopy/categories.csv','datacopy/projects.csv');
+        setLayout('datacopy/categories.csv','datacopy/projects.csv');
     }
+    
+//    setLayout('datacopy/categories.csv','datacopy/projects.csv');
 
 });
+
+
+
+//how are we changing layouts?
+//break point 600 - 900 - add more spacing around elements, enlarge & leave scattered
+//simply switch to grid layout
+//sustainability of solution?!?!?!
+//similar layout but more padding and bigger size
 
 var setLayout = function(categoryFile, projectFile){
     d3.csv(categoryFile, function(categories){
@@ -30,15 +41,19 @@ var setLayout = function(categoryFile, projectFile){
         });   
     });
 };
+
     
 var generateCSS = function($contentholder, category, projects){
     var categoryHolder = $contentholder.find('.' + category.category);
 
+    
+console.log(projects);
     for (var i=0; i<projects.length; i++){
         var cardHolder = categoryHolder.find('.cardholder.' +projects[i].title);
         var cardholderStyle = {
             'width': projects[i].width,
-            'height': projects[i].height,
+            //maintain aspect ratio           
+            'height': .73*parseInt(projects[i].width)+'vw',            
             'position': projects[i].position,
             'top': projects[i].top,
             'left': projects[i].left,
@@ -80,56 +95,3 @@ var generateCSS = function($contentholder, category, projects){
 
 
 
-//$(window).resize(function(){
-//   //if this is a new size, recalculate css
-//});
-
-
-//        if (i==numCards-1){
-//            .css(box-shadow: 0 1px 0px 0px grey);
-//        }
-
-
-//
-//{% if category.category == project.category %}
-//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
-//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
-//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
-//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
-//
-//       {% for category in site.data.categories %}
-//            {% if category.layout == 'left' %}
-//                       <section class="{{category.category}}">
-//                  {% for project in site.data.projects %}
-//                              {% if category.category == project.category %}
-//                                 <div class="cardholder {{project.title}}" style="color:{{project.color}}; width: {{project.width}}; height: {{project.height}}; position: {{project.position}}; top: {{project.top}}; left: {{project.left}}; border-radius: {{project.border-radius}}">
-//                                    <div class="card thumbnail {{project.title}}" style="opacity: .2; background-color: {{category.color}}; width: 85%; height: 85%; transform: translateX(6%) translateY(6%); border-radius: {{project.border-radius}}; position:absolute; z-index: 1; font-size: {{project.font-size}}"></div>  
-//                                    <div class="card synposis {{project.title}}" style="opacity: .42; background-color:{{category.color}}; width: 85%; height: 85%; transform: translateX(12%) translateY(12%); border-radius: 9%; position: absolute; z-index: 2; font-size: {{project.font-size}}"></div>
-//                                    <div class="card tags {{project.title}}" style="opacity: 1;  position:absolute; width: 85%; height:85%; background-color:{{category.color}}; transform: translateX(18%) translateY(18%); border-radius: {{project.border-radius}}; z-index: 3; font-size: {{project.font-size}}; box-shadow: 0 1px 0px 0px grey"><p>{{project.title}}</p></div>
-//                           
-//                                </div>
-//                            {% endif %}
-//                  {% endfor %}
-//                        </section>
-//            {% endif %}
-//      {% endfor %}
-
-
-
-//d3.csv('datacopy/categories.csv', function(data){
-//
-//    
-//    console.log(data);
-//});
-//
-
-
-
-//$(window).resize(function(event) {
-//  console.log( $(window).width() );
-//   
-//});
-
-
-//project sizing and locations handled here
-//takes input from csv file

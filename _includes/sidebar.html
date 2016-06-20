@@ -1,0 +1,10 @@
+<section class="sidebar">  
+    <button class="about-button"></button>
+    <div class="sidebar-categories">
+        {% for category in site.data.categories %}
+            <div class="button {{category.category}}" style="background-color: {{category.color}};  width: 100px; height: 50px; border-radius: 15%; margin-top: .4rem; transform: translateX(75%)"></div>
+        {% endfor %}
+    </div>
+    <div class="questionmark">?</div>
+</section> 
+<div style="clear:both;"></div>

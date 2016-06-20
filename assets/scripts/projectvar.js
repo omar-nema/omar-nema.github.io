@@ -18,6 +18,22 @@ $(window).load(function(){
 });
 
 
+//DYNAMIC RESIZE FUNCTION
+//$(window).resize(function(event){
+//
+//    if ($('.widthchecker').css('float') == 'left'){
+//        console.log('running');
+//        $('.cardholder').each(function(){
+//            console.log($(this).css('width')); 
+//            $(this).css('width', 1.2*parseInt($(this).width() ) );
+//            $(this).css('height', 1.2*parseInt($(this).height() ) );
+//            
+//            $('.widthchecker').css('float', 'right');
+//        });
+//    };
+//    
+//});
+
 
 //how are we changing layouts?
 //break point 600 - 900 - add more spacing around elements, enlarge & leave scattered
@@ -42,12 +58,12 @@ var setLayout = function(categoryFile, projectFile){
     });
 };
 
+
+//card coloring should be done based on classes
     
 var generateCSS = function($contentholder, category, projects){
     var categoryHolder = $contentholder.find('.' + category.category);
 
-    
-console.log(projects);
     for (var i=0; i<projects.length; i++){
         var cardHolder = categoryHolder.find('.cardholder.' +projects[i].title);
         var cardholderStyle = {

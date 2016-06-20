@@ -1,4 +1,9 @@
 
+var genGrid = function(order){
+    //goes through projects csv
+    
+    
+}
 
 <section class="about-page">
     <div class="about-header">

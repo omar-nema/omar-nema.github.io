@@ -1,3 +1,7 @@
+.project {
+  position: absolute;
+  color: white; }
+
 *, *::before, *::after {
   font-family: Inconsolata, HeimatSans-Regular7;
   -moz-box-sizing: border-box;
@@ -26,9 +30,6 @@ html, body {
   .widthchecker {
     float: left; } }
 @media only screen and (max-width: 400px) {
-  .widthchecker {
-    float: none; } }
-@media only screen and (max-width: 900px) {
   .widthchecker {
     float: none; } }
 .sidebar {

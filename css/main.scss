@@ -11,7 +11,7 @@ $breakpoint-1: 800px;
 $breakpoint-2: 400px;
 
 
-
+@import 'projects';
 
 *, *::before, *::after {
     font-family: $base-font-family;
@@ -74,10 +74,10 @@ html, body {
         .widthchecker {float:none;}
     }
 
-@media only screen and (max-width: 900px)
-    {
-        .widthchecker {float:none;}
-    }
+//@media only screen and (max-width: 900px)
+//    {
+//        .widthchecker {float:none;}
+//    }
 
 
 

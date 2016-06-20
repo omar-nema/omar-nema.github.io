@@ -1,0 +1,185 @@
+---
+---
+
+$breakpoint-1: 950px;
+$breakpoint-2: 750px;
+$breakpoint-3: 640px;
+$breakpoint-4: 480px;
+$footer-height: 1rem;
+
+$content-height: 41.5rem;
+
+$cardratio: .73;
+
+$hospitalquality-width: 27vw;
+$hospitalquality-height: $cardratio * $hospitalquality-width;
+$hospitalquality-top: 12.1%;
+$hospitalquality-left: 3.25%;
+    
+$missingrx-width: 21vw;
+$missingrx-height: $cardratio*$missingrx-width;
+$missingrx-top: 1%;
+$missingrx-left: 36%;
+
+$personaldata-width: 18vw;
+$personaldata-height: $cardratio * $personaldata-width;
+$personaldata-top: 32%;
+$personaldata-left: 45.5%;
+    
+$thesis-width: 22vw;
+$thesis-height: $cardratio*$thesis-width;
+$thesis-top: 55%;
+$thesis-left: 16.25%;
+    
+$narrative-width: 18vw;
+$narrative-height: $cardratio * $narrative-width;
+$narrative-top: 71.25%;
+$narrative-left: 45.5%;
+    
+$tools-width: 17vw;
+$tools-height: $tools-width * $cardratio;
+$tools-top: 16%;
+$tools-left: 76.7%;
+    
+$table-width: 12vw;
+$table-height: $table-width * $cardratio;
+$table-top: 51%;
+$table-left: 68.25%;
+    
+$tea-width: 10vw;
+$tea-height: $tea-width * $cardratio;
+$tea-top: 75%;
+$tea-left: 78%;
+
+
+//save the footer plz
+@media only screen and (min-width: $breakpoint-3){
+     .content {
+        height: $content-height;
+//         padding-bottom: $content-padding-bottom;
+        }   
+    
+    footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $footer-height;
+    }
+}
+    
+.scatter-large {
+    
+    .cardholder {
+        position: absolute;
+    }
+     .cardholder.datavis.hospitalquality {
+        width: $hospitalquality-width;
+        height: $hospitalquality-height;
+        top: $hospitalquality-top;
+        left: $hospitalquality-left;
+        }     
+      .cardholder.datavis.missingrx {
+        width: $missingrx-width;
+        height: $missingrx-height;
+        top: $missingrx-top;
+        left: $missingrx-left;
+    }
+    .cardholder.datavis.personaldata {
+        width: $personaldata-width;
+        height: $personaldata-height;
+        top: $personaldata-top;
+        left: $personaldata-left;
+    }
+    .cardholder.research.thesis {
+        width: $thesis-width;
+        height: $thesis-height;
+        top: $thesis-top;
+        left: $thesis-left;
+    }
+    .cardholder.research.narrative {
+        width: $narrative-width;
+        height: $narrative-height;
+        top: $narrative-top;
+        left: $narrative-left;
+    }
+    .cardholder.object.tools {
+        width: $tools-width;
+        height: $tools-height;
+        top: $tools-top;
+        left: $tools-left;
+    }
+    .cardholder.object.table {
+        width: $table-width;
+        height: $table-height;
+        top: $table-top;
+        left: $table-left;
+    }
+    .cardholder.object.tea {
+        width: $tea-width;
+        height: $tea-height;
+        top: $tea-top;
+        left: $tea-left;
+    }
+}//endscatter
+
+
+.scatter-small {
+    
+    //scale by 1.2
+    //add to left?
+    
+    
+    .cardholder {
+        position: absolute;
+    }
+     .cardholder.datavis.hospitalquality {
+        width: $hospitalquality-width;
+        height: $hospitalquality-height;
+        top: $hospitalquality-top;
+        left: $hospitalquality-left;
+        }     
+      .cardholder.datavis.missingrx {
+        width: $missingrx-width;
+        height: $missingrx-height;
+        top: $missingrx-top;
+        left: $missingrx-left;
+    }
+    .cardholder.datavis.personaldata {
+        width: $personaldata-width;
+        height: $personaldata-height;
+        top: $personaldata-top;
+        left: $personaldata-left;
+    }
+    .cardholder.research.thesis {
+        width: $thesis-width;
+        height: $thesis-height;
+        top: $thesis-top;
+        left: $thesis-left;
+    }
+    .cardholder.research.narrative {
+        width: $narrative-width;
+        height: $narrative-height;
+        top: $narrative-top;
+        left: $narrative-left;
+    }
+    .cardholder.object.tools {
+        width: $tools-width;
+        height: $tools-height;
+        top: $tools-top;
+        left: $tools-left;
+    }
+    .cardholder.object.table {
+        width: $table-width;
+        height: $table-height;
+        top: $table-top;
+        left: $table-left;
+    }
+    .cardholder.object.tea {
+        width: $tea-width;
+        height: $tea-height;
+        top: $tea-top;
+        left: $tea-left;
+    }
+}//endscatter
+

@@ -3,22 +3,19 @@
 
 $breakpoint-about-1: 700px;
 $breakpoint-about-2: 500px;
-//ABOUT PAGE
 
-//DO WE REALLY NEED CLEARFIX WITH OVERFLOW: AUTO
-//
-//.content, .sidebar, footer {
-//    display: none;
-//}
-.about-page {
-    display: none;
-}
-
-// Q = HOW TO MAKE CONTAINER DYNAMIC?
 
 .about-page {
     position: absolute;
     left: 0%; right: 0%; top: 0%; bottom: 0%;
+    
+    display: none;
+//    width: 100vw;
+//    height: 100vh;
+//    width: 800px;
+//    height: 600px;
+//    position: fixed;
+    
     background-color:#0000ff;
     z-index: 1000;
     color: white;

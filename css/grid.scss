@@ -1,0 +1,82 @@
+---
+---
+
+$breakpoint-1: 900px;
+$breakpoint-2: 750px;
+$breakpoint-3: 640px;
+$breakpoint-4: 480px;
+$footer-height: 1rem;
+
+//change the footer to only show up on bottom of screen after scrolling
+@media only screen and (max-width: $breakpoint-3){
+    footer {
+    position: relative;
+    float: left;
+    clear: both;
+//    left: 0;
+    width: 100%;
+    height: $footer-height;
+    }
+    .content {
+        margin-bottom: 5vw;
+    }
+}
+
+.grid {
+    
+    .content {
+        height: inherit;
+    }
+
+    .cardholder {
+        width: 26vw;
+        height: 26vw;
+        float: left;
+        position: inherit;
+//        padding-left: 4vw;
+        margin-left: 5vw;
+        margin-right: 1vw;
+        margin-top: 8vw;
+    }
+    
+    .card {
+//        margin-top: 30px;
+      
+        border-radius: 5%;
+    }
+    
+//  .card.tags {
+////    transform: translateX(0%) translateY($tagcard-translateY);
+//    transform: translateX(0%)  translateY(-2%);        
+//    opacity: $tagcard-opacity;
+//    z-index: 2;
+//}
+//.card.thumbnail {
+////    transform: translateX(0%)  translateY($thumbnailcard-translateY);
+//    transform: translateX(0%)  translateY(8%);          
+//    opacity: $thumbnailcard-opacity;    
+//    z-index: 3;
+//}
+//.card.synposis {
+////    transform: translateX(0%)  translateY($synposiscard-translateY);   
+//        transform: translateX(0%)  translateY(18%);    
+//    opacity: $synposiscard-opacity;  
+//    z-index: 4;
+//}
+    
+    @media only screen and (max-width: $breakpoint-3){
+            .cardholder {
+                width: 35vw;
+                height: 31vw;
+            } 
+        }
+    @media only screen and (max-width: $breakpoint-4){
+            .cardholder {
+                width: 54vw;
+                height: 48.828vw;
+                padding-left: 8vw;
+//                margin-right: 4vw;
+            } 
+        }    
+    
+}

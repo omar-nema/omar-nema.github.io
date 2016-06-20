@@ -1,12 +1,10 @@
 .about-page {
-  display: none; }
-
-.about-page {
   position: absolute;
   left: 0%;
   right: 0%;
   top: 0%;
   bottom: 0%;
+  display: none;
   background-color: #0000ff;
   z-index: 1000;
   color: white;

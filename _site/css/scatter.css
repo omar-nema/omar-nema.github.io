@@ -1,0 +1,95 @@
+@media only screen and (min-width: 640px) {
+  .content {
+    height: 41.5rem; }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem; } }
+.scatter-large .cardholder {
+  position: absolute; }
+.scatter-large .cardholder.datavis.hospitalquality {
+  width: 27vw;
+  height: 19.71vw;
+  top: 12.1%;
+  left: 3.25%; }
+.scatter-large .cardholder.datavis.missingrx {
+  width: 21vw;
+  height: 15.33vw;
+  top: 1%;
+  left: 36%; }
+.scatter-large .cardholder.datavis.personaldata {
+  width: 18vw;
+  height: 13.14vw;
+  top: 32%;
+  left: 45.5%; }
+.scatter-large .cardholder.research.thesis {
+  width: 22vw;
+  height: 16.06vw;
+  top: 55%;
+  left: 16.25%; }
+.scatter-large .cardholder.research.narrative {
+  width: 18vw;
+  height: 13.14vw;
+  top: 71.25%;
+  left: 45.5%; }
+.scatter-large .cardholder.object.tools {
+  width: 17vw;
+  height: 12.41vw;
+  top: 16%;
+  left: 76.7%; }
+.scatter-large .cardholder.object.table {
+  width: 12vw;
+  height: 8.76vw;
+  top: 51%;
+  left: 68.25%; }
+.scatter-large .cardholder.object.tea {
+  width: 10vw;
+  height: 7.3vw;
+  top: 75%;
+  left: 78%; }
+
+.scatter-small .cardholder {
+  position: absolute; }
+.scatter-small .cardholder.datavis.hospitalquality {
+  width: 27vw;
+  height: 19.71vw;
+  top: 12.1%;
+  left: 3.25%; }
+.scatter-small .cardholder.datavis.missingrx {
+  width: 21vw;
+  height: 15.33vw;
+  top: 1%;
+  left: 36%; }
+.scatter-small .cardholder.datavis.personaldata {
+  width: 18vw;
+  height: 13.14vw;
+  top: 32%;
+  left: 45.5%; }
+.scatter-small .cardholder.research.thesis {
+  width: 22vw;
+  height: 16.06vw;
+  top: 55%;
+  left: 16.25%; }
+.scatter-small .cardholder.research.narrative {
+  width: 18vw;
+  height: 13.14vw;
+  top: 71.25%;
+  left: 45.5%; }
+.scatter-small .cardholder.object.tools {
+  width: 17vw;
+  height: 12.41vw;
+  top: 16%;
+  left: 76.7%; }
+.scatter-small .cardholder.object.table {
+  width: 12vw;
+  height: 8.76vw;
+  top: 51%;
+  left: 68.25%; }
+.scatter-small .cardholder.object.tea {
+  width: 10vw;
+  height: 7.3vw;
+  top: 75%;
+  left: 78%; }

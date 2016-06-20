@@ -70,12 +70,12 @@ body {
 
 .card.tags {
   transform: translateX(6%) translateY(6%);
-  opacity: 0.2;
+  opacity: 0.13;
   z-index: 2; }
 
 .card.thumbnail {
   transform: translateX(12%) translateY(12%);
-  opacity: 0.4;
+  opacity: 0.5;
   z-index: 3; }
 
 .card.synposis {

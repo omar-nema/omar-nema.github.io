@@ -1,25 +1,42 @@
 
-var breakpoint1 = 950;
+var breakpoint1 = 1000;
+var breakpointMid = 850;
 var breakpoint2 = 750;
 
 
 var generateLayout = function(){
-    var width = $(window).width()
+    var width = $(window).width();
+
     if (width >= breakpoint1){
-        $('.content').removeClass('grid'); 
-        $('.content').removeClass('scatter-small');         
-        $('.content').addClass('scatter-large');        
+//        $('.content').removeClass('grid'); 
+//        $('.content').removeClass('scatter-medium');     
+////        $('.content').addClass('scatter-large'); 
+////        
+        $('.content').attr('class', 'content scatter-large');
     }
     else if (width < breakpoint2){
-        $('.content').removeClass('scatter-large');     
-        $('.content').removeClass('scatter-small');            
-        $('.content').addClass('grid');
+        console.log('confuseme');
+//        $('.content').removeClass('scatter-large');  $('.content').removeClass('scatter-medium');    
+//        $('.content').removeClass('scatter-small');            
+//        $('.content').addClass('grid');
+        $('.content').attr('class', 'content grid');
     }
-    else if (width >= breakpoint2 && width < breakpoint1){
-        $('.content').removeClass('scatter-large');     
-        $('.content').removeClass('grid');   
-        $('.content').addClass('scatter-small');       
-    };
+    else if (width >= breakpointMid && width < breakpoint1){
+//        $('.content').removeClass('scatter-medium');   
+//        $('.content').removeClass('scatter-small')    
+//        $('.content').removeClass('scatter-large');  
+//        $('.content').removeClass('grid');  
+//        
+//        $('.content').addClass('scatter-medium'); 
+        $('.content').attr('class', 'content scatter-medium');        
+    }
+    else if (width < breakpointMid && width < breakpoint1){
+//      $('.content').removeClass('scatter-large');    
+//      $('.content').removeClass('scatter-medium');      
+//        $('.content').removeClass('grid');   
+//        $('.content').addClass('scatter-small');  
+        $('.content').attr('class', 'content scatter-small');          
+    };    
  
 };
 

@@ -9,31 +9,31 @@ $footer-height: 1rem;
 
 $content-height: 41.5rem;
 
-$cardratio: .73;
+$cardratio: .75;
 
 $hospitalquality-width: 27vw;
 $hospitalquality-height: $cardratio * $hospitalquality-width;
-$hospitalquality-top: 12.1%;
+$hospitalquality-top: 9.1%;
 $hospitalquality-left: 3.25%;
     
 $missingrx-width: 21vw;
 $missingrx-height: $cardratio*$missingrx-width;
-$missingrx-top: 1%;
-$missingrx-left: 36%;
+$missingrx-top: 2%;
+$missingrx-left: 37%;
 
 $personaldata-width: 18vw;
 $personaldata-height: $cardratio * $personaldata-width;
-$personaldata-top: 32%;
+$personaldata-top: 36%;
 $personaldata-left: 45.5%;
     
-$thesis-width: 22vw;
+$thesis-width: 25vw;
 $thesis-height: $cardratio*$thesis-width;
-$thesis-top: 55%;
-$thesis-left: 16.25%;
+$thesis-top: 52%;
+$thesis-left: 14.25%;
     
 $narrative-width: 18vw;
 $narrative-height: $cardratio * $narrative-width;
-$narrative-top: 71.25%;
+$narrative-top: 70.25%;
 $narrative-left: 45.5%;
     
 $tools-width: 17vw;
@@ -44,7 +44,7 @@ $tools-left: 76.7%;
 $table-width: 12vw;
 $table-height: $table-width * $cardratio;
 $table-top: 51%;
-$table-left: 68.25%;
+$table-left: 71.25%;
     
 $tea-width: 10vw;
 $tea-height: $tea-width * $cardratio;
@@ -124,10 +124,145 @@ $tea-left: 78%;
 }//endscatter
 
 
+.scatter-medium {
+    
+   $hospitalquality-width: 1.15*27vw;
+$hospitalquality-height: $cardratio * $hospitalquality-width;
+$hospitalquality-top: 9.1%;
+$hospitalquality-left: 0%;
+    
+$missingrx-width: 1.15*21vw;
+$missingrx-height: $cardratio*$missingrx-width;
+$missingrx-top: 2%;
+$missingrx-left: 37%;
+
+$personaldata-width: 1.15*18vw;
+$personaldata-height: $cardratio * $personaldata-width;
+$personaldata-top: 36%;
+$personaldata-left: 45.5%;
+    
+$thesis-width: 1.15*25vw;
+$thesis-height: $cardratio*$thesis-width;
+$thesis-top: 52%;
+$thesis-left: 10%;
+    
+$narrative-width: 1.15*18vw;
+$narrative-height: $cardratio * $narrative-width;
+$narrative-top: 70.25%;
+$narrative-left: 45.5%;
+    
+$tools-width: 1.15*17vw;
+$tools-height: $tools-width * $cardratio;
+$tools-top: 16%;
+$tools-left: 76.7%;
+    
+$table-width: 1.15*12vw;
+$table-height: $table-width * $cardratio;
+$table-top: 51%;
+$table-left: 71.25%;
+    
+$tea-width: 1.15*10vw;
+$tea-height: $tea-width * $cardratio;
+$tea-top: 75%;
+$tea-left: 78%;
+    
+    
+    .cardholder {
+        position: absolute;
+    }
+     .cardholder.datavis.hospitalquality {
+        width: $hospitalquality-width;
+        height: $hospitalquality-height;
+        top: $hospitalquality-top;
+        left: $hospitalquality-left;
+        }     
+      .cardholder.datavis.missingrx {
+        width: $missingrx-width;
+        height: $missingrx-height;
+        top: $missingrx-top;
+        left: $missingrx-left;
+    }
+    .cardholder.datavis.personaldata {
+        width: $personaldata-width;
+        height: $personaldata-height;
+        top: $personaldata-top;
+        left: $personaldata-left;
+    }
+    .cardholder.research.thesis {
+        width: $thesis-width;
+        height: $thesis-height;
+        top: $thesis-top;
+        left: $thesis-left;
+    }
+    .cardholder.research.narrative {
+        width: $narrative-width;
+        height: $narrative-height;
+        top: $narrative-top;
+        left: $narrative-left;
+    }
+    .cardholder.object.tools {
+        width: $tools-width;
+        height: $tools-height;
+        top: $tools-top;
+        left: $tools-left;
+    }
+    .cardholder.object.table {
+        width: $table-width;
+        height: $table-height;
+        top: $table-top;
+        left: $table-left;
+    }
+    .cardholder.object.tea {
+        width: $tea-width;
+        height: $tea-height;
+        top: $tea-top;
+        left: $tea-left;
+    }
+}//endscatter
+
+
+
 .scatter-small {
     
-    //scale by 1.2
-    //add to left?
+   $hospitalquality-width: 1.3*27vw;
+$hospitalquality-height: $cardratio * $hospitalquality-width;
+$hospitalquality-top: 9.1%;
+$hospitalquality-left: 0%;
+    
+$missingrx-width: 1.3*21vw;
+$missingrx-height: $cardratio*$missingrx-width;
+$missingrx-top: 2%;
+$missingrx-left: 37%;
+
+$personaldata-width: 1.3*18vw;
+$personaldata-height: $cardratio * $personaldata-width;
+$personaldata-top: 36%;
+$personaldata-left: 45.5%;
+    
+$thesis-width: 1.3*25vw;
+$thesis-height: $cardratio*$thesis-width;
+$thesis-top: 52%;
+$thesis-left: 10%;
+    
+$narrative-width: 1.3*18vw;
+$narrative-height: $cardratio * $narrative-width;
+$narrative-top: 70.25%;
+$narrative-left: 45.5%;
+    
+$tools-width: 1.3*17vw;
+$tools-height: $tools-width * $cardratio;
+$tools-top: 16%;
+$tools-left: 76.7%;
+    
+$table-width: 1.3*12vw;
+$table-height: $table-width * $cardratio;
+$table-top: 51%;
+$table-left: 71.25%;
+    
+$tea-width: 1.3*10vw;
+$tea-height: $tea-width * $cardratio;
+$tea-top: 75%;
+$tea-left: 78%;
     
     
     .cardholder {

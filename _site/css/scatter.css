@@ -12,84 +12,127 @@
   position: absolute; }
 .scatter-large .cardholder.datavis.hospitalquality {
   width: 27vw;
-  height: 19.71vw;
-  top: 12.1%;
+  height: 20.25vw;
+  top: 9.1%;
   left: 3.25%; }
 .scatter-large .cardholder.datavis.missingrx {
   width: 21vw;
-  height: 15.33vw;
-  top: 1%;
-  left: 36%; }
+  height: 15.75vw;
+  top: 2%;
+  left: 37%; }
 .scatter-large .cardholder.datavis.personaldata {
   width: 18vw;
-  height: 13.14vw;
-  top: 32%;
+  height: 13.5vw;
+  top: 36%;
   left: 45.5%; }
 .scatter-large .cardholder.research.thesis {
-  width: 22vw;
-  height: 16.06vw;
-  top: 55%;
-  left: 16.25%; }
+  width: 25vw;
+  height: 18.75vw;
+  top: 52%;
+  left: 14.25%; }
 .scatter-large .cardholder.research.narrative {
   width: 18vw;
-  height: 13.14vw;
-  top: 71.25%;
+  height: 13.5vw;
+  top: 70.25%;
   left: 45.5%; }
 .scatter-large .cardholder.object.tools {
   width: 17vw;
-  height: 12.41vw;
+  height: 12.75vw;
   top: 16%;
   left: 76.7%; }
 .scatter-large .cardholder.object.table {
   width: 12vw;
-  height: 8.76vw;
+  height: 9vw;
   top: 51%;
-  left: 68.25%; }
+  left: 71.25%; }
 .scatter-large .cardholder.object.tea {
   width: 10vw;
-  height: 7.3vw;
+  height: 7.5vw;
+  top: 75%;
+  left: 78%; }
+
+.scatter-medium .cardholder {
+  position: absolute; }
+.scatter-medium .cardholder.datavis.hospitalquality {
+  width: 31.05vw;
+  height: 23.2875vw;
+  top: 9.1%;
+  left: 0%; }
+.scatter-medium .cardholder.datavis.missingrx {
+  width: 24.15vw;
+  height: 18.1125vw;
+  top: 2%;
+  left: 37%; }
+.scatter-medium .cardholder.datavis.personaldata {
+  width: 20.7vw;
+  height: 15.525vw;
+  top: 36%;
+  left: 45.5%; }
+.scatter-medium .cardholder.research.thesis {
+  width: 28.75vw;
+  height: 21.5625vw;
+  top: 52%;
+  left: 10%; }
+.scatter-medium .cardholder.research.narrative {
+  width: 20.7vw;
+  height: 15.525vw;
+  top: 70.25%;
+  left: 45.5%; }
+.scatter-medium .cardholder.object.tools {
+  width: 19.55vw;
+  height: 14.6625vw;
+  top: 16%;
+  left: 76.7%; }
+.scatter-medium .cardholder.object.table {
+  width: 13.8vw;
+  height: 10.35vw;
+  top: 51%;
+  left: 71.25%; }
+.scatter-medium .cardholder.object.tea {
+  width: 11.5vw;
+  height: 8.625vw;
   top: 75%;
   left: 78%; }
 
 .scatter-small .cardholder {
   position: absolute; }
 .scatter-small .cardholder.datavis.hospitalquality {
-  width: 27vw;
-  height: 19.71vw;
-  top: 12.1%;
-  left: 3.25%; }
+  width: 35.1vw;
+  height: 26.325vw;
+  top: 9.1%;
+  left: 0%; }
 .scatter-small .cardholder.datavis.missingrx {
-  width: 21vw;
-  height: 15.33vw;
-  top: 1%;
-  left: 36%; }
+  width: 27.3vw;
+  height: 20.475vw;
+  top: 2%;
+  left: 37%; }
 .scatter-small .cardholder.datavis.personaldata {
-  width: 18vw;
-  height: 13.14vw;
-  top: 32%;
+  width: 23.4vw;
+  height: 17.55vw;
+  top: 36%;
   left: 45.5%; }
 .scatter-small .cardholder.research.thesis {
-  width: 22vw;
-  height: 16.06vw;
-  top: 55%;
-  left: 16.25%; }
+  width: 32.5vw;
+  height: 24.375vw;
+  top: 52%;
+  left: 10%; }
 .scatter-small .cardholder.research.narrative {
-  width: 18vw;
-  height: 13.14vw;
-  top: 71.25%;
+  width: 23.4vw;
+  height: 17.55vw;
+  top: 70.25%;
   left: 45.5%; }
 .scatter-small .cardholder.object.tools {
-  width: 17vw;
-  height: 12.41vw;
+  width: 22.1vw;
+  height: 16.575vw;
   top: 16%;
   left: 76.7%; }
 .scatter-small .cardholder.object.table {
-  width: 12vw;
-  height: 8.76vw;
+  width: 15.6vw;
+  height: 11.7vw;
   top: 51%;
-  left: 68.25%; }
+  left: 71.25%; }
 .scatter-small .cardholder.object.tea {
-  width: 10vw;
-  height: 7.3vw;
+  width: 13vw;
+  height: 9.75vw;
   top: 75%;
   left: 78%; }

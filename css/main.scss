@@ -52,6 +52,7 @@ html, body {
     background-color: #FFFAFA;
 }
 
+
 body {
     margin: 0;
     padding: 0%;
@@ -73,8 +74,18 @@ body {
 
 .about-button {
     z-index: 2000;
-    background-color: blue;
+    background-color: yellow;
+    height: 50px;
+    color: #50E3C2;
+    font-size: 20px;
+    border: none;
+      box-shadow: 0 2px 4px 1px black; 
+//    border-left: 1px dotted black;
+//    border-bottom: 1px dotted black;
+    border-radius: 5%;
 }
+
+
 
 @media only screen and (max-width: 1030px)
     {
@@ -156,9 +167,9 @@ body {
 //    }
 
 
-.cardholder {
-    border-radius: $card-border-radius;
-}
+//.cardholder {
+////    border-radius: $card-border-radius;
+//}
 .card {
     border-radius:  $card-border-radius;
 }
@@ -167,22 +178,38 @@ body {
     height: 85%;
     position: absolute;
 }
-.card.tags {
+.card.card3 {
     transform: translateX($tagcard-translateX) translateY($tagcard-translateY);
     opacity: $tagcard-opacity;
     z-index: 2;
 }
-.card.thumbnail {
+.card.card2 {
     transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
     opacity: $thumbnailcard-opacity;    
     z-index: 3;
 }
-.card.synposis {
+.card.card1 {
     transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
     opacity: $synposiscard-opacity;  
     z-index: 4;
     box-shadow: 0 .5px .5px 0px black;    
 }
+//.card.tags {
+//    transform: translateX($tagcard-translateX) translateY($tagcard-translateY);
+//    opacity: $tagcard-opacity;
+//    z-index: 2;
+//}
+//.card.thumbnail {
+//    transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
+//    opacity: $thumbnailcard-opacity;    
+//    z-index: 3;
+//}
+//.card.synposis {
+//    transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
+//    opacity: $synposiscard-opacity;  
+//    z-index: 4;
+//    box-shadow: 0 .5px .5px 0px black;    
+//}
 
 .card.datavis {
     background-color: $datavis-background;

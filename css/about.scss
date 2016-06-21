@@ -22,6 +22,10 @@ $breakpoint-about-2: 500px;
     overflow: auto;
 }
 
+.content {
+    display: none;
+}
+
 //why are we still allowed to height scroll ?!?!?!
 .about-header {
     height: 4rem;

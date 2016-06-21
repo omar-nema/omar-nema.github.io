@@ -10,6 +10,9 @@
   color: white;
   overflow: auto; }
 
+.content {
+  display: none; }
+
 .about-header {
   height: 4rem;
   position: relative; }

@@ -4,11 +4,11 @@ layout: default
 <main class="content"> 
  {% for project in site.data.projects %}
     <div class="cardholder {{project.title}} {{project.category}}">
-        <div class="card thumbnail {{project.category}}"></div>  
-        <div class="card synposis {{project.category}}">
+        <div title="{{project.title}}" class="card thumbnail {{project.category}} card2" order="2"></div>  
+        <div title="{{project.title}}" class="card synposis {{project.category}} card1" order="1">
 <!--        <p>computational model to predict movement from electrical stimulation</p>-->
         </div>
-        <div class="card tags {{project.category}}">
+        <div title="{{project.title}}" class="card tags {{project.category}} card3" order="3"> 
         </div>
     </div> 
  {% endfor %}

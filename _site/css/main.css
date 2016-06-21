@@ -24,7 +24,13 @@ body {
 
 .about-button {
   z-index: 2000;
-  background-color: blue; }
+  background-color: yellow;
+  height: 50px;
+  color: #50E3C2;
+  font-size: 20px;
+  border: none;
+  box-shadow: 0 2px 4px 1px black;
+  border-radius: 5%; }
 
 @media only screen and (max-width: 1030px) {
   .content {
@@ -57,9 +63,6 @@ body {
     right: 9%;
     color: blue; }
 
-.cardholder {
-  border-radius: 7%; }
-
 .card {
   border-radius: 7%; }
 
@@ -68,17 +71,17 @@ body {
   height: 85%;
   position: absolute; }
 
-.card.tags {
+.card.card3 {
   transform: translateX(6%) translateY(6%);
   opacity: 0.13;
   z-index: 2; }
 
-.card.thumbnail {
+.card.card2 {
   transform: translateX(12%) translateY(12%);
   opacity: 0.5;
   z-index: 3; }
 
-.card.synposis {
+.card.card1 {
   transform: translateX(18%) translateY(18%);
   opacity: 0.9;
   z-index: 4;

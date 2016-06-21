@@ -72,17 +72,17 @@ body {
   position: absolute; }
 
 .card.card3 {
-  transform: translateX(6%) translateY(6%);
+  transform: translateX(3%) translateY(3%);
   opacity: 0.13;
   z-index: 2; }
 
 .card.card2 {
-  transform: translateX(12%) translateY(12%);
+  transform: translateX(9%) translateY(9%);
   opacity: 0.5;
   z-index: 3; }
 
 .card.card1 {
-  transform: translateX(18%) translateY(18%);
+  transform: translateX(15%) translateY(15%);
   opacity: 0.9;
   z-index: 4;
   box-shadow: 0 .5px .5px 0px black; }

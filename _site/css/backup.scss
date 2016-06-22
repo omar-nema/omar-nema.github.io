@@ -1,4 +1,90 @@
 
+
+//                        if (Math.sign(currDirection)*Math.sign(prevDirection)==1)
+//                        {
+//                            directionSwitch = true;
+//                            initialX = prevX;
+////                            console.log('directionswitch', directionSwitch);
+//                        };   
+                        
+//                        currCard.css('background-color', 'yellow');
+//                        if (currX > prevX){
+//    //                        getCardInSequence(currCard, 1)
+//                            currMovingRight = true;
+//                        }
+//                        else if (currX < prevX){
+//    //                        getCardInSequence(currCard, -1)                    
+//                            currMovingRight = false;   
+//                        };        
+
+
+
+
+
+//    var getCardInSequence = function(card, next){
+//        
+//        var order = parseInt(card.attr('order'));
+//        var title = card.attr('title');
+//        var nextCard;
+//        //reached end of stack
+//        if ( (order == 3 && next==-1) || (order == 1 && next==1)  ){
+////           return null;
+//        }
+//        else {
+//            var ordernext = parseInt(order) - parseInt(next);
+//            nextCard = $('.'+ title).find("div[order=" + ordernext + "]");
+////            currCard.css('background-color', 'blue');
+//            currCard = nextCard;
+//        };
+//    };
+//    
+
+
+
+//    
+//    $('.cardholder').mouseover(function(event){
+//           
+//        $('.cardholder').mousemove(function(event){
+//            var newX = event.pageX - $(this).offset().left;
+//            var newY = event.pageY - $(this).offset().top;
+//            if (!currX){
+//                currX = newX;
+//            }
+//            if (currCard){
+//                currCard.css('background-color', 'yellow');
+//                if (newX > currX){
+//                    getCardInSequence(currCard, 1)
+//                    movingRight = true;
+//                    movingLeft = false;
+//                }
+//                else if (newX < currX){
+//                    getCardInSequence(currCard, -1)                    
+//                    movingRight = false;
+//                    movingLeft = true;       
+//                }; 
+//            }
+//            currX = newX;
+//
+//        });
+//        //fires multiple times before leave event!
+//
+//        
+//    });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //function gets horizontal distance two cards, used as gauge for amount of distance mouse should before to elicit 'card flip'
 //var getXIncrementCard = function(){
 ////    var cardholder = $('.cardholder').first();

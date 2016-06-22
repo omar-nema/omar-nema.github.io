@@ -23,13 +23,12 @@ body {
   overflow: auto; }
 
 .about-button {
-  z-index: 2000;
   background-color: yellow;
   height: 50px;
-  color: #50E3C2;
+  color: blue;
   font-size: 20px;
   border: none;
-  box-shadow: 0 2px 4px 1px black;
+  box-shadow: 0 1px 1px 0px black;
   border-radius: 5%; }
 
 @media only screen and (max-width: 1030px) {
@@ -48,14 +47,17 @@ body {
   position: fixed;
   right: 0;
   width: 100px;
-  height: 42rem; }
+  height: 42rem;
+  z-index: 1500; }
   .sidebar .sidebar-categories {
     width: 100%;
     height: 200px;
     position: absolute;
     top: 17%;
-    left: 0%; }
+    left: 0%;
+    z-index: 3; }
   .sidebar .questionmark {
+    z-index: 3;
     font-size: 4vw;
     font-weight: 800;
     position: absolute;
@@ -72,20 +74,31 @@ body {
   position: absolute; }
 
 .card.card3 {
-  transform: translateX(3%) translateY(3%);
+  transform: translateX(3%) translateY(3%); }
+
+.card3select {
   opacity: 0.13;
   z-index: 2; }
 
 .card.card2 {
-  transform: translateX(9%) translateY(9%);
+  transform: translateX(9%) translateY(9%); }
+
+.card2select {
   opacity: 0.5;
   z-index: 3; }
 
 .card.card1 {
-  transform: translateX(15%) translateY(15%);
+  transform: translateX(15%) translateY(15%); }
+
+.card1select {
   opacity: 0.9;
   z-index: 4;
   box-shadow: 0 .5px .5px 0px black; }
+
+.card-selector {
+  box-shadow: 0 2px 1px 1px black;
+  opacity: 1;
+  z-index: 1500; }
 
 .card.datavis {
   background-color: #4A90E2; }

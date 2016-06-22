@@ -73,13 +73,14 @@ body {
 }
 
 .about-button {
-    z-index: 2000;
+//    z-index: 2000;
     background-color: yellow;
     height: 50px;
-    color: #50E3C2;
+//    color: #50E3C2;
+    color: blue;
     font-size: 20px;
     border: none;
-      box-shadow: 0 2px 4px 1px black; 
+      box-shadow: 0 1px 1px 0px black; 
 //    border-left: 1px dotted black;
 //    border-bottom: 1px dotted black;
     border-radius: 5%;
@@ -120,6 +121,7 @@ body {
         right: 0;
         width: 100px;
         height: 42rem;
+        z-index: 1500;
         
         .sidebar-categories {
         width: 100%;
@@ -127,8 +129,10 @@ body {
         position: absolute;
         top: 17%;
         left: 0%;
+        z-index: 3;
     }
     .questionmark{
+        z-index: 3;
         font-size: 4vw;
         font-weight: 800;
         position: absolute;
@@ -140,12 +144,6 @@ body {
         
  }
 
-
-
-//    .about-button {
-//        display: none;
-//    }
-//
 
 
 //    footer .bottomrect {
@@ -180,20 +178,41 @@ body {
 }
 .card.card3 {
     transform: translateX($tagcard-translateX) translateY($tagcard-translateY);
+//    opacity: $tagcard-opacity;
+//    z-index: 2;
+}
+.card3select {
     opacity: $tagcard-opacity;
-    z-index: 2;
+    z-index: 2;   
 }
 .card.card2 {
     transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
+//    opacity: $thumbnailcard-opacity;    
+//    z-index: 3;
+}
+.card2select {
     opacity: $thumbnailcard-opacity;    
     z-index: 3;
 }
 .card.card1 {
     transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
+//    opacity: $synposiscard-opacity;  
+//    z-index: 4; 
+}
+.card1select {
     opacity: $synposiscard-opacity;  
     z-index: 4;
-    box-shadow: 0 .5px .5px 0px black;    
+    box-shadow: 0 .5px .5px 0px black;       
 }
+
+.card-selector {
+//    background-color: black;
+//    border: 1px dotted black;
+    box-shadow: 0 2px 1px 1px black;        
+    opacity: 1;
+    z-index: 1500;
+}
+
 //.card.tags {
 //    transform: translateX($tagcard-translateX) translateY($tagcard-translateY);
 //    opacity: $tagcard-opacity;

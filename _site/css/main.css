@@ -1,5 +1,5 @@
 *, *::before, *::after {
-  font-family: Inconsolata, HeimatSans-Regular7;
+  font-family: Inconsolata, HeimatSans-Regular7, Inconsolata;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -23,39 +23,58 @@ body {
   overflow: auto; }
 
 .about-button {
-  background-color: yellow;
+  z-index: 2000;
   height: 50px;
+  font-size: 60px;
+  position: absolute;
+  top: 3%;
+  right: 2%;
   color: blue;
-  font-size: 20px;
-  border: none;
-  box-shadow: 0 1px 1px 0px black;
-  border-radius: 5%; }
+  transform: rotate(180deg);
+  font-weight: 900;
+  font-family: Montserrat; }
 
-@media only screen and (max-width: 1030px) {
+@media only screen and (max-width: 1035px) {
   .content {
     width: 96vw; } }
 .widthchecker {
   float: right; }
 
-@media only screen and (max-width: 950px) {
-  .widthchecker {
-    float: left; } }
-@media only screen and (max-width: 750px) {
-  .widthchecker {
-    float: none; } }
+.hideCategory {
+  transform: translateX(75%); }
+
+.showCategory {
+  transform: translateX(15%); }
+
 .sidebar {
   position: fixed;
   right: 0;
   width: 100px;
-  height: 42rem;
-  z-index: 1500; }
+  height: 42rem; }
   .sidebar .sidebar-categories {
     width: 100%;
     height: 200px;
     position: absolute;
     top: 17%;
-    left: 0%;
+    left: 6%;
     z-index: 3; }
+    .sidebar .sidebar-categories .datavis {
+      background-color: red; }
+    .sidebar .sidebar-categories .research {
+      background-color: #4A90E2; }
+    .sidebar .sidebar-categories .object {
+      background-color: #50E3C2; }
+    .sidebar .sidebar-categories .button {
+      width: 100px;
+      height: 50px;
+      border-radius: 5%;
+      margin-top: .4rem; }
+      .sidebar .sidebar-categories .button p {
+        position: absolute;
+        left: 19%;
+        color: white;
+        font-weight: 900;
+        font-size: .8rem; }
   .sidebar .questionmark {
     z-index: 3;
     font-size: 4vw;
@@ -66,7 +85,45 @@ body {
     color: blue; }
 
 .card {
-  border-radius: 7%; }
+  border-radius: 7%;
+  color: white; }
+  .card .cardtitle {
+    text-align: right;
+    position: absolute;
+    right: 0%;
+    bottom: 3%;
+    font-weight: 900;
+    letter-spacing: 4px; }
+
+.cardcontent {
+  display: none;
+  height: 100%; }
+  .cardcontent img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7%; }
+
+.card3 .cardcontent {
+  width: 100%; }
+
+.card2 .cardcontent {
+  width: 80%;
+  left: 10%;
+  position: absolute; }
+  .card2 .cardcontent p {
+    width: 100%;
+    text-align: center;
+    position: absolute; }
+
+.card1 .cardcontent {
+  width: 80%;
+  left: 10%;
+  position: absolute; }
+  .card1 .cardcontent p {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%); }
 
 .card {
   width: 85%;
@@ -96,15 +153,19 @@ body {
   box-shadow: 0 .5px .5px 0px black; }
 
 .card-selector {
-  box-shadow: 0 2px 1px 1px black;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
   opacity: 1;
   z-index: 1500; }
+  .card-selector .cardcontent {
+    display: block; }
+  .card-selector .cardtitle {
+    display: none; }
 
 .card.datavis {
-  background-color: #4A90E2; }
+  background-color: red; }
 
 .card.research {
-  background-color: pink; }
+  background-color: #4A90E2; }
 
 .card.object {
   background-color: #50E3C2; }
@@ -114,8 +175,7 @@ body {
 
 .card p {
   position: absolute;
-  text-align: center;
-  font-size: 1vw; }
+  text-align: center; }
 
 footer .bottomrect {
   width: 100%;

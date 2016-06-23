@@ -27,18 +27,27 @@
 
 
 <!--<p>omar nema - data / design / dev</p>-->  
-            <section class="sidebar">  
-    <button class="about-button">omar nema</button>
+            <div class="button-holder">
+    <button class="about-button">!
+    </button>
+</div>
+<section class="sidebar">  
     <div class="sidebar-categories">
         
-            <div class="button datavis" style="background-color: #4A90E2;  width: 100px; height: 50px; border-radius: 5%; margin-top: .4rem; transform: translateX(75%)"></div>
+            <div class="button datavis hideCategory" category=datavis>
+                <p>datavis</p>
+            </div>
         
-            <div class="button research" style="background-color: pink;  width: 100px; height: 50px; border-radius: 5%; margin-top: .4rem; transform: translateX(75%)"></div>
+            <div class="button research hideCategory" category=research>
+                <p>research</p>
+            </div>
         
-            <div class="button object" style="background-color: #50E3C2;  width: 100px; height: 50px; border-radius: 5%; margin-top: .4rem; transform: translateX(75%)"></div>
+            <div class="button object hideCategory" category=object>
+                <p>object</p>
+            </div>
         
     </div>
-    <div class="questionmark">?</div>
+<!--    <div class="questionmark">?</div>-->
 </section> 
 <div style="clear:both;"></div>  
             <section class="about-page">
@@ -57,8 +66,7 @@
                 </div>         
             </div> 
             <div class="col-2">
-                 <p class="colheader">[tags]</p>
-                
+                 <p class="colheader">[tags]</p>    
                 <div style="text-align: center;">
                     <div style="display: inline-block; text-align: left">
                         <p class="colcontent">data visualization<br>data science <br>front-end design<br>           strategy + design + analysis
@@ -68,36 +76,136 @@
                         SQL + R + D3.js                      
                         </p>  
                 </div>            
-                </div>    
+                </div>  
+                
             </div>
+
+            
         </div>    
 <!--        <div style="clear:both;"></div>    -->
         <div class="about-row">
             <div class="col-3">
                 <p class="colheader timeline">[interactive timeline]</p>
-                <div class="phase1"> 
-                    <div class="year">
-                        <div class="yearheader"></div>
-                        <div class="year-row1"></div>                        
-                        <div class="year-row2"></div>                        
+                <div class="phase phase1 phase1color"> 
+<!--                    <div class="year">-->
+                    <div style="clear:both"></div>                    
+                    <div class="year-header">
+                        <p class="col-3 date1">2011</p>
+<!--                        <div class="col-3 year-divider"></div>          -->
+                        <p class="col-3 date2">2013</p>                     
                     </div>
-                </div>   
-                <div class="phase2"> 
-                    <div class="year">
-                        <div class="yearheader"></div>
-                        <div class="year-row1"></div>                        
-                        <div class="year-row2"></div>                        
+                    <div class="year-row1">   
+                        <div class="year-col">
+                            <div >
+                             <p class="fact">Research-<br>Chem Eng.</p> </div>                  
+                        </div>
+                        <div class="year-col">
+                            <div >              <p class="fact phase2color">Courses-<br>Industrial<br> Design</p> 
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="year-row2">   
+                        <div class="year-col">
+<!--                            <div style="text-align:center">-->
+                             <p class="fact">Internship-<br>Chem Eng.</p> </div>                  
+<!--                        </div>-->
+                        <div class="year-col">
+<!--                            <div style="text-align:center">              -->
+                                <p class="fact">Internship-<br>Chem Eng.</p> 
+<!--                            </div>-->
+                        </div>
+                    </div>                       
+                </div>  
+                          
+                    <div class="phase phase2 phase2color"> 
+<!--                    <div class="year">-->
+                    <div style="clear:both"></div>                    
+                    <div class="year-header">              
+                        <p class="col-3 date1">2014</p>
+         
+<!--                        <p class="col-3 date2">2013</p>                     -->
                     </div>
-                </div>                     
-                <div class="phase3">
-                    <div class="year">
-                        <div class="yearheader"></div>
-                        <div class="year-row1"></div>                        
-                        <div class="year-row2"></div>                        
-                    </div>                
-                </div>                
+                    <div class="year-row1">   
+                        <div class="year-col">
+<!--                            <div >-->
+                             <p class="fact">Design Shop<br>Monitor<br><br>Furniture projects</p> 
+<!--                            </div>                  -->
+                        </div>
+                        <div class="year-col">
+<!--                            <div>              -->
+                                <p class="fact">Organize design<br>conference</p> 
+<!--                            </div>-->
+                        </div>
+                    </div>    
+                    <div class="year-row2">   
+                        <div class="year-col">
+<!--                            <div style="text-align:center">-->
+                             <p class="fact">Internship-<br>Narrative<br>research</p> </div>                  
+<!--                        </div>-->
+                        <div class="year-col">
+<!--                            <div style="text-align:center">               -->
+                                <p class="fact phase3color">Thesis -<br> Computational Model</div>   
+<!--                            </div>-->
+                        </div>
+                    </div> 
                 
-            </div>       
+                    <div class="phase phase3 phase3color"> 
+<!--                    <div class="year">-->
+                    <div style="clear:both"></div>                    
+                    <div class="year-header">
+                        <p class="col-3 date1">2015</p>
+<!--                        <div class="col-3 year-divider"></div>          -->
+                        <p class="col-3 date2">2016</p>                     
+                    </div>
+                    <div class="year-row1">   
+                        <div class="year-col">
+<!--                            <div style="text-align:center">-->
+                             <p class="fact">Programming courses
+                           </p>
+<!--                        </div>                  -->
+                        </div>
+                        <div class="year-col">
+<!--                            <div style="text-align:center">              -->
+                                <p class="fact">Grad Brown Uni.<br>BSc Biomed<br>Engineering</p> 
+<!--                            </div>-->
+                        </div>
+                    <div class="year-col">
+<!--                            <div style="text-align:center">              -->
+                              <p class="fact">Data vis projects<br>(d3.js)<br><br>Front-end dev<br></p> 
+<!--                            </div>-->
+                        </div>                        
+                    </div>    
+                    <div class="year-row2">   
+                        <div class="year-col">
+<!--                            <div style="text-align:center">-->
+                             <p class="fact">Thesis cont. </div>                
+<!--                        </div>-->
+                        <div class="year-col two-third">
+<!--                            <div style="text-align:center">              -->
+                                <p class="fact important middle">Arcadia Solutions<br>Data Analyst</p> 
+<!--                            </div>-->
+                        </div>
+                        
+<!--                    <div class="year-col">-->
+<!--                            <div style="text-align:center">             -->
+<!--                                <p class="fact">Data vis projects<br>(d3.js)<br><br>Front-end dev<br></p> -->
+<!--                            </div>-->
+<!--                        </div>                        -->
+                    </div>                       
+                </div>  
+                
+                </div>   
+                
+                
+                
+                
+            </div> 
+            
+            
+            
+            
+            
+            
         </div>
 <!--                <div style="clear:both;"></div>    -->
     </div>

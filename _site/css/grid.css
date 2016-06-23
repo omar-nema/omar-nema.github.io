@@ -12,20 +12,32 @@
   height: inherit; }
 .grid .cardholder {
   width: 26vw;
-  height: 26vw;
+  height: 20.8vw;
   float: left;
   position: inherit;
   margin-left: 5vw;
   margin-right: 1vw;
   margin-top: 8vw; }
+  .grid .cardholder .cardcontent p {
+    font-size: 1.82vw; }
+.grid .cardtitle {
+  font-size: 2.6vw; }
 .grid .card {
   border-radius: 5%; }
 @media only screen and (max-width: 640px) {
   .grid .cardholder {
-    width: 35vw;
-    height: 31vw; } }
+    width: 35.1vw;
+    height: 28.08vw; }
+    .grid .cardholder .cardcontent p {
+      font-size: 2.457vw; }
+  .grid .cardtitle {
+    font-size: 3.38vw; } }
 @media only screen and (max-width: 480px) {
   .grid .cardholder {
-    width: 54vw;
-    height: 48.828vw;
-    padding-left: 8vw; } }
+    padding-left: 8vw;
+    width: 52vw;
+    height: 41.6vw; }
+    .grid .cardholder .cardcontent p {
+      font-size: 3.64vw; }
+  .grid .cardtitle {
+    font-size: 4.68vw; } }

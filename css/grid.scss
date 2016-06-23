@@ -6,6 +6,21 @@ $breakpoint-2: 750px;
 $breakpoint-3: 640px;
 $breakpoint-4: 480px;
 $footer-height: 1rem;
+//$card-title-fontsize: 1rem;
+
+$card-width: 26vw;
+$med-card-width: 1.35*$card-width;
+$large-card-width: 2*$card-width;
+
+$font-size-factor: .07;
+$med-font-size-factor: .07;
+$large-font-size-factor: .07;
+
+$cardratio: .80;
+
+$card-title-factor: .1; 
+$med-card-title-factor: .13;
+$large-card-title-factor : .18;
 
 //change the footer to only show up on bottom of screen after scrolling
 @media only screen and (max-width: $breakpoint-3){
@@ -26,24 +41,72 @@ $footer-height: 1rem;
     .content {
         height: inherit;
     }
-
     .cardholder {
         width: 26vw;
-        height: 26vw;
+        height: $cardratio*26vw;
         float: left;
         position: inherit;
 //        padding-left: 4vw;
         margin-left: 5vw;
         margin-right: 1vw;
         margin-top: 8vw;
+
+        .cardcontent p {
+            font-size: $font-size-factor  * $card-width;
+        }            
+    }
+    
+    .cardtitle {
+        font-size: $card-title-factor * $card-width;
     }
     
     .card {
-//        margin-top: 30px;
-      
         border-radius: 5%;
     }
     
+    
+    @media only screen and (max-width: $breakpoint-3){
+            .cardholder {
+//                width: 35vw;
+//                height: 31vw;
+                width: $med-card-width;
+                height: $med-card-width*$cardratio;
+                
+                .cardcontent p {
+                    font-size: $med-font-size-factor  * $med-card-width;
+                }      
+                
+            } 
+            .cardtitle {
+                font-size: $med-card-title-factor * $card-width;
+                
+            }     
+        }
+    @media only screen and (max-width: $breakpoint-4){
+            .cardholder {
+//                width: 54vw;
+//                height: 48.828vw;
+                padding-left: 8vw;
+                width: $large-card-width;
+                height: $large-card-width*$cardratio;                
+                .cardcontent p {
+                    font-size: $large-font-size-factor  * $large-card-width;
+                }                  
+                
+            } 
+            .cardtitle {
+                font-size: $large-card-title-factor *$card-width
+            }           
+        }    
+    
+}
+
+
+
+
+
+
+
 //  .card.tags {
 ////    transform: translateX(0%) translateY($tagcard-translateY);
 //    transform: translateX(0%)  translateY(-2%);        
@@ -62,20 +125,3 @@ $footer-height: 1rem;
 //    opacity: $synposiscard-opacity;  
 //    z-index: 4;
 //}
-    
-    @media only screen and (max-width: $breakpoint-3){
-            .cardholder {
-                width: 35vw;
-                height: 31vw;
-            } 
-        }
-    @media only screen and (max-width: $breakpoint-4){
-            .cardholder {
-                width: 54vw;
-                height: 48.828vw;
-                padding-left: 8vw;
-//                margin-right: 4vw;
-            } 
-        }    
-    
-}

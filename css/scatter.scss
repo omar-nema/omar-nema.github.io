@@ -1,15 +1,38 @@
 ---
 ---
 
-$breakpoint-1: 950px;
+
+$child1 : '.cardholder.hospitalquality';
+$child2 : '.cardholder.missingrx';
+$child3 : '.cardholder.personaldata';
+$child4 : '.cardholder.thesis';
+$child5 : '.cardholder.narrative';
+$child6 : '.cardholder.tools';
+$child7 : '.cardholder.table';
+$child8 : '.cardholder.tea';
+
+//font-size relative to container width
+$font-size-factor: .07;
+$med-font-size-factor: .057;
+$small-font-size-factor: $med-font-size-factor;
+//using real names instead of n-th child b/c faster
+
+
+$large-card-title-fontsize: 1.9vw;
+
+
+//related to breakpoint resizinf
+$breakpoint-1: 1035px;
 $breakpoint-2: 750px;
 $breakpoint-3: 640px;
 $breakpoint-4: 480px;
 $footer-height: 1rem;
+//factor by which boxes are multiplied after first & second breakpts
+$mediumFactor : 1.15;
+$smallFactor : 1.3;
+$cardratio: .75;
 
 $content-height: 41.5rem;
-
-$cardratio: .75;
 
 $hospitalquality-width: 27vw;
 $hospitalquality-height: $cardratio * $hospitalquality-width;
@@ -73,248 +96,335 @@ $tea-left: 78%;
     .cardholder {
         position: absolute;
     }
-     .cardholder.datavis.hospitalquality {
+    .cardtitle {
+        font-size: $large-card-title-fontsize;
+    }
+    #{$child1} {
         width: $hospitalquality-width;
         height: $hospitalquality-height;
         top: $hospitalquality-top;
-        left: $hospitalquality-left;
-        }     
-      .cardholder.datavis.missingrx {
+        left: $hospitalquality-left;    
+            .cardcontent p {
+                font-size: $font-size-factor * $hospitalquality-width;            
+            }
+        }  
+    
+    
+    #{$child2}  {
         width: $missingrx-width;
         height: $missingrx-height;
         top: $missingrx-top;
         left: $missingrx-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $missingrx-width;            
+            }        
     }
-    .cardholder.datavis.personaldata {
+    #{$child3} {
         width: $personaldata-width;
         height: $personaldata-height;
         top: $personaldata-top;
         left: $personaldata-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $personaldata-width;            
+            }        
     }
-    .cardholder.research.thesis {
+    #{$child4}  {
         width: $thesis-width;
         height: $thesis-height;
         top: $thesis-top;
         left: $thesis-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $thesis-width;            
+            }        
     }
-    .cardholder.research.narrative {
+    #{$child5}  {
         width: $narrative-width;
         height: $narrative-height;
         top: $narrative-top;
         left: $narrative-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $narrative-width;            
+            }        
     }
-    .cardholder.object.tools {
+    #{$child6}  {
         width: $tools-width;
         height: $tools-height;
         top: $tools-top;
         left: $tools-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $tools-width;            
+            }        
     }
-    .cardholder.object.table {
+    #{$child7} {
         width: $table-width;
         height: $table-height;
         top: $table-top;
         left: $table-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $table-width;            
+            }        
     }
-    .cardholder.object.tea {
+    #{$child8} {
         width: $tea-width;
         height: $tea-height;
         top: $tea-top;
         left: $tea-left;
+            .cardcontent p {
+                font-size: $font-size-factor * $tea-width;            
+            }        
     }
 }//endscatter
 
 
 .scatter-medium {
-    
-   $hospitalquality-width: 1.15*27vw;
-$hospitalquality-height: $cardratio * $hospitalquality-width;
-$hospitalquality-top: 9.1%;
-$hospitalquality-left: 0%;
-    
-$missingrx-width: 1.15*21vw;
-$missingrx-height: $cardratio*$missingrx-width;
-$missingrx-top: 2%;
-$missingrx-left: 37%;
+        
+    $card-title-fontsize: $mediumFactor*$large-card-title-fontsize;
 
-$personaldata-width: 1.15*18vw;
-$personaldata-height: $cardratio * $personaldata-width;
-$personaldata-top: 36%;
-$personaldata-left: 45.5%;
-    
-$thesis-width: 1.15*25vw;
-$thesis-height: $cardratio*$thesis-width;
-$thesis-top: 52%;
-$thesis-left: 10%;
-    
-$narrative-width: 1.15*18vw;
-$narrative-height: $cardratio * $narrative-width;
-$narrative-top: 70.25%;
-$narrative-left: 45.5%;
-    
-$tools-width: 1.15*17vw;
-$tools-height: $tools-width * $cardratio;
-$tools-top: 16%;
-$tools-left: 76.7%;
-    
-$table-width: 1.15*12vw;
-$table-height: $table-width * $cardratio;
-$table-top: 51%;
-$table-left: 71.25%;
-    
-$tea-width: 1.15*10vw;
-$tea-height: $tea-width * $cardratio;
-$tea-top: 75%;
-$tea-left: 78%;
-    
-    
+    $med-hospitalquality-width: $mediumFactor * $hospitalquality-width;
+    $med-hospitalquality-height: $cardratio * $med-hospitalquality-width;
+    $med-hospitalquality-top: 9.1%;
+    $med-hospitalquality-left: 0%;
+
+    $med-missingrx-width: $mediumFactor*$missingrx-width;
+    $med-missingrx-height: $cardratio*$med-missingrx-width;
+    $med-missingrx-top: 2%;
+    $med-missingrx-left: 37%;
+
+    $med-personaldata-width: $mediumFactor*$personaldata-width;
+    $med-personaldata-height: $cardratio * $med-personaldata-width;
+    $med-personaldata-top: 36%;
+    $med-personaldata-left: 45.5%;
+
+    $med-thesis-width: $mediumFactor*$thesis-width;
+    $med-thesis-height: $cardratio*$med-thesis-width;
+    $med-thesis-top: 52%;
+    $med-thesis-left: 10%;
+
+    $med-narrative-width: 1.15*$narrative-width;
+    $med-narrative-height: $cardratio * $med-narrative-width;
+    $med-narrative-top: 70.25%;
+    $med-narrative-left: 45.5%;
+
+    $med-tools-width: $mediumFactor * $tools-width;
+    $med-tools-height: $cardratio  * $med-tools-width;
+    $med-tools-top: 16%;
+    $med-tools-left: 76.7%;
+
+    $med-table-width: $mediumFactor* $table-width;
+    $med-table-height: $cardratio  * $med-table-width;
+    $med-table-top: 51%;
+    $med-table-left: 71.25%;
+
+    $med-tea-width: $mediumFactor*$tea-width;
+    $med-tea-height: $med-tea-width* $cardratio;
+    $med-tea-top: 75%;
+    $med-tea-left: 78%;
+
+    .cardtitle {
+        font-size: $card-title-fontsize;
+    }
     .cardholder {
         position: absolute;
     }
-     .cardholder.datavis.hospitalquality {
-        width: $hospitalquality-width;
-        height: $hospitalquality-height;
-        top: $hospitalquality-top;
-        left: $hospitalquality-left;
+    #{$child1}{
+        width: $med-hospitalquality-width;
+        height: $med-hospitalquality-height;
+        top: $med-hospitalquality-top;
+        left: $med-hospitalquality-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor * $med-hospitalquality-width;
+            }           
         }     
-      .cardholder.datavis.missingrx {
-        width: $missingrx-width;
-        height: $missingrx-height;
-        top: $missingrx-top;
-        left: $missingrx-left;
+    #{$child2}{
+        width: $med-missingrx-width;
+        height: $med-missingrx-height;
+        top: $med-missingrx-top;
+        left: $med-missingrx-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-hospitalquality-width;
+            }           
     }
-    .cardholder.datavis.personaldata {
-        width: $personaldata-width;
-        height: $personaldata-height;
-        top: $personaldata-top;
-        left: $personaldata-left;
+    #{$child3}{
+        width: $med-personaldata-width;
+        height: $med-personaldata-height;
+        top: $med-personaldata-top;
+        left: $med-personaldata-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-hospitalquality-width;
+            }           
     }
-    .cardholder.research.thesis {
-        width: $thesis-width;
-        height: $thesis-height;
-        top: $thesis-top;
-        left: $thesis-left;
+    #{$child4}{
+        width: $med-thesis-width;
+        height: $med-thesis-height;
+        top: $med-thesis-top;
+        left: $med-thesis-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-thesis-width;
+            }           
     }
-    .cardholder.research.narrative {
-        width: $narrative-width;
-        height: $narrative-height;
-        top: $narrative-top;
-        left: $narrative-left;
+    #{$child5} {
+        width: $med-narrative-width;
+        height: $med-narrative-height;
+        top: $med-narrative-top;
+        left: $med-narrative-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-narrative-width;
+            }           
     }
-    .cardholder.object.tools {
-        width: $tools-width;
-        height: $tools-height;
-        top: $tools-top;
-        left: $tools-left;
+    #{$child6}{
+        width: $med-tools-width;
+        height: $med-tools-height;
+        top: $med-tools-top;
+        left: $med-tools-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-tools-width;
+            }           
     }
-    .cardholder.object.table {
-        width: $table-width;
-        height: $table-height;
-        top: $table-top;
-        left: $table-left;
+    #{$child7}{
+        width: $med-table-width;
+        height: $med-table-height;
+        top: $med-table-top;
+        left: $med-table-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-table-width;
+            }           
     }
-    .cardholder.object.tea {
-        width: $tea-width;
-        height: $tea-height;
-        top: $tea-top;
-        left: $tea-left;
+    #{$child8} {
+        width: $med-tea-width;
+        height: $med-tea-height;
+        top: $med-tea-top;
+        left: $med-tea-left;
+            .cardcontent p {
+                font-size: $med-font-size-factor  * $med-tea-width;
+            }           
     }
 }//endscatter
 
 
-
 .scatter-small {
     
-   $hospitalquality-width: 1.3*27vw;
-$hospitalquality-height: $cardratio * $hospitalquality-width;
-$hospitalquality-top: 9.1%;
-$hospitalquality-left: 0%;
+//define multiplication factor && make life easier    
     
-$missingrx-width: 1.3*21vw;
-$missingrx-height: $cardratio*$missingrx-width;
-$missingrx-top: 2%;
-$missingrx-left: 37%;
+    $card-title-fontsize: $smallFactor*1.9vw;
 
-$personaldata-width: 1.3*18vw;
-$personaldata-height: $cardratio * $personaldata-width;
-$personaldata-top: 36%;
-$personaldata-left: 45.5%;
+    $small-hospitalquality-width: $smallFactor*$hospitalquality-width;
+    $small-hospitalquality-height: $cardratio * $small-hospitalquality-width;
+    $small-hospitalquality-top: 9.1%;
+    $small-hospitalquality-left: 0%;
+
+    $small-missingrx-width: $smallFactor*$missingrx-width;
+    $small-missingrx-height: $cardratio*$small-missingrx-width;
+    $small-missingrx-top: 2%;
+    $small-missingrx-left: 37%;
+
+    $small-personaldata-width: $smallFactor*18vw;
+    $small-personaldata-height: $cardratio * $small-personaldata-width;
+    $small-personaldata-top: 36%;
+    $small-personaldata-left: 45.5%;
+
+    $small-thesis-width: $smallFactor*$thesis-width;
+    $small-thesis-height: $cardratio*$small-thesis-width;
+    $small-thesis-top: 52%;
+    $small-thesis-left: 10%;
+
+    $small-narrative-width: $smallFactor*$narrative-width;
+    $small-narrative-height: $cardratio * $small-narrative-width;
+    $small-narrative-top: 70.25%;
+    $small-narrative-left: 45.5%;
+
+    $small-tools-width: $smallFactor*$tools-width;
+    $small-tools-height: $small-tools-width * $cardratio;
+    $small-tools-top: 16%;
+    $small-tools-left: 76.7%;
+
+    $small-table-width: $smallFactor*$table-width;
+    $small-table-height: $small-table-width * $cardratio;
+    $small-table-top: 51%;
+    $small-table-left: 71.25%;
+
+    $small-tea-width: $smallFactor*$tea-width;
+    $small-tea-height: $small-tea-width * $cardratio;
+    $small-tea-top: 75%;
+    $small-tea-left: 78%;
     
-$thesis-width: 1.3*25vw;
-$thesis-height: $cardratio*$thesis-width;
-$thesis-top: 52%;
-$thesis-left: 10%;
-    
-$narrative-width: 1.3*18vw;
-$narrative-height: $cardratio * $narrative-width;
-$narrative-top: 70.25%;
-$narrative-left: 45.5%;
-    
-$tools-width: 1.3*17vw;
-$tools-height: $tools-width * $cardratio;
-$tools-top: 16%;
-$tools-left: 76.7%;
-    
-$table-width: 1.3*12vw;
-$table-height: $table-width * $cardratio;
-$table-top: 51%;
-$table-left: 71.25%;
-    
-$tea-width: 1.3*10vw;
-$tea-height: $tea-width * $cardratio;
-$tea-top: 75%;
-$tea-left: 78%;
-    
+    .cardtitle {
+        font-size: $card-title-fontsize;
+    }
     
     .cardholder {
         position: absolute;
     }
-     .cardholder.datavis.hospitalquality {
-        width: $hospitalquality-width;
-        height: $hospitalquality-height;
-        top: $hospitalquality-top;
-        left: $hospitalquality-left;
+     #{$child1} {
+        width: $small-hospitalquality-width;
+        height: $small-hospitalquality-height;
+        top: $small-hospitalquality-top;
+        left: $small-hospitalquality-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-hospitalquality-width;
+            }            
         }     
-      .cardholder.datavis.missingrx {
-        width: $missingrx-width;
-        height: $missingrx-height;
-        top: $missingrx-top;
-        left: $missingrx-left;
+      #{$child2} {
+        width: $small-missingrx-width;
+        height: $small-missingrx-height;
+        top: $small-missingrx-top;
+        left:$small-missingrx-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-missingrx-width;
+            }             
     }
-    .cardholder.datavis.personaldata {
-        width: $personaldata-width;
-        height: $personaldata-height;
-        top: $personaldata-top;
-        left: $personaldata-left;
+    #{$child3}{
+        width: $small-personaldata-width;
+        height: $small-personaldata-height;
+        top: $small-personaldata-top;
+        left: $small-personaldata-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-personaldata-width;
+            }            
     }
-    .cardholder.research.thesis {
-        width: $thesis-width;
-        height: $thesis-height;
-        top: $thesis-top;
-        left: $thesis-left;
+    #{$child4} {
+        width: $small-thesis-width;
+        height: $small-thesis-height;
+        top: $small-thesis-top;
+        left: $small-thesis-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-thesis-width;
+            }            
     }
-    .cardholder.research.narrative {
-        width: $narrative-width;
-        height: $narrative-height;
-        top: $narrative-top;
-        left: $narrative-left;
+    #{$child5}  {
+        width: $small-narrative-width;
+        height: $small-narrative-height;
+        top: $small-narrative-top;
+        left: $small-narrative-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-narrative-width;
+            }            
     }
-    .cardholder.object.tools {
-        width: $tools-width;
-        height: $tools-height;
-        top: $tools-top;
-        left: $tools-left;
+    #{$child6}{
+        width: $small-tools-width;
+        height: $small-tools-height;
+        top: $small-tools-top;
+        left: $small-tools-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-tools-width;
+            }            
     }
-    .cardholder.object.table {
-        width: $table-width;
-        height: $table-height;
-        top: $table-top;
-        left: $table-left;
+    #{$child7} {
+        width: $small-table-width;
+        height: $small-table-height;
+        top: $small-table-top;
+        left: $small-table-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-table-width;
+            }            
     }
-    .cardholder.object.tea {
-        width: $tea-width;
-        height: $tea-height;
-        top: $tea-top;
-        left: $tea-left;
+    #{$child8}{
+        width: $small-tea-width;
+        height: $small-tea-height;
+        top: $small-tea-top;
+        left: $small-tea-left;
+            .cardcontent p {
+                font-size: $small-font-size-factor * $small-tea-width;
+            }            
     }
 }//endscatter
 

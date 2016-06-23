@@ -10,129 +10,183 @@
     height: 1rem; } }
 .scatter-large .cardholder {
   position: absolute; }
-.scatter-large .cardholder.datavis.hospitalquality {
+.scatter-large .cardtitle {
+  font-size: 1.9vw; }
+.scatter-large .cardholder.hospitalquality {
   width: 27vw;
   height: 20.25vw;
   top: 9.1%;
   left: 3.25%; }
-.scatter-large .cardholder.datavis.missingrx {
+  .scatter-large .cardholder.hospitalquality .cardcontent p {
+    font-size: 1.89vw; }
+.scatter-large .cardholder.missingrx {
   width: 21vw;
   height: 15.75vw;
   top: 2%;
   left: 37%; }
-.scatter-large .cardholder.datavis.personaldata {
+  .scatter-large .cardholder.missingrx .cardcontent p {
+    font-size: 1.47vw; }
+.scatter-large .cardholder.personaldata {
   width: 18vw;
   height: 13.5vw;
   top: 36%;
   left: 45.5%; }
-.scatter-large .cardholder.research.thesis {
+  .scatter-large .cardholder.personaldata .cardcontent p {
+    font-size: 1.26vw; }
+.scatter-large .cardholder.thesis {
   width: 25vw;
   height: 18.75vw;
   top: 52%;
   left: 14.25%; }
-.scatter-large .cardholder.research.narrative {
+  .scatter-large .cardholder.thesis .cardcontent p {
+    font-size: 1.75vw; }
+.scatter-large .cardholder.narrative {
   width: 18vw;
   height: 13.5vw;
   top: 70.25%;
   left: 45.5%; }
-.scatter-large .cardholder.object.tools {
+  .scatter-large .cardholder.narrative .cardcontent p {
+    font-size: 1.26vw; }
+.scatter-large .cardholder.tools {
   width: 17vw;
   height: 12.75vw;
   top: 16%;
   left: 76.7%; }
-.scatter-large .cardholder.object.table {
+  .scatter-large .cardholder.tools .cardcontent p {
+    font-size: 1.19vw; }
+.scatter-large .cardholder.table {
   width: 12vw;
   height: 9vw;
   top: 51%;
   left: 71.25%; }
-.scatter-large .cardholder.object.tea {
+  .scatter-large .cardholder.table .cardcontent p {
+    font-size: 0.84vw; }
+.scatter-large .cardholder.tea {
   width: 10vw;
   height: 7.5vw;
   top: 75%;
   left: 78%; }
+  .scatter-large .cardholder.tea .cardcontent p {
+    font-size: 0.7vw; }
 
+.scatter-medium .cardtitle {
+  font-size: 2.185vw; }
 .scatter-medium .cardholder {
   position: absolute; }
-.scatter-medium .cardholder.datavis.hospitalquality {
+.scatter-medium .cardholder.hospitalquality {
   width: 31.05vw;
   height: 23.2875vw;
   top: 9.1%;
   left: 0%; }
-.scatter-medium .cardholder.datavis.missingrx {
+  .scatter-medium .cardholder.hospitalquality .cardcontent p {
+    font-size: 1.76985vw; }
+.scatter-medium .cardholder.missingrx {
   width: 24.15vw;
   height: 18.1125vw;
   top: 2%;
   left: 37%; }
-.scatter-medium .cardholder.datavis.personaldata {
+  .scatter-medium .cardholder.missingrx .cardcontent p {
+    font-size: 1.76985vw; }
+.scatter-medium .cardholder.personaldata {
   width: 20.7vw;
   height: 15.525vw;
   top: 36%;
   left: 45.5%; }
-.scatter-medium .cardholder.research.thesis {
+  .scatter-medium .cardholder.personaldata .cardcontent p {
+    font-size: 1.76985vw; }
+.scatter-medium .cardholder.thesis {
   width: 28.75vw;
   height: 21.5625vw;
   top: 52%;
   left: 10%; }
-.scatter-medium .cardholder.research.narrative {
+  .scatter-medium .cardholder.thesis .cardcontent p {
+    font-size: 1.63875vw; }
+.scatter-medium .cardholder.narrative {
   width: 20.7vw;
   height: 15.525vw;
   top: 70.25%;
   left: 45.5%; }
-.scatter-medium .cardholder.object.tools {
+  .scatter-medium .cardholder.narrative .cardcontent p {
+    font-size: 1.1799vw; }
+.scatter-medium .cardholder.tools {
   width: 19.55vw;
   height: 14.6625vw;
   top: 16%;
   left: 76.7%; }
-.scatter-medium .cardholder.object.table {
+  .scatter-medium .cardholder.tools .cardcontent p {
+    font-size: 1.11435vw; }
+.scatter-medium .cardholder.table {
   width: 13.8vw;
   height: 10.35vw;
   top: 51%;
   left: 71.25%; }
-.scatter-medium .cardholder.object.tea {
+  .scatter-medium .cardholder.table .cardcontent p {
+    font-size: 0.7866vw; }
+.scatter-medium .cardholder.tea {
   width: 11.5vw;
   height: 8.625vw;
   top: 75%;
   left: 78%; }
+  .scatter-medium .cardholder.tea .cardcontent p {
+    font-size: 0.6555vw; }
 
+.scatter-small .cardtitle {
+  font-size: 2.47vw; }
 .scatter-small .cardholder {
   position: absolute; }
-.scatter-small .cardholder.datavis.hospitalquality {
+.scatter-small .cardholder.hospitalquality {
   width: 35.1vw;
   height: 26.325vw;
   top: 9.1%;
   left: 0%; }
-.scatter-small .cardholder.datavis.missingrx {
+  .scatter-small .cardholder.hospitalquality .cardcontent p {
+    font-size: 2.0007vw; }
+.scatter-small .cardholder.missingrx {
   width: 27.3vw;
   height: 20.475vw;
   top: 2%;
   left: 37%; }
-.scatter-small .cardholder.datavis.personaldata {
+  .scatter-small .cardholder.missingrx .cardcontent p {
+    font-size: 1.5561vw; }
+.scatter-small .cardholder.personaldata {
   width: 23.4vw;
   height: 17.55vw;
   top: 36%;
   left: 45.5%; }
-.scatter-small .cardholder.research.thesis {
+  .scatter-small .cardholder.personaldata .cardcontent p {
+    font-size: 1.3338vw; }
+.scatter-small .cardholder.thesis {
   width: 32.5vw;
   height: 24.375vw;
   top: 52%;
   left: 10%; }
-.scatter-small .cardholder.research.narrative {
+  .scatter-small .cardholder.thesis .cardcontent p {
+    font-size: 1.8525vw; }
+.scatter-small .cardholder.narrative {
   width: 23.4vw;
   height: 17.55vw;
   top: 70.25%;
   left: 45.5%; }
-.scatter-small .cardholder.object.tools {
+  .scatter-small .cardholder.narrative .cardcontent p {
+    font-size: 1.3338vw; }
+.scatter-small .cardholder.tools {
   width: 22.1vw;
   height: 16.575vw;
   top: 16%;
   left: 76.7%; }
-.scatter-small .cardholder.object.table {
+  .scatter-small .cardholder.tools .cardcontent p {
+    font-size: 1.2597vw; }
+.scatter-small .cardholder.table {
   width: 15.6vw;
   height: 11.7vw;
   top: 51%;
   left: 71.25%; }
-.scatter-small .cardholder.object.tea {
+  .scatter-small .cardholder.table .cardcontent p {
+    font-size: 0.8892vw; }
+.scatter-small .cardholder.tea {
   width: 13vw;
   height: 9.75vw;
   top: 75%;
   left: 78%; }
+  .scatter-small .cardholder.tea .cardcontent p {
+    font-size: 0.741vw; }

@@ -5,19 +5,11 @@ var breakpoint2 = 750;
 var numCards = 3;
 //percentage of cardholder width to pass before switching cards
 var fractionIncrement = .1;
-
-//need to rethink fractionIncrement
-//
-
-var hoverStyle = {
-    'background-color': 'yellow'
-};
-//reverStyle and setStyle functions
-
-//var initialLoad = true;
+var layoutResizeEnabled = true;
+var currCard; 
 
 var generateLayout = function(){
-
+    if (layoutResizeEnabled){
     var width = $(window).width();
     if (width >= breakpoint1){
         $('.content').attr('class', 'content scatter-large');
@@ -30,26 +22,53 @@ var generateLayout = function(){
     }
     else if (width < breakpointMid && width < breakpoint1){
         $('.content').attr('class', 'content scatter-small');          
+    };         
+    }
+};
+
+var getCardInSequence = function(card, direction){
+    var nextOrder = parseInt(card.attr('order')) - Math.sign(parseInt(direction));
+    var title = card.attr('title');
+
+    if (nextOrder > 0 && nextOrder < 4){
+        var nextCard = $('.'+ title).find("div[order=" + nextOrder + "]");
+        return nextCard;          
+    }
+    else {
+        return card;
     };
 };
 
-    var getCardInSequence = function(card, direction){
-        var nextOrder = parseInt(card.attr('order')) - Math.sign(parseInt(direction));
-        var title = card.attr('title');
-    
-        if (nextOrder > 0 && nextOrder < 4){
-            var nextCard = $('.'+ title).find("div[order=" + nextOrder + "]");
-            return nextCard;          
-        }
-        else {
-            return card;
-        };
-    };
-
-
+var resizeId;
 $(window).resize(function(event){
     generateLayout();
+    //opaque sidebar when resizing    
+    $('.sidebar').css('opacity', '.3');
+    clearTimeout(resizeId);
+    resizeId = setTimeout(doneResizing, 200);    
 });
+var doneResizing = function(){
+    $('.sidebar').css('opacity', '1');    
+};
+
+function hideCat() {
+    $(this).removeClass('showCategory').addClass('hideCategory');          
+};
+function showCat() {
+    $('.sidebar-categories .button').removeClass('showCategory').addClass('hideCategory');
+    //re-binding the same event listener
+    $('.sidebar-categories .button').bind
+    ({mouseleave:function(){
+        $(this).removeClass('showCategory').addClass('hideCategory');  
+        }
+    });
+    $(this).unbind('mouseleave');   
+    $(this).removeClass('hideCategory').addClass('showCategory');    
+    $('.content').attr('class', 'content grid');
+    layoutResizeEnabled = false;
+    $(this).one('click', hideCat);
+};
+
 
 $(document).ready(function(event){
     //run things when layout gen is done?
@@ -60,19 +79,26 @@ $(document).ready(function(event){
         });    
     });
     
-  
+    //EVENT LISTENERS
     
-    $('.about-button').click(function(event){
-        $('.about-page').slideDown(800); 
-        $('.' + $('.content').attr('class').replace(' ', '.')).css('display', 'none');        
+    $('.about-button').click(function(){
+        $('.about-page').toggle(); 
+        $('.' + $('.content').attr('class').replace(' ', '.')).toggle();
     });
-    
-    
-        
-    var currCard;  
+
+    $('.sidebar-categories .button').one('click', showCat);
+
+    $('.sidebar-categories .button')
+        .mouseenter(function(event){
+        console.log('enter running')
+       $(this).removeClass('hideCategory').addClass('showCategory');
+           
+    })
+        .mouseleave(function(event){
+       $(this).removeClass('showCategory').addClass('hideCategory');        
+    });
         
     $('.cardholder').mouseenter(function(event){
-            console.log('ENTER');
             var prevX;
             var prevMove, currMove;
             var next;
@@ -80,16 +106,16 @@ $(document).ready(function(event){
             var prevDirection;
             var currHolder = $(this);
         
+            category = currHolder.attr('category');
+//            $('.sidebar').find('.button.' +  category).removeClass('hideCategory').addClass('showCategory');
+        
             $('.card').one('mousemove', function(event2){            //MAKE SURE THIS RUNS JUST ONCE!!
- 
                 $('.card').unbind('mousemove');             
                 initialX = parseFloat(event.pageX) - parseFloat($(currHolder).offset().left);
                 currCard = $(this); //enter selects child
 //                //style curr card here?
                 
                 $(currHolder).mousemove(function(event){   
-//                    var currCardClass = 'card' + currCard.attr('order') + 'select';
-                    console.log(currCard.attr('default'));
                     currCard.removeClass(currCard.attr('default'));
                     currCard.addClass('card-selector');                    
                     
@@ -100,7 +126,6 @@ $(document).ready(function(event){
                         var directionSwitch = Math.sign(currDirection)*Math.sign(prevDirection)==-1;
                         if (directionSwitch){
                             initialX = prevX;
-                            console.log('switchup!');
                         };                         
                     };
                     //detect if mouse movement has passed critical threshold to flip cards
@@ -126,7 +151,6 @@ $(document).ready(function(event){
                 
             });
         }).mouseleave(function(event){ //stop listening
-            console.log('EXIT');
             if (currCard){
                 currCard.removeClass('card-selector');
                 currCard.addClass(currCard.attr('default'));
@@ -134,6 +158,7 @@ $(document).ready(function(event){
             currCard = null;
             $('.cardholder').unbind('mousemove');
             $('.card').unbind('mouseenter');
+    
         });
     
 });

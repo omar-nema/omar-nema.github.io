@@ -8,6 +8,59 @@
 
   .content {
     margin-bottom: 5vw; } }
+.year-header {
+  display: none; }
+
+.grid.timesort {
+  padding-top: 7%;
+  padding-left: 5%;
+  min-width: 500px; }
+  .grid.timesort .card1.card1select {
+    box-shadow: none; }
+  @media only screen and (min-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 18.2vw;
+      height: 14.56vw;
+      max-width: 211px;
+      max-height: 169px;
+      float: left;
+      position: inherit;
+      margin-left: 2%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.274vw; } }
+  @media only screen and (max-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 20.8vw;
+      height: 16.64vw;
+      float: left;
+      position: inherit;
+      margin-left: 2%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.82vw; } }
+  @media only screen and (max-width: 800px) {
+    .grid.timesort {
+      padding-top: 15%; } }
+  .grid.timesort [class*='year-'] {
+    height: 16.64vw;
+    max-width: 211px;
+    max-height: 169px;
+    width: 8%;
+    float: left;
+    position: relative; }
+  .grid.timesort .year-header {
+    display: block;
+    font-weight: 900;
+    color: blue;
+    font-family: Montserrat;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 4.68vw; }
+
 .grid .content {
   height: inherit; }
 .grid .cardholder {

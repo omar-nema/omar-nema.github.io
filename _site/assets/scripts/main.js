@@ -8,6 +8,20 @@ var fractionIncrement = .1;
 var layoutResizeEnabled = true;
 var currCard; 
 
+//scrolling glitch when using grid
+
+//today: re-factor click code & css
+//tighten up layout
+//start making timeline interactive
+
+//weekend FULL landing page w/ transitions
+//content design
+
+//time layout will require a clear
+
+//re-order elements
+//ad clear: both between each year
+
 var generateLayout = function(){
     if (layoutResizeEnabled){
     var width = $(window).width();
@@ -51,53 +65,88 @@ var doneResizing = function(){
     $('.sidebar').css('opacity', '1');    
 };
 
+//still shows up in hover mode after clicked through
+//or clicked but only runs hover?
+
+//unbind
+
+function categoryMouseLeave(){
+      $(this).removeClass('showCategory').addClass('hideCategory');
+       $('.cardholder').css('opacity', '1');              
+};
+
+function categoryHover(){
+      $(this).removeClass('hideCategory').addClass('showCategory');
+       $('.cardholder').css('opacity', '.3');
+       $('.cardholder.' + $(this).attr('category')).css('opacity', '1');       
+}
 function hideCat() {
-    $(this).removeClass('showCategory').addClass('hideCategory');          
+    $(this).one('click', showCat);  
+    $(this).bind('mouseleave', categoryMouseLeave);
+    layoutResizeEnabled = true;
+    $('.cardholder').css('display', 'block');
+    generateLayout();
 };
 function showCat() {
     $('.sidebar-categories .button').removeClass('showCategory').addClass('hideCategory');
-    //re-binding the same event listener
-    $('.sidebar-categories .button').bind
-    ({mouseleave:function(){
-        $(this).removeClass('showCategory').addClass('hideCategory');  
-        }
-    });
+    $('.sidebar-categories .button').mouseleave(categoryMouseLeave);
+
     $(this).unbind('mouseleave');   
     $(this).removeClass('hideCategory').addClass('showCategory');    
     $('.content').attr('class', 'content grid');
     layoutResizeEnabled = false;
     $(this).one('click', hideCat);
+    //console.log($(this).attr('category'));
+    $('.cardholder').css('display', 'none');
+    $('.cardholder.' + $(this).attr('category')).css('display', 'block'); 
+
 };
+
+function timeSort(){
+            $('.content').attr('class', 'content grid timesort');
+        $('.card').addClass('stackedBar');        
+        var year3 = $('.content').find('.cardholder[data-time=3]');
+        var year2 = $('.content').find('.cardholder[data-time=2]');      
+        var year1 = $('.content').find('.cardholder[data-time=1]');             
+        year3.insertAfter('.year-3');
+        year2.insertAfter('.year-2');
+        year1.insertAfter('.year-1');  
+        $(this).one('click', undoTimeSort);
+        layoutResizeEnabled = false;
+};
+
+function undoTimeSort(){
+    layoutResizeEnabled = true;
+    $(this).one('click', timeSort);
+    generateLayout();    
+};
+
 
 
 $(document).ready(function(event){
     //run things when layout gen is done?
     $(window).load(function(){   
         generateLayout();     
-        $('.content').fadeIn(300, function(){
+        $('.content').fadeIn(500, function(){
             //all functions dependent on intial CSS property load below
         });    
     });
     
     //EVENT LISTENERS
-    
     $('.about-button').click(function(){
         $('.about-page').toggle(); 
         $('.' + $('.content').attr('class').replace(' ', '.')).toggle();
     });
+    
+    //SIDEBAR
+    $('.time-sort').one('click', timeSort);
 
+    //SIDEBAR CATEGORIES
     $('.sidebar-categories .button').one('click', showCat);
-
-    $('.sidebar-categories .button')
-        .mouseenter(function(event){
-        console.log('enter running')
-       $(this).removeClass('hideCategory').addClass('showCategory');
-           
-    })
-        .mouseleave(function(event){
-       $(this).removeClass('showCategory').addClass('hideCategory');        
-    });
-        
+    $('.sidebar-categories .button').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
+    
+    
+    //CARD FLIP
     $('.cardholder').mouseenter(function(event){
             var prevX;
             var prevMove, currMove;
@@ -105,19 +154,23 @@ $(document).ready(function(event){
             var initialX;
             var prevDirection;
             var currHolder = $(this);
-        
-            category = currHolder.attr('category');
-//            $('.sidebar').find('.button.' +  category).removeClass('hideCategory').addClass('showCategory');
-        
+
             $('.card').one('mousemove', function(event2){            //MAKE SURE THIS RUNS JUST ONCE!!
                 $('.card').unbind('mousemove');             
                 initialX = parseFloat(event.pageX) - parseFloat($(currHolder).offset().left);
                 currCard = $(this); //enter selects child
-//                //style curr card here?
+                
+                var currCardSelect = function(currCard){
+                           currCard.removeClass(currCard.attr('default'));
+                    currCard.addClass('card-selector');                  
+                }
+                
                 
                 $(currHolder).mousemove(function(event){   
-                    currCard.removeClass(currCard.attr('default'));
-                    currCard.addClass('card-selector');                    
+//                    currCard.removeClass(currCard.attr('default'));
+//                    currCard.addClass('card-selector');     
+                    
+                    currCardSelect(currCard);
                     
                     var currX = parseFloat(event.pageX) - parseFloat($(this).offset().left);  
                     var currDirection = parseFloat(currX - prevX); 

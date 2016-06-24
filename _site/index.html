@@ -17,11 +17,24 @@
 <!--    <div id="wrapper">-->
         <body>
             <main class="content"> 
+    <div class="year-3" data-time="3">
+        <p class="year-header">2016</p>
+    </div>
+    <div style="clear:both"></div>
+    <div class="year-2" data-time="2">
+        <p class="year-header">2015</p>    
+    </div>
+    <div style="clear:both"></div>    
+    <div class="year-1" data-time="1">
+        <p class="year-header">2013/2014</p>    
+    </div>    
+    <div style="clear:both"></div>    
+    
+    
  
     
 <!--    add project default-->
-    
-    <div class="cardholder hospitalquality datavis" category=datavis>
+    <div class="cardholder hospitalquality datavis" category=datavis data-time="3">
         
         <div title="hospitalquality" class="card datavis card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>data visualization<br>healthcare<br>d3.js<br>Javascript</p></div>
@@ -40,8 +53,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder missingrx datavis" category=datavis>
+    <div class="cardholder missingrx datavis" category=datavis data-time="3">
         
         <div title="missingrx" class="card datavis card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>data visualization<br>healthcare<br>d3.js<br>javascript</p></div>
@@ -60,8 +72,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder personaldata datavis" category=datavis>
+    <div class="cardholder personaldata datavis" category=datavis data-time="3">
         
         <div title="personaldata" class="card datavis card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>data visualization<br>healthcare<br>d3.js<br>javascript</p></div>
@@ -80,8 +91,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder thesis research" category=research>
+    <div class="cardholder thesis research" category=research data-time="2">
         
         <div title="thesis" class="card research card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>research<br>coding<br>python<br>neuro-engineering</p></div>
@@ -100,8 +110,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder narrative research" category=research>
+    <div class="cardholder narrative research" category=research data-time="2">
         
         <div title="narrative" class="card research card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>narrative<br>subjective data</p></div>
@@ -120,8 +129,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder tools object" category=object>
+    <div class="cardholder tools object" category=object data-time="1">
         
         <div title="tools" class="card object card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>industrial design<br>design research<br>makerspace</p></div>
@@ -140,8 +148,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder table object" category=object>
+    <div class="cardholder table object" category=object data-time="1">
         
         <div title="table" class="card object card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>industrial design<br>furniture<br>pointy</p></div>
@@ -160,8 +167,7 @@
  
     
 <!--    add project default-->
-    
-    <div class="cardholder tea object" category=object>
+    <div class="cardholder tea object" category=object data-time="1">
         
         <div title="tea" class="card object card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>industrial design<br>arduino<br>3d printing</p></div>
@@ -180,7 +186,6 @@
  
     
 </main>  
-
 
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -218,6 +223,7 @@
             </div>
         
     </div>
+    <button class="time-sort"></button>
 <!--    <div class="questionmark">?</div>-->
 </section> 
 <div style="clear:both;"></div>  

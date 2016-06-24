@@ -16,6 +16,7 @@ body {
   background-color: #FFFAFA; }
 
 .content {
+  display: none;
   float: left;
   width: 1100px;
   max-width: 1100px;
@@ -84,6 +85,16 @@ body {
     right: 9%;
     color: blue; }
 
+.time-sort {
+  position: absolute;
+  right: -2%;
+  top: 45%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: yellow;
+  z-index: 3; }
+
 .card {
   border-radius: 7%;
   color: white; }
@@ -133,6 +144,9 @@ body {
 .card.card3 {
   transform: translateX(3%) translateY(3%); }
 
+.card.card3.stackedBar {
+  transform: translateX(3%); }
+
 .card3select {
   opacity: 0.13;
   z-index: 2; }
@@ -140,12 +154,18 @@ body {
 .card.card2 {
   transform: translateX(9%) translateY(9%); }
 
+.card.card2.stackedBar {
+  transform: translateX(9%); }
+
 .card2select {
   opacity: 0.5;
   z-index: 3; }
 
 .card.card1 {
   transform: translateX(15%) translateY(15%); }
+
+.card.card1.stackedBar {
+  transform: translateX(15%); }
 
 .card1select {
   opacity: 0.9;

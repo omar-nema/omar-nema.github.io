@@ -8,19 +8,6 @@ var fractionIncrement = .1;
 var layoutResizeEnabled = true;
 var currCard; 
 
-//scrolling glitch when using grid
-
-//today: re-factor click code & css
-//tighten up layout
-//start making timeline interactive
-
-//weekend FULL landing page w/ transitions
-//content design
-
-//time layout will require a clear
-
-//re-order elements
-//ad clear: both between each year
 
 var generateLayout = function(){
     if (layoutResizeEnabled){
@@ -121,6 +108,10 @@ function undoTimeSort(){
     generateLayout();    
 };
 
+var currCardClassChange = function(currCard, classToRemove, classToAdd){
+    currCard.removeClass(classToRemove);
+    currCard.addClass(classToAdd);                 
+};
 
 
 $(document).ready(function(event){
@@ -159,18 +150,11 @@ $(document).ready(function(event){
                 $('.card').unbind('mousemove');             
                 initialX = parseFloat(event.pageX) - parseFloat($(currHolder).offset().left);
                 currCard = $(this); //enter selects child
-                
-                var currCardSelect = function(currCard){
-                           currCard.removeClass(currCard.attr('default'));
-                    currCard.addClass('card-selector');                  
-                }
-                
-                
+                   
                 $(currHolder).mousemove(function(event){   
 //                    currCard.removeClass(currCard.attr('default'));
 //                    currCard.addClass('card-selector');     
-                    
-                    currCardSelect(currCard);
+                    currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
                     
                     var currX = parseFloat(event.pageX) - parseFloat($(this).offset().left);  
                     var currDirection = parseFloat(currX - prevX); 
@@ -188,11 +172,14 @@ $(document).ready(function(event){
                         initialX = currX;      
                         //new card coming in
                         if (currCard !== getCardInSequence(currCard, currDirection) ){
-                            currCard.removeClass('card-selector');
-                            currCard.addClass(currCard.attr('default'));
+                            
+                            currCardClassChange(currCard, 'card-selector', currCard.attr('default'));
+//                            currCard.removeClass('card-selector');
+//                            currCard.addClass(currCard.attr('default'));
                             currCard = getCardInSequence(currCard, currDirection);
-                            currCard.removeClass(currCard.attr('default'));
-                            currCard.addClass('card-selector');
+//                            currCard.removeClass(currCard.attr('default'));
+//                            currCard.addClass('card-selector');
+                            currCardClassChange(currCard, currCard.attr('default'), 'card-selector');                          
                         }                                    
                     };
                     if (prevX) {
@@ -205,8 +192,9 @@ $(document).ready(function(event){
             });
         }).mouseleave(function(event){ //stop listening
             if (currCard){
-                currCard.removeClass('card-selector');
-                currCard.addClass(currCard.attr('default'));
+                currCardClassChange(currCard, 'card-selector', currCard.attr('default'));                
+//                currCard.removeClass('card-selector');
+//                currCard.addClass(currCard.attr('default'));
             }
             currCard = null;
             $('.cardholder').unbind('mousemove');

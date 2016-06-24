@@ -37,12 +37,25 @@ $large-card-title-factor : .18;
     }
 }
 
-.year-header {
+.grid-year-header {
     display:none;
 }
 
 .grid.timesort {
     
+    $grid-timesort-breakpoint1: 1000px;
+    $grid-timesort-breakpoint2: 800px;
+//    $grid-timesort-breakpoint3:
+//    $grid-timesort-breakpoint4:
+//           
+    
+    $large-card-factor: .7;
+    $large-font-factor: .7;
+    
+    $med-card-factor: .8;
+    $med-font-factor: .8;
+    
+    min-height: 39.8rem;
      padding-top: 7%;    
      padding-left: 5%;
     
@@ -52,30 +65,35 @@ $large-card-title-factor : .18;
         }
      
     
-    @media only screen and (min-width: 1000px){
+    //works until around 800
+      .card1 .cardtitle {
+                 font-size: .07*26vw;
+        }
+
+    //1000+
+    @media only screen and (min-width: $grid-timesort-breakpoint1){
         
- 
          .cardholder {
-            width: .7*26vw;
-            height: .7*$cardratio*26vw;
+            width: $large-card-factor*26vw;
+            height: $large-card-factor*$cardratio*26vw;
             max-width: 211px;
              max-height: 169px;
             float: left;
             position: inherit;
             margin-left: 2%;
             margin-right: 0;
-            margin-top: 0;
+            margin-top: 0;     
             .cardcontent p {
-                font-size: .7*$font-size-factor  * $card-width;
+                font-size: $large-font-factor * $font-size-factor  * $card-width;
             }            
         }     
     }
-    
-    @media only screen and (max-width: 1000px){
+    //800-1000
+    @media only screen and (max-width: $grid-timesort-breakpoint1){
         
      .cardholder {
-        width: .8*26vw;
-        height: .8*$cardratio*26vw;
+        width: $med-card-factor*26vw;
+        height: $med-card-factor*$cardratio*26vw;
         float: left;
         position: inherit;
 //        padding-left: 4vw;
@@ -84,13 +102,13 @@ $large-card-title-factor : .18;
         margin-top: 0;
 
         .cardcontent p {
-            font-size: $font-size-factor  * $card-width;
+            font-size:  $med-font-factor* $font-size-factor  * $card-width;
         }            
     }
         
     }
-    
-    @media only screen and (max-width: 800px){
+    // < 800
+    @media only screen and (max-width:  $grid-timesort-breakpoint2){
         padding-top: 15%;
     }
     
@@ -104,7 +122,7 @@ $large-card-title-factor : .18;
             position: relative;
         }
 
-    .year-header {
+    .grid-year-header {
         display:block;
         font-weight: 900;
         color: blue;

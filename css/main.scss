@@ -12,11 +12,7 @@ $breakpoint-2: 750px;
 $breakpoint-3: 640px;
 $breakpoint-4: 480px;
 
-
-//font-family: 'Larsseit Bold'
-//font-family: 'Larsseit Light'
-//font-family: 'Larsseit Medium'
-//font-family: 'Larsseit'
+//category names really only used in 
 
 $card-border-radius: 7%;
 
@@ -39,306 +35,50 @@ $synposiscard-translateY: 15%;
 $footer-height: 1rem;
 $content-margin-bottom: 50px;
 
-//$content-height: 41.5rem;
-//$content-padding-bottom: 4vw;
-
-//@import 'projects';
-
 *, *::before, *::after {
     font-family: $base-font-family;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-//    font-weight: 900;
 }
-
-
 html, body {
     margin: 0;
     height: 100%;
     background-color: #FFFAFA;
 }
-
-
 body {
     margin: 0;
     padding: 0%;
     height: 100%;
     background-color: #FFFAFA;
-//    padding-bottom: $footer-height;
 }
-
-
 .content {
-    
         display:none;
-    
         float: left;
-//        width: 90vw;
-        width: 1100px;
-        max-width: 1100px;
-//        height: 41rem;
+        width: 85vw;
+        height: 85vh;
+        min-height: 650px;
+        max-width: 1400px;
+        max-height: (1/1.77)*1400px;
+        margin-left: 5vw;
+        margin-top: 2vh;    
         position: relative;
-        overflow: auto;
+        left: 50%;
+        transform: translateX(-60%);   
 }
-
-.about-button {
-    z-index: 2000;
-//    background-color: yellow;
-    height: 50px;
-//    color: #50E3C2;
-//    color: blue;
-    font-size: 60px;
-    position: absolute;
-    top: 3%;
-    right: 2%;
-    color: blue;
-    transform: rotate(180deg);
-    font-weight: 900;
-    font-family: Montserrat;
-//      box-shadow: 0 1px 1px 0px black; 
-//    border-left: 1px dotted black;
-////    border-bottom: 1px dotted black;
-//    border-radius: 5%;
+.contentwrapper {
+    height: 98.5%;
+    width: 100%;
+    overflow: auto;
+    float: left;
 }
-
-
-
-@media only screen and (max-width: 1035px)
-    {
-        .content {
-        width: 96vw; 
-        }
-    }
-
-.widthchecker {
-    float:right;
-}
-
-
-.hideCategory {
-    transform: translateX(75%);
-}
-.showCategory {
-    transform: translateX(15%);
-}
-
-.sidebar {
-        position: fixed;
-        right: 0;
-        width: 100px;
-        height: 42rem;
-//        z-index: 1500;
-        .sidebar-categories {
-        width: 100%;
-        height: 200px;
-        position: absolute;
-        top: 17%;
-        left: 6%;
-        z-index: 3;
-        
-        .datavis {background-color: $datavis-background}
-        .research {background-color: $research-background}    
-        .object {background-color: $object-background}            
-        .button {
-                 width: 100px; 
-                height: 50px; 
-                border-radius: 5%; 
-                margin-top: .4rem; 
-            p {
-                position: absolute;
-                left: 19%;
-                color: white;
-                font-weight: 900;
-                font-size: .8rem;
-//                height: 100%;
-//                top: 50%;
-//                transform: translateY(-100%);
-            }
-
-            }
-
-    }
-    .questionmark{
-        z-index: 3;
-        font-size: 4vw;
-        font-weight: 800;
-        position: absolute;
-        bottom: 2%;
-        right: 9%;
-        color: blue;
-    }    
-    
-
-    
-    //ion-ios-keypad-outline
-    
- }
-
-    .time-sort {
-        position: absolute;
-        right: -2%;
-        top: 45%;
-        width: 20px;
-        height: 20px;
-        border: 1px solid black;
-//        background-color: none;
-//        color: yellow;
-        background-color: yellow;
-//        border-radius: 30%;
-        z-index: 3;
-    }
-
-
-
-
-
-.card {
-    border-radius:  $card-border-radius;
-    color: white;
-    .cardtitle {
-//        text-align: center;
-        text-align: right;
-        position: absolute;
-        right: 0%;
-        bottom: 3%;
-//        transform: translateY(100%);
-        font-weight: 900;
-        
-        letter-spacing: 4px;
-//        position: absolute;
-//        transform: translateX(50%) translateY(300%);
-    };
-}
-.cardcontent {
-    display:none;
-//    width: 100%;
-    height: 100%;
-    img {
-        width: 100%;
-        height: 100%;
-        border-radius: $card-border-radius;
-    }
-}
-
-.card3 .cardcontent {
+//issue is that contentwrapper is not expandings
+footer {
+    clear: both;
+    float: left;
+    height: 1.5%;
     width: 100%;
 }
-
-.card2 .cardcontent {
-    width: 80%;
-    left: 10%;
-    position: absolute;        
-    p {
-        width: 100%;
-        text-align: center;
-        position: absolute;
-//        top: 50%;
-//        transform: translateY(-100%) ;  
-    }
-    
-}
-
-.card1 .cardcontent {
-    width: 80%;
-//    height: 100%;
-    left: 10%;
-    position: absolute;    
-    p {
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-100%);
-    }
-}
-
-//.cardholder .
-
-
-.card {
-    width: 85%;
-    height: 85%;
-    position: absolute;
-}
-.card.card3 {
-    transform: translateX($tagcard-translateX) translateY($tagcard-translateY);    
-}
-.card.card3.stackedBar {
-    transform: translateX($tagcard-translateX) ;
-}
-.card3select {
-    opacity: $tagcard-opacity;
-    z-index: 2;   
-}
-.card.card2 {
-    transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
-}
-.card.card2.stackedBar {
-    transform: translateX($thumbnailcard-translateX) ;
-}
-
-.card2select {
-    opacity: $thumbnailcard-opacity;    
-    z-index: 3;
-}
-.card.card1 {
-    transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
-}
-.card.card1.stackedBar {
-    transform: translateX($synposiscard-translateX) ;
-}
-
-.card1select {
-    opacity: $synposiscard-opacity;  
-    z-index: 4;
-    box-shadow: 0 .5px .5px 0px black;       
-}
-
-.card-selector {
-//    background-color: black;
-//    border: 1px dotted black;
-    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);        
-    opacity: 1;
-    z-index: 1500;
-    .cardcontent{
-        display: block;
-    }
-    .cardtitle {
-        display: none;
-    }
-}
-
-
-
-.card.datavis {
-    background-color: $datavis-background;
-}
-.card.research {
-    background-color: $research-background;
-}
-.card.object {
-    background-color: $object-background;
-}
-
-.card p {
-    font-color: white;
-}
-
-////card text
-.card p {
-        position: absolute;
-        text-align: center;
-//    font-size: 1vw;
-//        width: 100%;
-//        height: 100%; 
-//        bottom: -10%;
-//        right: 3%;
-//        transform: translateX(11%) translateY(50%);        
-//        letter-spacing: .5vw;
-    }
-
-
-
 footer {
     .bottomrect {
         width: 100%;
@@ -352,26 +92,190 @@ footer {
         background-color: #FFEE19;
     }
 }
+//SIDEBAR STUFF
+.about-button {
+    z-index: 2000;
+    height: 50px;
+    font-size: 60px;
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    color: blue;
+    transform: rotate(180deg);
+    font-weight: 900;
+    font-family: Montserrat;
+}
+//FOR POPPING CATEGORY BUTTONS IN/OUT
+.hideCategory {
+    transform: translateX(75%);
+}
+.showCategory {
+    transform: translateX(15%);
+}
+.sidebar-categories {
+    height: 200px;
+    position: fixed;
+    top: 17%;
+    right: -5px;
+    font-weight: 900;
+    font-size: .8rem;    
+    color: white;
+    .datavis {background-color: $datavis-background}
+    .research {background-color: $research-background}    
+    .object {background-color: $object-background}            
+    .button {
+             width: 100px; 
+            height: 40px; 
+            border-radius: 5%; 
+            margin-top: .4rem; 
+        p {
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+            padding: 0;
+        }
+
+    }
+    
+ }
+//BUTTON FOR TIMESORTING
+.time-sort {
+    position: absolute;
+    right: -2px;
+    top: 45%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: yellow;
+    z-index: 3;
+}
+
+
+
+.card {
+    border-radius:  $card-border-radius;
+    color: white;
+    width: 85%;
+    height: 85%;
+    position: absolute;    
+    .cardtitle {
+        text-align: right;
+        position: absolute;
+        right: 0%;
+        bottom: 3%;
+        font-weight: 900;
+        letter-spacing: 4px;
+    };
+    p {
+        font-color: white;
+        position: absolute;
+        text-align: center;       
+    }
+}
+
+.cardcontent {
+    display:none;
+    height: 100%;
+    overflow:hidden;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: $card-border-radius;
+    }
+}
+.card3 .cardcontent {
+    width: 100%;
+}
+.card2 .cardcontent {
+    width: 80%;
+    left: 10%;
+    position: absolute;        
+    p {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+    }
+}
+.card1 .cardcontent {
+    width: 80%;
+//    height: 100%;
+    left: 10%;
+    position: absolute;    
+    p {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-100%);
+    }
+}
+
+.card.datavis {
+    background-color: $datavis-background;
+}
+.card.research {
+    background-color: $research-background;
+}
+.card.object {
+    background-color: $object-background;
+}
+
+.card.card3 {
+    transform: translateX($tagcard-translateX) translateY($tagcard-translateY);    
+}
+.card.card2 {
+    transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
+}
+.card.card1 {
+    transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
+}
+
+
+
+.card.card3.stackedBar {
+    transform: translateX($tagcard-translateX) ;
+}
+.card.card2.stackedBar {
+    transform: translateX($thumbnailcard-translateX) ;
+}
+.card.card1.stackedBar {
+    transform: translateX($synposiscard-translateX) ;
+}
+
+
+.card-selector {
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);        
+    opacity: 1;
+    z-index: 1500;
+    .cardcontent{
+        display: block;
+    }
+    .cardtitle {
+        display: none;
+    }
+}
+.card3select {
+    opacity: $tagcard-opacity;
+    z-index: 2;   
+}
+.card2select {
+    opacity: $thumbnailcard-opacity;    
+    z-index: 3;
+}
+.card1select {
+    opacity: $synposiscard-opacity;  
+    z-index: 4;
+    box-shadow: 0 .5px .5px 0px black;       
+}
 
 
 
 
-//.card.tags {
-//    transform: translateX($tagcard-translateX) translateY($tagcard-translateY);
-//    opacity: $tagcard-opacity;
-//    z-index: 2;
-//}
-//.card.thumbnail {
-//    transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
-//    opacity: $thumbnailcard-opacity;    
-//    z-index: 3;
-//}
-//.card.synposis {
-//    transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY);    
-//    opacity: $synposiscard-opacity;  
-//    z-index: 4;
-//    box-shadow: 0 .5px .5px 0px black;    
-//}
+
+
+
+
 
 
 

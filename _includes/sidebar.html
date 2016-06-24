@@ -2,15 +2,12 @@
     <button class="about-button">!
     </button>
 </div>
-<section class="sidebar">  
-    <div class="sidebar-categories">
-        {% for category in site.data.categories %}
-            <div class="button {{category.category}} hideCategory" category={{category.category}}>
-                <p>{{category.category}}</p>
-            </div>
-        {% endfor %}
-    </div>
-    <button class="time-sort"></button>
-<!--    <div class="questionmark">?</div>-->
-</section> 
+<div class="sidebar-categories">
+    {% for category in site.data.categories %}
+        <div class="button {{category.category}} hideCategory" category={{category.category}}>
+            <p>{{category.category}}</p>
+        </div>
+    {% endfor %}
+</div>
+<button class="time-sort"></button>
 <div style="clear:both;"></div>

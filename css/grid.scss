@@ -32,22 +32,23 @@ $large-card-title-factor : .18;
     width: 100%;
     height: $footer-height;
     }
-    .content {
-        margin-bottom: 5vw;
-    }
 }
+
+
 
 .grid-year-header {
     display:none;
 }
 
+
+
+
+
+
 .grid.timesort {
     
     $grid-timesort-breakpoint1: 1000px;
     $grid-timesort-breakpoint2: 800px;
-//    $grid-timesort-breakpoint3:
-//    $grid-timesort-breakpoint4:
-//           
     
     $large-card-factor: .7;
     $large-font-factor: .7;
@@ -138,9 +139,6 @@ $large-card-title-factor : .18;
 .grid {
     
 
-    .content {
-        height: inherit;
-    }
     .cardholder {
         width: 26vw;
         height: $cardratio*26vw;
@@ -182,22 +180,22 @@ $large-card-title-factor : .18;
                 
             }     
         }
-    @media only screen and (max-width: $breakpoint-4){
-            .cardholder {
-//                width: 54vw;
-//                height: 48.828vw;
-                padding-left: 8vw;
-                width: $large-card-width;
-                height: $large-card-width*$cardratio;                
-                .cardcontent p {
-                    font-size: $large-font-size-factor  * $large-card-width;
-                }                  
-                
-            } 
-            .cardtitle {
-                font-size: $large-card-title-factor *$card-width
-            }           
-        }
+//    @media only screen and (max-width: $breakpoint-4){
+//            .cardholder {
+////                width: 54vw;
+////                height: 48.828vw;
+//                padding-left: 8vw;
+//                width: $large-card-width;
+//                height: $large-card-width*$cardratio;                
+//                .cardcontent p {
+//                    font-size: $large-font-size-factor  * $large-card-width;
+//                }                  
+//                
+//            } 
+//            .cardtitle {
+//                font-size: $large-card-title-factor *$card-width
+//            }           
+//        }
 
 
     

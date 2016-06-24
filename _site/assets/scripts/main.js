@@ -22,7 +22,7 @@ var generateLayout = function(){
         $('.content').attr('class', 'content scatter-medium');        
     }
     else if (width < breakpointMid && width < breakpoint1){
-        $('.content').attr('class', 'content scatter-small');          
+        $('.content').attr('class', 'content scatter-medium');          
     };         
     }
 };
@@ -52,10 +52,7 @@ var doneResizing = function(){
     $('.sidebar').css('opacity', '1');    
 };
 
-//still shows up in hover mode after clicked through
-//or clicked but only runs hover?
 
-//unbind
 
 function categoryMouseLeave(){
       $(this).removeClass('showCategory').addClass('hideCategory');
@@ -145,17 +142,14 @@ $(document).ready(function(event){
             var initialX;
             var prevDirection;
             var currHolder = $(this);
-
             $('.card').one('mousemove', function(event2){            //MAKE SURE THIS RUNS JUST ONCE!!
                 $('.card').unbind('mousemove');             
                 initialX = parseFloat(event.pageX) - parseFloat($(currHolder).offset().left);
                 currCard = $(this); //enter selects child
                    
-                $(currHolder).mousemove(function(event){   
-//                    currCard.removeClass(currCard.attr('default'));
-//                    currCard.addClass('card-selector');     
-                    currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
+                $(currHolder).mousemove(function(event){ 
                     
+                    currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
                     var currX = parseFloat(event.pageX) - parseFloat($(this).offset().left);  
                     var currDirection = parseFloat(currX - prevX); 
                     //update initialX if direction switched
@@ -174,12 +168,8 @@ $(document).ready(function(event){
                         if (currCard !== getCardInSequence(currCard, currDirection) ){
                             
                             currCardClassChange(currCard, 'card-selector', currCard.attr('default'));
-//                            currCard.removeClass('card-selector');
-//                            currCard.addClass(currCard.attr('default'));
                             currCard = getCardInSequence(currCard, currDirection);
-//                            currCard.removeClass(currCard.attr('default'));
-//                            currCard.addClass('card-selector');
-                            currCardClassChange(currCard, currCard.attr('default'), 'card-selector');                          
+                            currCardClassChange(currCard, currCard.attr('default'), 'card-selector');                      
                         }                                    
                     };
                     if (prevX) {
@@ -193,8 +183,6 @@ $(document).ready(function(event){
         }).mouseleave(function(event){ //stop listening
             if (currCard){
                 currCardClassChange(currCard, 'card-selector', currCard.attr('default'));                
-//                currCard.removeClass('card-selector');
-//                currCard.addClass(currCard.attr('default'));
             }
             currCard = null;
             $('.cardholder').unbind('mousemove');

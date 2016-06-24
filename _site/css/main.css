@@ -18,10 +18,38 @@ body {
 .content {
   display: none;
   float: left;
-  width: 1100px;
-  max-width: 1100px;
+  width: 85vw;
+  height: 85vh;
+  min-height: 650px;
+  max-width: 1400px;
+  max-height: 790.96045px;
+  margin-left: 5vw;
+  margin-top: 2vh;
   position: relative;
-  overflow: auto; }
+  left: 50%;
+  transform: translateX(-60%); }
+
+.contentwrapper {
+  height: 98.5%;
+  width: 100%;
+  overflow: auto;
+  float: left; }
+
+footer {
+  clear: both;
+  float: left;
+  height: 1.5%;
+  width: 100%; }
+
+footer .bottomrect {
+  width: 100%;
+  height: 80%;
+  background-color: #FFEE19; }
+footer .toprect {
+  width: 100%;
+  height: 20%;
+  opacity: .3;
+  background-color: #FFEE19; }
 
 .about-button {
   z-index: 2000;
@@ -35,59 +63,42 @@ body {
   font-weight: 900;
   font-family: Montserrat; }
 
-@media only screen and (max-width: 1035px) {
-  .content {
-    width: 96vw; } }
-.widthchecker {
-  float: right; }
-
 .hideCategory {
   transform: translateX(75%); }
 
 .showCategory {
   transform: translateX(15%); }
 
-.sidebar {
+.sidebar-categories {
+  height: 200px;
   position: fixed;
-  right: 0;
-  width: 100px;
-  height: 42rem; }
-  .sidebar .sidebar-categories {
-    width: 100%;
-    height: 200px;
-    position: absolute;
-    top: 17%;
-    left: 6%;
-    z-index: 3; }
-    .sidebar .sidebar-categories .datavis {
-      background-color: red; }
-    .sidebar .sidebar-categories .research {
-      background-color: #4A90E2; }
-    .sidebar .sidebar-categories .object {
-      background-color: #50E3C2; }
-    .sidebar .sidebar-categories .button {
-      width: 100px;
-      height: 50px;
-      border-radius: 5%;
-      margin-top: .4rem; }
-      .sidebar .sidebar-categories .button p {
-        position: absolute;
-        left: 19%;
-        color: white;
-        font-weight: 900;
-        font-size: .8rem; }
-  .sidebar .questionmark {
-    z-index: 3;
-    font-size: 4vw;
-    font-weight: 800;
-    position: absolute;
-    bottom: 2%;
-    right: 9%;
-    color: blue; }
+  top: 17%;
+  right: -5px;
+  font-weight: 900;
+  font-size: .8rem;
+  color: white; }
+  .sidebar-categories .datavis {
+    background-color: red; }
+  .sidebar-categories .research {
+    background-color: #4A90E2; }
+  .sidebar-categories .object {
+    background-color: #50E3C2; }
+  .sidebar-categories .button {
+    width: 100px;
+    height: 40px;
+    border-radius: 5%;
+    margin-top: .4rem; }
+    .sidebar-categories .button p {
+      position: absolute;
+      left: 20%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0;
+      padding: 0; }
 
 .time-sort {
   position: absolute;
-  right: -2%;
+  right: -2px;
   top: 45%;
   width: 20px;
   height: 20px;
@@ -97,7 +108,10 @@ body {
 
 .card {
   border-radius: 7%;
-  color: white; }
+  color: white;
+  width: 85%;
+  height: 85%;
+  position: absolute; }
   .card .cardtitle {
     text-align: right;
     position: absolute;
@@ -105,10 +119,15 @@ body {
     bottom: 3%;
     font-weight: 900;
     letter-spacing: 4px; }
+  .card p {
+    font-color: white;
+    position: absolute;
+    text-align: center; }
 
 .cardcontent {
   display: none;
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
   .cardcontent img {
     width: 100%;
     height: 100%;
@@ -136,41 +155,32 @@ body {
     top: 50%;
     transform: translateY(-100%); }
 
-.card {
-  width: 85%;
-  height: 85%;
-  position: absolute; }
+.card.datavis {
+  background-color: red; }
+
+.card.research {
+  background-color: #4A90E2; }
+
+.card.object {
+  background-color: #50E3C2; }
 
 .card.card3 {
   transform: translateX(3%) translateY(3%); }
 
-.card.card3.stackedBar {
-  transform: translateX(3%); }
-
-.card3select {
-  opacity: 0.13;
-  z-index: 2; }
-
 .card.card2 {
   transform: translateX(9%) translateY(9%); }
-
-.card.card2.stackedBar {
-  transform: translateX(9%); }
-
-.card2select {
-  opacity: 0.5;
-  z-index: 3; }
 
 .card.card1 {
   transform: translateX(15%) translateY(15%); }
 
+.card.card3.stackedBar {
+  transform: translateX(3%); }
+
+.card.card2.stackedBar {
+  transform: translateX(9%); }
+
 .card.card1.stackedBar {
   transform: translateX(15%); }
-
-.card1select {
-  opacity: 0.9;
-  z-index: 4;
-  box-shadow: 0 .5px .5px 0px black; }
 
 .card-selector {
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
@@ -181,28 +191,15 @@ body {
   .card-selector .cardtitle {
     display: none; }
 
-.card.datavis {
-  background-color: red; }
+.card3select {
+  opacity: 0.13;
+  z-index: 2; }
 
-.card.research {
-  background-color: #4A90E2; }
+.card2select {
+  opacity: 0.5;
+  z-index: 3; }
 
-.card.object {
-  background-color: #50E3C2; }
-
-.card p {
-  font-color: white; }
-
-.card p {
-  position: absolute;
-  text-align: center; }
-
-footer .bottomrect {
-  width: 100%;
-  height: 80%;
-  background-color: #FFEE19; }
-footer .toprect {
-  width: 100%;
-  height: 20%;
-  opacity: .3;
-  background-color: #FFEE19; }
+.card1select {
+  opacity: 0.9;
+  z-index: 4;
+  box-shadow: 0 .5px .5px 0px black; }

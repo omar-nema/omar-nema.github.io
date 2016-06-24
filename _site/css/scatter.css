@@ -1,19 +1,11 @@
-@media only screen and (min-width: 640px) {
-  .content {
-    height: 41.5rem; }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1rem; } }
 .scatter-large .cardholder {
   position: absolute; }
 .scatter-large .cardtitle {
   font-size: 1.9vw; }
 .scatter-large .cardholder.hospitalquality {
   width: 27vw;
+  max-width: 320px;
+  max-height: 240px;
   height: 20.25vw;
   top: 9.1%;
   left: 3.25%; }
@@ -22,6 +14,8 @@
 .scatter-large .cardholder.missingrx {
   width: 21vw;
   height: 15.75vw;
+  max-width: 248.844px;
+  max-height: 186.633px;
   top: 2%;
   left: 37%; }
   .scatter-large .cardholder.missingrx .cardcontent p {
@@ -29,6 +23,8 @@
 .scatter-large .cardholder.personaldata {
   width: 18vw;
   height: 13.5vw;
+  max-width: 213.297px;
+  max-height: 159.97275px;
   top: 36%;
   left: 45.5%; }
   .scatter-large .cardholder.personaldata .cardcontent p {
@@ -36,6 +32,8 @@
 .scatter-large .cardholder.thesis {
   width: 25vw;
   height: 18.75vw;
+  max-width: 296.25px;
+  max-height: 222.1875px;
   top: 52%;
   left: 14.25%; }
   .scatter-large .cardholder.thesis .cardcontent p {
@@ -43,6 +41,8 @@
 .scatter-large .cardholder.narrative {
   width: 18vw;
   height: 13.5vw;
+  max-width: 213.297px;
+  max-height: 159.97275px;
   top: 70.25%;
   left: 45.5%; }
   .scatter-large .cardholder.narrative .cardcontent p {
@@ -50,6 +50,8 @@
 .scatter-large .cardholder.tools {
   width: 17vw;
   height: 12.75vw;
+  max-width: 201.438px;
+  max-height: 151.0785px;
   top: 16%;
   left: 76.7%; }
   .scatter-large .cardholder.tools .cardcontent p {
@@ -57,6 +59,8 @@
 .scatter-large .cardholder.table {
   width: 12vw;
   height: 9vw;
+  max-width: 142.2px;
+  max-height: 106.65px;
   top: 51%;
   left: 71.25%; }
   .scatter-large .cardholder.table .cardcontent p {
@@ -64,6 +68,8 @@
 .scatter-large .cardholder.tea {
   width: 10vw;
   height: 7.5vw;
+  max-width: 118.5px;
+  max-height: 88.875px;
   top: 75%;
   left: 78%; }
   .scatter-large .cardholder.tea .cardcontent p {
@@ -129,64 +135,3 @@
   left: 78%; }
   .scatter-medium .cardholder.tea .cardcontent p {
     font-size: 0.6555vw; }
-
-.scatter-small .cardtitle {
-  font-size: 2.47vw; }
-.scatter-small .cardholder {
-  position: absolute; }
-.scatter-small .cardholder.hospitalquality {
-  width: 35.1vw;
-  height: 26.325vw;
-  top: 9.1%;
-  left: 0%; }
-  .scatter-small .cardholder.hospitalquality .cardcontent p {
-    font-size: 2.0007vw; }
-.scatter-small .cardholder.missingrx {
-  width: 27.3vw;
-  height: 20.475vw;
-  top: 2%;
-  left: 37%; }
-  .scatter-small .cardholder.missingrx .cardcontent p {
-    font-size: 1.5561vw; }
-.scatter-small .cardholder.personaldata {
-  width: 23.4vw;
-  height: 17.55vw;
-  top: 36%;
-  left: 45.5%; }
-  .scatter-small .cardholder.personaldata .cardcontent p {
-    font-size: 1.3338vw; }
-.scatter-small .cardholder.thesis {
-  width: 32.5vw;
-  height: 24.375vw;
-  top: 52%;
-  left: 10%; }
-  .scatter-small .cardholder.thesis .cardcontent p {
-    font-size: 1.8525vw; }
-.scatter-small .cardholder.narrative {
-  width: 23.4vw;
-  height: 17.55vw;
-  top: 70.25%;
-  left: 45.5%; }
-  .scatter-small .cardholder.narrative .cardcontent p {
-    font-size: 1.3338vw; }
-.scatter-small .cardholder.tools {
-  width: 22.1vw;
-  height: 16.575vw;
-  top: 16%;
-  left: 76.7%; }
-  .scatter-small .cardholder.tools .cardcontent p {
-    font-size: 1.2597vw; }
-.scatter-small .cardholder.table {
-  width: 15.6vw;
-  height: 11.7vw;
-  top: 51%;
-  left: 71.25%; }
-  .scatter-small .cardholder.table .cardcontent p {
-    font-size: 0.8892vw; }
-.scatter-small .cardholder.tea {
-  width: 13vw;
-  height: 9.75vw;
-  top: 75%;
-  left: 78%; }
-  .scatter-small .cardholder.tea .cardcontent p {
-    font-size: 0.741vw; }

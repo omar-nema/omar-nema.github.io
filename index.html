@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+
+<div class="contentwrapper">
 <main class="content"> 
     <div class="year-3" data-time="3">
         <p class="grid-year-header">2016</p>
@@ -37,7 +39,11 @@ layout: default
     </div> 
  {% endfor %}
     
-</main>  
+</main> 
+
+{% include sidebar.html %}
+</div>
+<div style="clear:both"></div>
 
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>

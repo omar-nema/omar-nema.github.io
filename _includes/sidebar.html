@@ -1,13 +1,28 @@
 <div class="button-holder">
-    <button class="about-button">!
+    <button class="about-button about-button-unclicked">
+        <p class="about-button-name">omar<br>nema??</p>
     </button>
 </div>
 <div class="sidebar-categories">
     {% for category in site.data.categories %}
-        <div class="button {{category.category}} hideCategory" category={{category.category}}>
+        <div class="{{category.category}} tab category hideCategory" category={{category.category}}>
             <p>{{category.category}}</p>
         </div>
     {% endfor %}
+
+    <div class="tab time-sort hideCategory">
+        <div class="bar-container">
+            <div class="bar-1"></div>
+            <div class="bar-2"></div>
+            <div class="bar-3"></div>
+        </div>
+        <div class="label-container">
+            <p class="time-label">time<br>chart</p>
+        </div>   
+    </div>
+    
+    
 </div>
-<button class="time-sort"></button>
+
+
 <div style="clear:both;"></div>

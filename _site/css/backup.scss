@@ -1,5 +1,62 @@
 
+function(event){ //stop listening
+            if (currCard){
+                currCardClassChange(currCard, 'card-selector', currCard.attr('default'));                
+            }
+            currCard = null;
+            $('.cardholder').unbind('mousemove');
+            $('.card').unbind('mouseenter');
+    
+        }  
 
+
+//        function(event){
+//        
+//            var prevX;
+//            var prevMove, currMove;
+//            var next;
+//            var initialX;
+//            var prevDirection;
+//            var currHolder = $(this);
+//            $('.card').one('mousemove', function(event2){            //MAKE SURE THIS RUNS JUST ONCE!!
+//                $('.card').unbind('mousemove');             
+//                initialX = parseFloat(event.pageX) - parseFloat($(currHolder).offset().left);
+//                currCard = $(this); //enter selects child
+//                   
+//                $(currHolder).mousemove(function(event){ 
+//                    
+//                    currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
+//                    var currX = parseFloat(event.pageX) - parseFloat($(this).offset().left);  
+//                    var currDirection = parseFloat(currX - prevX); 
+//                    //update initialX if direction switched
+//                    if (prevX && prevDirection){   
+//                        var directionSwitch = Math.sign(currDirection)*Math.sign(prevDirection)==-1;
+//                        if (directionSwitch){
+//                            initialX = prevX;
+//                        };                         
+//                    };
+//                    //detect if mouse movement has passed critical threshold to flip cards
+//                    var currMove = (currX-initialX)/parseFloat($(this).width());
+//                    var criticalMove = Math.abs(currMove) > fractionIncrement;    
+//                    if (criticalMove){
+//                        initialX = currX;      
+//                        //new card coming in
+//                        if (currCard !== getCardInSequence(currCard, currDirection) ){
+//                            
+//                            currCardClassChange(currCard, 'card-selector', currCard.attr('default'));
+//                            currCard = getCardInSequence(currCard, currDirection);
+//                            currCardClassChange(currCard, currCard.attr('default'), 'card-selector');                      
+//                        }                                    
+//                    };
+//                    if (prevX) {
+//                        prevDirection = parseFloat(currDirection);
+//                    };
+//                    prevX = currX;
+//                    prevMove = currMove;
+//                });    
+//                
+//            });
+//        }
 
 
 //@media only screen and (max-width: 1035px)

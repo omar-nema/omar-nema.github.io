@@ -8,7 +8,8 @@
   background-color: #0000ff;
   z-index: 1000;
   color: white;
-  overflow: auto; }
+  overflow: auto;
+  min-height: 630px; }
 
 .about-header {
   height: 15%;
@@ -24,38 +25,149 @@
 .about-grid {
   width: 100%;
   max-width: 1270px;
-  height: 90%; }
+  height: 85%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); }
 
 .about-row {
-  height: 35%; }
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: hidden; }
+
+.row-1 {
+  padding-bottom: 3%; }
 
 [class*='col-'] {
   float: left;
   height: 100%;
-  font-size: 1.1rem; }
+  font-size: 1rem; }
 
 .colheader {
-  height: 4%;
+  height: 4rem;
   text-align: center;
-  letter-spacing: 2px;
-  padding-bottom: 4%; }
+  margin: 0;
+  letter-spacing: 2px; }
 
 .col-1, .col-2 {
-  width: 50%; }
+  width: 50%;
+  padding-left: 8%;
+  padding-right: 8%;
+  text-align: center; }
 
 .col-3 {
-  padding-top: 3%;
-  width: 100%;
-  padding-left: 8vw;
-  padding-right: 8vw; }
+  width: 84%;
+  position: relative;
+  margin-left: 8vw;
+  margin-right: 8vw; }
+
+.colcontent {
+  margin: 0; }
+
+.colheader.timeline {
+  padding-top: 0%;
+  padding-bottom: 3%; }
+
+.phase2 {
+  padding-right: 3%; }
+
+.phase.phase3 {
+  width: 45%; }
+  .phase.phase3 .year-col {
+    width: 33%; }
+  .phase.phase3 .date2 {
+    margin-left: 40%; }
+
+.phase1color {
+  color: #9A9A9A; }
+
+.phase2color {
+  color: #FFB8B8; }
+
+.phase3color {
+  color: #FAE803; }
+
+.phaseHover {
+  margin-right: 2%;
+  position: absolute;
+  top: 0%;
+  bottom: 5%;
+  display: none; }
+  .phaseHover .phaseHover-content-header {
+    text-align: center;
+    font-size: .9rem;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    margin: 0; }
+  .phaseHover .phaseHover-content {
+    margin: 0;
+    font-size: .7rem;
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    height: 8rem; }
+
+.phaseHover.first {
+  border: .5px dashed white;
+  left: -2%;
+  width: 27.5%;
+  display: none; }
+
+.phaseHover.second {
+  border: .5px dashed white;
+  left: 25.5%;
+  width: 27.5%; }
+
+.phaseHover.third {
+  border: .5px dashed white;
+  left: 53%;
+  width: 45%; }
+
+.phase {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  width: 27.5%;
+  height: 15rem;
+  margin-top: 0; }
+  .phase .fact.important {
+    font-weight: 900; }
+  .phase .date1 {
+    text-align: center;
+    margin: 0; }
+  .phase .year-divider {
+    width: 40%; }
+  .phase .year-header {
+    height: 4rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    float: left;
+    font-weight: 900;
+    letter-spacing: 5px; }
+  .phase [class*='year-row'] {
+    float: left;
+    height: 40%;
+    width: 100%;
+    font-size: .8rem; }
+  .phase .year-col.two-third {
+    width: 63%;
+    padding-left: 10%; }
+  .phase .year-col {
+    float: left;
+    width: 50%;
+    height: 100%;
+    margin: 0; }
+    .phase .year-col p {
+      text-align: left;
+      display: inline-block; }
 
 @media only screen and (max-width: 900px) {
   .col-3 .fact {
     font-size: .6rem; } }
 @media only screen and (max-width: 700px) {
-  .about-row {
-    height: 15rem; }
-
   .col-1, .col-2 {
     width: 100%; }
 
@@ -77,64 +189,16 @@
   .phase.phase3.phase3color {
     width: 100%;
     padding-left: 10%;
-    padding-right: 10%; } }
-.colheader.timeline {
-  padding-top: 0%;
-  padding-bottom: 3%; }
+    padding-right: 10%; }
 
-.phase.phase1 .date2 {
-  margin-left: 27%; }
-
-.phase2 {
-  padding-right: 3%; }
-
-.phase.phase3 {
-  width: 45%; }
-  .phase.phase3 .year-col {
-    width: 33%; }
-  .phase.phase3 .date2 {
-    margin-left: 40%; }
-
-.phase1color {
-  color: #9A9A9A; }
-
-.phase2color {
-  color: #FFB8B8; }
-
-.phase3color {
-  color: #FAE803; }
-
-.phase {
-  position: relative;
-  float: left;
-  width: 27.5%;
-  height: 15rem;
-  margin-top: 0; }
-  .phase .fact.important {
-    font-weight: 900; }
-  .phase .date1, .phase .date2 {
-    width: 20%;
-    padding: 0; }
-  .phase .year-divider {
-    width: 40%; }
-  .phase .year-header {
-    height: 20%;
-    width: 100%;
-    margin-bottom: 5%;
-    float: left; }
-  .phase [class*='year-row'] {
-    float: left;
-    height: 40%;
-    width: 100%;
-    font-size: .8rem; }
-  .phase .year-col.two-third {
-    width: 63%;
-    padding-left: 10%; }
-  .phase .year-col {
-    float: left;
+  .phaseHover.first, .phaseHover.second {
     width: 50%;
-    height: 100%;
-    margin: 0; }
-    .phase .year-col p {
-      text-align: left;
-      display: inline-block; }
+    bottom: 15rem; }
+
+  .phaseHover.second {
+    left: 50%; }
+
+  .phaseHover.third {
+    width: 100%;
+    left: 0%;
+    top: 19rem; } }

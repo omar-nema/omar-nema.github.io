@@ -1,85 +1,88 @@
-@media only screen and (max-width: 640px) {
-  footer {
-    position: relative;
-    float: left;
-    clear: both;
-    width: 100%;
-    height: 1rem; } }
 .grid-year-header {
   display: none; }
 
-.grid.timesort {
-  min-height: 39.8rem;
-  padding-top: 7%;
-  padding-left: 5%;
-  min-width: 500px; }
-  .grid.timesort .card1.card1select {
-    box-shadow: none; }
-  .grid.timesort .card1 .cardtitle {
-    font-size: 1.82vw; }
-  @media only screen and (min-width: 1000px) {
-    .grid.timesort .cardholder {
-      width: 18.2vw;
-      height: 14.56vw;
-      max-width: 211px;
-      max-height: 169px;
-      float: left;
-      position: inherit;
-      margin-left: 2%;
-      margin-right: 0;
-      margin-top: 0; }
-      .grid.timesort .cardholder .cardcontent p {
-        font-size: 1.274vw; } }
-  @media only screen and (max-width: 1000px) {
-    .grid.timesort .cardholder {
-      width: 20.8vw;
-      height: 16.64vw;
-      float: left;
-      position: inherit;
-      margin-left: 2%;
-      margin-right: 0;
-      margin-top: 0; }
-      .grid.timesort .cardholder .cardcontent p {
-        font-size: 1.456vw; } }
-  @media only screen and (max-width: 800px) {
-    .grid.timesort {
-      padding-top: 15%; } }
-  .grid.timesort [class*='year-'] {
-    height: 16.64vw;
-    max-width: 211px;
-    max-height: 169px;
-    width: 8%;
-    float: left;
-    position: relative; }
-  .grid.timesort .grid-year-header {
-    display: block;
-    font-weight: 900;
-    color: blue;
-    font-family: Montserrat;
-    text-align: center;
-    width: 100%;
-    position: absolute;
-    top: 4.68vw; }
-
 .grid .cardholder {
-  width: 26vw;
-  height: 20.8vw;
+  width: 21.6vw;
+  height: 17.28vw;
   float: left;
   position: inherit;
   margin-left: 5vw;
   margin-right: 1vw;
   margin-top: 8vw; }
   .grid .cardholder .cardcontent p {
-    font-size: 1.82vw; }
-.grid .cardtitle {
-  font-size: 2.6vw; }
+    font-size: 1.68vw; }
 .grid .card {
   border-radius: 5%; }
-@media only screen and (max-width: 640px) {
+.grid .cardtitle {
+  font-size: 2.08vw; }
+@media only screen and (max-width: 650px) {
   .grid .cardholder {
-    width: 35.1vw;
-    height: 28.08vw; }
+    width: 32.4vw;
+    height: 25.92vw; }
     .grid .cardholder .cardcontent p {
-      font-size: 2.457vw; }
+      font-size: 2.268vw; }
   .grid .cardtitle {
-    font-size: 3.38vw; } }
+    font-size: 2.08vw; } }
+
+.grid.timesort {
+  min-height: 39.8rem;
+  padding-top: 13vh;
+  padding-left: 5%; }
+  .grid.timesort .content {
+    transform: translateX(-60%); }
+  .grid.timesort .cardholder {
+    border-radius: 0%; }
+  .grid.timesort .card {
+    border-radius: 0%; }
+    .grid.timesort .card .cardcontent img {
+      border-radius: 0; }
+  .grid.timesort .card1.card1select {
+    box-shadow: none; }
+  .grid.timesort .card1 .cardtitle {
+    font-size: 1.3vw;
+    letter-spacing: 6px; }
+  .grid.timesort [class*='year-'] {
+    height: 14.144vw;
+    max-width: 211px;
+    max-height: 169px;
+    width: 8%;
+    float: left;
+    position: relative;
+    margin-right: 20px; }
+  .grid.timesort .grid-year-header {
+    display: block;
+    font-weight: 400;
+    color: grey;
+    opacity: .7;
+    font-family: Courier New;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0; }
+  @media only screen and (min-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 18.2vw;
+      height: 14.56vw;
+      max-width: 211px;
+      max-height: 168.8px;
+      float: left;
+      position: inherit;
+      margin-left: 2%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.176vw; } }
+  @media only screen and (max-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 20.8vw;
+      height: 16.64vw;
+      float: left;
+      position: inherit;
+      margin-left: .01%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.344vw; } }

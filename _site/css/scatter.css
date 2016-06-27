@@ -1,3 +1,6 @@
+@media only screen and (min-width: 1200px) {
+  .scatter-large .card .cardtitle {
+    font-size: 21px; } }
 .scatter-large .cardholder {
   position: absolute; }
 .scatter-large .cardtitle {
@@ -9,8 +12,12 @@
   height: 20.25vw;
   top: 9.1%;
   left: 3.25%; }
-  .scatter-large .cardholder.hospitalquality .cardcontent p {
-    font-size: 1.89vw; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.hospitalquality .cardcontent p {
+      font-size: 1.89vw; } }
+  @media only screen and (min-width: 1200px) {
+    .scatter-large .cardholder.hospitalquality .cardcontent p {
+      font-size: 22.4px; } }
 .scatter-large .cardholder.missingrx {
   width: 21vw;
   height: 15.75vw;
@@ -18,8 +25,12 @@
   max-height: 186.633px;
   top: 2%;
   left: 37%; }
-  .scatter-large .cardholder.missingrx .cardcontent p {
-    font-size: 1.47vw; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.missingrx .cardcontent p {
+      font-size: 1.47vw; } }
+  @media only screen and (min-width: 1200px) {
+    .scatter-large .cardholder.missingrx .cardcontent p {
+      font-size: 17.41908px; } }
 .scatter-large .cardholder.personaldata {
   width: 18vw;
   height: 13.5vw;
@@ -27,8 +38,13 @@
   max-height: 159.97275px;
   top: 36%;
   left: 45.5%; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.personaldata .cardcontent p {
+      font-size: 1.26vw; } }
+@media only screen and (max-width: 1200px) and (min-width: 1200px) {
   .scatter-large .cardholder.personaldata .cardcontent p {
-    font-size: 1.26vw; }
+    font-size: 14.93079px; } }
+
 .scatter-large .cardholder.thesis {
   width: 25vw;
   height: 18.75vw;
@@ -36,8 +52,13 @@
   max-height: 222.1875px;
   top: 52%;
   left: 14.25%; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.thesis .cardcontent p {
+      font-size: 1.75vw; } }
+@media only screen and (max-width: 1200px) and (min-width: 1200px) {
   .scatter-large .cardholder.thesis .cardcontent p {
-    font-size: 1.75vw; }
+    font-size: 20.7375px; } }
+
 .scatter-large .cardholder.narrative {
   width: 18vw;
   height: 13.5vw;
@@ -45,8 +66,13 @@
   max-height: 159.97275px;
   top: 70.25%;
   left: 45.5%; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.narrative .cardcontent p {
+      font-size: 1.26vw; } }
+@media only screen and (max-width: 1200px) and (min-width: 1200px) {
   .scatter-large .cardholder.narrative .cardcontent p {
-    font-size: 1.26vw; }
+    font-size: 14.93079px; } }
+
 .scatter-large .cardholder.tools {
   width: 17vw;
   height: 12.75vw;
@@ -54,8 +80,12 @@
   max-height: 151.0785px;
   top: 16%;
   left: 76.7%; }
-  .scatter-large .cardholder.tools .cardcontent p {
-    font-size: 1.19vw; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.tools .cardcontent p {
+      font-size: 1.19vw; } }
+  @media only screen and (min-width: 1200px) {
+    .scatter-large .cardholder.tools .cardcontent p {
+      font-size: 14.10066px; } }
 .scatter-large .cardholder.table {
   width: 12vw;
   height: 9vw;
@@ -63,8 +93,12 @@
   max-height: 106.65px;
   top: 51%;
   left: 71.25%; }
-  .scatter-large .cardholder.table .cardcontent p {
-    font-size: 0.84vw; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.table .cardcontent p {
+      font-size: 0.84vw; } }
+  @media only screen and (min-width: 1200px) {
+    .scatter-large .cardholder.table .cardcontent p {
+      font-size: 9.954px; } }
 .scatter-large .cardholder.tea {
   width: 10vw;
   height: 7.5vw;
@@ -72,8 +106,12 @@
   max-height: 88.875px;
   top: 75%;
   left: 78%; }
-  .scatter-large .cardholder.tea .cardcontent p {
-    font-size: 0.7vw; }
+  @media only screen and (max-width: 1200px) {
+    .scatter-large .cardholder.tea .cardcontent p {
+      font-size: 0.7vw; } }
+  @media only screen and (min-width: 1200px) {
+    .scatter-large .cardholder.tea .cardcontent p {
+      font-size: 8.295px; } }
 
 .scatter-medium .cardtitle {
   font-size: 2.185vw; }

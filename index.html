@@ -4,12 +4,6 @@ layout: default
 
 <div class="contentwrapper">
 <main class="content"> 
-<!--
-    
-    <div class="axislabel" style="float:left; height: 100%; width: 3%; background-color: blue"><p>TIME</p></div>
-    <div class="the-holder" style="float: left; width:96%; height:100%; position: relative;">
-    
--->
 
     <div class="year-3" data-time="3">
         <p class="grid-year-header">2016</p>
@@ -24,13 +18,9 @@ layout: default
     </div>    
     <div style="clear:both"></div>    
         
-<!--    </div>        -->
-    
-    
  {% for project in site.data.projects %}
     
-<!--    add project default-->
-    <div class="cardholder {{project.title}} {{project.category}}" category={{project.category}} data-time="{{project.timeOrder}}">
+    <div class="cardholder {{project.title}} {{project.category}}" title={{project.title}} category={{project.category}} data-time="{{project.timeOrder}}">
         
         <div title="{{project.title}}" class="card {{project.category}} card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>{{project.tags}}</p></div>

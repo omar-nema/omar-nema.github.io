@@ -66,6 +66,9 @@ $large-card-title-factor : .18;
 
 
 
+.content.grid.timesort {
+    margin-top: 7vh;
+}
 
 .grid.timesort {
 
@@ -76,13 +79,12 @@ $large-card-title-factor : .18;
     $med-card-factor: .8;
     $med-font-factor: .8;
     
-    min-height: 39.8rem;
-    padding-top: 13vh;    
-    padding-left: 5%;
+//    min-height: 39.8rem;
+//    padding-top: 13vh;    
+//    padding-left: 5%;
+//    min-width: 550px;
     
-    .content {
-        transform: translateX(-60%);
-    }
+ 
     .cardholder {
         border-radius: 0%;
     }
@@ -132,8 +134,8 @@ $large-card-title-factor : .18;
          .cardholder {
             width: $large-card-factor*26vw;
             height: $large-card-factor*$cardratio*26vw;
-            max-width: 211px;
-            max-height: $cardratio*211px;
+//            max-width: 211px;
+//            max-height: $cardratio*211px;
             float: left;
             position: inherit;
             margin-left: 2%;

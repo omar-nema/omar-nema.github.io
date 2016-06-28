@@ -1,13 +1,13 @@
-
-function(event){ //stop listening
-            if (currCard){
-                currCardClassChange(currCard, 'card-selector', currCard.attr('default'));                
-            }
-            currCard = null;
-            $('.cardholder').unbind('mousemove');
-            $('.card').unbind('mouseenter');
-    
-        }  
+//
+//function(event){ //stop listening
+//            if (currCard){
+//                currCardClassChange(currCard, 'card-selector', currCard.attr('default'));                
+//            }
+//            currCard = null;
+//            $('.cardholder').unbind('mousemove');
+//            $('.card').unbind('mouseenter');
+//    
+//        }  
 
 
 //        function(event){

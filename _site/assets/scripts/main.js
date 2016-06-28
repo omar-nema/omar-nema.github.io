@@ -8,23 +8,22 @@ var fractionIncrement = .1;
 var layoutResizeEnabled = true;
 var currCard; 
 
-///button mouseover function
 
 
 var generateLayout = function(){
     if (layoutResizeEnabled){
     var width = $(window).width();
         if (width >= breakpoint1){
-            $('.content').attr('class', 'content scatter-large');
+            $('.content').attr('class', 'content scatter-large fadeIn');
         }
         else if (width < breakpoint2){
-            $('.content').attr('class', 'content grid');
+            $('.content').attr('class', 'content grid fadeIn');
         }
         else if (width >= breakpointMid && width < breakpoint1){
-            $('.content').attr('class', 'content scatter-medium');         
+            $('.content').attr('class', 'content scatter-medium fadeIn');         
         }
         else if (width < breakpointMid && width < breakpoint1){
-            $('.content').attr('class', 'content scatter-medium');          
+            $('.content').attr('class', 'content scatter-medium fadeIn');          
         };         
     }
 
@@ -56,20 +55,29 @@ var doneResizing = function(){
 };
 
 
-
-function categoryMouseLeave(){
-      $(this).removeClass('showCategory').addClass('hideCategory');
-       $('.cardholder').css('opacity', '1');    
-    console.log('call me beep me');
-};
-
 function categoryHover(){
       $(this).removeClass('hideCategory').addClass('showCategory');
        $('.cardholder').css('opacity', '.3');
        $('.cardholder.' + $(this).attr('category')).css('opacity', '1');       
 }
+function categoryMouseLeave(){
+    $(this).removeClass('showCategory').addClass('hideCategory');
+    $('.cardholder').css('opacity', '1');    
+};
+function showCat() {
+    //reset
+    $('.sidebar-categories .category').removeClass('showCategory').addClass('hideCategory');
+    $('.sidebar-categories .category').one('click', showCat);
+    $('.sidebar-categories .category').mouseleave(categoryMouseLeave);
+    $(this).unbind('mouseleave');   
+    $(this).removeClass('hideCategory').addClass('showCategory'); 
+    $(this).one('click', hideCat);    
+    $('.content').attr('class', 'content grid');
+    layoutResizeEnabled = false;
+    $('.cardholder').css('display', 'none');
+    $('.cardholder.' + $(this).attr('category')).css('display', 'block'); 
 
-
+};
 function hideCat() {
     $(this).one('click', showCat);  
     $(this).bind('mouseleave', categoryMouseLeave);
@@ -77,38 +85,28 @@ function hideCat() {
     $('.cardholder').css('display', 'block');
     generateLayout();
 };
-function showCat() {
-    $('.sidebar-categories .button').removeClass('showCategory').addClass('hideCategory');
-    $('.sidebar-categories .button').mouseleave(categoryMouseLeave);
-
-    $(this).unbind('mouseleave');   
-    $(this).removeClass('hideCategory').addClass('showCategory');    
-    $('.content').attr('class', 'content grid');
-    layoutResizeEnabled = false;
-    $(this).one('click', hideCat);
-    //console.log($(this).attr('category'));
-    $('.cardholder').css('display', 'none');
-    $('.cardholder.' + $(this).attr('category')).css('display', 'block'); 
-
-};
 
 function timeSort(){
-        //get currently selected category !
+        $('.sidebar-categories .category').removeClass('showCategory').addClass('hideCategory');   
+        $('.cardholder').css('display', 'block');
+        $('.cardholder').css('opacity', '0'); //transition
         var origHTML = $('.content').html();    
         $('.time-sort').one('click', function(){
             return undoTimeSort(origHTML);
         });    
-    
         $(this).unbind('mouseleave');      
         $(this).removeClass('hideCategory').addClass('showCategory');   
-        $('.content').attr('class', 'content grid timesort');
+        $('.content').attr('class', 'content grid timesort fadeIn');
         $('.card').addClass('stackedBar');        
         var year3 = $('.content').find('.cardholder[data-time=3]');
-        var year2 = $('.content').find('.cardholder[data-time=2]');      
-        var year1 = $('.content').find('.cardholder[data-time=1]');             
-        year3.insertAfter('.year-3');
-        year2.insertAfter('.year-2');
-        year1.insertAfter('.year-1');  
+        var year2 = $('.content').find('.cardholder[data-time=2]');     
+        var year1 = $('.content').find('.cardholder[data-time=1]');   
+        year3.addClass('fadeIn').insertAfter('.year-3');
+        year2.addClass('fadeIn').insertAfter('.year-2');
+        year1.addClass('fadeIn').insertAfter('.year-1');
+    
+        $('.cardholder').css('opacity', '1');
+        
         layoutResizeEnabled = false;
 };
 
@@ -116,12 +114,10 @@ function undoTimeSort(origHTML){
     $('.time-sort').bind('mouseleave', categoryMouseLeave);    
     $('.time-sort').one('click', timeSort);      
     layoutResizeEnabled = true;
+    $('.cardholder').css('opacity', '0'); //transition
     $('.content').html(origHTML);
-    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
-    //
-    
-    //do we have to re-bind evnet listeners ?
-    
+    $('.cardholder').css('opacity', '1'); //transition
+    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);    
     generateLayout();       
 };
 
@@ -190,12 +186,10 @@ function aboutTimeLineMouseover() {
     var phaseOrder = $(this).data('phaseorder');
     var currHover = $('.phaseHover.' + phaseOrder);
     var yearHeader = $(this).find('.year-header .date1');  
-    console.log(currHover);
-    $('.colheader.timeline').css('visibility', 'hidden');  
-//    if (phaseOrder == 'second' || phaseOrder == 'third'){
-//      $('.colheader.timeline').css('visibility', 'hidden');  
-//    };
-    currHover.css('display', 'block');
+//    $('.colheader.timeline').css('visibility', 'hidden');  
+//    currHover.css('visibility', 'visible'); 
+    $('.colheader.timeline').css('opacity', '0');  
+    currHover.css('opacity', '1');        
     yearHeader.css('display', 'none');
 };
 
@@ -203,35 +197,35 @@ function aboutTimeLineMouseLeave() {
     var phaseOrder = $(this).data('phaseorder');    
     var currHover = $('.phaseHover.' + $(this).data('phaseorder'));
     var yearHeader = $(this).find('.year-header .date1');
-    if (phaseOrder == 'second' || phaseOrder == 'third'){
-      $('.colheader.timeline').css('visibility', 'visible');    
-    };    
-    currHover.css('display', 'none');    
+//$('.colheader.timeline').css('visibility', 'visible');  
+//    currHover.css('visibility', 'hidden'); 
+    $('.colheader.timeline').css('opacity', '1');      
+    currHover.css('opacity', '0');
     yearHeader.css('display', 'block'); 
-    //we need orig yearHeader text, store in data ?
 };
 
 function aboutFirstClick(){
-        console.log('hey');
         $('.about-button').one('click', aboutSecondClick);    
         $('.about-page').css('display', 'block');
-        $('.content').css('display', 'none');
+        $('.about-page').removeClass('slideUp').addClass('slideDown');
         $('.about-button').html('<p>i see..</p>');  
-        $('.about-button').attr('class', 'about-button about-button-aboutpage');
-    
+        $('.about-button').attr('class', 'about-button about-button-aboutpage button');
         $('.phase').mouseover(aboutTimeLineMouseover).mouseleave(aboutTimeLineMouseLeave);
         
 };
 function aboutSecondClick(){
-    console.log('irunz');
-
+    $('.about-page').removeClass('slideDown').addClass('slideUp');
     $('.about-button').one('click', aboutFirstClick);  
-    $('.content').css('display', 'block');
-    $('.about-page').css('display', 'none');
     var newHTML =  '<p>omar<br>nema.</p>';
     $('.about-button').html(newHTML);
-    $('.about-button').attr('class', 'about-button about-button-clicked');
+    $('.about-button').attr('class', 'about-button about-button-clicked button');
 
+};
+
+function cardClick(){
+//    console.log($(this).attr('title'));
+    $('.content').fadeOut(500);
+    window.location.href = $(this).attr('title')  + '.html'
 };
 
 
@@ -239,13 +233,17 @@ function aboutSecondClick(){
 $(document).ready(function(event){
     //run things when layout gen is done?
     $(window).load(function(){   
-        generateLayout();     
-        $('.content').fadeIn(500, function(){
-            //all functions dependent on intial CSS property load below
-        });    
+        generateLayout(); 
+        $('.content').css('display', 'block');
+//        $('.content').fadeIn(500, function(){
+//            //all functions dependent on intial CSS property load below
+//        });    
     });
     
     $('.about-button').one('click', aboutFirstClick);
+    
+    
+    $('.cardholder').click(cardClick);
     
     //SIDEBAR
     $('.time-sort').one('click', timeSort);

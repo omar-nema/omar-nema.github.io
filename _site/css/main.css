@@ -17,17 +17,15 @@ body {
 
 .content {
   display: none;
-  float: left;
   width: 85vw;
   height: 85vh;
   min-height: 650px;
   max-width: 1400px;
   max-height: 790.96045px;
-  margin-left: 5vw;
   margin-top: 2vh;
   position: relative;
-  left: 50%;
-  transform: translateX(-60%); }
+  margin-left: auto;
+  margin-right: auto; }
 
 .contentwrapper {
   height: 98.5%;
@@ -62,44 +60,53 @@ footer .toprect {
   right: 1%;
   width: 100px;
   height: 50px;
-  cursor: pointer; }
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5); }
   .about-button p {
-    margin: 0; }
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.about-button:hover {
+  background-color: blue;
+  color: white; }
+
+.about-button-aboutpage:hover {
+  color: black;
+  background-color: white; }
 
 .about-button-unclicked {
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
   font-size: 20px;
   background-color: yellow;
   color: black;
   letter-spacing: 3px;
   font-family: Consolas;
   font-weight: 900; }
+  .about-button-unclicked p {
+    transform: rotate(-4deg);
+    top: 0; }
 
 .about-button-aboutpage {
   font-size: 20px;
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
-  background-color: blue;
-  border: 1px solid white;
-  color: white;
+  background-color: white;
+  border: 1px solid blue;
+  color: blue;
   letter-spacing: 3px;
   font-family: Consolas;
   font-weight: 900; }
 
 .about-button-clicked {
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   font-size: 20px;
   background-color: #FFFAFA;
   border: none;
   color: black;
+  opacity: .5;
   letter-spacing: 3px;
   font-family: Consolas;
   font-weight: 900; }
-
-.hideCategory {
-  transform: translateX(75%); }
-
-.showCategory {
-  transform: translateX(15%); }
 
 .sidebar-categories {
   z-index: 5;

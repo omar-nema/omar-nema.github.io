@@ -28,15 +28,14 @@
   height: 85%;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  padding-top: 2%;
+  min-width: 390px; }
 
 .about-row {
   overflow: auto;
   overflow-x: hidden;
   overflow-y: hidden; }
-
-.row-1 {
-  padding-bottom: 3%; }
 
 [class*='col-'] {
   float: left;
@@ -53,20 +52,24 @@
   width: 50%;
   padding-left: 8%;
   padding-right: 8%;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 3%; }
 
 .col-3 {
-  width: 84%;
+  width: 100%;
   position: relative;
-  margin-left: 8vw;
-  margin-right: 8vw; }
+  padding-left: 8%;
+  padding-right: 8%; }
 
 .colcontent {
   margin: 0; }
 
 .colheader.timeline {
-  padding-top: 0%;
-  padding-bottom: 3%; }
+  padding-bottom: 3%;
+  padding-top: 3rem;
+  padding-bottom: 3%;
+  height: 7rem;
+  transition: opacity .2s ease-in-out; }
 
 .phase2 {
   padding-right: 3%; }
@@ -87,53 +90,43 @@
 .phase3color {
   color: #FAE803; }
 
+.hover-holder {
+  width: 85%;
+  height: 100%;
+  position: absolute; }
+
 .phaseHover {
-  margin-right: 2%;
-  position: absolute;
-  top: 0%;
-  bottom: 5%;
-  display: none; }
-  .phaseHover .phaseHover-content-header {
-    text-align: center;
-    font-size: .9rem;
-    transform: translateX(-50%);
-    position: absolute;
-    left: 50%;
-    margin: 0; }
-  .phaseHover .phaseHover-content {
-    margin: 0;
-    font-size: .7rem;
-    width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 5%;
-    height: 8rem; }
+  border: .2px dashed white;
+  opacity: 0;
+  height: 95%;
+  padding-left: 2%;
+  padding-right: 2%; }
+
+.phaseHover-content {
+  height: auto; }
 
 .phaseHover.first {
-  border: .5px dashed white;
-  left: -2%;
+  float: left;
   width: 27.5%;
-  display: none; }
+  border-color: #9A9A9A; }
 
 .phaseHover.second {
-  border: .5px dashed white;
-  left: 25.5%;
-  width: 27.5%; }
+  float: left;
+  width: 27.5%;
+  border-color: #FFB8B8; }
 
 .phaseHover.third {
-  border: .5px dashed white;
-  left: 53%;
-  width: 45%; }
+  float: left;
+  width: 45%;
+  border-color: #FAE803; }
 
 .phase {
   cursor: pointer;
   position: relative;
   float: left;
   width: 27.5%;
-  height: 15rem;
+  height: 13rem;
   margin-top: 0; }
-  .phase .fact.important {
-    font-weight: 900; }
   .phase .date1 {
     text-align: center;
     margin: 0; }
@@ -149,12 +142,18 @@
     letter-spacing: 5px; }
   .phase [class*='year-row'] {
     float: left;
-    height: 40%;
+    height: 20%;
     width: 100%;
-    font-size: .8rem; }
+    font-size: 14px;
+    padding-left: 6%;
+    padding-right: 6%; }
+  .phase .year-row1 {
+    height: 35%; }
   .phase .year-col.two-third {
     width: 63%;
     padding-left: 10%; }
+  .phase .fact.important {
+    font-weight: 900; }
   .phase .year-col {
     float: left;
     width: 50%;
@@ -164,41 +163,77 @@
       text-align: left;
       display: inline-block; }
 
-@media only screen and (max-width: 900px) {
-  .col-3 .fact {
-    font-size: .6rem; } }
+.fact {
+  font-size: 11px; }
+
+@media only screen and (min-width: 1200px) {
+  .phaseHover .phaseHover-content {
+    font-size: 15px; } }
+@media only screen and (max-width: 1200px) {
+  .phaseHover .phaseHover-content {
+    font-size: 13px; } }
+@media only screen and (max-width: 875px) {
+  .phaseHover .phaseHover-content {
+    font-size: 12px; } }
 @media only screen and (max-width: 700px) {
+  .about-header p {
+    font-size: 4vw; }
+
+  .fact {
+    font-size: 10px; }
+
   .col-1, .col-2 {
-    width: 100%; }
+    width: 100%;
+    padding-bottom: 8%; }
 
   .colheader.timeline {
     padding-top: 5%; }
 
   .colcontent {
-    font-size: 1rem;
+    font-size: .8rem;
     text-align: center; }
 
   .phase.phase1 {
     width: 50%;
     padding-left: 10%; }
 
+  .phase.phase1:hover, .phase.phase2:hover, .phase.phase3:hover {
+    opacity: 0; }
+
+  .row-1 {
+    padding-bottom: 0; }
+
+  .date1 {
+    font-size: 2.5vw; }
+
+  .hover-holder {
+    height: 15rem; }
+
+  .phaseHover {
+    border: none;
+    box-shadow: none;
+    padding-top: 5%;
+    background-color: blue; }
+
+  .phaseHover .phaseHover-content {
+    font-size: 3vw; }
+
+  .phaseHover.first {
+    width: 50%;
+    height: 19rem; }
+
   .phase.phase2 {
     width: 50%;
     padding-right: 10%; }
+
+  .phaseHover.second {
+    width: 50%;
+    height: 19rem; }
 
   .phase.phase3.phase3color {
     width: 100%;
     padding-left: 10%;
     padding-right: 10%; }
 
-  .phaseHover.first, .phaseHover.second {
-    width: 50%;
-    bottom: 15rem; }
-
-  .phaseHover.second {
-    left: 50%; }
-
   .phaseHover.third {
-    width: 100%;
-    left: 0%;
-    top: 19rem; } }
+    width: 100%; } }

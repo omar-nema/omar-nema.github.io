@@ -1,10 +1,63 @@
-<!DOCTYPE html>
-<html>
-    {% include head.html %}
-        <body>
-            {{ content }}       
-        </body>
-</html>
+---
+layout: default
+---
 
 
-  
+<div class="project-border">
+
+    <nav class="project-info {{ page.theme }}">
+        <div class="project-info-title">
+            <p>{{page.title}}</p>
+        </div>
+        <div class="project-info-content">  
+            <p class="project-info-content-synposis">
+                {{page.heading}}
+                </p>
+            <div style="clear: both"></div>
+            <p class="project-info-content-tags tags">
+                {{ page.tags | join: ' / ' }}
+            </p>
+            <div style="clear: both"></div>
+            <p class="project-info-content-tags type">
+                {{ page.type | join: ' / ' }}
+            </p>            
+            <p class="project-info-content-tags date">fall 2014</p>            
+        </div>        
+    </nav>
+    
+    <div class="home-button button"> </div>
+    <div class="image-button button"></div>
+    
+<!--<i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>    -->
+<!--    <i class="fa fa-picture-o  fa-fw" aria-hidden="true"></i>-->
+    
+    <main class="project-content-wrapper">
+        <div class="project-content">
+            {{ content }}
+        </div>
+        
+        
+        <div class="site-map"></div>
+    </main>
+
+
+</div>
+
+
+<script type="text/javascript">
+    (function() {
+        var path = '//easy.myfonts.net/v2/js?sid=251136(font-family=Larsseit+Bold)&sid=251138(font-family=Larsseit+Light)&sid=251140(font-family=Larsseit+Medium)&sid=251142(font-family=Larsseit)&key=tXIrE1rv7g',
+            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+            trial = document.createElement('script');
+        trial.type = 'text/javascript';
+        trial.async = true;
+        trial.src = protocol + path;
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(trial);
+    })();
+</script>
+
+<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+<script src="https://use.fontawesome.com/d4885230d9.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/assets/scripts/project.js"></script>

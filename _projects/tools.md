@@ -1,0 +1,130 @@
+---
+layout: project
+title: tool<br>storage
+time: fall 2014
+heading: STROL-120 is an integrated tool and hardware storage system that I  designed, prototyped and constructed over the course of a semester with Danica Mitchell, Patricia Dranoff, and Connor Lynch. The system was designed to accommodate a new makerspace at Brown University. Though my (making) focus has shifted to digital design, this project provided me a valuable foundation in design research.
+tags:
+    - industrial design
+    - design research
+    - makerspace
+    - system design
+theme: 
+context: 
+type: coursework / group
+---
+
+
+<section class="intro block">
+<!--    <div class="block-header">product</div>-->
+    <div class="intro-text block-text">
+        <p style="text-align: center"> Create a product that will enhance the newly-opened Brown University Design&nbsp;Workshop.
+        </p>
+    </div>
+</section>
+
+
+<section class="block">
+    <div class="block-header">concept</div>
+    <div class="block-text">
+    <p>
+    Goals:
+    <br><span class="tab"></span>Maximize space - in the crowded workshop
+    <br><span class="tab"></span>Accommodate - the changing needs and resources of the workshop
+    <br><span class="tab"></span>Be invisible - a facilitator - and not a barrier - of the fabrication process
+    </p>
+    </div>
+    <div class="block-divider"></div>
+    <div class="block-image-container">
+        <img src="/assets/img-tools/tools-render.jpeg" class="block-image">    
+    </div>
+</section>
+
+
+
+<section class="details block">
+    <div class="block-header">features</div>
+    <div class="block-text">
+        <p>
+        Space distribution - rather than working near one tool wall in the crammed workshop, our Y-shape allows students to spread out, and distribute space more efficiently. 
+        <br>
+        <br>
+        Flexibility - we used a combination of fixed and movable tool tool racks. High-demand (low-supply) tools are fixed to the wall, but common tools can be pulled used the cart.  
+        </p>
+    </div>    
+    <div class="block-divider"></div>     
+    <div class="block-image-container">
+        <img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small">    
+    </div>   
+     <div class="block-divider"></div>   
+    <div class="block-text">
+        <p>
+        Modularity / long-term - we provided our users (managers of the Brown Design Workshop) with a booklet for assembling our STROL-120 units (no power tools required!).
+        </p>
+    </div>        
+   <div class="block-image-container">
+        <img src="/assets/img-tools/tools-booklet.png" class="block-image block-image-small">    
+    </div>    
+    <div class="block-divider"></div>  
+    <div class="block-divider"></div>        
+    <div class="block-text">
+        <p>
+        Modularity / short-term - all tool-holders, and structural support pieces (apart from prefabricated 80/20) were laser cut. Missing pieces, or small adjustments to pre-existing components can simply be remedied using our pre-made files. 
+        </p>
+    </div>  
+    <div class="block-divider"></div>       
+    <div class="block-text">
+        <p>
+        Tech details - Y-shaped laser cut (right) aluminum centerpieces attach to the 80/20 ribs, binding the three walls of the cart together. Tool holders, were designed in SolidWorks, laser cut from sheet aluminum, and attached with (hand-tightened) thumb screws through slots in each panel that align with the 80/20 skeleton inside.
+        </p>
+    </div>   
+    
+   <div class="block-image-container">
+        <img src="/assets/img-tools/tools-techdetails.jpeg" class="block-image block-image-small">    
+    </div>    
+    
+</section>
+
+
+
+<section class="research block">
+    <div class="block-header">research</div>
+    <div class="block-divider"></div>        
+    <div class="block-text">
+        <p>
+            Model-making - experimented with a number of forms in high and low fidelity mockups.
+        </p>
+    </div>
+    <div class="block-image-container">
+        <img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small">    
+    </div>       
+
+    <div class="block-text">
+        <p>Field research - observed students work in the space through time-lapse videos. This was critical in making design choices and prioritizing features of our different mock-ups.</p>
+        <p>Ideation - paper & rapid prototyping methods to experiment with different solutions. Highlights: a tool inventory website, a personal, tray-based tool storage system, workstations integrated with tool storage.</p>
+    </div>
+    
+    <div class="block-image-container">
+        <img src="/assets/img-tools/tools-sketch.jpeg" class="block-image block-image-small">    
+    </div>    
+
+    <div style="clear:both"></div>
+</section>
+
+
+<!--
+    <div class="block-image-container two">
+        <img src="/assets/img-tools/tools-models-single-1.jpg" class="block-image block-image-small">    
+        <img src="/assets/img-tools/tools-models-single-2.jpg" class="block-image block-image-small">            
+    </div>
+-->
+<!--
+<section class="research block">
+    <div class="block-header">drawbacks</div>
+    <div class="product-text block-text">
+    <p>dasdas</p>
+    </div>
+    <div class="block-header-lower">drawbacks</div>
+</section>
+-->
+
+<!--<div style="clear:both" class="block-divider"></div>-->

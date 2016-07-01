@@ -1,0 +1,43 @@
+//---
+//---
+
+.button {
+   transition: color .3s ease-in-out,  background-color .3s ease-in-out, transform .3s ease-in-out, opacity .3s ease-in-out;
+}
+.button:hover {
+    transform: scaleX(1.1) scaleY(1.1);
+    cursor: pointer;
+    opacity: 1;
+}
+
+
+.link {
+    text-decoration: underline;
+    color: white;
+}
+.link:hover {
+    cursor: pointer;
+//    opacity: .5;
+    background-color: yellow;
+    color: black;
+}
+
+
+//effects while clicking on something
+
+
+//FOR POPPING CATEGORY BUTTONS IN/OUT
+.hideCategory {
+    transform: translateX(75%);
+                transition: transform .25s ease-in-out;
+}
+.showCategory {
+    transform: translateX(15%);
+//        transition: transform 5s ease-in-out;
+            transition: transform .25s ease-in-out;
+}
+
+.cardholder {
+//    transition: width 5s ease-in-out;
+    transition: opacity .4s ease-in-out, width .3s ease-in-out, height .3s ease-in-out;
+}

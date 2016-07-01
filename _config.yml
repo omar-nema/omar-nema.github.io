@@ -19,6 +19,7 @@ github_username:  omar-nema
 
 # Build settings
 markdown: kramdown
+permalink: /:title/
 
 collections:
     projects:

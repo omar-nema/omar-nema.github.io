@@ -117,7 +117,8 @@ function undoTimeSort(origHTML){
     $('.cardholder').css('opacity', '0'); //transition
     $('.content').html(origHTML);
     $('.cardholder').css('opacity', '1'); //transition
-    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);    
+    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);  
+    $('.cardholder').click(cardClick);    
     generateLayout();       
 };
 
@@ -208,7 +209,7 @@ function aboutFirstClick(){
         $('.about-button').one('click', aboutSecondClick);    
         $('.about-page').css('display', 'block');
         $('.about-page').removeClass('slideUp').addClass('slideDown');
-        $('.about-button').html('<p>i see..</p>');  
+        $('.about-button').html('<p>enough omar.</p>');  
         $('.about-button').attr('class', 'about-button about-button-aboutpage button');
         $('.phase').mouseover(aboutTimeLineMouseover).mouseleave(aboutTimeLineMouseLeave);
         
@@ -223,9 +224,11 @@ function aboutSecondClick(){
 };
 
 function cardClick(){
-//    console.log($(this).attr('title'));
-    $('.content').fadeOut(500);
-    window.location.href = $(this).attr('title')  + '.html'
+    var title = $(this).attr('title');
+    $('.content').fadeOut(200);
+    $('.content').fadeOut(200, function(){
+           window.location.href = 'projects/' + title ; 
+    });
 };
 
 
@@ -235,14 +238,9 @@ $(document).ready(function(event){
     $(window).load(function(){   
         generateLayout(); 
         $('.content').css('display', 'block');
-//        $('.content').fadeIn(500, function(){
-//            //all functions dependent on intial CSS property load below
-//        });    
     });
     
     $('.about-button').one('click', aboutFirstClick);
-    
-    
     $('.cardholder').click(cardClick);
     
     //SIDEBAR
@@ -255,6 +253,7 @@ $(document).ready(function(event){
     
     //CARD FLIP
     $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
+    //changed to move accidentally?
     
 });
 

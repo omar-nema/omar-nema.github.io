@@ -1,0 +1,291 @@
+//---
+//---
+
+$breakpoint-about-2: 700px;
+$breakpoint-about-1-timelinepadding: 900px;
+$breakpoint-about-1-fontfactor: .7;
+
+$font-size: 1.2rem;
+$header-factor: 1.3;
+
+$phase-height: 13rem;
+$phase1-width: 27.5%;
+$phase3-width: 45%;
+$phaseHover-margin: 2%;
+
+$colheader-height: 4rem;
+$year-header-height: 4rem;
+$phase1-color: #9A9A9A;
+$phase2-color: #FFB8B8;
+$phase3-color: #FAE803; 
+
+
+.about-page {
+    position: absolute;
+    left: 0%; right: 0%; top: 0%; bottom: 0%;    
+    display: none;    
+    background-color:#0000ff;
+    z-index: 1000;
+    color: white;
+    overflow: auto; 
+    min-height: 630px;
+}
+.about-header {
+    height: 15%;
+    position: relative;
+    padding-bottom: 5%;
+    p {
+            position: absolute;
+            left: 7%;
+            font-size: 1.7rem;
+            letter-spacing: .5vw;
+            font-weight:500 ;
+        }
+}
+.about-grid {
+    width: 100%; 
+    max-width: 1270px; 
+    height: 85%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 2%;
+    min-width: 390px;
+}
+
+.about-row {
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+[class*='col-'] {
+    float: left; 
+    height: 100%;
+    font-size: 1rem;
+}
+.colheader {
+    height: $colheader-height;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 2px;
+
+}
+.col-1, .col-2{width: 50%; padding-left: 8%; padding-right: 8%; text-align: center; padding-bottom: 3%;}
+.col-3 {
+    width: 100%;
+    position: relative;
+    padding-left: 8%; padding-right: 8%;
+}
+.colcontent {
+    margin: 0;
+}
+
+
+
+
+//timeline styling here
+.colheader.timeline {
+    padding-bottom: 3%;
+    padding-top: 3rem;
+    padding-bottom: 3%;
+    height: 7rem;
+    transition: opacity .2s ease-in-out;          
+}
+.phase2 {
+    padding-right: 3%;
+}
+.phase.phase3 {
+    width: $phase3-width;
+    .year-col {
+        width: 33%;
+    }
+    .date2 {
+        margin-left: 40%;
+    }
+}
+.phase1color {
+    color: $phase1-color;
+}
+.phase2color {
+    color: $phase2-color;
+}
+.phase3color {
+    color: $phase3-color;
+}
+
+//hover boxes
+.hover-holder {
+    width: 85%;
+    height: 100%;
+    position: absolute;
+}
+.phaseHover {
+    border: .2px dashed white;  
+    opacity: 0;
+    height: 95%;
+    padding-left: 2%;
+    padding-right: 2%;
+//    box-shadow: 0 1px 2px 0px rgba(0, 0, 0, 0.7); 
+//    transition: opacity .1s ease-in-out;
+}
+
+.phaseHover-content {
+    height:auto;
+}
+.phaseHover.first {
+    float: left;
+    width: 27.5%;
+    border-color:  $phase1-color;
+}
+.phaseHover.second {
+    float: left;
+    width: 27.5%;  
+    border-color:  $phase2-color;
+}
+.phaseHover.third {
+    float: left;
+    width: 45%;
+    border-color:  $phase3-color;
+}
+.phase {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    width: $phase1-width;
+    height: $phase-height;
+    margin-top: 0;
+    .date1{
+        text-align: center;
+        margin: 0;
+    }
+    .year-divider {
+        width: 40%;
+    }        
+    .year-header {
+        height: $year-header-height;
+        margin: 0;
+        text-align: center;
+        width: 100%;
+        float: left;
+        font-weight: 900;
+        letter-spacing: 5px;        
+    }
+    
+    [class*='year-row'] {
+        float: left;
+        height: 20%;
+        width: 100%;
+        font-size: 14px;
+        padding-left: 6%;
+        padding-right: 6%;
+        }
+        .year-row1 {
+        height: 35%;
+    }
+    .year-col.two-third {
+        width: 63%;
+        padding-left: 10%;
+    }
+    .fact.important {
+        font-weight: 900;
+    }
+    .year-col {
+        float: left;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        p {
+            text-align: left;
+            display: inline-block;
+        }
+    }
+
+}
+
+.fact {
+    font-size: 11px;
+}
+//dynamic font sizes
+@media only screen and (min-width: 1200px){
+    .phaseHover .phaseHover-content {
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 1200px){
+    .phaseHover .phaseHover-content {
+        font-size: 13px;
+    }
+}
+@media only screen and (max-width: 875px){
+    .phaseHover .phaseHover-content {
+        font-size: 12px;
+    }
+} 
+@media only screen and (max-width: $breakpoint-about-2){
+    $phase1-phase2-width: 50%;
+    $phase3-width: 100%;
+    .about-header p {
+        font-size: 4vw;
+    }
+    .fact {
+        font-size: 10px;
+    }
+    .col-1, .col-2 {
+        width: 100%;
+        padding-bottom: 8%;
+    }
+    .colheader.timeline {
+        padding-top: 5%;  
+    }
+    .colcontent {
+        font-size: .8rem;
+        text-align: center;
+    }
+    .phase.phase1{
+        width: $phase1-phase2-width;
+        padding-left: 10%;
+    }
+    .phase.phase1:hover, .phase.phase2:hover, .phase.phase3:hover {
+        opacity: 0;
+    }
+    .row-1 {
+        padding-bottom: 0;
+    }
+       .date1 {
+        font-size: 2.5vw;
+    }
+    .hover-holder {
+        height: 15rem;
+    }
+    .phaseHover {
+        border: none;
+        box-shadow: none;
+        padding-top: 5%;
+        background-color: blue;
+    }
+    .phaseHover .phaseHover-content{
+        font-size: 3vw;
+    }
+    .phaseHover.first{
+        width: $phase1-phase2-width;
+        height: 19rem;
+    }
+    .phase.phase2{
+        width: $phase1-phase2-width;
+        padding-right: 10%;
+    }
+    .phaseHover.second{
+        width: $phase1-phase2-width;
+        height: 19rem;
+    }
+    .phase.phase3.phase3color{
+        width: $phase3-width;
+        padding-left: 10%;
+        padding-right: 10%;
+    }    
+    .phaseHover.third{
+        width: $phase3-width;
+    }
+
+}

@@ -2,18 +2,12 @@
 <head>
     <title>{{ site.title }} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
      <link rel="icon" type="image/png" href="favicon.ico">
-    
-    
- 
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
-<!--
-        <link rel="stylesheet" type="text/css" href="/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="/css/animations.css">    
-    <link rel="stylesheet" type="text/css" href="/css/interaction.css">      
-    <link rel="stylesheet" type="text/css" href="/css/scatter.css">   
-    <link rel="stylesheet" type="text/css" href="/css/about.css">    
-    <link rel="stylesheet" type="text/css" href="/css/project.css">
--->
+     <link rel="stylesheet" type="text/css" href="/css/main.css">
+{% if page.custom_css %}
+  {% for stylesheet in page.custom_css %}
+  <link rel="stylesheet" href="/css/{{ stylesheet }}.css" media="screen" type="text/css">
+  {% endfor %}
+{% endif %}
+
 </head>

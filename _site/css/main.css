@@ -476,7 +476,23 @@
   transition: transform .25s ease-in-out; }
 
 .cardholder {
-  transition: opacity .4s ease-in-out, width .3s ease-in-out, height .3s ease-in-out; }
+  transition: opacity .2s ease-in-out, width .2s ease-in-out, height .2s ease-in-out; }
+
+.block-text {
+  position: relative; }
+
+.tooltip {
+  position: absolute;
+  display: none;
+  z-index: 3000;
+  top: 100%; }
+
+.highlight.active {
+  color: white;
+  background-color: black; }
+
+.highlight.active:hover .tooltip {
+  display: block; }
 
 .project-info {
   transition: transform .2s ease-in-out, opacity .2s ease-in-out; }
@@ -502,7 +518,6 @@
   min-height: 40rem; }
 
 .project-info {
-  background-color: #50E3C2;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0px;
@@ -527,7 +542,7 @@
   text-align: right; }
 
 .project-info-collapse {
-  transform: translateY(-90%);
+  transform: translateY(-88%);
   opacity: .7; }
   .project-info-collapse .project-info-title, .project-info-collapse .project-info-content {
     visibility: hidden; }
@@ -547,12 +562,14 @@
 
 .project-info-content-synposis {
   float: left;
-  font-family: 'Karla';
-  margin-top: 0; }
+  font-family: "Karla";
+  margin-top: 0;
+  line-height: 1.3rem; }
 
 .project-info-content-tags {
   margin: 0;
-  line-height: 1.2rem; }
+  line-height: 1.2rem;
+  color: darkslategrey; }
 
 .project-content-wrapper {
   position: relative; }
@@ -563,13 +580,14 @@
   margin-right: auto;
   max-width: 800px;
   width: 90vw;
-  font-family: 'Karla';
+  font-family: "Karla";
+  letter-spacing: 1.1px;
+  font-weight: lighter;
   color: black; }
 
 .block {
   width: 100%;
   background-color: white;
-  display: none;
   padding: 5%;
   margin-top: 1.5rem;
   position: relative;
@@ -647,16 +665,11 @@ ul {
   max-width: 388.88889px;
   cursor: zoom-out; }
 
-.highlight {
-  color: white;
-  background-color: black; }
-
 .image-button {
   position: fixed;
   z-index: 1000;
-  width: 20px;
-  height: 20px;
-  background-color: #50E3C2;
+  width: 25px;
+  height: 25px;
   top: 10%;
   right: 1.5%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
@@ -672,14 +685,33 @@ i {
 .home-button {
   position: fixed;
   z-index: 1000;
-  width: 20px;
-  height: 20px;
-  background-color: #50E3C2;
+  width: 25px;
+  height: 25px;
   top: 5%;
+  right: 1.5%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  opacity: .7;
+  border-radius: 100%; }
+
+.text-button {
+  position: fixed;
+  z-index: 1000;
+  width: 25px;
+  height: 25px;
+  top: 15%;
   right: 1.5%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 100%;
   opacity: .7; }
+
+.project-info-button {
+  position: fixed;
+  right: 1.5%;
+  top: 0%;
+  width: 1.5rem;
+  z-index: 1000;
+  height: 1.5rem;
+  background-color: white; }
 
 @media only screen and (max-width: 960px) {
   .project-info-content {

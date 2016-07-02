@@ -2,10 +2,36 @@
 $project-content-max-width: 800px;
 $divider-height: 1.5rem;
 $project-info-color: #50E3C2;
-$block-header-color: #F2F0F0;
-
+$block-header-color: #F2F0F0; 
+$font-family-main: 'Karla';
+$project-info-padding-bottom: 1.5rem;
+// $font-family-main: 'Quicksand';
+ //$font-family-main: 'GT Eesti Pro Display Trial';
+//$main-letter-spacing: 1rem;
 
 $block-header-text-color: black;
+
+.block-text {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    display: none;
+    z-index: 3000;
+    top: 100%;
+}
+
+.highlight.active {
+    color: white;
+    background-color: black;  
+}
+
+.highlight.active:hover {
+    .tooltip {
+        display: block;
+    }
+}
 
 //transitions below
 .project-info {
@@ -37,7 +63,7 @@ $block-header-text-color: black;
 }
 
 .project-info {
-    background-color: $project-info-color;
+//    background-color: $project-info-color;
     box-shadow: 0 1px 1px rgba(0, 0,0, .3);
     position: fixed;
     top: 0px;
@@ -49,6 +75,35 @@ $block-header-text-color: black;
     font-family: Inconsolata;
     max-height: 500px;
 }
+
+
+
+//.project-info-button-vertical {
+//    position: relative;
+//    height: 100%;
+//    width: 20%;
+//    display: block;
+//    margin-left: auto;
+//    margin-right: auto;
+//    background-color: white;
+//    border-radius: 10%;
+//}
+//
+//
+//.project-info-button-horizontal {
+//    position: absolute;
+//    width: 100%;
+//    height: 20%;
+//    display: block;
+//    top: 50%;
+//    transform: translateY(-50%);
+////    margin-top: auto;
+////    margin-bottom: auto;
+//    background-color: white;
+//    border-radius: 10%;    
+//}
+//
+
 
 .project-info-title {
     position:absolute;
@@ -66,7 +121,7 @@ $block-header-text-color: black;
 
 .project-info-collapse {
 //    height: 1rem;
-    transform: translateY(-90%);
+    transform: translateY(-88%);
     opacity: .7;
     .project-info-title, .project-info-content {
         visibility:hidden;
@@ -84,16 +139,19 @@ $block-header-text-color: black;
     padding-left: 5%;
     padding-right: 5%;
     color: darkslategray;  
-    padding-bottom: 1.5rem;
+    padding-bottom: $project-info-padding-bottom;
+//    letter-spacing: 1.3px;
 }
 .project-info-content-synposis {
     float: left;
-    font-family: 'Karla';
+    font-family: $font-family-main;
     margin-top: 0;
+    line-height: 1.3rem;
 }
 .project-info-content-tags {
     margin: 0;
     line-height: 1.2rem;
+    color: darkslategrey ;
 }
 .project-content-wrapper {
     position: relative;
@@ -104,21 +162,23 @@ $block-header-text-color: black;
     margin-right: auto;
     max-width: $project-content-max-width;
     width: 90vw;
-    font-family: 'Karla';
+   // font-family: 'Karla';
+    font-family: $font-family-main;
+    letter-spacing: 1.1px;    
+    font-weight: lighter;
     color: black;    
 }
 
 .block {
     width: 100%;
     background-color: white;
-    display: none;
+//    display: none;
     padding: 5%;
     margin-top: $divider-height;    
     position: relative;
     line-height: 1.5rem;
     overflow: visible;
-    margin-bottom: 4rem;
-//    box-shadow: 0 1px 2px rgba(0, 0,0, .3);     
+    margin-bottom: 4rem; 
 }
 .block-image-container {
     position: relative;
@@ -139,6 +199,8 @@ $block-header-text-color: black;
     margin-right: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
+//    letter-spacing: $main-letter-spacing;
+//    font-family: 'Quicksand';
 }
 ul {
     list-style-type: none;
@@ -198,17 +260,14 @@ ul {
     cursor: zoom-out;
 }
 
-.highlight {
-    color: white;
-    background-color: black;
-}
+
 
 .image-button {
     position: fixed;
     z-index: 1000;
-    width: 20px;
-    height: 20px;
-    background-color: $project-info-color;
+    width: 25px;
+    height: 25px;
+ //   background-color: $project-info-color;
     top: 10%;
     right: 1.5%; 
     box-shadow: 0 1px 1px rgba(0, 0,0, .3);
@@ -225,15 +284,42 @@ i {display: none}
 .home-button {
      position: fixed;
     z-index: 1000;
-    width: 20px;
-    height: 20px;
-    background-color: $project-info-color;
+    width: 25px;
+    height: 25px;
+//    background-color: $project-info-color;
     top: 5%;
+    right: 1.5%;
+        box-shadow: 0 1px 1px rgba(0, 0,0, .3);
+//    border-radius: 100%;
+  //  background-color: $project-info-color;
+    opacity: .7;   
+    border-radius: 100%;    
+     
+}
+.text-button {
+     position: fixed;
+    z-index: 1000;
+    width: 25px;
+    height: 25px;
+  //  background-color: $project-info-color;
+    top: 15%;
     right: 1.5%;
         box-shadow: 0 1px 1px rgba(0, 0,0, .3);
     border-radius: 100%;
     opacity: .7;    
-     
+}
+.project-info-button {
+    position: fixed;
+    right: 1.5%;
+    top: 0%;
+    width: 1.5rem;
+    z-index: 1000;
+    height: 1.5rem;
+    
+//    width: $project-info-padding-bottom - .2rem;
+//    height: $project-info-padding-bottom - .2rem;
+    background-color: white;   
+  //  border: 1px solid white;
 }
 
 

@@ -27,6 +27,8 @@ $block-header-text-color: black;
     background-color: black;  
 }
 
+
+
 .highlight.active:hover {
     .tooltip {
         display: block;
@@ -42,8 +44,9 @@ $block-header-text-color: black;
     transition: opacity .3s ease-in-out;
 }
 .block-image {
-    transition: transform .2s ease-in-out;
+    transition: height .5s ease-in-out, transform .2s ease-in-out;
 }
+
 
 .project-border {
     position: absolute;
@@ -70,7 +73,7 @@ $block-header-text-color: black;
     height: auto;
     right: 0px;
     left: 0px;
-    z-index: 5;
+    z-index: 2000;
     opacity: .98;
     font-family: Inconsolata;
     max-height: 500px;
@@ -140,7 +143,8 @@ $block-header-text-color: black;
     padding-right: 5%;
     color: darkslategray;  
     padding-bottom: $project-info-padding-bottom;
-//    letter-spacing: 1.3px;
+    letter-spacing: 1.3px;
+    font-size: 13px;
 }
 .project-info-content-synposis {
     float: left;
@@ -169,6 +173,12 @@ $block-header-text-color: black;
     color: black;    
 }
 
+
+//        $('.view-button.one').addClass('active');   
+//        $('.highlight').addClass('active');             
+//        $('.block-image-container').css('display','none');   
+
+
 .block {
     width: 100%;
     background-color: white;
@@ -186,6 +196,10 @@ $block-header-text-color: black;
     margin-right: auto;
     width: 100%;  
 }
+.block-image-container.inactive {
+    display: none;
+}
+
 .block-image {
     position: relative;
     width: 100%;    
@@ -262,64 +276,106 @@ ul {
 
 
 
-.image-button {
-    position: fixed;
-    z-index: 1000;
-    width: 25px;
-    height: 25px;
- //   background-color: $project-info-color;
-    top: 10%;
-    right: 1.5%; 
-    box-shadow: 0 1px 1px rgba(0, 0,0, .3);
-    border-radius: 100%; 
-    opacity: .7;
-}
 
-.tab {
-    padding-left:4rem;
-}
 
-i {display: none}
+//.fa.fa-picture-o {
+//    font-size: 13px;
+//}
+//.txt-icon {
+//    font-size: 12px;
+//}
+
+//i {color: white; position: absolute; top: 50%; transform: translateX(-50%) translateY(-50%); left: 50%; font-size: 10px}
 
 .home-button {
-     position: fixed;
-    z-index: 1000;
-    width: 25px;
-    height: 25px;
-//    background-color: $project-info-color;
-    top: 5%;
-    right: 1.5%;
-        box-shadow: 0 1px 1px rgba(0, 0,0, .3);
-//    border-radius: 100%;
-  //  background-color: $project-info-color;
-    opacity: .7;   
-    border-radius: 100%;    
-     
-}
-.text-button {
-     position: fixed;
-    z-index: 1000;
-    width: 25px;
-    height: 25px;
-  //  background-color: $project-info-color;
-    top: 15%;
-    right: 1.5%;
-        box-shadow: 0 1px 1px rgba(0, 0,0, .3);
-    border-radius: 100%;
-    opacity: .7;    
-}
-.project-info-button {
     position: fixed;
-    right: 1.5%;
-    top: 0%;
-    width: 1.5rem;
     z-index: 1000;
-    height: 1.5rem;
+//    width: 20px;
+//    height: 20px;
+    color: yellow;
+    font-size: 13px;
+    top: 3rem;
+    right: 1.5%;
+    opacity: .5; 
+    padding: 1px;
+}
+
+.view-button {
+     position: fixed;
+    z-index: 1000;
+    right: 1.5%;
+    opacity: .7;
+    font-family: 'Inconsolata';
+    color: darkslategrey;
+    font-size: 13px;
+    cursor: pointer;
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+.view-button:hover, .view-button.active {
+    background-color: $project-info-color;
+    color: white;
+}
+
+.view-button.one {
+    top: 7rem;
+}
+.view-button.two {
+    top: 8rem;    
+}
+.view-button.three {
+    top: 9rem;        
+}
+
+.project-border.defaultView {
+    .view-button.three {
+        @extend .active;
+    }
+    .block-image-container {
+        @extend .active;
+    }    
+}
+
+.project-border.textView {
+//    .view-button.one {
+//        background-color: $project-info-color;
+//        color: white;
+//    }    
+    .view-button.one {
+        @extend .active;
+    }
+    .block-image-container {
+        @extend .inactive;
+    }
+    .block-image-container {
+       display:none;
+    }    
+    .block-image-small {
+        display: none;
+    }
+    .highlight {
+        @extend .active;
+    }
     
-//    width: $project-info-padding-bottom - .2rem;
-//    height: $project-info-padding-bottom - .2rem;
-    background-color: white;   
-  //  border: 1px solid white;
+//  .highlight {
+//        color: white;
+//        background-color: black;      
+//    }
+
+}
+
+.project-border.imageView {
+    .block.intro {
+      display: none;  
+    }
+    .block-text {
+      display: none;  
+    }     
+    .view-button.two {
+        @extend .active
+        
+    }
 }
 
 
@@ -342,7 +398,9 @@ i {display: none}
 }
 
 
+
 @media only screen and (max-width: 550px){
+      
     .project-content {
         width: 100vw;
     }
@@ -358,23 +416,6 @@ i {display: none}
     .block-header-lower {
         display: none;
     }
-    
-
 }
 
-
-
-
-//@media only screen and (max-width: $breakpoint){
-////    .project-content {
-////        .block-image-container {
-////            width: 100%;
-////            padding-left: 0%;
-////            padding-right: 0%;
-////        }
-////    }
-////        .project-border {
-////        font-size: calc( 12px + (100vw)/200 );
-////    }   
-//}
 

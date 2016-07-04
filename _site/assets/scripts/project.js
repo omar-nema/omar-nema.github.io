@@ -1,5 +1,5 @@
 
-
+var clicked = false;
 
 function collapseNav(){
     $('.project-info').addClass('project-info-collapse');
@@ -24,23 +24,9 @@ function imageMouseleave(){
     $(this).one('click', imageMouseover);    
 };
 
-function imageOnlyView(){
-    removeTextView();
-    $('.block.intro').fadeOut(500);
-    $('.block-text p').fadeOut(500);  
-//    console.log($(this).attr('button-type')); 
-//    console.log($(this).attr('button-type')=='image-button');       
-    $('.image-button').one('click', normalView);  
-};
 
-function normalView(){
-    $('.block.intro').fadeIn(500);
-    $('.block-text p').fadeIn(500); 
-    $('.image-button').one('click', imageOnlyView); 
-    if ($(this).attr('button-type')=='image-button'){
-        $(this).one('click', imageOnlyView);
-    }    
-};
+
+
 
 function homeClick(){
     $('.block').fadeOut(200, function(){
@@ -48,28 +34,55 @@ function homeClick(){
     });
 };
 
-function textView(){
-    normalView();
-    $('.block-image-container').css('display','none');
-    $('.highlight').addClass('active');
-    $(this).one('click', removeTextView);
-}
-function removeTextView(){
-    $('.block-image-container').css('display','block');
-    $('.highlight').removeClass('active');
-    if ($(this).attr('button-type')=='text-button'){
-        $(this).one('click', textView); 
-    }       
+
+function defaultView(){   
+    $('.project-border').attr('class','project-border defaultView');         
+};
+function imageOnlyView(){
+    if (!$(this).hasClass('active')){
+        $('.project-border').attr('class','project-border imageView');                    
+    } 
+};
+//function textView(){    
+//    if ($(this) == $('.view-button.one')){
+//        clicked = true;   
+//    }
+//    if (!$('.view-button.one').hasClass('active')){
+//        $('.project-border').attr('class','project-border textView');                   
+//    }     
+//};
+
+function changeView(viewName, button){
+    console.log('me ow');
+    if ($(this).hasClass('view-button')){
+        clicked = true;   
+    }  
+    if (!button.hasClass('active')){
+        $('.project-border').attr('class','project-border ' + viewName);                   
+    }      
 }
 
+//are the classes doing anything?
+function viewCheck(width){
+    if (!clicked){
+        if (width < 551) {
+         textView();
+        }  
+        else if (width > 551) {
+         defaultView();
+        };               
+    }
+};
+
+
+$(window).resize(function(event){
+    viewCheck($(this).width());
+});
 
 $(document).ready(function(event){
     
-//    
-//    $(window).load(function(event){
-//        $('.block').fadeIn(100);
-//    });
-
+    viewCheck($(window).width());
+    
     $('.project-content-wrapper').scroll(function(){   
         console.log('scroll as hell');
     });
@@ -80,10 +93,44 @@ $(document).ready(function(event){
         collapseNav();
     });
     
-    $('.image-button').one('click', imageOnlyView);
-    $('.home-button').one('click', homeClick);    
-    $('.text-button').one('click', textView);        
+    $('.home-button').one('click', homeClick);   
     
+    $('.view-button.one').click(function(){
+        changeView('textView', $(this)) 
+    });   
+    $('.view-button.two').click(function(){
+        changeView('imageView', $(this)) 
+    });   
+    $('.view-button.three').click(function(){
+        changeView('defaultView', $(this)) 
+    });       
+ 
     $('.block-image-small').click(imageMouseover).mouseleave(imageMouseleave);
     
+    //    $('.view-button.one').click(textView);  
+//    $('.view-button.two').click(imageOnlyView);      
+//    $('.view-button.three').click(defaultView);  
+    
 });
+
+
+
+//    $('.block.intro').fadeIn(500);
+//    $('.block-text p').fadeIn(500); 
+//    $('.image-button').one('click', imageOnlyView); 
+//    if ($(this).attr('button-type')=='image-button'){
+//        $(this).one('click', imageOnlyView);
+//    } 
+
+
+//    $(this).addClass('active').one('click', removeTextView);
+//    $(this).addClass('active').one('click', normalView);      
+//    $('.image-button').addClass('active').one('click', normalView);   
+//function removeTextView(){
+//    $('.block-image-container').css('display','block');
+//    $('.highlight').removeClass('active');
+//    $('.view-button').removeClass('active');
+//    if ($(this).attr('button-type')=='text-button'){
+//        $(this).one('click', textView); 
+//    }       
+//}

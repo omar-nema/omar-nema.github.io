@@ -81,11 +81,6 @@ $(window).resize(function(event){
 
 $(document).ready(function(event){
     
-    viewCheck($(window).width());
-    
-    $('.project-content-wrapper').scroll(function(){   
-        console.log('scroll as hell');
-    });
     $('.project-border').scroll(function(){
         collapseNav();
     });
@@ -93,8 +88,9 @@ $(document).ready(function(event){
         collapseNav();
     });
     
-    $('.home-button').one('click', homeClick);   
+    viewCheck($(window).width());
     
+    $('.home-button').one('click', homeClick);       
     $('.view-button.one').click(function(){
         changeView('textView', $(this)) 
     });   
@@ -105,7 +101,7 @@ $(document).ready(function(event){
         changeView('defaultView', $(this)) 
     });       
  
-    $('.block-image-small').click(imageMouseover).mouseleave(imageMouseleave);
+    $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
     
     //    $('.view-button.one').click(textView);  
 //    $('.view-button.two').click(imageOnlyView);      

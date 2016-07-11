@@ -601,7 +601,8 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 100%; }
+  width: 100%;
+  overflow: visible; }
 
 .block-image-container.inactive, .project-border.textView .block-image-container {
   display: none; }
@@ -611,7 +612,8 @@
   width: 100%;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  cursor: zoom-in; }
 
 .block-text {
   width: 95%;
@@ -646,8 +648,7 @@ ul {
   max-width: 500px; }
 
 .block-image-small {
-  max-width: 300px;
-  cursor: zoom-in; }
+  max-width: 300px; }
 
 .block.intro {
   margin-top: 4rem; }
@@ -655,12 +656,20 @@ ul {
 .block-divider {
   height: 1.5rem; }
 
-.block-image-container.two .block-image {
+.block-image-container.two {
+  width: 50%;
+  float: left; }
+  .block-image-container.two .block-image {
+    height: 175px;
+    width: auto; }
+
+.block-image-container.two.first .block-image {
+  float: right;
+  padding-right: 10px; }
+
+.block-image-container.two.second .block-image {
   float: left;
-  width: 40%;
-  left: 0;
-  margin-left: 5%;
-  margin-right: 5%; }
+  padding-left: 10px; }
 
 .block-image.image-enlarge {
   transform: scaleX(1.8) scaleY(1.8);

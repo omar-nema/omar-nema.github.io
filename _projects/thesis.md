@@ -28,12 +28,14 @@ type: coursework / group
     </div>
     
     <div class="block-text">
-        <p>Work to address motor deficit, the end goal - neuro-engineers are working to bypass the brain's motor circuits in people with motor deficits. The end goal is to create a closed-loop system where neural implants act to decode intention to move. This signal would then translated to a corresponding electrical stimulation that produces the desired movement.
+        <p>Spinal cord<br>Neuro-engineers are working to bypass the brain's motor circuits in people with motor deficits. closed-loop system where neural implants act to decode intention to move. This signal would then translated to a corresponding electrical stimulation that produces the desired movement.
+        </p>
     </div>  
     
     <div class="block-text">
         <p>Current state of research - though EES experiments are in their infancy, the field has the potential to bypass (x neurons) and instead</p>   
     <br>
+        <p>
         Progress has been made in this end, with all the 
         Epidural electrical stimulation (EES) of the spinal cord, is a non-invasive (in comparison to other neural stimulation procedures) stimulation technique, that has been shown to improve motor control in animals and humans with spinal cord injury. Studies are conducted on different animals, though primate studies
         <br>
@@ -46,13 +48,16 @@ type: coursework / group
         <p>Experimental factors - in epidural electical stimulation experiments</p>   
     </div>      
     
+    
+</section>
+
+<section class="block">
+    <header class="block-header">problem</header>
     <div class="block-text">
         <p>The problem - researchers conducting spinal cord stimulation experiments on primates rely on empirical observations to guide movement. Electrode location 
-        This lack of predictive modeling means that 
-        </p>   
-    </div>      
-    
-    
+        This lack of predictive modeling means that </p>  
+    </div>
+        
 </section>
 
 
@@ -87,9 +92,9 @@ type: coursework / group
 
 <section class="block">
     <header class="block-header">optimization</header>
-    <div class="block-text">
-        <p>Spinal cord injury - affects 250,000 americans/year, and can cause devastating, irreversible motor deficit</p>  
-    </div>
+    <div class="block-image-container">
+        <img src="/assets/img-thesis/thesis-parallelization.png" class="block-image" style="max-width: 550px">       
+    </div>   
 </section>
 
 

@@ -1,0 +1,36 @@
+.chart {
+  padding: 50px; }
+
+.y-axis {
+  position: relative; }
+
+.y-axis-label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  font-size: 18px;
+  letter-spacing: 3px;
+  opacity: .5; }
+
+.polyline {
+  fill: none;
+  stroke-width: .1px; }
+
+.axis path,
+.axis line {
+  fill: none;
+  /*  stroke: #000;*/
+  stroke: black;
+  stroke-width: 4px;
+  shape-rendering: crispEdges;
+  stroke-opacity: 0.20;
+  /*   stroke-opacity: 0.5;*/ }
+
+.axis {
+  font: 10px Inconsolata; }
+
+.x.axis path {
+  display: none; }
+
+.sliderHolder {
+  background-color: green; }

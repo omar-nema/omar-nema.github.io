@@ -19,13 +19,13 @@
             <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>                  
             <div class="project-border">
 
-    <nav class="project-info" style="background-color:#FC2727">
+    <nav class="project-info" style="background-color:#FC2727; color:white">
         <div class="project-info-title">
             <p>hospital<br>quality</p>
         </div>
-        <div class="project-info-content">  
+        <div class="project-info-content" style="color:white">  
             <p class="project-info-content-synposis">
-                a look into ...
+                Healthcare pricing is opaque, confusing - and, therefore, ripe for visualization. My interactive visual below enables users to compare cost, quality, and size of 1800 medicare/medicaid hospitals. Filters enable the user to pick apart smaller trends, and explore this public dataset from the bottom-up.<br>A static form of this poster was displayed in the HIMSS healthcare conference, with an accompanying blog post <a href="http://arcadiasolutions.com/weaving-hospital-variation/">here</a>
                 </p>
             <div style="clear: both"></div>
             <p class="project-info-content-tags tags">
@@ -35,49 +35,35 @@
             <p class="project-info-content-tags type">
                 individual
             </p>            
-            <p class="project-info-content-tags date">fall 2014</p>            
+            <p class="project-info-content-tags date">2016</p>            
         </div>        
     </nav>
 
-    <div class="home-button button" style="background-color:#FC2727"><< </div>    
-    <div class="view-button one" button-type="text-button">txt</div>
-    <div class="view-button two" button-type="image-button">img</div>
-    <div class="view-button three" button-type="default-button">both</div>        
+    <div class="home-button button" style="background-color:#FC2727"><< </div>   
     
+    
+
+      
+            <div class="slider-holder"> <div class="slider slider-discharge"> <div class="thumb"></div> <div class="fill"></div> </div> <div class="slider slider-patexp"> <div class="fill"></div> <div class="thumb"></div> </div> <div class="slider slider-outcome"> <div class="fill"></div> <div class="thumb"></div> </div> <div class="slider slider-cost"> <div class="fill"></div> <div class="thumb"></div> </div> </div>
+        
+
     <main class="project-content-wrapper">
+      
         <div class="project-content">
-            <section class="intro block">
+            <section class="block">
+    <div class="chartwrapper">
+        <svg class="chart">
+            <g class="lineholder"></g>
+            <g class="axisholder"></g>      
+        </svg>
+    </div>
+</section>
+
+<section class="intro block">
     <div class="intro-text block-text">
         <p style="text-align: center"> 
         An analysis of cost &amp; quality metrics in 1800 medicare &amp; medicaid hospitals
         </p>
-    </div>
-</section>
-
-<section class="block">
-    <div class="chartwrapper">
-        <svg class="chart">
-            <g class="lineholder"></g>
-            <g class="axisholder"></g>
-            <div class="slider-holder">
-                <div class="slider slider-discharge">
-                    <div class="thumb"></div>
-                    <div class="fill"></div>                    
-                </div>
-                <div class="slider slider-patexp">
-                    <div class="fill"></div>
-                    <div class="thumb"></div>                     
-                </div>    
-                <div class="slider slider-outcome">
-                    <div class="fill"></div>                       
-                    <div class="thumb"></div>                  
-                </div>       
-                <div class="slider slider-cost">
-                    <div class="fill"></div>
-                    <div class="thumb"></div>                     
-                </div>                
-            </div>        
-        </svg>
     </div>
 </section>
 
@@ -88,16 +74,18 @@
     </div>
 </section>
 
+<section class="block">
+    <header class="block-header">visual</header>
+    <div class="block-text">
+        <p>here..</p>
+    </div>
+</section>
+
         </div>
     </main>
 
 </div>
 
-<!--
-<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-<link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
--->
 
     <script src= https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js></script>
 

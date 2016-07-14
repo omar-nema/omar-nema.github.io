@@ -10,20 +10,9 @@ tags:
     - woodwork
     - pointy
 theme: '#50E3C2'
+infotextcolor: darkslategrey
 custom_css: table
 ---
-
-<!--
-
-<section class="intro block">
-    <div class="intro-text block-text">
-        <p style="text-align: center"> Create a product that will enhance the newly-opened Brown University Design&nbsp;Workshop
-        </p>
-    </div>
-</section>
--->
-
-
 
 <section class="product block">
     <div class="block-image-container">
@@ -47,28 +36,3 @@ custom_css: table
     </div>      
     <div style="clear:both"></div>
 </section>
-<!--
-
-<section class="models">
-    <header class="block-header">research</header>
-    <div class="block-text">
-        <p>
-        <span class="highlight">Model-making<span class="tooltip"><img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small"></span></span>- experimented with a number of forms in high and low fidelity mockups.
-        </p> 
-    </div>
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small">    
-    </div>       
-
-    <div class="block-text">
-        <p>Field research - observed students work in the space through time-lapse videos. This was critical in making design choices and prioritizing features of our different mock-ups.</p>
-        <p><span class="highlight">Ideation<span class="tooltip"><img src="/assets/img-tools/tools-sketch.jpeg" class="block-image block-image-small"></span></span> - paper & rapid prototyping methods to experiment with different solutions. Highlights: a tool inventory website, a personal, tray-based tool storage system, workstations integrated with tool storage.</p>
-    </div>
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-sketch.jpeg" class="block-image block-image-small">    
-    </div>    
-
-    <div style="clear:both"></div>
-</section>
--->
-

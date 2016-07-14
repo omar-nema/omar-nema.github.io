@@ -27,7 +27,9 @@ $block-header-text-color: black;
     background-color: black;  
 }
 
-
+a {
+    color:white;
+}
 
 .highlight.active:hover {
     .tooltip {
@@ -58,6 +60,7 @@ $block-header-text-color: black;
     overflow: auto;
     font-size: 16px;
     padding-bottom: 40px;
+        overflow-x: hidden;
 }
 
 
@@ -111,7 +114,6 @@ $block-header-text-color: black;
     max-width: $project-content-max-width;
     padding-left: 5%;
     padding-right: 5%;
-    color: darkslategray;  
     padding-bottom: $project-info-padding-bottom;
     letter-spacing: 1.3px;
     font-size: 13px;
@@ -125,7 +127,6 @@ $block-header-text-color: black;
 .project-info-content-tags {
     margin: 0;
     line-height: 1.2rem;
-    color: darkslategrey ;
 }
 .project-content-wrapper {
     position: relative;

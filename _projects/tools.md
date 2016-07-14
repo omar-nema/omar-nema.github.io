@@ -9,7 +9,9 @@ tags:
     - makerspace
     - system design
 theme: '#50E3C2'
+infotextcolor: darkslategrey
 type: coursework / group
+viewtoggle: on
 ---
 
 

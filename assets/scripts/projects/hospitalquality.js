@@ -1,14 +1,19 @@
 
-var margin = {top: 20, right: 40, bottom: 30, left: 40},
-    width = 800 - margin.left - margin.right,
-    height = 400 - margin.top- - margin.bottom;
-
+    
+var width = 1000; var height = 500;
 var yscale = d3.scale.linear().range([height, 0]).domain([0, 1]);
 var lineholder = [];   
 var chart = d3.select(".chart")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g");
+//make SVG responsive
+chart.attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 1000 500")
+
+var tooltip = d3.select('.chartwrapper').append("div")
+    .attr("class", "tooltip")
+//    .style("display", "none");
+
+
+
 var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
 var origData;
 var currData;
@@ -36,6 +41,7 @@ var selectionFilters = {
 
 
 
+
 //HELPER FUNCTIONS  
 function getObjectValues(input){
     output = [];
@@ -47,6 +53,25 @@ function getObjectValues(input){
     }
     return output;   
 };
+
+///EVENT FUNCTIONS
+function showSlider(){
+    console.log('aygurl');
+    $('.slider-holder').addClass('show');
+    $('.slider-holder').one('click', removeSlider);
+};
+function removeSlider(){
+    console.log('second');    
+    $('.slider-holder').removeClass('show');
+};
+
+function lineMouseOver(line){
+    line.attr('class', 'polyline highlight');
+};
+function lineMouseLeave(line){
+    line.attr('class', 'polyline');
+};
+
     
 //GENERATE GRAPH FUNCTIONS
 function generateLineData(input, axes){
@@ -76,17 +101,58 @@ function generateLineData(input, axes){
 };
 
 function generateLines(input){
+    
     var linehold =  d3.select('.lineholder').selectAll('.polyline').data(input)
-   linehold.enter().append('polyline').attr('class', 'polyline')
-                    .style("stroke", 'blue') 
-          .attr("points", function(d,i){ return getObjectValues(d.points) } );  
+    var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
+    
+    lineholdG.append('div').attr('class', 'tooltip');
+    
+    console.log(input);
 
+    lineholdG.append('polyline').attr('class', 'polyline')
+        .style("stroke", 'blue') 
+        .attr("points", function(d,i){ return getObjectValues(d.points) } )
+        .style("stroke", function(d, i){
+            if (d.points['cost'][1] > yscale(.5)){
+             console.log('ay')
+             return "#00CED1";
+            }  
+            else {
+                return "#ff5050";
+            }}) ;
+    
+    lineholdG.append('polyline').attr('class', 'polyline-hover')
+        .style("stroke", 'blue') 
+        .attr("points", function(d,i){ return getObjectValues(d.points) } )
+        .style("stroke", function(d, i){
+            if (d.points['cost'][1] > yscale(.5)){
+             console.log('ay')
+             return "#00CED1";
+            }  
+            else {
+                return "#ff5050";
+            }})
+    .on('mousemove', function(d, i){
+        tooltip.style("display", "block")
+            .html(d.provider + '<br>' + d.state + '<br>' + d.income)
+          .style("left", (d3.event.pageX - 34) + "px")
+          .style("top", (d3.event.pageY - 12) + "px");
+    }).on('mouseleave', function(){
+        tooltip.style('display', 'none');
+    });
+    
+    
     linehold.exit().remove();
-
-
 };
 
 function generateAxes(axes){
+    
+        var axislabel = d3.select('.chartwrapper').selectAll('axis-label').data(getObjectValues(axes) )
+        
+        axislabel.enter().append('div').attr('class', 'axis-label');
+    
+        axislabel.exit().remove();
+    
         var axishold = d3.select('.axisholder').selectAll('.y-axis axis').data(getObjectValues(axes) )            
         axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
             return "translate(" + d + ",0)" 
@@ -96,42 +162,6 @@ function generateAxes(axes){
 };
 
 ///////FILTER FUNCTIONS
-
-function sliderFilterClick(){
-    console.log('ay she click do');
-    
-};
-
-
-function update(data, axes){
-    generateLines(generateLineData(data, axes));
-    generateAxes(axes);        
-};
-
-
-function initialLoad(){
-    d3.csv('/assets/csvdata/allpercentile.csv',function(data){ 
-//        var provMap = {};
-//        data.forEach(function(d,i){
-//            provMap[i] = d.provider;
-//        });     
-        update(data, axes);
-        dataDependency(data);  //runs most functions after csv data loaded
-
-    });
-};
-
-function dataDependency(origdata){
-    origData = origdata;
-    console.log(filterData(origData));
-    update(filterData(origData), axes);
-    
-    
-    $('.slider').mouseclick(sliderFilterClick);
-};
-
-initialLoad();
-
 
 function filterData(input){
     var filtered = input;
@@ -153,247 +183,26 @@ function filterData(input){
 };
     
 
+//POST-FILTER DATA UPDATE / RE-PLOT
+function update(data, axes){
+    generateLines(generateLineData(data, axes));
+    generateAxes(axes);        
+};
 
+function initialLoad(){
 
+    d3.csv('/assets/csvdata/allpercentile.csv',function(data){ 
+        update(data, axes);
+        dataDependency(data);  //runs most functions after csv data loaded
+    });
+};
 
-//var attributeFilters = {
-//    state: [ALL]
-//}
+function dataDependency(origdata){
+    origData = origdata;
+    console.log(filterData(origData));
+    update(filterData(origData), axes);
+    $('.slider-holder').one('click', showSlider);
+};
 
-//for each filter in filters
+initialLoad();
 
-//functionGetInitialFilters() = {
-//    max and min of each value
-//}
-//
-//slider is moved .. 
-//
-//
-//(x, 20, 30, null, cost)
-
-//    if (equals){
-//        return currData = input.filter(function(d,i){return d[type] === equals});       
-//    }
-//    else if (lowerbound && upperbound ){
-//        return currData = input.filter(function(d,i){return d[type] < lowerbound && d[type] > upperbound});          
-//    };
-
-
-
-//issue of applying two filters? dataset < .7, then we say cost > /8
-//anytime filter is changed must register both upper and lower
-
-   
-//    update(data.filter(function(d,i){return d.cost > .7}), axes);
-    
-//sliders
-//    output - 0 to 100 scale
-//attributes - types (state, income > )
-//    always filter original data ? ? ?
-    //or just current data
-
-
-
-
-            // data = data.sort(function(a,b){return d3.descending(+a.discharge, +a.quality)});
-         // var data = data.filter(function(d,i){return d.cost>.9 && d.discharge > 0});
-         
-//    var data = data.filter(function(d,i){return d.state === 'ri'});
-//    
-//    function generateFilter(type, lowerbound, upperbound){
-//        var data = data.filter(function(d,i){return d.cost>.9});
-//    };
-//    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//                        .attr("points", function(d, i){
-//                            return Object.keys(d.points).map(function(key){return d.points[key]} )
-//                        });     
-
-//       var alldata2 =  [discharge, outcome, patexp, cost] ;
-      // data.map(function(d){    
-//          cost.push(ycost(+d.cost));
-//          quality.push(yquality(+d.quality));
-//          efficiency.push(ycost(+d.efficiency));
-//          patexp.push(ycost(+d.patexp));
-//          outcome.push(ycost(+d.outcome));
-//          strokewidth.push(d.strokewidth);
-//          bubblesize.push(+d.bubblesize);
-//          return discharge.push(ydischarge(+d.discharge));
-//        }); 
-
-   // var cost, quality, discharge, efficiency, patexp, outcome, bubblesize;
-//    var color, strokewidth; cost = [];  quality = []; discharge = []; efficiency = [];
-//    patexp = [];  outcome = []; color = []; strokewidth = []; bubblesize = [];
-    
-    
-        //                chart.select('.lineholder').append("polyline")
-//                    .style("stroke", colorscale(i)) 
-//                    .style("fill", "none")  
-//                    .style("fill", "none")  
-//                    //.style ('stroke-width', '.25px') 
-//                    .style ('stroke-width', currwidth) 
-//                    .attr("points", currTrans)
-//                    .on("mouseover", function(){
-//                        console.log([d, provMap[i]]);
-//                    });  
-    
-    
-    
-//                    .on("mouseover", function(){
-//                        console.log([d, provMap[i]]);
-//                    });  
-    
-//    console.log(axes[0]);
-    
-//    console.log(Object.keys(axes) );
-//    chart.selectAll('y-axis').data( Object.keys(axes) ).enter().append('g').attr('class', 'y-axis').call(axes[data]);
-        
-//        .attr("transform", "translate(" +axes[data] + ",0)");
-    
-//    .call(yaxes[i]).attr("transform", "translate(" + xvalues[i] + ",0)");
-    
-    
-
-    //polyline two separate bindings
-        //filter hospital name, etc easily
-    
-//    d3.select()
-    
-    //line per axis or polyline
-
-    
-//    var axes = [{'discharge': discharge},{'outcome': outcome},{'patexp': patexp},{'cost': cost}] ;
-    
-//    console.log(axes.keys());
-    
-    
-//    console.log(  Object.keys(axes)[0] );
-//   console.log(  Object.keys(axes) );    
-////    
-
-    
-      
-      //alldata2 formatted by columns
-
-       //four axes
-    
-     //var xvalues = [0, width*.4, width*.56, x3]
-
-      //array created for scales, axes so that correct object is applied in for loop
-
-      //var scales = [ycost, yincome, yquality, ydischarge];
-     // var yaxes = [yaxiscost, yaxiseff, yaxispatexp, yaxisoutcome, yaxisdischarge];
-
-
-      //for LINE  
-      //below getting y values (rows) of data to create lines
-//      function transpose(a) {
-//          return Object.keys(a[0]).map(
-//              function (c) { return a.map(function (r) { return r[c]; }); }
-//              );
-//          }
-//        var yvalrows = transpose(alldata2);
-//        var numRows =  yvalrows.length;
-//        var numColumns = alldata2.length;
-//
-//      var colorscale = d3.scale.linear()
-//          .domain([0, numRows])
-//            .range(["#00CED1", "#ff5050"]); 
-//
-//        //create 2d array for line x values
-//        var xvalrows = [];
-//            for (j = 0; j < numRows; j++) { 
-//                xvalrows.push(xvalues);
-//            }        
-//        //ay u want lines?
-//
-//    chart.append('g').attr('class', 'lineholder');
-//      
-    
-    
-    
-     //chart.selectAll('.lineholder').data()
-      
-//      d3.select('.lineholder').selectAll('g').data(yvalrows).enter().append('g').attr('class', 'line');
-//      
-//      d3.selectAll('.line').data
-//      
-//      .attr(points)
-
-//        yvalrows.forEach(function(d, i){ //for each row, create a line
-//
-//                  var currcolor = colorscale(i);
-//                  var currxvalrows = xvalrows[i];
-//                  var curryvalrows = yvalrows[i];
-//                  var currdata = [currxvalrows, curryvalrows];
-//                  var currTrans = transpose(currdata);
-//                  var currwidth = strokewidth[i];
-//
-//                  var line = d3.svg.line()
-//                        .x(function(d, i) {
-//                            return d[0]; //formatted as 4 col, x row array
-//                        })
-//                        .y(function(d, i) {
-//                            return d[1];
-//                        })
-//                        .interpolate("linear")
-//// .               style("stroke", function() {
-////                 return d.color = color(d.key); })
-//                        ;
-//
-//                console.log(currTrans);
-//
-//                chart.select('.lineholder').append("polyline")
-//                    .style("stroke", colorscale(i)) 
-//                    .style("fill", "none")  
-//                    .style("fill", "none")  
-//                    //.style ('stroke-width', '.25px') 
-//                    .style ('stroke-width', currwidth) 
-//                    .attr("points", currTrans)
-//                    .on("mouseover", function(){
-//                        console.log([d, provMap[i]]);
-//                    });  
-//        })
-
-      
-     // chart.select('.axisholder').selectAll('g').data(alldata2).enter().append('g').attr('class', 'y axis');
-    
-    
-//        chart.append('g').attr('class', 'axisholder');
-//      alldata2.forEach(function(d, i) {
-//          var currVal = alldata2[i];
-//          chart.select('.axisholder').append('g').attr('class', 'y axis').call(yaxes[i]).attr("transform", "translate(" + xvalues[i] + ",0)");
-//    }); 
-
-
-//         chart.append('g').attr('class', 'circleholder').selectAll('circle').data(alldata2[i]).enter().append(".circleholder:circle")   
-//            .attr("cx", xvalues[i])
-//            .attr("cy", function(d, i) { return currVal[i]; }) //can take str8 arrays! d, i based off array 
-//            //.attr("r", '100');
-//            .attr("r", function(d, i) { return bubblesize[i]; })
-//            .attr('fill', 'darkgrey')
-//            ;
-
-
-//        var x1 = 0;
-//        var x2 = 1.5*width/3 ;
-//        var x3 = width ;
-//        var x4 = width ;
-    

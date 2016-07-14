@@ -491,6 +491,9 @@
   color: white;
   background-color: black; }
 
+a {
+  color: white; }
+
 .highlight.active:hover .tooltip, .project-border.defaultView .highlight.view-button.three:hover .tooltip, .project-border.defaultView .highlight.block-image-container:hover .tooltip, .project-border.textView .highlight:hover .tooltip, .project-border.imageView .highlight.view-button.two:hover .tooltip {
   display: block; }
 
@@ -512,7 +515,8 @@
   background-color: #F2F0F0;
   overflow: auto;
   font-size: 16px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  overflow-x: hidden; }
 
 .project-content-wrapper {
   min-height: 40rem; }
@@ -557,7 +561,6 @@
   max-width: 800px;
   padding-left: 5%;
   padding-right: 5%;
-  color: darkslategray;
   padding-bottom: 1.5rem;
   letter-spacing: 1.3px;
   font-size: 13px; }
@@ -570,8 +573,7 @@
 
 .project-info-content-tags {
   margin: 0;
-  line-height: 1.2rem;
-  color: darkslategrey; }
+  line-height: 1.2rem; }
 
 .project-content-wrapper {
   position: relative; }

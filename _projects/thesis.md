@@ -9,7 +9,9 @@ tags:
     - predictive modeling
     - system design
 theme: '#1C85FF'
+infotextcolor: white
 type: coursework / group
+viewtoggle: on
 ---
 
 

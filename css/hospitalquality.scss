@@ -1,12 +1,50 @@
 ---
 ---
 
-.chart {
-    padding: 50px;
+
+.slider-holder {
+//    background-color: #FC2727;
+//    background-color: grey;
+    border: 1px dotted black;
+    opacity: .8;
+    border-radius: 3%;
+    position: absolute;
+    top: 20%;
+    right: -2%;
+    transform: translateX(85%);
+    width: 300px;
+    height: 200px;
+    z-index: 1000;
+    transition: transform .3s ease-in-out;
+}
+
+.slider-holder.show {
+    transform: translateX(0%);    
+}
+.project-content {
+    max-width: 1200px;
+}
+.project-border {
+    background-color: white;
+}
+
+
+
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    z-index: 3000;
+    display:none;
+    font-family: Inconsolata;
+    font-size: 12px;
+    background-color: rgba(255,255,255,.3)
 }
 
 .y-axis {
     position: relative;
+    opacity: .4;
 }
 .y-axis-label {
 
@@ -21,8 +59,27 @@
 
 .polyline {
     fill: none;
-    stroke-width: .1px;
+    stroke-width: .17px;
+    z-index: 3000;
+    border: 5px solid black;
+    padding: 30px;
 }
+
+.polyline-holder {
+    position: relative;
+}
+
+.polyline-hover {
+    stroke-width: 2px;
+    opacity: 0;
+    fill: none;
+}
+
+.polyline-hover:hover {
+    opacity: 1;
+}
+
+
 .axis path,
 .axis line {
   fill: none;
@@ -41,10 +98,3 @@
 }
 
 
-.sliderHolder {
-    background-color: green;
-}
-
-.slider {
-    
-}

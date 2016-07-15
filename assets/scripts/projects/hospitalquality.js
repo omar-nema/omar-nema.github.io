@@ -107,9 +107,9 @@ function provider(d){
     return d.provider;
 }
 
-function generateLines(input){
-    //previous layout: points, provider, x = cleaner, harder to acess
-    //maybe faster in generating lines ?
+function generateLines(input){    
+    //change axis order
+    //understand d3 key function
         
     var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, provider);
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
@@ -244,6 +244,11 @@ function initialLoad(){
 function dataDependency(){
     $('.thumb').mousedown(mouseDownThumb);
     $('.slider').mouseup(mouseUpSlider).mouseleave(mouseUpSlider);
+    $('.filter').mouseover(function(){
+        $(this).removeClass('hide');
+    }).mouseleave(function(){
+        $(this).addClass('hide');        
+    });
 };
 
 

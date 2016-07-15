@@ -34,7 +34,7 @@ layout: default
     {% endif %}
 
       {% if page.custom_sidebar %}
-            {{page.custom_sidebar}}
+            {% include {{page.custom_sidebar}} %}
         {% endif %}
 
     <main class="project-content-wrapper">

@@ -506,6 +506,9 @@ a {
 .block-image {
   transition: height .5s ease-in-out, transform .2s ease-in-out; }
 
+.block.block-data-visual {
+  margin-top: 2.3rem; }
+
 .project-border {
   position: absolute;
   top: 0%;
@@ -684,7 +687,7 @@ ul {
 .home-button {
   position: fixed;
   z-index: 1000;
-  color: yellow;
+  color: white;
   font-size: 13px;
   top: 3rem;
   right: 1.5%;

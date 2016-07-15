@@ -49,6 +49,11 @@ a {
     transition: height .5s ease-in-out, transform .2s ease-in-out;
 }
 
+.block.block-data-visual {
+    margin-top: 2.3rem;
+//    padding-left: 0;
+//    padding-right: 0;
+}
 
 .project-border {
     position: absolute;
@@ -276,7 +281,7 @@ ul {
     z-index: 1000;
 //    width: 20px;
 //    height: 20px;
-    color: yellow;
+    color: white;
     font-size: 13px;
     top: 3rem;
     right: 1.5%;

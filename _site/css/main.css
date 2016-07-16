@@ -14,7 +14,8 @@
 .about-header {
   height: 15%;
   position: relative;
-  padding-bottom: 5%; }
+  padding-bottom: 5%;
+  font-family: 'Karla'; }
   .about-header p {
     position: absolute;
     left: 7%;
@@ -1018,7 +1019,7 @@ footer .toprect {
   background-color: yellow;
   color: black;
   letter-spacing: 3px;
-  font-family: Consolas;
+  font-family: 'Inconsolata';
   font-weight: 900; }
   .about-button-unclicked p {
     transform: rotate(-4deg);

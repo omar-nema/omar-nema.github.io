@@ -389,7 +389,7 @@
     .grid .cardholder .cardcontent p {
       font-size: 2.268vw; }
   .grid .cardtitle {
-    font-size: calc(6px + 2vw); } }
+    font-size: calc(5px + 2vw); } }
 
 .content.grid.timesort {
   margin-top: 7vh; }
@@ -640,8 +640,7 @@ ul {
   right: 0%;
   background-color: #F2F0F0;
   color: black;
-  font-family: 'Inconsolata';
-  letter-spacing: 5px;
+  font-family: Inconsolata;
   font-size: 16px;
   padding-left: 4%;
   padding-bottom: 3%;
@@ -756,8 +755,9 @@ ul {
   .project-info-title {
     font-size: 14px; }
 
-  .block-header-lower {
-    display: none; } }
+  .block-header {
+    padding-right: 9%;
+    padding-left: 6%; } }
 @media only screen and (min-width: 1200px) {
   .scatter-large .card .cardtitle {
     font-size: 21px; } }
@@ -1018,7 +1018,6 @@ footer .toprect {
   background-color: yellow;
   color: black;
   letter-spacing: 3px;
-  font-family: 'Inconsolata';
   font-weight: 900; }
   .about-button-unclicked p {
     transform: rotate(-4deg);

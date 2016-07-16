@@ -207,8 +207,7 @@ ul {
     right: 0%;
     background-color: $block-header-color;
     color: $block-header-text-color;
-    font-family: 'Inconsolata';
-    letter-spacing: 5px;
+    font-family: Inconsolata;
     font-size: 16px;
     padding-left: 4%;
     padding-bottom: 3%; 
@@ -389,7 +388,7 @@ ul {
 
 
 @media only screen and (max-width: 550px){
-      
+    
     .project-content {
         width: 100vw;
     }
@@ -401,10 +400,11 @@ ul {
     .project-info-title {
         font-size: 14px;
     }
-    
-    .block-header-lower {
-        display: none;
+    .block-header {
+        padding-right: 9%;
+        padding-left: 6%;
     }
+
 }
 
 

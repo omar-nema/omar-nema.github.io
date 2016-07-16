@@ -382,15 +382,19 @@
   border-radius: 5%; }
 .grid .cardtitle {
   font-size: 2.08vw; }
+
 @media only screen and (max-width: 650px) {
+  .grid.content {
+    width: 100%; }
+
   .grid .cardholder {
-    width: 32.4vw;
-    height: 25.92vw; }
-    .grid .cardholder .cardcontent p {
+    width: 36.72vw;
+    height: 29.376vw; }
+    .grid .cardholder .grid .cardcontent p {
       font-size: 2.268vw; }
+
   .grid .cardtitle {
     font-size: calc(5px + 2vw); } }
-
 .content.grid.timesort {
   margin-top: 7vh; }
 

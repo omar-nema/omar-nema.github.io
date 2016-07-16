@@ -9,6 +9,9 @@ var layoutResizeEnabled = true;
 var currCard; 
 
 
+var isTouchDevice = 'ontouchstart' in document.documentElement;
+
+///if touchDevice, new drag events !!
 
 var generateLayout = function(){
     if (layoutResizeEnabled){

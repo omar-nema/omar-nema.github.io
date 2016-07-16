@@ -49,23 +49,30 @@ $large-card-title-factor : .18;
         font-size: 1.3*$card-title-factor * $card-width;
     }
     
+
+}
+
+
+
+
     @media only screen and (max-width: $breakpoint-1){
-            .cardholder {
-                width: 1.5*$med-card-width;
-                height: 1.5*$med-card-width*$cardratio;
-                .cardcontent p {
+            .grid.content {
+                width: 100%;
+            }
+            .grid .cardholder {
+                width: 1.7*$med-card-width;
+                height: 1.7*$med-card-width*$cardratio;
+                .grid .cardcontent p {
                     font-size: $med-font-size-factor  * $med-card-width;
 //                    
                 }      
             } 
-            .cardtitle {
+            .grid .cardtitle {
                 //font-size: $med-card-title-factor * $card-width;
                 font-size: calc(5px + 2vw);                
                 
             }     
         }
-}
-
 
 
 .content.grid.timesort {

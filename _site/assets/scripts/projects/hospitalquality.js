@@ -16,24 +16,38 @@ var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]
 var origLineData;
 var currData;
 
-var discharge = 0;
-var outcome = width*.4;
-var patexp =  width*.56;
-var cost = width;
-
-
 var filterType = null;
 var filterLowerBound = 0;
 var filterUpperBound = 100;
 var filterLowerPct = null;
 var filterUpperPct = null;
 
-var axes = {
-    discharge: discharge,
-    outcome: outcome,
-    patexp: patexp,
-    cost: cost
+//var discharge = 0;
+//var patexp = width*.4;
+//var outcome =  width*.56;
+//var cost = width;
+
+
+var axisArrangement = {
+    2: [0, width],
+    3: [0, width*.5, width],
+    4: [0, width*.4, width*.56, width],
 };
+var axisOrder = ['discharge', 'patexp', 'outcome', 'cost'];
+
+var axisLabels = {
+    discharge: 'size',
+    patexp: 'experience',    
+    outcome: 'outcome',        
+    cost: 'cost'    
+};
+
+//var axes = {
+//    discharge: discharge,
+//    patexp: patexp,    
+//    outcome: outcome,        
+//    cost: cost
+//};
 var rangeFilters = {
     cost: [null, null],
     discharge: [null, null],
@@ -78,8 +92,15 @@ function lineMouseLeave(line){
     line.attr('class', 'polyline');
 };
 
+
+
+function hideAxis(){
     
-function generateLineData(input, axes){
+};
+
+
+
+function generateLineData(input){
     input.forEach(function(d, i){
         d.cost = yscale(+d.cost);
         d.discharge = yscale(+d.discharge);
@@ -90,13 +111,15 @@ function generateLineData(input, axes){
     return input;
 };
 
+//two axis, three axis, four axis arrangement
+
 function generatePointArray(input){
     var line = [], pt = [];
     lineholder = [];
-    
-    Object.keys(axes).forEach(function(d2, i2){
-        pt[i2] = [axes[d2], input[d2]];
-    });   
+    var axisOrderLength = axisOrder.length;
+    for (j=0;j<axisOrderLength;j++){
+        pt[j] = [axisArrangement[axisOrderLength][j], input[axisOrder[j]] ];
+    };
     lineholder.push(pt);            
     line = [];
     pt = [];             
@@ -147,14 +170,19 @@ function generateLines(input){
     linehold.exit().remove();    
 };
 
-function generateAxes(axes){    
-    var axislabel = d3.select('.chartwrapper').selectAll('.axis-label').data(getObjectValues(axes) );
-    axislabel.enter().append('div').attr('class', 'axis-label').html(function(d,i){return Object.keys(axes)[i]} ).style('left', function(d,i){
-        return Math.min(Math.max(5, 100*d/width), 97) + '%';
-    });
+function generateAxes(axes){   
+    var axislabel = d3.select('.chartwrapper').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
+    
+    axislabel.enter().append('div').attr('class', 'axis-label')
+        .html(function(d,i){
+        return axisLabels[axisOrder[i]]  
+                           })
+        .style('left', function(d,i){
+        return Math.min(Math.max(3, 100*d/width), 97) + '%';
+    });    
     axislabel.exit().remove();
 
-    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(getObjectValues(axes));     
+    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length]); 
     axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
         return "translate(" + d + ",0)" 
     });
@@ -180,9 +208,9 @@ function filterData(){
 
 
 //POST-FILTER DATA UPDATE / RE-PLOT
-function update(data, axes){
-    generateLines(data, axes);
-    generateAxes(axes);        
+function update(data){
+    generateLines(data);
+    generateAxes();        
 };
 
 //GET GRANULAR HERE
@@ -229,15 +257,15 @@ function mouseUpSlider(){
         rangeFilters[filterType][1] = filterUpperPct;           
     }; 
     
-    update(filterData(), axes);
+    update(filterData());
     $(this).unbind('mousemove') ;
 };
 
 
 function initialLoad(){
     d3.csv('/assets/csvdata/allpercentile.csv',function(data){ 
-        origLineData = generateLineData(data, axes);
-        update(origLineData, axes);
+        origLineData = generateLineData(data);
+        update(origLineData);
         dataDependency();  //runs most functions after csv data loaded
     });
 };
@@ -266,7 +294,9 @@ initialLoad();
 //    };
 
 
-    
+  //    Object.keys(axisLabels).forEach(function(d, i){
+//        pt[i] = [axisArrangement[axisOrderLength][i], input[d]];
+//    });   
     
     
     

@@ -55,10 +55,12 @@ $large-card-title-factor : .18;
                 height: 1.5*$med-card-width*$cardratio;
                 .cardcontent p {
                     font-size: $med-font-size-factor  * $med-card-width;
+//                    
                 }      
             } 
             .cardtitle {
-                font-size: $med-card-title-factor * $card-width;
+                //font-size: $med-card-title-factor * $card-width;
+                font-size: calc(6px + 2vw);                
                 
             }     
         }

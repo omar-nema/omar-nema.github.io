@@ -57,7 +57,6 @@
     box-shadow: 0 0 3px rgba(0,0,0,.5);
     width: 50px;
     height: 50px;
-//    border: .5px dashed rgba(0,0,0,.3);
     right: -1%;
     
     .filter-icon {
@@ -74,8 +73,16 @@
     .slider-holder {
         display: none;
     }
+    .reset-button {
+        display: none;
+    }
+    .slider-block {
+        display: none;
+    }
 
 }
+
+
 
 .filter-header {
     padding-bottom: 20px;
@@ -108,10 +115,28 @@
     padding-bottom: 10px;
 }
 
+.slider-horizontal {
+    transform: rotate(90deg);
+}
+
+.reset-button {
+    font-size: 12px;
+    opacity: .3;
+    position: absolute;
+    right: 4%;
+    bottom: 4%;
+    color: blue;
+}
+
+.state-filter {
+    width: 100%;
+    height: 100px;
+}
+
 .slider {
     position:relative;
     width: 100%;
-    height: 60px;
+    height: 50px;
     .fill-outer {
         height: 100%;
         width: 2px;
@@ -151,6 +176,12 @@
     }
 }
 
+
+
+.half-column {
+    width: 50%;
+    float: left;
+}
 
 .slider-holder {
     padding-left: 40px;

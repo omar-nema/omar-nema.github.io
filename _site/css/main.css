@@ -69,8 +69,7 @@
   padding-bottom: 3%;
   padding-top: 3rem;
   padding-bottom: 3%;
-  height: 7rem;
-  transition: opacity .2s ease-in-out; }
+  height: 7rem; }
 
 .phase2 {
   padding-right: 3%; }
@@ -390,7 +389,7 @@
     .grid .cardholder .cardcontent p {
       font-size: 2.268vw; }
   .grid .cardtitle {
-    font-size: 2.08vw; } }
+    font-size: calc(6px + 2vw); } }
 
 .content.grid.timesort {
   margin-top: 7vh; }

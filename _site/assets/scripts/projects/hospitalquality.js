@@ -272,11 +272,11 @@ function initialLoad(){
 function dataDependency(){
     $('.thumb').mousedown(mouseDownThumb);
     $('.slider').mouseup(mouseUpSlider).mouseleave(mouseUpSlider);
-    $('.filter').mouseover(function(){
-        $(this).removeClass('hide');
-    }).mouseleave(function(){
-        $(this).addClass('hide');        
-    });
+//    $('.filter').mouseover(function(){
+//        $(this).removeClass('hide');
+//    }).mouseleave(function(){
+//        $(this).addClass('hide');        
+//    });
 };
 
 

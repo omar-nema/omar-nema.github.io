@@ -44,6 +44,8 @@
     padding-bottom: 10px;
     padding-top: 10px;
     z-index: 1000;
+    -moz-box-shadow:   1px 1px 3px rgba(0,0,0,.3); 
+	-webkit-box-shadow:  1px 1px 3px rgba(0,0,0,.3);      
     box-shadow: 1px 1px 3px rgba(0,0,0,.3);
     transition: height .15s ease-in-out, width .15s ease-in-out, right .15 ease-in-out, opacity .15s ease-in-out;
     
@@ -53,11 +55,14 @@
 }
 
 .filter.hide {
-    
+    -moz-box-shadow:   0 0 3px rgba(0,0,0,.5);
+	-webkit-box-shadow:   0 0 3px rgba(0,0,0,.5);
     box-shadow: 0 0 3px rgba(0,0,0,.5);
     width: 50px;
     height: 50px;
     right: -1%;
+    
+    
     
     .filter-icon {
         display: block;
@@ -67,18 +72,25 @@
         transform: translateX(-50%) translateY(-50%);
     }
     
-    .filter-header {
-        display:none;
-    }
-    .slider-holder {
+    .hide-wrapper {
         display: none;
     }
-    .reset-button {
-        display: none;
-    }
-    .slider-block {
-        display: none;
-    }
+    
+
+    
+//    
+//    .filter-header {
+//        display:none;
+//    }
+//    .slider-holder {
+//        display: none;
+//    }
+//    .reset-button {
+//        display: none;
+//    }
+//    .slider-block {
+//        display: none;
+//    }
 
 }
 
@@ -128,7 +140,12 @@
     right: 4%;
     bottom: 4%;
     color: blue;
+    cursor: pointer;
+    transition: opacity .2s ease-in-out;
 }
+.reset-button:hover {
+  opacity: 1;  
+};
 
 .state-filter {
     width: 100%;
@@ -139,6 +156,8 @@
     position:relative;
     width: 100%;
     height: 50px;
+    cursor: pointer;
+    
     .fill-outer {
         height: 100%;
         width: 2px;
@@ -161,12 +180,12 @@
 //        background-color: blue;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
         z-index: 3;
         border-radius: 100%;
+        background-color: white;
 //        cursor: pointer;
-    }
-
+    } 
+    
     .thumb.thumb-lower {
         bottom: 0%;
         transform: translateX(-50%) translateY(50%);
@@ -176,17 +195,32 @@
         z-index: 5;
         transform: translateX(-50%) translateY(50%);      
     }
+    .thumb-upper.thumb-active {
+        transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4); 
+    }
+    .thumb-lower.thumb-active {
+        transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4);  
+    }       
 }
 
-
-
+.thumb-tooltip {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    z-index: 3000;
+    display:none;
+    font-family: Inconsolata;
+    font-size: 10px;
+    right: 50%;    
+    transform: translateX(-70%) translateY(-50%);    
+}
 .half-column {
     width: 50%;
     float: left;
     position : relative;
 }
+
 .search {
-//    margin-top: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -198,14 +232,87 @@
     border-right: none;
     border-bottom: none;
     border: none;
-   // border-top: .2px dashed rgba(0,0,0,.2);
     transform: translateX(-50%) translateY(-50%);
-       outline: none;
-resize: none;
+    outline: none;
+    resize: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
 }
+
+.ui-autocomplete {
+    font-size:10px;
+    z-index: 6000;
+    color: gray;
+    border: 1px dashed rgba(0,0,0,.3);
+    padding-left: 0;
+    margin-left: 0;
+    width: 50px;
+    position: absolute;
+    padding: 3px;
+    background-color: rgba(255,255,255,.5);
+    display: block;
+}
+
+.ui-menu-item {
+    padding: 2px;
+    cursor: pointer;
+}
+
+
+//
+//body .ui-autocomplete .ui-menu-item.ui-state-focus {
+//    background-color: blue;
+//        font-size:20px;
+//}
+
+
+//
+//.ui-autocomplete li.ui-menu-item a:focus
+//{
+//    color:blue;
+//    background:#96B202;
+//    outline:none;
+//       display:none;
+//}
+//.ui-menu-item-wrapper:focus
+//{
+//    color:blue;
+//    background:#96B202;
+//    outline:none;
+//       display:none;
+//}
+//.ui-menu .ui-menu-item a.sbiAnchor.ui-state-hover{
+//    background: blue;
+//       display:none;
+//}
+//.ui-state-focus
+//{
+//    color:blue;
+//    display:none;
+//    background:#96B202;
+//    outline:none;
+//}
+//.ui-menu-item:hover {
+//    color: blue;
+//}
+//.ui-auto
+//li:focus {
+//    color:green;
+//        display: block;
+//       display:none;
+//}
+
+//#tags:focus {
+//    color:blue;
+//}
+//.ui-menu-item:focus
+//{
+//    color:White;
+//    background:#96B202;
+//    outline:none;
+//       display:none;
+//}
 
 .slider-holder {
     padding-left: 40px;
@@ -236,6 +343,7 @@ resize: none;
 .project-border {
     background-color: white;
 }
+
 
 
 

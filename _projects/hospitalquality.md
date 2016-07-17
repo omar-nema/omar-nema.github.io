@@ -12,6 +12,7 @@ infotextcolor: white
 type: individual
 custom_css: hospitalquality
 custom_js: 
+    - "https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
     - "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"
     - "/assets/scripts/projects/hospitalquality.js"
 custom_sidebar: hospitalquality-sidebar.html 

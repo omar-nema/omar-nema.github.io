@@ -530,6 +530,8 @@ a {
 
 .project-info {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0px;
   height: auto;
@@ -1000,6 +1002,8 @@ footer .toprect {
   right: 1%;
   width: 100px;
   height: 50px;
+  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5); }
   .about-button p {
     margin-top: auto;
@@ -1037,6 +1041,8 @@ footer .toprect {
   font-weight: 900; }
 
 .about-button-clicked {
+  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   font-size: 20px;
   background-color: #FFFAFA;
@@ -1207,6 +1213,8 @@ footer .toprect {
     position: absolute; }
 
 .card-selector {
+  -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
   opacity: 1;
   z-index: 1500; }
@@ -1226,4 +1234,6 @@ footer .toprect {
 .card1select {
   opacity: 0.9;
   z-index: 4;
-  box-shadow: 0 .5px .5px 0px black; }
+  -moz-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5); }

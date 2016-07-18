@@ -134,25 +134,22 @@ function provider(d){
 }
 
 function generateLines(input){    
-    //change axis order
-    //understand d3 key function
-    
-//    autoCompleteSource = [];
         
     var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, provider);
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
     lineholdG.append('div').attr('class', 'tooltip');
-    lineholdG.append('polyline').attr('class', 'polyline')
-        .style("stroke", 'blue') 
-        .attr("points", function(d){return generatePointArray(d)})
-        .style("stroke", function(d, i){
+    lineholdG
+        .append('polyline').attr('class', 'polyline')   
+        .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
             if (d['cost'][1] > yscale(.5)){
              console.log('ay')
              return "#00CED1";
             }  
             else {
                 return "#ff5050";
-            }}) ;
+            }});
+    lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+     
     lineholdG.append('polyline').attr('class', 'polyline-hover')
         .style("stroke", 'blue') 
         .attr("points", function(d,i){ return generatePointArray(d) } )
@@ -171,13 +168,12 @@ function generateLines(input){
     }).on('mouseleave', function(){
         tooltip.style('display', 'none');
     });
-    
-    linehold.exit().remove();    
+    linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();
+
 };
 
 function generateAxes(axes){   
     var axislabel = d3.select('.chartwrapper').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
-    
     axislabel.enter().append('div').attr('class', 'axis-label')
         .html(function(d,i){
         return axisLabels[axisOrder[i]]  
@@ -215,9 +211,19 @@ function filterData(){
 };
 
 function resetFilters(){
+    rangeFilters = {
+        cost: [null, null],
+        discharge: [null, null],
+        outcome: [null, null],
+        patexp: [null, null],
+        income: [null, null]
+    };    
+    filterLowerPct = null;
+    filterUpperPct = null;
     update(origLineData);
     $('.thumb.thumb-lower').removeAttr('style');
     $('.thumb.thumb-upper').removeAttr('style');
+    $('#tags').val('');
 
 };
 
@@ -240,17 +246,7 @@ function setThumbToolTip(thumb, slider){
 function mouseOverSlider(){
     $(this).find('.thumb-tooltip').css('display', 'block');
     setThumbToolTip($(this).find('.thumb-upper'), $(this));
-    setThumbToolTip($(this).find('.thumb-lower'), $(this));    
-    
-//    var upperY = $(this).offset().top;
-//    upperThumb = $(this).find('.thumb-upper');
-//    upperpos = upperThumb.offset().top;
-//    var upperpct = Math.abs(100-100*(upperpos-upperY+upperThumb.height())/$(this).height()); 
-//    upperThumb.find('.thumb-tooltip').html((upperpct/100).toFixed(1)); 
-    //    lowerThumb = $(this).find('.thumb-lower');    
-//    lowerpos = lowerThumb.offset().top;       
-//    var lowerpct = Math.abs(100-100*(lowerpos-upperY+lowerThumb.height())/$(this).height());
-//    lowerThumb.find('.thumb-tooltip').html((lowerpct/100).toFixed(1));      
+    setThumbToolTip($(this).find('.thumb-lower'), $(this));      
 };
 
 
@@ -273,7 +269,6 @@ function mouseDownThumb(thumb){
 };
 ///SHOULD TAKE WIDE OR HEIGHT BASED SLIDER
 function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, thumbToolTip){
-    console.log('ay');
     var upperpos = null; var lowerpos = null;
     var upperY = slider.offset().top;
     var pct = 100-100*(event.pageY-upperY)/slider.height();
@@ -291,6 +286,7 @@ function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, th
     };
 };
 
+//mouseleave triggers a data update
 function mouseUpSlider(){ 
     if (filterLowerPct){
         rangeFilters[filterType][0] = filterLowerPct;    
@@ -298,6 +294,8 @@ function mouseUpSlider(){
     else if (filterUpperPct){
         rangeFilters[filterType][1] = filterUpperPct;           
     }; 
+    filterLowerPct = null;
+    filterUpperPct = null;
     $(this).find('.thumb-tooltip').css('display', 'none');
     update(filterData());
     $(this).unbind('mousemove') ;
@@ -319,6 +317,7 @@ function prepareAutoCompleteInput($input){
     $input.keypress(function(e) {
         if(e.which == 13) {
             doneTyping();
+            $('#ui-id-1').css('display', 'none');            
             return false;
         }
     });
@@ -353,14 +352,23 @@ function prepareAutoCompleteInput($input){
     };    
 };
 
+var item;
 function dataDependency(){
-    
     $( function() {
-        $( "#tags" ).autocomplete({    
-          source: autoCompleteSource.values ,
-            autoFocus: true
-        });
-    });
+        $( "#tags" ).autocomplete({  
+            source: autoCompleteSource.values.sort().reverse(),
+            focus: function (event, ui){
+                if (item){
+                   item.css('color', 'gray')
+                };
+                item =  $('#ui-id-1').find(".ui-menu-item-wrapper:contains(" + ui.item.value + ")")    
+                item .css('color', 'blue');
+            }
+     
+        })
+
+        ;
+    }) ;
     prepareAutoCompleteInput($('#tags'));
     
 
@@ -368,11 +376,12 @@ function dataDependency(){
     
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});
     $('.slider').mouseup(mouseUpSlider).mouseleave(mouseUpSlider).mouseover(mouseOverSlider);
-    $('.filter').mouseover(function(){
+    $('.filter').click(function(){
         $(this).removeClass('hide');
-    }).mouseleave(function(){
-        $(this).addClass('hide');        
-    });
+    })
+//        .mouseleave(function(){
+//        $(this).addClass('hide');        
+//    });
 };
 
 

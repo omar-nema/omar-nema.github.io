@@ -39,14 +39,14 @@
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  right: -1%; }
+  width: 40px;
+  height: 40px;
+  right: 0%; }
   .filter.hide .filter-icon {
     display: block;
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 50%;
     transform: translateX(-50%) translateY(-50%); }
   .filter.hide .hide-wrapper {
     display: none; }
@@ -177,7 +177,9 @@
   border: 1px dashed rgba(0, 0, 0, 0.3);
   padding-left: 0;
   margin-left: 0;
+  height: 180px;
   width: 50px;
+  overflow-y: hidden;
   position: absolute;
   padding: 3px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -272,3 +274,6 @@
 @media only screen and (max-width: 650px) {
   .axis-label {
     font-size: 10px; } }
+@media only screen and (max-width: 550px) {
+  .axis-label {
+    font-size: 6px; } }

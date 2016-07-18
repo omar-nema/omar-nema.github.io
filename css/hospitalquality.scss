@@ -3,16 +3,16 @@
 
 
 .chartwrapper {
-    padding-top: 50px;
     position: relative;
     font-family: 'Inconsolata';
-//    padding-left: 40px;
-//    padding-right: 40px;
+    overflow: auto;
+
 }
 
 .chart {
-//    padding-left: 30px;
-//    padding-right: 30px;
+    position: relative;
+    float: right;
+    width: 93%;
 }
 
 .axis-label {
@@ -27,10 +27,58 @@
     opacity: .85;
 }
 
-.block {
-    width: 85vw;
+.axislabels {
+    width: 93%;
+    float: right;
+    height: 40px;
+    position: relative;
 }
 
+.chart-height-holder {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    
+}
+
+.block {
+    width: 85vw;
+    padding-left: 1%;
+    padding-right: 3.5%;
+}
+
+.chart-holder {
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
+.chart-label-holder {
+    position: absolute;
+    width: 7%;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    .chart-label {
+        position: absolute;
+        color: rgba(0,0,0,.4);
+//        font-size: 10px;
+        font-size: calc(6px + .5vw);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .chart-label-top {
+        top: 0%;
+    }
+    .chart-label-middle {
+        top: 50%;   
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .chart-label-bottom {
+        bottom: 0%;    
+//        transform: translateY(-50%);
+    }    
+}
 
 .filter {
 //    background-color: #FC2727;
@@ -58,11 +106,9 @@
     -moz-box-shadow:   0 0 3px rgba(0,0,0,.5);
 	-webkit-box-shadow:   0 0 3px rgba(0,0,0,.5);
     box-shadow: 0 0 3px rgba(0,0,0,.5);
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     right: 0%;
-    
-    
     
     .filter-icon {
         display: block;
@@ -247,7 +293,7 @@
     border: 1px dashed rgba(0,0,0,.3);
     padding-left: 0;
     margin-left: 0;
-    height: 180px;
+    max-height: 180px;
     width: 50px;
     overflow-y: hidden;
     position: absolute;
@@ -299,15 +345,14 @@
 .tooltip {
     position: absolute;
     pointer-events: none;
-    left: 50%;
-    top: 50%;
-    z-index: 3000;
+//    right: -100%;
+//    top: -50%;
+    transform: translateX(-50%) translateY(-80%);
+    z-index: 9000;
     display:none;
     font-family: Inconsolata;
-//    color: lightgrey;
     font-size: 12px;
     text-shadow: 0px 0px .5px rgba(0,0,0,.3);
-    //background-color: rgba(255,255,255,.3)
 }
 
 .y-axis {

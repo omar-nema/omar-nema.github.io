@@ -173,16 +173,15 @@ function generateLines(input){
 };
 
 function generateAxes(axes){   
-    var axislabel = d3.select('.chartwrapper').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
+    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
     axislabel.enter().append('div').attr('class', 'axis-label')
         .html(function(d,i){
         return axisLabels[axisOrder[i]]  
                            })
         .style('left', function(d,i){
-        return Math.min(Math.max(3, 100*d/width), 97) + '%';
+        return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
     });    
     axislabel.exit().remove();
-
     var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length]); 
     axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
         return "translate(" + d + ",0)" 
@@ -218,6 +217,8 @@ function resetFilters(){
         patexp: [null, null],
         income: [null, null]
     };    
+    searchFilter.type = null;
+    searchFilter.value = null;    
     filterLowerPct = null;
     filterUpperPct = null;
     update(origLineData);
@@ -324,6 +325,8 @@ function prepareAutoCompleteInput($input){
     
     function setFilterType(val){
         if  (!val){
+            searchFilter.type = null;
+            searchFilter.value = null;
             return update(origLineData);
         }
         searchFilter.type = 'notype';
@@ -374,14 +377,23 @@ function dataDependency(){
 
     $('.reset-button').click(resetFilters);
     
+    function filterMouseOverClick(){
+        $(this).removeClass('hide');
+        $(document).unbind('click');
+    };
+    
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});
     $('.slider').mouseup(mouseUpSlider).mouseleave(mouseUpSlider).mouseover(mouseOverSlider);
-    $('.filter').click(function(){
-        $(this).removeClass('hide');
-    })
-//        .mouseleave(function(){
-//        $(this).addClass('hide');        
-//    });
+    $('.filter').mouseover(filterMouseOverClick)
+    .click(filterMouseOverClick)
+    .mouseleave(function(){
+        var filter = $(this);
+        $(document).click(function(){
+                filter.addClass('hide');                    
+            });
+        }) 
+    
+ 
 };
 
 

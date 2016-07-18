@@ -19,12 +19,23 @@ custom_sidebar: hospitalquality-sidebar.html
 ---
 
 <section class="block block-data-visual">
+
+
     <div class="chartwrapper">
-        <svg class="chart">
-            <g class="lineholder"></g>
-            <g class="axisholder"></g>      
-        </svg>
-    </div>
+        <div class="axislabels"></div>
+        <div style="clear:both"></div>
+        <div class="chart-height-holder">
+            <div class="chart-label-holder">
+                <div class="chart-label-top chart-label">100</div>
+                <div class="chart-label-middle chart-label">50</div>                  
+                <div class="chart-label-bottom chart-label">0</div>             
+            </div>
+            <svg class="chart">      
+                <g class="lineholder"></g>
+                <g class="axisholder"></g>      
+            </svg>
+        </div>    
+    </div>    
 </section>
 
 <section class="block">

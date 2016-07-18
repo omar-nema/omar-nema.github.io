@@ -1,7 +1,12 @@
 .chartwrapper {
-  padding-top: 50px;
   position: relative;
-  font-family: 'Inconsolata'; }
+  font-family: 'Inconsolata';
+  overflow: auto; }
+
+.chart {
+  position: relative;
+  float: right;
+  width: 93%; }
 
 .axis-label {
   position: absolute;
@@ -14,8 +19,46 @@
   font-family: 'Karla';
   opacity: .85; }
 
+.axislabels {
+  width: 93%;
+  float: right;
+  height: 40px;
+  position: relative; }
+
+.chart-height-holder {
+  position: relative;
+  overflow: auto;
+  width: 100%; }
+
 .block {
-  width: 85vw; }
+  width: 85vw;
+  padding-left: 1%;
+  padding-right: 3.5%; }
+
+.chart-holder {
+  width: auto;
+  height: auto;
+  position: relative; }
+
+.chart-label-holder {
+  position: absolute;
+  width: 7%;
+  left: 0%;
+  top: 0%;
+  height: 100%; }
+  .chart-label-holder .chart-label {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.4);
+    font-size: calc(6px + .5vw);
+    left: 50%;
+    transform: translateX(-50%); }
+  .chart-label-holder .chart-label-top {
+    top: 0%; }
+  .chart-label-holder .chart-label-middle {
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%); }
+  .chart-label-holder .chart-label-bottom {
+    bottom: 0%; }
 
 .filter {
   background-color: white;
@@ -39,8 +82,8 @@
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   right: 0%; }
   .filter.hide .filter-icon {
     display: block;
@@ -177,7 +220,7 @@
   border: 1px dashed rgba(0, 0, 0, 0.3);
   padding-left: 0;
   margin-left: 0;
-  height: 180px;
+  max-height: 180px;
   width: 50px;
   overflow-y: hidden;
   position: absolute;
@@ -217,9 +260,8 @@
 .tooltip {
   position: absolute;
   pointer-events: none;
-  left: 50%;
-  top: 50%;
-  z-index: 3000;
+  transform: translateX(-50%) translateY(-80%);
+  z-index: 9000;
   display: none;
   font-family: Inconsolata;
   font-size: 12px;

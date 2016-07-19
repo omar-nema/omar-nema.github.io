@@ -30,10 +30,12 @@ custom_sidebar: hospitalquality-sidebar.html
                 <div class="chart-label-middle chart-label">50</div>                  
                 <div class="chart-label-bottom chart-label">0</div>             
             </div>
-            <svg class="chart">      
-                <g class="lineholder"></g>
-                <g class="axisholder"></g>      
-            </svg>
+            <div class="chart-tooltip-holder">
+                <svg class="chart">      
+                    <g class="lineholder"></g>
+                    <g class="axisholder"></g>      
+                </svg>
+            </div>            
         </div>    
     </div>    
 </section>

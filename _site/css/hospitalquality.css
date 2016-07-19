@@ -3,6 +3,10 @@
   font-family: 'Inconsolata';
   overflow: auto; }
 
+.project-info-collapse {
+  transform: translateY(-95%);
+  opacity: .8; }
+
 .chart {
   position: relative;
   float: right;
@@ -15,7 +19,7 @@
   text-transform: uppercase;
   color: grey;
   font-weight: 900;
-  font-size: 14px;
+  font-size: 12px;
   font-family: 'Karla';
   opacity: .85; }
 
@@ -59,6 +63,21 @@
     transform: translateX(-50%) translateY(-50%); }
   .chart-label-holder .chart-label-bottom {
     bottom: 0%; }
+
+.question-mark {
+  position: absolute;
+  font-size: 14px;
+  cursor: pointer;
+  color: gray;
+  font-family: 'Karla';
+  text-align: center;
+  border: 1px dashed rgba(0, 0, 0, 0.3);
+  width: 25px;
+  height: 25px;
+  top: 30%;
+  right: 1%;
+  background-color: white;
+  opacity: .8; }
 
 .filter {
   background-color: white;
@@ -120,9 +139,6 @@
   text-align: center;
   padding-bottom: 10px; }
 
-.slider-horizontal {
-  transform: rotate(90deg); }
-
 .reset-button {
   font-size: 12px;
   opacity: .3;
@@ -145,49 +161,72 @@
   width: 100%;
   height: 50px;
   cursor: pointer; }
-  .slider .fill-outer {
-    height: 100%;
-    width: 2px;
+  .slider .fill-inner {
     background-color: lightgrey;
     border-radius: 20%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); }
-  .slider .fill-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%; }
+    position: absolute; }
   .slider .thumb {
     height: 7px;
     width: 7px;
     border: 1px solid black;
     position: absolute;
-    left: 50%;
-    z-index: 3;
+    z-index: 5;
     border-radius: 100%;
     background-color: white; }
-  .slider .thumb.thumb-lower {
-    bottom: 0%;
-    transform: translateX(-50%) translateY(50%); }
-  .slider .thumb.thumb-upper {
-    bottom: 100%;
-    z-index: 5;
-    transform: translateX(-50%) translateY(50%); }
-  .slider .thumb-upper.thumb-active {
-    transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4); }
-  .slider .thumb-lower.thumb-active {
-    transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4); }
+  .slider .thumb-tooltip {
+    position: absolute;
+    pointer-events: none;
+    z-index: 3000;
+    display: none;
+    font-family: Inconsolata;
+    font-size: 10px; }
 
-.thumb-tooltip {
-  position: absolute;
-  pointer-events: none;
+.slider.vertical .fill-inner {
+  left: 50%;
+  height: 100%;
+  width: 2px;
+  transform: translateX(-50%); }
+.slider.vertical .thumb {
+  left: 50%; }
+.slider.vertical .thumb.thumb-lower {
+  bottom: 0%;
+  transform: translateX(-50%) translateY(50%); }
+.slider.vertical .thumb.thumb-upper {
+  bottom: 100%;
+  transform: translateX(-50%) translateY(50%); }
+.slider.vertical .thumb-upper.thumb-active {
+  transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4); }
+.slider.vertical .thumb-lower.thumb-active {
+  transform: translateX(-50%) translateY(50%) scaleX(1.4) scaleY(1.4); }
+.slider.vertical .thumb-tooltip {
   top: 50%;
-  z-index: 3000;
-  display: none;
-  font-family: Inconsolata;
-  font-size: 10px;
   right: 50%;
   transform: translateX(-70%) translateY(-50%); }
+
+.slider.horizontal {
+  width: 50px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto; }
+  .slider.horizontal .thumb-tooltip {
+    display: block; }
+  .slider.horizontal .fill-inner {
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    transform: translateY(-50%); }
+  .slider.horizontal .thumb {
+    top: 50%; }
+  .slider.horizontal .thumb-tooltip {
+    bottom: 200%;
+    left: 0%;
+    transform: translateX(-50%); }
+  .slider.horizontal .thumb.thumb-lower {
+    left: 0%;
+    transform: translateX(-50%) translateY(-50%); }
+  .slider.horizontal .thumb.thumb-upper {
+    left: 100%;
+    transform: translateX(-50%) translateY(-50%); }
 
 .half-column {
   width: 50%;
@@ -257,6 +296,9 @@
 .project-border {
   background-color: white; }
 
+.circle {
+  z-index: 14000; }
+
 .tooltip {
   position: absolute;
   pointer-events: none;
@@ -266,6 +308,21 @@
   font-family: Inconsolata;
   font-size: 12px;
   text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
+
+.tooltip2 {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9000;
+  display: none;
+  font-family: Inconsolata;
+  font-size: 10px;
+  text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%); }
+
+.chart-tooltip-holder {
+  width: auto;
+  overflow-y: auto;
+  position: relative; }
 
 .y-axis {
   position: relative;
@@ -281,7 +338,7 @@
 
 .polyline {
   fill: none;
-  stroke-width: .17px;
+  stroke-width: .2px;
   z-index: 3000;
   border: 5px solid black;
   padding: 30px; }

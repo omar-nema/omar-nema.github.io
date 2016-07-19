@@ -41,22 +41,67 @@ custom_sidebar: hospitalquality-sidebar.html
 </section>
 
 <section class="block">
-    <header class="block-header">play</header>
+    <header class="block-header">pointers</header>
     <div class="block-text">
-        <p>here..</p>
+        <p>
+        Moving towards: more accountability in healthcare pricing/
+        I created this chart as a way to address opacity in healthcare pricing
+        <br>
+The graphic above displays (aggregate, percentile-based) billed costs, hospital size, outcome quality, and patient experience. <br><br> This chart is intended for bottom-up data exploration - users can use the filter button to show relevant demographic info, variables, values, or providers. Mouse over axes or lines for more information about underlying data!
+        </p>
+    </div>
+</section>
+
+
+<section class="block">
+    <header class="block-header">findings</header>
+    <div class="block-text">
+        <p>
+In this graphic below, I took a macroscopic view of billed costs, hospital size, quality outcomes, and patient experience.
+This chart was created *primarily* 
+
+he viewer can start on either side, and choose any number of variables to compare. Relationships between variables can be observed in relatively high granularity – viewers can dissect the distribution of each correlation.
+
+Each of the four axes represents a ranked distribution from the lowest to highest value of each of the metrics.  
+
+  
+        </p>
     </div>
 </section>
 
 <section class="block">
     <header class="block-header">context</header>
     <div class="block-text">
-        <p>here..</p>
+        <p>Armed with public data
+        
+        Billed amounts for common procedures vary wildly from hospital to hospital. What is display
+        
+This a common, but baffling trend in healthcare:  This variability can be inferred from the CMS (Center for Medicare/Medicaid Services) Cost and Quality Report, though it is obscured by thousands of rows, medical procedure numbers, and claims terminology.  In order to make this information more accessible, we contextualized and visualized cost and quality data for the two thousand providers included in the Medicare dataset.        
+        
+        <a href="http://arcadiasolutions.com/weaving-hospital-variation/">here</a>
+        A static form of this visual was displayed in the HIMSS healthcare conference, 
+        </p>
     </div>
 </section>
 
 <section class="block">
-    <header class="block-header">visual</header>
+    <header class="block-header">data sources</header>
     <div class="block-text">
-        <p>here..</p>
+        <p>
+        All values displayed above are percentile-ranked among the sample of 1800 medicare/medicaid hospitals displayed above. 
+        Outcome and patient experience values were simply taken from 
+        <br>
+        The CMS patient experience rating is based on a survey encompassing medical staff communication, pain management, and hospital environment. Outcome takes into account mortality, infection rate, and functional ability following discharg
+        
+        Cost-index
+         I distilled billed Medicare cost for each provider to a single percentile-weighted number that takes into account relative price. This cost index aggregates billed amounts for procedures, weighed by frequency and price in comparison to other hospitals. (A hospital, for example, that focuses on costly procedures, but offers these procedures at a price lower than competition, will have a low cost index)
+    
+    Quality information – broken down to patient experience of care and outcome ratings. The CMS patient experience rating is based on a survey encompassing medical staff communication, pain management, and hospital environment. Outcome takes into account mortality, infection rate, and functional ability following discharge.
+    
+        Size
+    Using the number of procedures as a proxy for hospital size, we were able to evaluate each hospital on the axes of cost, patient experience, outcome, and size. Hospital performance profiles were developed by standardizing all four comparison variables on percentile scales. For example, a hospital with low cost percentile scores and high quality has a high-performing profile.    
+    
+        
+        </p>
     </div>
 </section>

@@ -9,10 +9,18 @@ chart.attr("preserveAspectRatio", "xMinYMin meet")
    .attr("viewBox", "0 0 900 450")
 
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
+//can instead add to chart
 
 
-//    .attr("class", "tooltip")
-//    .style("display", "none");
+var chartLeftOffset = $('.chartwrapper').offset().left;
+var chartTopOffset = $('.chartwrapper').offset().top;
+
+var axisLabelContent = {
+    discharge: 'Number of medical discharges (from CMS) was used as a proxy for hospital size. <br>Data source name: CMS Cost Report',
+    patexp: 'The patient experience rating is based on a survey encompassing medical staff communication, pain management, and hospital environment. Source: CMS Quality Survey',
+    outcome: 'Outcome takes into account mortality, infection rate, and functional ability following discharge. Source: CMS Quality Survey',
+    cost: 'Displayed cost index that I developed to aggregate billed amounts for procedures, weighed by frequency and price in comparison to other hospitals. (A hospital, for example, that focuses on costly procedures, but offers these procedures at a price lower than competition, will have a low cost index)'
+}
 
 var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
 var origLineData;
@@ -99,6 +107,7 @@ function generateLineData(input){
         d.patexp = yscale(+d.patexp);
         d.outcome = yscale(+d.outcome);
         d.income = yscale(+d.outcome);
+        d.numAxes = axisOrder.length;
     });      
     generatePointArray(input);    
     return input;
@@ -139,15 +148,18 @@ function provider(d){
 
 function generateLines(input){   
     
-    //re-generating axes
-    //options = change data by removing a category 
-    //initial data binding is an array ? !
-
-        
-    var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, provider);
-    
+    //is transition working 2 ways?!?!    
+    var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, function(d){
+        return d.numAxes + ' ' + d.provider
+    });
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
-//    lineholdG.append('div').attr('class', 'tooltip');
+    
+    
+    //wait when is polyline-holder joining the gang?
+    //maybe children ain'y leaving
+    //should chil'ren have data binding
+    //prob is - new data but new change
+
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
@@ -162,8 +174,6 @@ function generateLines(input){
     
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
     
-
-
     var polylinehover = lineholdG.append('polyline').attr('class', 'polyline-hover')
         .attr("points", function(d,i){ return generatePointArray(d) } )
         .style("stroke", function(d, i){
@@ -176,72 +186,58 @@ function generateLines(input){
                 //return "#ff5050";
             }})
     .on('mousemove', function(d, i){
-        
         tooltip.style("display", "block")
             .html(d.provider + '<br>' + d.zip + ' , ' + d.state)
-          .style("left", (d3.event.pageX - 34) + "px")
-          .style("top", (d3.event.pageY - 12) + "px");
-        
+          .style("left", (d3.event.pageX)-chartLeftOffset + "px")
+          .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");
     }).on('mouseleave', function(){
         tooltip.style('display', 'none');
         $('.tooltip').css('display', 'none');
               $('.tooltip2').css('display', 'none');
     });
     
-
-    
-    
-            
-//        for (i=0; i<axisOrder.length; i++){
-//            
-//            console.log(i);
-//            
-//            //takes original and not scaled values
-//            
-//            var type = axisOrder[i];
-//            var log = d[type];
-//        d3.select('.chart-height-holder').append("div").attr("class", "tooltip2")   
-//            .style("display", "block")
-//            .html(10)
-//            .style("left", Math.min(99, Math.max(9, 4+100*this.points[i].x/900)) + "%")
-//            .style("top", 100*this.points[i].y/450 + "%")
-//
-//            }
-        
-//     lineholdG.selectAll('.circle').data(function(d){return generatePointArray(d)[0]}).enter().append('circle').attr('class', 'circle').attr('r', 2).attr('cx', function(d){return d[0]})
-//     .attr('cy', function(d){return d[1]}).style('fill', 'black')
-//      .on('mousemove', function(d, i){
-//         console.log('circle');
-//        tooltip.style("display", "block")
-//            .html(function(d){return 'cost: ' + generatePointArray(d)[0]})
-//          .style("left", "0px")
-//          .style("top", "0px");
-//    }).on('mouseleave', function(){
-//        tooltip.style('display', 'none');
-//    });
-// ;
-    
-//    
+    //works
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();
+    var textbox = d3.selectAll('.polyline-holder').selectAll('.textbox').data(function(d) {return generatePointArray(d)[0]  });
+    textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
+    , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
+    textbox.exit().remove();
     
-   // lineholdG.selectAll(.polyline('.circle').data([4, 4, 4]).enter().append('g').attr('class', 'circle');
-    
-    //    lineholdG.append('circle').attr('r', '.3').attr("points", function(d,i){ return generatePointArray(d) }).attr('cy', '').stroke('black');
-     
-
 };
 
-function generateAxes(axes){   
-    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
+function generateAxes(){  
+    
+   //why separate into two data bindings ?!
+    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length], function(d){
+        return d;   
+    });
     axislabel.enter().append('div').attr('class', 'axis-label')
         .html(function(d,i){
         return axisLabels[axisOrder[i]]  
                            })
         .style('left', function(d,i){
         return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
+    })
+    .on('mousemove', function(d, i){
+         tooltip.style("display", "block")
+           .html(function(){return axisLabelContent[axisOrder[i]] })
+        .style("left", d3.event.pageX-chartLeftOffset + "px")
+          .style("top", "10%")         
+//          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
+//          .style("top", "20%")
+           .style('width', '170px')
+            .style('background-color', 'rgba(255,255,255,.8)')
+         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+         .style('padding', '5px')
+         ;
+    }).on('mouseleave', function(){
+        tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
     });    
+    
     axislabel.exit().remove();
-    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length]); 
+    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length], function(d){
+        return d;   
+    }); 
     axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
         return "translate(" + d + ",0)" 
     });
@@ -294,7 +290,7 @@ function resetFilters(){
 //POST-FILTER DATA UPDATE / RE-PLOT
 function update(data){
     generateLines(data);
-    generateAxes();        
+    generateAxes();  
 };
 
 function setThumbToolTip(thumb, slider){
@@ -424,6 +420,30 @@ function prepareAutoCompleteInput($input){
 };
 
 
+function firstCollapseBtnClick(){    
+    //12:30 figure out - options = brute force remove (no transition)
+    //minor change to data  = best option !!
+    //figure out callback
+    
+    $(this).addClass('plus').removeClass('minus') ;    
+    $(this).html('+');  
+    var axisType = $(this).attr('filterType');
+    axisOrder.splice(axisOrder.indexOf(axisType), 1);
+    $(this).closest('.slider-block').css('opacity', '.4'); 
+    $(this).css('opacity', '1');
+    $(this).one('click', secondCollapseBtnClick);
+};
+
+//now we need to preserve order
+
+function secondCollapseBtnClick(){
+    $(this).addClass('minus').removeClass('plus') ;           
+    $(this).html('-');    
+    $(this).closest('.slider-block').css('opacity', '1');         
+    $(this).one('click', firstCollapseBtnClick);        
+};
+
+
 function initialLoad(){
     d3.csv('/assets/csvdata/allpercentile.csv',function(data){ 
         origLineData = generateLineData(data);
@@ -448,13 +468,27 @@ function dataDependency(){
     }) ;
     prepareAutoCompleteInput($('#tags'));
     
-
     $('.reset-button').click(resetFilters);
+
+    $('.collapse-button').one('click', firstCollapseBtnClick);
+    
+    
     
     function filterMouseOverClick(){
         $(this).removeClass('hide');
         $(document).unbind('click');
     };
+    
+    $('.chart-label-holder').mousemove(function(){
+        tooltip.style("display", "block")
+            .html('Variables displayed on percentile-rank basis. High cost percentile indicates an expensive hospital, and higher experience/outcome indicate higher quality value')
+          .style("left", (event.pageX) + "px")
+        .style('width', '130px').style('padding', '5px')
+                  .style('background-color', 'rgba(255,255,255,.8)')
+         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+          .style("top", 15+(event.pageY)-chartTopOffset + "px");        
+        
+    }).mouseleave(function(){tooltip.style('background', 'none').style('box-shadow', 'none').display('none')  });
     
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});
     $('.slider').mouseup(mouseUpSlider).mouseleave(mouseUpSlider).mouseover(mouseOverSlider);

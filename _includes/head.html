@@ -5,12 +5,14 @@
      <link rel="icon" type="image/png" href="favicon.ico">
      <link rel="stylesheet" type="text/css" href="/css/normalize.css">
      <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>       
+     <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
      <link rel="stylesheet" type="text/css" href="/css/main.css">
 {% if page.custom_css %}
   {% for stylesheet in page.custom_css %}
   <link rel="stylesheet" href="/css/{{ stylesheet }}.css" media="screen" type="text/css">
   {% endfor %}
 {% endif %}
+
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 </head>

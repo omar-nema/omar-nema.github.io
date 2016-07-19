@@ -3,42 +3,42 @@ layout: home
 ---
 
 <div class="contentwrapper">
-<main class="content"> 
+<main class="content">
 
     <div class="year-3" data-time="3">
         <p class="grid-year-header">2016</p>
     </div>
     <div style="clear:both"></div>
     <div class="year-2" data-time="2">
-        <p class="grid-year-header">2015</p>    
+        <p class="grid-year-header">2015</p>
     </div>
-    <div style="clear:both"></div>    
+    <div style="clear:both"></div>
     <div class="year-1" data-time="1">
-        <p class="grid-year-header">2014<br>2013</p>    
-    </div>    
-    <div style="clear:both"></div>    
-        
+        <p class="grid-year-header">2014<br>2013</p>
+    </div>
+    <div style="clear:both"></div>
+
  {% for project in site.data.projects %}
-    
-    <div class="cardholder {{project.title}} {{project.category}}" title={{project.title}} category={{project.category}} data-time="{{project.timeOrder}}">
-        
+
+    <a href="/projects/{{ project.title }}"><div class="cardholder {{project.title}} {{project.category}}" title={{project.title}} category={{project.category}} data-time="{{project.timeOrder}}">
+
         <div title="{{project.title}}" class="card {{project.category}} card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>{{project.tags}}</p></div>
-        </div>     
-            
+        </div>
+
         <div title="{{project.title}}" class="card {{project.category}} card1 card1select" order="1" default="card1select">
             <div class="cardcontent"><p>=<br>{{project.synposis}}</p></div>
             <div class="cardtitle">{{project.headline}}</div>
         </div>
-        
-        <div title="{{project.title}}" class="card {{project.category}} card3 card3select" order="3" default="card3select"> 
-            <div class="cardcontent"><img src="{{project.image}}"></div> 
+
+        <div title="{{project.title}}" class="card {{project.category}} card3 card3select" order="3" default="card3select">
+            <div class="cardcontent"><img src="{{project.image}}"></div>
         </div>
-        
-    </div> 
+
+    </div></a>
  {% endfor %}
-    
-</main> 
+
+</main>
 
 {% include sidebar.html %}
 </div>
@@ -50,7 +50,3 @@ layout: home
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 -->
 <script type="text/javascript" src="assets/scripts/main.js"></script>
-
-
-
-        

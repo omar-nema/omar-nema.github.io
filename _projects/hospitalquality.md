@@ -10,7 +10,8 @@ tags:
     - SQL
     - R
 theme: '#FC2727'
-infotextcolor: black
+buttoncolor: #1C85FF
+infotextcolor: white
 type: individual
 custom_css: hospitalquality
 custom_js: 
@@ -21,7 +22,7 @@ custom_sidebar: hospitalquality-sidebar.html
 ---
 
 <section class="block block-data-visual">
-<!--'#FC2727'-->
+<!--'#FC2727'  #1C85FF; other :FD8210-->
 
     <div class="chartwrapper">
         <div class="axislabels"></div>

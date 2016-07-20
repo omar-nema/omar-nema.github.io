@@ -6,7 +6,7 @@
 
 .project-info-collapse {
   transform: translateY(-95%);
-  opacity: .8;
+  opacity: .1;
   color: black; }
 
 .project-info.project-info-collapse {
@@ -20,6 +20,9 @@
   float: right;
   width: 93%;
   cursor: crosshair; }
+
+.block-text {
+  color: blue; }
 
 .axis-label {
   position: absolute;

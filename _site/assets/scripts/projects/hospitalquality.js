@@ -41,14 +41,27 @@ var searchFilter = {
     value: null
 };
 
-//used to change ordering of axes
+
 var axisArrangement = {
-    2: [0, width],
+    2: [width*.2, width*.8],
     3: [0, width*.5, width],
     4: [0, width*.4, width*.56, width],
 };
 
-//axisOrder = ['discharge', 'patexp', 'outcome']
+function fuxitup(){
+    var currAxisData = axisArrangement[axisOrder.length];
+    var newAxisArrangement = [];
+    for (i=0;i<axisOrder.length; i++){
+        var newdata = {};
+        newdata[axisOrder[i]] = currAxisData[i];
+        newAxisArrangement.push(newdata);
+    };    
+    return newAxisArrangement;
+};
+
+//how is d3 going to like this data?
+
+
 var axisOrder = ['discharge', 'patexp', 'outcome', 'cost'];
 var axisLabels = {
     discharge: 'size',
@@ -67,6 +80,8 @@ var rangeFilters = {
 var selectionFilters = {
     state: null
 };
+
+
 
 
 //HELPER FUNCTIONS  
@@ -117,6 +132,10 @@ function updateAxisData(input){
     input.forEach(function(d, i){
         d.numAxes = axisOrder.length;
     });  
+//    var currAxisData = axisArrangement2[axisOrder.length];
+//    for (i=0;i<axisOrder.length; i++){
+//        currAxisData[i].id = axisOrder[i];   
+//    };    
     return input;
 };
 
@@ -163,7 +182,7 @@ function generateLines(input){
     
     //update
     linehold
-        .selectAll('.polyline')   
+        .selectAll('.polyline').transition().duration(800)  
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
             if (d['cost'][1] > yscale(.5)){
              return 'lightblue';
@@ -203,8 +222,7 @@ function generateLines(input){
     
     //exit
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();    
-//    textbox.exit().remove();        
-    
+        
     //enter
     lineholdG
         .append('polyline').attr('class', 'polyline')   
@@ -242,49 +260,88 @@ function generateLines(input){
     });
     
     textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
-    , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
-    
-    
-    
+    , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });   
 };
+//asynchronous
 
 function generateAxes(){  
     
-   //why separate into two data bindings ?!
-    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length], function(d){
-        return d;   
-    });
-    axislabel.enter().append('div').attr('class', 'axis-label')
-        .html(function(d,i){
-        return axisLabels[axisOrder[i]]  
-                           })
-        .style('left', function(d,i){
-        return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
-    })
-    .on('mousemove', function(d, i){
-         tooltip.style("display", "block")
-           .html(function(){return axisLabelContent[axisOrder[i]] })
-        .style("left", d3.event.pageX-chartLeftOffset + "px")
-          .style("top", "10%")         
-//          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
-//          .style("top", "20%")
-           .style('width', '170px')
-            .style('background-color', 'rgba(255,255,255,.8)')
-         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-         .style('padding', '5px')
-         ;
-    }).on('mouseleave', function(){
-        tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
-    });    
-    
-    axislabel.exit().remove();
-    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length], function(d){
-        return d;   
-    }); 
-    axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
-        return "translate(" + d + ",0)" 
-    });
-    axishold.exit().remove();
+//    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
+//    var updatelabel =
+//    axislabel
+//        .html(function(d,i){
+//            return axisLabels[axisOrder[i]]  
+//                               })        .on('mousemove', function(d, i){
+//             tooltip.style("display", "block")
+//               .html(function(){return axisLabelContent[axisOrder[i]] })
+//            .style("left", d3.event.pageX-chartLeftOffset + "px")
+//              .style("top", "10%")         
+//    //          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
+//    //          .style("top", "20%")
+//               .style('width', '170px')
+//                .style('background-color', 'rgba(255,255,255,.8)')
+//             .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+//             .style('padding', '5px')
+//             ;
+//        }).on('mouseleave', function(){
+//            tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
+//        }); 
+//    
+//    
+//    //fishy fish
+//    updatelabel.transition().duration(800)
+//            .style('left', function(d,i){
+//            return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
+//        });
+// 
+//    
+//    var enterlabel = 
+//    axislabel.enter().append('div').attr('class', 'axis-label')
+//        .html(function(d,i){
+//        return axisLabels[axisOrder[i]]  
+//                           })
+//        .style('left', function(d,i){
+//        return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
+//    })
+//    .on('mousemove', function(d, i){
+//         tooltip.style("display", "block")
+//           .html(function(){return axisLabelContent[axisOrder[i]] })
+//        .style("left", d3.event.pageX-chartLeftOffset + "px")
+//          .style("top", "10%")         
+////          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
+////          .style("top", "20%")
+//           .style('width', '170px')
+//            .style('background-color', 'rgba(255,255,255,.8)')
+//         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+//         .style('padding', '5px')
+//         ;
+//    }).on('mouseleave', function(){
+//        tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
+//    });    
+//    
+//    axislabel.exit().remove();
+//    
+//    
+//    //we neeeeed data update for axes!! object constantcy 
+//    //do we keep by index
+//    //need to decide now if we're going to allow for axis switching !!
+//    
+//    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisArrangement[axisOrder.length], function(d){
+//        return d;   
+//    }); 
+//    //update
+//    axishold
+//        .transition().duration(800)
+//        .attr('transform', function(d, i){
+//            return "translate(" + d + ",0)" 
+//        });
+//    
+//    //enter
+//    axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){
+//        return "translate(" + d + ",0)" 
+//    }).transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+//    
+//    axishold.exit().remove().transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
 };
 
 ///////FILTER FUNCTIONS
@@ -468,7 +525,7 @@ function firstCollapseBtnClick(){
     $(this).closest('.slider-block').css('opacity', '.4'); 
     $(this).css('opacity', '1');
     $(this).one('click', secondCollapseBtnClick);
-    
+    //deal w/ chart label    
     var axisType = $(this).attr('filterType');
     axisOrder.splice(axisOrder.indexOf(axisType), 1);    
     updateAxisData(origLineData);

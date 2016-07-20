@@ -372,7 +372,7 @@
   width: 21.6vw;
   height: 17.28vw;
   float: left;
-  position: inherit;
+  position: relative;
   margin-left: 5vw;
   margin-right: 1vw;
   margin-top: 8vw; }
@@ -390,8 +390,8 @@
   .grid .cardholder {
     width: 36.72vw;
     height: 29.376vw; }
-    .grid .cardholder .grid .cardcontent p {
-      font-size: 2.268vw; }
+    .grid .cardholder .cardcontent p {
+      font-size: calc(10px + .7vw); }
 
   .grid .cardtitle {
     font-size: calc(5px + 2vw); } }

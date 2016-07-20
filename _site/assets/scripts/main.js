@@ -118,10 +118,11 @@ function undoTimeSort(origHTML){
     $('.time-sort').one('click', timeSort);
     layoutResizeEnabled = true;
     $('.cardholder').css('opacity', '0'); //transition
+
     $('.content').html(origHTML);
     $('.cardholder').css('opacity', '1'); //transition
     $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
-    $('.cardholder').click(cardClick);
+//    $('.cardholder').click(cardClick);
     generateLayout();
 };
 
@@ -245,7 +246,18 @@ $(document).ready(function(event){
 
     $('.about-button').one('click', aboutFirstClick);
     // $('.cardholder').click(cardClick);
-
+    
+    function swipeHandler(){
+        console.log('handled');
+    };
+    
+    $(this).on('swipe', swipeHandler);
+    
+//    $(this).on('swipe', function(){console.log('swiped')});    
+    $('.cardholder').on('swipe', function(){console.log('swiped')});
+    
+    $(this).on('swipeleft', function(){console.log('swipedleft')});
+    
     //SIDEBAR
     $('.time-sort').one('click', timeSort);
     $('.time-sort').mouseenter(function(){return $(this).removeClass('hideCategory').addClass('showCategory')}).mouseleave(categoryMouseLeave);

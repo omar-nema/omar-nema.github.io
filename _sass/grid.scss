@@ -30,7 +30,7 @@ $large-card-title-factor : .18;
         width: $med-card-width;
         height: $cardratio*$med-card-width;
         float: left;
-        position: inherit;
+        position: relative;
         margin-left: 5vw;
         margin-right: 1vw;
         margin-top: 8vw;
@@ -62,10 +62,9 @@ $large-card-title-factor : .18;
             .grid .cardholder {
                 width: 1.7*$med-card-width;
                 height: 1.7*$med-card-width*$cardratio;
-                .grid .cardcontent p {
-                    font-size: $med-font-size-factor  * $med-card-width;
-//                    
-                }      
+                .cardcontent p {
+                    font-size: calc(10px + .7vw);            
+                }                       
             } 
             .grid .cardtitle {
                 //font-size: $med-card-title-factor * $card-width;

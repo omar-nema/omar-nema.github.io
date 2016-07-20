@@ -7,6 +7,8 @@ tags:
     - data visualization
     - data science
     - d3.js
+    - SQL
+    - R
 theme: '#FC2727'
 infotextcolor: white
 type: individual
@@ -41,11 +43,10 @@ custom_sidebar: hospitalquality-sidebar.html
 </section>
 
 <section class="block">
-    <header class="block-header">pointers</header>
+    <header class="block-header">overview</header>
     <div class="block-text">
         <p>
-        Moving towards: more accountability in healthcare pricing/
-        I created this chart as a way to address opacity in healthcare pricing
+        Moving towards: accountability in healthcare pricing.
         <br>
 The graphic above displays (aggregate, percentile-based) billed costs, hospital size, outcome quality, and patient experience. <br><br> This chart is intended for bottom-up data exploration - users can use the filter button to show relevant demographic info, variables, values, or providers. Mouse over axes or lines for more information about underlying data!
         </p>
@@ -57,32 +58,17 @@ The graphic above displays (aggregate, percentile-based) billed costs, hospital 
     <header class="block-header">findings</header>
     <div class="block-text">
         <p>
-In this graphic below, I took a macroscopic view of billed costs, hospital size, quality outcomes, and patient experience.
-This chart was created *primarily* 
-
-he viewer can start on either side, and choose any number of variables to compare. Relationships between variables can be observed in relatively high granularity – viewers can dissect the distribution of each correlation.
-
-Each of the four axes represents a ranked distribution from the lowest to highest value of each of the metrics.  
-
-  
+        It doesn't matter what you pay, your quality of care is likely to be the same across different providers.
+        <br>
+        There is no correlation (visually or quantitatively) between cost and quality of care (as evidenced by the scattered, spaghetti-like display of the above chart).
+        <br><br>
+         You may notice  X-shaped weaves different axes (outcome and patient experience are a clear example). This points to anti-correlation.  We see a clustering of hospitals with large size and low outcome forming the downward slope of the X and low size, high-outcome hospitals creating the upward slope. 
+         <br><br>
+        Other insights may be noticed at a granular (state, zip) level.
         </p>
     </div>
 </section>
 
-<section class="block">
-    <header class="block-header">context</header>
-    <div class="block-text">
-        <p>Armed with public data
-        
-        Billed amounts for common procedures vary wildly from hospital to hospital. What is display
-        
-This a common, but baffling trend in healthcare:  This variability can be inferred from the CMS (Center for Medicare/Medicaid Services) Cost and Quality Report, though it is obscured by thousands of rows, medical procedure numbers, and claims terminology.  In order to make this information more accessible, we contextualized and visualized cost and quality data for the two thousand providers included in the Medicare dataset.        
-        
-        <a href="http://arcadiasolutions.com/weaving-hospital-variation/">here</a>
-        A static form of this visual was displayed in the HIMSS healthcare conference, 
-        </p>
-    </div>
-</section>
 
 <section class="block">
     <header class="block-header">data sources</header>

@@ -10,7 +10,7 @@ tags:
     - SQL
     - R
 theme: '#FC2727'
-infotextcolor: white
+infotextcolor: black
 type: individual
 custom_css: hospitalquality
 custom_js: 
@@ -21,7 +21,7 @@ custom_sidebar: hospitalquality-sidebar.html
 ---
 
 <section class="block block-data-visual">
-
+<!--'#FC2727'-->
 
     <div class="chartwrapper">
         <div class="axislabels"></div>
@@ -49,6 +49,7 @@ custom_sidebar: hospitalquality-sidebar.html
         Moving towards: accountability in healthcare pricing.
         <br>
 The graphic above displays (aggregate, percentile-based) billed costs, hospital size, outcome quality, and patient experience. <br><br> This chart is intended for bottom-up data exploration - users can use the filter button to show relevant demographic info, variables, values, or providers. Mouse over axes or lines for more information about underlying data!
+<br> Visually, plotting many things
         </p>
     </div>
 </section>

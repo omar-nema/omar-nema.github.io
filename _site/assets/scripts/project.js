@@ -88,6 +88,10 @@ $(document).ready(function(event){
         collapseNav();
     });
     
+    $(document).click(function(){   
+            collapseNav();
+        });
+    
     viewCheck($(window).width());
     
     $('.home-button').one('click', homeClick);       
@@ -103,30 +107,4 @@ $(document).ready(function(event){
  
     $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
     
-    //    $('.view-button.one').click(textView);  
-//    $('.view-button.two').click(imageOnlyView);      
-//    $('.view-button.three').click(defaultView);  
-    
 });
-
-
-
-//    $('.block.intro').fadeIn(500);
-//    $('.block-text p').fadeIn(500); 
-//    $('.image-button').one('click', imageOnlyView); 
-//    if ($(this).attr('button-type')=='image-button'){
-//        $(this).one('click', imageOnlyView);
-//    } 
-
-
-//    $(this).addClass('active').one('click', removeTextView);
-//    $(this).addClass('active').one('click', normalView);      
-//    $('.image-button').addClass('active').one('click', normalView);   
-//function removeTextView(){
-//    $('.block-image-container').css('display','block');
-//    $('.highlight').removeClass('active');
-//    $('.view-button').removeClass('active');
-//    if ($(this).attr('button-type')=='text-button'){
-//        $(this).one('click', textView); 
-//    }       
-//}

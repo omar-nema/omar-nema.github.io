@@ -6,7 +6,11 @@
 
 .project-info-collapse {
   transform: translateY(-95%);
-  opacity: .8; }
+  opacity: .8;
+  color: black; }
+
+.project-info.project-info-collapse {
+  background-color: white; }
 
 .project-info {
   z-index: 1000000; }
@@ -50,13 +54,13 @@
   margin-right: auto; }
 
 .block.block-data-visual {
-  width: 85vw;
+  width: 80vw;
   padding-left: 1%;
   padding-right: 3.5%;
   max-width: none; }
 
 .project-content {
-  max-width: 1100px; }
+  max-width: 1000px; }
 
 .project-border {
   background-color: white; }

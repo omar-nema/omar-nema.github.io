@@ -159,6 +159,8 @@ function generateLines(input){
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
     var textbox = d3.selectAll('.polyline-holder').selectAll('.textbox').data(function(d) {return generatePointArray(d)[0]  });
     
+    //does nested selection take care of this?
+    
     //update
     linehold
         .selectAll('.polyline')   
@@ -201,7 +203,7 @@ function generateLines(input){
     
     //exit
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();    
-    textbox.exit().remove();        
+//    textbox.exit().remove();        
     
     //enter
     lineholdG

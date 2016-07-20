@@ -27,7 +27,6 @@
 .axis-label {
   position: absolute;
   top: 0;
-  transform: translateX(-50%);
   text-transform: uppercase;
   color: grey;
   font-weight: 900;

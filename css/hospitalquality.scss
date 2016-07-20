@@ -35,7 +35,7 @@
 .axis-label {
     position: absolute;
     top: 0;
-    transform: translateX(-50%);
+//    transform: translateX(-50%);
     text-transform: uppercase;    
     color: grey;
     font-weight: 900;
@@ -43,7 +43,9 @@
     font-family: 'Karla';
     opacity: .85;
     cursor: pointer;
+    //transition: left .5s ease-in-out;
 }
+
 
 .axislabels {
     width: 93%;

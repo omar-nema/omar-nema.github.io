@@ -5,8 +5,109 @@
     font-weight: normal;
     color: #212121;
 }
+    //.transition().duration(3000).styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+    
+//    d3.select('.chart').transition().duration(1000).selectAll('.y-axis.axis').styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});  
+    
+//    updateTransition.select('.axisholder').selectAll('.y-axis.axis').styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});  
+////        
+        //.attr('transform', function(d, i){return "translate(" + d.value + ",0)" })
+        
+        //.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+
+    
+//    //ENTER ANIMATION (diff from update)
+//    updateTransition.select('.axisholder').selectAll('.y-axis.axis').styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+//        
+    
+//        updateTransition.select('.axisholder').selectAll('.y-axis.axis')
+    //    //AXES    
+//    var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisDataObject, function(d){return d.name});
+//    //UPDATE
+//    updateTransition.select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" });
+//    
+//    //ENTER
+//    axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+//    
+//    //EXIT
+//    axishold.exit().remove().transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});   
+//    
+    
+    
 
 
+//    updateTransition.select('.lineholder').selectAll('.polyline')
+//        .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
+//            if (d['cost'][1] > yscale(.5)){
+//                console.log('ay');
+//             return 'lightblue';
+//           //  return "#00CED1";
+//            }  
+//            else {
+//                return '#00CED1';
+//               // return "#ff5050";
+//            }});
+    
+//    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisArrangement[axisOrder.length]);
+//    var updatelabel =
+//    axislabel
+//        .html(function(d,i){
+//            return axisLabels[axisOrder[i]]  
+//                               })        .on('mousemove', function(d, i){
+//             tooltip.style("display", "block")
+//               .html(function(){return axisLabelContent[axisOrder[i]] })
+//            .style("left", d3.event.pageX-chartLeftOffset + "px")
+//              .style("top", "10%")         
+//    //          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
+//    //          .style("top", "20%")
+//               .style('width', '170px')
+//                .style('background-color', 'rgba(255,255,255,.8)')
+//             .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+//             .style('padding', '5px')
+//             ;
+//        }).on('mouseleave', function(){
+//            tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
+//        }); 
+//    
+//    
+//    //fishy fish
+//    updatelabel.transition().duration(800)
+//            .style('left', function(d,i){
+//            return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
+//        });
+// 
+//    
+//    var enterlabel = 
+//    axislabel.enter().append('div').attr('class', 'axis-label')
+//        .html(function(d,i){
+//        return axisLabels[axisOrder[i]]  
+//                           })
+//        .style('left', function(d,i){
+//        return Math.min(Math.max(1.5, 100*d/width), 97.5) + '%';
+//    })
+//    .on('mousemove', function(d, i){
+//         tooltip.style("display", "block")
+//           .html(function(){return axisLabelContent[axisOrder[i]] })
+//        .style("left", d3.event.pageX-chartLeftOffset + "px")
+//          .style("top", "10%")         
+////          .style("left", Math.max(20, Math.min(80, 100*(d3.event.pageX)/$('.chartwrapper').width()-5 ))+ "%")
+////          .style("top", "20%")
+//           .style('width', '170px')
+//            .style('background-color', 'rgba(255,255,255,.8)')
+//         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+//         .style('padding', '5px')
+//         ;
+//    }).on('mouseleave', function(){
+//        tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
+//    });    
+//    
+//    axislabel.exit().remove();
+//    
+//    
+//    //we neeeeed data update for axes!! object constantcy 
+//    //do we keep by index
+//    //need to decide now if we're going to allow for axis switching !!
+//    
             
 //                for (i=0; i<axisOrder.length; i++){
 //            

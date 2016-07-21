@@ -191,12 +191,13 @@ function generateLines(input, updateTransition){
         tooltip.style("display", "block")
             .html(d.provider + '<br>' + d.city + ' , ' + d.state)
           .style("left", (d3.event.pageX)-chartLeftOffset + "px")
-          .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");
+          .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");        
     }).on('mouseleave', function(){
         tooltip.style('display', 'none');
         $('.tooltip').css('display', 'none');
               $('.tooltip2').css('display', 'none');
     });
+    
     textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
     , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });   
 };
@@ -471,6 +472,15 @@ function secondCollapseBtnClick(){
 };
 
 
+function polylineSectionAdd(){
+    $(this).addClass('polyline-selected');
+    $(this).one('click', polylineSectionRemove);
+};
+function polylineSectionRemove(){
+    $(this).removeClass('polyline-selected');        
+    $(this).one('click', polylineSectionAdd);        
+};
+
 function initialLoad(){
     d3.csv('/assets/csvdata/costQuality.csv',function(data){ 
         origLineData = generateLineData(data);
@@ -480,6 +490,7 @@ function initialLoad(){
 };
 
 var item;
+
 function dataDependency(){
     //SEARCH AUTOCOMPLETE
     $( function() {
@@ -508,7 +519,9 @@ function dataDependency(){
         });
         $('.chart-info').css('opacity', '1');
         $(this).hide();
-    };    
+    };   
+    
+    $('.polyline-hover').one('click', polylineSectionAdd);    
     
     $('.reset-button').click(resetFilters);
     $('.collapse-button').one('click', firstCollapseBtnClick);

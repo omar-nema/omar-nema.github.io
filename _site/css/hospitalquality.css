@@ -409,6 +409,12 @@
 .polyline-hover:hover {
   opacity: 1; }
 
+.polyline-hover.polyline-selected {
+  opacity: 1; }
+
+.polyline-hover.polyline-selected:hover {
+  stroke-width: 10px; }
+
 .axis path,
 .axis line {
   fill: none;

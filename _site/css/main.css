@@ -383,7 +383,7 @@
 .grid .cardtitle {
   font-size: 2.08vw; }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 700px) {
   .grid.content {
     width: 100%; }
 
@@ -391,10 +391,17 @@
     width: 36.72vw;
     height: 29.376vw; }
     .grid .cardholder .cardcontent p {
-      font-size: calc(10px + .7vw); }
+      font-size: calc(11px + .7vw); }
 
   .grid .cardtitle {
-    font-size: calc(5px + 2vw); } }
+    font-size: calc(7px + 2vw); } }
+@media only screen and (max-width: 550px) {
+  .sidebar-categories {
+    display: none; }
+
+  .grid .cardholder {
+    width: 41.04vw;
+    height: 32.832vw; } }
 .content.grid.timesort {
   margin-top: 7vh; }
 
@@ -1243,3 +1250,7 @@ footer .toprect {
   -moz-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5); }
+
+@media only screen and (max-width: 550px) {
+  .sidebar-categories {
+    display: none; } }

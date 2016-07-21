@@ -439,3 +439,10 @@ footer {
     //box-shadow: 0 0 0 1px rgba(0,0,0,.3);       
 }
 
+
+@media only screen and (max-width: 550px){
+    .sidebar-categories {
+        display: none;
+    }
+         
+}

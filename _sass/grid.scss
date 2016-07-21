@@ -3,7 +3,7 @@
 
 //$breakpoint-1: 900px;
 //$breakpoint-2: 750px;
-$breakpoint-1: 650px;
+$breakpoint-1: 700px;
 //$breakpoint-4: 480px;
 $footer-height: 1rem;
 
@@ -63,20 +63,37 @@ $large-card-title-factor : .18;
                 width: 1.7*$med-card-width;
                 height: 1.7*$med-card-width*$cardratio;
                 .cardcontent p {
-                    font-size: calc(10px + .7vw);            
+                    font-size: calc(11px + .7vw);            
                 }                       
             } 
             .grid .cardtitle {
                 //font-size: $med-card-title-factor * $card-width;
-                font-size: calc(5px + 2vw);                
+                font-size: calc(7px + 2vw);                
                 
             }     
         }
 
 
-.content.grid.timesort {
-    margin-top: 7vh;
+    @media only screen and (max-width: 550px){
+        .sidebar-categories {
+            display: none;
+        }
+        
+        .grid .cardholder {
+                width: 1.9*$med-card-width;
+                height: 1.9*$med-card-width*$cardratio;
+                
+//                .cardcontent p {
+//                    font-size: calc(11px + .7vw);            
+//                }                  
+
+        }
+        
 }
+
+    .content.grid.timesort {
+        margin-top: 7vh;
+    }
 
 .grid.timesort {
 
@@ -174,6 +191,8 @@ $large-card-title-factor : .18;
     }
         
     }
+    
+    
     
     
 }

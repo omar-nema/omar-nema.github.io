@@ -240,10 +240,10 @@ function aboutSecondClick(){
 
 $(document).ready(function(event){
     //run things when layout gen is done?
-    $(window).load(function(){
+//    $(window).load(function(){
         generateLayout();
         $('.content').css('display', 'block');
-    });
+//    });
 
     $('.about-button').one('click', aboutFirstClick);
     // $('.cardholder').click(cardClick);

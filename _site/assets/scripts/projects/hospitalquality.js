@@ -278,7 +278,7 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(400);    
+    var updateTransition = d3.transition().duration(550);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };
@@ -455,6 +455,11 @@ function initialLoad(){
         dataDependency();  //runs most functions after csv data loaded
     });
 };
+
+function csvLoad(){
+    
+};
+
 
 var item;
 function dataDependency(){

@@ -172,13 +172,20 @@ function generateLines(input, updateTransition){
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
-            if (d.cost > yscale(.5)){
-             return "#00CED1";
+            if (d.cost < yscale(.8)){
+                return "#00CED1";
 //                return "#ff5050";                
             }  
-            else {             
-                return "#ff5050";
-            }});  
+            else if (d.cost > yscale(.2)){ 
+                  //              return "#00CED1";
+                return "#ff5050";               
+            }
+            else {  
+//                return 'white';
+                return '#939393';                
+            }
+    
+    });  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
@@ -549,5 +556,6 @@ function dataDependency(){
         }); 
 };
 
-
-initialLoad();
+$(document).ready(function(){
+    initialLoad(); 
+});

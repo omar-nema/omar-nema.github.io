@@ -79,30 +79,13 @@ function getObjectValues(input){
     return output;   
 };
 
-///EVENT FUNCTIONS
-//function showSlider(){
-//    $('.slider-holder').addClass('show');
-//    $('.slider-holder').one('click', removeSlider);
-//};
-//function removeSlider(){
-//    console.log('second');    
-//    $('.slider-holder').removeClass('show');
-//};
-
-//function lineMouseOver(line){
-//    line.attr('class', 'polyline highlight');
-//};
-//function lineMouseLeave(line){
-//    line.attr('class', 'polyline');
-//};
-
 function generateLineData(input){
     input.forEach(function(d, i){
         d.cost = yscale(+d.cost);
         d.discharge = yscale(+d.discharge);
         d.patexp = yscale(+d.patexp);
         d.outcome = yscale(+d.outcome);
-        d.income = yscale(+d.outcome);
+        d.income = yscale(+d.income);
         d.numAxes = axisOrder.length;
     });      
     return input;
@@ -160,41 +143,16 @@ function generateLines(input, updateTransition){
     var textbox = d3.selectAll('.polyline-holder').selectAll('.textbox').data(function(d) {return generatePointArray(d)[0]  });
     
     d3.transition(updateTransition).select('.lineholder').selectAll('.polyline')
-        .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
-            if (d['cost'][1] > yscale(.5)){
-                console.log('ay');
-             return 'lightblue';
-           //  return "#00CED1";
-            }  
-            else {
-                return '#00CED1';
-               // return "#ff5050";
-            }});        
+        .attr("points", function(d){return generatePointArray(d)})
         //update
      d3.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
         , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
+    
     linehold
         .selectAll('.polyline-hover')
             .attr("points", function(d,i){ return generatePointArray(d) } )
-            .style("stroke", function(d, i){
-                if (d['cost'] > yscale(.5)){
-                    return 'lightblue';
-                 //return "#00CED1";
-                }  
-                else {
-                    return '00CED1';
-                    //return "#ff5050";
-                }})
-        .on('mousemove', function(d, i){
-            tooltip.style("display", "block")
-                .html(d.provider + '<br>' + d.zip + ' , ' + d.state)
-              .style("left", (d3.event.pageX)-chartLeftOffset + "px")
-              .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");
-        }).on('mouseleave', function(){
-            tooltip.style('display', 'none');
-            $('.tooltip').css('display', 'none');
-                  $('.tooltip2').css('display', 'none');
-        });   
+
+    //why is hover only covering high cost
     
     //exit - takes care of all elements
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();    
@@ -203,30 +161,24 @@ function generateLines(input, updateTransition){
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
-            if (d['cost'][1] > yscale(.5)){
-             return 'lightblue';
-           //  return "#00CED1";
+            if (d.cost > yscale(.5)){
+             return "#00CED1";
             }  
             else {             
-                return '#00CED1';
-               // return "#ff5050";
+                return "#ff5050";
             }});  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+    
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
-        .attr("points", function(d,i){ return generatePointArray(d) } )
-        .style("stroke", function(d, i){
-            if (d['cost'] > yscale(.5)){
-                return 'lightblue';
-             //return "#00CED1";
-            }  
-            else {
-                return '00CED1';
-                //return "#ff5050";
-            }})
+        .attr("points", function(d){ return generatePointArray(d) } )
+        .style("stroke", function(d, i){ 
+                if (d.cost > yscale(.5)){return "#00CED1"} 
+                else {return "#ff5050"}
+            })
     .on('mousemove', function(d, i){
         tooltip.style("display", "block")
-            .html(d.provider + '<br>' + d.zip + ' , ' + d.state)
+            .html(d.provider + '<br>' + d.city + ' , ' + d.state)
           .style("left", (d3.event.pageX)-chartLeftOffset + "px")
           .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");
     }).on('mouseleave', function(){
@@ -290,7 +242,6 @@ function filterData(){
         var lowerFilter, upperFilter;        
         lowerFilter = yscale(lowerFilterValue/100);
         upperFilter = yscale(upperFilterValue/100);        
-        
         if (lowerFilterValue){
             filtered = filtered.filter(function(d,i){return d[currFilterType] < lowerFilter });
         } ;
@@ -327,7 +278,7 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(700);    
+    var updateTransition = d3.transition().duration(400);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };
@@ -498,7 +449,7 @@ function secondCollapseBtnClick(){
 
 
 function initialLoad(){
-    d3.csv('/assets/csvdata/allpercentile.csv',function(data){ 
+    d3.csv('/assets/csvdata/costQuality.csv',function(data){ 
         origLineData = generateLineData(data);
         update(origLineData);
         dataDependency();  //runs most functions after csv data loaded

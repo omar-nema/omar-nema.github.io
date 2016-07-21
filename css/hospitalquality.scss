@@ -142,7 +142,7 @@
     padding: 2px;
     font-size: 12px;
     font-family: 'Karla';
-    z-index: 3;
+    z-index: -1;
     -moz-box-shadow:   1px 1px 3px rgba(0,0,0,.3); 
 	-webkit-box-shadow:  1px 1px 3px rgba(0,0,0,.3);      
     box-shadow: 1px 1px 3px rgba(0,0,0,.3);
@@ -495,7 +495,7 @@
 
 .polyline {
     fill: none;
-    stroke-width: .2px;
+    stroke-width: .15px;
     z-index: 3000;
     border: 5px solid black;
     padding: 30px;

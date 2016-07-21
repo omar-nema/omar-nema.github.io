@@ -64,9 +64,6 @@ var autoCompleteSource = {
 };
 
 
-
-
-
 //HELPER FUNCTIONS  
 function getObjectValues(input){
     output = [];
@@ -455,11 +452,6 @@ function initialLoad(){
         dataDependency();  //runs most functions after csv data loaded
     });
 };
-
-function csvLoad(){
-    
-};
-
 
 var item;
 function dataDependency(){

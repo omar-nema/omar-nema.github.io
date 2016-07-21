@@ -26,6 +26,12 @@
 .block-text {
   color: blue; }
 
+.profile-one {
+  color: #00CED1; }
+
+.profile-two {
+  color: #ff5050; }
+
 .axis-label {
   position: absolute;
   top: 50%;
@@ -126,7 +132,7 @@
   background-color: white;
   opacity: .8;
   position: absolute;
-  top: 20%;
+  top: 15%;
   right: 0%;
   width: 300px;
   height: auto;
@@ -319,6 +325,12 @@
   padding-left: 40px;
   height: 130px; }
 
+.slider-holder.profile-two {
+  display: none; }
+
+.filter-header.profile-two {
+  display: none; }
+
 .slider-patexp {
   left: 30%;
   top: 50%;
@@ -413,7 +425,7 @@
   opacity: 1; }
 
 .polyline-hover.polyline-selected:hover {
-  stroke-width: 10px; }
+  stroke-width: 25px; }
 
 .axis path,
 .axis line {

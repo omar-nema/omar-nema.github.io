@@ -63,6 +63,7 @@ var autoCompleteSource = {
     values: []
 };
 
+var axisHighlight = [];
 
 //HELPER FUNCTIONS  
 function getObjectValues(input){
@@ -133,7 +134,9 @@ function generatePointArray(input){
 
 
 
+
 function generateLines(input, updateTransition){ 
+    
     //fully understand key function
     var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, function(d){return d.provider});
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
@@ -152,24 +155,27 @@ function generateLines(input, updateTransition){
     //enter
     lineholdG
         .append('polyline').attr('class', 'polyline')   
-        .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
-            if (d.cost > yscale(.5)){
-                return "#00CED1";
-//                return "#ff5050";                
-            }  
-            else {
-                    return "#ff5050";                  
-            };
-//            else; if (d.cost > yscale(.2)){ 
-//                  //              return "#00CED1";
-//                return "#ff5050";               
-//            }
-//            else {  
-////                return 'white';
-//                return '#939393';                
-//            }
-    
-    });  
+        .attr("points", function(d){return generatePointArray(d)}).style('stroke', "#00CED1");
+        
+//        .style("stroke", function(d, i){
+//                   return "#00CED1";
+//            if (d.cost > yscale(.5)){
+//                return "#00CED1";
+////                return "#ff5050";                
+//            }  
+//            else {
+//                    return "#ff5050";                  
+//            };
+////            else; if (d.cost > yscale(.2)){ 
+////                  //              return "#00CED1";
+////                return "#ff5050";               
+////            }
+////            else {  
+//////                return 'white';
+////                return '#939393';                
+////            }
+//    
+//    });  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
@@ -195,16 +201,10 @@ function generateLines(input, updateTransition){
 
 function generateAxes(updateTransition){  
     
-//LABELS
+    //axisHighlight  = {discharge, size, cost, x: null}
+    
+//LABELS - fix me / put me in an svg
     var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisDataObject, function(d){return d.name});    
-    //UPDATE (transition in CSS, as this is a div)
-    
-    //options, upon resize, run an update function (heavy)
-    //also requires running a mousemove update
-    
-    //OR//wrap tooltip in svg
-    
-    //or just add to chart
     
     //ENTER
     var enterlabel = 
@@ -212,14 +212,6 @@ function generateAxes(updateTransition){
        .attr('x', function(d,i){return d.value;}).attr("dy", "20px").style('opacity', '0')
         .text(function(d,i){ return axisLabels[axisOrder[i]]})    
         .on('mousemove', function(d, i){
-            
-//         tooltip.style("display", "block")
-//             .html(function(){return axisLabelContent[d.name] })
-//             .style("left", 100*((d3.event.pageX)-chartLeftOffset)/$('.chartwrapper').width() + "%")
-//             .style("top", "10%").style('width', '170px')
-//             .style('background-color', 'rgba(255,255,255,.8)')
-//            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})
-//    
          tooltip.style("display", "block")
              .html(function(){return axisLabelContent[d.name] })
              .style("left", (d3.event.pageX)-chartLeftOffset + "px")
@@ -317,7 +309,7 @@ function mouseOverSlider(){
 
 
 //GET GRANULAR HERE
-function mouseDownThumb(thumb){
+function mouseDownThumb(){
     var thumb  = $(this);
     var sliderParent = $(this).closest('.slider');
     var thumbToolTip = thumb.find('.thumb-tooltip').css('display', 'block');
@@ -326,18 +318,17 @@ function mouseDownThumb(thumb){
     if (thumb.hasClass('thumb-active')){
         if (thumb.hasClass('thumb-lower')){ 
             var pct = setThumbToolTip(sliderParent.find('.thumb-upper'), sliderParent);         
-            sliderParent.mousemove(function(){sliderMouseMove(sliderParent, thumb, 0, pct, true, false, thumbToolTip)} );  
+            sliderParent.mousemove(function(event){sliderMouseMove(sliderParent, thumb, 0, pct, true, false, thumbToolTip, event)} );  
         }
         else if (thumb.hasClass('thumb-upper')){ 
             var pct = setThumbToolTip(sliderParent.find('.thumb-lower'), sliderParent);        
-            sliderParent.mousemove(function(){sliderMouseMove(sliderParent, thumb, pct, 100, false, true, thumbToolTip)} );    
+            sliderParent.mousemove(function(event){sliderMouseMove(sliderParent, thumb, pct, 100, false, true, thumbToolTip, event)} );    
         };   
     };   
     sliderParent.mouseup(mouseUpSlider);
 };
-function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, thumbToolTip){
+function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, thumbToolTip, event){
     var cssproperty;
-    console.log(thumb);
     if (thumb.hasClass('vertical')){
         var upperpos = null; var lowerpos = null;
         var upperY = slider.offset().top;

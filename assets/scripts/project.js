@@ -92,8 +92,8 @@ $(document).ready(function(event){
             collapseNav();
         });
     
-    viewCheck($(window).width());
-    
+//    viewCheck($(window).width());
+//    
     $('.home-button').one('click', homeClick);       
     $('.view-button.one').click(function(){
         changeView('textView', $(this)) 

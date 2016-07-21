@@ -33,6 +33,19 @@
     color: blue;
 }
 
+$color-profile-one:#00CED1;
+$color-profile-two:  #ff5050;
+$color-profile-one-rgba: rgba(0,206,209,.4);
+$color-profile-two-rgba: rgba(255,80,80,.4);
+
+
+.profile-one {
+    color:$color-profile-one;
+}
+
+.profile-two {
+   color: $color-profile-two;
+}
 
 .axis-label {
     position: absolute;
@@ -159,7 +172,7 @@
     background-color: white;
     opacity: .8;
     position: absolute;
-    top: 20%;
+    top: 15%;
     right: 0%;
     width: 300px;
     height: auto;
@@ -406,6 +419,13 @@
     height: 130px; //why defined ht needed?
 }
 
+.slider-holder.profile-two {
+    display: none;
+}
+.filter-header.profile-two {
+    display:none;
+}
+
 .slider-patexp {
     left: 30%;
     top: 50%;
@@ -519,7 +539,7 @@
     opacity: 1;
 }
 .polyline-hover.polyline-selected:hover {
-    stroke-width: 10px;
+    stroke-width: 25px;
 }
 
 .axis path,

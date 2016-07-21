@@ -153,18 +153,21 @@ function generateLines(input, updateTransition){
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
-            if (d.cost < yscale(.8)){
+            if (d.cost > yscale(.5)){
                 return "#00CED1";
 //                return "#ff5050";                
             }  
-            else if (d.cost > yscale(.2)){ 
-                  //              return "#00CED1";
-                return "#ff5050";               
-            }
-            else {  
-//                return 'white';
-                return '#939393';                
-            }
+            else {
+                    return "#ff5050";                  
+            };
+//            else; if (d.cost > yscale(.2)){ 
+//                  //              return "#00CED1";
+//                return "#ff5050";               
+//            }
+//            else {  
+////                return 'white';
+//                return '#939393';                
+//            }
     
     });  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
@@ -318,6 +321,7 @@ function mouseDownThumb(thumb){
     var thumb  = $(this);
     var sliderParent = $(this).closest('.slider');
     var thumbToolTip = thumb.find('.thumb-tooltip').css('display', 'block');
+    
 //thumb.attr('class') === 'thumb thumb-lower thumb-active'
     if (thumb.hasClass('thumb-active')){
         if (thumb.hasClass('thumb-lower')){ 
@@ -331,8 +335,9 @@ function mouseDownThumb(thumb){
     };   
     sliderParent.mouseup(mouseUpSlider);
 };
-function sliderMouseMove(event, slider, thumb, lowerbound, upperbound, lower, upper, thumbToolTip){
+function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, thumbToolTip){
     var cssproperty;
+    console.log(thumb);
     if (thumb.hasClass('vertical')){
         var upperpos = null; var lowerpos = null;
         var upperY = slider.offset().top;

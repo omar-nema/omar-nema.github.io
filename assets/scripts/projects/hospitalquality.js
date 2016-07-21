@@ -163,28 +163,23 @@ function generateLines(input, updateTransition){
         //update
      d3.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
         , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
-    
     linehold
         .selectAll('.polyline-hover')
             .attr("points", function(d,i){ return generatePointArray(d) } )
-
-    //why is hover only covering high cost
-    
     //exit - takes care of all elements
-    linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();    
-        
+    linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();       
     //enter
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
             if (d.cost > yscale(.5)){
-             return "#00CED1";
+//             return "#00CED1";
+                return "#ff5050";                
             }  
             else {             
                 return "#ff5050";
             }});  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
-    
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
         .attr("points", function(d){ return generatePointArray(d) } )
@@ -202,12 +197,9 @@ function generateLines(input, updateTransition){
         $('.tooltip').css('display', 'none');
               $('.tooltip2').css('display', 'none');
     });
-    
     textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
     , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });   
-    
 };
-//asynchronous
 
 function generateAxes(updateTransition){  
     
@@ -215,15 +207,30 @@ function generateAxes(updateTransition){
     var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisDataObject, function(d){return d.name});    
     //UPDATE (transition in CSS, as this is a div)
     
+    //options, upon resize, run an update function (heavy)
+    //also requires running a mousemove update
+    
+    //OR//wrap tooltip in svg
+    
+    //or just add to chart
+    
     //ENTER
     var enterlabel = 
         axislabel.enter().append('text').attr('class', 'axis-label')
        .attr('x', function(d,i){return d.value;}).attr("dy", "20px").style('opacity', '0')
         .text(function(d,i){ return axisLabels[axisOrder[i]]})    
         .on('mousemove', function(d, i){
+            
+//         tooltip.style("display", "block")
+//             .html(function(){return axisLabelContent[d.name] })
+//             .style("left", 100*((d3.event.pageX)-chartLeftOffset)/$('.chartwrapper').width() + "%")
+//             .style("top", "10%").style('width', '170px')
+//             .style('background-color', 'rgba(255,255,255,.8)')
+//            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})
+//    
          tooltip.style("display", "block")
              .html(function(){return axisLabelContent[d.name] })
-             .style("left", d3.event.pageX-chartLeftOffset + "px")
+             .style("left", (d3.event.pageX)-chartLeftOffset + "px")
              .style("top", "10%").style('width', '170px')
              .style('background-color', 'rgba(255,255,255,.8)')
             .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})

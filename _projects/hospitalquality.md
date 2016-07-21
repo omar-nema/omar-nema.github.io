@@ -36,9 +36,16 @@ custom_sidebar: hospitalquality-sidebar.html
                     <g class="axisholder"></g>      
                 </svg>
             </div>            
-        </div>    
+        </div> 
+        
+    </div>  
+<!--
+    <div class ="question-mark">
+        ?
     </div>    
+-->
 </section>
+<!--
 
 <section class="block">
     <header class="block-header">overview</header>
@@ -89,4 +96,4 @@ The graphic above displays (aggregate, percentile-based) billed costs, hospital 
         
         </p>
     </div>
-</section>
+</section>-->

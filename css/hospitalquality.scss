@@ -27,6 +27,7 @@
     width: 100%;
     cursor: crosshair;
     padding: 30px;
+    padding-top: 10px;
 }
 .block-text {
     color: blue;
@@ -36,7 +37,7 @@
 .axis-label {
     position: absolute;
     top: 50%;
-//    transform: translateX(-50%);
+    transform: translateX(-50%);
     text-transform: uppercase;    
     fill: grey;
     font-weight: 900;
@@ -88,11 +89,12 @@
 }
 
 .block.block-data-visual {
-    width: 100vw;
-    padding-left: 1%;
-    padding-right: 3.5%;
-    max-width: none;
+    width: 100%;
     max-width: 900px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -111,15 +113,15 @@
 
 .question-mark {
     position: absolute;
-    font-size: 20px;
+    font-size: 14px;
     cursor: pointer;
     font-family: 'Karla';
     text-align: center;
     color: gray;
     width: 25px;
     height: 25px;
-    bottom: 3%;
-    right: 1%;
+    bottom: 4%;
+    right: 80%;
     
     z-index:11000;
 
@@ -164,6 +166,7 @@
     padding-bottom: 10px;
     padding-top: 10px;
     z-index: 1000;
+//    transform: scaleX(1.2) scaleY(1.2);
     -moz-box-shadow:   1px 1px 3px rgba(0,0,0,.3); 
 	-webkit-box-shadow:  1px 1px 3px rgba(0,0,0,.3);      
     box-shadow: 1px 1px 3px rgba(0,0,0,.3);
@@ -255,7 +258,7 @@
 .slider {
     position:relative;
     width: 100%;
-    height: 50px;
+    height: 60px;
     cursor: pointer;
     .fill-inner {
         background-color: lightgrey;
@@ -263,8 +266,8 @@
         position: absolute;
     }
     .thumb {
-        height: 7px;
-        width: 7px;
+        height: 8px;
+        width: 8px;
         border: 1px solid black;
         position: absolute;
         z-index: 5;
@@ -314,7 +317,7 @@
 }
 
 .slider.horizontal {
-    width: 50px;
+    width: 60px;
     height: 60px;
     margin-left: auto;
     margin-right: auto;
@@ -400,7 +403,7 @@
 
 .slider-holder {
     padding-left: 40px;
-    height: 100px;
+    height: 130px; //why defined ht needed?
 }
 
 .slider-patexp {

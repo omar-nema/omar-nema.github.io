@@ -132,6 +132,7 @@ var currCardClassChange = function(currCard, classToRemove, classToAdd){
 };
 
 function cardEnter(){
+    
      var prevX;
     var prevMove, currMove;
     var next;
@@ -246,20 +247,7 @@ $(document).ready(function(event){
 
     $('.about-button').one('click', aboutFirstClick);
     // $('.cardholder').click(cardClick);
-    
-    function swipeHandler(){
-        console.log('handled');
-    };
-    
-    $(this).on('swipe', swipeHandler);
-    
-    $(this).swipe(console.log('hi'));
-    
-//    $(this).on('swipe', function(){console.log('swiped')});    
-    $('.cardholder').on('swipe', function(){console.log('swiped')});
-    
-    $(this).on('swipeLeft', function(){console.log('swipedleft')});
-    
+        
     //SIDEBAR
     $('.time-sort').one('click', timeSort);
     $('.time-sort').mouseenter(function(){return $(this).removeClass('hideCategory').addClass('showCategory')}).mouseleave(categoryMouseLeave);

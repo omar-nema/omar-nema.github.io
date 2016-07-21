@@ -253,10 +253,12 @@ $(document).ready(function(event){
     
     $(this).on('swipe', swipeHandler);
     
+    $(this).swipe(console.log('hi'));
+    
 //    $(this).on('swipe', function(){console.log('swiped')});    
     $('.cardholder').on('swipe', function(){console.log('swiped')});
     
-    $(this).on('swipeleft', function(){console.log('swipedleft')});
+    $(this).on('swipeLeft', function(){console.log('swipedleft')});
     
     //SIDEBAR
     $('.time-sort').one('click', timeSort);

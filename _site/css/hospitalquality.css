@@ -18,29 +18,38 @@
 .chart {
   position: relative;
   float: right;
-  width: 93%;
-  cursor: crosshair; }
+  width: 100%;
+  cursor: crosshair;
+  padding: 30px; }
 
 .block-text {
   color: blue; }
 
 .axis-label {
   position: absolute;
-  top: 0;
+  top: 50%;
   text-transform: uppercase;
-  color: grey;
+  fill: grey;
   font-weight: 900;
   font-size: 12px;
   font-family: 'Karla';
-  opacity: .85;
-  cursor: pointer; }
+  cursor: pointer;
+  text-anchor: middle;
+  overflow: visible; }
+
+.y-axis.axis .tick {
+  display: none; }
+
+.y-axis.axis.num0 .tick, .y-axis.axis.num-0 .tick, .y-axis.axis.num-180 .tick {
+  display: block; }
 
 .axislabels {
-  width: 93%;
   float: right;
-  height: 40px;
   position: relative;
-  overflow: visible; }
+  overflow: visible;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px; }
 
 .chart-height-holder {
   position: relative;
@@ -72,28 +81,6 @@
   height: auto;
   position: relative; }
 
-.chart-label-holder {
-  cursor: pointer;
-  position: absolute;
-  width: 7%;
-  left: 0%;
-  top: 0%;
-  height: 100%;
-  z-index: 5000; }
-  .chart-label-holder .chart-label {
-    position: absolute;
-    color: rgba(0, 0, 0, 0.4);
-    font-size: calc(6px + .5vw);
-    left: 50%;
-    transform: translateX(-50%); }
-  .chart-label-holder .chart-label-top {
-    top: 0%; }
-  .chart-label-holder .chart-label-middle {
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%); }
-  .chart-label-holder .chart-label-bottom {
-    bottom: 0%; }
-
 .question-mark {
   position: absolute;
   font-size: 20px;
@@ -117,6 +104,7 @@
 .chart-info {
   background-color: rgba(255, 255, 255, 0.5);
   opacity: 0;
+  color: blue;
   position: absolute;
   bottom: 3%;
   right: 0%;
@@ -435,11 +423,11 @@
 
 @media only screen and (max-width: 650px) {
   .axis-label {
-    font-size: 10px; }
+    font-size: 14px; }
 
   .tooltip {
     font-size: 8px;
     line-height: .7rem; } }
 @media only screen and (max-width: 550px) {
   .axis-label {
-    font-size: 6px; } }
+    font-size: 16px; } }

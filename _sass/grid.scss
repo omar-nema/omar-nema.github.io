@@ -87,14 +87,13 @@ $large-card-title-factor : .18;
     $med-card-factor: .8;
     $med-font-factor: .8;
     
-//    min-height: 39.8rem;
-//    padding-top: 13vh;    
-//    padding-left: 5%;
-//    min-width: 550px;
+    min-width:720px;
+        margin-left: 40px;    
     
- 
     .cardholder {
         border-radius: 0%;
+        min-width: 200px;
+        min-height:160px;
     }
     .card {
         border-radius: 0%;
@@ -128,7 +127,7 @@ $large-card-title-factor : .18;
         opacity: .7;
         font-size: 20px;
         letter-spacing: 3px;
-//        font-family: Courier New;
+        font-family: 'Karla';
         text-align: center;
         width: 100%;
         position: absolute;

@@ -5,6 +5,12 @@
     font-weight: normal;
     color: #212121;
 }
+
+
+//older d3 wording!!
+//var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
+//var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
+//var yAxis = d3.select(".axis").call(yscale);
     //.transition().duration(3000).styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
     
 //    d3.select('.chart').transition().duration(1000).selectAll('.y-axis.axis').styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});  

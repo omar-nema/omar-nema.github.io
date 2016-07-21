@@ -398,61 +398,67 @@
 .content.grid.timesort {
   margin-top: 7vh; }
 
-.grid.timesort .cardholder {
-  border-radius: 0%; }
-.grid.timesort .card {
-  border-radius: 0%; }
-  .grid.timesort .card .cardcontent img {
-    border-radius: 0; }
-.grid.timesort .card1.card1select {
-  box-shadow: none; }
-.grid.timesort .card1 .cardtitle {
-  font-size: 1.3vw;
-  letter-spacing: 6px; }
-.grid.timesort [class*='year-'] {
-  height: 14.144vw;
-  max-width: 211px;
-  max-height: 169px;
-  width: 8%;
-  float: left;
-  position: relative;
-  margin-right: 20px; }
-.grid.timesort .grid-year-header {
-  display: block;
-  font-weight: 400;
-  color: darkslategrey;
-  opacity: .7;
-  font-size: 20px;
-  letter-spacing: 3px;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  height: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0; }
-@media only screen and (min-width: 1000px) {
+.grid.timesort {
+  min-width: 720px;
+  margin-left: 40px; }
   .grid.timesort .cardholder {
-    width: 18.2vw;
-    height: 14.56vw;
+    border-radius: 0%;
+    min-width: 200px;
+    min-height: 160px; }
+  .grid.timesort .card {
+    border-radius: 0%; }
+    .grid.timesort .card .cardcontent img {
+      border-radius: 0; }
+  .grid.timesort .card1.card1select {
+    box-shadow: none; }
+  .grid.timesort .card1 .cardtitle {
+    font-size: 1.3vw;
+    letter-spacing: 6px; }
+  .grid.timesort [class*='year-'] {
+    height: 14.144vw;
+    max-width: 211px;
+    max-height: 169px;
+    width: 8%;
     float: left;
-    position: inherit;
-    margin-left: 2%;
-    margin-right: 0;
-    margin-top: 0; }
-    .grid.timesort .cardholder .cardcontent p {
-      font-size: 1.176vw; } }
-@media only screen and (max-width: 1000px) {
-  .grid.timesort .cardholder {
-    width: 20.8vw;
-    height: 16.64vw;
-    float: left;
-    position: inherit;
-    margin-left: .01%;
-    margin-right: 0;
-    margin-top: 0; }
-    .grid.timesort .cardholder .cardcontent p {
-      font-size: 1.344vw; } }
+    position: relative;
+    margin-right: 20px; }
+  .grid.timesort .grid-year-header {
+    display: block;
+    font-weight: 400;
+    color: darkslategrey;
+    opacity: .7;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: 'Karla';
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    height: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0; }
+  @media only screen and (min-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 18.2vw;
+      height: 14.56vw;
+      float: left;
+      position: inherit;
+      margin-left: 2%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.176vw; } }
+  @media only screen and (max-width: 1000px) {
+    .grid.timesort .cardholder {
+      width: 20.8vw;
+      height: 16.64vw;
+      float: left;
+      position: inherit;
+      margin-left: .01%;
+      margin-right: 0;
+      margin-top: 0; }
+      .grid.timesort .cardholder .cardcontent p {
+        font-size: 1.344vw; } }
 
 .button {
   transition: color .3s ease-in-out,  background-color .3s ease-in-out, transform .3s ease-in-out, opacity .3s ease-in-out; }
@@ -1037,7 +1043,7 @@ footer .toprect {
   border: 1px solid blue;
   color: red;
   letter-spacing: 3px;
-  font-family: Consolas;
+  font-family: Inconsolata;
   font-weight: 900; }
 
 .about-button-clicked {
@@ -1050,7 +1056,7 @@ footer .toprect {
   color: black;
   opacity: .5;
   letter-spacing: 3px;
-  font-family: Consolas;
+  font-family: Inconsolata;
   font-weight: 900; }
 
 .sidebar-categories {

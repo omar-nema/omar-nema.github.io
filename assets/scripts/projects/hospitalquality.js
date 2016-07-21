@@ -1,36 +1,56 @@
-
-    
 var width = 900; var height = 450;
-//var yscale = d3.scale.linear().range([height, 0]).domain([0, 1]);
 var yscale = d3.scaleLinear().range([height, 0]).domain([0, 1]);
 var lineholder = [];   
 var chart = d3.select(".chart")
 //make SVG responsive
 chart.attr("preserveAspectRatio", "xMinYMin meet")
    .attr("viewBox", "0 0 900 450")
+d3.select('.axislabels')
+    .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 900 50")
+//var yAxis =  d3.axisLeft(yscale).ticks([]).tickSize(0);
+var yAxis = d3.axisLeft(yscale).ticks(3, 's').tickFormat(function(d) { return 100*d; }).tickPadding([8]).tickSize(0);
 
+//.tickValues([0,50,100]);
+var origLineData;
+var currData;
+//
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
-//can instead add to chart
-
-var chartLeftOffset = $('.chartwrapper').offset().left;
+var chartLeftOffset = $('.chartwrapper').offset().left; //user for tooltips
 var chartTopOffset = $('.chartwrapper').offset().top;
-
+//
+var axisArrangement = {
+    2: [width*.2, width*.8],
+    3: [0, width*.5, width],
+    4: [0, width*.4, width*.56, width],
+};
+var axisDataObject; //object that is generated using above axisArr. and user-generated axisOrder based on filters
+var axisOrder = ['discharge', 'patexp', 'outcome', 'cost'];
+var axisLabels = {
+    discharge: 'size',
+    patexp: 'experience',    
+    outcome: 'outcome',        
+    cost: 'cost'    
+};
 var axisLabelContent = {
     discharge: 'Number of medical discharges (from CMS) was used as a proxy for hospital size. <br>Data source name: CMS Cost Report',
     patexp: 'The patient experience rating is based on a survey encompassing medical staff communication, pain management, and hospital environment. Source: CMS Quality Survey',
     outcome: 'Outcome takes into account mortality, infection rate, and functional ability following discharge. Source: CMS Quality Survey',
     cost: 'Displayed cost index that I developed to aggregate billed amounts for procedures, weighed by frequency and price in comparison to other hospitals. (A hospital, for example, that focuses on costly procedures, but offers these procedures at a price lower than competition, will have a low cost index)'
-}
-
-//older d3 wording!!
-//var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
-//var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
-//var yAxis = d3.select(".axis").call(yscale);
-var yAxis = d3.axisLeft(yscale).tickSize(0).tickValues([]);
-
-var origLineData;
-var currData;
-
+};
+//
+var rangeFilters = {
+    cost: [null, null],
+    discharge: [null, null],
+    outcome: [null, null],
+    patexp: [null, null],
+    income: [null, null]
+};
+var searchFilter = {
+    type: null,
+    value: null
+};
+//
 var filterType = null;
 var filterLowerBound = 0;
 var filterUpperBound = 100;
@@ -42,53 +62,7 @@ var autoCompleteSource = {
     zip: [] ,
     values: []
 };
-var searchFilter = {
-    type: null,
-    value: null
-};
 
-
-var axisArrangement = {
-    2: [width*.2, width*.8],
-    3: [0, width*.5, width],
-    4: [0, width*.4, width*.56, width],
-};
-
-var axisDataObject;
-
-//function axisDataObject(){
-//    var currAxisData = axisArrangement[axisOrder.length];
-//    var newAxisArrangement = [];
-//    for (i=0;i<axisOrder.length; i++){
-//        var newdata = {};
-//        newdata['name'] = axisOrder[i]
-//        newdata['value'] = currAxisData[i];
-//        newAxisArrangement.push(newdata);
-//    };    
-//    return newAxisArrangement;
-//};
-
-//how is d3 going to like this data?
-
-
-var axisOrder = ['discharge', 'patexp', 'outcome', 'cost'];
-var axisLabels = {
-    discharge: 'size',
-    patexp: 'experience',    
-    outcome: 'outcome',        
-    cost: 'cost'    
-};
-
-var rangeFilters = {
-    cost: [null, null],
-    discharge: [null, null],
-    outcome: [null, null],
-    patexp: [null, null],
-    income: [null, null]
-};
-var selectionFilters = {
-    state: null
-};
 
 
 
@@ -106,23 +80,21 @@ function getObjectValues(input){
 };
 
 ///EVENT FUNCTIONS
-function showSlider(){
-    $('.slider-holder').addClass('show');
-    $('.slider-holder').one('click', removeSlider);
-};
-function removeSlider(){
-    console.log('second');    
-    $('.slider-holder').removeClass('show');
-};
+//function showSlider(){
+//    $('.slider-holder').addClass('show');
+//    $('.slider-holder').one('click', removeSlider);
+//};
+//function removeSlider(){
+//    console.log('second');    
+//    $('.slider-holder').removeClass('show');
+//};
 
-function lineMouseOver(line){
-    line.attr('class', 'polyline highlight');
-};
-function lineMouseLeave(line){
-    line.attr('class', 'polyline');
-};
-
-//where the OG data at?
+//function lineMouseOver(line){
+//    line.attr('class', 'polyline highlight');
+//};
+//function lineMouseLeave(line){
+//    line.attr('class', 'polyline');
+//};
 
 function generateLineData(input){
     input.forEach(function(d, i){
@@ -133,7 +105,6 @@ function generateLineData(input){
         d.income = yscale(+d.outcome);
         d.numAxes = axisOrder.length;
     });      
-    //generatePointArray(input);    
     return input;
 };
 
@@ -272,77 +243,38 @@ function generateLines(input, updateTransition){
 
 function generateAxes(updateTransition){  
     
-    //only unresolved transition is the left quality 
-    
-    //d3 interpolate percent
-
-    //LABELS:
+//LABELS
     var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisDataObject, function(d){return d.name});    
     //UPDATE (transition in CSS, as this is a div)
     
-//    axislabel.style('transform', function(d,i){
-//            return 'translateX(' + d.value + 'px)';
-//        });
-    
-    
     //ENTER
-    
     var enterlabel = 
-        axislabel.enter().append('g').attr('class', 'axis-label')
-       .attr('transform', function(d,i){
-            return 'translate(' + d.value + ',0)';
-        })
-        .html(function(d,i){ return axisLabels[axisOrder[i]]})    
+        axislabel.enter().append('text').attr('class', 'axis-label')
+       .attr('x', function(d,i){return d.value;}).attr("dy", "20px").style('opacity', '0')
+        .text(function(d,i){ return axisLabels[axisOrder[i]]})    
         .on('mousemove', function(d, i){
          tooltip.style("display", "block")
              .html(function(){return axisLabelContent[d.name] })
              .style("left", d3.event.pageX-chartLeftOffset + "px")
-             .style("top", "10%")         
-             .style('width', '170px')
+             .style("top", "10%").style('width', '170px')
              .style('background-color', 'rgba(255,255,255,.8)')
-            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-            .style('padding', '5px');})
+            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})
         .on('mouseleave', function(){
             tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
         });     
-    
-//    axislabel.transition(updateTransition)
-//        .attr('transform', function(d,i){
-//            return 'translate(' + d.value + ',0)';
-//        });    
-    
-//    var enterlabel = 
-//        axislabel.enter().append('div').attr('class', 'axis-label')
-//        .html(function(d,i){ return axisLabels[axisOrder[i]]}).style('left', function(d,i){
-//        return Math.min(Math.max(1.5, 100*d.value/width), 97.5) + '%';
-//        })
-//        .on('mousemove', function(d, i){
-//         tooltip.style("display", "block")
-//             .html(function(){return axisLabelContent[d.name] })
-//             .style("left", d3.event.pageX-chartLeftOffset + "px")
-//             .style("top", "10%")         
-//             .style('width', '170px')
-//             .style('background-color', 'rgba(255,255,255,.8)')
-//            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-//            .style('padding', '5px');})
-//        .on('mouseleave', function(){
-//            tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
-//        }); 
-    
-    enterlabel
-        .transition(updateTransition).styleTween('opacity', function(){return d3.interpolate(0, 1)});  
+    //UPDATE/ANIMATE
+    d3.selectAll('.axis-label').transition(updateTransition).style('opacity', '1').attr('x', function(d,i){return d.value;}).attr("dy", "20px");      
     //EXIT
-    axislabel.exit().transition().duration(100).styleTween('opacity', function(){return d3.interpolate(1, 0)}).remove(); 
+    axislabel.exit().remove();
+    
         
 //AXES    
     var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisDataObject, function(d){return d.name});
-    
     //ENTER
-    var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');
-    
+    var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', function(d){return 'y-axis axis num-' + d.value}).attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');    
+//    var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');
     //UPDATE ANIMATION
-    d3.transition(updateTransition).select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '.4');        
-        
+    d3.transition(updateTransition).select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '.4').attr('class', function(d){return 'y-axis axis num-' + d.value});         
     //EXIT
     axishold.exit().remove().transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});   
      
@@ -393,10 +325,9 @@ function resetFilters(){
 
 //POST-FILTER DATA UPDATE / RE-PLOT
 function update(data){
-    console.log('she run vast');
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(800);    
+    var updateTransition = d3.transition().duration(700);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };
@@ -530,16 +461,28 @@ function prepareAutoCompleteInput($input){
 };
 
 function firstCollapseBtnClick(){    
-    $(this).addClass('plus').removeClass('minus') ;    
-    $(this).html('+');  
-    $(this).closest('.slider-block').css('opacity', '.4'); 
-    $(this).css('opacity', '1');
-    $(this).one('click', secondCollapseBtnClick);
-    //deal w/ chart label    
-    var axisType = $(this).attr('filterType');
-    axisOrder.splice(axisOrder.indexOf(axisType), 1);    
-    updateAxisData(origLineData);
-    update( filterData() );
+    if (axisOrder.length > 2){
+        $(this).addClass('plus').removeClass('minus') ;    
+        $(this).html('+');  
+        $(this).closest('.slider-block').css('opacity', '.4'); 
+        $(this).css('opacity', '1');
+        $(this).one('click', secondCollapseBtnClick); 
+        var axisType = $(this).attr('filterType');
+        axisOrder.splice(axisOrder.indexOf(axisType), 1);    
+        updateAxisData(origLineData);
+        update( filterData() );             
+    }
+    else {   //edge case handling, <2 axis user req display   
+        $(this).one('click', firstCollapseBtnClick);
+       tooltip.style("display", "block")
+            .html('Cannot display less than 2 axes!!')
+            .style("left", -chartLeftOffset+(event.pageX) + "px")
+            .style('width', '130px').style('padding', '5px')
+             .style('background-color', 'rgba(255,255,255,.8)')
+            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+           .style("top", 15+(event.pageY)-chartTopOffset + "px"); 
+        $('.filter').mousemove(function(){tooltip.style('display', 'none');});         
+    }      
 };
 
 function secondCollapseBtnClick(){

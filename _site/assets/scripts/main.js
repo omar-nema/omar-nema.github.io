@@ -131,7 +131,7 @@ var currCardClassChange = function(currCard, classToRemove, classToAdd){
     currCard.addClass(classToAdd);
 };
 
-function cardEnter(){
+function cardEnter(event){
     
      var prevX;
     var prevMove, currMove;

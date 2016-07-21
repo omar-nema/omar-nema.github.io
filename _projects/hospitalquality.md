@@ -14,8 +14,9 @@ buttoncolor: #1C85FF
 infotextcolor: white
 type: individual
 custom_css: hospitalquality
-custom_js: 
-    - "https://d3js.org/d3.v4.min.js"    
+custom_js:  
+    - "/assets/scripts/projects/d3.min.js"       
+    - "/assets/scripts/projects/jqueryui.js"    
     - "/assets/scripts/projects/hospitalquality.js"
 custom_sidebar: hospitalquality-sidebar.html 
 ---
@@ -24,6 +25,7 @@ custom_sidebar: hospitalquality-sidebar.html
 <!--'#FC2727'  #1C85FF; other :FD8210-->
 <!--    - "https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"-->
 <!--    - "https://d3js.org/d3.v4.min.js"-->
+
 <!--    - "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"-->
 <!--    - "https://d3js.org/d3.v4.min.js"-->
 

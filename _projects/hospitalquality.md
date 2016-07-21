@@ -15,6 +15,7 @@ infotextcolor: white
 type: individual
 custom_css: hospitalquality
 custom_js: 
+    - "https://d3js.org/d3.v4.min.js"    
     - "/assets/scripts/projects/hospitalquality.js"
 custom_sidebar: hospitalquality-sidebar.html 
 ---

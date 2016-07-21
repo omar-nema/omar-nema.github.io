@@ -173,8 +173,8 @@ function generateLines(input, updateTransition){
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style("stroke", function(d, i){
             if (d.cost > yscale(.5)){
-//             return "#00CED1";
-                return "#ff5050";                
+             return "#00CED1";
+//                return "#ff5050";                
             }  
             else {             
                 return "#ff5050";

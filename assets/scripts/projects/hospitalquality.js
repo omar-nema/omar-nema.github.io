@@ -46,6 +46,14 @@ var rangeFilters = {
     patexp: [null, null],
     income: [null, null]
 };
+var rangeFiltersTwo = {
+    cost: [null, null],
+    discharge: [null, null],
+    outcome: [null, null],
+    patexp: [null, null],
+    income: [null, null]
+};
+var rangeFilterArray = [rangeFilters, rangeFiltersTwo];
 var searchFilter = {
     type: null,
     value: null
@@ -147,9 +155,12 @@ function generateLines(input, updateTransition){
         //update
      d3.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
         , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
+    
+    
     linehold
         .selectAll('.polyline-hover')
-            .attr("points", function(d,i){ return generatePointArray(d) } )
+            .attr("points", function(d,i){ return generatePointArray(d) } );
+    
     //exit - takes care of all elements
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();       
     //enter
@@ -177,6 +188,7 @@ function generateLines(input, updateTransition){
 //    
 //    });  
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+    
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
         .attr("points", function(d){ return generatePointArray(d) } )
@@ -239,26 +251,49 @@ function generateAxes(updateTransition){
      
 };
 
+//need to store filtered array outside of function 
+
+
+
+//rememebers filters though?!
+//mutually exclusive before  = re-filter all original data
+//
+
+//how does this interact with update function
+
 ///////FILTER FUNCTIONS
 function filterData(){
-    var filtered = origLineData;
-    var filtervalue;  
+//    var filtered = origLineData; 
+    var filtered = [];
+    var filtervalue; 
+    var filteredCombined = []; 
+    console.log('itrun');
+    
     for (currFilterType in rangeFilters){
         var lowerFilterValue = rangeFilters[currFilterType][0];
         var upperFilterValue = rangeFilters[currFilterType][1]; 
         var lowerFilter, upperFilter;        
         lowerFilter = yscale(lowerFilterValue/100);
-        upperFilter = yscale(upperFilterValue/100);        
+        upperFilter = yscale(upperFilterValue/100);   
         if (lowerFilterValue){
-            filtered = filtered.filter(function(d,i){return d[currFilterType] < lowerFilter });
+            filtered = origLineData.filter(function(d,i){ return d[currFilterType] > lowerFilter });
+            filteredCombined = filteredCombined.concat(filtered);            
         } ;
-        if (upperFilterValue){  
-            filtered = filtered.filter(function(d,i){return d[currFilterType] > upperFilter });  };
-        if (searchFilter.type){
-            filtered = filtered.filter(function(d,i){return d[searchFilter.type] === searchFilter.value });        
-        };
+        if (upperFilterValue){             
+            filtered = origLineData.filter(function(d,i){return d[currFilterType] < upperFilter });  }; 
+        
+            filteredCombined = filteredCombined.concat(filtered);     
+        if (searchFilter.type){          
+            filtered = origLineData.filter(function(d,i){return d[searchFilter.type] === searchFilter.value });  
+            filteredCombined = filteredCombined.concat(filtered);           
+        };        
     };
-    return filtered;
+    filteredCombined.forEach(function(d){d.color = '#00CED1'});
+    
+    console.log(filteredCombined);
+    
+    //#ff5050
+    return filteredCombined;
 };
 
 function resetFilters(){
@@ -285,7 +320,7 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(550);    
+    var updateTransition = d3.transition().duration(800);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };

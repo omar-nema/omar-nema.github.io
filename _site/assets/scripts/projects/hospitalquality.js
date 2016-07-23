@@ -340,7 +340,7 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(300);    
+    var updateTransition = d3.transition().duration(800);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };

@@ -54,16 +54,16 @@ $thesis-left: 14.25%;
 $narrative-width: 18vw;
 $narrative-height: $cardratio * $narrative-width;
 $narrative-top: 70.25%;
-$narrative-left: 45.5%;
+$narrative-left: 47%;
     
 $tools-width: 17vw;
 $tools-height: $tools-width * $cardratio;
-$tools-top: 16%;
-$tools-left: 76.7%;
+$tools-top: 24%;
+$tools-left: 74%;
     
 $table-width: 12vw;
 $table-height: $table-width * $cardratio;
-$table-top: 51%;
+$table-top: 58%;
 $table-left: 71.25%;
     
 $tea-width: 10vw;
@@ -83,11 +83,24 @@ $max-width-8: 118.5px;
   //simply sizes and positions (left, top) cardholders  
 .scatter-large {
     
+    
+    @media only screen and (min-height: 1000px){
+        
+        top: 10%;
+        tranform: translateY(-50%);
+
+        .card .cardtitle {
+            font-size: 21px;
+        }
+    }
+    
+    
     //preventing font-size resize with large screen
     @media only screen and (min-width: 1200px){
 //        .cardholder .cardcontent p {
 //           font-size: 13px; 
 //        }
+
         .card .cardtitle {
             font-size: 21px;
         }

@@ -2,7 +2,7 @@
 layout: project
 title: hospital<br>quality
 time: 2016
-heading: Healthcare pricing is opaque, confusing - and, therefore, ripe for visualization. My interactive visual below enables users to compare cost, quality, and size of roughly two-thousand medicare/medicaid hospitals. Filters enable the user to pick apart smaller trends, and explore cost/quality public datasets from the bottom-up.<br>A static form of this poster was displayed in the HIMSS healthcare conference, with an accompanying blog post <a href="http://arcadiasolutions.com/weaving-hospital-variation/">here</a>
+heading: Healthcare pricing is opaque, confusing - and, therefore, ripe for visualization. My interactive visual below enables users to compare cost, quality, and size of roughly two-thousand medicare/medicaid hospitals. Filters enable the user to pick apart smaller trends, and explore cost/quality public datasets from the bottom-up.<br>A static form of this poster was displayed in the HIMSS healthcare conference, with an accompanying blog post <a href="http://arcadiasolutions.com/weaving-hospital-variation/">here</a>. <br><br>Optimized for Google Chrome / desktop devices
 tags:
     - data visualization
     - data science

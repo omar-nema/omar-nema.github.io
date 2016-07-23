@@ -214,12 +214,37 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
 
 
 .filter-header {
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 15px;
+    padding-top: 30px;
     text-align: center;
     font-family: 'Karla';
     font-size: 12px;
 }
+.filter-header.profile-two {
+    cursor: pointer;  
+}
+.filter-header.profile-two:hover {
+    letter-spacing: 2px;
+    text-decoration: underline;
+}
+
+.search {
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    font-size: 11px;
+    font-family: Inconsolata;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
 
 .filter-icon{
     position: absolute;
@@ -263,10 +288,20 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
   opacity: 1;  
 };
 
-.state-filter {
-    width: 100%;
-    height: 100px;
+
+
+.slider-holder.profile-one {
+    .fill-inner {
+        background-color: #00CED1;        
+    }
 }
+
+.profile-two {
+    .fill-inner {
+        background-color: #ff5050;       
+    }    
+}
+
 
 .slider {
     position:relative;
@@ -274,7 +309,7 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
     height: 60px;
     cursor: pointer;
     .fill-inner {
-        background-color: lightgrey;
+//        background-color: lightgrey;
         border-radius: 20%;
         position: absolute;
     }
@@ -365,31 +400,12 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
 
 
 
-.half-column {
-    width: 50%;
-    float: left;
-    position : relative;
+
+.collapse-button.minus.compare {
+    display: none;
 }
 
-.search {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 30%;
-    font-size: 10px;
-    font-family: Inconsolata;
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    border: none;
-    transform: translateX(-50%) translateY(-50%);
-    outline: none;
-    resize: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-}
+
 
 .ui-autocomplete {
     font-size:10px;
@@ -415,16 +431,20 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
 
 
 .slider-holder {
-    padding-left: 40px;
-    height: 130px; //why defined ht needed?
+    width: 240px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px; //why defined ht needed?
+}
+.slider-holder.profile-two {
+    margin-bottom: 20px;
 }
 
 .slider-holder.profile-two {
     display: none;
 }
-.filter-header.profile-two {
-    display:none;
-}
+
 
 .slider-patexp {
     left: 30%;
@@ -469,6 +489,7 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
     padding-top: 11px;
     color: gray;
     cursor: pointer;
+    font-size: 21px;
 }
 .collapse-button:hover {
     transform: scaleX(1.5) scaleY(1.5);
@@ -528,7 +549,7 @@ $color-profile-two-rgba: rgba(255,80,80,.4);
     position: relative;
 }
 .polyline-hover {
-    stroke-width: 3px;
+    stroke-width: 4px;
     opacity: 0;
     fill: none;
 }

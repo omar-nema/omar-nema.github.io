@@ -775,6 +775,12 @@ ul {
   .block-header {
     padding-right: 9%;
     padding-left: 6%; } }
+@media only screen and (min-height: 1000px) {
+  .scatter-large {
+    top: 10%;
+    tranform: translateY(-50%); }
+    .scatter-large .card .cardtitle {
+      font-size: 21px; } }
 @media only screen and (min-width: 1200px) {
   .scatter-large .card .cardtitle {
     font-size: 21px; } }
@@ -842,7 +848,7 @@ ul {
   max-width: 213.297px;
   max-height: 159.97275px;
   top: 70.25%;
-  left: 45.5%; }
+  left: 47%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.narrative .cardcontent p {
       font-size: 1.26vw; } }
@@ -855,8 +861,8 @@ ul {
   height: 12.75vw;
   max-width: 201.438px;
   max-height: 151.0785px;
-  top: 16%;
-  left: 76.7%; }
+  top: 24%;
+  left: 74%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.tools .cardcontent p {
       font-size: 1.19vw; } }
@@ -868,7 +874,7 @@ ul {
   height: 9vw;
   max-width: 142.2px;
   max-height: 106.65px;
-  top: 51%;
+  top: 58%;
   left: 71.25%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.table .cardcontent p {

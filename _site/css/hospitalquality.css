@@ -163,11 +163,34 @@
     display: none; }
 
 .filter-header {
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: 15px;
+  padding-top: 30px;
   text-align: center;
   font-family: 'Karla';
   font-size: 12px; }
+
+.filter-header.profile-two {
+  cursor: pointer; }
+
+.filter-header.profile-two:hover {
+  letter-spacing: 2px;
+  text-decoration: underline; }
+
+.search {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  font-size: 11px;
+  font-family: Inconsolata;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
 
 .filter-icon {
   position: absolute;
@@ -202,9 +225,11 @@
 .reset-button:hover {
   opacity: 1; }
 
-.state-filter {
-  width: 100%;
-  height: 100px; }
+.slider-holder.profile-one .fill-inner {
+  background-color: #00CED1; }
+
+.profile-two .fill-inner {
+  background-color: #ff5050; }
 
 .slider {
   position: relative;
@@ -212,7 +237,6 @@
   height: 60px;
   cursor: pointer; }
   .slider .fill-inner {
-    background-color: lightgrey;
     border-radius: 20%;
     position: absolute; }
   .slider .thumb {
@@ -278,29 +302,8 @@
     left: 100%;
     transform: translateX(-50%) translateY(-50%); }
 
-.half-column {
-  width: 50%;
-  float: left;
-  position: relative; }
-
-.search {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60%;
-  height: 30%;
-  font-size: 10px;
-  font-family: Inconsolata;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border: none;
-  transform: translateX(-50%) translateY(-50%);
-  outline: none;
-  resize: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none; }
+.collapse-button.minus.compare {
+  display: none; }
 
 .ui-autocomplete {
   font-size: 10px;
@@ -322,13 +325,16 @@
   cursor: pointer; }
 
 .slider-holder {
-  padding-left: 40px;
-  height: 130px; }
+  width: 240px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px; }
 
 .slider-holder.profile-two {
-  display: none; }
+  margin-bottom: 20px; }
 
-.filter-header.profile-two {
+.slider-holder.profile-two {
   display: none; }
 
 .slider-patexp {
@@ -364,7 +370,8 @@
   text-align: center;
   padding-top: 11px;
   color: gray;
-  cursor: pointer; }
+  cursor: pointer;
+  font-size: 21px; }
 
 .collapse-button:hover {
   transform: scaleX(1.5) scaleY(1.5); }
@@ -414,7 +421,7 @@
   position: relative; }
 
 .polyline-hover {
-  stroke-width: 3px;
+  stroke-width: 4px;
   opacity: 0;
   fill: none; }
 

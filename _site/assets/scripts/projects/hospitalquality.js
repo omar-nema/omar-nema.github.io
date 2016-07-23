@@ -39,21 +39,31 @@ var axisLabelContent = {
     cost: 'Displayed cost index that I developed to aggregate billed amounts for procedures, weighed by frequency and price in comparison to other hospitals. (A hospital, for example, that focuses on costly procedures, but offers these procedures at a price lower than competition, will have a low cost index)'
 };
 //
+//var rangeFilters = {
+//    cost: [null, null],
+//    discharge: [null, null],
+//    outcome: [null, null],
+//    patexp: [null, null],
+//    income: [null, null]
+//};
 var rangeFilters = {
-    cost: [null, null],
-    discharge: [null, null],
-    outcome: [null, null],
-    patexp: [null, null],
-    income: [null, null]
+    cost: [0, 100],
+    discharge: [0, 100],
+    outcome: [0, 100],
+    patexp: [0, 100],
+    income: [0, 100]
 };
-var rangeFiltersTwo = {
-    cost: [null, null],
-    discharge: [null, null],
-    outcome: [null, null],
-    patexp: [null, null],
-    income: [null, null]
-};
-var rangeFilterArray = [rangeFilters, rangeFiltersTwo];
+var rangeFilters2 = null;
+//var rangeFilters2 = {
+//    cost: [0, 100],
+//    discharge: [0, 100],
+//    outcome: [0, 100],
+//    patexp: [0, 100],
+//    income: [0, 100]
+//};
+var rangeFilterArray = [rangeFilters, rangeFilters2];
+
+
 var searchFilter = {
     type: null,
     value: null
@@ -68,7 +78,8 @@ var autoCompleteSource = {
     state: [],
     provider: [],
     zip: [] ,
-    values: []
+    values: [],
+    city: []
 };
 
 var axisHighlight = [];
@@ -85,6 +96,26 @@ function getObjectValues(input){
     return output;   
 };
 
+
+function generateAutoCompleteArray(input){
+        if (input.provider && autoCompleteSource['provider'].indexOf(input.provider) == -1){    
+            autoCompleteSource['provider'].push(input.provider);
+//            autoCompleteSource['values'].push(input.provider);
+        }  ;
+        if (input.zip && autoCompleteSource['zip'].indexOf(input.zip) == -1){    
+            autoCompleteSource['zip'].push(input.zip); 
+//            autoCompleteSource['values'].push(input.zip);        
+        }  ;
+        if (input.state && autoCompleteSource['state'].indexOf(input.state) == -1){    
+            autoCompleteSource['state'].push(input.state); 
+//            autoCompleteSource['values'].push(input.state);        
+        }  ;     
+        if (input.state && autoCompleteSource['city'].indexOf(input.city) == -1){    
+            autoCompleteSource['city'].push(input.city); 
+//            autoCompleteSource['values'].push(input.state);        
+        }  ;      
+};
+
 function generateLineData(input){
     input.forEach(function(d, i){
         d.cost = yscale(+d.cost);
@@ -93,9 +124,12 @@ function generateLineData(input){
         d.outcome = yscale(+d.outcome);
         d.income = yscale(+d.income);
         d.numAxes = axisOrder.length;
-    });      
+        generateAutoCompleteArray(d);
+    });    
+    autoCompleteSource.values = autoCompleteSource['state'].concat(autoCompleteSource.city, autoCompleteSource.provider, autoCompleteSource.zip);     
     return input;
 };
+
 
 function updateAxisData(input){
     input.forEach(function(d, i){
@@ -112,21 +146,8 @@ function updateAxisData(input){
     return input;
 };
 
-//two axis, three axis, four axis arrangement
 
 function generatePointArray(input){ 
-    if (input.provider && autoCompleteSource['provider'].indexOf(input.provider) == -1){    
-        autoCompleteSource['provider'].push(input.provider);
-        autoCompleteSource['values'].push(input.provider);
-    }  ;
-    if (input.zip && autoCompleteSource['zip'].indexOf(input.zip) == -1){    
-        autoCompleteSource['zip'].push(input.zip); 
-        autoCompleteSource['values'].push(input.zip);        
-    }  ;
-    if (input.state && autoCompleteSource['state'].indexOf(input.state) == -1){    
-        autoCompleteSource['state'].push(input.state); 
-        autoCompleteSource['values'].push(input.state);        
-    }  ;    
     var line = [], pt = [];
     lineholder = [];
     var axisOrderLength = axisOrder.length;
@@ -146,12 +167,12 @@ function generatePointArray(input){
 function generateLines(input, updateTransition){ 
     
     //fully understand key function
-    var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, function(d){return d.provider});
+    var linehold =  d3.select('.lineholder').selectAll('.polyline-holder').data(input, function(d){return d.providerid});
     var lineholdG =  linehold.enter().append('g').attr('class' ,'polyline-holder');
     var textbox = d3.selectAll('.polyline-holder').selectAll('.textbox').data(function(d) {return generatePointArray(d)[0]  });
-    
+    //fix up the textbox
     d3.transition(updateTransition).select('.lineholder').selectAll('.polyline')
-        .attr("points", function(d){return generatePointArray(d)})
+        .attr("points", function(d){return generatePointArray(d)}).style('stroke', function(d){return d.color});
         //update
      d3.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
         , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
@@ -159,53 +180,35 @@ function generateLines(input, updateTransition){
     
     linehold
         .selectAll('.polyline-hover')
-            .attr("points", function(d,i){ return generatePointArray(d) } );
+            .attr("points", function(d,i){ return generatePointArray(d) } ).style('stroke', function(d){return d.color});
     
     //exit - takes care of all elements
     linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();       
     //enter
     lineholdG
         .append('polyline').attr('class', 'polyline')   
-        .attr("points", function(d){return generatePointArray(d)}).style('stroke', "#00CED1");
-        
-//        .style("stroke", function(d, i){
-//                   return "#00CED1";
-//            if (d.cost > yscale(.5)){
-//                return "#00CED1";
-////                return "#ff5050";                
-//            }  
-//            else {
-//                    return "#ff5050";                  
-//            };
-////            else; if (d.cost > yscale(.2)){ 
-////                  //              return "#00CED1";
-////                return "#ff5050";               
-////            }
-////            else {  
-//////                return 'white';
-////                return '#939393';                
-////            }
-//    
-//    });  
+        .attr("points", function(d){return generatePointArray(d)}).style('stroke', function(d){return d.color});
+    
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
+    
+    //
     
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
         .attr("points", function(d){ return generatePointArray(d) } )
-        .style("stroke", function(d, i){ 
-                if (d.cost > yscale(.5)){return "#00CED1"} 
-                else {return "#ff5050"}
-            })
-    .on('mousemove', function(d, i){
-        tooltip.style("display", "block")
-            .html(d.provider + '<br>' + d.city + ' , ' + d.state)
-          .style("left", (d3.event.pageX)-chartLeftOffset + "px")
-          .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");        
-    }).on('mouseleave', function(){
-        tooltip.style('display', 'none');
-        $('.tooltip').css('display', 'none');
-              $('.tooltip2').css('display', 'none');
-    });
+        .style('stroke', function(d){return d.color})
+        .on('mousemove', function(d, i){
+            tooltip.style("display", "block")
+                .html(d.provider + '<br>' + d.city + ' , ' + d.state)
+              .style("left", (d3.event.pageX)-chartLeftOffset + "px")
+              .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");        
+        }).on('mouseleave', function(){
+            tooltip.style('display', 'none');
+            $('.tooltip').css('display', 'none');
+                  $('.tooltip2').css('display', 'none');
+        }).on('click', function(){
+            
+        });
     
     textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
     , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });   
@@ -251,64 +254,81 @@ function generateAxes(updateTransition){
      
 };
 
-//need to store filtered array outside of function 
-
-
-
-//rememebers filters though?!
-//mutually exclusive before  = re-filter all original data
-//
-
-//how does this interact with update function
-
 ///////FILTER FUNCTIONS
 function filterData(){
-//    var filtered = origLineData; 
-    var filtered = [];
-    var filtervalue; 
-    var filteredCombined = []; 
-    console.log('itrun');
+
+    var filtered = []; 
+    var firstRangeFilter =  rangeFilterArray[0];
+    var secondRangeFilter = rangeFilterArray[1];
     
-    for (currFilterType in rangeFilters){
-        var lowerFilterValue = rangeFilters[currFilterType][0];
-        var upperFilterValue = rangeFilters[currFilterType][1]; 
-        var lowerFilter, upperFilter;        
-        lowerFilter = yscale(lowerFilterValue/100);
-        upperFilter = yscale(upperFilterValue/100);   
-        if (lowerFilterValue){
-            filtered = origLineData.filter(function(d,i){ return d[currFilterType] > lowerFilter });
-            filteredCombined = filteredCombined.concat(filtered);            
-        } ;
-        if (upperFilterValue){             
-            filtered = origLineData.filter(function(d,i){return d[currFilterType] < upperFilter });  }; 
+    function filterInner(d, i){
         
-            filteredCombined = filteredCombined.concat(filtered);     
-        if (searchFilter.type){          
-            filtered = origLineData.filter(function(d,i){return d[searchFilter.type] === searchFilter.value });  
-            filteredCombined = filteredCombined.concat(filtered);           
-        };        
+        var filter1check = (d['discharge'] > yscale(firstRangeFilter['discharge'][1]/100) && d['discharge'] <   yscale(firstRangeFilter['discharge'][0]/100) )
+            && (d['cost'] >= yscale(firstRangeFilter['cost'][1]/100) && d['cost'] <= yscale(firstRangeFilter['cost'][0]/100)  )
+            && (d['outcome'] >= yscale(firstRangeFilter['outcome'][1]/100) && d['outcome'] <= yscale(firstRangeFilter['outcome'][0]/100)  )       
+            && (d['patexp'] >= yscale(firstRangeFilter['patexp'][1]/100) && d['patexp'] <= yscale(firstRangeFilter['patexp'][0]/100));
+        
+        if (secondRangeFilter){
+            var filter2check = (d['discharge'] > yscale(secondRangeFilter['discharge'][1]/100) && d['discharge'] <   yscale(secondRangeFilter['discharge'][0]/100) )
+            && (d['cost'] >= yscale(secondRangeFilter['cost'][1]/100) && d['cost'] <= yscale(secondRangeFilter['cost'][0]/100)  )
+            && (d['outcome'] >= yscale(secondRangeFilter['outcome'][1]/100) && d['outcome'] <= yscale(secondRangeFilter['outcome'][0]/100)  )       
+            && (d['patexp'] >= yscale(secondRangeFilter['patexp'][1]/100) && d['patexp'] <= yscale(secondRangeFilter['patexp'][0]/100));                 
+        }
+        else {
+            var filter2check = false;
+        };
+        
+        if (!filter1check && !filter2check){
+                return false;
+            }
+        else if (filter1check && filter2check){
+            d.color = 'lightgray';
+            return true;
+        }
+        else if (filter1check){
+            d.color = '#00CED1';
+            return true;            
+        }
+        else if (filter2check){
+            d.color = '#ff5050';
+            return true;
+        };
+        
     };
-    filteredCombined.forEach(function(d){d.color = '#00CED1'});
+        
+    filtered = origLineData.filter(filterInner);                                                 
+    if (searchFilter.type){          
+        filtered = filtered.filter(function(d,i){return d[searchFilter.type] === searchFilter.value });      
+    };       
+    return filtered;    
     
-    console.log(filteredCombined);
-    
-    //#ff5050
-    return filteredCombined;
 };
 
 function resetFilters(){
-    rangeFilters = {
-        cost: [null, null],
-        discharge: [null, null],
-        outcome: [null, null],
-        patexp: [null, null],
-        income: [null, null]
-    };    
+    rangeFilterArray[0] = {
+        cost: [0, 100],
+        discharge: [0, 100],
+        outcome: [0, 100],
+        patexp: [0, 100],
+        income: [0, 100]
+    };   
+    
+    if (rangeFilterArray[1]){
+        rangeFilterArray[1] = {
+            cost: [0, 100],
+            discharge: [0, 100],
+            outcome: [0, 100],
+            patexp: [0, 100],
+            income: [0, 100]
+        };          
+    };
+    
     searchFilter.type = null;
     searchFilter.value = null;    
     filterLowerPct = null;
     filterUpperPct = null;
-    update(origLineData);
+    update(filterData());
+//    update(origLineData);
     $('.thumb.thumb-lower').removeAttr('style');
     $('.thumb.thumb-upper').removeAttr('style');
     $('#tags').val('');
@@ -320,7 +340,7 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(800);    
+    var updateTransition = d3.transition().duration(300);    
     generateLines(data, updateTransition);
     generateAxes(updateTransition);  
 };
@@ -391,11 +411,18 @@ function sliderMouseMove(slider, thumb, lowerbound, upperbound, lower, upper, th
 
 //mouseleave triggers a data update
 function mouseUpSlider(){ 
+    var currFilter;
+    if ($(this).hasClass('profile-one')){
+        currFilter = rangeFilterArray[0];
+    } else {
+        currFilter = rangeFilterArray[1];        
+    };
+    
     if (filterLowerPct){
-        rangeFilters[filterType][0] = filterLowerPct;    
+        currFilter[filterType][0] = filterLowerPct;    
     }
     else if (filterUpperPct){
-        rangeFilters[filterType][1] = filterUpperPct;           
+        currFilter[filterType][1] = filterUpperPct;           
     }; 
     filterLowerPct = null;
     filterUpperPct = null;
@@ -454,17 +481,19 @@ function prepareAutoCompleteInput($input){
     };    
 };
 
+
+//potential issue is editing array but not actual filters !!!
+
 function firstCollapseBtnClick(event){    
     if (axisOrder.length > 2){
         $(this).addClass('plus').removeClass('minus') ;    
         $(this).html('+');  
-        $(this).closest('.slider-block').css('opacity', '.4'); 
-        $(this).css('opacity', '1');
-        $(this).one('click', secondCollapseBtnClick); 
-        var axisType = $(this).attr('filterType');
+        var axisType = $(this).attr('filterType');    
+        $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '.2');        
         axisOrder.splice(axisOrder.indexOf(axisType), 1);    
         updateAxisData(origLineData);
-        update( filterData() );             
+        update( filterData() );   
+        $(this).one('click', secondCollapseBtnClick);         
     }
     else {   //edge case handling, <2 axis user req display   
         $(this).one('click', firstCollapseBtnClick);
@@ -482,13 +511,38 @@ function firstCollapseBtnClick(event){
 function secondCollapseBtnClick(){
     $(this).addClass('minus').removeClass('plus') ;           
     $(this).html('-');    
-    $(this).closest('.slider-block').css('opacity', '1');      
+    var axisType = $(this).attr('filterType');        
+    $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '1');     
     $(this).one('click', firstCollapseBtnClick);    
     axisOrder = [];
-    $('.collapse-button.minus').each(function(){axisOrder.push($(this).attr('filterType'))});
-    updateAxisData(origLineData);
+    $('.slider-holder:first').find('.collapse-button.minus').each(function(){axisOrder.push($(this).attr('filterType'))});
+    
+    updateAxisData(origLineData); //why this again ?!
     update( filterData() );    
 };
+
+function showSecondProfile(){
+    $(this).html('profile 2');
+    $('.slider-holder.profile-one .collapse-button.minus').addClass('compare');
+    $('.slider-holder.profile-two').css('display', 'block');
+    rangeFilterArray[1] = {
+        cost: [0, 100],
+        discharge: [0, 100],
+        outcome: [0, 100],
+        patexp: [0, 100],
+        income: [0, 100]
+    };   
+    update(filterData());        
+    $(this).one('click', hideSecondProfile);
+};
+function hideSecondProfile(){
+    rangeFilterArray[1] = null;
+    $(this).html('+ compare');
+    $('.slider-holder.profile-one .collapse-button.minus').removeClass('compare');   
+    $('.slider-holder.profile-two').css('display', 'none');
+    update(filterData());
+    $(this).one('click', showSecondProfile);
+};    
 
 
 function polylineSectionAdd(){
@@ -502,7 +556,7 @@ function polylineSectionRemove(){
 
 function initialLoad(){
     d3.csv('/assets/csvdata/costQuality.csv',function(data){ 
-        origLineData = generateLineData(data);
+        origLineData = generateLineData(data);      
         update(origLineData);
         dataDependency();  //runs most functions after csv data loaded
     });
@@ -514,7 +568,7 @@ function dataDependency(){
     //SEARCH AUTOCOMPLETE
     $( function() {
         $( "#tags" ).autocomplete({  
-            source: autoCompleteSource.values.sort().reverse(),
+            source: autoCompleteSource.values,
             focus: function (event, ui){
                 if (item){
                    item.css('color', 'gray')
@@ -541,6 +595,9 @@ function dataDependency(){
     };   
     
     $('.polyline-hover').one('click', polylineSectionAdd);    
+    
+    
+    $('.filter-header.profile-two').one('click', showSecondProfile);
     
     $('.reset-button').click(resetFilters);
     $('.collapse-button').one('click', firstCollapseBtnClick);

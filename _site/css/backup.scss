@@ -1,4 +1,59 @@
 
+//    filtered = origLineData.filter(function(d,i){ 
+//       // console.log((d['cost'] <= yscale(rangeFilters['cost'][1]/100) || d['cost'] >= yscale(rangeFilters['cost'][0]/100) 
+//        d['cost'] <= yscale(rangeFilters['cost'][1]/100) 
+//            
+//            //|| d['cost'] >= yscale(rangeFilters['cost'][0]/100) 
+//   
+////        && d['discharge'] >= rangeFilters['discharge'][1] && d['discharge'] < rangeFilters['discharge'][0] 
+////        && d['income'] >= rangeFilters['income'][1] && d['income'] < rangeFilters['income'][0] 
+////        && d['outcome'] >= rangeFilters['outcome'][1] && d['outcome'] < rangeFilters['outcome'][0]   
+////        && d['patexp'] >= rangeFilters['patexp'][1] && d['patexp'] < rangeFilters['patexp'][0]         
+//     });        
+
+//    for (currFilterType in rangeFilters){   
+//        var lowerFilterValue = rangeFilters[currFilterType][0];
+//        var upperFilterValue = rangeFilters[currFilterType][1]; 
+//        var lowerFilter, upperFilter;        
+//        lowerFilter = yscale(lowerFilterValue/100);
+//        upperFilter = yscale(upperFilterValue/100);   
+//        
+//        //concat made sense
+//        //just a lower and upper array?
+//        //lower array
+//        //upper array
+//        //or just include default filter values of .5 - no need for for loops
+//        
+//        if (lowerFilterValue && upperFilter){
+//            filtered = filtered.filter(function(d,i){ return d[currFilterType] > lowerFilter && d[currFilterType] < lowerFilter });          
+//        } 
+//        else if (lowerFilterValue){
+//            filtered = filtered.filter(function(d,i){ return d[currFilterType] > lowerFilter });          
+//        } 
+//        else if (upperFilterValue){             
+//            filtered = filtered.filter(function(d,i){return d[currFilterType] < upperFilter });            
+//        }; 
+//        
+    
+
+
+//        if (lowerFilterValue){
+//            filtered = origLineData.filter(function(d,i){ return d[currFilterType] > lowerFilter });
+//            filteredCombined = filteredCombined.concat(filtered);            
+//        } ;
+//        if (upperFilterValue){             
+//            filtered = origLineData.filter(function(d,i){return d[currFilterType] < upperFilter });  
+//            filteredCombined = filteredCombined.concat(filtered);        
+//        }; 
+//        //array pushes combined filter
+//        //in next round, we start filtering from filterCombined but we must empty it!!
+//        
+//        if (searchFilter.type){          
+//            filtered = origLineData.filter(function(d,i){return d[searchFilter.type] === searchFilter.value });  
+//            filteredCombined = filteredCombined.concat(filtered);           
+//        };   
+
+
 
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
     border: 1px solid #999999;
@@ -6,7 +61,23 @@
     color: #212121;
 }
 
-
+    <!--    <section class="slider-holder">-->
+        
+<!--
+            <div class="slider-block income half-column">
+                <div class="slider-label">income</div>
+                <div class="slider horizontal">
+                    <div class="thumb thumb-lower horizontal" filterType="income">
+                        <div class="thumb-tooltip"></div>                        
+                    </div>
+                    <div class="thumb thumb-upper horizontal" filterType="income">
+                        <div class="thumb-tooltip"></div>                        
+                    </div>                        
+                    <div class="fill-inner" filterType="cost"></div>                             
+                </div>
+            </div>
+-->
+        
 //older d3 wording!!
 //var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);
 //var yAxis = d3.svg.axis().scale(yscale).orient("left").tickSize(0).tickValues([]);

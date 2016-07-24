@@ -16,14 +16,13 @@ var origLineData;
 var currData;
 //
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
-var chartLeftOffset = $('.chartwrapper').offset().left; //user for tooltips
-var chartTopOffset = $('.chartwrapper').offset().top;
 //
 var axisArrangement = {
     2: [width*.2, width*.8],
     3: [0, width*.5, width],
     4: [0, width*.4, width*.56, width],
 };
+var providerSelections = [];
 var axisDataObject; //object that is generated using above axisArr. and user-generated axisOrder based on filters
 var axisOrder = ['discharge', 'patexp', 'outcome', 'cost'];
 var axisLabels = {
@@ -162,6 +161,12 @@ function generatePointArray(input){
 };
 
 
+function removeProviderSelections(){
+    for (i=0; i<providerSelections.length; i++){
+        providerSelections[i].selectAll('.polyline-hover').attr('class', 'polyline-hover');
+        providerSelections[i].selectAll('.tooltip-click').remove();
+    }
+};
 
 
 function generateLines(input, updateTransition){ 
@@ -174,44 +179,77 @@ function generateLines(input, updateTransition){
     d3.transition(updateTransition).select('.lineholder').selectAll('.polyline')
         .attr("points", function(d){return generatePointArray(d)}).style('stroke', function(d){return d.color});
         //update
-     d3.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
-        , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });
-    
-    
-    linehold
-        .selectAll('.polyline-hover')
+     linehold.selectAll('.textbox').attr('x', function(d) {return Math.min(860, d[0]) });
+         
+         //.attr('y', function(d) {return Math.min(440, (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  }); 
+    linehold.selectAll('.polyline-hover')
             .attr("points", function(d,i){ return generatePointArray(d) } ).style('stroke', function(d){return d.color});
     
     //exit - takes care of all elements
-    linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();       
+    linehold.exit().transition().duration(500).style('stroke-opacity','0').remove();  
+        
     //enter
     lineholdG
         .append('polyline').attr('class', 'polyline')   
         .attr("points", function(d){return generatePointArray(d)}).style('stroke', function(d){return d.color});
     
     lineholdG.transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
-    
-    //
-    
     lineholdG
         .append('polyline').attr('class', 'polyline-hover')
         .attr("points", function(d){ return generatePointArray(d) } )
         .style('stroke', function(d){return d.color})
-        .on('mousemove', function(d, i){
-            tooltip.style("display", "block")
+        .on('mousemove', function(d, i){ 
+            tooltip
+                .style("display", "block")
                 .html(d.provider + '<br>' + d.city + ' , ' + d.state)
-              .style("left", (d3.event.pageX)-chartLeftOffset + "px")
-              .style("top", 15+(d3.event.pageY)-chartTopOffset + "px");        
+                .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
+                .style("top", 15+(d3.event.pageY)-$('.chartwrapper').offset().top + "px");        
         }).on('mouseleave', function(){
             tooltip.style('display', 'none');
             $('.tooltip').css('display', 'none');
                   $('.tooltip2').css('display', 'none');
-        }).on('click', function(){
-            
+        })
+        .on('click', function(d, i){
+            parentSelect = d3.select(this.parentNode); 
+            if ($(this).hasClass('polyline-selected')){
+                $(this).removeClass('polyline-selected'); 
+                parentSelect.selectAll('.tooltip-click').remove();                
+            } 
+            else {
+                $(this).addClass('polyline-selected'); 
+                var selector = $(this);
+                var chart = $('.chart');
+                var xpos = 100*((d3.event.pageX)-chart.offset().left)/chart.width();
+                var ypos = 100*((d3.event.pageY)-chart.offset().top)/chart.height(); 
+                var chartwrapper = $('.chartwrapper');
+                var yposwrapper = 100*((d3.event.pageY)-chartwrapper.offset().top)/chartwrapper.height();  
+                parentSelect
+                    .append("text").attr('class', 'tooltip-click')
+                    .html(d.provider)
+                    .attr('x', xpos + '%')
+                    .attr("y", ypos +  "%");
+                parentSelect
+                    .append("text").attr('class', 'tooltip-click')
+                    .html(d.city + ', ' + d.state)
+                    .attr('x', xpos + '%')
+                    .attr("y", ypos+2.5 +  "%");   
+                providerSelections.push(parentSelect);
+                //ad the minus button to last point
+//                d3.select('.chartwrapper')
+//                    .append("div").attr('class', 'delete-selection')            
+//                    .html('-')
+//                    .style("left", "97%")
+//                    .style("top", yposwrapper+  "%").on('click', function(){
+//                    parentSelect.selectAll('.tooltip-click').remove();
+//                    
+//                });      
+            };
         });
-    
+        
     textbox.enter().append('text').attr('class', 'textbox').attr('x', function(d) {return Math.min(860, d[0]) }).attr('y', function(d) {return Math.min(440
-    , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });   
+    , (d[1]+12) ) }).text(function(d){return (100*yscale.invert(d[1]) ).toFixed(1)  });  
+    
+    textbox.exit().remove();
 };
 
 function generateAxes(updateTransition){  
@@ -229,7 +267,7 @@ function generateAxes(updateTransition){
         .on('mousemove', function(d, i){
          tooltip.style("display", "block")
              .html(function(){return axisLabelContent[d.name] })
-             .style("left", (d3.event.pageX)-chartLeftOffset + "px")
+             .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
              .style("top", "10%").style('width', '170px')
              .style('background-color', 'rgba(255,255,255,.8)')
             .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})
@@ -327,6 +365,7 @@ function resetFilters(){
     searchFilter.value = null;    
     filterLowerPct = null;
     filterUpperPct = null;
+    removeProviderSelections();
     update(filterData());
 //    update(origLineData);
     $('.thumb.thumb-lower').removeAttr('style');
@@ -340,8 +379,10 @@ function resetFilters(){
 function update(data){
     updateAxisData(data);
     //    var updateTransition = d3.select('.chart').transition().duration(800) ;    
-    var updateTransition = d3.transition().duration(800);    
+    var updateTransition = d3.transition().duration(700);    
     generateLines(data, updateTransition);
+   var numPolyLines = $('.polyline-holder').length;
+
     generateAxes(updateTransition);  
 };
 
@@ -440,7 +481,7 @@ function mouseLeaveSlider(){
 
 function prepareAutoCompleteInput($input){
     var typingTimer;                //timer identifier
-    var doneTypingInterval = 300;  //time in ms, 5 second for example
+    var doneTypingInterval = 600;  //time in ms, 5 second for example
     $input.keypress(function(e) {
         if(e.which == 13) {
             doneTyping();
@@ -448,7 +489,6 @@ function prepareAutoCompleteInput($input){
             return false;
         }
     });
-    
     function setFilterType(val){
         if  (!val){
             searchFilter.type = null;
@@ -464,7 +504,10 @@ function prepareAutoCompleteInput($input){
         }
         else if (autoCompleteSource.zip.indexOf(val) > -1){
             searchFilter.type = 'zip';
-        }  ;
+        }  
+        else if (autoCompleteSource.city.indexOf(val) > -1){
+            searchFilter.type = 'city';
+        }  ;    
         searchFilter.value = val;          
         update(filterData());  
     };
@@ -484,46 +527,52 @@ function prepareAutoCompleteInput($input){
 
 //potential issue is editing array but not actual filters !!!
 
-function firstCollapseBtnClick(event){    
+function firstCollapseBtnClick(event){  
+    var axisType = $(this).attr('filterType');     
     if (axisOrder.length > 2){
-        $(this).addClass('plus').removeClass('minus') ;    
-        $(this).html('+');  
-        var axisType = $(this).attr('filterType');    
-        $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '.2');        
-        axisOrder.splice(axisOrder.indexOf(axisType), 1);    
+        //update axes
+        axisOrder.splice(axisOrder.indexOf(axisType), 1);
         updateAxisData(origLineData);
-        update( filterData() );   
-        $(this).one('click', secondCollapseBtnClick);         
+        update(filterData());      
+        //update UI / event
+        var collapseButtons = $('.collapse-button[filtertype=' + axisType + ']');   
+        collapseButtons.addClass('plus').removeClass('minus') ;
+        $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '.2');  
+        collapseButtons.one('click', secondCollapseBtnClick);    
+        collapseButtons.each(function(){$(this).html('+')});
     }
     else {   //edge case handling, <2 axis user req display   
-        $(this).one('click', firstCollapseBtnClick);
-       tooltip.style("display", "block")
+        collapseButtons.one('click', firstCollapseBtnClick);
+        tooltip.style("display", "block")
             .html('Cannot display less than 2 axes!!')
-            .style("left", -chartLeftOffset+(event.pageX) + "px")
+            .style("left", -$('.chartwrapper').offset().left +(event.pageX) + "px")
             .style('width', '130px').style('padding', '5px')
              .style('background-color', 'rgba(255,255,255,.8)')
             .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-           .style("top", 15+(event.pageY)-chartTopOffset + "px"); 
+           .style("top", 15+(event.pageY)-$('.chartwrapper').offset().top + "px"); 
         $('.filter').mousemove(function(){tooltip.style('display', 'none');});         
     }      
 };
 
 function secondCollapseBtnClick(){
-    $(this).addClass('minus').removeClass('plus') ;           
-    $(this).html('-');    
-    var axisType = $(this).attr('filterType');        
-    $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '1');     
-    $(this).one('click', firstCollapseBtnClick);    
+    //update axes
     axisOrder = [];
+    var axisType = $(this).attr('filterType');        
+    var collapseButtons = $('.collapse-button[filtertype=' + axisType + ']');  
+    collapseButtons.addClass('minus').removeClass('plus');        
     $('.slider-holder:first').find('.collapse-button.minus').each(function(){axisOrder.push($(this).attr('filterType'))});
-    
     updateAxisData(origLineData); //why this again ?!
     update( filterData() );    
+    //update UI              
+    collapseButtons.each(function(){$(this).html('-')});    
+    $('.slider-holder').find('.slider-block[filtertype=' + axisType + ']').css('opacity', '1');     
+    collapseButtons.one('click', firstCollapseBtnClick);    
 };
+
 
 function showSecondProfile(){
     $(this).html('profile 2');
-    $('.slider-holder.profile-one .collapse-button.minus').addClass('compare');
+    $('.slider-holder.profile-one .collapse-button').addClass('compare');
     $('.slider-holder.profile-two').css('display', 'block');
     rangeFilterArray[1] = {
         cost: [0, 100],
@@ -538,22 +587,13 @@ function showSecondProfile(){
 function hideSecondProfile(){
     rangeFilterArray[1] = null;
     $(this).html('+ compare');
-    $('.slider-holder.profile-one .collapse-button.minus').removeClass('compare');   
+    $('.slider-holder.profile-one .collapse-button').removeClass('compare');   
     $('.slider-holder.profile-two').css('display', 'none');
     update(filterData());
     $(this).one('click', showSecondProfile);
 };    
 
-
-function polylineSectionAdd(){
-    $(this).addClass('polyline-selected');
-    $(this).one('click', polylineSectionRemove);
-};
-function polylineSectionRemove(){
-    $(this).removeClass('polyline-selected');        
-    $(this).one('click', polylineSectionAdd);        
-};
-
+///////
 function initialLoad(){
     d3.csv('/assets/csvdata/costQuality.csv',function(data){ 
         origLineData = generateLineData(data);      
@@ -563,7 +603,6 @@ function initialLoad(){
 };
 
 var item;
-
 function dataDependency(){
     //SEARCH AUTOCOMPLETE
     $( function() {
@@ -593,23 +632,19 @@ function dataDependency(){
         $('.chart-info').css('opacity', '1');
         $(this).hide();
     };   
-    
-    $('.polyline-hover').one('click', polylineSectionAdd);    
-    
-    
+        
+//    $('.tooltip-click').mouseover(function(){console.log('HIII')});
     $('.filter-header.profile-two').one('click', showSecondProfile);
-    
     $('.reset-button').click(resetFilters);
     $('.collapse-button').one('click', firstCollapseBtnClick);
     $('.chart-label-holder').mousemove(function(){
         tooltip.style("display", "block")
             .html('Variables displayed on percentile-rank basis. High cost percentile indicates an expensive hospital, and higher experience/outcome indicate higher quality value')
-          .style("left", (event.pageX) + "px")
-        .style('width', '130px').style('padding', '5px')
-                  .style('background-color', 'rgba(255,255,255,.8)')
-         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-          .style("top", 15+(event.pageY)-chartTopOffset + "px");        
-        
+            .style("left", (event.pageX)-$('.chartwrapper').offset().left  + "px")
+            .style('width', '130px').style('padding', '5px')
+            .style('background-color', 'rgba(255,255,255,.8)')
+            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+            .style("top", 15+(event.pageY)-$('.chartwrapper').offset().top + "px");        
     }).mouseleave(function(){ tooltip.style('display', 'none').style('background', 'none').style('box-shadow', 'none')  });
     $('.question-mark').click(showProjectInfo);
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});

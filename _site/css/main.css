@@ -429,12 +429,10 @@
     margin-right: 20px; }
   .grid.timesort .grid-year-header {
     display: block;
-    font-weight: 400;
-    color: darkslategrey;
-    opacity: .7;
+    opacity: .6;
     font-size: 20px;
     letter-spacing: 3px;
-    font-family: 'Karla';
+    font-family: monospace;
     text-align: center;
     width: 100%;
     position: absolute;

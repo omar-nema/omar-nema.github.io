@@ -11,7 +11,8 @@ tags:
 theme: '#50E3C2'
 infotextcolor: darkslategrey
 type: coursework / group
-viewtoggle: on
+custom_js:     
+    -  "/assets/scripts/project.js"
 ---
 
 

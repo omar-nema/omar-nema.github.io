@@ -173,7 +173,7 @@
   cursor: pointer; }
 
 .filter-header.profile-two:hover {
-  letter-spacing: 2px;
+  transform: scaleX(1.1) scaleY(1.1);
   text-decoration: underline; }
 
 .search {
@@ -302,9 +302,6 @@
     left: 100%;
     transform: translateX(-50%) translateY(-50%); }
 
-.collapse-button.minus.compare {
-  display: none; }
-
 .ui-autocomplete {
   font-size: 10px;
   z-index: 6000;
@@ -373,6 +370,9 @@
   cursor: pointer;
   font-size: 21px; }
 
+.collapse-button.compare {
+  display: none; }
+
 .collapse-button:hover {
   transform: scaleX(1.5) scaleY(1.5); }
 
@@ -381,6 +381,9 @@
 
 .collapse-button.plus:hover {
   color: blue; }
+
+svg rect:hover {
+  fill: blue; }
 
 .tooltip {
   position: absolute;
@@ -392,6 +395,20 @@
   font-family: Inconsolata;
   font-size: 11px;
   text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
+
+.tooltip-click {
+  font-family: Inconsolata;
+  font-size: 10px;
+  text-anchor: end; }
+
+.delete-selection {
+  position: absolute;
+  font-size: 18px;
+  color: grey;
+  text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
+
+.label-tooltip {
+  z-index: 130000; }
 
 .chart-tooltip-holder {
   width: auto;
@@ -421,7 +438,7 @@
   position: relative; }
 
 .polyline-hover {
-  stroke-width: 4px;
+  stroke-width: 3px;
   opacity: 0;
   fill: none; }
 
@@ -432,7 +449,10 @@
   opacity: 1; }
 
 .polyline-hover.polyline-selected:hover {
-  stroke-width: 25px; }
+  stroke-width: 15px; }
+
+.delete-selection:hover {
+  font-size: 20px; }
 
 .axis path,
 .axis line {

@@ -12,6 +12,8 @@ tags:
 theme: '#50E3C2'
 infotextcolor: darkslategrey
 custom_css: table
+custom_js:     
+    -  "/assets/scripts/project.js"
 ---
 
 <section class="product block">

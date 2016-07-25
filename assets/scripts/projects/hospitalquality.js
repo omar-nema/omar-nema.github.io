@@ -216,6 +216,7 @@ function generateLines(input, updateTransition){
                 parentSelect.selectAll('.tooltip-click').remove();                
             } 
             else {
+                //enter functionality here?
                 $(this).addClass('polyline-selected'); 
                 var selector = $(this);
                 var chart = $('.chart');

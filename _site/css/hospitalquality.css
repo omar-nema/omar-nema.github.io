@@ -70,7 +70,8 @@
 .block {
   max-width: 900px;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  box-shadow: none; }
 
 .block.block-data-visual {
   width: 100%;

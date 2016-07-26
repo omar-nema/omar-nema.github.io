@@ -10,7 +10,7 @@ tags:
     - woodwork
     - pointy
 theme: '#50E3C2'
-infotextcolor: darkslategrey
+infotextcolor: white
 custom_css: table
 custom_js:     
     -  "/assets/scripts/project.js"

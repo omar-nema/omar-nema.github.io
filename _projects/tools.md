@@ -9,7 +9,7 @@ tags:
     - makerspace
     - system design
 theme: '#50E3C2'
-infotextcolor: darkslategrey
+infotextcolor: white
 type: coursework / group
 custom_js:     
     -  "/assets/scripts/project.js"

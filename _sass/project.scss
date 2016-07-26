@@ -5,10 +5,6 @@ $project-info-color: #50E3C2;
 $block-header-color: #F2F0F0; 
 $font-family-main: 'Karla';
 $project-info-padding-bottom: 1.5rem;
-// $font-family-main: 'Quicksand';
- //$font-family-main: 'GT Eesti Pro Display Trial';
-//$main-letter-spacing: 1rem;
-
 $block-header-text-color: black;
 
 .block-text {
@@ -51,8 +47,6 @@ a {
 
 .block.block-data-visual {
     margin-top: 2.3rem;
-//    padding-left: 0;
-//    padding-right: 0;
 }
 
 .project-border {
@@ -62,19 +56,16 @@ a {
     left: 0%;
     right: 0%;
     background-color: #F2F0F0;
-    overflow: auto;
+//    overflow: auto;
     font-size: 16px;
     padding-bottom: 40px;
-        overflow-x: hidden;
+    overflow-x: hidden;
 }
-
 
 .project-content-wrapper{
     min-height: 40rem;
 }
-
 .project-info {
-//    background-color: $project-info-color;
     box-shadow: 0 1px 1px rgba(0, 0,0, .3);
     -moz-box-shadow:   0 1px 1px rgba(0, 0,0, .3);
 	-webkit-box-shadow:   0 1px 1px rgba(0, 0,0, .3);   
@@ -85,7 +76,6 @@ a {
     left: 0px;
     z-index: 2000;
     opacity: .98;
-    font-family: Inconsolata;
     max-height: 500px;
 }
 .project-info-title {
@@ -97,14 +87,12 @@ a {
     letter-spacing: 6px;
     color: darkslategrey;
     font-size: 16px;
-//    font-size: calc((100vw - 700px)/100 +  12px);
     color: white;
     text-align: right;
 }
-
 .project-info-collapse {
-//    height: 1rem;
-    transform: translateY(-88%);
+    height: 40px;      
+    transform: translateY(-88%);  
     opacity: .7;
     .project-info-title, .project-info-content {
         visibility:hidden;
@@ -151,29 +139,23 @@ a {
     color: black;    
 }
 
-
-//        $('.view-button.one').addClass('active');   
-//        $('.highlight').addClass('active');             
-//        $('.block-image-container').css('display','none');   
-
-
 .block {
     width: 100%;
     background-color: white;
-//    display: none;
     padding: 5%;
     margin-top: $divider-height;    
     position: relative;
     line-height: 1.5rem;
-    overflow: visible;
+//    overflow: visible;
     margin-bottom: 4rem; 
+    box-shadow: 0 0 2px rgba(0,0,0,.1);
 }
 .block-image-container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
     width: 100%; 
-    overflow: visible;
+//    overflow: visible;
 }
 .block-image-container.inactive {
     display: none;
@@ -193,8 +175,6 @@ a {
     margin-right: auto;
     margin-bottom: 2rem;
     margin-top: 2rem;
-//    letter-spacing: $main-letter-spacing;
-//    font-family: 'Quicksand';
 }
 ul {
     list-style-type: none;
@@ -205,15 +185,16 @@ ul {
 }
 .block-header {
     position: absolute;
-    top: 0%;
-    right: 0%;
+    top: -2px;
+    right: -2px;
+    letter-spacing: 3px;        
     background-color: $block-header-color;
     color: $block-header-text-color;
     font-family: Inconsolata;
-    font-size: 16px;
     padding-left: 4%;
     padding-bottom: 3%; 
     padding-right: 1%;
+    padding-top: 1%;
     z-index: 2;
     text-align: center;
 }
@@ -259,115 +240,21 @@ ul {
     box-shadow: 0 2px 4px rgba(0, 0,0, .3); 
     z-index: 4;
     opacity: 1;
-//    max-width: (1/1.8) * 80vw;  
     max-width: (1/1.8) * 700px;   
     cursor: zoom-out;
 }
 
 
-
-
-
-//.fa.fa-picture-o {
-//    font-size: 13px;
-//}
-//.txt-icon {
-//    font-size: 12px;
-//}
-
-//i {color: white; position: absolute; top: 50%; transform: translateX(-50%) translateY(-50%); left: 50%; font-size: 10px}
-
 .home-button {
     position: fixed;
     z-index: 1000;
-//    width: 20px;
-//    height: 20px;
     color: white;
-    font-size: 13px;
+    font-size: 18px;
     top: 3rem;
     right: 1.5%;
     opacity: .5; 
     padding: 1px;
 }
-
-.view-button {
-     position: fixed;
-    z-index: 1000;
-    right: 1.5%;
-    opacity: .7;
-    font-family: 'Inconsolata';
-    color: darkslategrey;
-    font-size: 13px;
-    cursor: pointer;
-    padding-left: 1px;
-    padding-right: 1px;
-}
-
-.view-button:hover, .view-button.active {
-    background-color: $project-info-color;
-    color: white;
-}
-
-.view-button.one {
-    top: 7rem;
-}
-.view-button.two {
-    top: 8rem;    
-}
-.view-button.three {
-    top: 9rem;        
-}
-
-.project-border.defaultView {
-    .view-button.three {
-        @extend .active;
-    }
-    .block-image-container {
-        @extend .active;
-    }    
-}
-
-.project-border.textView {
-//    .view-button.one {
-//        background-color: $project-info-color;
-//        color: white;
-//    }    
-    .view-button.one {
-        @extend .active;
-    }
-    .block-image-container {
-        @extend .inactive;
-    }
-    .block-image-container {
-       display:none;
-    }    
-    .block-image-small {
-        display: none;
-    }
-    .highlight {
-        @extend .active;
-    }
-    
-//  .highlight {
-//        color: white;
-//        background-color: black;      
-//    }
-
-}
-
-.project-border.imageView {
-    .block.intro {
-      display: none;  
-    }
-    .block-text {
-      display: none;  
-    }     
-    .view-button.two {
-        @extend .active
-        
-    }
-}
-
 
 @media only screen and (max-width: 960px){
     .project-info-content {
@@ -403,10 +290,86 @@ ul {
         font-size: 14px;
     }
     .block-header {
-        padding-right: 9%;
         padding-left: 6%;
     }
 
 }
+
+
+
+
+//.view-button {
+//     position: fixed;
+//    z-index: 1000;
+//    right: 1.5%;
+//    opacity: .7;
+//    font-family: 'Inconsolata';
+//    color: darkslategrey;
+//    font-size: 13px;
+//    cursor: pointer;
+//    padding-left: 1px;
+//    padding-right: 1px;
+//}
+//
+//.view-button:hover, .view-button.active {
+//    background-color: $project-info-color;
+//    color: white;
+//}
+//
+//.view-button.one {
+//    top: 7rem;
+//}
+//.view-button.two {
+//    top: 8rem;    
+//}
+//.view-button.three {
+//    top: 9rem;        
+//}
+//
+//.project-border.defaultView {
+//    .view-button.three {
+//        @extend .active;
+//    }
+//    .block-image-container {
+//        @extend .active;
+//    }    
+//}
+
+//.project-border.textView {
+//    .view-button.one {
+//        @extend .active;
+//    }
+//    .block-image-container {
+//        @extend .inactive;
+//    }
+//    .block-image-container {
+//       display:none;
+//    }    
+//    .block-image-small {
+//        display: none;
+//    }
+//    .highlight {
+//        @extend .active;
+//    }
+//    
+//  .highlight {
+//        color: white;
+//        background-color: black;      
+//    }
+
+//}
+//
+//.project-border.imageView {
+//    .block.intro {
+//      display: none;  
+//    }
+//    .block-text {
+//      display: none;  
+//    }     
+//    .view-button.two {
+//        @extend .active
+//        
+//    }
+//}
 
 

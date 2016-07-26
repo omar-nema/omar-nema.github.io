@@ -520,14 +520,14 @@
   z-index: 3000;
   top: 100%; }
 
-.highlight.active, .project-border.defaultView .highlight.view-button.three, .project-border.defaultView .highlight.block-image-container, .project-border.textView .highlight.view-button.one, .project-border.textView .highlight, .project-border.imageView .highlight.view-button.two {
+.highlight.active {
   color: white;
   background-color: black; }
 
 a {
   color: white; }
 
-.highlight.active:hover .tooltip, .project-border.defaultView .highlight.view-button.three:hover .tooltip, .project-border.defaultView .highlight.block-image-container:hover .tooltip, .project-border.textView .highlight:hover .tooltip, .project-border.imageView .highlight.view-button.two:hover .tooltip {
+.highlight.active:hover .tooltip {
   display: block; }
 
 .project-info {
@@ -549,7 +549,6 @@ a {
   left: 0%;
   right: 0%;
   background-color: #F2F0F0;
-  overflow: auto;
   font-size: 16px;
   padding-bottom: 40px;
   overflow-x: hidden; }
@@ -568,7 +567,6 @@ a {
   left: 0px;
   z-index: 2000;
   opacity: .98;
-  font-family: Inconsolata;
   max-height: 500px; }
 
 .project-info-title {
@@ -584,6 +582,7 @@ a {
   text-align: right; }
 
 .project-info-collapse {
+  height: 40px;
   transform: translateY(-88%);
   opacity: .7; }
   .project-info-collapse .project-info-title, .project-info-collapse .project-info-content {
@@ -634,17 +633,16 @@ a {
   margin-top: 1.5rem;
   position: relative;
   line-height: 1.5rem;
-  overflow: visible;
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); }
 
 .block-image-container {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
-  overflow: visible; }
+  width: 100%; }
 
-.block-image-container.inactive, .project-border.textView .block-image-container {
+.block-image-container.inactive {
   display: none; }
 
 .block-image {
@@ -671,15 +669,16 @@ ul {
 
 .block-header {
   position: absolute;
-  top: 0%;
-  right: 0%;
+  top: -2px;
+  right: -2px;
+  letter-spacing: 3px;
   background-color: #F2F0F0;
   color: black;
   font-family: Inconsolata;
-  font-size: 16px;
   padding-left: 4%;
   padding-bottom: 3%;
   padding-right: 1%;
+  padding-top: 1%;
   z-index: 2;
   text-align: center; }
 
@@ -722,46 +721,11 @@ ul {
   position: fixed;
   z-index: 1000;
   color: white;
-  font-size: 13px;
+  font-size: 18px;
   top: 3rem;
   right: 1.5%;
   opacity: .5;
   padding: 1px; }
-
-.view-button {
-  position: fixed;
-  z-index: 1000;
-  right: 1.5%;
-  opacity: .7;
-  font-family: 'Inconsolata';
-  color: darkslategrey;
-  font-size: 13px;
-  cursor: pointer;
-  padding-left: 1px;
-  padding-right: 1px; }
-
-.view-button:hover, .view-button.active, .project-border.defaultView .view-button.three, .project-border.defaultView .view-button.block-image-container, .project-border.textView .view-button.one, .project-border.textView .view-button.highlight, .project-border.imageView .view-button.two {
-  background-color: #50E3C2;
-  color: white; }
-
-.view-button.one {
-  top: 7rem; }
-
-.view-button.two {
-  top: 8rem; }
-
-.view-button.three {
-  top: 9rem; }
-
-.project-border.textView .block-image-container {
-  display: none; }
-.project-border.textView .block-image-small {
-  display: none; }
-
-.project-border.imageView .block.intro {
-  display: none; }
-.project-border.imageView .block-text {
-  display: none; }
 
 @media only screen and (max-width: 960px) {
   .project-info-content {
@@ -791,7 +755,6 @@ ul {
     font-size: 14px; }
 
   .block-header {
-    padding-right: 9%;
     padding-left: 6%; } }
 @media only screen and (min-height: 1000px) {
   .scatter-large {

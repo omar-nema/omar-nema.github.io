@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-<div class="project-border">
+    <div class="home-button button" style="background-color:{{page.theme}}"><< </div>   
 
     <nav class="project-info" style="background-color:{{page.theme}}; color:white">
         <div class="project-info-title">
@@ -25,13 +25,39 @@ layout: default
         </div>        
     </nav>
 
-    <div class="home-button button" style="background-color:{{page.theme}}"><< </div>   
+<div class="project-border">
+
+<!--
+    <nav class="project-info" style="background-color:{{page.theme}}; color:white">
+        <div class="project-info-title">
+            <p>{{page.title}}</p>
+        </div>
+        <div class="project-info-content" style="color:{{page.infotextcolor}}">  
+            <p class="project-info-content-synposis">
+                {{page.heading}}
+                </p>
+            <div style="clear: both"></div>
+            <p class="project-info-content-tags tags">
+                {{ page.tags | join: ' / ' }}
+            </p>
+            <div style="clear: both"></div>
+            <p class="project-info-content-tags type">
+                {{ page.type | join: ' / ' }}
+            </p>            
+            <p class="project-info-content-tags date">{{page.time}}</p>            
+        </div>        
+    </nav>
+-->
+
+<!--    <div class="home-button button" style="background-color:{{page.theme}}"><< </div>   -->
     
+<!--
     {% if page.viewtoggle %}
         <div class="view-button one" button-type="text-button">txt</div>
         <div class="view-button two" button-type="image-button">img</div>
         <div class="view-button three" button-type="default-button">both</div>   
     {% endif %}
+-->
 
       {% if page.custom_sidebar %}
             {% include {{page.custom_sidebar}} %}

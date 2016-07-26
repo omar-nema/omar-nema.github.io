@@ -8,7 +8,8 @@
   background-color: #0000ff;
   z-index: 1000;
   color: white;
-  overflow: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   min-height: 630px; }
 
 .about-header {
@@ -511,6 +512,10 @@
 .cardholder {
   transition: opacity .2s ease-in-out, width .2s ease-in-out, height .2s ease-in-out; }
 
+.highlight {
+  color: white;
+  background-color: black; }
+
 .block-text {
   position: relative; }
 
@@ -520,14 +525,14 @@
   z-index: 3000;
   top: 100%; }
 
-.highlight.active {
+.highlight.active, .highlight {
   color: white;
   background-color: black; }
 
 a {
   color: white; }
 
-.highlight.active:hover .tooltip {
+.highlight.active:hover .tooltip, .highlight:hover .tooltip {
   display: block; }
 
 .project-info {
@@ -563,7 +568,8 @@ a {
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   position: fixed;
-  top: 0px;
+  top: 15px;
+  transform: translateY(-15px);
   height: auto;
   right: 0px;
   left: 0px;
@@ -584,8 +590,8 @@ a {
   text-align: right; }
 
 .project-info-collapse {
-  height: 40px;
-  transform: translateY(-88%);
+  transform: translateY(-100%);
+  top: 15px;
   opacity: .7; }
   .project-info-collapse .project-info-title, .project-info-collapse .project-info-content {
     visibility: hidden; }
@@ -677,13 +683,16 @@ ul {
   background-color: #F2F0F0;
   color: rgba(0, 0, 0, 0.3);
   font-family: Inconsolata;
-  padding-left: 4%;
-  padding-bottom: 3%;
-  padding-right: 1%;
-  padding-top: 1%;
-  z-index: 2;
-  text-align: center;
-  font-weight: 900; }
+  padding-left: 20px;
+  padding-right: 7px;
+  padding-top: 7px;
+  padding-bottom: 14px;
+  z-index: 2; }
+  .block-header p {
+    margin: 0; }
+
+.block.noshadow {
+  box-shadow: none; }
 
 .block-image-medium {
   max-width: 500px; }
@@ -726,7 +735,7 @@ ul {
   color: white;
   font-size: 21px;
   top: 3rem;
-  right: 1.5%;
+  right: 1%;
   opacity: .5;
   padding: 1px; }
 
@@ -755,10 +764,7 @@ ul {
     font-size: 14px; }
 
   .project-info-title {
-    font-size: 14px; }
-
-  .block-header {
-    padding-left: 6%; } }
+    font-size: 14px; } }
 @media only screen and (min-height: 1000px) {
   .scatter-large {
     top: 10%;

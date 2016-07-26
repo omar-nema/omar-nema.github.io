@@ -4,10 +4,11 @@
   overflow: visible;
   transition: opacity .5s ease-in-out; }
 
+.home-button {
+  opacity: .2; }
+
 .project-info-collapse {
-  transform: translateY(-95%);
-  opacity: .1;
-  color: black; }
+  opacity: .05; }
 
 .project-info.project-info-collapse {
   background-color: white; }
@@ -22,9 +23,6 @@
   cursor: crosshair;
   padding: 30px;
   padding-top: 10px; }
-
-.block-text {
-  color: blue; }
 
 .profile-one {
   color: #00CED1; }
@@ -66,6 +64,9 @@
 
 .block-header {
   background-color: inherit; }
+
+.project-border {
+  color: blue; }
 
 .block {
   max-width: 900px;

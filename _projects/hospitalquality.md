@@ -22,7 +22,7 @@ custom_js:
 custom_sidebar: hospitalquality-sidebar.html 
 ---
 
-<section class="block block-data-visual">
+<section class="block block-data-visual noshadow">
 
     <div class="chartwrapper">
         <svg class="axislabels"></svg>

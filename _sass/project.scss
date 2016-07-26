@@ -7,6 +7,19 @@ $font-family-main: 'Karla';
 $project-info-padding-bottom: 1.5rem;
 $block-header-text-color: rgba(0,0,0,.3);
 
+
+///tentative?
+  .highlight {
+        color: white;
+        background-color: black;      
+    }
+
+    .highlight {
+        @extend .active;
+    }
+
+
+
 .block-text {
     position: relative;
 }
@@ -86,7 +99,8 @@ a {
     -moz-box-shadow:   0 1px 1px rgba(0, 0,0, .3);
 	-webkit-box-shadow:   0 1px 1px rgba(0, 0,0, .3);   
     position: fixed;
-    top: 0px;
+    top: 15px;
+    transform: translateY(-15px);
     height: auto;
     right: 0px;
     left: 0px;
@@ -107,8 +121,8 @@ a {
     text-align: right;
 }
 .project-info-collapse {
-    height: 40px;      
-    transform: translateY(-88%);  
+    transform: translateY(-100%);  
+    top: 15px;
     opacity: .7;
     .project-info-title, .project-info-content {
         visibility:hidden;
@@ -206,14 +220,20 @@ ul {
     letter-spacing: 3px;        
     background-color: $block-header-color;
     color: $block-header-text-color;
-    font-family: Inconsolata;
-    padding-left: 4%;
-    padding-bottom: 3%; 
-    padding-right: 1%;
-    padding-top: 1%;
+    font-family: Inconsolata;    
+    padding-left: 20px;
+    padding-right: 7px;
+    padding-top: 7px;
+    padding-bottom: 14px;
     z-index: 2;
-    text-align: center;
-    font-weight: 900;
+//    font-weight: 900;
+    p {
+        margin: 0;
+    }
+}
+
+.block.noshadow {
+    box-shadow: none;
 }
 
 .block-image-medium {
@@ -268,7 +288,7 @@ ul {
     color: white;
     font-size: 21px;
     top: 3rem;
-    right: 1.5%;
+    right: 1%;
     opacity: .5; 
     padding: 1px;
 }
@@ -306,13 +326,11 @@ ul {
     .project-info-title {
         font-size: 14px;
     }
-    .block-header {
-        padding-left: 6%;
-    }
+//    .block-header {
+//        padding-left: 6%;
+//    }
 
 }
-
-
 
 
 //.view-button {
@@ -365,14 +383,9 @@ ul {
 //    .block-image-small {
 //        display: none;
 //    }
-//    .highlight {
-//        @extend .active;
-//    }
+
 //    
-//  .highlight {
-//        color: white;
-//        background-color: black;      
-//    }
+
 
 //}
 //

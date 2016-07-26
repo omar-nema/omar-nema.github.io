@@ -16,7 +16,7 @@ custom_js:
     -  "/assets/scripts/project.js"
 ---
 
-<section class="product block">
+<section class="block noshadow">
     <div class="block-image-container">
         <img src="/assets/img-table/table-slice-1.jpg" class="block-image">    
     </div>  
@@ -29,7 +29,7 @@ custom_js:
     <div style="clear:both"></div>
 </section>
 
-<section class="process block">
+<section class="block noshadow">
     <div class="block-image-container">
         <img src="/assets/img-table/table-slice-4.png" class="block-image">    
     </div>  

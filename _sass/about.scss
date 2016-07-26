@@ -27,7 +27,9 @@ $phase3-color: #FAE803;
     background-color:#0000ff;
     z-index: 1000;
     color: white;
-    overflow: auto; 
+//    overflow: auto; 
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;        
     min-height: 630px;
 }
 .about-header {

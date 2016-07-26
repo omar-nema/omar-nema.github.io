@@ -37,14 +37,6 @@ var axisLabelContent = {
     outcome: 'Outcome takes into account mortality, infection rate, and functional ability following discharge. Source: CMS Quality Survey',
     cost: 'Displayed cost index that I developed to aggregate billed amounts for procedures, weighed by frequency and price in comparison to other hospitals. (A hospital, for example, that focuses on costly procedures, but offers these procedures at a price lower than competition, will have a low cost index)'
 };
-//
-//var rangeFilters = {
-//    cost: [null, null],
-//    discharge: [null, null],
-//    outcome: [null, null],
-//    patexp: [null, null],
-//    income: [null, null]
-//};
 var rangeFilters = {
     cost: [0, 100],
     discharge: [0, 100],
@@ -53,13 +45,6 @@ var rangeFilters = {
     income: [0, 100]
 };
 var rangeFilters2 = null;
-//var rangeFilters2 = {
-//    cost: [0, 100],
-//    discharge: [0, 100],
-//    outcome: [0, 100],
-//    patexp: [0, 100],
-//    income: [0, 100]
-//};
 var rangeFilterArray = [rangeFilters, rangeFilters2];
 
 

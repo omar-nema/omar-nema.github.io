@@ -25,7 +25,9 @@ custom_js:
 
 
 <section class="block">
-    <header class="block-header">concept</header>
+    <header class="block-header">
+    <p>concept</p>
+    </header>
     <div class="block-text">
         Goals.
         <ul>
@@ -40,7 +42,9 @@ custom_js:
 </section>
 
 <section class="details block">
-    <header class="block-header">features</header>
+    <header class="block-header">
+    <p>features</p>    
+    </header>
     <div class="block-text">
         <p>
         Space distribution  - rather than working near one tool wall in the crammed workshop, our Y-shape allows students to spread out, and distribute space more efficiently. 
@@ -76,7 +80,9 @@ custom_js:
 </section>
 
 <section class="research block">
-    <header class="block-header">research</header>
+    <header class="block-header">
+    <p>research</p>    
+    </header>
     <div class="block-text">
         <p>
         <span class="highlight">Model-making<span class="tooltip"><img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small"></span></span>- experimented with a number of forms in high and low fidelity mockups.

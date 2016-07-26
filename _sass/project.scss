@@ -5,7 +5,7 @@ $project-info-color: #50E3C2;
 $block-header-color: #F2F0F0; 
 $font-family-main: 'Karla';
 $project-info-padding-bottom: 1.5rem;
-$block-header-text-color: black;
+$block-header-text-color: rgba(0,0,0,.5);
 
 .block-text {
     position: relative;
@@ -49,6 +49,7 @@ a {
     margin-top: 2.3rem;
 }
 
+
 .project-border {
     position: absolute;
     top: 0%;
@@ -56,11 +57,26 @@ a {
     left: 0%;
     right: 0%;
     background-color: #F2F0F0;
-//    overflow: auto;
+    overflow: auto;
     font-size: 16px;
     padding-bottom: 40px;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;    
 }
+
+//body.specific {
+//    background-color: #F2F0F0;    
+//    padding-bottom: 40px;   
+//    font-size: 16px;    
+//    position: absolute;
+//    top: 0%;
+//    bottom: 0%;
+//    left: 0%;
+//    right: 0%;  
+//    overflow: auto;
+//    -webkit-overflow-scrolling: touch;
+//}
+
 
 .project-content-wrapper{
     min-height: 40rem;

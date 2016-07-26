@@ -549,9 +549,11 @@ a {
   left: 0%;
   right: 0%;
   background-color: #F2F0F0;
+  overflow: auto;
   font-size: 16px;
   padding-bottom: 40px;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; }
 
 .project-content-wrapper {
   min-height: 40rem; }
@@ -673,7 +675,7 @@ ul {
   right: -2px;
   letter-spacing: 3px;
   background-color: #F2F0F0;
-  color: black;
+  color: rgba(0, 0, 0, 0.5);
   font-family: Inconsolata;
   padding-left: 4%;
   padding-bottom: 3%;

@@ -98,14 +98,15 @@ $large-card-title-factor : .18;
                 width: 1.9*$med-card-width;
                 height: 1.9*$med-card-width*$cardratio;
             
-            .card.card2 {
+            .card.card2, .card.card3 {
                 display:none;
             }
             
-            .card.card3 {
-                transform: translateX(5%) translateY(15%);
-                opacity: .3;
+            .card.card1 {
+                border-radius: 10%;
             }
+            
+            
 //                left: 45%;
 //                transform:translateX(-50%);
                 

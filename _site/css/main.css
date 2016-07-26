@@ -398,23 +398,28 @@
   .grid .cardtitle {
     font-size: calc(7px + 2vw); } }
 @media only screen and (max-width: 550px) {
-  .time-sort {
-    display: none; }
-
   .content.grid {
     padding-top: 32px; }
 
+  .time-sort {
+    display: none; }
+
+  .sidebar-categories {
+    opacity: .85; }
+
   .grid .cardholder {
-    margin-left: 9vw;
+    margin-left: 6vw;
+    margin-right: 0;
+    padding: 0;
     width: 34.992vw;
     height: 27.9936vw; }
-    .grid .cardholder .card.card2, .grid .cardholder .card.card3 {
-      display: none; }
     .grid .cardholder .card.card1 {
-      border-radius: 11%;
+      border-radius: 9%;
       width: 100%;
       height: 100%;
-      transform: none; } }
+      transform: none; }
+    .grid .cardholder .card.card2, .grid .cardholder .card.card3 {
+      display: none; } }
 .content.grid.timesort {
   margin-top: 7vh; }
 

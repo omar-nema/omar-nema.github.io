@@ -9,7 +9,8 @@ var layoutResizeEnabled = true;
 var currCard;
 
 
-var isTouchDevice = 'ontouchstart' in document.documentElement;
+//var isTouchDevice = 'ontouchstart' in document.documentElement;
+var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 
 ///if touchDevice, new drag events !!
 
@@ -63,7 +64,10 @@ function categoryHover(){
        $('.cardholder').css('opacity', '.3');
        $('.cardholder.' + $(this).attr('category')).css('opacity', '1');
 }
-function categoryMouseLeave(){
+function categoryMouseLeave(input){
+    if (input){ //for touchscreen
+        input.removeClass('showCategory').addClass('hideCategory');        
+    }
     $(this).removeClass('showCategory').addClass('hideCategory');
     $('.cardholder').css('opacity', '1');
 };
@@ -86,6 +90,9 @@ function hideCat() {
     $(this).bind('mouseleave', categoryMouseLeave);
     layoutResizeEnabled = true;
     $('.cardholder').css('display', 'block');
+    if (supportsTouch){
+        categoryMouseLeave($(this));
+    };
     generateLayout();
 };
 
@@ -233,48 +240,29 @@ function aboutSecondClick(){
 
 
 $(document).ready(function(event){
-    //run things when layout gen is done?
-//    $(window).load(function(){
-        generateLayout();
-        $('.content').css('display', 'block');
-//    });
 
-    $('.about-button').one('click', aboutFirstClick);
-    // $('.cardholder').click(cardClick);
-        
+    generateLayout();
+    $('.content').css('display', 'block');
+    
+    $('.about-button').one('click', aboutFirstClick);        
     //SIDEBAR
     $('.time-sort').one('click', timeSort);
     $('.time-sort').mouseenter(function(){return $(this).removeClass('hideCategory').addClass('showCategory')}).mouseleave(categoryMouseLeave);
-
     //SIDEBAR CATEGORIES
     $('.sidebar-categories .category').one('click', showCat);
     $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
-
     //CARD FLIP
     $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
-    //changed to move accidentally?
+        
+    if (supportsTouch){
+        $(document).click(function(){//deselection since mouseover ain't detected - later accommodate ipad
+            $('.card1').removeClass('.card-selector').addClass('card1select');
+            $('.card2').removeClass('.card-selector').addClass('card2select');  
+            $('.card3').removeClass('.card-selector').addClass('card2select');             
+        });        
+        $('.card.card3').css('display', 'none');        
+        $('.card.card2').css('display', 'none');
+        //fix ya filter
+    };
     
-    console.log(isTouchDevice);
-    //cardholder is not a link
-    
-    //only on touch device
-    
-//    if (isTouchDevice){
-//        //need deselection
-//        console.log('yas');
-//        $('.cardholder').addClass('touchscreen');
-//        $('.card.card3').css('display', 'none');        
-//        $('.card.card2').css('display', 'none');
-//    };
-    
-//    document.addEventListener('touchstart', handleTouchStart, false);        
-//    document.addEventListener('touchmove', handleTouchMove, false);
-
 });
-
-
-
-
-
-    //edge cases: round2 (not that imp?), card before cardholder ()
-    //jumps over gap and enters cardholder within card - solved w mousemove but sometimes runs 2 times in parallel

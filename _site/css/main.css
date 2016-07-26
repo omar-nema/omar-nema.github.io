@@ -398,7 +398,7 @@
   .grid .cardtitle {
     font-size: calc(7px + 2vw); } }
 @media only screen and (max-width: 550px) {
-  .sidebar-categories {
+  .time-sort {
     display: none; }
 
   .content.grid {

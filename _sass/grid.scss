@@ -87,9 +87,14 @@ $large-card-title-factor : .18;
 //remove filters and preview functionality entirely
 
     @media only screen and (max-width: 550px){
-        .sidebar-categories {
+//        .sidebar-categories {
+//            display: none;
+//        }
+        
+        .time-sort {
             display: none;
         }
+        
         //1.9
         
         .content.grid {

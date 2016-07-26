@@ -3,7 +3,6 @@ var clicked = false;
 
 function collapseNav(){
     $('.project-info').addClass('project-info-collapse');
-        
     $('.project-info').mouseover(function(){
         $(this).removeClass('project-info-collapse');
     }).mouseleave(function(){
@@ -24,66 +23,23 @@ function imageMouseleave(){
     $(this).one('click', imageMouseover);    
 };
 
-
-
-
-
 function homeClick(){
     $('.block').fadeOut(200, function(){
            window.location.href = '/'; 
     });
 };
 
-
-function defaultView(){   
-    $('.project-border').attr('class','project-border defaultView');         
-};
-function imageOnlyView(){
-    if (!$(this).hasClass('active')){
-        $('.project-border').attr('class','project-border imageView');                    
-    } 
-};
-//function textView(){    
-//    if ($(this) == $('.view-button.one')){
-//        clicked = true;   
-//    }
-//    if (!$('.view-button.one').hasClass('active')){
-//        $('.project-border').attr('class','project-border textView');                   
-//    }     
-//};
-
-function changeView(viewName, button){
-    console.log('me ow');
-    if ($(this).hasClass('view-button')){
-        clicked = true;   
-    }  
-    if (!button.hasClass('active')){
-        $('.project-border').attr('class','project-border ' + viewName);                   
-    }      
-}
-
-//are the classes doing anything?
-function viewCheck(width){
-    if (!clicked){
-        if (width < 551) {
-         textView();
-        }  
-        else if (width > 551) {
-         defaultView();
-        };               
-    }
-};
-
-
-$(window).resize(function(event){
-    viewCheck($(this).width());
-});
-
 $(document).ready(function(event){
     
     $('.project-border').scroll(function(){
         collapseNav();
     });
+    
+    $(window).scroll(function(){
+        collapseNav();
+    });
+    
+    
     $('.project-content-wrapper').click(function(){   
         collapseNav();
     });
@@ -92,8 +48,6 @@ $(document).ready(function(event){
             collapseNav();
         });
     
-//    viewCheck($(window).width());
-//    
     $('.home-button').one('click', homeClick);       
     $('.view-button.one').click(function(){
         changeView('textView', $(this)) 
@@ -108,3 +62,46 @@ $(document).ready(function(event){
     $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
     
 });
+
+
+
+//function defaultView(){   
+//    $('.project-border').attr('class','project-border defaultView');         
+//};
+//function imageOnlyView(){
+//    if (!$(this).hasClass('active')){
+//        $('.project-border').attr('class','project-border imageView');                    
+//    } 
+//};
+//function textView(){    
+//    if ($(this) == $('.view-button.one')){
+//        clicked = true;   
+//    }
+//    if (!$('.view-button.one').hasClass('active')){
+//        $('.project-border').attr('class','project-border textView');                   
+//    }     
+//};
+//function changeView(viewName, button){
+//    console.log('me ow');
+//    if ($(this).hasClass('view-button')){
+//        clicked = true;   
+//    }  
+//    if (!button.hasClass('active')){
+//        $('.project-border').attr('class','project-border ' + viewName);                   
+//    }      
+//}
+//
+////are the classes doing anything?
+//function viewCheck(width){
+//    if (!clicked){
+//        if (width < 551) {
+//         textView();
+//        }  
+//        else if (width > 551) {
+//         defaultView();
+//        };               
+//    }
+//};
+//$(window).resize(function(event){
+//    viewCheck($(this).width());
+//});

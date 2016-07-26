@@ -370,12 +370,14 @@ footer {
 }
 
 .card.card3 {
+    display:block;
     transform: translateX($tagcard-translateX) translateY($tagcard-translateY);  
     .cardcontent {
         width: 100%;       
     }
 }
 .card.card2 {
+    display: block;
     transform: translateX($thumbnailcard-translateX) translateY($thumbnailcard-translateY);
     .cardcontent {
         width: 100%;
@@ -392,6 +394,7 @@ footer {
     }
 }
 .card.card1 {
+    display: block;
     transform: translateX($synposiscard-translateX) translateY($synposiscard-translateY); 
     .cardcontent {
         width: 100%;

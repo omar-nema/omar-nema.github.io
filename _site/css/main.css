@@ -376,6 +376,10 @@
   margin-top: 8vw; }
   .grid .cardholder .cardcontent p {
     font-size: 1.68vw; }
+.grid .cardholder.touchscreen .card.card2, .grid .cardholder.touchscreen .card.card3 {
+  display: none; }
+.grid .cardholder.touchscreen .card.card1 {
+  border-radius: 10%; }
 .grid .card {
   border-radius: 5%; }
 .grid .cardtitle {
@@ -398,15 +402,19 @@
     display: none; }
 
   .content.grid {
-    padding-top: 40px; }
+    padding-top: 32px; }
 
   .grid .cardholder {
-    width: 41.04vw;
-    height: 32.832vw; }
+    margin-left: 9vw;
+    width: 34.992vw;
+    height: 27.9936vw; }
     .grid .cardholder .card.card2, .grid .cardholder .card.card3 {
       display: none; }
     .grid .cardholder .card.card1 {
-      border-radius: 10%; } }
+      border-radius: 11%;
+      width: 100%;
+      height: 100%;
+      transform: none; } }
 .content.grid.timesort {
   margin-top: 7vh; }
 
@@ -1221,17 +1229,20 @@ footer .toprect {
     margin: 0; }
 
 .card.card3 {
+  display: block;
   transform: translateX(3%) translateY(3%); }
   .card.card3 .cardcontent {
     width: 100%; }
 
 .card.card2 {
+  display: block;
   transform: translateX(9%) translateY(9%); }
   .card.card2 .cardcontent {
     width: 100%;
     position: absolute; }
 
 .card.card1 {
+  display: block;
   transform: translateX(15%) translateY(15%); }
   .card.card1 .cardcontent {
     width: 100%;

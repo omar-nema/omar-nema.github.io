@@ -42,14 +42,15 @@ $large-card-title-factor : .18;
         }            
     }
     
-//    .cardholder.touchscreen {
-//        .card.card2 {
-//            
-//        }
-//        .card2.card3 {
-//            
-//        }
-//    }
+    .cardholder.touchscreen {
+            .card.card2, .card.card3 {
+                display:none;
+            }
+            
+            .card.card1 {
+                border-radius: 10%;
+            }
+    }
     
     .card {
         border-radius: 5%;
@@ -92,28 +93,24 @@ $large-card-title-factor : .18;
         //1.9
         
         .content.grid {
-         padding-top: 40px;   
+         padding-top: 32px;   
         }
         .grid .cardholder {
-                width: 1.9*$med-card-width;
-                height: 1.9*$med-card-width*$cardratio;
+                margin-left: 9vw;
+                width: 1.62*$med-card-width;
+                height: 1.62*$med-card-width*$cardratio;            
             
             .card.card2, .card.card3 {
                 display:none;
             }
             
             .card.card1 {
-                border-radius: 10%;
+                border-radius: 11%;
+                width: 100%;
+                height: 100%;
+                transform: none;
             }
             
-            
-//                left: 45%;
-//                transform:translateX(-50%);
-                
-//                .cardcontent p {
-//                    font-size: calc(11px + .7vw);            
-//                }                  
-
         }
         
 }

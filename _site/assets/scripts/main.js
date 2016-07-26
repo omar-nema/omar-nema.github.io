@@ -251,8 +251,8 @@ $(document).ready(function(event){
     $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
     //CARD FLIP
     $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
-        
-    if (supportsTouch){
+    
+    if (supportsTouch && screen.width < 700){
         $(window).click(function(){//deselection since mouseover ain't detected - later accommodate ipad        
             $('.card1').removeClass('.card-selector').addClass('card1select');           
         });        

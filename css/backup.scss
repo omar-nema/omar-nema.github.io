@@ -1,3 +1,11 @@
+// function cardClick(){
+//     var title = $(this).attr('title');
+//     $('.content').fadeOut(200);
+//     $('.content').fadeOut(200, function(){
+//            window.location.href = 'projects/' + title ;
+//     });
+// };
+
 
 //    filtered = origLineData.filter(function(d,i){ 
 //       // console.log((d['cost'] <= yscale(rangeFilters['cost'][1]/100) || d['cost'] >= yscale(rangeFilters['cost'][0]/100) 

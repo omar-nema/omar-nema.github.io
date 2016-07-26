@@ -42,6 +42,15 @@ $large-card-title-factor : .18;
         }            
     }
     
+//    .cardholder.touchscreen {
+//        .card.card2 {
+//            
+//        }
+//        .card2.card3 {
+//            
+//        }
+//    }
+    
     .card {
         border-radius: 5%;
     }    
@@ -74,14 +83,31 @@ $large-card-title-factor : .18;
         }
 
 
+//remove filters and preview functionality entirely
+
     @media only screen and (max-width: 550px){
         .sidebar-categories {
             display: none;
         }
+        //1.9
         
+        .content.grid {
+         padding-top: 40px;   
+        }
         .grid .cardholder {
                 width: 1.9*$med-card-width;
                 height: 1.9*$med-card-width*$cardratio;
+            
+            .card.card2 {
+                display:none;
+            }
+            
+            .card.card3 {
+                transform: translateX(5%) translateY(15%);
+                opacity: .3;
+            }
+//                left: 45%;
+//                transform:translateX(-50%);
                 
 //                .cardcontent p {
 //                    font-size: calc(11px + .7vw);            

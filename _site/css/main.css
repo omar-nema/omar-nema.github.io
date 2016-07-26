@@ -397,9 +397,17 @@
   .sidebar-categories {
     display: none; }
 
+  .content.grid {
+    padding-top: 40px; }
+
   .grid .cardholder {
     width: 41.04vw;
-    height: 32.832vw; } }
+    height: 32.832vw; }
+    .grid .cardholder .card.card2 {
+      display: none; }
+    .grid .cardholder .card.card3 {
+      transform: translateX(5%) translateY(15%);
+      opacity: .3; } }
 .content.grid.timesort {
   margin-top: 7vh; }
 

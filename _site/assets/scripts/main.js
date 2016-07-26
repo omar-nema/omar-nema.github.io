@@ -64,10 +64,7 @@ function categoryHover(){
        $('.cardholder').css('opacity', '.3');
        $('.cardholder.' + $(this).attr('category')).css('opacity', '1');
 }
-function categoryMouseLeave(input){
-    if (input){ //for touchscreen
-        input.removeClass('showCategory').addClass('hideCategory');        
-    }
+function categoryMouseLeave(){
     $(this).removeClass('showCategory').addClass('hideCategory');
     $('.cardholder').css('opacity', '1');
 };
@@ -85,14 +82,15 @@ function showCat() {
     $('.cardholder.' + $(this).attr('category')).css('display', 'block');
 
 };
-function hideCat() {
+function hideCat() { 
+    if (supportsTouch){
+        $('.category').removeClass('showCategory').addClass('hideCategory'); 
+        $('.cardholder').css('opacity', '1');        
+    }    
     $(this).one('click', showCat);
     $(this).bind('mouseleave', categoryMouseLeave);
     layoutResizeEnabled = true;
     $('.cardholder').css('display', 'block');
-    if (supportsTouch){
-        categoryMouseLeave($(this));
-    };
     generateLayout();
 };
 

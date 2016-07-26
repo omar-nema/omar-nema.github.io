@@ -35,11 +35,12 @@ $(document).ready(function(event){
         collapseNav();
     });
     
-    $(window).scroll(function(){
-        collapseNav();
-    });
-    
-    
+    function mobileScroll(){
+        console.log('ay');
+        collapseNav();        
+    };
+    $('.project-border').on('touchmove', mobileScroll, false);
+        
     $('.project-content-wrapper').click(function(){   
         collapseNav();
     });

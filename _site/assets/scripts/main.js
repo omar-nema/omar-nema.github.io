@@ -253,14 +253,11 @@ $(document).ready(function(event){
     $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
         
     if (supportsTouch){
-        $(document).click(function(){//deselection since mouseover ain't detected - later accommodate ipad
-            $('.card1').removeClass('.card-selector').addClass('card1select');
-            $('.card2').removeClass('.card-selector').addClass('card2select');  
-            $('.card3').removeClass('.card-selector').addClass('card2select');             
+        $(window).click(function(){//deselection since mouseover ain't detected - later accommodate ipad        
+            $('.card1').removeClass('.card-selector').addClass('card1select');           
         });        
         $('.card.card3').css('display', 'none');        
         $('.card.card2').css('display', 'none');
-        //fix ya filter
     };
     
 });

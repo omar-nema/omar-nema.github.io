@@ -34,23 +34,9 @@ $(document).ready(function(event){
     $('.project-border').scroll(function(){
         collapseNav();
     });
-    
-//    function mobileScroll(){
-//        console.log('ay');
-//        collapseNav();        
-//    };
-//    $('.project-border').on('touchmove', mobileScroll, false);
-//        
-//    $('.project-content-wrapper').click(function(){   
-//        collapseNav();
-//    });
-    
-//    $(document).click(function(){   
-//            collapseNav();
-//        });
-//    
-    $(document).on('click touchstart', function(){
-            collapseNav();        
+       
+    $(document).one('click touchstart', function(){
+        collapseNav();        
     });
     
     $('.home-button').one('click', homeClick);       

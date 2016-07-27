@@ -276,8 +276,9 @@ $(document).ready(function(event){
       $(document).on('click touchstart',function(event){
             if ($(event.target)[0] === $('.content')[0]){
                if (currCard){
-                    currCardClassChange(currCard, 'card-selector', currCard.attr('default'));     
-                   currCard = null;
+                    currCardClassChange(currCard, 'card-selector', currCard.attr('default')); 
+                    currCard.one('click', mobileFirstCardClick); 
+                   currCard = null;                   
                 };                 
             } ;          
       });

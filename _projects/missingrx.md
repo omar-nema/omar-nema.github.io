@@ -14,8 +14,8 @@ infotextcolor: white
 type: individual
 custom_css: missingrx
 custom_js:  
-    -  "/assets/scripts/project.js"
-    - "/assets/scripts/projects/d3.min.js"         
+    - "/assets/scripts/projects/d3.min.js"   
+    -  "/assets/scripts/project.js"      
     - "/assets/scripts/projects/missingrx.js"
 ---
 
@@ -25,7 +25,8 @@ custom_js:
         <div style="clear:both"></div>
         <div class="chart-height-holder">
             <div class="chart-tooltip-holder">
-                <svg class="chart">      
+                <svg class="chart">  
+                    <g class="rectholder"></g>
                 </svg>
             </div>            
         </div> 

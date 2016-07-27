@@ -9,65 +9,133 @@ d3.select('.axislabels')
     .attr("preserveAspectRatio", "xMinYMin meet")
    .attr("viewBox", "0 0 900 50");
 
+
+var yscale = d3.scaleLinear(); //axes scale in generateLineData function
+var xscale = d3.scaleLinear().range([0, width]);
 var nestedData;
+var types = [];
 
-var yscale = d3.scaleOrdinal([height, 0]); //axes scale in generateLineData function
-var xscale = d3.scaleLinear([0, width]);
+var typemap = {};
+
+var colorscale = d3.scaleOrdinal(['#FF9D28', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
 
 
-//var yAxis = d3.axisLeft(yscale).ticks(3, 's').tickFormat(function(d) { return 100*d; }).tickPadding([8]).tickSize(0);
 
+function getObjectValues(input){
+    output = [];
+    for(key in input) {
+        if(input.hasOwnProperty(key)) {
+            var value = input[key];
+            output.push(value);
+        }
+    }
+    return output;   
+};
+//can 
+// do we need to doublescale ?!
 
-function generateLineData(input){  
+function generateLineData(input){ 
+    
     input.forEach(function(d, i){
-        d.risk = +d.risk;    
+        d.risk = +d.risk;
         d.primaryAvg = +d.primaryAvg;
         d.secAvg = +d.secAvg;
         d.primProportion = +d.primProportion;
         d.secProportion = +d.secProportion;
+        if (types.indexOf(d.type) === -1){
+            types.push(d.type);    
+        };
     });    
-
-    var xmax = d3.max(input, function(d){return d.risk});
-    var ymax = d3.max(input, function(d){return d.primaryAvg}) + d3.max(input, function(d){return d.secAvg});
-    
-    xscale.domain([0, xmax]);
-    yscale.domain([0, ymax]);
-
-    
-    nestedData =  d3.nest().key(function(d){return d.type}).entries(input);
+    var xmax = d3.max(input, function(d){return d.primaryAvg}) + d3.max(input, function(d){return d.secAvg});
+    xscale.domain([0, xmax]);   
+    colorscale.domain(types);   //colorscale = static, determined here
+    nestedData =  d3.nest().key(function(d){return d.risk}).entries(input);    
     return nestedData;
+};
+
+
+
+function generateYScale(){
+    for (i=0; i<types.length; i++){
+        typemap[types[i]] = i;
+    };  
+    var typevals = getObjectValues(typemap);
+    var yscalemax = ((types.length-1)*height)/types.length;
+    
+    yscale.range([0, yscalemax]);
+    yscale.domain([d3.min(typevals), d3.max(typevals)]);
+    
+};
+
+function generateRectangles(input, riskval, updateTransition){  
+
+    var barheight = yscale(1)*.9;
+    //yo key?
+    
+    var databind = input[riskval].values;
+    console.log(databind);
+    
+    //WHY DO WE HAVE TWICE THE AMOUNT OD DATA?!?!?!?! is databind def issue?
+    
+    var rectholder =  chart.select('.rectholder').selectAll('.series').data(databind, function(d){console.log(d); return d.type});   
+    var series = rectholder.enter().append('g').attr('class', 'series');         
+    
+    //EXIT
+   // rectholder.exit().remove();        
+    
+    //UPDATE (no data binding) - only one select all?
+    d3.select('.rectholder').selectAll('.bar-first')
+        .attr('y', function(d){return yscale(typemap[d.type])})    
+        .attr('height', barheight + 'px')
+        .attr('width', function(d){console.log(d.primaryAvg); return xscale(d.primaryAvg)})
+    ; //has the same data b/c it's kept, 
+    
+    //not actually updating?
+    
+    d3.select('.rectholder').selectAll('.bar-second')
+        .attr('y', function(d){return yscale(typemap[d.type])})    
+        .attr('height', barheight + 'px')
+        .attr('width', function(d){return xscale(d.primaryAvg)});   
+    
+    //ENTER
+//    var series = rectholder.enter().append('g').attr('class', 'series');     
+    
+    series.append('rect').attr('class', 'bar-first')
+        .attr('fill', function(d){return colorscale(d.type)})
+        .attr('x', '0px')
+        .attr('y', function(d){return yscale(typemap[d.type])})    
+        .attr('height', barheight + 'px')
+        .attr('width', function(d){return xscale(d.primaryAvg)})
+        .transition().styleTween('opacity', function(){return d3.interpolate(0, 1)});    
+    ;
+    series.append('rect').attr('class', 'bar-second')
+        .attr('fill', function(d){return colorscale(d.type)})
+        .style('opacity', '.4')
+        .attr('x', function(d){return 15 + xscale(d.primaryAvg)})
+        .attr('y', function(d){return yscale(typemap[d.type])})    
+        .attr('height', barheight + 'px')
+        .attr('width', function(d){return xscale(d.primaryAvg)}) 
+       // .transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});    
+    
+    ;    
+    
+
+    //.attr('fill', function(d){return colorscale(d.type)})
+
 };
 
 function initialLoad(){
     d3.csv('/assets/csvdata/patprofile.csv',function(data){ 
         generateLineData(data);
+        generateYScale();
         dataDependency();  //runs most functions after csv data loaded
     });
 };
 
-//marker for comparison
-
-function generateRectangles(input){    
-    var rectholder =  chart.selectAll('.rectholder').data(input);    
-    rectholder.exit().remove();
-    
-    //1 sq  = two datapoints
-    
-    //rectUpdate
-    rectholder.enter().append('g').attr('class', 'rectholder');   
-        
-    //squares or chunky rect?
-    rectholder.selectAll('.rectholder').selectAll('.rect').data(function(d){console.log(d); return d.values}).enter().append('g');
-
-};
-
-//should rescale - also need to develop scale based on largest
-function generateAxes(){
-    
-};
 
 function dataDependency(){
-    generateRectangles(nestedData);
+    var updateTransition = d3.transition().duration(700);     
+    generateRectangles(nestedData, 0, updateTransition);
 };
 
 $(document).ready(function(){

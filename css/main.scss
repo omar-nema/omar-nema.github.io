@@ -108,6 +108,12 @@ footer {
         background-color: #FFEE19;
     }
 }
+
+.link-inactive {
+   pointer-events: none;
+   cursor: default;    
+};
+
 //SIDEBAR STUFF
 .about-button {
     z-index: 2000;

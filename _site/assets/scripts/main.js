@@ -234,13 +234,6 @@ function aboutSecondClick(){
     $('.about-button').attr('class', 'about-button about-button-clicked button');
 
 };
-
-
-
-
-
-
-
 //needs to remember currCArd
 function mobileFirstCardClick(event){
     event.preventDefault();    
@@ -251,10 +244,34 @@ function mobileFirstCardClick(event){
     currCard = $(this);
     currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
 };
+function desktopListeners(){
+    $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
+    //CARD FLIP
+    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);           
+};
 
+function mobileListeners(){
+    $(window).click(function(){//deselection since mouseover ain't detected - later accommodate ipad        
+        $('.card1').removeClass('.card-selector').addClass('card1select');           
+    });        
+    $('.project-link').addClass('inactive');  
+        
+    $(document).on('click touchstart',function(event){
+        if ($(event.target)[0] === $('.content')[0]){
+           if (currCard){
+                currCardClassChange(currCard, 'card-selector', currCard.attr('default')); 
+                currCard.one('click', mobileFirstCardClick); 
+               currCard = null;                   
+            };                 
+        } ;          
+    });
+    
+    $('.card.card1').one('click', mobileFirstCardClick);        
+};
+    
 
 $(document).ready(function(event){
-
+    
     generateLayout();
     $('.content').css('display', 'block');
     $('.about-button').one('click', aboutFirstClick);   
@@ -266,32 +283,29 @@ $(document).ready(function(event){
     $('.sidebar-categories .category').one('click', showCat);  
     
     //MOBILE LISTENERS
-    if (supportsTouch && screen.width < 700){
-        $(window).click(function(){//deselection since mouseover ain't detected - later accommodate ipad        
-            $('.card1').removeClass('.card-selector').addClass('card1select');           
-        });        
-        $('.card.card3').css('display', 'none');      //should have the entire styling   
-        $('.card.card2').css('display', 'none');
-        $('.project-link').addClass('inactive');       
-      $(document).on('click touchstart',function(event){
-            if ($(event.target)[0] === $('.content')[0]){
-               if (currCard){
-                    currCardClassChange(currCard, 'card-selector', currCard.attr('default')); 
-                    currCard.one('click', mobileFirstCardClick); 
-                   currCard = null;                   
-                };                 
-            } ;          
-      });
-        $('.cardholder').one('click', mobileFirstCardClick);
-        ///DESKTOP LISTENERS
-    } else {
-        $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
-        //CARD FLIP
-        $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);        
+    if (supportsTouch){
+        
+        if (screen.width < 700){
+            $('.card.card3').css('display', 'none');      //should have the entire styling   
+            $('.card.card2').css('display', 'none');///            
+        } else {
+            $('.card.card3').addClass('link-inactive');
+              $('.card.card3').addClass('link-inactive');          
+        };
+        $(window).bind('mousemove.hasMouse',function(){
+            $(window).unbind('.hasMouse');
+            desktopListeners();            
+        }).bind('touchstart.hasMouse',function(){ //we see this disappear in ipad
+            $(window).unbind('.hasMouse');
+            mobileListeners();
+        });
+    } 
+        ///DESKTOP LISTENERS    
+    else {
+        desktopListeners();
     }  ;
        
     
-
 
 
 

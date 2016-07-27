@@ -513,8 +513,7 @@
   transition: opacity .2s ease-in-out, width .2s ease-in-out, height .2s ease-in-out; }
 
 .highlight {
-  color: white;
-  background-color: black; }
+  background-color: lightpink; }
 
 .block-text {
   position: relative; }
@@ -525,14 +524,14 @@
   z-index: 3000;
   top: 100%; }
 
-.highlight.active, .highlight {
+.highlight.active {
   color: white;
   background-color: black; }
 
 a {
   color: white; }
 
-.highlight.active:hover .tooltip, .highlight:hover .tooltip {
+.highlight.active:hover .tooltip {
   display: block; }
 
 .project-info {
@@ -1000,6 +999,10 @@ footer .toprect {
   height: 20%;
   opacity: .3;
   background-color: #FFEE19; }
+
+.link-inactive {
+  pointer-events: none;
+  cursor: default; }
 
 .about-button {
   z-index: 2000;

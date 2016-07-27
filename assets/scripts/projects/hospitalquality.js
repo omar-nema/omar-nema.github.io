@@ -10,6 +10,7 @@ d3.select('.axislabels')
    .attr("viewBox", "0 0 900 50")
 //var yAxis =  d3.axisLeft(yscale).ticks([]).tickSize(0);
 var yAxis = d3.axisLeft(yscale).ticks(3, 's').tickFormat(function(d) { return 100*d; }).tickPadding([8]).tickSize(0);
+//should have def used ordinal scale rather than making own function..
 
 //.tickValues([0,50,100]);
 var origLineData;

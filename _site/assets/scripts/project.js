@@ -45,9 +45,13 @@ $(document).ready(function(event){
 //        collapseNav();
 //    });
     
-    $(document).click(function(){   
-            collapseNav();
-        });
+//    $(document).click(function(){   
+//            collapseNav();
+//        });
+//    
+    $(document).on('click touchstart', function(){
+            collapseNav();        
+    });
     
     $('.home-button').one('click', homeClick);       
     $('.view-button.one').click(function(){

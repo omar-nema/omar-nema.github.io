@@ -280,14 +280,6 @@ $(document).ready(function(event){
                 };                 
             } ;          
       });
-          
-//          .click(function(event){
-//            if ($(event.target)[0] === $('.content')[0]){
-//               if (currCard){
-//                    currCardClassChange(currCard, 'card-selector', currCard.attr('default'));        
-//                };                 
-//            } ;
-//        });
         $('.cardholder').one('click', mobileFirstCardClick);
         ///DESKTOP LISTENERS
     } else {

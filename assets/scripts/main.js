@@ -237,27 +237,64 @@ function aboutSecondClick(){
 
 
 
+
+
+
+
+//needs to remember currCArd
+function mobileFirstCardClick(event){
+    event.preventDefault();    
+    if (currCard){
+        currCard.one('click', mobileFirstCardClick);
+        currCardClassChange(currCard, 'card-selector', currCard.attr('default'));        
+    };
+    currCard = $(this);
+    currCardClassChange(currCard, currCard.attr('default'), 'card-selector');
+};
+
+
 $(document).ready(function(event){
 
     generateLayout();
     $('.content').css('display', 'block');
-    
-    $('.about-button').one('click', aboutFirstClick);        
+    $('.about-button').one('click', aboutFirstClick);   
     //SIDEBAR
     $('.time-sort').one('click', timeSort);
-    $('.time-sort').mouseenter(function(){return $(this).removeClass('hideCategory').addClass('showCategory')}).mouseleave(categoryMouseLeave);
-    //SIDEBAR CATEGORIES
-    $('.sidebar-categories .category').one('click', showCat);
-    $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
-    //CARD FLIP
-    $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);
+    $('.time-sort').mouseenter(function(){return $(this).removeClass('hideCategory').addClass('showCategory')}).mouseleave(categoryMouseLeave);    
     
+    //SIDEBAR CATEGORIES
+    $('.sidebar-categories .category').one('click', showCat);  
+    
+    //MOBILE LISTENERS
     if (supportsTouch && screen.width < 700){
         $(window).click(function(){//deselection since mouseover ain't detected - later accommodate ipad        
             $('.card1').removeClass('.card-selector').addClass('card1select');           
         });        
-        $('.card.card3').css('display', 'none');        
+        $('.card.card3').css('display', 'none');      //should have the entire styling   
         $('.card.card2').css('display', 'none');
-    };
+        $('.project-link').addClass('inactive');       
+      $(document).click(function(event){
+            if ($(event.target)[0] === $('.content')[0]){
+               if (currCard){
+                   console.log('curr');
+                    currCardClassChange(currCard, 'card-selector', currCard.attr('default'));        
+                };                 
+            } ;
+        });
+        $('.cardholder').one('click', mobileFirstCardClick);
+        ///DESKTOP LISTENERS
+    } else {
+        $('.sidebar-categories .category').mouseenter(categoryHover).mouseleave(categoryMouseLeave);
+        //CARD FLIP
+        $('.cardholder').mouseenter(cardEnter).mouseleave(cardExit);        
+    }  ;
+       
+    
+
+
+
+
+    
+
     
 });

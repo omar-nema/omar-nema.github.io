@@ -22,7 +22,7 @@ custom_js:
 
  {% for project in site.data.projects %}
 
-    <a href="/projects/{{ project.title }}"><div class="cardholder {{project.title}} {{project.category}}" title={{project.title}} category={{project.category}} data-time="{{project.timeOrder}}">
+    <a href="/projects/{{ project.title }}" class="project-link"><div class="cardholder {{project.title}} {{project.category}}" title={{project.title}} category={{project.category}} data-time="{{project.timeOrder}}">
 
         <div title="{{project.title}}" class="card {{project.category}} card2 card2select" order="2" default="card2select">
             <div class="cardcontent"><p>#<br>{{project.tags}}</p></div>

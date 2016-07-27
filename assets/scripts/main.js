@@ -273,14 +273,21 @@ $(document).ready(function(event){
         $('.card.card3').css('display', 'none');      //should have the entire styling   
         $('.card.card2').css('display', 'none');
         $('.project-link').addClass('inactive');       
-      $(document).click(function(event){
+      $(document).on('click touchstart',function(event){
             if ($(event.target)[0] === $('.content')[0]){
                if (currCard){
-                   console.log('curr');
                     currCardClassChange(currCard, 'card-selector', currCard.attr('default'));        
                 };                 
-            } ;
-        });
+            } ;          
+      });
+          
+//          .click(function(event){
+//            if ($(event.target)[0] === $('.content')[0]){
+//               if (currCard){
+//                    currCardClassChange(currCard, 'card-selector', currCard.attr('default'));        
+//                };                 
+//            } ;
+//        });
         $('.cardholder').one('click', mobileFirstCardClick);
         ///DESKTOP LISTENERS
     } else {

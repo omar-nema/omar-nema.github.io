@@ -21,13 +21,28 @@ custom_js:
 
 <section class="block block-data-visual noshadow">
     <div class="chartwrapper">
-        <svg class="axislabels"></svg>
         <div style="clear:both"></div>
         <div class="chart-height-holder">
             <div class="chart-tooltip-holder">
                 <svg class="chart">  
                     <g class="rectholder"></g>
                 </svg>
+                
+                  
+                <div class="risk-slider"> 
+<!--                    <div class="slider-label toggle">slide risk</div>                    -->
+                    <div class="slider">
+                        <div class="thumb">
+                            <div class="thumb-tooltip"></div>                        
+                        </div>                     
+                        <div class="fill-inner"></div>                    
+                    </div>
+                    <div class="slider-label animate">
+                    <p class="btn-border">animate
+                    </p>
+                    </div>                         
+                </div>
+                
             </div>            
         </div> 
         

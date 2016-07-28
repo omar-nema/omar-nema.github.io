@@ -38,7 +38,7 @@ custom_js:
                         <div class="fill-inner"></div>                    
                     </div>
                     <div class="slider-label animate">
-                    <p class="btn-border">animate
+                    <p class="btn-border">>> animate
                     </p>
                     </div>                         
                 </div>

@@ -1,3 +1,121 @@
+
+
+////////////////
+//function getObjectValues(input){
+//    output = [];
+//    for(key in input) {
+//        if(input.hasOwnProperty(key)) {
+//            var value = input[key];
+//            output.push(value);
+//        }
+//    }
+//    return output;   
+//};
+
+
+
+//when is x and y added - create a cluster !1
+
+//now create a cluster mofo
+
+//var nodes = d3.range(0, num_nodes).map(function(o, i) {
+//	return {
+//		id: "node" + i,
+//		x: foci.center.x + Math.random(),
+//		y: foci.center.y + Math.random(),
+//		radius: init_radius,
+//		choice: "center",
+//	}
+//});
+
+
+//
+//    var xmax = d3.max(input, function(d){return d.primaryAvg}) + d3.max(input, function(d){return d.secAvg});
+//    xscale.domain([0, xmax]);    
+//    yscale.domain(types);
+////var sorted = d3.nest()
+//      .key(function(d) { return d.cluster; })
+//      .entries(nodes);
+//
+//var root = d3.stratify()
+//    .id(function(d) { return d.child; })
+//    .parentId(function(d) { return d.parent; })
+//    (nodes);
+//
+//
+//var clusterholder = d3.cluster(root).size([width, height]);
+//
+////cluster sets the x and y of each node element ?!
+//
+//
+//var node = chart.selectAll("circle")
+//    .data(nodes)
+//    .enter().append("circle")
+//    .style("fill", function(d) { return 'blue';})
+//    .attr('radius', '5')
+//.call(clusterholder)
+//;
+//    
+    //.nodeSize()
+
+
+
+
+
+
+//    var yAxis = d3.axisLeft(yscale).tickSize(0).tickPadding([10]);
+//    chart.append('g').attr('class', 'y-axis').call(yAxis);
+//    var xAxis = d3.axisTop(xscale).tickValues([0, 10, 20, 30, 40, 50, 60]).tickSize(0);
+//    chart.append('g').attr('class', 'x-axis').call(xAxis);    
+
+
+//function generateRectangles(input, riskval){  
+//    //RE-BIND DATA - children done separately
+//    var rectholder =  chart.select('.rectholder').selectAll('.series').data(input[riskval].values, function(d){return d.type}); 
+//    rectholder.selectAll('.bar-first').data(input[riskval].values, function(d){return d.type});
+//    rectholder.selectAll('.bar-second').data(input[riskval].values, function(d){return d.type});  
+//    
+//    //stack a bunch of squares?
+//    //and colors as two colors?
+//    
+//    //EXIT
+//    d3.selectAll('.series').exit().transition().style('opacity', '0').remove();  
+//       
+////    //UPDATE (no data binding) 
+//    d3.transition(updateTransition).selectAll('.bar-first')
+//        .attr('y', function(d){return yscale(d.type)})      
+//        .attr('height', yscale.bandwidth() + 'px')    
+//        .attr('width', function(d){return xscale(d.secAvg)})
+//    
+//    d3.transition(updateTransition).selectAll('.bar-second')
+//        .attr('x', function(d){return xscale(d.secAvg)})     
+//        .attr('y', function(d){return yscale(d.type)})     
+//        .attr('height', yscale.bandwidth() + 'px')
+//        .attr('width', function(d){return xscale(d.primaryAvg)}); 
+//
+//    //ENTER
+//    var series = rectholder.enter().append('g').attr('class', 'series');   
+//    
+//    series.append('rect').attr('class', 'bar-first')
+//        .transition().styleTween('opacity', function(){return d3.interpolate(0, 1)})      
+//        .attr('fill', function(d){return colorscale(d.type)})
+//        .attr('x', '0px')
+//        .attr('y', function(d){return yscale(d.type)})    
+//        .attr('height', yscale.bandwidth() + 'px')
+//        .attr('width', function(d){return xscale(d.secAvg)});
+//    
+//    series.append('rect').attr('class', 'bar-second')
+//        .transition().styleTween('opacity', function(){return d3.interpolate(0, 1)})      
+//        .attr('fill', function(d){return colorscale(d.type)})
+//        .style('opacity', '.4')
+//        .attr('x', function(d){return xscale(d.secAvg)})
+//        .attr('y', function(d){return yscale(d.type)})    
+//        .attr('height', yscale.bandwidth() + 'px')
+//        .attr('width', function(d){return xscale(d.primaryAvg)});    
+//        
+//};
+
+
 // function cardClick(){
 //     var title = $(this).attr('title');
 //     $('.content').fadeOut(200);

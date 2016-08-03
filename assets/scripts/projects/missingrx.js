@@ -1,7 +1,8 @@
 
 var width = 900; var height = 450;
 
-//we have d3.slider
+//we have d3.slideR
+//ADD DATA MAP TO MOUSEOVER DIFFERENT DATA PTS
 
 var chart = d3.select(".chart")
 chart
@@ -10,170 +11,66 @@ chart
 //    .attr('transform', 'translate(40, 0)')
 ;
 
-//animation has circles coming in from different category area
-//or, concentric where each risk score is one more outer layer - option for FISHEYE
-
-
-var init_radius = 5.5,
-	max_radius = 5.5,
-	padding = 30,
-	cluster_padding = 30;
-
 var yscale = d3.scaleBand().rangeRound([height, 0]).padding(.4);
 var xscale = d3.scaleLinear().range([0, width]);
-var  z = d3.scaleOrdinal(d3.schemeCategory20);
-
-var n = 100, // total number of nodes
-    m = 4; // number of distinct clusters
+var  z = d3.scaleOrdinal(d3.schemeCategory10);
 
 var colorscale = d3.scaleOrdinal(['#FF9D28', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
 
 var nestedData;
 var types = [];
 var typemap = {};
-
 var updateTransition = d3.transition().duration(700);    
-
-
-var clusters = new Array(m);
-var num_nodes = 100;
-
-//we need number in each category
-//and then number changes according to riskval
-//BUT THE MOUSEOVER !! w datapoint attributes
-//could just create nodes manually
-
-//chart.selectAll('circle').data(nodes).enter().append('circle')
-//    .attr('id', function(d){return d.id})
-//    .attr('class', 'node')
-//    .style('fill', function(d){return foci[d.choice].color})
-//    .attr('r', function(d){return d.radius})
-//    .attr('cx', function(d){return d.x})
-//    .attr('cy', function(d){return d.y})
-//;
-
+var nodes = [];
+var nodes2 = [];
 var padding = 12, // separation between same-color circles
     clusterPadding = 15, // separation between different-color circles
     maxRadius = 12;
-
-//overlap within circle groups?
-
-var n = 200, // total number of nodes
-    m = 10, // number of distinct clusters
-    z = d3.scaleOrdinal(d3.schemeCategory20),
-    clusters = new Array(m);
-
- var nodes = d3.range(200).map(() => {
-    let i = Math.floor(Math.random() * m),
-        radius = 9,
-        d = {cluster: i, r: radius};
-    if (!clusters[i] || (radius > clusters[i].r)) clusters[i] = d;
-    return d;
-});
+var circles;
+var circle;
+var currRiskVal;
+var clusters = new Array(4);
 
 
-var circles = chart.append('g')
-      .datum(nodes)
-        .selectAll('.circle')
-      .data(function(d){return d})
-        .enter().append('circle')
-      .attr('r', function(d){return d.r})
-     // .attr('fill', function(d){return 'blue'})
-    .attr('fill', (d) => z(d.cluster))
-      .attr('stroke', 'white')
-      .attr('stroke-width', 1);
+var simulation;
+
+//var n = 12, // total number of nodes
+//    m = 4, // number of distinct clusters
+//    z = d3.scaleOrdinal(d3.schemeCategory20);
+
+//keep runnning same sim?
+
+//var centers = [
+//    { x: width/8, y: height/2},
+//    { x: 3*width/8, y: height/2},
+//    { x: 5*width/8, y: height/2},
+//    { x: 7*width/8, y: height/4}    
+//];
+//
+var centers = [
+    { x: 3.5*width/8, y: 2*height/4},
+    { x: 3.5*width/8, y: height/4},
+    { x: 4.5*width/8, y: 2*height/4},
+    { x: 4.5*width/8, y: height/4},
+    { x: 1*width/8, y: height/2}     
+];
 
 
-var collideForce = d3.forceCollide([10]).strength([1]);
-var xforce = d3.forceX([800]).strength(.0005);
-var yforce = d3.forceY([200]).strength(.0005)
-
-var simulation = d3.forceSimulation(nodes)
-    .velocityDecay(0.2)
-    .force("x", xforce)
-    .force("y", yforce)
-    .force("collide", collide)
-    .force("cluster", clustering)
-//    .force('collide', collideForce)
-    .on("tick", ticked);
-
-//(WHY IN THE TICKED FUNCTION 
-function ticked() {
-    circles   
-        .attr('cx', function(d){return width/2 + d.x})
-        .attr('cy', function(d){return height/2 + d.y});
-}   
-
-// These are implementations of the custom forces.
-function clustering(alpha) {
-    nodes.forEach(function(d) {
-      var cluster = clusters[d.cluster];
-      if (cluster === d) return;
-      var x = d.x - cluster.x,
-          y = d.y - cluster.y,
-          l = Math.sqrt(x * x + y * y),
-          r = d.r + cluster.r;
-      if (l !== r) {
-        l = (l - r) / l * alpha;
-        d.x -= x *= l;
-        d.y -= y *= l;
-        cluster.x += x;
-        cluster.y += y;
-      }  
-    });
-}
-
-function collide(alpha) {
-  var quadtree = d3.quadtree()
-      .x((d) => d.x)
-      .y((d) => d.y)
-      .addAll(nodes);
-
-  nodes.forEach(function(d) {
-    var r = d.r + maxRadius + Math.max(padding, clusterPadding),
-        nx1 = d.x - r,
-        nx2 = d.x + r,
-        ny1 = d.y - r,
-        ny2 = d.y + r;
-    quadtree.visit(function(quad, x1, y1, x2, y2) {
-
-      if (quad.data && (quad.data !== d)) {
-        var x = d.x - quad.data.x,
-            y = d.y - quad.data.y,
-            l = Math.sqrt(x * x + y * y),
-            r = d.r + quad.data.r + (d.cluster === quad.data.cluster ? padding : clusterPadding);
-        if (l < r) {
-          l = (l - r) / l * alpha;
-          d.x -= x *= l;
-          d.y -= y *= l;
-          quad.data.x += x;
-          quad.data.y += y;
-        }
-      }
-      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
-    });
-  });
-}
+//
+//var centers = [
+//    { x: width/2, y: height/2},
+//    { x: width/2, y: height/2},
+//    { x: width/2, y: height/2},
+//    { x: width/2, y: height/2}    
+//];
 
 
+//structureing the addition..
 
 
+//map maxes in each category
 
-
-//////////////
-function getObjectValues(input){
-    output = [];
-    for(key in input) {
-        if(input.hasOwnProperty(key)) {
-            var value = input[key];
-            output.push(value);
-        }
-    }
-    return output;   
-};
-
-function generateLineData(input){ 
-    
+function generateData(input){    
     input.forEach(function(d, i){
         d.risk = +d.risk;
         d.primaryAvg = +d.primaryAvg;
@@ -184,138 +81,353 @@ function generateLineData(input){
             types.push(d.type);    
         };
     });    
-    var xmax = d3.max(input, function(d){return d.primaryAvg}) + d3.max(input, function(d){return d.secAvg});
-    xscale.domain([0, xmax]); 
-    
-    yscale.domain(types);
-
-    var yAxis = d3.axisLeft(yscale).tickSize(0).tickPadding([10]);
-    chart.append('g').attr('class', 'y-axis').call(yAxis);
-    var xAxis = d3.axisTop(xscale).tickValues([0, 10, 20, 30, 40, 50, 60]).tickSize(0);
-    chart.append('g').attr('class', 'x-axis').call(xAxis);    
     
     colorscale.domain(types);   //colorscale = static, determined here
-    nestedData =  d3.nest().key(function(d){return d.risk}).entries(input);    
-    return nestedData;
-};
-
-
-function generateBubbles() {
+    nestedData =  d3.nest().key(function(d){return d.risk}).entries(input); 
     
-};
+    //will still update w new values
+    
+    for (i=0; i<nestedData.length; i++){
+        var nodeholder = [];
+        for (j=0; j<types.length; j++){
+            var currPoint = nestedData[i].values[j];
+            var firstPt = d3.range(currPoint.primaryAvg).map((datapt, indexnum) => {
+                var f = types.indexOf(currPoint.type);
+                radius = 9;
+                indexString = f + ',' + indexnum;
+                d = {cluster: f, r: radius, opacity: .4, indexnum: indexString};                
+                if (i == 0 ){
+                    if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                          
+                }
+//                else {
+//                    if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                         
+//                }
+//          
+                return d;
+            });
+            
+            //a series of cluster points
+            
+//            nodeholder.push(firstPt);
+            var secPt = d3.range(currPoint.secAvg).map(() => {
+                var f = types.indexOf(currPoint.type);
+                radius = 9;
+                // x: centers[f].x + Math.random(), y: centers[f].y + Math.random()
+                d = {cluster: f, r: radius, opacity: 1,};
+                if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                
+                return d;   //do we need to add these to clusters?!  
+//                d = {cluster: types.indexOf(currPoint.type), r: 9, opacity: 1};
+//                if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                   
+//                return d;
+            });            
 
+            //setting array = array of objects
+            nodeholder = nodeholder.concat(firstPt); 
+            nodeholder = nodeholder.concat(secPt);             
+        };
+        nodes2.push(nodeholder)
+    };    
+    
+//    for (i=0; i<nestedData.length; i++){
+//        var nodeholder = [];
+//        for (j=0; j<types.length; j++){
+//            var currPoint = nestedData[i].values[j];
+//            var firstPt = d3.range(currPoint.primaryAvg).map((datapt, indexnum) => {
+//                var f = types.indexOf(currPoint.type);
+//                radius = 9;
+//                indexString = f + ',' + indexnum;
+//                d = {cluster: f, r: radius, opacity: .4, indexnum: indexString};                
+//                if (i == 0 ){
+//                    if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                          
+//                }
+////                else {
+////                    if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                         
+////                }
+////          
+//                return d;
+//            });
+//            
+//            //a series of cluster points
+//            
+////            nodeholder.push(firstPt);
+//            var secPt = d3.range(currPoint.secAvg).map(() => {
+//                var f = types.indexOf(currPoint.type);
+//                radius = 9;
+//                // x: centers[f].x + Math.random(), y: centers[f].y + Math.random()
+//                d = {cluster: f, r: radius, opacity: 1,};
+//                if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                
+//                return d;   //do we need to add these to clusters?!  
+////                d = {cluster: types.indexOf(currPoint.type), r: 9, opacity: 1};
+////                if (!clusters[f] || (radius > clusters[f].r)) clusters[f] = d;                   
+////                return d;
+//            });            
+//
+//            //setting array = array of objects
+//            nodeholder = nodeholder.concat(firstPt); 
+//            nodeholder = nodeholder.concat(secPt);             
+//        };
+//        nodes2.push(nodeholder)
+//    };
+    return nodes2;
+};
 
 function initialLoad(){
-    d3.csv('/assets/csvdata/patprofile.csv',function(data){ 
-        generateLineData(data);
+    d3.csv('/assets/csvdata/patprofileforce.csv',function(data){ 
+        generateData(data);
+        currRiskVal = 0;
         dataDependency();  //runs most functions after csv data loaded
     });
 };
 
-
-function dataDependency(){ 
-
+function gravity(alpha) {
+    console.log('err');
+    nodes.forEach(function(d) {    
+        d.y += (centers[d.cluster].y - d.y) * alpha * .2;
+        d.x +=  (centers[d.cluster].x - d.x) * alpha * .2;
+    })
 };
 
+function tick(event) {
+    //circles
+    chart.select('.circleholder').selectAll('.circle')    
+        .attr('cx', (d) => d.x)
+        .attr('cy', (d) => d.y);
+} 
+
+var manyBody = d3.forceManyBody().strength(-15);
+
+//distanceMax(width);
+var forceY = d3.forceY([height/2]).strength([.5]);
+var collideForce = d3.forceCollide().radius(10);
+
+//balls fly
+
+function update(nodeinput){
+    
+//    nodes = nodes2[1]
+//update(nodes)
+//simulation.nodes(nodes)
+//simulation.alpha(.1).restart()
+//one array with max of each
+    //nodes as slice of max
+      
+//    nodes = nodes.concat(nodes2[currRiskVal], nodes2[currRiskVal-1])
+    
+    circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, (d) => d.cluster);
+    
+    circle            .attr('fill', (d) => colorscale(d.cluster)) 
+            .style('opacity', (d) => d.opacity)
+            .attr('stroke', 'white')
+            .attr('stroke-width', 1)
+            .attr('class', 'circle');
+        
+    circles = circle
+            .enter().append('circle')
+            .attr('fill', (d) => colorscale(d.cluster)) 
+            .style('opacity', (d) => d.opacity)
+            .attr('stroke', 'white')
+            .attr('stroke-width', 1)
+            .attr('class', 'circle');
+    
+    circles.transition()
+        .duration(900)
+        .delay(function(d,i) { return i * 5; })
+        .attr('r', d.r)
+        .attrTween("r", function(d) {
+        return d3.interpolate(0, d.r);
+        });    
+    
+    circle.exit().remove(); 
+};
+
+
+function dataDependency(){ 
+    
+    chart.append('g').attr('class', 'circleholder');
+    
+//    nodes = nodes2[currRiskVal];  
+//    update(nodes2[currRiskVal]);
+//    
+//   simulation = d3.forceSimulation(nodes)
+//        .velocityDecay(0.4)
+//        .force("collide", collideForce)    
+//        .force('manyBody', manyBody)
+//    .force("x", d3.forceX(width/2).strength(.4))
+//    .force("y", d3.forceY(height/2).strength(.4))      
+//        .force("gravity", gravity)      
+//        .on("tick", tick);            
+};
+//
 $(document).ready(function(){
-//    initialLoad(); 
+    initialLoad(); 
 });
 
+//make nodes 2 only the diff
+//change to diff node data structure?
 
+//toggle a risk value
 
-
-
-
-
-
-
-//when is x and y added - create a cluster !1
-
-//now create a cluster mofo
-
-//var nodes = d3.range(0, num_nodes).map(function(o, i) {
-//	return {
-//		id: "node" + i,
-//		x: foci.center.x + Math.random(),
-//		y: foci.center.y + Math.random(),
-//		radius: init_radius,
-//		choice: "center",
-//	}
-//});
-
-
-//var sorted = d3.nest()
-//      .key(function(d) { return d.cluster; })
-//      .entries(nodes);
 //
-//var root = d3.stratify()
-//    .id(function(d) { return d.child; })
-//    .parentId(function(d) { return d.parent; })
-//    (nodes);
-//
-//
-//var clusterholder = d3.cluster(root).size([width, height]);
-//
-////cluster sets the x and y of each node element ?!
-//
-//
-//var node = chart.selectAll("circle")
-//    .data(nodes)
-//    .enter().append("circle")
-//    .style("fill", function(d) { return 'blue';})
-//    .attr('radius', '5')
-//.call(clusterholder)
-//;
-//    
-    //.nodeSize()
+//nodes = nodes.concat(nodes, nodes2[2])
+//update(nodes)
+//simulation.nodes(nodes)
+//simulation.alpha(.5).restart()
 
 
 
 
 
-
-//function generateRectangles(input, riskval){  
-//    //RE-BIND DATA - children done separately
-//    var rectholder =  chart.select('.rectholder').selectAll('.series').data(input[riskval].values, function(d){return d.type}); 
-//    rectholder.selectAll('.bar-first').data(input[riskval].values, function(d){return d.type});
-//    rectholder.selectAll('.bar-second').data(input[riskval].values, function(d){return d.type});  
-//    
-//    //stack a bunch of squares?
-//    //and colors as two colors?
-//    
-//    //EXIT
-//    d3.selectAll('.series').exit().transition().style('opacity', '0').remove();  
-//       
-////    //UPDATE (no data binding) 
-//    d3.transition(updateTransition).selectAll('.bar-first')
-//        .attr('y', function(d){return yscale(d.type)})      
-//        .attr('height', yscale.bandwidth() + 'px')    
-//        .attr('width', function(d){return xscale(d.secAvg)})
-//    
-//    d3.transition(updateTransition).selectAll('.bar-second')
-//        .attr('x', function(d){return xscale(d.secAvg)})     
-//        .attr('y', function(d){return yscale(d.type)})     
-//        .attr('height', yscale.bandwidth() + 'px')
-//        .attr('width', function(d){return xscale(d.primaryAvg)}); 
+//    nodes = nodes2[currRiskVal];   
+////    nodes = nodes.concat(nodes2[currRiskVal], nodes2[currRiskVal-1])
 //
-//    //ENTER
-//    var series = rectholder.enter().append('g').attr('class', 'series');   
-//    
-//    series.append('rect').attr('class', 'bar-first')
-//        .transition().styleTween('opacity', function(){return d3.interpolate(0, 1)})      
-//        .attr('fill', function(d){return colorscale(d.type)})
-//        .attr('x', '0px')
-//        .attr('y', function(d){return yscale(d.type)})    
-//        .attr('height', yscale.bandwidth() + 'px')
-//        .attr('width', function(d){return xscale(d.secAvg)});
-//    
-//    series.append('rect').attr('class', 'bar-second')
-//        .transition().styleTween('opacity', function(){return d3.interpolate(0, 1)})      
-//        .attr('fill', function(d){return colorscale(d.type)})
-//        .style('opacity', '.4')
-//        .attr('x', function(d){return xscale(d.secAvg)})
-//        .attr('y', function(d){return yscale(d.type)})    
-//        .attr('height', yscale.bandwidth() + 'px')
-//        .attr('width', function(d){return xscale(d.primaryAvg)});    
+//    circles = chart.append('g')
+//           // .datum(nodes)
 //        
-//};
+//            .selectAll('.circle')
+////            .data(function(d){return d})
+//            .data(nodes)
+//            .enter().append('circle')
+//            .attr('fill', (d) => colorscale(d.cluster)) 
+//            .style('opacity', (d) => d.opacity)
+//            .attr('stroke', 'white')
+//            .attr('stroke-width', 1);
+//    
+//    
+//chart.selectAll('.circle')
+////            .data(function(d){return d})
+//            .data(nodes)
+//            .enter().append('circle')
+//            .attr('fill', (d) => colorscale(d.cluster)) 
+//            .style('opacity', (d) => d.opacity)
+//            .attr('stroke', 'white')
+//            .attr('stroke-width', 1);
+    
+    
+ 
+    
+//    .force("x", d3.forceX(width/2).strength(.05))
+    
+    //next nodes
+
+    //create growing simulation first?
+    
+
+
+//function collide(alpha) {
+//  var quadtree = d3.quadtree()
+//      .x((d) => d.x)
+//      .y((d) => d.y)
+//      .addAll(nodes);
+//  nodes.forEach(function(d) {
+//    var r = d.r + maxRadius + Math.max(padding, clusterPadding),
+//        nx1 = d.x - r,
+//        nx2 = d.x + r,
+//        ny1 = d.y - r,
+//        ny2 = d.y + r;
+//    quadtree.visit(function(quad, x1, y1, x2, y2) {
+//      if (quad.data && (quad.data !== d)) {
+//        var x = d.x - quad.data.x,
+//            y = d.y - quad.data.y,
+//            l = Math.sqrt(x * x + y * y),
+//            r = d.r + quad.data.r + (d.cluster === quad.data.cluster ? padding : clusterPadding);
+//        if (l < r) {
+//          l = (l - r) / l * alpha;
+//          d.x -= x *= l;
+//          d.y -= y *= l;
+//          quad.data.x += x;
+//          quad.data.y += y;
+//        }
+//      }
+//      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+//    });
+//  });
+//}
+//
+//function clustering(alpha) {  
+//    nodes.forEach(function(d) {      
+//      var cluster = clusters[d.cluster];
+//    if (cluster === d ) return; 
+//      var x = d.x - cluster.x,
+//          y = d.y - cluster.y,
+//          l = Math.sqrt(x * x + y * y),
+//          r = d.r + cluster.r;
+//      if (l !== r && l !== 0) {  
+//        l = (l - r) / l * alpha;
+//        d.x -= x *= l;
+//        d.y -= y *= l;
+//        cluster.x += x;
+//        cluster.y += y;
+//      }  
+//    });
+//}
+
+
+
+
+//understand forces GROUND UP
+//        .force("cluster", clustering)
+//    .force("x", d3.forceX(width/2).strength(.02))
+//    .force("y", d3.forceY(height/2).strength(.02))   
+
+//timer + update - bringing in entirely new risk, or do we have a pile of data just sitting there?
+
+//we need a function to pull each node to cluster center
+
+
+//function force(alpha) {
+//  for (var i = 0, n = nodes.length, node, k = alpha * 0.1; i < n; ++i) {
+//    node = nodes[i];
+//    node.vx -= node.x * k;
+//    node.vy -= node.y * k;
+//  }
+//}
+
+
+//// Move nodes toward cluster focus.
+//function gravity(alpha) {
+//  return function(d) {
+//    // d.y += (d.cy - d.y) * alpha;
+//    // d.x += (d.cx - d.x) * alpha;
+//    d.y += (foci[d.choice].y - d.y) * alpha;
+//    d.x += (foci[d.choice].x - d.x) * alpha;
+//  };
+//}
+//
+//function force(alpha) {
+//  for (var i = 0, n = nodes.length, node, k = alpha * 0.1; i < n; ++i) {
+//    node = nodes[i];
+//    node.vx -= node.x * k;
+//    node.vy -= node.y * k;
+//  }
+//}
+
+
+
+
+//WHY ISN'T FORCE RESTART WRKING
+
+//ARE CLUSTERS EVEN REQUIRED ?
+
+// var nodes = d3.range(200).map(() => {
+//    let i = Math.floor(Math.random() * m),
+//        radius = 9,
+//        d = {cluster: i, r: radius};
+//    if (!clusters[i] || (radius > clusters[i].r)) clusters[i] = d;
+//    return d;
+//});
+    //clusters are only in [0]?
+    
+    //try to move from one center to the next
+    //generate for next risk value 
+    //change x / u
+//            .force("x", d3.forceX().strength(.5))
+//        .force("y", d3.forceY().strength(.5))
+    
+    //time function updates nodes 1 by 1
+//    .force("center", d3.forceCenter([300,100]))        
+//    .force("collide", d3.forceCollide([10]))
+
+
+//            .attr('cx', width/2)
+//            .attr('cy', height/2)
+    //      .attr('r', function(d){return d.r})

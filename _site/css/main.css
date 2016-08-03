@@ -637,6 +637,7 @@ a {
   width: 100%;
   background-color: white;
   padding: 5%;
+  padding-top: 7%;
   margin-top: 1.5rem;
   position: relative;
   line-height: 1.5rem;
@@ -679,6 +680,7 @@ ul {
   top: -2px;
   right: -2px;
   letter-spacing: 3px;
+  text-align: right;
   background-color: #F2F0F0;
   color: rgba(0, 0, 0, 0.3);
   font-family: Inconsolata;

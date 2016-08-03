@@ -183,8 +183,7 @@ function timer() {
 		timeout = setTimeout(timer, 5000);
 		
 	}
-	
-	else if (curr_node_index == nodes.length) {
+	else if (curr_node_index == nodes.length) { //reset
 		d3.range(0, num_nodes).forEach(function(i) {
 			nodes[i].choice = "center";
 			nodes[i].cx = foci.center.x + Math.random();
@@ -219,7 +218,8 @@ function timer() {
 		}
 	}
 	
-	else {
+	else { //real deal
+            //is random probability less than user assigned prob?
 		var p = 100 * Math.random();
 		if (p < USER_PROB) {
 			var choice = "clinton";
@@ -305,6 +305,13 @@ function gravity(alpha) {
   };
 }
 
+function force(alpha) {
+  for (var i = 0, n = nodes.length, node, k = alpha * 0.1; i < n; ++i) {
+    node = nodes[i];
+    node.vx -= node.x * k;
+    node.vy -= node.y * k;
+  }
+}
 
 
 // Resolve collisions between nodes.
@@ -408,5 +415,100 @@ function type(d, i) {
 	return d;
 
 }
+/////////////
+
+
+///////////SECOND SCRIPT
+
+var w = 1280,
+    h = 800,
+    color = d3.scale.category10();
+
+var force = d3.layout.force()
+    .gravity(0)
+    .charge(-10)
+    .size([w, h]);
+
+var nodes = force.nodes(),
+    a = {type: 0, x: 3 * w / 6, y: 2 * h / 6, fixed: true},
+    b = {type: 1, x: 4 * w / 6, y: 4 * h / 6, fixed: true},
+    c = {type: 2, x: 2 * w / 6, y: 4 * h / 6, fixed: true};
+
+nodes.push(a, b, c);
+
+// we have nodes and force here?
+
+var svg = d3.select("#chart").append("svg:svg")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.append("svg:rect")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.selectAll("circle")
+    .data(nodes)
+  .enter().append("svg:circle")
+    .attr("r", 12)
+    .attr("cx", function(d) { return d.x; })
+    .attr("cy", function(d) { return d.y; })
+    .style("fill", fill)
+    .call(force.drag);
+
+force.on("tick", function(e) {
+  var k = e.alpha * .1;
+  nodes.forEach(function(node) {
+    var center = nodes[node.type];
+    node.x += (center.x - node.x) * k;
+    node.y += (center.y - node.y) * k;
+  });
+    
+    //node created near mouse
+    //tick function moves it difference
+    
+    //a simple equals does not work
+
+  svg.selectAll("circle")
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+});
+
+var p0;
+
+svg.on("mousemove", function() {
+  var p1 = d3.svg.mouse(this),
+      node = {type: Math.random() * 3 | 0, x: p1[0], y: p1[1], px: (p0 || (p0 = p1))[0], py: p0[1]};
+
+  p0 = p1;
+    
+    //do we need to change circle attribute?
+
+  svg.append("svg:circle")
+      .data([node])
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; })
+      .attr("r", 4.5)
+      .style("fill", fill)
+    .transition()
+      .delay(3000)
+      .attr("r", 1e-6)
+      .each("end", function() { nodes.splice(3, 1); })
+      .remove();
+
+  nodes.push(node);
+  force.start();
+});
+
+function fill(d) {
+  return color(d.type);
+}
+
+    </script>
+  </body>
+</html>
+
+
+
+
 </script>
 </body>

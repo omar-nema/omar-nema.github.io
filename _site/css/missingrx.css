@@ -45,8 +45,9 @@
   color: lightgray; }
 
 .tick {
-  font-size: 10px;
-  font-family: 'Inconsolata'; }
+  font-size: 13px;
+  font-family: 'Inconsolata';
+  text-align: center; }
 
 .risk-slider {
   width: 100%;
@@ -61,21 +62,32 @@
   position: relative; }
 
 .slider-label {
-  margin-top: 15px;
   width: 225px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  font-size: 10px;
+  font-size: 13px;
   text-align: center;
   color: grey; }
 
-.slider-label.animate {
-  cursor: pointer;
+.slider-label.toggle {
+  padding-bottom: 10px; }
+
+.under {
+  text-decoration: underline;
   color: blue; }
 
-.slider-label.animate:hover {
-  transform: scaleX(1.3) scaleY(1.3); }
+.under:hover {
+  cursor: pointer;
+  font-size: 14px; }
+
+.axis-highlight {
+  opacity: 0; }
+
+.tick:hover {
+  cursor: pointer; }
+  .tick:hover .axis-highlight {
+    opacity: .2; }
 
 .btn-border {
   margin: 0;

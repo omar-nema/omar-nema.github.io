@@ -212,6 +212,8 @@ function changeRisk(num){
         simulation.nodes(nodes);
         simulation.alpha(1).restart(); 
     ///HIGHLIGHT 
+    
+        //find rectangel and change risk
 };
 
 
@@ -231,6 +233,8 @@ function dataDependency(){
         .force("y", d3.forceY(height/2).strength(.2))          
         .on("tick", tick);  
     
+    //HIGHLIGHT RISK OF 0
+    
     simulation.on('end', function(){
         console.log('err');
         nodes.forEach(function(d) {
@@ -247,8 +251,10 @@ function dataDependency(){
     
     $('.tick').click(function(){
         var num = $(this).text();
-        $(this).find('text').attr('fill', 'blue').css('font-size', '14px');
+        //$(this).find('text').attr('fill', 'blue').css('font-size', '14px');
         changeRisk(num);
+        console.log( $(this).find('rect'));
+        $(this).find('rect').css('opacity', '.2');
 //        nodes = riskslice[num];
 //        update(nodes);
 //        simulation.nodes(nodes);
@@ -262,9 +268,15 @@ $(document).ready(function(){
     var sliderscale = d3.scaleLinear().range([0, $('.slider').width()]).domain([0, 12]);
     var slideraxis = d3.axisBottom(sliderscale).tickSize(0);
     d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);   
-    //try floating instead
     
-    
+    var bbox = d3.selectAll('.tick').node().getBBox();
+    var rect = d3.select('.slideraxis').selectAll('.tick').insert("rect")
+        .attr('class', 'axis-highlight')
+        .attr("x", bbox.x-2.5)
+        .attr("y", bbox.y)
+        .attr("width", bbox.width*2.3)
+        .attr("height", bbox.height)
+        .style("fill", "blue");    
     
     initialLoad(); 
 });

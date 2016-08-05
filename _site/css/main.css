@@ -379,10 +379,6 @@
     font-size: 1.68vw; }
 .grid .cardholder.touchscreen .card.card2, .grid .cardholder.touchscreen .card.card3 {
   display: none; }
-.grid .cardholder.touchscreen .card.card1 {
-  border-radius: 10%; }
-.grid .card {
-  border-radius: 5%; }
 .grid .cardtitle {
   font-size: 2.08vw; }
 
@@ -415,7 +411,6 @@
     width: 34.992vw;
     height: 27.9936vw; }
     .grid .cardholder .card.card1 {
-      border-radius: 9%;
       width: 100%;
       height: 100%;
       transform: none; }
@@ -512,27 +507,26 @@
 .cardholder {
   transition: opacity .2s ease-in-out, width .2s ease-in-out, height .2s ease-in-out; }
 
-.highlight {
-  background-color: lightpink; }
+.underline {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(0, 0, 0, 0.2); }
+
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: white;
+  transform: translateX(-50%) translateY(-100%);
+  color: blue;
+  width: 70%;
+  font-size: 13px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }
 
 .block-text {
   position: relative; }
 
-.tooltip {
-  position: absolute;
-  display: none;
-  z-index: 3000;
-  top: 100%; }
-
-.highlight.active {
-  color: white;
-  background-color: black; }
-
 a {
   color: white; }
-
-.highlight.active:hover .tooltip {
-  display: block; }
 
 .project-info {
   transition: transform .2s ease-in-out, opacity .2s ease-in-out; }
@@ -702,7 +696,8 @@ ul {
   max-width: 300px; }
 
 .block.intro {
-  margin-top: 4rem; }
+  margin-top: 4rem;
+  color: blue; }
 
 .block-divider {
   height: 1.5rem; }
@@ -981,7 +976,7 @@ body {
   margin-right: auto; }
 
 .contentwrapper {
-  height: 98.5%;
+  height: 99.3%;
   width: 100%;
   overflow: auto;
   float: left; }
@@ -989,18 +984,13 @@ body {
 footer {
   clear: both;
   float: left;
-  height: 1.5%;
+  height: .7%;
   width: 100%; }
 
 footer .bottomrect {
   width: 100%;
-  height: 80%;
-  background-color: #FFEE19; }
-footer .toprect {
-  width: 100%;
-  height: 20%;
-  opacity: .3;
-  background-color: #FFEE19; }
+  height: 100%;
+  background-color: yellow; }
 
 .link-inactive {
   pointer-events: none;
@@ -1017,9 +1007,9 @@ footer .toprect {
   right: 1%;
   width: 100px;
   height: 50px;
-  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5); }
+  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3); }
   .about-button p {
     margin-top: auto;
     margin-bottom: auto;
@@ -1038,12 +1028,12 @@ footer .toprect {
 
 .about-button-unclicked {
   font-size: 20px;
-  background-color: yellow;
+  background-color: white;
   color: black;
   letter-spacing: 3px;
   font-weight: 900; }
   .about-button-unclicked p {
-    transform: rotate(-4deg);
+    transform: rotate(-9deg);
     top: 0; }
 
 .about-button-aboutpage {
@@ -1154,11 +1144,12 @@ footer .toprect {
       transform: translateY(-50%); }
 
 .card {
-  border-radius: 7%;
+  border-radius: 2%;
   color: white;
   width: 85%;
   height: 85%;
-  position: absolute; }
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.2); }
   .card .cardtitle {
     text-align: right;
     position: absolute;
@@ -1200,7 +1191,7 @@ footer .toprect {
   .cardcontent img {
     width: 100%;
     height: 100%;
-    border-radius: 7%; }
+    border-radius: 2%; }
   .cardcontent p {
     position: absolute;
     top: 45%;
@@ -1252,6 +1243,6 @@ footer .toprect {
 .card1select {
   opacity: 0.9;
   z-index: 4;
-  -moz-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.5); }
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none; }

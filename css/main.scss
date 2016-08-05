@@ -21,11 +21,24 @@ $breakpoint-4: 480px;
 
 $button-border-radius: 5%;
 
-$card-border-radius: 7%;
+//$card1-box-shadow: 0 1px 1px 0px rgba(0,0,0,.5);
+$card1-box-shadow: none;
+
+
+$card-border: 1px solid rgba(0,0,0,.2);
+//$card-border: none;
+
+//$card-border-radius: 5%;
+$card-border-radius: 2%;
 
 $research-background: #1C85FF;
 $datavis-background: #FC2727;
 $object-background: #50E3C2;
+
+
+//$research-background: white;
+//$datavis-background: white;
+//$object-background: white;
 
 $tagcard-opacity: .13;
 $tagcard-translateX: 3%;
@@ -39,7 +52,7 @@ $synposiscard-opacity: .9;
 $synposiscard-translateX: 15%;
 $synposiscard-translateY: 15%; 
 
-$footer-height: 1rem;
+$footer-height: .5rem;
 $content-margin-bottom: 50px;
 
 $background-color: #FFFAFA;
@@ -83,7 +96,7 @@ body {
 //    transform: translateX(-60%);   
 }
 .contentwrapper {
-    height: 98.5%;
+    height: 99.3%;
     width: 100%;
     overflow: auto;
     float: left;
@@ -92,21 +105,22 @@ body {
 footer {
     clear: both;
     float: left;
-    height: 1.5%;
+    height: .7%;
     width: 100%;
 }
 footer {
     .bottomrect {
         width: 100%;
-        height: 80%;
-        background-color: #FFEE19;
+        height: 100%;
+        background-color: yellow;
+//        background-color: #FFEE19;
     }
-    .toprect {
-        width: 100%;
-        height: 20%; 
-        opacity: .3;
-        background-color: #FFEE19;
-    }
+//    .toprect {
+//        width: 100%;
+//        height: 20%; 
+//        opacity: .3;
+//        background-color: #FFEE19;
+//    }
 }
 
 .link-inactive {
@@ -126,9 +140,9 @@ footer {
     right: 1%;
     width: 100px;
     height: 50px; 
-    -moz-box-shadow:  0 0 3px 2px rgba(0, 0, 0, 0.5);  
-	-webkit-box-shadow:  0 0 3px 2px rgba(0, 0, 0, 0.5);  
-    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);          
+    -moz-box-shadow:  0 0 3px 2px rgba(0, 0, 0, 0.3);  
+	-webkit-box-shadow:  0 0 3px 2px rgba(0, 0, 0, 0.3);  
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);          
     p {
         margin-top: auto;
         margin-bottom: auto;
@@ -148,12 +162,12 @@ footer {
 }
 .about-button-unclicked {       
     font-size: 20px; 
-    background-color: yellow;  
+    background-color: white;  
     color: black;
     letter-spacing: 3px;
     font-weight: 900;    
     p {
-        transform: rotate(-4deg);
+        transform: rotate(-9deg);
         top: 0;
     }
 }
@@ -304,7 +318,8 @@ footer {
     color: white;
     width: 85%;
     height: 85%;
-    position: absolute;    
+    position: absolute;   
+    border: $card-border; 
     .cardtitle {
         text-align: right;
         position: absolute;
@@ -436,9 +451,9 @@ footer {
 .card1select {
     opacity: $synposiscard-opacity;  
     z-index: 4;
-    -moz-box-shadow:   0 1px 1px 0px rgba(0,0,0,.5);    
-	-webkit-box-shadow:  0 1px 1px 0px rgba(0,0,0,.5);       
-    box-shadow: 0 1px 1px 0px rgba(0,0,0,.5);    
+    -moz-box-shadow:   $card1-box-shadow;    
+	-webkit-box-shadow:  $card1-box-shadow;       
+    box-shadow: $card1-box-shadow;    
     //box-shadow: 0 0 0 1px rgba(0,0,0,.3);       
 }
 

@@ -14,6 +14,19 @@
   overflow: visible;
   border: 1px dashed gray; }
 
+.thumb-tooltip {
+  position: absolute;
+  top: 70%;
+  pointer-events: none;
+  font-family: Inconsolata;
+  font-size: 10px; }
+
+.slideraxis {
+  overflow: visible; }
+
+.slideraxis path {
+  display: none; }
+
 .y-axis, .x-axis {
   stroke-opacity: 0; }
 
@@ -21,6 +34,7 @@
   color: lightgray; }
 
 .tick {
+  font-size: 10px;
   font-family: 'Inconsolata'; }
 
 .risk-slider {
@@ -29,14 +43,14 @@
   height: 80px; }
 
 .slider {
-  width: 225px;
+  width: 320px;
   margin-left: auto;
   margin-right: auto;
   height: 25px;
-  position: relative;
-  overflow: visible; }
+  position: relative; }
 
 .slider-label {
+  margin-top: 15px;
   width: 225px;
   margin-left: auto;
   margin-right: auto;
@@ -61,19 +75,17 @@
   height: 2px;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.3); }
+  transform: translateY(-50%); }
 
 .thumb {
   position: absolute;
   top: 50%;
   left: 0%;
-  width: 12px;
-  height: 12px;
-  border-radius: 100%;
+  width: 8px;
+  height: 8px;
   border: 2px solid rgba(0, 0, 0, 0.6);
-  background-color: white;
-  z-index: 5;
+  background-color: black;
+  z-index: 30;
   transform: translateY(-50%); }
 
 .thumb:hover {

@@ -1,5 +1,150 @@
 
 
+
+//save the footer plz
+//@media only screen and (min-width: $breakpoint-3){
+//
+//    footer {
+//    position: absolute;
+//    bottom: 0;
+//    left: 0;
+//    width: 100%;
+//    height: $footer-height;
+//    }
+//}
+
+//endscatter
+
+//
+//.scatter-small {
+//    
+////define multiplication factor && make life easier    
+//    
+//    $card-title-fontsize: $smallFactor*1.9vw;
+//
+//    $small-hospitalquality-width: $smallFactor*$hospitalquality-width;
+//    $small-hospitalquality-height: $cardratio * $small-hospitalquality-width;
+//    $small-hospitalquality-top: 9.1%;
+//    $small-hospitalquality-left: 0%;
+//
+//    $small-missingrx-width: $smallFactor*$missingrx-width;
+//    $small-missingrx-height: $cardratio*$small-missingrx-width;
+//    $small-missingrx-top: 2%;
+//    $small-missingrx-left: 37%;
+//
+//    $small-personaldata-width: $smallFactor*18vw;
+//    $small-personaldata-height: $cardratio * $small-personaldata-width;
+//    $small-personaldata-top: 36%;
+//    $small-personaldata-left: 45.5%;
+//
+//    $small-thesis-width: $smallFactor*$thesis-width;
+//    $small-thesis-height: $cardratio*$small-thesis-width;
+//    $small-thesis-top: 52%;
+//    $small-thesis-left: 10%;
+//
+//    $small-narrative-width: $smallFactor*$narrative-width;
+//    $small-narrative-height: $cardratio * $small-narrative-width;
+//    $small-narrative-top: 70.25%;
+//    $small-narrative-left: 45.5%;
+//
+//    $small-tools-width: $smallFactor*$tools-width;
+//    $small-tools-height: $small-tools-width * $cardratio;
+//    $small-tools-top: 16%;
+//    $small-tools-left: 76.7%;
+//
+//    $small-table-width: $smallFactor*$table-width;
+//    $small-table-height: $small-table-width * $cardratio;
+//    $small-table-top: 51%;
+//    $small-table-left: 71.25%;
+//
+//    $small-tea-width: $smallFactor*$tea-width;
+//    $small-tea-height: $small-tea-width * $cardratio;
+//    $small-tea-top: 75%;
+//    $small-tea-left: 78%;
+//    
+//    .cardtitle {
+//        font-size: $card-title-fontsize;
+//    }
+//    
+//    .cardholder {
+//        position: absolute;
+//    }
+//     #{$child1} {
+//        width: $small-hospitalquality-width;
+//        height: $small-hospitalquality-height;
+//        top: $small-hospitalquality-top;
+//        left: $small-hospitalquality-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-hospitalquality-width;
+//            }            
+//        }     
+//      #{$child2} {
+//        width: $small-missingrx-width;
+//        height: $small-missingrx-height;
+//        top: $small-missingrx-top;
+//        left:$small-missingrx-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-missingrx-width;
+//            }             
+//    }
+//    #{$child3}{
+//        width: $small-personaldata-width;
+//        height: $small-personaldata-height;
+//        top: $small-personaldata-top;
+//        left: $small-personaldata-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-personaldata-width;
+//            }            
+//    }
+//    #{$child4} {
+//        width: $small-thesis-width;
+//        height: $small-thesis-height;
+//        top: $small-thesis-top;
+//        left: $small-thesis-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-thesis-width;
+//            }            
+//    }
+//    #{$child5}  {
+//        width: $small-narrative-width;
+//        height: $small-narrative-height;
+//        top: $small-narrative-top;
+//        left: $small-narrative-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-narrative-width;
+//            }            
+//    }
+//    #{$child6}{
+//        width: $small-tools-width;
+//        height: $small-tools-height;
+//        top: $small-tools-top;
+//        left: $small-tools-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-tools-width;
+//            }            
+//    }
+//    #{$child7} {
+//        width: $small-table-width;
+//        height: $small-table-height;
+//        top: $small-table-top;
+//        left: $small-table-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-table-width;
+//            }            
+//    }
+//    #{$child8}{
+//        width: $small-tea-width;
+//        height: $small-tea-height;
+//        top: $small-tea-top;
+//        left: $small-tea-left;
+//            .cardcontent p {
+//                font-size: $small-font-size-factor * $small-tea-width;
+//            }            
+//    }
+//}//endscatter
+//
+
+
 ////////////////
 //function getObjectValues(input){
 //    output = [];

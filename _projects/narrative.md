@@ -2,14 +2,14 @@
 layout: project
 title: narrative<br>research
 time: summer 2014
-heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. Collaborated with Benjamin Bauchwitz (MIT '15).
+heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. My role in the project was primarily in design and direction, as well as... Collaboration with Benjamin Bauchwitz (MIT '15).
 tags:
     - narrrative
     - data
     - makerspace
     - system design
 theme: '#1C85FF'
-infotextcolor: darkslategrey
+infotextcolor: white
 type: coursework / group
 viewtoggle: on
 custom_js:     
@@ -27,23 +27,28 @@ custom_js:
 <section class="block">
     <header class="block-header">concept</header>
     <div class="block-text">
-    
-    
-    <p>The (lofty, long-term) aim of </p>
-        <p>My role - was to create a format for integrating insights from narrative research studies
+        <p>WHY
+        
+    By aggregating research, Charles River Analytics hopes to develop conceptual links between research from disparate fields. Once this research bank is robust enough, users — the users here being story-writers, or marketers — can input their desired response from a narrative, and receive suggestions from different research studies. (A user looking to induce, say, empathy in their audience, may receive a suggestion to include a certain type of character revelation.) In addition to receiving writing suggestions, a writer can also work backwards — that is, test the physiological and psychological, responses to narratives in a user, and see what kind of responses the user is producing. 
+Rather than relying on subjective measures like surveys, researchers can quantify psychological responses to narratives using this tool.     
+        
+        thesis + hosp quality + pat profile = dope
+        new project = = = = = 
+        tools (irrelevant) + table (no thought) = not so
         
         </p>
         
-        how did i cater my research to the output?
-        Though I was hired to expand the bank of 'narrative research' to feed a software product
-        , I delved
-        The program
+        <p>
+        looked at disparate fields
+        translated jargon - created a jargon map
         
-
+        My role - was to create a format for integrating insights from narrative research studies
+        I was hired to expand the bank of 'narrative research' to feed a software product, I stepped back a bit to re-define the problem - wher
+        Narrative research has been conducted in the fields of cognitive psychology, marketing, and neuroscience — but has yet to be integrated in a useful way. 
+        story is - 
+        </p>
     </div>
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-render.jpeg" class="block-image">    
-    </div>
+ 
 </section>
 
 
@@ -51,41 +56,19 @@ custom_js:
     <header class="block-header">research</header>
     <div class="block-text">
         <p>
-        <span class="highlight">Model-making<span class="tooltip"><img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small"></span></span>- experimented with a number of forms in high and low fidelity mockups.
+            where do i look 
+            marketing, cog sci ,and 
+        
         </p>
     </div>
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small">    
-    </div>       
-    <div style="clear:both"></div>
 </section>
 
 <section class="details block">
     <header class="block-header">modeling</header>
-    <div class="block-text">
-        <p>
-        Space distribution  - rather than working near one tool wall in the crammed workshop, our Y-shape allows students to spread out, and distribute space more efficiently. 
-        <br>
-        <br>
-        <span class="highlight">Flexibility<span class="tooltip"><img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small"></span></span>  - We used a combination of fixed and movable tool tool racks. High-demand (low-supply) tools are fixed to the wall, but common tools can be pulled used the cart.  
-        </p>
-    </div>    
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small">    
-    </div>   
+ 
 </section>
 
 <section class="details block">
     <header class="block-header">text parser</header>
-    <div class="block-text">
-        <p>
-        Space distribution  - rather than working near one tool wall in the crammed workshop, our Y-shape allows students to spread out, and distribute space more efficiently. 
-        <br>
-        <br>
-        <span class="highlight">Flexibility<span class="tooltip"><img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small"></span></span>  - We used a combination of fixed and movable tool tool racks. High-demand (low-supply) tools are fixed to the wall, but common tools can be pulled used the cart.  
-        </p>
-    </div>    
-    <div class="block-image-container">
-        <img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small">    
-    </div>   
+ 
 </section>

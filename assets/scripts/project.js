@@ -29,6 +29,8 @@ function homeClick(){
     });
 };
 
+
+
 $(document).ready(function(event){
     
     $('.project-border').scroll(function(){
@@ -52,9 +54,32 @@ $(document).ready(function(event){
  
     $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
     
+    $('.block-text').mousemove(function(event){
+        console.log( $(this).find('.tooltip'));
+        console.log(event.pageX - $(this).offset().left);
+        console.log(event.pageY - $(this).offset().top);
+        $(this).find('.tooltip').css({
+            'display': 'block',
+            'left': event.pageX - $(this).offset().left + "px",
+            'top': event.pageY - $(this).offset().top + "px"
+        }) 
+    }).mouseleave(function(event){
+        $(this).find('.tooltip').hide();        
+//       $(this).unbind('mousemove'); 
+    });
+    
+    //tool ttip needs to be : paragraph specific
+    
+    ;
+    
 });
 
 
+//            tooltip
+//                .style("display", "block")
+//                .html(d.provider + '<br>' + d.city + ' , ' + d.state)
+//                .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
+//                .style("top", 15+(d3.event.pageY)-$('.chartwrapper').offset().top + "px");    
 
 //function defaultView(){   
 //    $('.project-border').attr('class','project-border defaultView');         

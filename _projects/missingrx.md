@@ -32,10 +32,12 @@ custom_js:
                 <div class="risk-slider"> 
 <!--                    <div class="slider-label toggle">slide risk</div>                    -->
                     <div class="slider">
+<!--
                         <div class="thumb">
                             <div class="thumb-tooltip"></div>                        
                         </div>                     
                         <div class="fill-inner"></div>                    
+-->
                     </div>
                     <div class="slider-label animate">
                     <p class="btn-border">>> animate

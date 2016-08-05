@@ -411,6 +411,8 @@
     width: 34.992vw;
     height: 27.9936vw; }
     .grid .cardholder .card.card1 {
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4);
+      border-radius: 0;
       width: 100%;
       height: 100%;
       transform: none; }
@@ -1076,7 +1078,7 @@ footer .bottomrect {
   .sidebar-categories .category {
     width: 100px;
     height: 40px;
-    border-radius: 5%;
+    border-radius: 3%;
     margin-top: .4rem; }
     .sidebar-categories .category p {
       position: absolute;
@@ -1092,7 +1094,7 @@ footer .bottomrect {
   margin-top: .8rem;
   width: 100px;
   height: 40px;
-  border-radius: 5%;
+  border-radius: 3%;
   background-color: lightgrey;
   color: black;
   z-index: 3; }

@@ -70,8 +70,8 @@ $large-card-title-factor : .18;
                 width: 100%;
             }
             .grid .cardholder {
-                width: 1.7*$med-card-width;
-                height: 1.7*$med-card-width*$cardratio;
+                width: 1.5*$med-card-width;
+                height: 1.5*$med-card-width*$cardratio;
                 .cardcontent p {
                     font-size: calc(11px + .7vw);            
                 }                       

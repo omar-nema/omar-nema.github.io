@@ -15,13 +15,12 @@
 .about-header {
   height: 15%;
   position: relative;
-  padding-bottom: 5%;
-  font-family: 'Karla'; }
+  padding-bottom: 5%; }
   .about-header p {
     position: absolute;
     left: 7%;
     font-size: 1.7rem;
-    letter-spacing: .5vw;
+    letter-spacing: 1vw;
     font-weight: 500; }
 
 .about-grid {
@@ -387,8 +386,8 @@
     width: 100%; }
 
   .grid .cardholder {
-    width: 36.72vw;
-    height: 29.376vw; }
+    width: 32.4vw;
+    height: 25.92vw; }
     .grid .cardholder .cardcontent p {
       font-size: calc(11px + .7vw); }
 
@@ -515,14 +514,15 @@
   text-decoration-color: rgba(0, 0, 0, 0.2); }
 
 .tooltip {
-  display: none;
   position: absolute;
-  background-color: white;
-  transform: translateX(-50%) translateY(-100%);
-  color: blue;
-  width: 70%;
-  font-size: 13px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); }
+  pointer-events: none;
+  line-height: 1rem;
+  transform: translateX(-60%);
+  z-index: 90000;
+  display: none;
+  font-family: Inconsolata;
+  font-size: 11px;
+  text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
 
 .block-text {
   position: relative; }
@@ -675,7 +675,7 @@ ul {
   position: absolute;
   top: -2px;
   right: -2px;
-  letter-spacing: 3px;
+  letter-spacing: 0px;
   text-align: right;
   background-color: #F2F0F0;
   color: rgba(0, 0, 0, 0.3);
@@ -1003,15 +1003,12 @@ footer .bottomrect {
   position: absolute;
   top: 0%;
   right: 0%;
-  box-shadow: none;
   border: none;
   top: 1%;
   right: 1%;
   width: 100px;
   height: 50px;
-  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.3); }
+  border: 1px solid black; }
   .about-button p {
     margin-top: auto;
     margin-bottom: auto;
@@ -1030,18 +1027,16 @@ footer .bottomrect {
 
 .about-button-unclicked {
   font-size: 20px;
-  background-color: white;
   color: black;
   letter-spacing: 3px;
   font-weight: 900; }
   .about-button-unclicked p {
-    transform: rotate(-9deg);
+    transform: rotate(-5deg);
     top: 0; }
 
 .about-button-aboutpage {
   font-size: 16px;
   background-color: white;
-  border: 1px solid blue;
   color: red;
   letter-spacing: 3px;
   font-family: Inconsolata;
@@ -1052,7 +1047,6 @@ footer .bottomrect {
   -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.5);
   font-size: 20px;
-  background-color: #FFFAFA;
   border: none;
   color: black;
   opacity: .5;
@@ -1146,7 +1140,7 @@ footer .bottomrect {
       transform: translateY(-50%); }
 
 .card {
-  border-radius: 2%;
+  border-radius: 0%;
   color: white;
   width: 85%;
   height: 85%;
@@ -1193,7 +1187,7 @@ footer .bottomrect {
   .cardcontent img {
     width: 100%;
     height: 100%;
-    border-radius: 2%; }
+    border-radius: 0%; }
   .cardcontent p {
     position: absolute;
     top: 45%;

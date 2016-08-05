@@ -11,8 +11,13 @@
   margin-top: 150px; }
 
 .chart {
-  overflow: visible;
-  border: 1px dashed gray; }
+  overflow: visible; }
+
+.chart-header {
+  text-align: center;
+  letter-spacing: 7px;
+  color: rgba(0, 0, 0, 0.4);
+  padding-bottom: 30px; }
 
 .thumb-tooltip {
   position: absolute;
@@ -23,6 +28,12 @@
 
 .slideraxis {
   overflow: visible; }
+
+.circle:hover {
+  opacity: 1;
+  r: 16;
+  stroke-width: 2px;
+  stroke: red; }
 
 .slideraxis path {
   display: none; }

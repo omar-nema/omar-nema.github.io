@@ -294,7 +294,6 @@ function tick(e) {
     .attr("cy", function(d) { return d.y; });
 }
 
-
 // Move nodes toward cluster focus.
 function gravity(alpha) {
   return function(d) {

@@ -27,28 +27,28 @@ $block-header-text-color: rgba(0,0,0,.3);
 //
 //}
 
-.tooltip {
-    display: none;
-    position: absolute;
-    background-color: white;
-    transform: translateX(-50%) translateY(-100%);
-    color: blue;
-    width: 70%;
-    font-size: 13px;
-    box-shadow: 0 0 3px rgba(0,0,0,.2);
-}
-
 //.tooltip {
+//    display: none;
 //    position: absolute;
-//    pointer-events: none;
-//    line-height: 1rem;
-//    transform: translateX(-60%) ;
-//    z-index: 90000;
-//    display:none;
-//    font-family: Inconsolata;
-//    font-size: 11px;
-//    text-shadow: 0px 0px .5px rgba(0,0,0,.3);
+////    background-color: white;
+//    transform: translateX(-50%) translateY(-100%);
+//    color: blue;
+//    width: 70%;
+//    font-size: 13px;
+////    box-shadow: 0 0 3px rgba(0,0,0,.2);
 //}
+
+.tooltip {
+    position: absolute;
+    pointer-events: none;
+    line-height: 1rem;
+    transform: translateX(-60%) ;
+    z-index: 90000;
+    display:none;
+    font-family: Inconsolata;
+    font-size: 11px;
+    text-shadow: 0px 0px .5px rgba(0,0,0,.3);
+}
 
 
 //.tooltip {
@@ -250,7 +250,7 @@ ul {
     position: absolute;
     top: -2px;
     right: -2px;
-    letter-spacing: 3px;   
+    letter-spacing: 0px;   
     text-align: right;
     background-color: $block-header-color;
     color: $block-header-text-color;

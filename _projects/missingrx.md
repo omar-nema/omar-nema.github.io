@@ -21,6 +21,7 @@ custom_js:
 
 <section class="block block-data-visual noshadow">
     <div class="chartwrapper">
+        <div class="chart-header">PATIENT DATA PROFILE</div>    
         <div style="clear:both"></div>
         <div class="chart-height-holder">
             <div class="chart-tooltip-holder">

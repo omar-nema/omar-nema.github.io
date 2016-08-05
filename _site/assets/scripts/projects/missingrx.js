@@ -16,7 +16,8 @@ var xscale = d3.scaleLinear().range([0, width]);
 var  z = d3.scaleOrdinal(d3.schemeCategory10);
 var sliderscale;
 
-var colorscale = d3.scaleOrdinal(['#FF9D28', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
+var colorscale = d3.scaleOrdinal(['lightgreen', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
+//var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'purple', '#F1374D']);
 
 var nestedData;
 var types = [];
@@ -107,9 +108,8 @@ function generateData(input){
     };        
     for (i=0; i<types.length; i++){
          var firstpts = d3.range(typeMax[types[i]].primaryAvg).map((datapt, indexnum) => {
-                radius = 14;
-              // d = {cluster: i, r: radius, opacity: .4, indexnum: i + ',' + indexnum};              
-                d = {cluster: i, r: radius, opacity: .4, indexnum: i + ',' + indexnum, x: -Math.random()*width, y: -Math.random()*height}; 
+                radius = 14;          
+                d = {cluster: i, r: radius, opacity: .3, indexnum: i + ',' + indexnum + 'vis', x: -2*width, y: .5*height}; 
                 for (k=0; k<nestedData.length; k++){
                     if (indexnum < nestedData[k].values[i].primaryAvg){
                         riskslice[k].push(d);  
@@ -118,12 +118,14 @@ function generateData(input){
                if (!clusters[i] || (radius > clusters[i].r)) clusters[i] = d;                          
                 return d;
             });  
-        
          var secpts = d3.range(typeMax[types[i]].secAvg).map((datapt, indexnum) => {
                 radius = 14;
-                  //   d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum}; 
-           
-                d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum, x: -Math.random()*width, y: -Math.random()*height}; 
+                d = {cluster: i, r: 14, opacity: 1, indexnum: i + ',' + indexnum + 'miss', x: -2*width, y: .5*height}; 
+               for (k=0; k<nestedData.length; k++){
+                    if (indexnum < nestedData[k].values[i].primaryAvg){
+                        riskslice[k].push(d);  
+                    };
+                }; 
                 if (!clusters[i] || (radius > clusters[i].r)) clusters[i] = d;                          
                 return d;
             }); 
@@ -145,28 +147,27 @@ function initialLoad(){
 //WHY DON'T EXIT WORK
 
 function gravity(alpha) {
-    console.log('err'); //no d.y values
-    ///grav FORCE - ALPHA AT 1
-    nodes.forEach(function(d) { 
-        d.y += (centers[d.cluster].y - d.y) * alpha ;
-        d.x +=  (centers[d.cluster].x - d.x) * alpha;
+   
+    nodes.forEach(function(d) {
+        
+//         if (!d.changed){
+            d.y += (centers[d.cluster].y - d.y) * .1*alpha ;
+            d.x +=  (centers[d.cluster].x - d.x) * .1*alpha;  
+//        };
     })
 };
 
 //keeping old ones in force but not in simulation ?!
 
 function tick(event) {
-    //circles problem is that they lost all forces (maybe no grav for them)
-    //old circles need 2 tick 2
     chart.select('.circleholder').selectAll('.circle')  
-    //circles
         .attr('cx', (d) => d.x)
         .attr('cy', (d) => d.y);
 } 
 
 var manyBody = d3.forceManyBody().strength(30);
 var forceY = d3.forceY([height/2]).strength([.5]);
-var collideForce = d3.forceCollide().radius(14);
+var collideForce = d3.forceCollide().radius(15);
 
 function update(nodeinput){
     
@@ -181,21 +182,23 @@ function update(nodeinput){
             .enter().append('circle')
             .attr('fill', (d) => colorscale(d.cluster)) 
             .style('opacity', (d) => d.opacity)
-            .attr('stroke', 'white')
-            .attr('stroke-width', 1)
-            .attr('class', 'circle');
+//            .attr('stroke', 'white')
+//            .attr('stroke-width', 1)
+            .attr('class', 'circle')
+        .attr('r', (d) => d.r)
+    ;
     
     circles.exit().remove();
     
     circles.transition()
         .duration(900)
         .delay(function(d,i) { return i * 5; })
-        .attr('r', d.r)
-        .attrTween("r", function(d) {
-        return d3.interpolate(0, d.r);
-        });    
+//        .attr('r', d.r)
+//        .attrTween("r", function(d) {
+//        return d3.interpolate(0, d.r);
+//        });    
     
-    circle.exit().remove(); 
+    circle.exit().transition().attr('r', 0).remove(); 
 };
 
 //simply gravity change happ 2 quickly?
@@ -220,13 +223,21 @@ function dataDependency(){
     nodes = riskslice[currRiskVal];
     update(nodes);    
     simulation = d3.forceSimulation(nodes)
-        .velocityDecay(0.2)
+        .velocityDecay(.5)
         .force("collide", collideForce)    
-        //.force('manyBody', manyBody) //- same nodes, change cluster and we good
-//        .force("x", d3.forceX(width/2).strength(.2))
-//        .force("y", d3.forceY(height/2).strength(.2))      
-        .force("gravity", gravity)      
+        .force("gravity", gravity)  
+//        .force('manyBody', manyBody)   
+        .force("x", d3.forceX(width/2).strength(.2))
+        .force("y", d3.forceY(height/2).strength(.2))          
         .on("tick", tick);  
+    
+    simulation.on('end', function(){
+        console.log('err');
+        nodes.forEach(function(d) {
+            d.changed = true;
+            });
+        //or if changed
+    });
     
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 
 
@@ -250,7 +261,11 @@ function dataDependency(){
 $(document).ready(function(){
     var sliderscale = d3.scaleLinear().range([0, $('.slider').width()]).domain([0, 12]);
     var slideraxis = d3.axisBottom(sliderscale).tickSize(0);
-    d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);    
+    d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);   
+    //try floating instead
+    
+    
+    
     initialLoad(); 
 });
 

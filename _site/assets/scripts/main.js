@@ -1,7 +1,7 @@
 
 var breakpoint1 = 1000;
 var breakpointMid = 850;
-var breakpoint2 = 750;
+var breakpoint2 = 900;
 var numCards = 3;
 //percentage of cardholder width to pass before switching cards
 var fractionIncrement = .1;

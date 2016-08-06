@@ -17,7 +17,7 @@ custom_js:
 
 
 <section class="intro block">
-    <div class="intro-text block-text">
+    <div class="intro-text block-text" style="color:red">
         <p style="text-align: center"> Create a product that will enhance the newly-opened Brown University Design&nbsp;Workshop
         </p>
     </div>
@@ -50,7 +50,7 @@ custom_js:
         Space distribution  - rather than working near one tool wall in the crammed workshop, our Y-shape allows students to spread out, and distribute space more efficiently. 
         <br>
         <br>
-        <span class="highlight">Flexibility<span class="tooltip"><img src="/assets/img-tools/tools-real.jpeg" class="block-image block-image-small"></span></span>  - We used a combination of fixed and movable tool tool racks. High-demand (low-supply) tools are fixed to the wall, but common tools can be pulled used the cart.  
+        Flexibility  - We used a combination of fixed and movable tool tool racks. High-demand (low-supply) tools are fixed to the wall, but common tools can be pulled used the cart.  
         </p>
     </div>    
     <div class="block-image-container">
@@ -58,7 +58,7 @@ custom_js:
     </div>   
     <div class="block-text">
         <p>
-        <span class="highlight">Modularity/long-term<span class="tooltip"><img src="/assets/img-tools/tools-booklet.png" class="block-image block-image-small"></span></span>- we provided our users (managers of the Brown Design Workshop) with a booklet for assembling our STROL-120 units (no power tools required!).
+        Modularity/long-term- we provided our users (managers of the Brown Design Workshop) with a booklet for assembling our STROL-120 units (no power tools required!).
         </p>
     </div>        
    <div class="block-image-container">
@@ -71,7 +71,7 @@ custom_js:
     </div>  
     <div class="block-text">
         <p>
-        <span class="highlight">Tech details<span class="tooltip"><img src="/assets/img-tools/tools-techdetails.jpeg" class="block-image block-image-small"></span></span> - Y-shaped laser cut (right) aluminum centerpieces attach to the 80/20 ribs, binding the three walls of the cart together. Tool holders, were designed in SolidWorks, laser cut from sheet aluminum, and attached with (hand-tightened) thumb screws through slots in each panel that align with the 80/20 skeleton inside.
+        Tech details- Y-shaped laser cut (right) aluminum centerpieces attach to the 80/20 ribs, binding the three walls of the cart together. Tool holders, were designed in SolidWorks, laser cut from sheet aluminum, and attached with (hand-tightened) thumb screws through slots in each panel that align with the 80/20 skeleton inside.
         </p>
     </div>   
    <div class="block-image-container">
@@ -85,7 +85,7 @@ custom_js:
     </header>
     <div class="block-text">
         <p>
-        <span class="highlight">Model-making<span class="tooltip"><img src="/assets/img-tools/tools-model.jpeg" class="block-image block-image-small"></span></span>- experimented with a number of forms in high and low fidelity mockups.
+        Model-making- experimented with a number of forms in high and low fidelity mockups.
         </p>
     </div>
     <div class="block-image-container">
@@ -94,7 +94,7 @@ custom_js:
 
     <div class="block-text">
         <p>Field research - observed students work in the space through time-lapse videos. This was critical in making design choices and prioritizing features of our different mock-ups.</p>
-        <p><span class="highlight">Ideation<span class="tooltip"><img src="/assets/img-tools/tools-sketch.jpeg" class="block-image block-image-small"></span></span> - paper & rapid prototyping methods to experiment with different solutions. Highlights: a tool inventory website, a personal, tray-based tool storage system, workstations integrated with tool storage.</p>
+        <p>Ideation - paper & rapid prototyping methods to experiment with different solutions. Highlights: a tool inventory website, a personal, tray-based tool storage system, workstations integrated with tool storage.</p>
     </div>
     <div class="block-image-container">
         <img src="/assets/img-tools/tools-sketch.jpeg" class="block-image block-image-small">    

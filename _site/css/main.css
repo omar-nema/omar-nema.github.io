@@ -524,6 +524,23 @@
   font-size: 11px;
   text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
 
+.layered {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  margin-left: 4px;
+  cursor: pointer; }
+
+.layered:hover {
+  border-right: 1px solid blue; }
+
+.info-tooltip {
+  color: blue;
+  border: none;
+  display: none; }
+
+.info-tooltip:before {
+  content: "\a";
+  white-space: pre; }
+
 .block-text {
   position: relative; }
 
@@ -578,7 +595,6 @@ a {
   top: 0;
   color: black;
   height: 3rem;
-  letter-spacing: 6px;
   color: darkslategrey;
   font-size: 16px;
   color: white;
@@ -695,11 +711,12 @@ ul {
   max-width: 500px; }
 
 .block-image-small {
-  max-width: 300px; }
+  max-width: 250px; }
 
 .block.intro {
   margin-top: 4rem;
-  color: blue; }
+  color: blue;
+  padding: 4%; }
 
 .block-divider {
   height: 1.5rem; }

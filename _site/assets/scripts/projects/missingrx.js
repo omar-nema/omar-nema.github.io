@@ -140,6 +140,8 @@ function initialLoad(){
     d3.csv('/assets/csvdata/patprofileforce.csv',function(data){ 
         generateData(data);
         currRiskVal = 0;
+        
+        $('.tick').eq(0).addClass('tick-active');
         dataDependency();  //runs most functions after csv data loaded
     });
 };
@@ -151,8 +153,8 @@ function gravity(alpha) {
     nodes.forEach(function(d) {
         
 //         if (!d.changed){
-            d.y += (centers[d.cluster].y - d.y) * .1*alpha ;
-            d.x +=  (centers[d.cluster].x - d.x) * .1*alpha;  
+            d.y += (centers[d.cluster].y - d.y) * alpha/5 ;
+            d.x +=  (centers[d.cluster].x - d.x) * alpha/5;  
 //        };
     })
 };
@@ -207,6 +209,9 @@ function update(nodeinput){
 
 
 function changeRisk(num){
+    console.log('called');
+        $('.tick').removeClass('tick-active');
+        $('.tick').eq(num).addClass('tick-active');  
         nodes = riskslice[num];
         update(nodes);
         simulation.nodes(nodes);
@@ -216,6 +221,17 @@ function changeRisk(num){
         //find rectangel and change risk
 };
 
+
+function animate(){
+    
+    //should this relate to tick duration or run on tick end? ----- or clicks through each
+    //could call simulation.end each ime
+    changeRisk(0);
+//    timer = window.setTimeOut(function(){changeRisk(0)}, 2000);
+//    for (i=1; i<nestedData.length; i++){
+//        var timer = timer.setTimeout(function(){changeRisk(i)}, 2000);         
+//    };
+};
 
 function dataDependency(){ 
     ///WHAT'S UP SIM
@@ -229,8 +245,8 @@ function dataDependency(){
         .force("collide", collideForce)    
         .force("gravity", gravity)  
 //        .force('manyBody', manyBody)   
-        .force("x", d3.forceX(width/2).strength(.2))
-        .force("y", d3.forceY(height/2).strength(.2))          
+//        .force("x", d3.forceX(width/2).strength(.2))
+//        .force("y", d3.forceY(height/2).strength(.2))          
         .on("tick", tick);  
     
     //HIGHLIGHT RISK OF 0
@@ -247,19 +263,11 @@ function dataDependency(){
 
     $('.tick').mouseover(function(){
         //$('.chartwrapper').
-    });
-    
+    });  
+    $('.under').click(function(){animate()});
     $('.tick').click(function(){
         var num = $(this).text();
-        //$(this).find('text').attr('fill', 'blue').css('font-size', '14px');
         changeRisk(num);
-        console.log( $(this).find('rect'));
-        $(this).find('rect').css('opacity', '.2');
-//        nodes = riskslice[num];
-//        update(nodes);
-//        simulation.nodes(nodes);
-//        simulation.alpha(1).restart();           
-//        console.log('steady mousin');
     })
     
 };
@@ -267,7 +275,8 @@ function dataDependency(){
 $(document).ready(function(){
     var sliderscale = d3.scaleLinear().range([0, $('.slider').width()]).domain([0, 12]);
     var slideraxis = d3.axisBottom(sliderscale).tickSize(0);
-    d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);   
+    d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);
+    
     
     var bbox = d3.selectAll('.tick').node().getBBox();
     var rect = d3.select('.slideraxis').selectAll('.tick').insert("rect")

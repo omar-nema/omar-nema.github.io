@@ -54,17 +54,18 @@ $(document).ready(function(event){
  
     $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
     
-    $('.block-text').mousemove(function(event){
-        console.log( $(this).find('.tooltip'));
-        console.log(event.pageX - $(this).offset().left);
-        console.log(event.pageY - $(this).offset().top);
-        $(this).find('.tooltip').css({
-            'display': 'block',
-            'left': event.pageX - $(this).offset().left + "px",
-            'top': event.pageY - $(this).offset().top + "px"
-        }) 
+    $('.block-text').click(function(event){
+        $(this).find('.info-tooltip').show();
+//        console.log( $(this).find('.tooltip'));
+//        console.log(event.pageX - $(this).offset().left);
+//        console.log(event.pageY - $(this).offset().top);
+//        $(this).find('.info-tooltip').css({
+//            'display': 'block',
+//            'left': event.pageX - $(this).offset().left + "px",
+//            'top': event.pageY - $(this).offset().top + "px"
+//        }) 
     }).mouseleave(function(event){
-        $(this).find('.tooltip').hide();        
+        $(this).find('.info-tooltip').hide();        
 //       $(this).unbind('mousemove'); 
     });
     

@@ -50,6 +50,34 @@ $block-header-text-color: rgba(0,0,0,.3);
     text-shadow: 0px 0px .5px rgba(0,0,0,.3);
 }
 
+.layered {
+    border-right: 1px solid rgba(0,0,0,.2);
+    margin-left: 4px;
+    cursor: pointer;
+}
+.layered:hover {
+    border-right: 1px solid blue;
+}
+.info-tooltip {
+    color: blue;
+    border: none;
+    display: none;
+}
+.info-tooltip:before {
+    content:"\a";
+    white-space: pre;
+}
+
+//.info-tooltip {
+//    display: none;
+//    position: absolute;
+//    background-color: white;
+//    transform: translateX(-50%) translateY(-120%);
+//    color: blue;
+//    width: 70%;
+//    font-size: 13px;
+////    box-shadow: 0 0 3px rgba(0,0,0,.2);    
+//}
 
 //.tooltip {
 //    position: absolute;
@@ -144,7 +172,6 @@ a {
     top: 0;
     color: black;
     height: 3rem;
-    letter-spacing: 6px;
     color: darkslategrey;
     font-size: 16px;
     color: white;
@@ -274,12 +301,13 @@ ul {
     max-width: 500px;
 }
 .block-image-small {
-    max-width: 300px;
+    max-width: 250px;
 }
 
 .block.intro {
     margin-top: 4rem;
     color: blue;
+    padding: 4%;
 }
 .block-divider {
     height: $divider-height;

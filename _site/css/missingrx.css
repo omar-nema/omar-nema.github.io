@@ -74,12 +74,11 @@
   padding-bottom: 10px; }
 
 .under {
-  text-decoration: underline;
-  color: blue; }
+  border-bottom: 2px solid lightgreen; }
 
 .under:hover {
   cursor: pointer;
-  font-size: 14px; }
+  font-size: 17px; }
 
 .axis-highlight {
   opacity: 0; }
@@ -88,6 +87,9 @@
   cursor: pointer; }
   .tick:hover .axis-highlight {
     opacity: .2; }
+
+.tick-active .axis-highlight {
+  opacity: .2; }
 
 .btn-border {
   margin: 0;

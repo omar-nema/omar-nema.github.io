@@ -97,12 +97,16 @@
     padding-bottom: 10px;
 }
 .under {
-    text-decoration: underline;
-    color: blue;
+    border-bottom: 2px solid lightgreen;
+//    border: .5px solid purple;
+//   / text-decoration-color: #E18728;    
+//    text-decoration: underline;
+//    -moz-text-decoration-color: red;
+//    color: red;
 }
 .under:hover {
     cursor: pointer;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .axis-highlight {
@@ -114,6 +118,11 @@
         opacity: .2;
     }
 } 
+.tick-active {
+    .axis-highlight {
+        opacity: .2;
+    }    
+}
 
 
 .btn-border {

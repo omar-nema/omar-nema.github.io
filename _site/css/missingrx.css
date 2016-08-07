@@ -121,9 +121,17 @@
   transform: translateY(-50%); }
 
 .legend-category {
-  font-family: Inconsolata;
-  font-size: 13px;
   letter-spacing: 2px; }
+
+.stats-1 {
+  font-size: 30px; }
+
+.stats-2 {
+  opacity: .6; }
+
+text {
+  font-family: Inconsolata;
+  font-size: 13px; }
 
 .legend-category:hover {
   font-size: 15px; }

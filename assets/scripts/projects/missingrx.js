@@ -150,6 +150,13 @@ function update(nodeinput){
     
     //prob not in update
     var legendEnter = chart.selectAll('.legend-circle').data(types).enter().append('g').attr('class', 'legend-category').attr('cluster', (d) => types.indexOf(d));
+    
+    var countSec = 0;
+    for (i=0; i<nodeinput.length; i++){
+        if (nodeinput[i].opacity === 1){
+            countSec += 1
+        };
+    };
         
     legendEnter.append('circle')
         .attr('class', 'legend-circle')
@@ -160,11 +167,11 @@ function update(nodeinput){
         .attr('stroke-opacity', '0')
         .attr('cx', '90%')
         .attr('r', 7)
-        .attr('cy', (d, i) => (i*6 + 5)+ '%')  
+        .attr('cy', (d, i) => (i*6 + 30)+ '%')  
     ;
     legendEnter.append('text').text((d) => d)
             .attr('x', (d) => '93%')    
-            .attr('y', (d, i) => (i*6 + 5.7)+ '%');
+            .attr('y', (d, i) => (i*6 + 30.7)+ '%');
      
     
     circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, (d) => d.indexnum);
@@ -175,14 +182,14 @@ function update(nodeinput){
             .attr('class', 'circle');
         
     chart.select('.stats-1')
-            .html(nodeinput.length + ' data pts')
+            .html(countSec + ' / ' + nodeinput.length )
             .attr('x', '90%')
-            .attr("y", '30%');
+            .attr("y", '10%');
     
     chart.select('.stats-2')
-            .html(nodeinput.length + ' missing')
+            .html('missing &nbsp total')
             .attr('x', '90%')
-            .attr("y", '35%');    
+            .attr("y", '15%');    
     
     circles = circle
             .enter().append('circle')
@@ -244,9 +251,15 @@ function changeRisk(num){
     $('.tick').removeClass('tick-active');
     $('.tick').eq(num).addClass('tick-active');  
     nodes = riskslice[num];
+    var newNodes = [];
+    nodes.forEach(function(d, i){
+       if (selectedTypes.indexOf(d.cluster) > -1){
+           newNodes.push(d);
+       };
+    });       
     currRiskVal = parseInt(num);
-    update(nodes);
-    simulation.nodes(nodes);
+    update(newNodes);
+    simulation.nodes(newNodes);
     simulation.alpha(1).restart(); 
 };
 
@@ -268,10 +281,13 @@ function animate(){
 function reviseCategory(){
     var newNodes = [];
     nodes.forEach(function(d, i){
-       if  (selectedTypes.indexOf(d.cluster) > -1){
+       if (selectedTypes.indexOf(d.cluster) > -1){
            newNodes.push(d);
        };
     });    
+    update(newNodes);
+    simulation.nodes(newNodes);
+    simulation.alpha(1).restart();     
 };
 
 function removeCategory(){
@@ -280,10 +296,6 @@ function removeCategory(){
     reviseCategory();
     $(this).css('opacity', '.3');
     $(this).one('click', addCategory);    
-    update(newNodes);
-    simulation.nodes(newNodes);
-    simulation.alpha(1).restart(); 
-
 };
 
 function addCategory(){

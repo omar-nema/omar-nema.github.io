@@ -158,14 +158,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-//    background-color: rgba(0,0,0,.3);
 }
-
-
 .legend-category {
+    letter-spacing: 2px;    
+}
+.stats-1 {
+    font-size: 30px;
+}
+.stats-2 {
+    opacity: .6;
+}
+text {
     font-family: Inconsolata;
     font-size: 13px;
-    letter-spacing: 2px;    
 }
 
 .legend-category:hover{

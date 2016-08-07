@@ -2,7 +2,7 @@
 layout: project
 title: patient<br>profiles
 time: 2016
-heading: IN DEV
+heading: IN DEVELOPMENT - An animated representation of patient data footprints (the quantity, and type of data that is recorded) at different risk values. Opaque nodes represent data that a primary care provider (PCP) cannot see! ...Using this as proxy for understanding whether integrated data is cause of adverse drug reactions..
 tags:
     - data visualization
     - data science
@@ -25,11 +25,16 @@ custom_js:
         <div style="clear:both"></div>
         <div class="chart-height-holder">
             <div class="chart-tooltip-holder">
+<!--
+                <div class="stats-holder">
+                        <p>nodes</p>
+                        <p></p>                        
+                </div>
+-->
                 <svg class="chart">  
                     <g class="rectholder"></g>
                 </svg>
-                
-                  
+            
                 <div class="risk-slider"> 
                     <div class="slider-label toggle">choose risk value</div>                    
                     <div class="slider">

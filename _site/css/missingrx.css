@@ -45,7 +45,7 @@
   color: lightgray; }
 
 .tick {
-  font-size: 13px;
+  font-size: 14px;
   font-family: 'Inconsolata';
   text-align: center; }
 
@@ -53,6 +53,24 @@
   width: 100%;
   position: relative;
   height: 80px; }
+
+.lowlight {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.3); }
+
+.tooltip {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-left: 9px;
+  padding-right: 9px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  pointer-events: none;
+  line-height: 1rem;
+  z-index: 90000;
+  display: none;
+  font-family: Inconsolata;
+  font-size: 11px; }
 
 .slider {
   width: 320px;
@@ -74,7 +92,7 @@
   padding-bottom: 10px; }
 
 .under {
-  border-bottom: 2px solid lightgreen; }
+  border-bottom: 2px solid black; }
 
 .under:hover {
   cursor: pointer;
@@ -86,10 +104,10 @@
 .tick:hover {
   cursor: pointer; }
   .tick:hover .axis-highlight {
-    opacity: .2; }
+    opacity: .5; }
 
 .tick-active .axis-highlight {
-  opacity: .2; }
+  opacity: .5; }
 
 .btn-border {
   margin: 0;
@@ -102,12 +120,22 @@
   top: 50%;
   transform: translateY(-50%); }
 
+.legend-category {
+  font-family: Inconsolata;
+  font-size: 13px;
+  letter-spacing: 2px; }
+
+.legend-category:hover {
+  font-size: 15px; }
+  .legend-category:hover .legend-circle {
+    stroke-opacity: 1; }
+
 .thumb {
   position: absolute;
   top: 50%;
   left: 0%;
   width: 8px;
-  height: 8px;
+  height: 8x;
   border: 2px solid rgba(0, 0, 0, 0.6);
   background-color: black;
   z-index: 30;

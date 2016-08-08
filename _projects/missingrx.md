@@ -2,8 +2,9 @@
 layout: project
 title: patient<br>profiles
 time: 2016
-heading: IN DEVELOPMENT - An animated representation of patient data footprints (the quantity, and type of data that is recorded) at different risk values. Opaque nodes represent data that a primary care provider (PCP) cannot see! ...Using this as proxy for understanding whether integrated data is cause of adverse drug reactions..
+heading: This visual has two main purposes - to investigate whether data segmentation (that is, separation of patient records among multiple data sources) is a prevalent issue in healthcare, and at a broader level, to illustrate the composition and quantity of patient data at different risk values.<br>Click the question mark for more information on how to interpret the chart. Analysis done on SQL, and visual created w/ d3.js.
 tags:
+    - healthcare
     - data visualization
     - data science
     - d3.js
@@ -28,7 +29,33 @@ custom_js:
                 <svg class="chart">  
                     <g class="rectholder"></g>
                 </svg>
+                <div class="info-popup">
+                     <p> <span class="span-blue">CONTEXT</span> - 
+                     <br>  Patient profiles - 
+                      this interactive graphic shows medical history within 18 months for an average patient. Users can toggle between different risk scores, and observe how the composition and quantity of the average patient's data profile changes.
+                      <br>
+                     Data segmentation - patient medical history is often separated between multiple data sources. As a result, Primary Care Providers may not have the full picture of a patient's history. Incomplete medical data can lead to a number of damaging outcomes - physicians may, for example, inadverdently over-prescribe medications - or issue medications that react adversely with one that is not documented. 
+                     <br>In this visual, I have delineated 'missing' data points (those that show up only on a secondary data source) with a higher transparency (faded color). Observe how the quantity of segmented data (particularly prescriptions) varies with different risk scores.
+                     
+                    </p>    
             
+                    <div> 
+                        <p><span class="span-blue">SYMBOLS - </span></p>
+                        <p class="innerp"> 
+                            <span class="circle-symbol" style="float:left"></span>
+                            &nbsp; = VISIBLE data point (on primary provider's system). Mouse over a data point for information on its value (i.e., a drug name for prescription) 
+                        </p> 
+                        <p class="innerp"> 
+                            <span class="circle-symbol faded" style="float:left"></span>
+                            &nbsp; = MISSING data point (on a secondary data source, where provider cannot see)
+                        </p> 
+                    </div>   
+                    
+                    <div style="clear:both"></div>
+                    <p> <span class="span-blue">DATA SOURCE - </span> Data is collected from a 200,000 member population in the Pactific Northwest. Using SQL, I separated unique data points by data source and grouped by patient risk scores. 
+                    </p>
+<!--                    <div class="close-button">+</div>-->
+                </div>
                 <div class="risk-slider"> 
                     <div class="slider-label toggle">choose risk value</div>                    
                     <div class="slider">

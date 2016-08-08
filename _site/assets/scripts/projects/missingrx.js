@@ -1,9 +1,5 @@
 
 var width = 900; var height = 450;
-
-//we have d3.slideR
-//ADD DATA MAP TO MOUSEOVER DIFFERENT DATA PTS
-
 var chart = d3.select(".chart")
 chart
     .attr("preserveAspectRatio", "xMinYMin meet")
@@ -182,12 +178,12 @@ function update(nodeinput){
             .attr('class', 'circle');
         
     chart.select('.stats-1')
-            .html(countSec + ' / ' + nodeinput.length )
+            .html('<tspan class="sec-hover">' + countSec + '</tspan> / <tspan class="primary-hover">' + nodeinput.length + '</tspan>')
             .attr('x', '90%')
             .attr("y", '10%');
     
     chart.select('.stats-2')
-            .html('missing &nbsp total')
+            .html('<tspan class="sec-hover">missing</tspan> &nbsp <tspan class="primary-hover">total</tspan>')
             .attr('x', '90%')
             .attr("y", '15%');    
     
@@ -197,10 +193,16 @@ function update(nodeinput){
             .style('opacity', (d) => d.opacity)
             .attr('stroke', 'white')
             .attr('stroke-width', 1)
-            .attr('class', 'circle')
+//            .attr('class', 'circle ')
+            .attr('class', function(d){
+            if (d.opacity ==1){
+                    return 'circle primary';
+                } else {
+                    return 'circle missing' ;
+                };
+            })    
             .attr('r', (d) => d.r)
             .on('mouseover', function(d, i){ 
-//                if (d.s)
                 tooltip
                     .style("display", "block")
                     .html('<span class="lowlight">type:</span> ' + types[d.cluster] + '<br><span class="lowlight">value:</span> ')
@@ -305,6 +307,7 @@ function addCategory(){
     $(this).one('click', removeCategory);    
 };
 
+
 function dataDependency(){ 
     ///WHAT'S UP SIM
     //we need to update all all all nodes in tick function
@@ -325,6 +328,45 @@ function dataDependency(){
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 
 
     $('.legend-category').one('click', removeCategory);
+
+    
+    function showInfoPopup(){
+        $('.info-popup').css({'opacity':'1', 'z-index': '20'});
+        $(this).html('+').addClass('close-button');
+        $(this).one('click', hideInfoPopup);
+    };
+    function hideInfoPopup(){
+        $('.info-popup').css({'opacity':'0', 'z-index': '-1'});
+        $(this).html('?').removeClass('close-button');
+        $(this).one('click', showInfoPopup);
+    };
+
+    $('.more-info').one('click', showInfoPopup);
+    
+    $('.sec-hover').mouseover(function(event){
+        $('.circle.missing').addClass('circle-active');
+                tooltip
+                    .style("display", "block")
+                    .html('Number of data points that a primary care provider cannot see (without integrating data from primary and secondary data sources) for an average patient at selected risk value.')
+                    .style("left", -50+(event.pageX)-$('.chartwrapper').offset().left + "px")
+                    .style("top", -30+(event.pageY)-$('.chartwrapper').offset().top + "px");        
+    }).mouseleave(function(){
+        $('.circle.missing').removeClass('circle-active'); 
+        tooltip.style('display', 'none');        
+    })
+;
+      
+    $('.primary-hover').mouseover(function(event){
+                tooltip
+                    .style("display", "block")
+                    .html('Total quantity of data points for an average patient at selected risk value.')
+                    .style("left", -50+(event.pageX)-$('.chartwrapper').offset().left + "px")
+                    .style("top", -30+(event.pageY)-$('.chartwrapper').offset().top + "px");        
+    }).mouseleave(function(){
+        $('.circle.missing').removeClass('circle-active'); 
+        tooltip.style('display', 'none');        
+    })
+;
     
     $('.tick').mouseover(function(){
         //$('.chartwrapper').

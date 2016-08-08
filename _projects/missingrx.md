@@ -25,12 +25,6 @@ custom_js:
         <div style="clear:both"></div>
         <div class="chart-height-holder">
             <div class="chart-tooltip-holder">
-<!--
-                <div class="stats-holder">
-                        <p>nodes</p>
-                        <p></p>                        
-                </div>
--->
                 <svg class="chart">  
                     <g class="rectholder"></g>
                 </svg>
@@ -42,7 +36,10 @@ custom_js:
                     <div class="slider-label animate">
                     <p class="btn-border">or <span class="under">animate</span>
                     </p>
-                    </div>                         
+                    </div>     
+                    <div class="more-info">
+                        ?
+                    </div>                    
                 </div>
                 
             </div>            

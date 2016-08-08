@@ -73,6 +73,7 @@
   font-size: 11px; }
 
 .slider {
+  overflow: visible;
   width: 320px;
   margin-left: auto;
   margin-right: auto;
@@ -121,22 +122,39 @@
   transform: translateY(-50%); }
 
 .legend-category {
-  letter-spacing: 2px; }
+  letter-spacing: 2px;
+  font-size: 16px;
+  cursor: pointer; }
 
 .stats-1 {
-  font-size: 30px; }
+  font-size: 30px;
+  cursor: pointer; }
 
 .stats-2 {
-  opacity: .6; }
+  opacity: .6;
+  cursor: pointer; }
 
 text {
   font-family: Inconsolata;
   font-size: 13px; }
 
-.legend-category:hover {
+.more-info {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer; }
+
+.more-info:hover {
+  color: green; }
+
+.legend-category:hover .legend-circle {
+  stroke-opacity: 1; }
+.legend-category:hover text {
   font-size: 15px; }
-  .legend-category:hover .legend-circle {
-    stroke-opacity: 1; }
 
 .thumb {
   position: absolute;

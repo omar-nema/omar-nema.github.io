@@ -85,7 +85,7 @@ function generateData(input){
             var yo = centers[i].yorig; 
          var firstpts = d3.range(typeMax[types[i]].primaryAvg).map((datapt, indexnum) => {
                 radius = 14;    
-                d = {cluster: i, r: radius, opacity: .3, indexnum: i + ',' + indexnum + 'vis', x: xo, y: yo}; 
+                d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum + 'vis', x: xo, y: yo}; 
                 for (k=0; k<nestedData.length; k++){
                     if (indexnum < nestedData[k].values[i].primaryAvg){
                         riskslice[k].push(d);  
@@ -96,7 +96,7 @@ function generateData(input){
             });  
          var secpts = d3.range(typeMax[types[i]].secAvg).map((datapt, indexnum) => {
                 radius = 14;         
-                d = {cluster: i, r: 14, opacity: 1, indexnum: i + ',' + indexnum + 'miss', x: xo, y: yo}; 
+                d = {cluster: i, r: 14, opacity: .3, indexnum: i + ',' + indexnum + 'miss', x: xo, y: yo}; 
                 for (k=0; k<nestedData.length; k++){
                     if (indexnum < nestedData[k].values[i].secAvg){
                         riskslice[k].push(d);  
@@ -105,7 +105,7 @@ function generateData(input){
                 if (!clusters[i] || (radius > clusters[i].r)) clusters[i] = d;                          
                 return d;
             }); 
-        
+
         allpoints = allpoints.concat(firstpts, secpts);    
     };
     return allpoints;
@@ -139,7 +139,7 @@ function tick(event) {
 } 
 
 //fix originating position and issue with restarting risk val
-var manyBody = d3.forceManyBody().strength(-70);
+var manyBody = d3.forceManyBody().strength(-90);
 //var forceY = d3.forceY([height/2]).strength([-35]);
 var collideForce = d3.forceCollide().radius(14);
 
@@ -153,7 +153,7 @@ function update(nodeinput){
     
     var countSec = 0;
     for (i=0; i<nodeinput.length; i++){
-        if (nodeinput[i].opacity === 1){
+        if (nodeinput[i].opacity < 1){
             countSec += 1
         };
     };
@@ -318,8 +318,8 @@ function dataDependency(){
         .force("collide", collideForce)    
         .force("gravity", gravity)       
         .force('manyBody', manyBody)   
-        .force("x", d3.forceX(width/2).strength(.5))
-        .force("y", d3.forceY(height/2).strength(.5)) 
+        .force("x", d3.forceX(width/2).strength(.3))
+        .force("y", d3.forceY(height/2).strength(.3)) 
         .on("tick", tick);  
 
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 

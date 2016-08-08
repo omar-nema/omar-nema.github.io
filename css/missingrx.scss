@@ -68,8 +68,6 @@
 
 .risk-slider {
     width: 100%;
-//    padding-left: 80px;
-//    padding-right: 80px;
     position:relative;
     height: 80px;
 }
@@ -95,8 +93,7 @@
 }
 
 .slider {
-//    border: 1px dashed blue;
-//    width: 50%;
+    overflow: visible;
     width: 320px;
     margin-left: auto;
     margin-right: auto;
@@ -104,8 +101,6 @@
     position: relative;
 }
 .slider-label {
-//    width: 50%;
-//    margin-top: 15px;
     width: 225px;    
     margin-left: auto;
     margin-right: auto;  
@@ -119,11 +114,6 @@
 }
 .under {
     border-bottom: 2px solid black;
-//    border: .5px solid purple;
-//   / text-decoration-color: #E18728;    
-//    text-decoration: underline;
-//    -moz-text-decoration-color: red;
-//    color: red;
 }
 .under:hover {
     cursor: pointer;
@@ -160,24 +150,44 @@
     transform: translateY(-50%);
 }
 .legend-category {
-    letter-spacing: 2px;    
+    letter-spacing: 2px;  
+    font-size: 16px;
+    cursor: pointer;
 }
 .stats-1 {
     font-size: 30px;
+    cursor: pointer;
 }
 .stats-2 {
     opacity: .6;
+    cursor: pointer;
 }
 text {
     font-family: Inconsolata;
     font-size: 13px;
 }
 
+.more-info {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    background-color: rgba(255,255,255,.7);
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.4);;
+    cursor: pointer;
+}
+.more-info:hover {
+    color: green;
+}
+
 .legend-category:hover{
     .legend-circle {
         stroke-opacity: 1;    
     }
-    font-size: 15px;
+    text {
+        font-size: 15px;        
+    }
 }
 
 .thumb {

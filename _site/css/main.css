@@ -1006,7 +1006,7 @@ body {
   margin-right: auto; }
 
 .contentwrapper {
-  height: 99.3%;
+  height: 99%;
   width: 100%;
   overflow: auto;
   float: left; }
@@ -1014,7 +1014,7 @@ body {
 footer {
   clear: both;
   float: left;
-  height: .7%;
+  height: 1%;
   width: 100%; }
 
 footer .bottomrect {

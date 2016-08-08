@@ -318,8 +318,8 @@ function dataDependency(){
         .force("collide", collideForce)    
         .force("gravity", gravity)       
         .force('manyBody', manyBody)   
-        .force("x", d3.forceX(width/2).strength(.3))
-        .force("y", d3.forceY(height/2).strength(.3)) 
+        .force("x", d3.forceX(width/2).strength(.5))
+        .force("y", d3.forceY(height/2).strength(.5)) 
         .on("tick", tick);  
 
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 

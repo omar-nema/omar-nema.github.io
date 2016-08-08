@@ -373,7 +373,7 @@
   position: relative;
   margin-left: 5vw;
   margin-right: 1vw;
-  margin-top: 8vw; }
+  margin-top: 5vh; }
   .grid .cardholder .cardcontent p {
     font-size: 1.68vw; }
 .grid .cardholder.touchscreen .card.card2, .grid .cardholder.touchscreen .card.card3 {
@@ -381,6 +381,19 @@
 .grid .cardtitle {
   font-size: 2.08vw; }
 
+@media only screen and (min-width: 1250px) {
+  .grid .cardtitle {
+    font-size: 26px; }
+
+  .grid .cardholder .cardcontent p {
+    font-size: 21px; } }
+@media only screen and (min-width: 700px) {
+  .cardholder {
+    max-width: 256px;
+    max-height: 204.8px; }
+
+  .grid .cardtitle {
+    font-size: calc(10px+.7vw); } }
 @media only screen and (max-width: 700px) {
   .grid.content {
     width: 100%; }
@@ -461,6 +474,8 @@
     .grid.timesort .cardholder {
       width: 18.2vw;
       height: 14.56vw;
+      max-width: 18vw;
+      max-height: 14.4vw;
       float: left;
       position: inherit;
       margin-left: 2%;
@@ -543,9 +558,6 @@
 
 .block-text {
   position: relative; }
-
-a {
-  color: white; }
 
 .project-info {
   transition: transform .2s ease-in-out, opacity .2s ease-in-out; }
@@ -794,15 +806,15 @@ ul {
 .scatter-large .cardtitle {
   font-size: 1.9vw; }
 .scatter-large .cardholder.hospitalquality {
-  width: 27vw;
+  width: 26vw;
   max-width: 320px;
   max-height: 240px;
-  height: 20.25vw;
+  height: 19.5vw;
   top: 9.1%;
   left: 3.25%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.hospitalquality .cardcontent p {
-      font-size: 1.89vw; } }
+      font-size: 1.82vw; } }
   @media only screen and (min-width: 1200px) {
     .scatter-large .cardholder.hospitalquality .cardcontent p {
       font-size: 22.4px; } }
@@ -811,8 +823,8 @@ ul {
   height: 15.75vw;
   max-width: 248.844px;
   max-height: 186.633px;
-  top: 2%;
-  left: 37%; }
+  top: 0%;
+  left: 38%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.missingrx .cardcontent p {
       font-size: 1.47vw; } }
@@ -848,29 +860,29 @@ ul {
     font-size: 20.7375px; } }
 
 .scatter-large .cardholder.narrative {
-  width: 18vw;
-  height: 13.5vw;
+  width: 17vw;
+  height: 12.75vw;
   max-width: 213.297px;
   max-height: 159.97275px;
   top: 70.25%;
   left: 47%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.narrative .cardcontent p {
-      font-size: 1.26vw; } }
+      font-size: 1.19vw; } }
 @media only screen and (max-width: 1200px) and (min-width: 1200px) {
   .scatter-large .cardholder.narrative .cardcontent p {
     font-size: 14.93079px; } }
 
 .scatter-large .cardholder.tools {
-  width: 17vw;
-  height: 12.75vw;
+  width: 13vw;
+  height: 9.75vw;
   max-width: 201.438px;
   max-height: 151.0785px;
   top: 24%;
-  left: 74%; }
+  left: 78%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.tools .cardcontent p {
-      font-size: 1.19vw; } }
+      font-size: 0.91vw; } }
   @media only screen and (min-width: 1200px) {
     .scatter-large .cardholder.tools .cardcontent p {
       font-size: 14.10066px; } }
@@ -880,7 +892,7 @@ ul {
   max-width: 142.2px;
   max-height: 106.65px;
   top: 58%;
-  left: 71.25%; }
+  left: 73.25%; }
   @media only screen and (max-width: 1200px) {
     .scatter-large .cardholder.table .cardcontent p {
       font-size: 0.84vw; } }
@@ -906,26 +918,26 @@ ul {
 .scatter-medium .cardholder {
   position: absolute; }
 .scatter-medium .cardholder.hospitalquality {
-  width: 31.05vw;
-  height: 23.2875vw;
+  width: 29.9vw;
+  height: 22.425vw;
   top: 9.1%;
   left: 0%; }
   .scatter-medium .cardholder.hospitalquality .cardcontent p {
-    font-size: 1.76985vw; }
+    font-size: 1.7043vw; }
 .scatter-medium .cardholder.missingrx {
   width: 24.15vw;
   height: 18.1125vw;
   top: 2%;
   left: 37%; }
   .scatter-medium .cardholder.missingrx .cardcontent p {
-    font-size: 1.76985vw; }
+    font-size: 1.7043vw; }
 .scatter-medium .cardholder.personaldata {
   width: 20.7vw;
   height: 15.525vw;
   top: 36%;
   left: 45.5%; }
   .scatter-medium .cardholder.personaldata .cardcontent p {
-    font-size: 1.76985vw; }
+    font-size: 1.7043vw; }
 .scatter-medium .cardholder.thesis {
   width: 28.75vw;
   height: 21.5625vw;
@@ -934,19 +946,19 @@ ul {
   .scatter-medium .cardholder.thesis .cardcontent p {
     font-size: 1.63875vw; }
 .scatter-medium .cardholder.narrative {
-  width: 20.7vw;
-  height: 15.525vw;
+  width: 19.55vw;
+  height: 14.6625vw;
   top: 70.25%;
   left: 45.5%; }
   .scatter-medium .cardholder.narrative .cardcontent p {
-    font-size: 1.1799vw; }
+    font-size: 1.11435vw; }
 .scatter-medium .cardholder.tools {
-  width: 19.55vw;
-  height: 14.6625vw;
+  width: 14.95vw;
+  height: 11.2125vw;
   top: 16%;
   left: 76.7%; }
   .scatter-medium .cardholder.tools .cardcontent p {
-    font-size: 1.11435vw; }
+    font-size: 0.85215vw; }
 .scatter-medium .cardholder.table {
   width: 13.8vw;
   height: 10.35vw;
@@ -989,7 +1001,6 @@ body {
   min-height: 650px;
   max-width: 1400px;
   max-height: 790.96045px;
-  margin-top: 2vh;
   position: relative;
   margin-left: auto;
   margin-right: auto; }

@@ -2,7 +2,7 @@
 layout: project
 title: narrative<br>research
 time: summer 2014
-heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. My role in the project was primarily in design and direction, as well as... Collaboration with Benjamin Bauchwitz (MIT '15).
+heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. Collaboration with Benjamin Bauchwitz (MIT '15).
 tags:
     - narrrative
     - data
@@ -19,10 +19,9 @@ custom_js:
 
 <section class="intro block">
     <div class="intro-text block-text">
-        <p style="text-align: center">Quantify the narrative</p>
+        <p style="text-align: center">Quantify the narrative.</p>
     </div>
 </section>
-
 
 <section class="block">
     <header class="block-header">concept</header>
@@ -56,9 +55,8 @@ Rather than relying on subjective measures like surveys, researchers can quantif
     <header class="block-header">research</header>
     <div class="block-text">
         <p>
-            where do i look 
-            marketing, cog sci ,and 
-        
+          DETERMINING FIELDS TO LOOK INTO -
+          developing vocabulary standard
         </p>
     </div>
 </section>

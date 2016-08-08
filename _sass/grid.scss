@@ -33,10 +33,7 @@ $large-card-title-factor : .18;
         position: relative;
         margin-left: 5vw;
         margin-right: 1vw;
-        margin-top: 8vw;
-//        max-width: 350px;        
-//        max-height: $cardratio*350px;
-  
+        margin-top: 5vh;
         .cardcontent p {
             font-size: $font-size-factor  * $card-width;
         }            
@@ -61,6 +58,43 @@ $large-card-title-factor : .18;
     
 
 }
+
+ @media only screen and (min-width: 1250px){
+
+//                   .grid .cardholder {
+//                width: 1.5*$med-card-width;
+//                height: 1.5*$med-card-width*$cardratio;
+//                .cardcontent p {
+//                    font-size: calc(11px + .7vw);            
+//                }                       
+//            } 
+            .grid .cardtitle {
+                font-size: 26px;
+            }  
+             .grid .cardholder .cardcontent p {
+                 font-size: 21px;
+             }
+    }
+
+
+    @media only screen and (min-width: $breakpoint-1){
+            .cardholder {
+                max-width: 256px;
+                max-height: .8*256px;
+            } 
+//                   .grid .cardholder {
+//                width: 1.5*$med-card-width;
+//                height: 1.5*$med-card-width*$cardratio;
+//                .cardcontent p {
+//                    font-size: calc(11px + .7vw);            
+//                }                       
+//            } 
+            .grid .cardtitle {
+                font-size: calc(10px+.7vw)               
+                
+            }  
+    }
+
 
 
 
@@ -185,6 +219,8 @@ $large-card-title-factor : .18;
          .cardholder {
             width: $large-card-factor*26vw;
             height: $large-card-factor*$cardratio*26vw;
+            max-width: 18vw;
+            max-height: .80*18vw;             
 //            max-width: 211px;
 //            max-height: $cardratio*211px;
             float: left;

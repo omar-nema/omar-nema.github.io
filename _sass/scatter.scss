@@ -31,40 +31,55 @@ $cardratio: .75;
 
 $content-height: 41.5rem;
 
-$hospitalquality-width: 27vw;
+$hospitalquality-width: 26vw;
 $hospitalquality-height: $cardratio * $hospitalquality-width;
+//$hospitalquality-top: 34%;
+//$hospitalquality-left: 44.5%;
 $hospitalquality-top: 9.1%;
 $hospitalquality-left: 3.25%;
-    
+//    
 $missingrx-width: 21vw;
 $missingrx-height: $cardratio*$missingrx-width;
-$missingrx-top: 2%;
-$missingrx-left: 37%;
+$missingrx-top: 0%;
+$missingrx-left: 38%;
+//$missingrx-top: 14.1%;
+//$missingrx-left: 10.25%;
+
+//$missingrx-top: 2%;
+//$missingrx-left: 33%;
 
 $personaldata-width: 18vw;
 $personaldata-height: $cardratio * $personaldata-width;
+//$personaldata-top: 0%;
+//$personaldata-left: 38%;
 $personaldata-top: 36%;
 $personaldata-left: 45.5%;
+//$personaldata-top: 14.1%;
+//$personaldata-left: 13.25%;
     
 $thesis-width: 25vw;
 $thesis-height: $cardratio*$thesis-width;
+//$thesis-top: 52%;
+//$thesis-left: 14.25%;
 $thesis-top: 52%;
 $thesis-left: 14.25%;
     
-$narrative-width: 18vw;
+$narrative-width: 17vw;
 $narrative-height: $cardratio * $narrative-width;
+//$narrative-top: 70.25%;
+//$narrative-left: 44%;
 $narrative-top: 70.25%;
 $narrative-left: 47%;
     
-$tools-width: 17vw;
+$tools-width: 13vw;
 $tools-height: $tools-width * $cardratio;
 $tools-top: 24%;
-$tools-left: 74%;
+$tools-left: 78%;
     
 $table-width: 12vw;
 $table-height: $table-width * $cardratio;
 $table-top: 58%;
-$table-left: 71.25%;
+$table-left: 73.25%;
     
 $tea-width: 10vw;
 $tea-height: $tea-width * $cardratio;
@@ -134,7 +149,6 @@ $max-width-8: 118.5px;
         }
 
         }  
-    
     
     #{$child2}  {
         width: $missingrx-width;

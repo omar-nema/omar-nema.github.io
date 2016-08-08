@@ -17,18 +17,19 @@ var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
 var generateLayout = function(){
     if (layoutResizeEnabled){
     var width = $(window).width();
-        if (width >= breakpoint1){
-            $('.content').attr('class', 'content scatter-large fadeIn');
-        }
-        else if (width < breakpoint2){
-            $('.content').attr('class', 'content grid fadeIn');
-        }
-        else if (width >= breakpointMid && width < breakpoint1){
-            $('.content').attr('class', 'content scatter-medium fadeIn');
-        }
-        else if (width < breakpointMid && width < breakpoint1){
-            $('.content').attr('class', 'content scatter-medium fadeIn');
-        };
+    $('.content').attr('class', 'content grid fadeIn');     
+//        if (width >= breakpoint1){
+//            $('.content').attr('class', 'content scatter-large fadeIn');
+//        }
+//        else if (width < breakpoint2){
+//            $('.content').attr('class', 'content grid fadeIn');
+//        }
+//        else if (width >= breakpointMid && width < breakpoint1){
+//            $('.content').attr('class', 'content scatter-medium fadeIn');
+//        }
+//        else if (width < breakpointMid && width < breakpoint1){
+//            $('.content').attr('class', 'content scatter-medium fadeIn');
+//        };
     }
 
 };

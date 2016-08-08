@@ -167,11 +167,11 @@ function update(nodeinput){
         .attr('stroke-opacity', '0')
         .attr('cx', '90%')
         .attr('r', 7)
-        .attr('cy', (d, i) => (i*6 + 30)+ '%')  
+        .attr('cy', (d, i) => (i*6 + 40)+ '%')  
     ;
     legendEnter.append('text').text((d) => d)
             .attr('x', (d) => '93%')    
-            .attr('y', (d, i) => (i*6 + 30.7)+ '%');
+            .attr('y', (d, i) => (i*6 + 40.7)+ '%');
      
     
     circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, (d) => d.indexnum);

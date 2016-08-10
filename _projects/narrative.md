@@ -1,7 +1,7 @@
 ---
 layout: project
 title: narrative<br>research
-time: summer 2014
+time: summer 2014 (internship)
 heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. Collaboration with Benjamin Bauchwitz (MIT '15).
 tags:
     - narrrative
@@ -24,60 +24,98 @@ custom_js:
 </section>
 
 <section class="block">
-    <header class="block-header">concept</header>
+    <header class="block-header">context</header>
     <div class="block-text">
-        <p>WHY
-        project contract
-        project phase - backend built in 
-        my role
-        
-    By aggregating research, Charles River Analytics hopes to develop conceptual links between research from disparate fields. Once this research bank is robust enough, users — the users here being story-writers, or marketers — can input their desired response from a narrative, and receive suggestions from different research studies. (A user looking to induce, say, empathy in their audience, may receive a suggestion to include a certain type of character revelation.) In addition to receiving writing suggestions, a writer can also work backwards — that is, test the physiological and psychological, responses to narratives in a user, and see what kind of responses the user is producing. 
-Rather than relying on subjective measures like surveys, researchers can quantify psychological responses to narratives using this tool.     
-        
-        thesis + hosp quality + pat profile = dope
-        new project = = = = = 
-        tools (irrelevant) + table (no thought) = not so
-         SONNET, or Studies to Operationalize Neuro-Narratology for Effective Tools. A variety of neurological and behavioral methods will be applied to the complex problem of understanding what makes a story compelling, and develop tools to sense and forecast listeners’ reactions.
+        <p> SONNET, or Studies to Operationalize Neuro-Narratology for Effective Tools - is a ($7M) government-funded research project that aims to sense and forecast listeners’ reactions to stories. 
+        <br><br> At the time that I had joined Charles River Analytics (CRA) for my summer internship, this project (which the firm had contracted) was still in a conceptual phase. Before developing a fully-fleshed product, CRA needed to compile narrative research, and determine a standard format for quantifying findings from narrative research studies. 
         </p>
-        
+    </div>
+    
+    <div class="block-text layered">
         <p>
-        looked at disparate fields
-        translated jargon - created a jargon map
-        
-        My role - was to create a format for integrating insights from narrative research studies
-        I was hired to expand the bank of 'narrative research' to feed a software product, I stepped back a bit to re-define the problem - wher
-        + are narratives powerful?
-        + how can their 
-        Narrative research has been conducted in the fields of cognitive psychology, marketing, and neuroscience — but has yet to be integrated in a useful way. 
-        story is - 
+        Use cases - the intended users for SONNET are marketers, or people crafting communication/campaign tools. Narratives here are not limited to a particular format or medium. CRA had envisioned a tool that curates writing content for users based on desired emotional response. By drawing on a database of quantified narrative research, the tool can also translate physiological measurements to emotional responses. Writers can therefore fine-tune stories to achieve an intended emotional response.
+        <span class="info-tooltip">
+        <br> More about the desire to quantify narratives: rather than relying on subjective surveys to gauge emotional responses to a narrative - CRA wanted to move towards a deeper, more visceral (or at least, more physiological/physical) understanding of narrative responses. 
+        <br>
+        As a reductive example: <br>
+        A writer looking to induce, say, suspense in their audience, may receive a suggestion to include a certain type of character revelation. After crafting this narrative with a writing suggestion, and testing it on a sample audience, users will go on to test the narrative on a small sample audience (using inexpensive, commerically-available physiological sensors). Test results are inputted into SONNET, which will reveal the induced emotional response. User can continue to write / test until the desired response is acheived.
+        <br><br>
+        Of course, these are lofty, long-terms goals - a substantial amount of machine learning (and user input) is needed to actually achieve a narrative development tool.
+        </span>
         </p>
+    </div>
+    
+    <div class="block-image-container">
+        <img src="/assets/img-narrative/img-usecase.png" class="block-image block-image-medium">
+    </div>
+    
+    <div class="block-text">
+        <p>
+        
+        </p>
+    
     </div>
  
 </section>
 
 
 <section class="research block">
-    <header class="block-header">approach</header>
+    <header class="block-header">compile</header>
+    
     <div class="block-text">
-        <p>
-          DETERMINING FIELDS TO LOOK INTO -
-          developing vocabulary standard
- 
-          DRAWING SIMILARITIES BETWEEN DISPARATE FIELDS
-          
-          FINDING A WAY TO QUANITIFY
-          
-          the context object for standardization
-          
-          understanding the power of the narrative
-          
-          took apart papers
-          
+        <p> My role - was to delve into narrative research literature, <span class="highlight-grey">compile studies, and summarize them in a way that can be quantified for use in SONNET</span>.<br>
+        A found it difficult to imagine what quantifying these studies meant without interacting with an end product. Though I had no coding skills going into the internship, my supervisor (David Koelle) agreed to let me move beyond simply summarizing narratives, and translate <span class="highlight-grey">some of my findings into data structures</span>. I collaborated with Benjamin Bauchwitz (MIT '15), another intern, to create a text parser (in Java) that extracts quantitative narrative relationships from semi-natural input text. 
         </p>
     </div>
+    
+    <div class="block-text">
+        <p>
+        Compiling narrative research - 
+        <br><br>
+        + I started the research process by first understanding the power of narrative - and attempting to confirm a finding that was implicit in the creation of this project: narratives are powerful tools for eliciting behavioral change.   
+        </p>    
+        </div>
+    
+    <div class="block-text layered">
+        <p>
+            + In the next phase of my research, I conducted a <span class="highlight-grey">broad survey of narrative research</span>. I picked apart aspects of narratives have been studied in different academic disciplines, and tried to add up a 'complete' picture of narrative research. 
+            <span class="info-tooltip">      
+            Narratives are inherently multi-disciplinary, and few research studies, I found, focused on the content of a narrative while still measuring psychological responses in a quantifiable way. <br>
+            Generally, marketing studies would focus only on the aspect of persuasion - and used surveys to measure whether beliefs were changed. Psychology studies were primarily interested in audience engagement and persuasion. Cognitive science studies, in the same vein, focused on engagement and persuasion, but often did not go into fine details on the content of a narrative. These studies did however, offer heavily quantified results - in the form of surveys, brain scans, and physiological measurements.
+            </span>
+        </p>
+    </div>
+    
+    <div class="block-text layered">
+        <p>Synthesizing research - conducting a broad review showed that narrative research could be synthesized to yield a quantified framework for gauging user responses. 
+        <br>
+        <span class="info-tooltip">
+        (Granular writing suggestions however, would have to be left to user input and machine learning - there were simply not enough studies that focused on specific aspects of narrative writing that yield responses).         
+        In order to synthesize narrative research, I standardized jargon and concepts used in different fields. The concept of 'flow' in psychology, for example, is closely related to 'narrative transportation' cited in marketing studies.  
+        </span>
+        </p>
+    </div>
+    
 </section>
 
 <section class="details block">
-    <header class="block-header">research</header>
+    <header class="block-header">quantify</header>
+    <div class="block-text layered">
+        <p>Shown below are snapshots of aggregate narrative research before (left) and after I joined the team. Each node represents 
+        <br>
+        <span class="info-tooltip">
+        (Granular writing suggestions however, would have to be left to user input and machine learning - there were simply not enough studies that focused on specific aspects of narrative writing that yield responses).         
+        In order to synthesize narrative research, I standardized jargon and concepts used in different fields. The concept of 'flow' in psychology, for example, is closely related to 'narrative transportation' cited in marketing studies.  
+        </span>
+        </p>
+    </div>    
+    
+   <div class="block-image-container two">
+        <img src="/assets/img-narrative/img-initnetwork.png" class="block-image block-image-small"> 
+    </div>   
+   <div class="block-image-container two">
+        <img src="/assets/img-narrative/img-finalnetwork.png" class="block-image block-image-small"> 
+    </div>    
+    <div style="clear:both"></div>    
  
 </section>

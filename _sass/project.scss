@@ -15,28 +15,9 @@ $block-header-text-color: rgba(0,0,0,.3);
     text-decoration-color: rgba(0,0,0,.2)
 }
 
-//.block-text p:hover {
-////    .tooltip {
-////        display: block;
-////    }
-//    @extend .active;
-//    text-decoration: none;    
-//}
-
-//.underline:hover {
-//
-//}
-
-//.tooltip {
-//    display: none;
-//    position: absolute;
-////    background-color: white;
-//    transform: translateX(-50%) translateY(-100%);
-//    color: blue;
-//    width: 70%;
-//    font-size: 13px;
-////    box-shadow: 0 0 3px rgba(0,0,0,.2);
-//}
+li {
+        list-style-type: none;
+}
 
 .tooltip {
     position: absolute;
@@ -54,6 +35,7 @@ $block-header-text-color: rgba(0,0,0,.3);
     border-right: 1px solid rgba(0,0,0,.2);
     margin-left: 4px;
     cursor: pointer;
+    padding-right: 4px;
 }
 .layered:hover {
     border-right: 1px solid blue;
@@ -68,41 +50,9 @@ $block-header-text-color: rgba(0,0,0,.3);
     white-space: pre;
 }
 
-//.info-tooltip {
-//    display: none;
-//    position: absolute;
-//    background-color: white;
-//    transform: translateX(-50%) translateY(-120%);
-//    color: blue;
-//    width: 70%;
-//    font-size: 13px;
-////    box-shadow: 0 0 3px rgba(0,0,0,.2);    
-//}
-
-//.tooltip {
-//    position: absolute;
-//    display: none;
-//    background-color: white;
-//    z-index: 3000;
-//    top: -100%;
-//    width: 100%;
-//    height: 200px;
-//}
-
-
-
 .block-text {
     position: relative;
 }
-
-
-
-
-//a {
-//    color:white;
-//}
-
-
 
 //transitions below
 .project-info {
@@ -134,19 +84,6 @@ $block-header-text-color: rgba(0,0,0,.3);
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;    
 }
-
-//body.specific {
-//    background-color: #F2F0F0;    
-//    padding-bottom: 40px;   
-//    font-size: 16px;    
-//    position: absolute;
-//    top: 0%;
-//    bottom: 0%;
-//    left: 0%;
-//    right: 0%;  
-//    overflow: auto;
-//    -webkit-overflow-scrolling: touch;
-//}
 
 
 .project-content-wrapper{
@@ -225,8 +162,6 @@ $block-header-text-color: rgba(0,0,0,.3);
     font-weight: lighter;
     color: black;    
 }
-
-
 
 .block {
     width: 100%;
@@ -344,6 +279,9 @@ ul {
     cursor: zoom-out;
 }
 
+.highlight-grey {
+    background-color: rgba(0,0,0,.07);
+}
 
 .home-button {
     position: fixed;

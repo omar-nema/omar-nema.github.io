@@ -140,6 +140,10 @@ li {
     font-size: 17px;
 }
 
+.under-thin {
+    border-bottom: 1px solid pink;    
+}
+
 .axis-highlight {
     opacity: 0;
 }
@@ -202,7 +206,7 @@ text {
     .more-info {
         background-color: rgba(255,255,255,.7);
         transform: translateY(-50%);
-        font-size: 24px;
+        font-size: 20px;
         color: rgba(0, 0, 0, 0.4);;
         cursor: pointer;
     }    
@@ -240,7 +244,7 @@ text {
     padding-left: 2%;
     padding-right: 2%;
     font-size: 13px;
-    transition: width 1s ease-in-out, height 1s ease-in-out, opacity .3s ease-in-out;    
+    transition: opacity .3s ease-in-out;    
 }
 
 

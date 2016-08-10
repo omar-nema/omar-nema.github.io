@@ -128,10 +128,12 @@ function gravity(alpha) {
 var circleExit;
 function tick(event) {
     console.log('tick');
+//    chart.select('.circleholder').selectAll('.circle')  
+//        .attr('cx', (d) => d.x)
+//        .attr('cy', (d) => d.y);
     chart.select('.circleholder').selectAll('.circle')  
-//    circles
-        .attr('cx', (d) => d.x)
-        .attr('cy', (d) => d.y);
+        .attr('cx', function(d){return d.x})
+        .attr('cy', function(d){return d.y}) 
 } 
 
 //fix originating position and issue with restarting risk val
@@ -145,7 +147,9 @@ chart.append('text').attr('class', 'stats-2');
 function update(nodeinput){
     
     //prob not in update
-    var legendEnter = chart.selectAll('.legend-circle').data(types).enter().append('g').attr('class', 'legend-category').attr('cluster', (d) => types.indexOf(d));
+    var legendEnter = chart.selectAll('.legend-circle').data(types).enter().append('g').attr('class', 'legend-category')
+    .attr('cluster', function(d){return types.indexOf(d)})
+   // .attr('cluster', (d) => types.indexOf(d));
     
     var countSec = 0;
     for (i=0; i<nodeinput.length; i++){
@@ -157,22 +161,33 @@ function update(nodeinput){
     legendEnter.append('circle')
         .attr('class', 'legend-circle')
         .style('opacity', '1')
-        .attr('fill', (d,i) => colorscale(i))    
-        .attr('stroke', (d,i) => colorscale(i))
+       .attr('fill', function(d,i) {return colorscale(i)})    
+       .attr('stroke', function(d,i) {return colorscale(i)})        
+//        .attr('fill', (d,i) => colorscale(i))    
+//        .attr('stroke', (d,i) => colorscale(i))
         .attr('stroke-width', '4px')
         .attr('stroke-opacity', '0')
         .attr('cx', '90%')
         .attr('r', 7)
-        .attr('cy', (d, i) => (i*6 + 40)+ '%')  
+        .attr('cy', function(d, i) {return (i*6 + 40)+ '%'})  
     ;
-    legendEnter.append('text').text((d) => d)
-            .attr('x', (d) => '93%')    
-            .attr('y', (d, i) => (i*6 + 40.7)+ '%');
+    legendEnter.append('text')
+    
+            .text(function(d) {return d})
+            .attr('x', function(d) {return '93%'})    
+            .attr('y', function(d, i) {return (i*6 + 40.7)+ '%'});
+        
+//            .text((d) => d)
+//            .attr('x', (d) => '93%')    
+//            .attr('y', (d, i) => (i*6 + 40.7)+ '%');
      
     
-    circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, (d) => d.indexnum);
-    circle.attr('fill', (d) => colorscale(d.cluster)) 
-            .style('opacity', (d) => d.opacity)
+    circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, function(d){return d.indexnum});
+    circle
+            .attr('fill', function(d) {return colorscale(d.cluster)}) 
+            .style('opacity', function(d) {return d.opacity})    
+//            .attr('fill', (d) => colorscale(d.cluster)) 
+//            .style('opacity', (d) => d.opacity)
             .attr('stroke', 'white')
             .attr('stroke-width', 1)
             .attr('class', 'circle');
@@ -189,8 +204,8 @@ function update(nodeinput){
     
     circles = circle
             .enter().append('circle')
-            .attr('fill', (d) => colorscale(d.cluster)) 
-            .style('opacity', (d) => d.opacity)
+            .attr('fill', function(d){return colorscale(d.cluster)}) 
+            .style('opacity', function(d) {return d.opacity})
             .attr('stroke', 'white')
             .attr('stroke-width', 1)
 //            .attr('class', 'circle ')
@@ -201,7 +216,7 @@ function update(nodeinput){
                     return 'circle missing' ;
                 };
             })    
-            .attr('r', (d) => d.r)
+            .attr('r', function(d){return d.r})
             .on('mouseover', function(d, i){ 
                 tooltip
                     .style("display", "block")

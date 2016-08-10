@@ -47,7 +47,7 @@ custom_js:
     </div>          
       
     <div class="block-text">
-        <p>Although devices to stimulate, record, and interpret electrical signals from movement are reliable, the exact input parameters and locations for stimulation devices are not usually known for experiments involving primates. <span class="underline">Researchers rely on visual/empirical observation for stimulation, which is unreliable and cruel to test animals</span>
+        <p>Although devices to stimulate, record, and interpret electrical signals from movement are reliable, the exact input parameters and locations for stimulation devices are not usually known for experiments involving primates. <span class="highlight-grey">Researchers rely on visual/empirical observation for stimulation, which is unreliable and cruel to test animals</span>
         </p>
    </div>
    
@@ -66,14 +66,13 @@ custom_js:
     <header class="block-header">use case</header>
     <div>
         <p>
-        Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, our end product does not come close in complexity to an actual primate spinal cord. It does however, provide a <span class="underline">functioning framework of an EES experiment</span>. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
+        Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, our end product does not come close in complexity to an actual primate spinal cord. It does however, provide a <span class="highlight-grey">functioning framework of an EES experiment</span>. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
         <br><br>
-        We ensured that our computational model was <a href="https://github.com/penguinscontrol/Spinal-Cord-Modeling"  class="underline">well-documented</a> to allow for other researchers to use the model and build on it. As more EES experiments are conducted, our model will have more data to draw from, and become more accurate. Though the project is no longer in my hands, the Borton Lab has continued to work on this model.
+        We ensured that our computational model was <a href="https://github.com/penguinscontrol/Spinal-Cord-Modeling"  class="underline">well-documented</a> to allow for other researchers to use the model and build on it. As more EES experiments are conducted, our model will have more data to draw from, and become more accurate. Though the project is no longer in my hands, the Borton Lab has continued development
         </p>
     </div>      
-    <div class="block-text">
-        <p> DIAGRAM
-        </p>
+    <div class="block-image-container">
+        <img src="/assets/img-thesis/img-thesis.png" class="block-image block-image-small">
     </div>    
 </section>
 

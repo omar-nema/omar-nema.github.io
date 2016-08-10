@@ -79,7 +79,7 @@ function generateData(input){
     for (i=0; i<types.length; i++){
             var xo = centers[i].xorig;
             var yo = centers[i].yorig; 
-         var firstpts = d3.range(typeMax[types[i]].primaryAvg).map((datapt, indexnum) => {
+            var firstpts = d3.range(typeMax[types[i]].primaryAvg).map(function(datapt,indexnum){
                 radius = 14;    
                 d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum + 'vis', x: xo, y: yo}; 
                 for (k=0; k<nestedData.length; k++){
@@ -90,7 +90,7 @@ function generateData(input){
                if (!clusters[i] || (radius > clusters[i].r)) selectedTypes.push(i) ; clusters[i] = d;                          
                 return d;
             });  
-         var secpts = d3.range(typeMax[types[i]].secAvg).map((datapt, indexnum) => {
+         var secpts = d3.range(typeMax[types[i]].secAvg).map(function(datapt,indexnum) {
                 radius = 14;         
                 d = {cluster: i, r: 14, opacity: .3, indexnum: i + ',' + indexnum + 'miss', x: xo, y: yo}; 
                 for (k=0; k<nestedData.length; k++){
@@ -178,7 +178,7 @@ function update(nodeinput){
             .attr('class', 'circle');
         
     chart.select('.stats-1')
-            .html('<tspan class="sec-hover">' + countSec + '</tspan> / <tspan class="primary-hover">' + nodeinput.length + '</tspan>')
+            .html('<tspan class="sec-hover">' + countSec + '</tspan>&nbsp/  <tspan class="primary-hover">' + nodeinput.length + '</tspan>')
             .attr('x', '90%')
             .attr("y", '10%');
     
@@ -331,12 +331,15 @@ function dataDependency(){
 
     
     function showInfoPopup(){
-        $('.info-popup').css({'opacity':'1', 'z-index': '20'});
+        $('.info-container').addClass('info-container-active')
+        $('.info-popup').css({'display': 'block', 'opacity':'1', 'z-index': '20'});
+//        $('.risk-slider').css('opacity', '.3');
         $(this).html('+').addClass('close-button');
         $(this).one('click', hideInfoPopup);
     };
     function hideInfoPopup(){
-        $('.info-popup').css({'opacity':'0', 'z-index': '-1'});
+        $('.info-popup').css({'display':'none', 'opacity':'0', 'z-index': '-1'});
+        $('.info-container').removeClass('info-container-active')        
         $(this).html('?').removeClass('close-button');
         $(this).one('click', showInfoPopup);
     };
@@ -368,11 +371,11 @@ function dataDependency(){
     })
 ;
     
-    $('.tick').mouseover(function(){
+    $('.tick').mouseover(function(event){
         //$('.chartwrapper').
     });  
-    $('.under').click(function(){animate()});
-    $('.tick').click(function(){
+    $('.under').click(function(event){animate()});
+    $('.tick').click(function(event){
         var num = $(this).text();
         changeRisk(num);
     })

@@ -2,11 +2,12 @@
 layout: project
 title: narrative<br>research
 time: summer 2014 (internship)
-heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. Collaboration with Benjamin Bauchwitz (MIT '15).
+heading: As part of my internship with Charles River Analytics, I worked on SONNET - a project that attempts to merge narrative research in the fields of psychology, neuroscience, and marketing in order to create useful predictions and suggestions for writers. I was asked to develop a framework for quantifying narrative attributes. Collaboration with Benjamin Bauchwitz (MIT '15). This project was my first foray into coding.
 tags:
     - narrrative
+    - Java
     - data
-    - makerspace
+    - research
     - system design
 theme: '#1C85FF'
 infotextcolor: white
@@ -33,9 +34,9 @@ custom_js:
     
     <div class="block-text layered">
         <p>
-        Use cases - the intended users for SONNET are marketers, or people crafting communication/campaign tools. Narratives here are not limited to a particular format or medium. CRA had envisioned a tool that curates writing content for users based on desired emotional response. By drawing on a database of quantified narrative research, the tool can also translate physiological measurements to emotional responses. Writers can therefore fine-tune stories to achieve an intended emotional response.
+        Use cases - the intended users for SONNET are marketers, or people crafting communication/campaign tools.  CRA had envisioned a tool that curates writing content for users based on desired emotional response. By drawing on a database of quantified narrative research, the tool can also translate physiological measurements to emotional responses. Writers can therefore fine-tune stories to achieve an intended emotional response.
         <span class="info-tooltip">
-        <br> More about the desire to quantify narratives: rather than relying on subjective surveys to gauge emotional responses to a narrative - CRA wanted to move towards a deeper, more visceral (or at least, more physiological/physical) understanding of narrative responses. 
+        <br> Narratives here are not limited to a particular format or medium.<br>More about the desire to quantify narratives: rather than relying on subjective surveys to gauge emotional responses to a narrative - CRA wanted to move towards a deeper, more visceral (or at least, more physiological/physical) understanding of narrative responses. 
         <br>
         As a reductive example: <br>
         A writer looking to induce, say, suspense in their audience, may receive a suggestion to include a certain type of character revelation. After crafting this narrative with a writing suggestion, and testing it on a sample audience, users will go on to test the narrative on a small sample audience (using inexpensive, commerically-available physiological sensors). Test results are inputted into SONNET, which will reveal the induced emotional response. User can continue to write / test until the desired response is acheived.
@@ -49,13 +50,8 @@ custom_js:
         <img src="/assets/img-narrative/img-usecase.png" class="block-image block-image-medium">
     </div>
     
-    <div class="block-text">
-        <p>
-        
-        </p>
-    
-    </div>
- 
+    <div style="clear:both"></div>
+
 </section>
 
 
@@ -63,8 +59,7 @@ custom_js:
     <header class="block-header">compile</header>
     
     <div class="block-text">
-        <p> My role - was to delve into narrative research literature, <span class="highlight-grey">compile studies, and summarize them in a way that can be quantified for use in SONNET</span>.<br>
-        A found it difficult to imagine what quantifying these studies meant without interacting with an end product. Though I had no coding skills going into the internship, my supervisor (David Koelle) agreed to let me move beyond simply summarizing narratives, and translate <span class="highlight-grey">some of my findings into data structures</span>. I collaborated with Benjamin Bauchwitz (MIT '15), another intern, to create a text parser (in Java) that extracts quantitative narrative relationships from semi-natural input text. 
+        <p> My role - was to delve into narrative research literature, <span class="highlight-grey">compile studies, and summarize them in a way that can be quantified for use in SONNET</span>.<br> As the internship progressed, I wanted move beyond synthesizing studies - and actually interact with an end product. Though I had no coding skills going into the internship, my supervisor (David Koelle) agreed to let me move beyond simply summarizing narratives, and translate <span class="highlight-grey">some of my findings into data structures</span>. I collaborated with Benjamin Bauchwitz (MIT '15), another intern, to create a text parser (in Java) that extracts quantitative narrative relationships from semi-natural input text. 
         </p>
     </div>
     
@@ -100,16 +95,26 @@ custom_js:
 
 <section class="details block">
     <header class="block-header">quantify</header>
+    
     <div class="block-text layered">
-        <p>Shown below are snapshots of aggregate narrative research before (left) and after I joined the team. Each node represents 
-        <br>
+        <p> After aggregating research, I developed a standard, data structure-compatible format for summarizing research findings. The text parser I developed with Ben Bauchwiz scans the 'components' and 'context' sections, and picks up three-part relationships (element -> relationship -> element). As elements are joined on common relationships, a larger database of research is developed. Notice that each relationship is assigned context objects, which serve as the basis for extrapolating different relationships and applying findings to new narratives.
         <span class="info-tooltip">
-        (Granular writing suggestions however, would have to be left to user input and machine learning - there were simply not enough studies that focused on specific aspects of narrative writing that yield responses).         
-        In order to synthesize narrative research, I standardized jargon and concepts used in different fields. The concept of 'flow' in psychology, for example, is closely related to 'narrative transportation' cited in marketing studies.  
+        <br>
+        We worked to ensure that our input structure could be parsed reliably in Java, while still being human-readable. 
+        <br>
+        You'll notice that these research relationships are simply binary - and do not have a gradient or scale. I had started to prototype more sophisticated quantitative relationships (that take in p-values, or results of brain scan studies), but was unable to integrate this into my parser during the internship duration.
         </span>
         </p>
-    </div>    
+    </div>     
+   <div class="block-image-container">
+        <img src="/assets/img-narrative/parsedformat.png" class="block-image block-image-medium"> 
+    </div>   
+    <div style="clear:both"></div>
     
+    <div class="block-text">
+        <p>Shown below are snapshots of aggregate narrative research before (left) and after I joined the team. You'll notice that the nodes are more expansive, but also quite interconnected - I ensured that I was constantly integrating data from different fields (by standardizing concepts and academic jargon). 
+        </p>
+    </div>        
    <div class="block-image-container two">
         <img src="/assets/img-narrative/img-initnetwork.png" class="block-image block-image-small"> 
     </div>   
@@ -117,5 +122,7 @@ custom_js:
         <img src="/assets/img-narrative/img-finalnetwork.png" class="block-image block-image-small"> 
     </div>    
     <div style="clear:both"></div>    
+    
+
  
 </section>

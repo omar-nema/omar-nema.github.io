@@ -17,10 +17,10 @@ var prescriptionMapping = [
     
     
 ];
-
-var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'red',  'green']);
+//
+//var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'red',  'green']);
 //var colorscale = d3.scaleOrdinal(['lightgreen', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
-//var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'purple', '#F1374D']);
+var colorscale = d3.scaleOrdinal(['lightblue', 'red',  'green', 'teal']);
 
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
 

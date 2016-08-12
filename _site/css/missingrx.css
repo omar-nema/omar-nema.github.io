@@ -137,7 +137,6 @@ li {
   transform: translateY(-50%); }
 
 .legend-category {
-  letter-spacing: 2px;
   font-size: 16px;
   cursor: pointer; }
 

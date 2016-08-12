@@ -11,6 +11,7 @@ var yscale = d3.scaleBand().rangeRound([height, 0]).padding(.4);
 var xscale = d3.scaleLinear().range([0, width]);
 var  z = d3.scaleOrdinal(d3.schemeCategory10);
 var sliderscale;
+var oldNodes = [];
 
 var prescriptionMapping = [
     
@@ -20,7 +21,7 @@ var prescriptionMapping = [
 //
 //var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'red',  'green']);
 //var colorscale = d3.scaleOrdinal(['lightgreen', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
-var colorscale = d3.scaleOrdinal(['lightblue', 'red',  'green', 'teal']);
+var colorscale = d3.scaleOrdinal(['grey', 'lightblue',  'orangered', 'purple']);
 
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
 
@@ -42,14 +43,17 @@ var clusters = new Array(4);
 var simulation;
 var allpoints = []; 
 var riskslice ;
+var nestedMapping = [];
 
 var centers = [
-    { x: 3.8*width/8, y: 2.5*height/4, xorig: -width, yorig: height},
-    { x: 3.8*width/8, y: 1.5*height/4, xorig: -width, yorig: 0},
-    { x: 4.2*width/8, y: 2.5*height/4, xorig: width, yorig: height},
-    { x: 4.2*width/8, y: 1.5*height/4, xorig: width, yorig: 0},
+    { x: 3*width/8, y: 3*height/4, xorig: -width, yorig: height},
+    { x: 3*width/8, y: 1*height/4, xorig: -width, yorig: 0},
+    { x: 5*width/8, y: 3*height/4, xorig: width, yorig: height},
+    { x: 5*width/8, y: 1*height/4, xorig: width, yorig: 0},
     { x: 1*width/8, y: height/2}     
 ];
+
+
 function generateData(input){     
     input.forEach(function(d, i){
          if (types.indexOf(d.type) === -1){
@@ -81,7 +85,7 @@ function generateData(input){
             var yo = centers[i].yorig; 
             var firstpts = d3.range(typeMax[types[i]].primaryAvg).map(function(datapt,indexnum){
                 radius = 14;    
-                d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum + 'vis', x: xo, y: yo}; 
+                d = {cluster: i, r: radius, opacity: 1, indexnum: i + ',' + indexnum + ',vis', x: xo, y: yo, visibility: 'primary', type: types[i]}; 
                 for (k=0; k<nestedData.length; k++){
                     if (indexnum < nestedData[k].values[i].primaryAvg){
                         riskslice[k].push(d);  
@@ -91,8 +95,9 @@ function generateData(input){
                 return d;
             });  
          var secpts = d3.range(typeMax[types[i]].secAvg).map(function(datapt,indexnum) {
+             //parse out the indexnum
                 radius = 14;         
-                d = {cluster: i, r: 14, opacity: .3, indexnum: i + ',' + indexnum + 'miss', x: xo, y: yo}; 
+                d = {cluster: i, r: 14, opacity: .3, indexnum: i + ',' + indexnum + ',miss', x: xo, y: yo, visibility: 'secondary',  type: types[i]}; 
                 for (k=0; k<nestedData.length; k++){
                     if (indexnum < nestedData[k].values[i].secAvg){
                         riskslice[k].push(d);  
@@ -104,37 +109,59 @@ function generateData(input){
 
         allpoints = allpoints.concat(firstpts, secpts);    
     };
+      
     return allpoints;
-  
+};
+
+function generateDataMappings(input){
+    input.forEach(function(d,i){
+       d.risk = +d.risk; 
+    }); 
+    nestedMapping = d3.nest()
+        .key(function(d){return d.maptype})
+        .key(function(d){return d.risk})    
+        .key(function(d){return d.type})       
+        .entries(input); 
+     
 };
 
 function initialLoad(){
-    d3.csv('/assets/csvdata/patprofileforce.csv',function(data){ 
-        generateData(data);
-        currRiskVal = 0;
+    d3.csv('/assets/csvdata/patprofilemapping.csv', function(data2){
+        generateDataMappings(data2);  
+        d3.csv('/assets/csvdata/patprofileforce.csv',function(data){ 
+            generateData(data);
+            currRiskVal = 0;
+            $('.tick').eq(0).addClass('tick-active');
+            dataDependency();  //runs most functions after csv data loaded
+        });
+
         
-        $('.tick').eq(0).addClass('tick-active');
-        dataDependency();  //runs most functions after csv data loaded
-    });
+        
+    });      
+
 };
 
 function gravity(alpha) {
-    nodes.forEach(function(d) {
+    //console.log(exitData);
+    nodes.forEach(function(d, i) {     
         d.y += (centers[d.cluster].y - d.y) * (alpha/10) ;
         d.x +=  (centers[d.cluster].x - d.x) * (alpha/10);              
-    })
+    });
+    
+    oldNodes.forEach(function(d,i){
+        if (exitData.indexOf(d) > -1){
+            d.y += (centers[d.cluster].xorig - d.y) * (alpha/20) ;
+            d.x +=  (centers[d.cluster].yorig - d.x) * (alpha/20); 
+        };
+    });
+    
 };
-
 var circleExit;
 function tick(event) {
-    console.log('tick');
-//    chart.select('.circleholder').selectAll('.circle')  
-//        .attr('cx', (d) => d.x)
-//        .attr('cy', (d) => d.y);
     chart.select('.circleholder').selectAll('.circle')  
         .attr('cx', function(d){return d.x})
         .attr('cy', function(d){return d.y}) 
-} 
+} ;
 
 //fix originating position and issue with restarting risk val
 var manyBody = d3.forceManyBody().strength(-90);
@@ -144,20 +171,44 @@ var collideForce = d3.forceCollide().radius(14);
 chart.append('text').attr('class', 'stats-1');
 chart.append('text').attr('class', 'stats-2');
 
+
+
+var exitData;
+
 function update(nodeinput){
     
-    //prob not in update
     var legendEnter = chart.selectAll('.legend-circle').data(types).enter().append('g').attr('class', 'legend-category')
     .attr('cluster', function(d){return types.indexOf(d)})
    // .attr('cluster', (d) => types.indexOf(d));
     
     var countSec = 0;
     for (i=0; i<nodeinput.length; i++){
-        if (nodeinput[i].opacity < 1){
+        if (nodeinput[i].visibility === 'secondary'){
             countSec += 1
         };
     };
-        
+    var typeSlicePrimary = nestedMapping[0].values[currRiskVal].values;    
+    var typeSliceSecondary = nestedMapping[1].values[currRiskVal].values;  
+    
+    for (j=0; j<riskslice[currRiskVal].length; j++){ 
+        var currTypeSlice;
+        var typeslice;
+        var realpos = parseInt(riskslice[currRiskVal][j].indexnum.split(',')[1]);  
+        if (riskslice[currRiskVal][j].visibility === 'primary'){
+            currTypeSlice = typeSlicePrimary;                      
+        } else if (riskslice[currRiskVal][j].visibility === 'secondary'){
+            currTypeSlice = typeSliceSecondary;              
+        }  ;    
+        for (k=0; k<currTypeSlice.length; k++ ){
+            if (currTypeSlice[k].key === riskslice[currRiskVal][realpos].type  ){ 
+                typeslice = currTypeSlice[k]; 
+                if (typeslice.values[realpos]){
+                    riskslice[currRiskVal][realpos].mapping = typeslice.values[realpos].mapping;        
+                }                        
+            };                
+        } ;            
+    };       
+    
     legendEnter.append('circle')
         .attr('class', 'legend-circle')
         .style('opacity', '1')
@@ -176,18 +227,11 @@ function update(nodeinput){
             .text(function(d) {return d})
             .attr('x', function(d) {return '93%'})    
             .attr('y', function(d, i) {return (i*6 + 40.7)+ '%'});
-        
-//            .text((d) => d)
-//            .attr('x', (d) => '93%')    
-//            .attr('y', (d, i) => (i*6 + 40.7)+ '%');
-     
     
     circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, function(d){return d.indexnum});
     circle
             .attr('fill', function(d) {return colorscale(d.cluster)}) 
             .style('opacity', function(d) {return d.opacity})    
-//            .attr('fill', (d) => colorscale(d.cluster)) 
-//            .style('opacity', (d) => d.opacity)
             .attr('stroke', 'white')
             .attr('stroke-width', 1)
             .attr('class', 'circle');
@@ -208,7 +252,6 @@ function update(nodeinput){
             .style('opacity', function(d) {return d.opacity})
             .attr('stroke', 'white')
             .attr('stroke-width', 1)
-//            .attr('class', 'circle ')
             .attr('class', function(d){
             if (d.opacity ==1){
                     return 'circle primary';
@@ -220,7 +263,18 @@ function update(nodeinput){
             .on('mouseover', function(d, i){ 
                 tooltip
                     .style("display", "block")
-                    .html('<span class="lowlight">type:</span> ' + types[d.cluster] + '<br><span class="lowlight">value:</span> ')
+                    .html(function(){ ;
+                       if (d.mapping){
+                          return '<span class="lowlight">type:</span> ' + types[d.cluster] + '<br><span class="lowlight">value:</span> ' + d.mapping.toLowerCase()   ;                        
+                       }
+                       else if (d.type === 'vitals') {
+                           return '<span class="lowlight">type:</span> ' + types[d.cluster] + '<br><span class="lowlight">value:</span> ' + 'height, BMI, HR recording';
+                       }
+                       else {
+                           return '<span class="lowlight">type:</span> ' + types[d.cluster] + '<br><span class="lowlight">value:</span> ' + 'unknown';                           
+                       }
+       
+                })
                     .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
                     .style("top", -10+(d3.event.pageY)-$('.chartwrapper').offset().top + "px");        
             }).on('mouseleave', function(){
@@ -230,22 +284,38 @@ function update(nodeinput){
             })
     ;
     
-    //or apply gravity w/ everyhting else to new gorup
-    //old group gets diff force set or access exit data
+    //transition of removing - ideally moves away
     
-    circleExit = circle.exit();
-    circleExit.transition().duration(2000).attr('r', 0);    
     
-    circleExit.transition().attr('r', 0)
-    circleExit.each(function(d,i){
-        d.x = centers[d.cluster].xorig;
-        d.y = centers[d.cluster].yorig; 
-//        d.changed = false;
-    });         
-    circleExit.remove();   
     
-    //add in count missing data points
-    //count total data pts
+    circleExit = circle.exit();   
+    exitData = circleExit.data();
+       
+    
+//    circleExit
+//        .each(function(d,i){
+//        d.x = centers[d.cluster].xorig;
+//        d.y = centers[d.cluster].yorig; 
+//    }).remove();
+        //        .duration(900)
+//        .delay(function(d,i) { return i * 5; })
+//        .attr('r', d.r)
+//        .attrTween("r", function(d) {    
+            
+         
+    
+//    simulation = d3.forceSimulation(nodes)
+//        .velocityDecay(.8)   
+////        .alphaDecay(.01)
+//        .force("collide", collideForce)    
+//        .force("gravity", gravity)       
+//        .force('manyBody', manyBody)   
+//        .force("x", d3.forceX(width/2).strength(.3))
+//        .force("y", d3.forceY(height/2).strength(.3)) 
+//        .on("tick", tick);      
+//    
+
+
 //
 //    circles.transition()
 //        .duration(900)
@@ -264,6 +334,8 @@ function update(nodeinput){
 };
 
 function changeRisk(num){
+    oldNodes = nodes;
+    currRiskVal = parseInt(num);       
     simulation.stop();
     $('.tick').removeClass('tick-active');
     $('.tick').eq(num).addClass('tick-active');  
@@ -274,24 +346,19 @@ function changeRisk(num){
            newNodes.push(d);
        };
     });       
-    currRiskVal = parseInt(num);
     update(newNodes);
     simulation.nodes(newNodes);
     simulation.alpha(1).restart(); 
 };
 
 function animate(){
-
     for (i=0; i<nestedData.length; i++){   
         (function(i){
             window.setTimeout(function(){
                 changeRisk(i);
             }, 1400*i);
-        }(i));
-        
-        
-    };    
-    
+        }(i)); 
+    };      
 };
 
 
@@ -336,8 +403,8 @@ function dataDependency(){
         .force("collide", collideForce)    
         .force("gravity", gravity)       
         .force('manyBody', manyBody)   
-        .force("x", d3.forceX(width/2).strength(.3))
-        .force("y", d3.forceY(height/2).strength(.3)) 
+        .force("x", d3.forceX(width/2).strength(.2))
+        .force("y", d3.forceY(height/2).strength(.2)) 
         .on("tick", tick);  
 
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 
@@ -402,17 +469,19 @@ $(document).ready(function(){
     var sliderscale = d3.scaleLinear().range([0, $('.slider').width()]).domain([0, 10]);
     var slideraxis = d3.axisBottom(sliderscale).tickSize(0);
     d3.select('.slider').append('svg').attr('class', 'slideraxis').call(slideraxis);
-    
-    
     var bbox = d3.selectAll('.tick').node().getBBox();
     var rect = d3.select('.slideraxis').selectAll('.tick').insert("rect")
         .attr('class', 'axis-highlight')
         .attr("x", bbox.x-5)
         .attr("y", bbox.y-2)
         .attr("width", bbox.width*2.8)
-        .attr("height", bbox.height*1.5)
-    .style('stroke', 'black').style('stroke-width: 1px');
+        .attr("height", bbox.height*1.5)    
+//        .attr('height', .9)    
+//        .attr("y", bbox.y+19)    
+//     .attr("width", bbox.width*2.3)    
+        .style('stroke', 'rgba(0,0,0,.5)').style('stroke-width: 1px');
 //        .style("fill", "green");
     
     initialLoad(); 
 });
+

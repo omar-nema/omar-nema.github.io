@@ -163,7 +163,8 @@ text {
   position: absolute;
   top: 87%;
   left: 93%;
-  z-index: 20; }
+  z-index: 20;
+  transition: opacity .3s ease-in-out; }
   .info-container .more-info {
     background-color: rgba(255, 255, 255, 0.7);
     transform: translateY(-50%);
@@ -199,6 +200,7 @@ text {
   padding-left: 2%;
   padding-right: 2%;
   visibility: hidden;
+  display: none;
   font-size: 13px;
   transition: opacity .3s ease-in-out; }
 
@@ -229,5 +231,5 @@ text {
 
 @media only screen and (min-width: 1200px) {
   .project-content {
-    max-width: none;
+    max-width: 3000px;
     width: 66vw; } }

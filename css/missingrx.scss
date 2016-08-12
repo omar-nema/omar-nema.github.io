@@ -208,6 +208,7 @@ text {
         color: rgba(0, 0, 0, 0.4);
         cursor: pointer;
     }    
+    transition: opacity .3s ease-in-out;        
 }
 
 .more-info:hover {
@@ -241,6 +242,7 @@ text {
     padding-left: 2%;
     padding-right: 2%;
     visibility: hidden;
+    display: none;
     font-size: 13px;
     transition: opacity .3s ease-in-out;    
 }
@@ -286,11 +288,12 @@ text {
 
 @media only screen and (min-width: 1200px) {
         .project-content {
-        max-width: none;
+        max-width: 3000px;
         width: 66vw;    
     }
 
 }
+
 
 //overalll, we see a 20% rate in segmentation
 ///and then - use rate of rx

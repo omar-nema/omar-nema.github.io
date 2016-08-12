@@ -381,6 +381,7 @@ function dataDependency(){
     
     function showInfoPopup(){
         $('.info-container').addClass('info-container-active')
+        $('.info-popup').css({'display':'block'});        
         $('.info-popup').css({'opacity':'1', 'z-index': '20', 'visibility': 'visible'});
 //        $('.risk-slider').css('opacity', '.3');
         //jquery animation
@@ -389,6 +390,7 @@ function dataDependency(){
     };
     function hideInfoPopup(){
         $('.info-popup').css({'opacity':'0', 'z-index': '-1', 'visibility': 'hidden'});
+        $('.info-popup').css({'display':'none'});            
         //some sort of delay..
         $('.info-container').removeClass('info-container-active')        
         $(this).html('?').removeClass('close-button');

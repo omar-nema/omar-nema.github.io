@@ -69,21 +69,16 @@
   color: blue; }
 
 .block {
-  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: none; }
 
 .block.block-data-visual {
   width: 100%;
-  max-width: 900px;
   padding-bottom: 0;
   margin-bottom: 0;
   padding-left: 0;
   padding-right: 0; }
-
-.project-content {
-  max-width: 1000px; }
 
 .project-border {
   background-color: white; }
@@ -482,3 +477,7 @@ svg rect:hover {
 @media only screen and (max-width: 550px) {
   .axis-label {
     font-size: 16px; } }
+@media only screen and (min-width: 1200px) {
+  .project-content {
+    max-width: 3000px;
+    width: 63vw; } }

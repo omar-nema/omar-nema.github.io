@@ -148,8 +148,8 @@ li {
 
 .stats-2 {
   cursor: pointer;
-  letter-spacing: 0;
-  font-size: 12px;
+  letter-spacing: 1px;
+  font-size: 13px;
   font-family: Karla; }
 
 text {
@@ -194,11 +194,11 @@ text {
 
 .info-popup {
   width: 100%;
-  display: none;
   opacity: 0;
   z-index: -10;
   padding-left: 2%;
   padding-right: 2%;
+  visibility: hidden;
   font-size: 13px;
   transition: opacity .3s ease-in-out; }
 
@@ -226,3 +226,8 @@ text {
 
 .thumb:hover {
   transform: translateY(-50%) scaleX(1.5) scaleY(1.5); }
+
+@media only screen and (min-width: 1200px) {
+  .project-content {
+    max-width: none;
+    width: 66vw; } }

@@ -381,13 +381,15 @@ function dataDependency(){
     
     function showInfoPopup(){
         $('.info-container').addClass('info-container-active')
-        $('.info-popup').css({'display': 'block', 'opacity':'1', 'z-index': '20'});
+        $('.info-popup').css({'opacity':'1', 'z-index': '20', 'visibility': 'visible'});
 //        $('.risk-slider').css('opacity', '.3');
+        //jquery animation
         $(this).html('+').addClass('close-button');
         $(this).one('click', hideInfoPopup);
     };
     function hideInfoPopup(){
-        $('.info-popup').css({'display':'none', 'opacity':'0', 'z-index': '-1'});
+        $('.info-popup').css({'opacity':'0', 'z-index': '-1', 'visibility': 'hidden'});
+        //some sort of delay..
         $('.info-container').removeClass('info-container-active')        
         $(this).html('?').removeClass('close-button');
         $(this).one('click', showInfoPopup);

@@ -50,10 +50,9 @@ li {
 
 .circle-active {
     opacity: 1;
-    r: 16;
 //    stroke-opacity: 1;
     stroke-width: 3px;
-    stroke: black;    
+    stroke: red;    
 }
 
 .circle-symbol {
@@ -62,7 +61,6 @@ li {
     background-color: black;
     border-radius: 100%;
 }
-
 .circle-symbol.faded {
     opacity: .3;
 }
@@ -77,9 +75,6 @@ li {
 .x-axis .tick {
     color: lightgray;
 }
-
-
-
 .tick {
     font-size: 14px;
     font-family: 'Inconsolata';
@@ -106,9 +101,10 @@ li {
     padding-bottom: 3px;
     pointer-events: none;
     line-height: 1rem;
+    width: 200px;
     z-index: 90000;
     display:none;
-    font-family: Inconsolata;
+    font-family: Karla;
     font-size: 11px;
 }
 
@@ -174,21 +170,24 @@ li {
     transform: translateY(-50%);
 }
 .legend-category {
-//    letter-spacing: 2px;  
+//    letter-spacing: 2px;
     font-size: 16px;
     cursor: pointer;
 }
 .stats-1 {
-    font-size: 24px;
+    font-size: 18px;
     text-align: center;
-//    letter-spacing: 8px;
+    letter-spacing: 5px;
     cursor: pointer;
 }
 .stats-2 {
     cursor: pointer;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-family: Karla;  
 }
 text {
-    font-family: Inconsolata;
+    font-family: Karla;
     font-size: 13px;
 }
 
@@ -207,7 +206,7 @@ text {
         background-color: rgba(255,255,255,.7);
         transform: translateY(-50%);
         font-size: 20px;
-        color: rgba(0, 0, 0, 0.4);;
+        color: rgba(0, 0, 0, 0.4);
         cursor: pointer;
     }    
 }

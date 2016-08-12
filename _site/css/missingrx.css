@@ -34,9 +34,8 @@ li {
 
 .circle-active, .circle:hover {
   opacity: 1;
-  r: 16;
   stroke-width: 3px;
-  stroke: black; }
+  stroke: red; }
 
 .circle-symbol {
   width: 10px;
@@ -79,9 +78,10 @@ li {
   padding-bottom: 3px;
   pointer-events: none;
   line-height: 1rem;
+  width: 200px;
   z-index: 90000;
   display: none;
-  font-family: Inconsolata;
+  font-family: Karla;
   font-size: 11px; }
 
 .slider {
@@ -141,15 +141,19 @@ li {
   cursor: pointer; }
 
 .stats-1 {
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
+  letter-spacing: 5px;
   cursor: pointer; }
 
 .stats-2 {
-  cursor: pointer; }
+  cursor: pointer;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-family: Karla; }
 
 text {
-  font-family: Inconsolata;
+  font-family: Karla;
   font-size: 13px; }
 
 .span-blue {

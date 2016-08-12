@@ -12,17 +12,7 @@ var xscale = d3.scaleLinear().range([0, width]);
 var  z = d3.scaleOrdinal(d3.schemeCategory10);
 var sliderscale;
 var oldNodes = [];
-
-var prescriptionMapping = [
-    
-    
-    
-];
-//
-//var colorscale = d3.scaleOrdinal(['blue', 'red',  'green', 'red',  'green']);
-//var colorscale = d3.scaleOrdinal(['lightgreen', '#4D94E8',  '#BD10E0', '#50E3C2', '#F1374D']);
-var colorscale = d3.scaleOrdinal(['grey', 'lightblue',  'orangered', 'purple']);
-
+var colorscale = d3.scaleOrdinal(['#e500e5', '#ffc04d', '#1a6bff']);
 var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
 
 var nestedData;
@@ -45,11 +35,20 @@ var allpoints = [];
 var riskslice ;
 var nestedMapping = [];
 
+
+//var centers = [
+//    { x: 3*width/8, y: 3*height/4, xorig: -width, yorig: height},
+//    { x: 3*width/8, y: 1*height/4, xorig: -width, yorig: 0}, 
+//    { x: 5*width/8, y: 3*height/4, xorig: width, yorig: height},
+//    { x: 5*width/8, y: 1*height/4, xorig: width, yorig: 0}, //not taken
+//    { x: 1*width/8, y: height/2}     
+//];
+
 var centers = [
-    { x: 3*width/8, y: 3*height/4, xorig: -width, yorig: height},
-    { x: 3*width/8, y: 1*height/4, xorig: -width, yorig: 0},
-    { x: 5*width/8, y: 3*height/4, xorig: width, yorig: height},
-    { x: 5*width/8, y: 1*height/4, xorig: width, yorig: 0},
+    { x: 3.5*width/8, y: 1.5*height/4, xorig: -width, yorig: 0},
+    { x: 4.5*width/8, y: 1.5*height/4, xorig: width, yorig: 0}, 
+    { x: 4*width/8, y: 2.5*height/4, xorig: width/2, yorig: height},
+    { x: 5*width/8, y: 1*height/4, xorig: width, yorig: 0}, //not taken
     { x: 1*width/8, y: height/2}     
 ];
 
@@ -150,9 +149,9 @@ function gravity(alpha) {
     
     oldNodes.forEach(function(d,i){
         if (exitData.indexOf(d) > -1){
-            d.y += (centers[d.cluster].xorig - d.y) * (alpha/20) ;
-            d.x +=  (centers[d.cluster].yorig - d.x) * (alpha/20); 
-        };
+            d.y += (centers[d.cluster].yorig*1.3 - d.y) * (alpha/10) ;
+            d.x +=  (centers[d.cluster].xorig*1.3 - d.x) * (alpha/10); 
+        };        
     });
     
 };
@@ -164,7 +163,7 @@ function tick(event) {
 } ;
 
 //fix originating position and issue with restarting risk val
-var manyBody = d3.forceManyBody().strength(-90);
+var manyBody = d3.forceManyBody().strength(-140);
 //var forceY = d3.forceY([height/2]).strength([-35]);
 var collideForce = d3.forceCollide().radius(14);
 
@@ -193,17 +192,18 @@ function update(nodeinput){
     for (j=0; j<riskslice[currRiskVal].length; j++){ 
         var currTypeSlice;
         var typeslice;
+//        var realpos = j;
         var realpos = parseInt(riskslice[currRiskVal][j].indexnum.split(',')[1]);  
         if (riskslice[currRiskVal][j].visibility === 'primary'){
             currTypeSlice = typeSlicePrimary;                      
         } else if (riskslice[currRiskVal][j].visibility === 'secondary'){
             currTypeSlice = typeSliceSecondary;              
         }  ;    
-        for (k=0; k<currTypeSlice.length; k++ ){
-            if (currTypeSlice[k].key === riskslice[currRiskVal][realpos].type  ){ 
+        for (k=0; k<currTypeSlice.length; k++ ){            
+            if (currTypeSlice[k].key === riskslice[currRiskVal][j].type  ){ 
                 typeslice = currTypeSlice[k]; 
                 if (typeslice.values[realpos]){
-                    riskslice[currRiskVal][realpos].mapping = typeslice.values[realpos].mapping;        
+                    riskslice[currRiskVal][j].mapping = typeslice.values[realpos].mapping;        
                 }                        
             };                
         } ;            
@@ -220,13 +220,13 @@ function update(nodeinput){
         .attr('stroke-opacity', '0')
         .attr('cx', '90%')
         .attr('r', 7)
-        .attr('cy', function(d, i) {return (i*6 + 40)+ '%'})  
+        .attr('cy', function(d, i) {return (i*6 + 43)+ '%'})  
     ;
     legendEnter.append('text')
     
             .text(function(d) {return d})
             .attr('x', function(d) {return '93%'})    
-            .attr('y', function(d, i) {return (i*6 + 40.7)+ '%'});
+            .attr('y', function(d, i) {return (i*6 + 43.7)+ '%'});
     
     circle = chart.select('.circleholder').selectAll('.circle').data(nodeinput, function(d){return d.indexnum});
     circle
@@ -239,12 +239,12 @@ function update(nodeinput){
     chart.select('.stats-1')
             .html('<tspan class="sec-hover">' + countSec + '</tspan>&nbsp/  <tspan class="primary-hover">' + nodeinput.length + '</tspan>')
             .attr('x', '90%')
-            .attr("y", '10%');
+            .attr("y", '25%');
     
     chart.select('.stats-2')
             .html('<tspan class="sec-hover">missing</tspan> &nbsp <tspan class="primary-hover">total</tspan>')
             .attr('x', '90%')
-            .attr("y", '15%');    
+            .attr("y", '30%');    
     
     circles = circle
             .enter().append('circle')
@@ -283,57 +283,16 @@ function update(nodeinput){
                       $('.tooltip2').css('display', 'none');
             })
     ;
-    
-    //transition of removing - ideally moves away
-    
-    
-    
     circleExit = circle.exit();   
     exitData = circleExit.data();
-       
-    
-//    circleExit
-//        .each(function(d,i){
-//        d.x = centers[d.cluster].xorig;
-//        d.y = centers[d.cluster].yorig; 
-//    }).remove();
-        //        .duration(900)
-//        .delay(function(d,i) { return i * 5; })
-//        .attr('r', d.r)
-//        .attrTween("r", function(d) {    
-            
-         
-    
-//    simulation = d3.forceSimulation(nodes)
-//        .velocityDecay(.8)   
-////        .alphaDecay(.01)
-//        .force("collide", collideForce)    
-//        .force("gravity", gravity)       
-//        .force('manyBody', manyBody)   
-//        .force("x", d3.forceX(width/2).strength(.3))
-//        .force("y", d3.forceY(height/2).strength(.3)) 
-//        .on("tick", tick);      
-//    
-
-
-//
-//    circles.transition()
-//        .duration(900)
-//        .delay(function(d,i) { return i * 5; })
-//        .attr('r', d.r)
-//        .attrTween("r", function(d) {
-//        return d3.interpolate(0, d.r);
-//        });    
-    
-    //ISSUE WITH updating at the very end
-    ///
-    
-    //display stats
-    
-    
+    circleExit.transition().duration(400).attr('r', 0);
 };
 
 function changeRisk(num){
+    circleExit
+        .each(function(d,i){
+        d.x = centers[d.cluster].xorig;
+        d.y = centers[d.cluster].yorig;  }).remove();     
     oldNodes = nodes;
     currRiskVal = parseInt(num);       
     simulation.stop();
@@ -403,9 +362,17 @@ function dataDependency(){
         .force("collide", collideForce)    
         .force("gravity", gravity)       
         .force('manyBody', manyBody)   
-        .force("x", d3.forceX(width/2).strength(.2))
-        .force("y", d3.forceY(height/2).strength(.2)) 
-        .on("tick", tick);  
+        .force("x", d3.forceX(width/2).strength(.5))
+        .force("y", d3.forceY(height/2).strength(.5)) 
+        .on("tick", tick)
+        .on('end', function(){
+            circleExit
+                .each(function(d,i){
+                d.x = centers[d.cluster].xorig;
+                d.y = centers[d.cluster].yorig;  }).remove(); 
+    })
+    
+    ;  
 
     sliderscale = d3.scaleLinear().range([0, nestedData.length-1]).domain([0, 100]); 
 

@@ -13,6 +13,7 @@ theme: '#FC2727'
 buttoncolor: #1C85FF
 infotextcolor: white
 type: individual
+wide_layout: true
 custom_css: missingrx
 custom_js:  
     - "/assets/scripts/projects/d3.min.js"   

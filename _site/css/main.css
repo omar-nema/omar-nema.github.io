@@ -408,7 +408,7 @@
     font-size: calc(7px + 2vw); } }
 @media only screen and (max-width: 550px) {
   .content.grid {
-    padding-top: 32px; }
+    padding-top: 64px; }
 
   .time-sort {
     display: none; }
@@ -417,16 +417,17 @@
     opacity: .85; }
 
   .grid .cardholder {
-    margin-left: 6vw;
+    margin-left: 9vw;
     margin-right: 0;
     padding: 0;
-    width: 34.992vw;
-    height: 27.9936vw; }
+    width: 32.4vw;
+    height: 25.92vw; }
     .grid .cardholder .card.card1 {
-      border-radius: 4%;
       width: 100%;
       height: 100%;
-      transform: none; }
+      opacity: .9;
+      transform: none;
+      border: none; }
     .grid .cardholder .card.card2, .grid .cardholder .card.card3 {
       display: none; } }
 .content.grid.timesort {

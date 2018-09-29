@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <!-- PAGE TITLE -->
+    <title>Costs and Referrals</title>
+
+    <!-- CSS  -->
+    <!-- Libraries -->
+    <link href="css/lib/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/lib/nv.d3.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,600i,700|Josefin+Slab:100,300,400,600,700" rel="stylesheet">
+    <!-- Your CSS Here -->
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+
+<body>
+<div id="tooltip" class="tooltip"></div>
+
+<!--<div id="footer-img"><img src="/img/footer.png" width="100%" /></div>-->
+
+<!-- MAIN PAGE -->
+<div id="main">
+<!--
+<div class="nav-btns">
+    <a class="btn" id="provider-start">Providers</a>
+    <a class="btn" id="procedure-start">Procedures</a>
+    <a class="btn hidden" id="back-btn">Back</a>
+</div> -->
+
+<div class=" primary-pane" id="ProcedurePlot">
+    <div class="col s12 card">
+        <!-- <div class="row card-header">
+            <div class="col s12 left-align">Procedures Provided</div>
+        </div> -->
+        <div class="row card-body">
+            <div class="col s12"></div>
+            <div class="zoom-out-button button">zoom out</div>
+        </div>
+    </div>
+
+</div>
+
+
+<div id="modal1" class="modal">
+<div class="modal-content">
+    <div class="row"><div class="col s12 modal-header"></div></div>
+    <div class="row"><div class="col s12 modal-body"></div></div>
+</div>
+</div>
+
+
+<!-- SCRIPTS -->
+    <!-- Libraries -->
+<!--    <script src="js/lib/d3.min.js"></script>-->
+    <script src="js/lib/queue.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+<!--    <script src="js/lib/nv.d3.min.js"></script>-->
+    <script src="js/lib/topojson.min.js"></script>
+    <script src="js/lib/jquery-1.10.2.min.js"></script>
+    <script src="js/lib/materialize.min.js"></script>
+    <script src="js/lib/materializeColors.js"></script>
+
+    <!-- Your Scripts Here -->
+    <script src="js/helpers.js"></script>
+    <script src="js/prepData.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/blob.js"></script>
+    <!-- Initialize Page -->
+    <script src="js/init.js"></script>
+
+</body>
+</html>

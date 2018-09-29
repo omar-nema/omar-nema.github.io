@@ -1,0 +1,1535 @@
+{
+   "referralRule":{
+      "id":8,
+      "maxPatientAge":null,
+      "ruleSetting":"NeedsReview",
+      "roster":{
+         "id":4,
+         "title":"Tufts Circle",
+         "createdAt":"02/21/2018",
+         "updatedAt":"02/21/2018",
+         "providers":[
+            {
+               "id":163,
+               "firstName":"Shah",
+               "lastName":"Archana",
+               "npi":"1184685133",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":27,
+                  "name":"SMG Lunenburg Family Practice",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":27,
+                  "name":"GNashoba Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":164,
+               "firstName":"Sorial",
+               "lastName":"Ehab",
+               "npi":"1083608442",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":165,
+               "firstName":"Mendes",
+               "lastName":"Manuela",
+               "npi":"1912904988",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":166,
+               "firstName":"Bajracharya",
+               "lastName":"Sarita",
+               "npi":"1043434160",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":29,
+                  "name":"Cape Cod Hospital Primary Care",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":167,
+               "firstName":"Molagavalli",
+               "lastName":"Veena",
+               "npi":"1487600979",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":30,
+                  "name":"Compass Pod 1: Brockton | Compass Medical - East Bridgewater",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":30,
+                  "name":"Compass Pod 1: Brockton",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":168,
+               "firstName":"Sprycha",
+               "lastName":"Marcin",
+               "npi":"1841455136",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":31,
+                  "name":"Compass Pod 4: Taunton | Compass Medical - Middleboro",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":31,
+                  "name":"Compass Pod 4: Taunton",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":169,
+               "firstName":"Silva",
+               "lastName":"George",
+               "npi":"1922000769",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":32,
+                  "name":"Woodbine PC dba Mashpee Family Medicine",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":170,
+               "firstName":"Stecker",
+               "lastName":"Brett",
+               "npi":"1114097599",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":33,
+                  "name":"GT Pod 1: FM | Tristan Medical, PC",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":32,
+                  "name":"GT Pod 1: FM",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":171,
+               "firstName":"Philip",
+               "lastName":"Linsey",
+               "npi":"1053304469",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":34,
+                  "name":"GFR Pod 5: Prima Care Specialist | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":33,
+                  "name":"GFR Pod 5: Prima Care Specialist",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":172,
+               "firstName":"Thavaseelan",
+               "lastName":"Perin",
+               "npi":"1861409989",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":35,
+                  "name":"Pleasant Valley Internists",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":34,
+                  "name":"GM Pod 2: FP/IM/Dual PS",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":173,
+               "firstName":"Rees",
+               "lastName":"Peter",
+               "npi":"1104814870",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":36,
+                  "name":"SMG Whittier Medical",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":35,
+                  "name":"GH Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":174,
+               "firstName":"Butler",
+               "lastName":"Stephen",
+               "npi":"1255318721",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":175,
+               "firstName":"Lebo",
+               "lastName":"Christopher",
+               "npi":"1477558823",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":176,
+               "firstName":"Crago",
+               "lastName":"Arthur",
+               "npi":"1851340475",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":37,
+                  "name":"Emerald Physician Services, Inc",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":177,
+               "firstName":"Gryboski",
+               "lastName":"Ann",
+               "npi":"1053389924",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":38,
+                  "name":"Cape Cod Pod 1: PCP | Emerald Physician Services, Inc.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":178,
+               "firstName":"Rana",
+               "lastName":"Mahmood",
+               "npi":"1285843169",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":38,
+                  "name":"Cape Cod Pod 1: PCP | Emerald Physician Services, Inc.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":179,
+               "firstName":"Tirmizi",
+               "lastName":"Ali",
+               "npi":"1184618902",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":39,
+                  "name":"SMG Brighton Internal Medicine",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":36,
+                  "name":"GBW Pod 1: SMG PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":180,
+               "firstName":"Silvia",
+               "lastName":"Joanne",
+               "npi":"1568575876",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":31,
+                  "name":"Compass Pod 4: Taunton | Compass Medical - Middleboro",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":31,
+                  "name":"Compass Pod 4: Taunton",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":181,
+               "firstName":"Barnett",
+               "lastName":"Michael",
+               "npi":"1376594648",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":40,
+                  "name":"Michael Barnett M.D.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":182,
+               "firstName":"Friedman",
+               "lastName":"Neal",
+               "npi":"1194712257",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":41,
+                  "name":"SMG Wrentham Primary Care",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":37,
+                  "name":"GNorwood Pod 2: SMG",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":183,
+               "firstName":"Freid",
+               "lastName":"RenaeM",
+               "npi":"1699722488",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":42,
+                  "name":"GNewburyport Pod 1: PCP | Newburyport Family Practice",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":38,
+                  "name":"GNewburyport Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":184,
+               "firstName":"Craig-Muller",
+               "lastName":"Julia",
+               "npi":"1235110396",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":37,
+                  "name":"Emerald Physician Services, Inc",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":185,
+               "firstName":"Kayton",
+               "lastName":"Marie",
+               "npi":"1174794523",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":43,
+                  "name":"Cape Cod Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":39,
+                  "name":"Cape Cod Pod 2: Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":186,
+               "firstName":"Farah",
+               "lastName":"Ziad",
+               "npi":"1700854619",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":44,
+                  "name":"Fontaine Medical Center",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":187,
+               "firstName":"Hieb",
+               "lastName":"Louis",
+               "npi":"1023053964",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":44,
+                  "name":"Fontaine Medical Center",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":188,
+               "firstName":"Mohr",
+               "lastName":"Chester",
+               "npi":"1205930807",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":45,
+                  "name":"Chester H. Mohr M.D.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":189,
+               "firstName":"Henderson",
+               "lastName":"Scott",
+               "npi":"1427037662",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":46,
+                  "name":"GFR Pod 1: Hawthorn Adult Med | Hawthorn Medical Associates",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":40,
+                  "name":"GFR Pod 1: Hawthorn Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":190,
+               "firstName":"Mandel",
+               "lastName":"Yuliya",
+               "npi":"1013022797",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":47,
+                  "name":"Yuliya Mandel, MD, PC",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":35,
+                  "name":"GH Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":191,
+               "firstName":"Franklin",
+               "lastName":"Marcia",
+               "npi":"1649227588",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":37,
+                  "name":"Emerald Physician Services, Inc",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":192,
+               "firstName":"Bishai",
+               "lastName":"Magda",
+               "npi":"1366494734",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":48,
+                  "name":"Stoneman Primary Care",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":193,
+               "firstName":"Tan",
+               "lastName":"Debbie-Ann",
+               "npi":"1265498851",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":194,
+               "firstName":"Mahoney",
+               "lastName":"Sharon",
+               "npi":"1205974722",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":49,
+                  "name":"Mid Cape Medical Center",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":195,
+               "firstName":"Spirito",
+               "lastName":"Joseph",
+               "npi":"1790775963",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med | Prima CARE, P.C.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":28,
+                  "name":"GFR Pod 4: Prima Care Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":196,
+               "firstName":"Marcantonio",
+               "lastName":"Rachael",
+               "npi":"1639146657",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":50,
+                  "name":"Family Medical Associates PC",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":41,
+                  "name":"GNorwood Pod 4: FMA Lowney",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":197,
+               "firstName":"Caticha",
+               "lastName":"Omar",
+               "npi":"1700873924",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":51,
+                  "name":"GT Pod 2: IM | Taunton Medical",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":42,
+                  "name":"GT Pod 2: IM",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":198,
+               "firstName":"Gardner",
+               "lastName":"Amy",
+               "npi":"1598846529",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":38,
+                  "name":"Cape Cod Pod 1: PCP | Emerald Physician Services, Inc.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":199,
+               "firstName":"Bhatia",
+               "lastName":"Dyan",
+               "npi":"1376590950",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":13,
+                  "name":"Podiatry",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":30,
+                  "name":"Compass Pod 1: Brockton | Compass Medical - East Bridgewater",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":30,
+                  "name":"Compass Pod 1: Brockton",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":200,
+               "firstName":"Gupta",
+               "lastName":"Mita",
+               "npi":"1750390894",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":2,
+                  "name":"Cardiology",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":52,
+                  "name":"Chatham Medical Group",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":201,
+               "firstName":"Rudman",
+               "lastName":"Kathryn",
+               "npi":"1497718035",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":3,
+                  "name":"Dermatology",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":53,
+                  "name":"Seaside Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":39,
+                  "name":"Cape Cod Pod 2: Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":202,
+               "firstName":"Dang",
+               "lastName":"Gaurav",
+               "npi":"1386896256",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":27,
+                  "name":"Opthalmology",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":38,
+                  "name":"Cape Cod Pod 1: PCP | Emerald Physician Services, Inc.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":203,
+               "firstName":"Michalacos",
+               "lastName":"Nikolas",
+               "npi":"1083697932",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":28,
+                  "name":"Audiology",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":54,
+                  "name":"SMG Bridgewater Internal Medicine",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":43,
+                  "name":"GB Pod 1: BWE and Independents",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":204,
+               "firstName":"Zito",
+               "lastName":"Lorraine",
+               "npi":"1487617171",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":29,
+                  "name":"Nutrition",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":55,
+                  "name":"Bass River Pediatric Associates",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":39,
+                  "name":"Cape Cod Pod 2: Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":205,
+               "firstName":"Riad",
+               "lastName":"Dahlia",
+               "npi":"1396736708",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":30,
+                  "name":"Infertility",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":56,
+                  "name":"Compass Medical - Braintree",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":30,
+                  "name":"Compass Pod 1: Brockton",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":206,
+               "firstName":"Etter",
+               "lastName":"Justin",
+               "npi":"1699113472",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":31,
+                  "name":"Physical Therapy",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":46,
+                  "name":"GFR Pod 1: Hawthorn Adult Med | Hawthorn Medical Associates",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":40,
+                  "name":"GFR Pod 1: Hawthorn Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":207,
+               "firstName":"Tufts",
+               "lastName":"Henry",
+               "npi":"1629163191",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":9,
+                  "name":"Pediatrics",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":57,
+                  "name":"Henry Tufts M.D.",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":208,
+               "firstName":"Prior",
+               "lastName":"Stephanie",
+               "npi":"1336120567",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":32,
+                  "name":"Psychiatry",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":58,
+                  "name":"Cape Cod Pod 1: PCP | Community Health Center of Cape Cod",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":209,
+               "firstName":"Holland",
+               "lastName":"Ruth",
+               "npi":"1588666358",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":2,
+                  "name":"Cardiology",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":37,
+                  "name":"Emerald Physician Services, Inc",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":210,
+               "firstName":"Wathier",
+               "lastName":"Christopher",
+               "npi":"1295724664",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":33,
+                  "name":"Occupational Therapy",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":37,
+                  "name":"Emerald Physician Services, Inc",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":211,
+               "firstName":"Wu",
+               "lastName":"Elaine",
+               "npi":"1821064874",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "specialty":{
+                  "id":34,
+                  "name":"Speech Therapy",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "chapter":{
+                  "id":46,
+                  "name":"GFR Pod 1: Hawthorn Adult Med | Hawthorn Medical Associates",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":40,
+                  "name":"GFR Pod 1: Hawthorn Adult Med",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":212,
+               "firstName":"Weber",
+               "lastName":"Eric",
+               "npi":"1376572966",
+               "phone":"6171230131",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"445 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":59,
+                  "name":"Park Street Primary Care",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            },
+            {
+               "id":213,
+               "firstName":"John",
+               "lastName":"Dowling",
+               "npi":"1700872330",
+               "phone":"6171230132",
+               "fax":"6173321987",
+               "email":"6173321987",
+               "street":"446 Common Ave",
+               "city":"Worcester",
+               "state":"MA",
+               "zip":"02144",
+               "rosterId":4,
+               "createdAt":"02/21/2018",
+               "updatedAt":"02/21/2018",
+               "chapter":{
+                  "id":59,
+                  "name":"Park Street Primary Care",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               },
+               "practice":{
+                  "id":29,
+                  "name":"Cape Cod Pod 1: PCP",
+                  "createdAt":"02/21/2018",
+                  "updatedAt":"02/21/2018"
+               }
+            }
+         ]
+      },
+      "chapter":[
+
+      ],
+      "patientPayer":{
+         "id":2,
+         "listedName":"tufts",
+         "planpayerAcronym":"THP"
+      },
+      "specialties":[
+         {
+            "id":3,
+            "name":"Dermatology"
+         }
+      ]
+   }
+}

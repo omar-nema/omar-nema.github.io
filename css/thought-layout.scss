@@ -1,0 +1,30 @@
+
+@import 'ref';
+@import url("https://use.typekit.net/lfp3hrx.css");
+
+body {
+  font-family: 'odisseia'
+}
+
+.thought-card {
+  position: absolute;
+  background: white;
+  box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.15);
+  cursor: grab;
+  border: 1px solid black;
+  opacity: .95;
+}
+.thought-header {
+  border-bottom: 1px solid black;
+  padding: 10px 20px;
+  font-weight: 700;
+    font-size: 16px;
+
+}
+
+.thought-content {
+    padding: 10px 20px;
+}
+
+
+// .DragEvents

@@ -1,208 +1,248 @@
+
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-      <!-- PAGE TITLE -->
-      <title>Referral Networks</title>
-      <!-- <subtitle>Looking for Optimization Opportunities</subtitle> -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-         rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-      <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-   </head>
-   <body>
-      <div id="tooltip" class="tooltip"></div>
-      <!-- <div id="node-label"></div> -->
-      <!-- MAIN PAGE -->
-      <div id="main">
-      <div class="row" style="position:relative">
-         <!-- <div class="loading">
-            LOADING ...
-            </div> -->
-         <div id="graph-1">
+<html>
 
-           <div id="modal1" class="modal" style="width:600px; overflow-x: hidden">
-               <div class="modal-content">
-                 <!-- <h4>Modal Header</h4> -->
-                 <!-- <p>A bunch of text</p> -->
-                 <img class="graph1" src="img/graph1.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-                 <img class="graph2" src="img/graph2.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-                 <img class="graph3" src="img/graph3.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-               </div>
-               <!-- <div class="modal-footer">
-                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-               </div> -->
-             </div>
+<head>
+    <title>omar nema </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="omar_nema/work ">
+    <link rel="stylesheet" type="text/css" href="/css/index-layout.min.css">
+     <!-- <link rel="stylesheet" href="https://use.typekit.net/lfp3hrx.css"> -->
+</head>
 
-
-            <div class="title">
-               Referral Network Explorer
-            </div>
-            <div class="row subrow">
-               <div class="subtitle">
-               </div>
-               <!-- <div class="zoom-out-button right">
-                  <i class="material-icons back">navigate_before</i>
-                  Back
-               </div> -->
-            </div>
-            <div class="graph-description">
-            </div>
-            <div style="clear:both">
-            </div>
-            <div class="main-holder">
-               <div class="chart-nav row" >
-                  Outpatient Referrals - Cost, Frequency, and Variation
-               </div>
-
-               <div class="top-buttons">
-
-
-
-                  <div class="filterheader" data-position="top" data-delay="50" data-tooltip="Filter data by procedure categories">
-                     <i class="material-icons">filter_list</i>
-                     Filter
-                  </div>
-                  <div class="legend floating flat modal-trigger" data-target="modal1">
-                     Legend
-                  </div>
-                  <div class="rescale inactive floating flat" style="margin-left:11px">
-                     Rescale
-                  </div>
-                  <div class="netbutton floating flat" style="width: 138px">
-                     See Network<i class="material-icons rightarrow" >chevron_right</i>
-                  </div>
-                  <div class=" floating flat zoom-out-button" style="width: auto; margin-left: 20px;padding-right:16px">
-                     <i class="material-icons rightarrow" >chevron_left</i>
-                     Procedures
-                  </div>
-               </div>
-               <div id="filters">
-                  <div class="procedure-filters">
-                  </div>
-                  <div class="node-filters">
-                     <div class="selection nodeheader">
-                        Selected Provider
-                     </div>
-                     <div class="selected-content">
-
-                     </div>
-                     <!-- <div class="selection-status nodebody">
-                        Cost/Event: $400 (15th percentile)
-                        <br> Events/1000: 3 (30th percentile)
-                        <br> 57% In Network
-                        <br> Routed to 3 specialists
-                        <div style="clear:both">
-
-                        </div>
-                        <a class="btn waves btn-flat dist centered">Remove</a>
-                     </div> -->
-                     <div class="values nodeheader">
-                        Find Specialists
-                     </div>
-                     <div class="nodebody specialists">
-                         <div class="slider-block cost" filtertype="cost">
-                            <div class="slider-label">Cost</div>
-                            <div class="slider profile-one">
-                               <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
-                                  <div class="thumb-tooltip">0.0</div>
-                               </div>
-                               <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"filtertype="discharge">
-                                  <div class="thumb-tooltip">1</div>
-                               </div>
-                               <div class="fill-inner" filtertype="discharge"></div>
-                            </div>
-                         </div>
-                         <div class="slider-block frequency" filtertype="cost">
-                            <div class="slider-label">Frequency</div>
-                            <div class="slider vertical profile-one">
-                               <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
-                                  <div class="thumb-tooltip">0.0</div>
-                               </div>
-                               <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"  filtertype="discharge">
-                                  <div class="thumb-tooltip" >1</div>
-                               </div>
-                               <div class="fill-inner" filtertype="discharge"></div>
-                            </div>
-                         </div>
-                         <div style="clear:both">
-
-                         </div>
-                         <div class="left slider-label">
-                           Type
-                         </div>
-                         <form>
-                           <div class="left radio">
-                             <p style="margin-top:0">
-                               <label>
-                                 <input id="in" class="with-gap" name="group3" type="radio" />
-                                 <span>In Network</span>
-                               </label>
-                             </p>
-                             <p>
-                               <label>
-                                 <input id="out" class="with-gap" name="group3" type="radio" />
-                                 <span>Out of network</span>
-                               </label>
-                             </p>
-                             <p>
-                               <label>
-                                 <input id="both" class="with-gap" name="group3" type="radio" checked/>
-                                 <span>Both</span>
-                               </label>
-                             </p>
-                           </div>
-                         </form>
-
-                         <div class="row" style="padding-top: 10px">
-                          <a class="btn waves btn-flat node-remove-button cancel">Remove</a>
-                          <a class="btn waves btn-flat node-filter-button active">Apply</a>
-                         </div>
-                         </div>
-
-                     </div>
-
-
-                  <!-- <div class="myhead">
-                     Collapse
-                     </div> -->
-                  <div style="clear:both">
-                  </div>
-               </div>
-            </div>
-
-            <div class="row footer">
-              <img src="img/logo.png" class="logo" />
-            </div>
-         </div>
+<body>
+  <header>
+    <div class="index-header h1">Omar Nema</div>
+  </header>
+  <div class="content">
+    <div class="filter-holder">
+      <div class="project-filter">
+        <div class="filter-option selected">
+          list
+        </div>
+        <div class="filter-option">
+          grid
+        </div>
       </div>
+      <div class="project-filter">
+        <div class="filter-option selected">
+          all
+        </div>
+        <div class="filter-option">
+          data vis
+        </div>
+        <div class="filter-option">
+          product
+        </div>
+        <div class="filter-option">
+          engineering
+        </div>
+      </div>
+      <div class="project-filter">
+        <div class="filter-option selected">
+          date
+        </div>
+        <div class="filter-option">
+          type
+        </div>
+      </div>
+    </div>
+    <div class="project-list-holder">
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Medical Referral App
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Product
+            </div>
+            <div class="chip">
+              2018 - current
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Design & strategy. Platform used to submit and suggest medical referrals. Currently used by over 2000 doctors.
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Care Management App
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Product
+            </div>
+            <div class="chip">
+              2017 - current
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Design & strategy. Platform that allows people who are responsible for a patient's care to communicate, collaborate, and strategize.
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            What I'm Thinking.
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Data Vis
+            </div>
+            <div class="chip">
+              2018
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Referral Network Visualization
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Data Vis
+            </div>
+            <div class="chip">
+              2018
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Design & development. Identify aberrations, and opportunities for improvement in a provider referral network. Related: Referral strategy App.
+            </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Hospital Quality
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Data Vis
+            </div>
+            <div class="chip">
+              2016
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Design & development. Compare and filter hospital quality across four axes.
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Engineering Thesis
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Engineering
+            </div>
+            <div class="chip">
+              2015
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Research & development. Simulating electrical stimulation in primates.
+          </div>
+        </div>
+      </div>
+      <!-- <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Care strategy
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Product
+            </div>
+            <div class="chip">
+              2017 - current
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Care strategy
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Product
+            </div>
+            <div class="chip">
+              2017 - current
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </div>
+        </div>
+      </div>
+      <div class="project list-block">
+        <div class="list-row one-third two-third">
+          <div class="h2 project-title">
+            Care strategy
+          </div>
+          <div class="project-chips">
+            <div class="chip">
+              Product
+            </div>
+            <div class="chip">
+              2017 - current
+            </div>
+          </div>
+        </div>
+        <div class="list-row">
+          <div class="project-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          </div>
+        </div>
+      </div> -->
 
-      <!-- <div class="section footer center-align grey-text text-darken-2">
-         <p>&copy; 2017 <a href="http://www.arcadiasolutions.com">Arcadia Solutions</a></p>
-         </div> -->
-      <!-- SCRIPTS -->
-      <!-- Libraries -->
+    </div>
+    <div class="project-grid-holder">
+  </div>
 
 
-      <!-- <script src="js/lib/d3.min.js"></script> -->
-      <script src="https://d3js.org/d3.v4.min.js"></script>
-      <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-      <script src="js/lib/queue.min.js"></script>
-      <script src="js/lib/jquery-1.10.2.min.js"></script>
-      <!-- <script src="js/lib/materialize.min.js"></script> -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js"></script>
-      <!-- <script src="http://arcadia-assets.s3-website-us-west-2.amazonaws.com/helpers.js"></script> -->
-      <script src="js/helpers.js"></script>
-      <script src="js/ui.js"></script>
-      <script src="js/prepData.js"></script>
-      <script src="js/plotBlobs.js"></script>
-      <script src="js/plotScatter.js"></script>
-      <script src="js/plotNodes.js"></script>
-      <script src="js/draw.js"></script>
-      <script src="js/init.js"></script>
-      <script></script>
-   </body>
+
+  </div>
+
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src= /assets/scripts/main.js></script>
+
+
 </html>

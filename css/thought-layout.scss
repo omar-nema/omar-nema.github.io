@@ -3,22 +3,32 @@
 @import url("https://use.typekit.net/lfp3hrx.css");
 
 body {
-  font-family: 'odisseia'
+  font-family: 'odisseia';
+  background: #0e0e0e;
 }
 
 .thought-card {
   position: absolute;
   background: white;
-  box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.15);
+  background: #3c3c3c;
+  box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.30);
   cursor: grab;
   border: 1px solid black;
-  opacity: .95;
+  border: 1px solid #272727;
+  opacity: .88;
+  border-radius: 5px;
+  color: white;
+  transition: box-shadow .1s ease-in-out, border-color .1s ease-in-out;
+}
+.thought-card:hover {
+  box-shadow: 0px 8px 13px 0px rgba(0,0,0,0.5);
+  border-color: black;
 }
 .thought-header {
-  border-bottom: 1px solid black;
   padding: 10px 20px;
   font-weight: 700;
-    font-size: 16px;
+  font-size: 16px;
+  text-align: right;
 
 }
 

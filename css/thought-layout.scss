@@ -2,27 +2,67 @@
 @import 'ref';
 @import url("https://use.typekit.net/lfp3hrx.css");
 
+$highlight-color: #0d0d0d;
+
 body {
   font-family: 'odisseia';
   background: #0e0e0e;
+  font-size: 12px;
+  outline-style:none;
+}
+
+svg.canvas {
+  width: 100%;
+  padding-top: 10%;
+  height: 100%;
+}
+
+.tip-content {
+
+
+}
+
+.thought {
+  padding: 5px 10px;
+  transition: background .15s ease-in-out;
+}
+.thought:hover {
+  // background: $highlight-color;
+
+}
+
+.sort-btn {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.thought-content {
+  cursor: pointer;
+  padding: 10px 10px;
 }
 
 .thought-card {
-  position: absolute;
-  background: white;
-  background: #3c3c3c;
-  box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.30);
-  cursor: grab;
-  border: 1px solid black;
-  border: 1px solid #272727;
-  opacity: .88;
-  border-radius: 5px;
-  color: white;
-  transition: box-shadow .1s ease-in-out, border-color .1s ease-in-out;
+  font-family: 'odisseia';
+  // position: absolute;
+  // background: white;
+  // background: #2e2e2e;
+  // box-shadow: 10px 10px 13px 0px rgba(0,0,0,0.30);
+  // box-shadow: 0px 7px 16px 7px rgba(0,0,0,0.3);
+  // cursor: grab;
+  // border: 1px solid #ffffff29;
+  // opacity: .85;
+  // border-radius: 5px;
+  // color: white;
+  // transition: box-shadow .1s ease-in-out, border-color .1s ease-in-out, opacity .1s ease-in-out;
 }
 .thought-card:hover {
-  box-shadow: 0px 8px 13px 0px rgba(0,0,0,0.5);
-  border-color: black;
+  // box-shadow: 0px 8px 13px 0px rgba(0,0,0,0.5);
+  // border-color: black;
+  // opacity: .95 !important;
 }
 .thought-header {
   padding: 10px 20px;
@@ -32,9 +72,6 @@ body {
 
 }
 
-.thought-content {
-    padding: 10px 20px;
-}
 
 
 // .DragEvents

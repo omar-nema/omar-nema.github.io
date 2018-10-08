@@ -53,18 +53,13 @@ var positions = [['2%','9%'], ['7%','50%'], ['26%', '23%'], ['56%', '-2%'], ['50
 var positions = [[.02, .09],[.07, .5],[.26, .23],[.56, -.02],[.5, .4],[.39, .69]]
 
 var width = $('svg.canvas').width();
+var height = $('svg.canvas').height();
 
-function scatterPosition(num, orientation){
-  if (num < positions.length){
-    if (orientation == 'left'){
-      posPct = positions[num][0]*width
-    } else {
-      posPct = positions[num][1]*width
-    }
-    return posPct;
-  } else {
-    return (Math.random()*.6 + .25)*width
-  }
+function scatterX(num, orientation){
+  return (Math.random()*.95 + .05)*width;
+}
+function scatterY(num, orientation){
+  return (Math.random()*.95 + .05)*height;
 }
 var currZ = 1;
 $(function() {
@@ -78,34 +73,79 @@ $(function() {
         var lists = d3.nest().key(function(d){return d.pattern}).entries(thoughtData);
         var canvas = d3.select('body').select('svg.canvas');
         var thoughtNest = d3.nest().key(function(d){return d.thought}).entries(thoughtData);
-        var thoughtCard = canvas.selectAll('.thought-card').data(thoughtNest, function(d){return d.values[0].pattern})
+
+        var thoughtCard = canvas.selectAll('.thought-card').data(lists, function(d){return d.key})
         //this is where we do the update
-        thoughtCard = thoughtCard.enter().append('g').attr('class', 'thought-card')
-          // .attr('transform', function(d, i))
-          // .attr('transform', function(d, i){
-          //   return 'translate(' + scatterPosition(i) + ',' + scatterPosition(i) + ')'
-          // })
-          // .attr('x', function(d, i){
-          //   return scatterPosition(i);
-          // })
-          // .attr('y', function(d, i){
-          //   return scatterPosition(i);
-          // })
-          // .attr('width', 200)
-          // .attr('height', 2000)
+        thoughtCard.enter().append('g').attr('class', 'thought-card')
           .append('text')
-            // .attr('width', 100)
-            // .attr('height', 50)
-            .text(function(d){
+          .text(function(d){
               return d.key
             })
             .attr('fill', 'white')
             ;
 
+          canvas.selectAll('.thought-card').selectAll('.rect-background').data(['dummy']).enter().append('rect').attr('class', 'rect-background');
 
-
+          thought = canvas.selectAll('.thought-card').selectAll('.thought').data(function(d){return d.values});
+          thought.enter().append('text')
+            .attr('class', 'thought')
+            .text(function(d){
+              return d.thought;
+            })
+            .attr('x', function(d, i){
+              return scatterX(i);
+            })
+            .attr('y', function(d, i){
+              return scatterY(i);
+            })
+            .attr('fill', 'white')
 
           ;
+
+
+
+        function groupThoughts(){
+          canvas.selectAll('.thought-card').transition(600).attr('transform', function(d,i){
+            return 'translate(' + scatterX(i) + ',' + scatterY(i) + ')'
+          });
+          canvas.selectAll('.thought-card').selectAll('.thought').transition(600).attr('x', 0).attr('y', function(d, i){
+            return i*20+20
+          })
+          // .each('end', function(d){
+          //   console.log('going', d3.select(this))
+          // })
+          .on('end', function(d){
+            d3.select(this.parentNode).select('.rect-background').attr('fill', 'rgba(0,0,0,.8)').transition(100).attr('width', function(d){
+              console.log(d3.select(this.parentNode).node().getBBox());
+              return d3.select(this.parentNode).node().getBBox().width;
+            }).attr('height', function(d){
+              return d3.select(this.parentNode).node().getBBox().height;
+            })
+            ;
+          })
+
+
+        }
+
+
+        $('.sort-btn').on('click', function(e){
+          groupThoughts();
+        })
+    });
+  }
+)
+
+
+//create generative thought-card
+
+
+          // .attr('transform', function(d, i))
+          // .attr('transform', function(d, i){
+          //   return 'translate(' + scatterPosition(i) + ',' + scatterPosition(i) + ')'
+          // })
+
+          // .attr('width', 200)
+          // .attr('height', 2000)
 
           // .style('width', 50)
           // .style('height', 50)
@@ -129,69 +169,6 @@ $(function() {
         //       currZ = currZ + 1;
         //     }
         //     });
-
-        console.log(lists, thoughtNest)
-
-        function sortList(listInput){
-          var listCard = d3.selectAll('.thought-card').data(listInput, function(d){return d.key});
-          listCard.exit().transition().remove()
-          listCard = listCard.enter().append('div').attr('class', 'thought-card')
-            .style('left', function(d, i){
-              return scatterPosition(i)
-            })
-            .style('top', function(d, i){
-              return scatterPosition(i)
-            })
-            .style('max-width', 400)
-            .append('div').attr('class', 'thought-header').text(function(d){return d.key});
-
-            listCard.selectAll('.thought').data(function(d){return d.values}).enter().append('div').attr('class', 'thought')
-              .text(function(d){return d.thought})
-
-              $('.thought-card').draggable({
-                    start: function(e){
-                    $(this).css('z-index', currZ);
-                    currZ = currZ + 1;
-                  }
-                  });
-        }
-
-        $('.sort-btn').on('click', function(e){
-          console.log(lists)
-          sortList(lists);
-        })
-
-
-
-
-
-
-
-
-
-    });
-
-
-
-
-    // $.getJSON("/projects/Lists/lists.json", function(lists) {
-    //   lists.forEach(function(e, i){
-    //     createCard(e, i);
-    //     $('.thought-card').draggable({
-    //       start: function(e){
-    //       $(this).css('z-index', currZ);
-    //       currZ = currZ + 1;
-    //     }
-    //     });
-    //   })
-    // });
-
-  }
-)
-
-
-//create generative thought-card
-
 
 //https://shopify.github.io/draggable/examples/
 

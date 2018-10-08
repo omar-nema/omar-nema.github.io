@@ -13,9 +13,9 @@ body {
 
 svg.canvas {
   width: 100%;
-  padding-top: 10%;
   height: 100%;
 }
+
 
 .tip-content {
 
@@ -30,7 +30,14 @@ svg.canvas {
   // background: $highlight-color;
 
 }
-
+.split-btn {
+  position: fixed;
+  top: 50px;
+  right: 100px;
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
 .sort-btn {
   position: fixed;
   top: 50px;

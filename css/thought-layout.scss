@@ -22,9 +22,11 @@ svg.canvas {
 
 }
 
+
 .thought {
   padding: 5px 10px;
   transition: background .15s ease-in-out;
+  cursor: grab;
 }
 .thought:hover {
   // background: $highlight-color;

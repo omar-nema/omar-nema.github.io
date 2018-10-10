@@ -131,7 +131,7 @@ $(function() {
         }
 
         function splitThoughts() {
-            canvas.selectAll('.thought-container-background').attr('stroke', 'none')
+            canvas.selectAll('.thought-container-background').attr('stroke', 'none');
             canvas.selectAll('.thought-background').attr('filter', 'url(#shadow)')
             canvas.selectAll('.thought-card').select('.thought-container-background').transition().attr('fill', 'none').on('end', function(d) {
                 thoughtCard = d3.select(this.parentNode);

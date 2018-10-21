@@ -5,7 +5,7 @@ var textPadding = 20;
 var width = $('svg.canvas').width();
 var height = $('svg.canvas').height();
 var currZ = 1;
-
+var tooltip = d3.select('.tooltip')
 
 
 function scatterX(num, orientation) {
@@ -65,13 +65,31 @@ $(function() {
         //click event to work on windows
         function dragEnd(){
           if (d3.event.x == initX &&  d3.event.y == initY){
-            d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le windows
+            d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
               if ($(e).hasClass('thought-container')){
-                console.log('the chosen one')
+                var thoughtg = d3.select(e);
+                thoughtg.each(function(d){
+                  d3.selectAll('.thought-container').transition(500).attr('opacity', function(x){
+                    if (x.thought != d.thought){
+                      return 0.3;
+                    }
+                  })
+                  tooltip.style('opacity', 1)
+                    .html(function(){
+                      return d.context;
+                    })
+                    .style("left", (d3.event.x) + "px")
+                    .style("top", (d3.event.y - 28) + "px");
+                });
               }
             })
           }
-        }
+        };
+
+        $(window).on('click', function(){
+          tooltip.style('opacity', 0);
+          d3.selectAll('.thought-container').transition(200).attr('opacity', 1);
+        })
 
         function drawThoughts(){
           canvas.selectAll('.thought-card').on(".drag", null)
@@ -195,11 +213,7 @@ $(function() {
             ;
 
             var startY;
-            canvas.selectAll('.thought-card').selectAll('.thought-container').on(".drag", null).on('mouseover', function(d){
-              d3.select(this).selectAll('.thought-background').transition(100).attr('fill', 'blue');
-            }).on('mouseout', function(d){
-              d3.select(this).selectAll('.thought-background').transition(100).attr('fill', colorRectBackground);
-            })
+            canvas.selectAll('.thought-card').selectAll('.thought-container').on(".drag", null)
             .transition(600).attr('transform', function(d,i){
               var prevElement = d3.select(this.previousElementSibling);
               if (prevElement.classed('thought-container')){

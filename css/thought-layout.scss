@@ -59,3 +59,16 @@ svg.canvas {
   cursor: pointer;
   padding: 10px 10px;
 }
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 10px 15px;
+  color: white;
+  background: rgb(61, 61, 61);
+  border: 0px;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  max-width: 30%;
+}

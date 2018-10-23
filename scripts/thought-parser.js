@@ -9,10 +9,10 @@ var tooltip = d3.select('.tooltip')
 
 
 function scatterX(num, orientation) {
-    return (Math.random() * .95 + .05) * width;
+    return (Math.random()*.6 + .1) * width;
 }
 function scatterY(num, orientation) {
-    return (Math.random() * .95 + .05) * height;
+    return (Math.random()*.7 + .15) * height;
 }
 
 $(function() {
@@ -78,8 +78,8 @@ $(function() {
                     .html(function(){
                       return d.context;
                     })
-                    .style("left", (d3.event.x) + "px")
-                    .style("top", (d3.event.y - 28) + "px");
+                    .style("left", (d3.event.x - 70) + "px")
+                    .style("top", (d3.event.y + 15) + "px");
                 });
               }
             })
@@ -153,7 +153,7 @@ $(function() {
                 return (textPadding + d3.select(this.parentNode).node().getBBox().width);
             });
           thought.selectAll('.thought-background')
-              .attr('rx', '5').attr('ry', '5');
+              // .attr('rx', '5').attr('ry', '5');
         }
 
         function flattenThoughts(){
@@ -232,7 +232,8 @@ $(function() {
                 thoughtCard.select('.thought-pattern').transition(100).attr('fill', colorHeaderText)
                   .attr('transform', 'translate(0, 15)')
                 thoughtCard.select('.thought-container-background').attr('fill', colorRectBackground).attr('fill-opacity', .88)
-                .attr('rx', 5).attr('ry', 5).attr('stroke', 'rgba(255,255,255,.2)')
+                //.attr('rx', 5).attr('ry', 5)
+                .attr('stroke', 'rgba(255,255,255,.2)')
                 .transition(100).attr('width', function(d) {
                     return d3.select(this.parentNode).node().getBBox().width + textPadding;
                 }).attr('height', function(d) {
@@ -262,7 +263,8 @@ $(function() {
                         line.pop();
                         tspan.text(line.join(" "));
                         line = [word];
-                        tspan = text.append("tspan").attr('x', 0).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                        //++lineNumber * lineHeight
+                        tspan = text.append("tspan").attr('x', 0).attr("dy", lineHeight + dy + "em").text(word);
                     }
                 }
             });

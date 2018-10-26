@@ -103,6 +103,13 @@ header {
 .project-description {
   padding-top: 5px;
 }
+.project-layout-block {
+  padding: 20px;
+}
+.project-layout-block:hover {
+  background: rgba(0,0,0,.1);
+  cursor: pointer;
+}
 
 
 

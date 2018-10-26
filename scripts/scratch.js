@@ -26,3 +26,32 @@
 // .attr('y', function(d) {
 //     return d3.select(this.parentNode).node().getBBox().y;
 // })
+
+
+//tooltip.transition().style('opacity', .9);
+// tooltip.select('.tip-text.context')
+//   .html(function(){
+//     return  '"...' + d.context +  '..."';
+//   });
+//   tooltip.select('.tip-text.pattern')
+//     .html(function(){
+//       return  d.pattern;
+//     });
+//
+
+
+  // .style("left", (d3.event.x - 70) + "px")
+  // .style("top", (d3.event.y + 15) + "px");
+
+
+  // if ($(e).hasClass('thought-container')){
+  //   var thoughtg = d3.select(e);
+  //   thoughtg.each(function(d){
+  //     d3.selectAll('.thought-container').transition(100).attr('opacity', function(x){
+  //       if (x.thought != d.thought){
+  //         return 0.5;
+  //       }
+  //     })
+  //
+  //   });
+  // }

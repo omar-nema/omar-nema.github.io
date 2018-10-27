@@ -14,9 +14,13 @@ body {
    #000000 10%,
    #0f0f0f 90%
    );
-  font-size: 12px;
+  font-size: 10px;
+  letter-spacing: .3px;
   outline-style:none;
   outline:none;
+}
+text {
+  text-transform: lowercase;
 }
 .header {
   height: 50px;
@@ -115,3 +119,9 @@ div.tooltip {
   margin-bottom: 15px;
   letter-spacing:0.5px
 }
+
+
+//
+// .on('end', function(d){
+//   d3.select(this).attr('display', 'none');
+// });

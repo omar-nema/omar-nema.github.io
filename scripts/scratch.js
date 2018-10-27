@@ -104,3 +104,23 @@
           return d.pattern
         })
         .attr('visibility', 'hidden');
+
+
+
+
+        function cardFade(e){
+          d3.select(e).each(function(d){
+            d3.selectAll('.thought-container')
+            .filter(function(x){
+              if (x.thought != d.thought){
+                return x;
+              }
+            })
+            .attr('opacity', '0.1')
+            .attr('fill-opacity', '0.3')
+            ;
+          });
+        }
+        function cardShow(e){
+          d3.selectAll('.thought-container').attr('opacity', '1').attr('fill-opacity', '0.88');
+        }

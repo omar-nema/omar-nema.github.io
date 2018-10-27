@@ -55,3 +55,52 @@
   //
   //   });
   // }
+
+  thought
+    .append('foreignObject')
+    .attr('width', 350)
+    .append('xhtml:div')
+    .style('color', 'blue')
+    .html('halahalamishmaskhala<br>halahalamishmaskhala<br>halahalamishmaskhala<br>halahalamishmaskhala<br>halahalamishmaskhala<br>')
+    .on('click', function(d){
+      console.log('asdasdasdasd')
+    })
+
+
+
+
+
+
+
+    d3.selectAll('.additional-info')
+      .attr('y', function(d){
+        bbox = d3.select(this.previousSibling).node().getBBox();
+        return bbox.height + bbox.y +15 + 'px';
+      })
+
+      ;
+
+      thought.append('text')
+        .attr('class', 'pattern-header additional-info')
+        .attr('x', 0)
+        .attr('dy', 0)
+        .attr('fill', 'red')
+        .text('pattern')
+        // .attr('y', function(d){
+        //   bbox = d3.select(this.previousSibling).node().getBBox();
+        //   return bbox.height+bbox.y + 20 + 'px';
+        // })
+        .attr('visibility', 'hidden');
+      thought.append('text')
+        .attr('class', 'pattern additional-info')
+        .attr('x', 0)
+        .attr('dy', 0)
+        // .attr('y', function(d){
+        //   bbox = d3.select(this.previousSibling).node().getBBox();
+        //   return bbox.height + bbox.y +15 + 'px';
+        // })
+        .attr('fill', 'red')
+        .text(function(d){
+          return d.pattern
+        })
+        .attr('visibility', 'hidden');

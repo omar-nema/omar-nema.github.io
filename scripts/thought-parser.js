@@ -9,10 +9,10 @@ var tooltip = d3.select('.tooltip')
 
 
 function scatterX(num, orientation) {
-    return (Math.random()*.7) * width;
+    return Math.random()*(width-300);
 }
 function scatterY(num, orientation) {
-    return (Math.random()*.7 + .15) * height;
+    return Math.max(Math.random()*(height-50), 15+Math.random()*15);
 }
 
 $(function() {
@@ -63,11 +63,47 @@ $(function() {
             })
         }
 
+        function thoughtHeightAdjustment(thoughtContainer){
+          textBBox =
+          thoughtContainer.select('.thought-background')
+            .transition(100)
+            .attr('height', function(d) {
+                return textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().height;
+            })
+            .attr('width', function(d) {
+                return (textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().width);
+            })
+            ;
+        };
 
+        function cardFade(e){
+          d3.select(e).each(function(d){
+            d3.selectAll('.thought-container')
+            .filter(function(x){
+              if (x.thought != d.thought){
+                return x;
+              }
+            })
+            .attr('opacity', '0.1')
+            .attr('fill-opacity', '0.3')
+            ;
+          });
+        }
+        function cardShow(e){
+          d3.selectAll('.thought-container').attr('opacity', '1').attr('fill-opacity', '0.88');
+        }
+        function thoughtShowContext(thoughtContainer){
+          thoughtContainer.selectAll('.additional-info').transition(100).attr('opacity', '1').attr('fill-opacity', '.88');
+          thoughtContainer.transition(100).attr('transform', 'translate(' + centeredX/2 + ',' + centeredY/2 + ')scale(1)')
+        }
+        function thoughtHideContext(clickedThought){
+          clickedThought.selectAll('.additional-info').attr('opacity', 0).attr('display', 'none');
+          clickedThought.select('.thought-text').attr('display', 'block').attr('opacity', '1');
+        }
         //click event to work on windows
         function dragEnd(){
           if (d3.event.x == initX &&  d3.event.y == initY){
-            var thoughtContainer, cardTranslation;
+            var thoughtContainer, cardTranslation, thoughtTranslation;
             var dragRecipient = d3.select(this);
             var dragParent = d3.select(this.parentNode);
             d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
@@ -81,9 +117,12 @@ $(function() {
                   d3.event.sourceEvent.path.forEach(function(x){
                     if ($(x).hasClass('thought-container')){
                       thoughtContainer = d3.select(x);
+
                     }
                   })
                 }
+                thoughtTranslation = getTranslation(thoughtContainer.attr('transform'));
+                thoughtContainer.attr('class', 'thought-container active')
                 thoughtContainer.select('.thought-text').transition(50).attr('opacity', '0').on('end', function(d){
                   d3.select(this).attr('display', 'none');
                 });
@@ -96,45 +135,29 @@ $(function() {
                       bbox = d3.select(this.previousSibling).node().getBBox();
                       return bbox.height + bbox.y + 15 + 'px';
                     }
-
                   });
                 centeredX = width - thoughtContainer.node().getBBox().width/2 - cardTranslation[0];
                 centeredY = height - thoughtContainer.node().getBBox().height/2 - cardTranslation[1];
-
-                var currSelection = d3.select('.thought-container');
-                d3.select(e).each(function(d){
-                  d3.selectAll('.thought-container')
-                  .transition(100)
-                  .filter(function(x){
-                    if (x.thought != d.thought){
-                      return x;
-                    }
-                  })
-                  .attr('opacity', '0.1');
-                });
-
-                thoughtContainer.select('.thought-background')
-                  .transition(100)
-                  .attr('height', function(d) {
-                      return textPadding + d3.select(this.parentNode).node().getBBox().height;
-                  })
-                  .attr('width', function(d) {
-                      return (textPadding + d3.select(this.parentNode).node().getBBox().width);
-                  })
-                  ;
-                thoughtContainer.selectAll('.additional-info').transition(100).attr('opacity', '1');
-                thoughtContainer.transition(100).attr('transform', 'translate(' + centeredX/2 + ',' + centeredY/2 + ')scale(1)')
-
-                //if you click the less button
+                //transition all other opacity
+                cardFade(e);
+                thoughtHeightAdjustment(thoughtContainer);
+                thoughtShowContext(thoughtContainer);
+                canvas.on('mousedown', function(){
+                  d3.event.preventDefault();
+                  console.log('dd')
+                })
+                // $(window).one('click', function(){
+                //   cardShow();
+                //   thoughtHideContext(thoughtContainer);
+                //   thoughtHeightAdjustment(thoughtContainer); //100 ms
+                //   thoughtContainer.transition(100).attr('transform', 'translate(' + thoughtTranslation[0] + ', ' + thoughtTranslation[1] + ')');
+                // })
               }///end more
             })
           }
         };
 
-        $(window).on('click', function(){
-          d3.selectAll('.thought-container').attr('opacity', 1);
-                    tooltip.style('opacity', 0);
-        })
+
 
         function wrap(text, width) {
             text.each(function() {
@@ -184,6 +207,7 @@ $(function() {
               ;
           rects = thought.append('rect').attr('class', 'thought-background').attr('fill', colorRectBackground).attr('fill-opacity', '.85')
             ;
+          thought = thought.append('g').attr('class', 'text-holder')
           thought
               .append('text')
               .attr('class', 'thought-text')
@@ -237,6 +261,7 @@ $(function() {
               .text(function(d){
                 return '"...' + d.context + '..."'
               })
+              .attr('fill-opacity', '0.9')
               .call(wrap, 350)
               .attr('opacity', '0')
               .attr('display', 'none');
@@ -249,6 +274,7 @@ $(function() {
                 .attr('fill', 'red')
                 .text('pattern')
                 .attr('opacity', '0')
+                .attr('fill-opacity', '0.9')
                 .attr('display', 'none');
               thought.append('text')
                 .attr('class', 'pattern additional-info')

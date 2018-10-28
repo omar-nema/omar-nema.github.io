@@ -100,41 +100,41 @@ $(function() {
         }
         //click event to work on windows
         function dragEnd(){
-          // opacityLayer = canvas.select('.opacity-layer');
-          // if (d3.event.x == initX &&  d3.event.y == initY){
-          //   var thoughtContainer, cardTranslation, thoughtTranslation;
-          //   var dragRecipient = d3.select(this);
-          //   var dragParent = d3.select(this.parentNode);
-          //   d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
-          //     if ($(e).hasClass('more-button')){
-          //       if (dragRecipient.classed('thought-container')){
-          //         thoughtContainer = dragRecipient;
-          //         cardTranslation = [0,0];
-          //       } else {
-          //         cardTranslation = getTranslation(dragRecipient.attr('transform'));
-          //         d3.event.sourceEvent.path.forEach(function(x){
-          //           if ($(x).hasClass('thought-container')){
-          //             thoughtContainer = d3.select(x);
-          //           }
-          //         })
-          //       }
-          //
-          //       thoughtContainer.attr('class', 'thought-container active')
-          //       thoughtShowContext(thoughtContainer);
-          //       setForeignObjectHeight(thoughtContainer);
-          //       thoughtTranslation = thoughtMoveToCenter(thoughtContainer, cardTranslation);
-          //       opacityLayer.attr('display', 'block').attr('opacity', '0.8');
-          //
-          //       opacityLayer.on('mousedown', function(){
-          //           d3.select(this).attr('opacity', 0).attr('display', 'none');
-          //           thoughtHideContext(thoughtContainer);
-          //           setForeignObjectHeight(thoughtContainer);
-          //           thoughtContainer.transition(100).attr('transform', 'translate(' + thoughtTranslation[0] + ', ' + thoughtTranslation[1] + ')');
-          //           opacityLayer.on('mousedown', null);
-          //       })
-          //     }///end more
-          //   })
-          // }
+          opacityLayer = canvas.select('.opacity-layer');
+          if (d3.event.x == initX &&  d3.event.y == initY){
+            var thoughtContainer, cardTranslation, thoughtTranslation;
+            var dragRecipient = d3.select(this);
+            var dragParent = d3.select(this.parentNode);
+            d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
+              if ($(e).hasClass('more-button')){
+                if (dragRecipient.classed('thought-container')){
+                  thoughtContainer = dragRecipient;
+                  cardTranslation = [0,0];
+                } else {
+                  cardTranslation = getTranslation(dragRecipient.attr('transform'));
+                  d3.event.sourceEvent.path.forEach(function(x){
+                    if ($(x).hasClass('thought-container')){
+                      thoughtContainer = d3.select(x);
+                    }
+                  })
+                }
+
+                thoughtContainer.attr('class', 'thought-container active')
+                thoughtShowContext(thoughtContainer);
+                setForeignObjectHeight(thoughtContainer);
+                thoughtTranslation = thoughtMoveToCenter(thoughtContainer, cardTranslation);
+                opacityLayer.attr('display', 'block').attr('opacity', '0.8');
+
+                opacityLayer.on('mousedown', function(){
+                    d3.select(this).attr('opacity', 0).attr('display', 'none');
+                    thoughtHideContext(thoughtContainer);
+                    setForeignObjectHeight(thoughtContainer);
+                    thoughtContainer.transition(100).attr('transform', 'translate(' + thoughtTranslation[0] + ', ' + thoughtTranslation[1] + ')');
+                    opacityLayer.on('mousedown', null);
+                })
+              }///end more
+            })
+          }
         };
 
         function generateThoughtString(currThought, thoughtText, fontWeight){

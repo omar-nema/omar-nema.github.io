@@ -141,8 +141,11 @@ div.tooltip {
   opacity: 0;
   font-weight:300;
 }
-.thought-text {
-  font-weight: 500;
+
+.thought-text-holder {
+  background: #1e1d1d;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.1);
 }
 //
 // .on('end', function(d){

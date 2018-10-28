@@ -54,7 +54,7 @@ $(function() {
             .attr('height', function(d) {
                 // return textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().height;
 
-                 return $(this).find('.bigbox').height();;
+                 return $(this).find('.thought-text-holder').height();;
             })
             // .attr('width', function(d) {
             //     return (textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().width);
@@ -65,10 +65,10 @@ $(function() {
 
         //
         // .attr('height', function(d) {
-        //   return $(this).find('.bigbox').height();
+        //   return $(this).find('.thought-text-holder').height();
         // })
         // .attr('width', function(d) {
-        //   return $(this).find('.bigbox').width();
+        //   return $(this).find('.thought-text-holder').width();
         // })
         //
 
@@ -118,7 +118,9 @@ $(function() {
             console.log(d3.event.sourceEvent)
             d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
               //if you click the more button
+
               if ($(e).hasClass('more-button')){
+                console.log('maybebetch')
                 if (dragRecipient.classed('thought-container')){
                   thoughtContainer = dragRecipient;
                   cardTranslation = [0,0];
@@ -142,10 +144,10 @@ $(function() {
                 thoughtContainer.select('.more-button').style('display', 'none')
                 thoughtContainer.select('.foreign')
                   .attr('height', function(d) {
-                    return $(this).find('.bigbox').height();
+                    return $(this).find('.thought-text-holder').height();
                   })
                   .attr('width', function(d) {
-                    return $(this).find('.bigbox').width();
+                    return $(this).find('.thought-text-holder').width();
                   });
 
                 var bbox = thoughtContainer.node().getBBox();
@@ -287,57 +289,44 @@ $(function() {
             .attr('class', 'foreign')
             .style('color', 'white')
             .style('display', 'inline-block')
-            // .style('height', '20')
-            // .style('width', '240px')
+            .attr('height', '20')
             .html(function(d){
               splitString = d.context.split(d.thought);
               thoughtString = d.thought;
-              var context =  '<div><span class="context-prefix additional-info">' + splitString[0] + '</span>' + '<span class="thought-text">' + thoughtString + '</span>' + '<span class="context-suffix  additional-info">' + splitString[1] + '</span></div>'
-              return '<div style="width: 240px; height:auto" class="bigbox">' + context + '</div>';
-            });
-          thought
-            // .append('g')
-            // .attr('transform', function(d){
-            //   return 'translate(0, ' + ($(this).parent().find('.bigbox').height()+7) + ')'
-            // })
-            .append('foreignObject')
-            .attr('class', 'more-button')
-            .style('width', '50px')
-            .style('height', '10px')
-            .style('display', 'inline-block')
-            .html(function(d){return '<div style="display:inline-block; color: red">(more)</div>'})
-            // .html(function(d){
-            //   return '<div class="more-button" style="color: blue"><div class="ellipsis-icon"><div class="ellipsis-dot"></div><div class="ellipsis-dot"></div><div class="ellipsis-dot"></div></div></div>'
-            // })
-            // .append('text').text('fuuuckman').attr('class', 'more-button').attr('fill', 'blue')
+              var moreButton = '<span style="display:inline-block; color: red">(more)</span>';
+              var context =  '<div><span class="context-prefix additional-info">' + splitString[0] + '</span>' + '<span class="thought-text">' + thoughtString + '</span>' + '<span class="context-suffix  additional-info">' + splitString[1] + '</span>'+ moreButton +'</div>'
 
-          foreignObj
-            .attr('height', function(d) {
-              return $(this).find('.bigbox').height();
-            })
-            .attr('width', function(d) {
-              return $(this).find('.bigbox').width();
-            })
+              return '<div style="width: 240px; height:auto" class="thought-text-holder">' + context + '</div>'
+              ;
+            });
+
+          // foreignObj
+          //   .attr('height', function(d) {
+          //     return $(this).find('.thought-text-holder').height();
+          //   })
+          //   .attr('width', function(d) {
+          //     return $(this).find('.thought-text-holder').width();
+          //   })
             // .attr('width', function(d) {
-            //       return textPadding + d3.select(this).select('.bigbox').node().getBBox().width;
+            //       return textPadding + d3.select(this).select('.thought-text-holder').node().getBBox().width;
             // })
             //
             ;
 
-          rects
-            .attr('x', function(d) {
-                return -0.5*textPadding + d3.select(this.parentNode).node().getBBox().x;
-            })
-            .attr('y', function(d) {
-                return -0.5*textPadding + d3.select(this.parentNode).node().getBBox().y;
-            })
-            .attr('height', function(d) {
-                return textPadding + d3.select(this.parentNode).node().getBBox().height;
-            })
-            .attr('width', function(d) {
-                return (textPadding + d3.select(this.parentNode).node().getBBox().width);
-            })
-            ;
+          // rects
+          //   .attr('x', function(d) {
+          //       return -0.5*textPadding + d3.select(this.parentNode).node().getBBox().x;
+          //   })
+          //   .attr('y', function(d) {
+          //       return -0.5*textPadding + d3.select(this.parentNode).node().getBBox().y;
+          //   })
+          //   .attr('height', function(d) {
+          //       return textPadding + d3.select(this.parentNode).node().getBBox().height;
+          //   })
+          //   .attr('width', function(d) {
+          //       return (textPadding + d3.select(this.parentNode).node().getBBox().width);
+          //   })
+          //   ;
             // thoughtText = thought.selectAll('.thought-text');
             // thought.append('text')
             //   .attr('class', 'context-header additional-info')

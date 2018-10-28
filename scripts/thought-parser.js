@@ -82,7 +82,7 @@ $(function() {
             opacityLayerNode = opacityLayer.node();
             canvas.node().appendChild(opacityLayerNode);
             this.parentNode.appendChild(this);
-            this.parentNode.parentNode.appendChild(this.parentNode);
+            // this.parentNode.parentNode.appendChild(this.parentNode);
             translation = getTranslation(d3.select(this).attr('transform'));
             offset = [];
             initX = d3.event.x;

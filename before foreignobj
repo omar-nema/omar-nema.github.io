@@ -52,26 +52,13 @@ $(function() {
           thoughtContainer.select('.thought-background')
             .transition(100)
             .attr('height', function(d) {
-                // return textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().height;
-
-                 return $(this).find('.bigbox').height();;
+                return textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().height;
             })
-            // .attr('width', function(d) {
-            //     return (textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().width);
-            // })
+            .attr('width', function(d) {
+                return (textPadding + d3.select(this.parentNode).select('.text-holder').node().getBBox().width);
+            })
             ;
         };
-
-
-        //
-        // .attr('height', function(d) {
-        //   return $(this).find('.bigbox').height();
-        // })
-        // .attr('width', function(d) {
-        //   return $(this).find('.bigbox').width();
-        // })
-        //
-
 
         function thoughtShowContext(thoughtContainer){
           thoughtContainer.selectAll('.additional-info').transition(100).attr('opacity', '1');
@@ -85,6 +72,7 @@ $(function() {
             opacityLayer = canvas.select('.opacity-layer'); //this runs too many times, fix
             opacityLayerNode = opacityLayer.node();
             d3.select(this).transition(100).attr('opacity', '1');
+
             canvas.node().appendChild(opacityLayerNode);
             this.parentNode.appendChild(this);
             this.parentNode.parentNode.appendChild(this.parentNode);
@@ -115,7 +103,6 @@ $(function() {
             var thoughtContainer, cardTranslation, thoughtTranslation;
             var dragRecipient = d3.select(this);
             var dragParent = d3.select(this.parentNode);
-            console.log(d3.event.sourceEvent)
             d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
               //if you click the more button
               if ($(e).hasClass('more-button')){
@@ -136,42 +123,22 @@ $(function() {
 
                 thoughtTranslation = getTranslation(thoughtContainer.attr('transform'));
                 thoughtContainer.attr('class', 'thought-container active')
+                thoughtContainer.select('.thought-text').attr('opacity', '0').attr('display', 'none');
+                thoughtContainer.selectAll('.additional-info').attr('display', 'block');
 
-                thoughtContainer.selectAll('.additional-info').style('display', 'inline');
-
-                thoughtContainer.select('.more-button').style('display', 'none')
-                thoughtContainer.select('.foreign')
-                  .attr('height', function(d) {
-                    return $(this).find('.bigbox').height();
-                  })
-                  .attr('width', function(d) {
-                    return $(this).find('.bigbox').width();
+                thoughtContainer.selectAll('.additional-info')
+                  .attr('y', function(d, i){
+                    if (i == 0){
+                      return 0
+                    } else {
+                      bbox = d3.select(this.previousSibling).node().getBBox();
+                      return bbox.height + bbox.y + 15 + 'px';
+                    }
                   });
 
-                var bbox = thoughtContainer.node().getBBox();
-
-                thoughtContainer.select('.thought-background')
-                  .transition(100)
-                  .attr('height', function(d) {
-                    return 10+bbox.height;
-                  })
-                thoughtContainer.selectAll('.additional-info').transition(200).style('opacity', 1)
-
-                // thoughtContainer.transition(100).attr('transform', 'translate(' + centeredX/2 + ',' + centeredY/2 + ')scale(1)')
-
-                // thoughtContainer.selectAll('.additional-info')
-                //   .attr('y', function(d, i){
-                //     if (i == 0){
-                //       return 0
-                //     } else {
-                //       bbox = d3.select(this.previousSibling).node().getBBox();
-                //       return bbox.height + bbox.y + 15 + 'px';
-                //     }
-                //   });
-
-                // opacityLayer.transition(100).attr('opacity', '.82').attr('display', 'none');
-                // thoughtHeightAdjustment(thoughtContainer);
-                // thoughtShowContext(thoughtContainer);
+                opacityLayer.transition(100).attr('opacity', '.82').attr('display', 'noe');
+                thoughtHeightAdjustment(thoughtContainer);
+                thoughtShowContext(thoughtContainer);
                 opacityLayer.on('mousedown', function(){
                     d3.select(this).attr('opacity', 0).attr('display', 'none')
                     thoughtHideContext(thoughtContainer);
@@ -281,47 +248,35 @@ $(function() {
 
           ;
 
-          foreignObj = thought
-          // .append('g')
-            .append('foreignObject')
-            .attr('class', 'foreign')
+          foreignObj = thought.append('foreignObject')
+          .attr('class', 'additional-context')
+            // .style('display', 'none')
+
             .style('color', 'white')
-            .style('display', 'inline-block')
-            .attr('height', '20')
             .html(function(d){
               splitString = d.context.split(d.thought);
               thoughtString = d.thought;
-              var context =  '<div><span class="context-prefix additional-info">' + splitString[0] + '</span>' + '<span class="thought-text">' + thoughtString + '</span>' + '<span class="context-suffix  additional-info">' + splitString[1] + '</span></div>'
-              return '<div style="width: 240px; height:auto" class="bigbox">' + context + '</div>';
+              var thought = '<div class="thought-text">' + d.thought + '</div>'
+              var context =  '<div class="additional-info"><div class="context-prefix"' + splitString[0] + '</div>' + '<div class="context"' + thoughtString + '</div>' + '<div class="context-suffix"' + splitString[1] + '</div></div>'
+              return '<div style="width: 240px" class="bigbox">' + thought + context + '</div>';
             });
-          thought
-            // .append('g')
-            // .attr('transform', function(d){
-            //   return 'translate(0, ' + ($(this).parent().find('.bigbox').height()+7) + ')'
-            // })
-            .append('foreignObject')
-            .attr('class', 'more-button')
-            .style('width', '240px')
-            .style('height', '10px')
-            .style('display', 'inline-block')
-            .html(function(d){return '<div style="display:inline-block; color: red">(more)</div>'})
-            // .html(function(d){
-            //   return '<div class="more-button" style="color: blue"><div class="ellipsis-icon"><div class="ellipsis-dot"></div><div class="ellipsis-dot"></div><div class="ellipsis-dot"></div></div></div>'
-            // })
-            // .append('text').text('fuuuckman').attr('class', 'more-button').attr('fill', 'blue')
 
-          // foreignObj
-          //   .attr('height', function(d) {
-          //     return $(this).find('.bigbox').height();
-          //   })
-          //   .attr('width', function(d) {
-          //     return $(this).find('.bigbox').width();
-          //   })
+          foreignObj
+            .attr('height', function(d) {
+              console.log();
+              return  $(this).find('.bigbox').height();
+            })
+            .attr('width', function(d) {
+               thisone = d3.select(this).select('.bigbox').node().getBoundingClientRect();
+              return textPadding + thisone.width;
+            })
             // .attr('width', function(d) {
             //       return textPadding + d3.select(this).select('.bigbox').node().getBBox().width;
             // })
             //
             ;
+d3.select('.bigbox').node().getBoundingClientRect()
+
 
           rects
             .attr('x', function(d) {

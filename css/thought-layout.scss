@@ -98,12 +98,8 @@ div.tooltip {
 .tip-text {
   margin-bottom: 25px;
 }
-.more-button {
-  cursor: pointer;
-}
-.more-button:hover {
-  fill: rgb(218, 54, 54);
-}
+
+
 
 .tip-container {
   margin: auto;
@@ -119,8 +115,35 @@ div.tooltip {
   margin-bottom: 15px;
   letter-spacing:0.5px
 }
+.more-button {
+  text-align: center;
+}
 
-
+.ellipsis-icon {
+  border: .5px solid #ffffff7a;
+  border-radius: 3px;
+  margin: auto;
+  width: 50px;
+  text-align: center;
+  padding: 4px 0;
+  cursor: pointer;
+}
+.ellipsis-dot {
+  border-radius: 100%;
+  background: white;
+  width: 3px;
+  height: 3px;
+    display: inline-block;
+    margin-right: 3px;
+}
+.additional-info {
+  display: none;
+  opacity: 0;
+  font-weight:300;
+}
+.thought-text {
+  font-weight: 500;
+}
 //
 // .on('end', function(d){
 //   d3.select(this).attr('display', 'none');

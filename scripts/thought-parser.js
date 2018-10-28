@@ -287,7 +287,8 @@ $(function() {
             .attr('class', 'foreign')
             .style('color', 'white')
             .style('display', 'inline-block')
-            .attr('height', '20')
+            // .style('height', '20')
+            // .style('width', '240px')
             .html(function(d){
               splitString = d.context.split(d.thought);
               thoughtString = d.thought;
@@ -301,7 +302,7 @@ $(function() {
             // })
             .append('foreignObject')
             .attr('class', 'more-button')
-            .style('width', '240px')
+            .style('width', '50px')
             .style('height', '10px')
             .style('display', 'inline-block')
             .html(function(d){return '<div style="display:inline-block; color: red">(more)</div>'})
@@ -310,13 +311,13 @@ $(function() {
             // })
             // .append('text').text('fuuuckman').attr('class', 'more-button').attr('fill', 'blue')
 
-          // foreignObj
-          //   .attr('height', function(d) {
-          //     return $(this).find('.bigbox').height();
-          //   })
-          //   .attr('width', function(d) {
-          //     return $(this).find('.bigbox').width();
-          //   })
+          foreignObj
+            .attr('height', function(d) {
+              return $(this).find('.bigbox').height();
+            })
+            .attr('width', function(d) {
+              return $(this).find('.bigbox').width();
+            })
             // .attr('width', function(d) {
             //       return textPadding + d3.select(this).select('.bigbox').node().getBBox().width;
             // })

@@ -6,7 +6,6 @@ var width = $('svg.canvas').width();
 var height = $('svg.canvas').height();
 var currZ = 1;
 var tooltip = d3.select('.tooltip')
-var cardWidth = 240;
 var colorContextHeader = '#ff75f7';
 var colorMoreButton = '#abc0fc'
 
@@ -69,6 +68,7 @@ $(function() {
         }
         function thoughtShowContext(thoughtContainer){
           thoughtContainer.selectAll('.additional-info').style('display', 'inline');
+          thoughtContainer.selectAll('.additional-info.info-header').style('display', 'block');
           thoughtContainer.select('.more-button').style('display', 'none')
           thoughtContainer.selectAll('.additional-info').transition(200).style('opacity', 1);
         }
@@ -91,7 +91,6 @@ $(function() {
             offset[1] = initY - translation[1];
         }
         function dragged(d) {
-            console.log(offset)
             d3.select(this).attr('transform', function() {
                 x = d3.event.x - offset[0];
                 y = d3.event.y - offset[1];
@@ -137,48 +136,6 @@ $(function() {
           }
         };
 
-        function generateThoughtString(currThought, thoughtText, fontWeight){
-          currThought.append('text')
-            .attr('class', 'context additional-info')
-            .attr('x', 0)
-            .attr('dy', 0)
-            .attr('y', 0)
-            .style('font-weight', fontWeight)
-            .attr('fill', 'white')
-            .text(function(){
-              return thoughtText;
-            })
-            .call(wrap, cardWidth)
-            .attr('opacity', '0')
-            .attr('display', 'none');
-            ;
-        }
-
-        function wrap(text, width) {
-            text.each(function() {
-                var text = d3.select(this),
-                    words = text.text().split(/\s+/).reverse(),
-                    word,
-                    line = [],
-                    lineNumber = 0,
-                    lineHeight = 1.2, // ems
-                    y = text.attr("y"),
-                    dy = parseFloat(text.attr("dy")),
-                    tspan = text.text(null).append("tspan").attr("dy", dy + "em");
-                while (word = words.pop()) {
-                    line.push(word);
-                    tspan.text(line.join(" "));
-                    if (tspan.node().getComputedTextLength() > width) {
-                        line.pop();
-                        tspan.text(line.join(" "));
-                        line = [word];
-                        //++lineNumber * lineHeight
-                        tspan = text.append("tspan").attr('x', 0).attr("dy", lineHeight + dy + "em").text(word);
-                    }
-                }
-            });
-        }
-
         function drawThoughts(){
           canvas.append('rect').attr('class', 'opacity-layer')
             .attr('transform', 'translate(0,0)').attr('width', '100%')
@@ -192,14 +149,20 @@ $(function() {
           })
           thoughtCard = thoughtCard.enter().append('g')
               .attr('class', 'thought-card');
+
           thoughtCard
-              .append('text')
-              .style('cursor', 'pointer')
+              .append('foreignObject')
+              .attr('class', 'foreign-header')
+              .style('height', '29px')
+              .style('width', '256')
+              .append('xhtml:div')
+              .attr('class', 'thought-pattern')
               .text(function(d) {
                   return '"' + d.key + '"'
               })
-              .attr('class', 'thought-pattern')
-              .attr('dy', 0);
+
+              ;
+
           thought = canvas.selectAll('.thought-card').selectAll('.thought-container').data(function(d) {
                   return d.values
               }).enter().append('g').attr('class', 'thought-container')
@@ -207,32 +170,34 @@ $(function() {
           ;
 
           foreignObj = thought
-          // .append('g')
             .append('foreignObject')
             .attr('class', 'foreign')
             .style('color', 'white')
             .style('display', 'inline-block')
-            .attr('height', '20')
             .append('xhtml:div')
             .attr('class', 'thought-text-holder')
-            .style('width', '240px')
             .style('height', 'auto')
             .each(function(d){
               var sel = d3.select(this);
               splitString = d.context.split(d.thought);
               thoughtString = d.thought;
               textMoreButton = '(more)';
-              textPrefix = splitString[0]
+              textPrefix = '...' + splitString[0];
               textThought = thoughtString;
-              textSuffix = splitString[1];
-              sel.append('span').text(textPrefix).attr('class', 'context-prefix additional-info');        ;
+              textSuffix = splitString[1] + '...';
+              pattern =  d.pattern;
+              sel.append('div').html('context').attr('class', 'info-header additional-info');
+              sel.append('span').text('"').attr('class', 'ellipsis');
+              sel.append('span').text(textPrefix).attr('class', 'context-prefix additional-info');
               sel.append('span').text(textThought).attr('class', 'thought-text');
               sel.append('span').text(textSuffix).attr('class', 'context-suffix additional-info');
+              sel.append('span').text('"').attr('class', 'ellipsis');
               sel.append('span').text(textMoreButton).attr('class', 'more-button');
+              sel.append('div').html('<br>pattern').attr('class', 'info-header additional-info');
+              sel.append('span').text(pattern).attr('class', 'additional-info pattern');
               return;
             })
             ;
-
             setForeignObjectHeight(canvas);
             ;
         }
@@ -244,13 +209,11 @@ $(function() {
             svg.append(addMe);
           })
         }
-
-
         function splitThoughts() {
             var svg = d3.select('svg').node();
-
             canvas.selectAll('.thought-card').each(function(d){
               thoughtCard = d3.select(this);
+              thoughtCard.classed('grouped', false);
               thoughtCard.transition(300).attr('transform', 'translate(0,0)')
               thoughtCard.selectAll('.thought-pattern').transition(100).attr('fill', 'transparent');
               thoughtCard.selectAll('.thought-container')
@@ -270,10 +233,10 @@ $(function() {
                   ;
             })
         };
-
         function groupThoughts() {
             //group dem back
             canvas.selectAll('.thought-card').each(function(d){
+              d3.select(this).classed('grouped', true);
               var card = d3.select(this).node();
               canvas.selectAll('.thought-container').each(function(z){
                 if (d.key == z.pattern){
@@ -302,7 +265,7 @@ $(function() {
                 startY = prevHeight + startY;
                 return 'translate(0, ' + startY + ')';
               } else {
-                startY = d3.select(this).node().getBBox().height+5;
+                startY = 30;
                 return 'translate(0,' + startY + ')';
               }
             })

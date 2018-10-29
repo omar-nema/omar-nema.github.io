@@ -3,6 +3,8 @@
 // @import url("https://use.typekit.net/lfp3hrx.css");
 
 $highlight-color: #0d0d0d;
+$card-wide: 340px;
+$card-narrow: 240px;
 
 body {
   font-family: 'roboto mono';
@@ -15,10 +17,11 @@ body {
    #0f0f0f 90%
    );
   font-size: 11px;
-  letter-spacing: .2px;
+
   outline-style:none;
   outline:none;
   color: #ffffffe0;
+  box-sizing: border-box;
 }
 text {
   text-transform: lowercase;
@@ -135,11 +138,7 @@ div.tooltip {
     display: inline-block;
     margin-right: 3px;
 }
-.additional-info {
-  display: none;
-  opacity: 0;
-  font-weight:300;
-}
+
 
 .more-button {
   padding: 3px 5px;
@@ -150,16 +149,91 @@ div.tooltip {
   text-decoration: underline;
 }
 
+
+.info-header.additional-info {
+  font-weight: 400;
+  color: #d798e7;
+  border-bottom: .5px solid #d798e7c9;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  /* color: gray; */
+  width: 50px;
+}
+.additional-info.pattern {
+  color: white;
+}
+
+.additional-info {
+  display: none;
+  opacity: 0;
+  color: #ffffffc7;
+  font-weight: 300;
+}
 .thought-container.active .thought-text {
-  font-weight: 500;
+  font-weight: 400;
+}
+
+
+
+.thought-text-holder {
+  width:  $card-narrow;
+  padding: 8px 13px;
+}
+.foreign {
+  width: $card-narrow;
+}
+.thought-container.active .thought-text-holder {
+  width: $card-wide;
+  box-shadow: 1px 1px 4px 2px rgba(201, 201, 201, 0.08);
+}
+.thought-container.active .foreign {
+  width: $card-wide;
+}
+.thought-pattern {
+    width: $card-wide + 1;
+    background: #292929;
+    font-weight: 400;
+    color: #ffffffc7;;
+    height: 30px;
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 6px 8px;
+    transition: opacity .1s linear;
+}
+.foreign-header {
+  display: none;
+}
+.grouped .foreign-header {
+  display: block;
+}
+
+.foreign, foreignObject, .thought-pattern {
+  box-sizing: border-box;
 }
 
 .thought-text-holder {
   background: #191818;
   padding: 10px 13px;
   border: 1px solid rgba(255,255,255,.1);
-  opacity: .9;
+  opacity: .87;
   transition: opacity .1s linear;
+  text-transform: lowercase;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.thought-card .thought-container .thought-text-holder, .thought-card .thought-container .foreign {
+  border: none;
+  border-left: 1px solid rgba(255,255,255,.1);
+  border-right: 1px solid rgba(255,255,255,.1);
+  width: $card-wide;
+}
+.thought-card .thought-text-holder{
+  padding: 5px 13px;
+}
+.thought-card .thought-container:last-child .thought-text-holder {
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
 
 

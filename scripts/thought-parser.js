@@ -313,10 +313,22 @@ $(function() {
           $('.canvas').show(300);
         });
         $('.split-btn').on('click', function(e) {
-            splitThoughts();
+            if (!$(this).hasClass('active')){
+              if (!$(this).hasClass('active')){
+                $('.layout').removeClass('active')
+                $(this).addClass('active');
+              }
+              splitThoughts();
+            }
         })
         $('.sort-btn').on('click', function(e) {
-            groupThoughts();
+            if (!$(this).hasClass('active')){
+              if (!$(this).hasClass('active')){
+                $('.layout').removeClass('active')
+                $(this).addClass('active');
+              }
+              groupThoughts();
+            }
         })
 
     });

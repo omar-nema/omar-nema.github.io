@@ -5,6 +5,7 @@
 $highlight-color: #0d0d0d;
 $card-wide: 340px;
 $card-narrow: 240px;
+$header-color: #d798e7;
 
 body {
   font-family: 'roboto mono';
@@ -17,7 +18,6 @@ body {
    #0f0f0f 90%
    );
   font-size: 11px;
-
   outline-style:none;
   outline:none;
   color: #ffffffe0;
@@ -26,17 +26,48 @@ body {
 text {
   text-transform: lowercase;
 }
+.header, .option-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.option-holder {
+  margin-right: 50px;
+}
 .header {
   height: 50px;
   width: 100%;
   background: black;
-  border-bottom: 1px solid #3b3b3b;
+  border-bottom: .5px solid #1a1a1a;
+  padding: 0 50px;
 }
-.option.project {
-  color: white;
+.desc {
+    color: #767676;
 }
-.option.context {
-  color: white;
+.desc, .option {
+  text-align: center;
+  padding: 0px 15px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-family: 'karla';
+  width: auto;
+border-bottom: 1px solid transparent;
+}
+.option {
+  cursor: pointer;
+  font-weight: 400;
+  color: #b7b7b7;
+  transition: color .1s ease-in-out, font-weight .15s linear,  border-color .15s linear;
+}
+.option:hover {
+  color: $header-color;
+  border-bottom: 1px dotted $header-color;
+}
+.option.active {
+  color: $header-color;
+  border-bottom: 1px solid $header-color;
+  font-weight: 500;
 }
 
 
@@ -61,22 +92,7 @@ svg.canvas {
   cursor: grab;
 }
 
-.split-btn {
-  position: fixed;
-  top: 50px;
-  right: 100px;
-  background: blue;
-  color: white;
-  cursor: pointer;
-}
-.sort-btn {
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  background: blue;
-  color: white;
-  cursor: pointer;
-}
+
 
 .thought-content {
   padding: 10px 10px;

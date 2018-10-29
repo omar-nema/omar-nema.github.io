@@ -60,22 +60,33 @@ $(function() {
 
 
         function thoughtMoveToCenter(thoughtContainer, cardTranslation){
-          centeredX = width - thoughtContainer.node().getBBox().width - cardTranslation[0];
-          centeredY = height - thoughtContainer.node().getBBox().height - cardTranslation[1];
+          console.log(cardTranslation, thoughtContainer.node().getBBox())
+          centeredX = width/2 - thoughtContainer.node().getBBox().width/2 - cardTranslation[0];
+          centeredY = height/2 - thoughtContainer.node().getBBox().height/2 - cardTranslation[1];
           thoughtTranslation = getTranslation(thoughtContainer.attr('transform'));
-          thoughtContainer.transition(100).attr('transform', 'translate(' + centeredX/2 + ',' + centeredY/2 + ')');
+          thoughtContainer.transition(100).attr('transform', 'translate(' + centeredX + ',' + centeredY + ')');
           return thoughtTranslation;
         }
-        function thoughtShowContext(thoughtContainer){
+        function thoughtShowContext(thoughtContainer, dragRecipient){
           thoughtContainer.selectAll('.additional-info').style('display', 'inline');
           thoughtContainer.selectAll('.additional-info.info-header').style('display', 'block');
           thoughtContainer.select('.more-button').style('display', 'none')
           thoughtContainer.selectAll('.additional-info').transition(200).style('opacity', 1);
+          if (dragRecipient.classed('thought-card')){
+            dragRecipient.selectAll('.thought-opacity-holder').filter(function(d){
+              return d.thought != thoughtContainer.data()[0].thought
+            }).attr('opacity', '.2')
+          }
         }
-        function thoughtHideContext(clickedThought){
+        function thoughtHideContext(clickedThought, dragRecipient){
           clickedThought.classed('active', false);
           clickedThought.select('.more-button').style('display', 'inline');
           clickedThought.selectAll('.additional-info').style('display', 'none').style('opacity', '0');
+          if (dragRecipient.classed('thought-card')){
+            dragRecipient.selectAll('.thought-opacity-holder').filter(function(d){
+              return d.thought != clickedThought.data()[0].thought
+            }).attr('opacity', '1')
+          }
         }
         function dragStart(e) {
             opacityLayer = canvas.select('.opacity-layer'); //this runs too many times, fix
@@ -101,7 +112,7 @@ $(function() {
         function dragEnd(){
           opacityLayer = canvas.select('.opacity-layer');
           if (d3.event.x == initX &&  d3.event.y == initY){
-            var thoughtContainer, cardTranslation, thoughtTranslation;
+            var thoughtContainer, cardTranslation, thoughtTranslation, thoughtCard;
             var dragRecipient = d3.select(this);
             var dragParent = d3.select(this.parentNode);
             d3.event.sourceEvent.path.forEach(function(e){ //b/c click and drag interfere on le
@@ -118,15 +129,15 @@ $(function() {
                   })
                 }
 
-                thoughtContainer.attr('class', 'thought-container active')
-                thoughtShowContext(thoughtContainer);
+                thoughtContainer.classed('active', true)
+                thoughtShowContext(thoughtContainer, dragRecipient);
                 setForeignObjectHeight(thoughtContainer);
                 thoughtTranslation = thoughtMoveToCenter(thoughtContainer, cardTranslation);
                 opacityLayer.attr('display', 'block').attr('opacity', '0.8');
 
                 opacityLayer.on('mousedown', function(){
                     d3.select(this).attr('opacity', 0).attr('display', 'none');
-                    thoughtHideContext(thoughtContainer);
+                    thoughtHideContext(thoughtContainer, dragRecipient);
                     setForeignObjectHeight(thoughtContainer);
                     thoughtContainer.transition(100).attr('transform', 'translate(' + thoughtTranslation[0] + ', ' + thoughtTranslation[1] + ')');
                     opacityLayer.on('mousedown', null);
@@ -152,7 +163,7 @@ $(function() {
 
           thoughtCard
               .append('foreignObject')
-              .attr('class', 'foreign-header')
+              .attr('class', 'foreign-header thought-opacity-holder')
               .style('height', '29px')
               .style('width', '256')
               .append('xhtml:div')
@@ -165,7 +176,7 @@ $(function() {
 
           thought = canvas.selectAll('.thought-card').selectAll('.thought-container').data(function(d) {
                   return d.values
-              }).enter().append('g').attr('class', 'thought-container')
+              }).enter().append('g').attr('class', 'thought-container thought-opacity-holder')
               ;
           ;
 

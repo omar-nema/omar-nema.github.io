@@ -229,6 +229,10 @@ div {
   border-right: 1px solid rgba(255,255,255,.1);
   width: $card-wide;
 }
+.thought-container.active .thought-text-holder {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
 .thought-card .thought-text-holder{
   padding: 5px 13px;
 }

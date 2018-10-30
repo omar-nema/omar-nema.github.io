@@ -309,6 +309,21 @@ div {
 }
 
 
+@media (max-width: 800px){
+  .canvas {
+    display: none;
+  }
+  .desc {
+    display: none;
+  }
+  .flat-layout-holder {
+    display: block;
+  }
+  .views {
+    display: none;
+  }
+}
+
 //
 // .on('end', function(d){
 //   d3.select(this).attr('display', 'none');

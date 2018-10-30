@@ -327,12 +327,9 @@ $(function() {
         $('.flat-layout-holder').show(300);
       }
 
-      if(window.innerWidth <= 800 && window.innerHeight <= 600) {
-        $('.views').hide();
-        mobileLayout();
-      } else {
-        splitThoughts();
-      }
+        if(window.innerWidth >= 800 && window.innerHeight >= 600) {
+          splitThoughts();
+        }
 
         $('.option.project').on('click',function(){
           if (!$(this).hasClass('active')){

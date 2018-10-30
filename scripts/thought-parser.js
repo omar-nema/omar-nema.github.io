@@ -193,7 +193,7 @@ $(function() {
               textMoreButton = '(more)';
               textPrefix = '...' + (splitString[0] || '');
               textThought = thoughtString;
-              textSuffix = (splitString[0] || '') + '...';
+              textSuffix = (splitString[1] || '') + '...';
               pattern =  d.pattern;
               sel.append('div').html('context').attr('class', 'info-header additional-info');
               sel.append('span').text('"').attr('class', 'ellipsis');
@@ -218,17 +218,21 @@ $(function() {
         spanHolder = inline
           .append('div')
           .attr('class', 'thought-flat-text')
-
         spanHolder
           .append('span')
           .attr('class', 'thought-flat-span')
           .text(function(d){
             return '"' + d.key + '"';
           })
+          .on('mousedown', function(d){
+            console.log('clicked')
+            overlay = d3.select('.project-holder-overlay');
+            // overlay.style('display', 'block').transition(50).style('opacity', .8);
+            overlay.classed('active', true);
+            // console.log(d.values[0].context);
+          })
         spanHolder.append('span').attr('class', 'thought-separator');
         ;
-
-
 
         function flattenThoughts(){
           canvas.selectAll('.thought-container').each(function(d){
@@ -306,17 +310,8 @@ $(function() {
             })
           // canvas.node().appendChild(canvas.select('.opacity-opacityLayer').node());
         };
-        function flatLayoutThoughts(){
-          // var inline = canvas.append('g').attr('class', 'inline-text-holder')
-          // .append('foreignObject').attr('class', 'flat-foreign')
-          // .append('xhtml:div').attr('class', 'flat-text-holder')
-          // ;
-          // canvas.selectAll('.thought-container').selectAll('.thought-text').each(function(d){
-          //   console.log(d3.select(this).node());
-          //   node = d3.select(this).node();
-          //   inline.node().append(node)
-          // })
-        }
+
+
 
 
 
@@ -326,11 +321,9 @@ $(function() {
         $('.canvas').hide(300);
         $('.flat-layout-holder').show(300);
       }
-
         if(window.innerWidth >= 800 && window.innerHeight >= 600) {
           splitThoughts();
         }
-
         $('.option.project').on('click',function(){
           if (!$(this).hasClass('active')){
             $('.pages').removeClass('active')

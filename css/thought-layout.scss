@@ -164,14 +164,17 @@ div.tooltip {
   text-decoration: underline;
 }
 
-
-.info-header.additional-info {
+.info-header {
   font-weight: 400;
   color: #d798e7;
   border-bottom: .5px solid #d798e7c9;
   padding-bottom: 3px;
   margin-bottom: 3px;
-  /* color: gray; */
+}
+//fix this redundant css
+.info-header.additional-info {
+  color: #d798e7;
+  font-weight: 400;
   width: 50px;
 }
 .additional-info.pattern {
@@ -287,6 +290,26 @@ div {
   width: 100%;
   height: calc(100vh - 50px);
   overflow-y: auto;
+}
+
+.project-holder-overlay {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: black;
+  position: fixed;
+  display: none;
+  font-size: 13px;
+  transition: opacity .15s ease-in-out;
+}
+.project-holder-overlay.active {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  opacity: .88;
+}
+.overlay-text {
+  max-width: 500px;
 }
 
 @media (max-width: 800px){

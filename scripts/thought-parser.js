@@ -24,7 +24,7 @@ $(function() {
             context: d.context
         }
     }).then(function(thoughtData) {
-        var canvas = d3.select('body').select('svg.canvas');
+        var canvas = d3.select('body').select('.project-holder').select('svg.canvas');
         var filter = canvas.append('defs').append('filter').attr('id', 'shadow')
           .append('feDropShadow')
           .attr('dx', 4).attr('dy', 4).attr('stdDeviation', 4).attr('flood-color', '#28282847')
@@ -170,9 +170,7 @@ $(function() {
               .attr('class', 'thought-pattern')
               .text(function(d) {
                   return '"' + d.key + '"'
-              })
-
-              ;
+              });
 
           thought = canvas.selectAll('.thought-card').selectAll('.thought-container').data(function(d) {
                   return d.values
@@ -212,6 +210,25 @@ $(function() {
             setForeignObjectHeight(canvas);
             ;
         }
+
+        var inline = d3.select('.project-holder')
+        .append('div').attr('class', 'flat-layout-holder')
+          .selectAll('.thought-flat-text')
+          .data(thoughtNest).enter();
+        spanHolder = inline
+          .append('div')
+          .attr('class', 'thought-flat-text')
+
+        spanHolder
+          .append('span')
+          .attr('class', 'thought-flat-span')
+          .text(function(d){
+            return '"' + d.key + '"';
+          })
+        spanHolder.append('span').attr('class', 'thought-separator');
+        ;
+
+
 
         function flattenThoughts(){
           canvas.selectAll('.thought-container').each(function(d){
@@ -256,23 +273,17 @@ $(function() {
                 }
               })
             })
-
             canvas.selectAll('.thought-card').style('cursor', 'grab').transition(600).attr('transform', function(d, i) {
                 return 'translate(' + scatterX(i) + ',' + scatterY(i) + ')'
             });
             canvas.selectAll('.thought-container').attr('filter', 'none')
-            // canvas.selectAll('.thought-card').selectAll('.thought-background').transition(400).attr('fill', 'none').attr('stroke', 'none').attr('filter', 'none')
             ;
-
             var startY;
             canvas.selectAll('.thought-card').selectAll('.thought-container').on(".drag", null)
             .transition(100).attr('transform', function(d,i){
               var prevElement = d3.select(this.previousElementSibling);
               if (prevElement.classed('thought-container')){
-                // boundingRect = prevElement.select('.thought-text-holder').node().getBoundingClientRect()
-                // prevHeight = boundingRect.height;
                 prevHeight = prevElement.node().getBBox().height;
-                // prevY = getTranslation(prevElement.attr('transform'))[1];
                 startY = prevHeight + startY;
                 return 'translate(0, ' + startY + ')';
               } else {
@@ -284,9 +295,7 @@ $(function() {
                 thoughtCard = d3.select(this.parentNode);
                 thoughtCard.call(d3.drag().on("start", dragStart).on('drag', dragged).on('end', dragEnd));
                 thoughtCard.select('.thought-pattern').transition(100).attr('fill', colorHeaderText)
-                  .attr('transform', 'translate(0, 15)')
-                // thoughtCard.select('.thought-container-background').attr('fill', colorRectBackground)
-                // .attr('stroke', 'rgba(255,255,255,.2)')
+                .attr('transform', 'translate(0, 15)')
                 .transition(100).attr('width', function(d) {
                     return d3.select(this.parentNode).node().getBBox().width + textPadding;
                 }).attr('height', function(d) {
@@ -297,20 +306,40 @@ $(function() {
             })
           // canvas.node().appendChild(canvas.select('.opacity-opacityLayer').node());
         };
+        function flatLayoutThoughts(){
+          // var inline = canvas.append('g').attr('class', 'inline-text-holder')
+          // .append('foreignObject').attr('class', 'flat-foreign')
+          // .append('xhtml:div').attr('class', 'flat-text-holder')
+          // ;
+          // canvas.selectAll('.thought-container').selectAll('.thought-text').each(function(d){
+          //   console.log(d3.select(this).node());
+          //   node = d3.select(this).node();
+          //   inline.node().append(node)
+          // })
+        }
 
 
         drawThoughts();
         splitThoughts();
 
 
-
         $('.option.project').on('click',function(){
-          $('.canvas').hide(300);
-          $('.project-desc').show(300);
+          if (!$(this).hasClass('active')){
+            $('.pages').removeClass('active')
+            $(this).addClass('active');
+          }
+          $('.views').show(300);
+          $('.project-desc').hide(300);
+          $('.project-holder').show(300);
         });
         $('.option.context').on('click',function(){
-          $('.project-desc').hide(300);
-          $('.canvas').show(300);
+          if (!$(this).hasClass('active')){
+            $('.pages').removeClass('active')
+            $(this).addClass('active');
+          }
+          $('.views').hide(300);
+          $('.project-holder').hide(300);
+          $('.project-desc').show(300);
         });
         $('.split-btn').on('click', function(e) {
             if (!$(this).hasClass('active')){
@@ -318,6 +347,8 @@ $(function() {
                 $('.layout').removeClass('active')
                 $(this).addClass('active');
               }
+              $('.flat-layout-holder').hide(300);
+              $('.canvas').show(300);
               splitThoughts();
             }
         })
@@ -327,9 +358,20 @@ $(function() {
                 $('.layout').removeClass('active')
                 $(this).addClass('active');
               }
+              $('.flat-layout-holder').hide(300);
+              $('.canvas').show(300);
               groupThoughts();
             }
         })
-
+        $('.flat-btn').on('click', function(e) {
+            if (!$(this).hasClass('active')){
+              if (!$(this).hasClass('active')){
+                $('.layout').removeClass('active')
+                $(this).addClass('active');
+              }
+              $('.canvas').hide(300);
+              $('.flat-layout-holder').show(300);
+            }
+        })
     });
 })

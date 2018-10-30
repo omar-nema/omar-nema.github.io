@@ -311,16 +311,16 @@ div {
 
 @media (max-width: 800px){
   .canvas {
-    display: none;
+    display: none  !important;
   }
   .desc {
-    display: none;
+    display: none  !important;
   }
   .flat-layout-holder {
     display: block;
   }
   .views {
-    display: none;
+    display: none !important;
   }
 }
 

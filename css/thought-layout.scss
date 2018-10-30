@@ -295,13 +295,14 @@ div {
 
 .project-holder-overlay {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 80px);
   opacity: 0;
   background: black;
   position: fixed;
   display: none;
-  font-size: 13px;
+  font-size: 12px;
   transition: opacity .15s ease-in-out;
+  padding: 20px;
 }
 .project-holder-overlay.active {
   align-items: center;

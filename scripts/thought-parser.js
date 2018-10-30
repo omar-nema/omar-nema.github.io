@@ -319,9 +319,20 @@ $(function() {
         }
 
 
-        drawThoughts();
-        splitThoughts();
 
+      drawThoughts();
+
+      function mobileLayout(){
+        $('.canvas').hide(300);
+        $('.flat-layout-holder').show(300);
+      }
+
+      if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+        $('.view').hide();
+        mobileLayout();
+      } else {
+        splitThoughts();
+      }
 
         $('.option.project').on('click',function(){
           if (!$(this).hasClass('active')){
@@ -369,8 +380,7 @@ $(function() {
                 $('.layout').removeClass('active')
                 $(this).addClass('active');
               }
-              $('.canvas').hide(300);
-              $('.flat-layout-holder').show(300);
+              mobileLayout();
             }
         })
     });

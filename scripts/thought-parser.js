@@ -225,11 +225,21 @@ $(function() {
             return '"' + d.key + '"';
           })
           .on('mousedown', function(d){
-            console.log('clicked')
+            thoughtString = d.key;
+            splitString = d.values[0].context.split(thoughtString);
+            textPrefix = '...' + (splitString[0] || '');
+            textSuffix = ' ' + (splitString[1] || '') + '...';
+            pattern =  d.values[0].pattern;
             overlay = d3.select('.project-holder-overlay');
-            // overlay.style('display', 'block').transition(50).style('opacity', .8);
             overlay.classed('active', true);
-            // console.log(d.values[0].context);
+            overlay.select('.context-prefix').text(textPrefix);
+            overlay.select('.thought-text').text(thoughtString);
+            overlay.select('.context-suffix').text(textSuffix);
+            overlay.select('.pattern').text(pattern);
+
+            overlay.on('mousedown', function(d){
+              d3.select(this).classed('active', false)
+            })
           })
         spanHolder.append('span').attr('class', 'thought-separator');
         ;

@@ -193,7 +193,7 @@ $(function() {
               textMoreButton = '(more)';
               textPrefix = '...' + (splitString[0] || '');
               textThought = thoughtString;
-              textSuffix = (splitString[1] || '') + '...';
+              textSuffix = ' ' + (splitString[1] || '') + '...';
               pattern =  d.pattern;
               sel.append('div').html('context').attr('class', 'info-header additional-info');
               sel.append('span').text('"').attr('class', 'ellipsis');

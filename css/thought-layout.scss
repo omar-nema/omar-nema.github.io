@@ -191,7 +191,9 @@ div.tooltip {
 .thought-container.active .thought-text {
   font-weight: 400;
 }
-
+.thought-text {
+  font-weight: 500;
+}
 
 
 .thought-text-holder {
@@ -240,7 +242,7 @@ div.tooltip {
 
 .flat-layout-holder {
   display: none;
-  line-height: 22px;
+  line-height: 24px;
   font-size: 13px;
   padding: 20px 4%;
   padding-left: 6%;
@@ -252,6 +254,9 @@ div.tooltip {
 }
 .thought-flat-span {
   cursor: pointer;
+  background: #272626;
+  padding: 0 5px;
+  border-radius: 3px;
 }
 .thought-flat-span:hover {
   background: #6600ff;
@@ -261,8 +266,9 @@ div.tooltip {
    width: 3px;
    height: 3px;
    border-radius: 100%;
-   background-color: #bfbfbf;
-   margin: 0 14px;
+   background-color: #949191;
+   margin: 0 9px;
+   transform: translateY(-2px);
 }
 
 
@@ -291,6 +297,7 @@ div {
   width: 100%;
   height: calc(100vh - 50px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .project-holder-overlay {

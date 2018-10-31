@@ -227,8 +227,8 @@ $(function() {
           .on('mousedown', function(d){
             thoughtString = d.key;
             splitString = d.values[0].context.split(thoughtString);
-            textPrefix = '...' + (splitString[0] || '');
-            textSuffix = ' ' + (splitString[1] || '') + '...';
+            textPrefix = '"...' + (splitString[0] || '');
+            textSuffix = ' ' + (splitString[1] || '') + '..."';
             pattern =  d.values[0].pattern;
             overlay = d3.select('.project-holder-overlay');
             overlay.classed('active', true).style('opacity', .85);

@@ -172,11 +172,15 @@ div.tooltip {
   margin-bottom: 3px;
   width: 55px;
 }
+.overlay-text.info-header {
+  border-bottom: none;
+}
 //fix this redundant css
 .info-header.additional-info {
   color: #d798e7;
   font-weight: 400;
   width: 50px;
+  margin-bottom: 5px;
 }
 .additional-info.pattern {
   color: white;
@@ -307,13 +311,12 @@ div {
   position: fixed;
   display: none;
   font-size: 14px;
-  padding: 20px;
+  padding: 40px;
 }
 .project-holder-overlay.active {
   align-items: center;
   justify-content: center;
   display: flex;
-
 }
 .overlay-text {
   max-width: 500px;

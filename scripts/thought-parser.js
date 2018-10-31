@@ -236,10 +236,10 @@ $(function() {
             overlay.select('.thought-text').text(thoughtString);
             overlay.select('.context-suffix').text(textSuffix);
             overlay.select('.pattern').text(pattern);
-            $(overlay.node()).show(300);
+            $(overlay.node()).fadeIn(500);
 
             overlay.on('mousedown', function(d){
-              $(this).hide(300);
+              $(this).fadeOut(300);
             })
           })
         spanHolder.append('span').attr('class', 'thought-separator');

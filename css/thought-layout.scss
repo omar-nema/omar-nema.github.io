@@ -295,20 +295,19 @@ div {
 
 .project-holder-overlay {
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   opacity: 0;
   background: black;
   position: fixed;
   display: none;
-  font-size: 12px;
-  transition: opacity .15s ease-in-out;
+  font-size: 13px;
   padding: 20px;
 }
 .project-holder-overlay.active {
   align-items: center;
   justify-content: center;
   display: flex;
-  opacity: .88;
+
 }
 .overlay-text {
   max-width: 500px;

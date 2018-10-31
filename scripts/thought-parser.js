@@ -231,14 +231,15 @@ $(function() {
             textSuffix = ' ' + (splitString[1] || '') + '...';
             pattern =  d.values[0].pattern;
             overlay = d3.select('.project-holder-overlay');
-            overlay.classed('active', true);
+            overlay.classed('active', true).style('opacity', .85);
             overlay.select('.context-prefix').text(textPrefix);
             overlay.select('.thought-text').text(thoughtString);
             overlay.select('.context-suffix').text(textSuffix);
             overlay.select('.pattern').text(pattern);
+            $(overlay.node()).show(300);
 
             overlay.on('mousedown', function(d){
-              d3.select(this).classed('active', false)
+              $(this).hide(300);
             })
           })
         spanHolder.append('span').attr('class', 'thought-separator');

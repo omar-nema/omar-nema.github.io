@@ -242,8 +242,8 @@ div.tooltip {
 
 .flat-layout-holder {
   display: none;
-  line-height: 24px;
-  font-size: 13px;
+  line-height: 28px;
+  font-size: 14px;
   padding: 20px 4%;
   padding-left: 6%;
 }
@@ -268,7 +268,6 @@ div.tooltip {
    border-radius: 100%;
    background-color: #949191;
    margin: 0 9px;
-   transform: translateY(-2px);
 }
 
 
@@ -307,7 +306,7 @@ div {
   background: black;
   position: fixed;
   display: none;
-  font-size: 13px;
+  font-size: 14px;
   padding: 20px;
 }
 .project-holder-overlay.active {

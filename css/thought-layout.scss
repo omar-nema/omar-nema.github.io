@@ -40,6 +40,8 @@ text {
   background: black;
   border-bottom: .5px solid #1a1a1a;
   padding: 0 20px;
+  position: fixed;
+  top: 0;
 }
 .desc {
     color: #767676;
@@ -83,7 +85,8 @@ svg {
 svg.canvas {
   width: 100%;
   height: calc(100vh - 50px);
-
+  position: fixed;
+  top: 50px;
 }
 // .thought {
 //   cursor: pointer;
@@ -164,6 +167,7 @@ div.tooltip {
   text-decoration: underline;
 }
 
+
 .info-header {
   font-weight: 400;
   color: #d798e7;
@@ -219,7 +223,7 @@ div.tooltip {
 }
 .thought-pattern {
     width: $card-wide + 1;
-    background: #292929;
+    background: #2a2a2a;
     font-weight: 400;
     color: #ffffffc7;;
     height: 30px;
@@ -249,10 +253,12 @@ div.tooltip {
 
 .flat-layout-holder {
   display: none;
-  line-height: 28px;
+  line-height: 29px;
   font-size: 14px;
   padding: 20px 4%;
   padding-left: 6%;
+  position: fixed;
+  top: 50px;
 }
 
 .thought-flat-text {
@@ -346,6 +352,47 @@ div {
     width: 50%;
     font-size: 16px;
   }
+}
+
+
+.project-desc {
+  display: none;
+  position: fixed;
+  top: 51px;
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 51px);
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 50px;
+}
+.desc-holder {
+  width: auto;
+    max-width: 800px;
+    height: auto;
+    margin: auto;
+    font-family: 'karla';
+    font-size: 14px;
+    padding: 20px 30px;
+    background: #181818;
+    margin-top: 50px;
+    border: 1px solid #343434;
+}
+h2 {
+  font-weight: 700;
+  font-size: 18px;
+  /* border-bottom: 1px solid white; */
+  width: auto;
+  color: #999999;
+  letter-spacing: .5px;
+  font-weight: 400;
+}
+h3 {
+  font-size: 14px;
+font-weight: 400;
+color: #9d9d9d;
+}
+.text-block {
+  margin-bottom: 30px;
 }
 
 //

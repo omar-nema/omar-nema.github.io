@@ -9,11 +9,22 @@ var tooltip = d3.select('.tooltip')
 var colorContextHeader = '#ff75f7';
 var colorMoreButton = '#abc0fc'
 
-function scatterX(num, orientation) {
+function scatterX(num, container) {
+    // containerWidth = 0;
+    // if (container){
+    //   console.log(container, container.node().getBBox());
+    //   containerWidth = container.node().getBBox().width;
+    // }
+    console.log( Math.random()*(width-300))
     return Math.random()*(width-300);
 }
-function scatterY(num, orientation) {
-    return Math.max(Math.random()*(height-50), 15+Math.random()*15);
+function scatterY(num, container) {
+    // containerHeight = 0;
+    // if (container){
+    //   containerHeight = container.node().getBBox().height;
+    // }
+    return Math.random()*(height-50);
+
 }
 
 $(function() {
@@ -263,7 +274,8 @@ $(function() {
                   .call(d3.drag().on("start", dragStart).on('drag', dragged).on('end', dragEnd))
                   .transition(600)
                   .attr('transform', function(d, i) {
-                      return 'translate(' + scatterX(i) + ',' + scatterY(i) + ')'
+                      sel = d3.select(this);
+                      return 'translate(' + scatterX(i, sel) + ',' + scatterY(i, sel) + ')'
                   })
                   .on('end',function(){
                     //flatten !! because d3 got no z index :(
@@ -289,7 +301,8 @@ $(function() {
               })
             })
             canvas.selectAll('.thought-card').style('cursor', 'grab').transition(600).attr('transform', function(d, i) {
-                return 'translate(' + scatterX(i) + ',' + scatterY(i) + ')'
+                sel = d3.select(this);
+                return 'translate(' + scatterX(i, sel) + ',' + scatterY(i, sel) + ')'
             });
             canvas.selectAll('.thought-container').attr('filter', 'none')
             ;
@@ -332,8 +345,10 @@ $(function() {
         $('.canvas').hide(300);
         $('.flat-layout-holder').show(300);
       }
-        if(window.innerWidth >= 800 && window.innerHeight >= 600) {
+        if(window.innerWidth >= 800) {
           splitThoughts();
+        } else {
+          mobileLayout();
         }
         $('.option.project').on('click',function(){
           if (!$(this).hasClass('active')){

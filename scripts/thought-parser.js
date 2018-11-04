@@ -403,12 +403,27 @@ $(function() {
         tippy('.twitter-one', {
           content: '<img src="/projects/Lists/img/twitter-post-initial.PNG" width="500">',
           trigger: 'click',
-          duration: 0
+          duration: 100
         })
         tippy('.twitter-two', {
           content: '<img src="/projects/Lists/img/twitter-post-two.PNG" width="500">',
           trigger: 'click',
-          duration: 0
+          duration: 100
+        })
+        tippy('.code-photo-one', {
+          content: '<img src="/projects/Lists/img/code-photo-one.png" width="500">',
+          trigger: 'click',
+          duration: 100
+        })
+        tippy('.code-photo-two', {
+          content: '<img src="/projects/Lists/img/code-photo-two.png" width="500">',
+          trigger: 'click',
+          duration: 100
+        })
+        tippy('.code-photo-three', {
+          content: '<img src="/projects/Lists/img/code-photo-three.png" width="500">',
+          trigger: 'click',
+          duration: 100
         })
     });
 })

@@ -314,13 +314,14 @@ div {
 
 .project-holder-overlay {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: 100vh;
   opacity: 0;
   background: black;
   position: fixed;
   display: none;
   font-size: 14px;
   padding: 40px;
+  z-index: 100000;
 }
 .project-holder-overlay.active {
   align-items: center;
@@ -379,16 +380,15 @@ div {
 }
 h2 {
   font-weight: 700;
-  font-size: 18px;
-  /* border-bottom: 1px solid white; */
-  width: auto;
-  color: #999999;
+  font-size: 16px;
   letter-spacing: .5px;
   font-weight: 400;
+  color: #8f8ff6;
+  margin-bottom: 10px;
 }
 h3 {
   font-size: 14px;
-font-weight: 400;
+font-weight: 700;
 color: #9d9d9d;
 }
 .text-block {

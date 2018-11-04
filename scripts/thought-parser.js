@@ -356,17 +356,17 @@ $(function() {
             $(this).addClass('active');
           }
           $('.views').show(300);
-          $('.project-desc').hide(300);
-          $('.project-holder').show(300);
+          $('.project-desc').fadeOut(300);
+          $('.project-holder').fadeIn(300);
         });
         $('.option.context').on('click',function(){
           if (!$(this).hasClass('active')){
             $('.pages').removeClass('active')
             $(this).addClass('active');
           }
-          $('.views').hide(300);
-          $('.project-holder').hide(300);
-          $('.project-desc').show(300);
+          $('.views').fadeOut(300);
+          $('.project-holder').fadeOut(300);
+          $('.project-desc').fadeIn(300);
         });
         $('.split-btn').on('click', function(e) {
             if (!$(this).hasClass('active')){
@@ -374,8 +374,8 @@ $(function() {
                 $('.layout').removeClass('active')
                 $(this).addClass('active');
               }
-              $('.flat-layout-holder').hide(300);
-              $('.canvas').show(300);
+              $('.flat-layout-holder').fadeOut(300);
+              $('.canvas').fadeIn(300);
               splitThoughts();
             }
         })
@@ -385,8 +385,8 @@ $(function() {
                 $('.layout').removeClass('active')
                 $(this).addClass('active');
               }
-              $('.flat-layout-holder').hide(300);
-              $('.canvas').show(300);
+              $('.flat-layout-holder').fadeOut(300);
+              $('.canvas').fadeIn(300);
               groupThoughts();
             }
         })

@@ -15,8 +15,7 @@ function scatterX(num, container) {
     //   console.log(container, container.node().getBBox());
     //   containerWidth = container.node().getBBox().width;
     // }
-    console.log( Math.random()*(width-300))
-    return Math.random()*(width-300);
+    return Math.random()*(width-200);
 }
 function scatterY(num, container) {
     // containerHeight = 0;

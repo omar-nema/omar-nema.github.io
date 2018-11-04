@@ -257,8 +257,6 @@ div.tooltip {
   font-size: 14px;
   padding: 20px 4%;
   padding-left: 6%;
-  position: fixed;
-  top: 50px;
 }
 
 .thought-flat-text {
@@ -308,6 +306,8 @@ div {
 .project-holder {
   width: 100%;
   height: calc(100vh - 50px);
+  position: fixed;
+  top: 50px;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

@@ -399,5 +399,16 @@ $(function() {
               mobileLayout();
             }
         })
+
+        tippy('.twitter-one', {
+          content: '<img src="/projects/Lists/img/twitter-post-initial.PNG" width="500">',
+          trigger: 'click',
+          duration: 0
+        })
+        tippy('.twitter-two', {
+          content: '<img src="/projects/Lists/img/twitter-post-two.PNG" width="500">',
+          trigger: 'click',
+          duration: 0
+        })
     });
 })

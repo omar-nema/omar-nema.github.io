@@ -93,7 +93,11 @@ color: #9d9d9d;
 }
 
 
-
+.tippy-tooltip {
+  max-width: none;
+  border-radius: 0;
+  padding: 3px;
+}
 
 //THOUGHT THOUGHT THOUGHT
 .thought-container, .thought-card {

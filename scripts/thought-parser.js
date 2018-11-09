@@ -22,7 +22,7 @@ function scatterY(num, container) {
     if (container){
       containerHeight = container.node().getBoundingClientRect().height;
     }
-    return Math.random()*(height -containerHeight - 80);
+    return Math.random()*(height - containerHeight - 80);
 
 }
 
@@ -63,7 +63,6 @@ $(function() {
           thoughtContainer.select('.more-button').style('display', 'none')
           thoughtContainer.selectAll('.additional-info').transition(200).style('opacity', 1);
 
-
           if (dragRecipient.classed('thought-card')){
             dragRecipient.selectAll('.thought-opacity-holder').filter(function(d){
               return d.thought != thoughtContainer.data()[0].thought
@@ -72,7 +71,7 @@ $(function() {
         }
         function thoughtHideContext(clickedThought, dragRecipient){
           opacityLayer.transition(100).style('opacity', 0).on('end', function(){
-            d3.select(this).style('z-index', '0').style('display', 'none');
+            d3.select(this).style('display', 'none');
           })
           clickedThought.classed('active', false);
           clickedThought.select('.more-button').style('display', 'inline');
@@ -95,7 +94,6 @@ $(function() {
             canvas.selectAll('.thought-card').each(function(d){
               x = Math.max(x, parseInt(d3.select(this).style('z-index')) || 0);
             })
-            console.log(x)
             return x;
           } else {
             z = 0;
@@ -251,7 +249,11 @@ $(function() {
             var svg = canvas.node();
 
             canvas.selectAll('.card-opacity-layer').style('transform', 'inherit');
-            canvas.selectAll('.thought-card').each(function(d){
+            canvas.selectAll('.thought-card')
+              .style('z-index', 'auto')
+              .style('height', 0)
+              .on(".drag", null)
+              .each(function(d){
               thoughtCard = d3.select(this);
               if (thoughtCard.classed('grouped')){
                 thoughtCard

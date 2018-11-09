@@ -22,7 +22,7 @@ function scatterY(num, container) {
     if (container){
       containerHeight = container.node().getBoundingClientRect().height;
     }
-    return Math.random()*(height - containerHeight - 80);
+    return Math.random()*(height - containerHeight-20);
 
 }
 

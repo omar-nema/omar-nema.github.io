@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         })
       .delay(function(d,i){
-        return d.delay*10;
+        return d.delay/5;
       })
       .duration(function(d, i){
-        return (d.phrase.length)*10
+        return (d.phrase.length)/5
       })
       .each(function(d,i){
         if (d.order > 1){

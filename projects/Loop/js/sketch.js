@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //DECLARE AND LOAD ASSETS
   var canvas = d3.select('.canvas');
-  var numSections = 40;
+  var numSections = 20;
   var numRows = 4;
   // axiosLocal = axios.create({baseURL: 'http://localhost:3000'});
   // test = axiosLocal.get('/processedText');

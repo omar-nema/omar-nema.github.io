@@ -101,6 +101,29 @@ function getTextIndices(inputRaw, phrases, numSections){
   })
   return allPhrases;
 }
+
+function getSubject(input){
+  var me = false; var person = false; var place = false; var emotional = false;
+  input.forEach(function(d, i){
+    // console.log(d.tags, d);
+
+
+    if (d.tags['Pronoun'] && d.tags['Singular'] ){
+      me = true;
+    } else if (d.tags['Person'] || d.tags['Prounoun']){
+      person = true;
+    } else if (d.tags['Place']){
+      place = true;
+    }
+
+    else if (Math.abs(sentiment.analyze(d['_text'])['score']) > 2){
+      emotional = true;
+    }
+  })
+  return {'me': me, 'person': person, 'place': place, 'emotional': emotional };
+}
+
+
 function getPhrases(doc){
   return doc.ngrams().list.filter(function(e){
     if (e.size == 2 && e.count > 1){
@@ -110,6 +133,9 @@ function getPhrases(doc){
           (e.terms[0].tags['Adjective'] && e.terms[1].tags['Noun'] && !e.terms[0].tags['Pronoun'] && !e.terms[1].tags['Pronoun'])
         ) {
           // console.log('PASSED ', e.key);
+          //console.log(e.key, getSubject(e.terms))
+
+          // console.log(e.key, sentiment.analyze(e.key)['score'] )
           return e.key; //also avail: uid, parent  terms
         }
 
@@ -122,6 +148,7 @@ function getPhrases(doc){
             !(e.terms[0].tags['Pronoun'] && e.terms[1].tags['QuestionWord'] && e.terms[2].tags['Pronoun']) //maybe ake this stricter and not have pronoun sandwich
           )
          {
+            // console.log(e.key, sentiment.analyze(e.key)['score'] )
           return e.key;
         }
 
@@ -130,13 +157,25 @@ function getPhrases(doc){
       return e.key;
     }
     // for unigrams, only take if high frequency and charged sentiment. not super effective. need to adjust library.
-    else if (e.size == 1 && e.count > 10 ){
-      if (Math.abs(sentiment.analyze(e.key)['score']) > 2){
-        return e.key;
+    else if (e.size == 1 && e.count > 2 ){
+      if (getSubject(e.terms)['Person']){
+        console.log(e.key)
       }
+      // console.log(e.key, getSubject(e.terms))
+      //if e.tags['Person']
+      // if (e.terms[0].tags['Person']){
+      //   return [e.key, 'Person']
+      // }
+      // else if (Math.abs(sentiment.analyze(e.key)['score']) > 2){
+      //   return e.key;
+      // }
     }
   }).map(function(i){return i.key})
-}
+};
+
+
+
+
 function supplementVocabulary(doc){
   doc.match('alisse').tag('Person', 'FemaleName');
   doc.match('w').tag('Preposition');
@@ -146,16 +185,24 @@ function startSketch(inputRaw, numSections){
   console.log('starting to process text')
   doc= nlp(inputRaw).normalize();
   supplementVocabulary(doc);
+  console.log('parsed', doc);
 
   console.log('topics', doc.topics().data() )
 
   grams = getPhrases(doc);
   console.log('phrases processed. next: get indexed array');
   console.log(grams)
-  indexedArr = getTextIndices(inputRaw, grams, numSections)
-  console.log('done', indexedArr)
-  return [indexedArr, inputRaw.length]
+  // indexedArr = getTextIndices(inputRaw, grams, numSections)
+  // console.log('done', indexedArr)
+  // return [indexedArr, inputRaw.length]
 }
+
+
+//isA: Person
+//isA: place
+//possessive
+
+//pronoun
 
 //COPY PASTE THIS PART
 

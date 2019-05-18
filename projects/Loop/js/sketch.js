@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //DECLARE AND LOAD ASSETS
   var canvas = d3.select('.canvas');
-  var numSections = 20;
+  var numSections = 16;
   var numRows = 4;
   // axiosLocal = axios.create({baseURL: 'http://localhost:3000'});
   // test = axiosLocal.get('/processedText');
   // test.then(res => {console.log(res); drawText(res.data[0])})
 
-  var promises = [d3.text('./data/2018 notes.txt'), d3.text('./data/phrases.txt')]
+  var promises = [d3.text('./data/pocnoteshort.txt'), d3.text('./data/phrases.txt')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
     drawText(startSketch(inputRaw, numSections)[0]);
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       canvas.selectAll('.fragment')
       .transition()
+      .duration(300)
       .style('opacity', .9)
       .tween("text", function(d) {
             var newText = d.phrase;
@@ -65,10 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         })
       .delay(function(d,i){
-        return d.delay/5;
+        return d.delay*10;
       })
       .duration(function(d, i){
-        return (d.phrase.length)/5
+        return (d.phrase.length)*10
       })
       .each(function(d,i){
         if (d.order > 1){

@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         })
       .delay(function(d,i){
-        return d.delay;
+        return d.delay*20;
       })
       .duration(function(d, i){
-        return d.duration
+        return d.duration*20
       })
 
   }

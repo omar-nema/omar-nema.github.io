@@ -102,7 +102,7 @@ function getTextIndices(inputRaw, phrases, numSections){
   allPhrases.forEach(function(d, i){ //needed for drawing out text
     prevElement = allPhrases[i-1];
     if (prevElement) {
-      d.duration = d.phrase.length/(i*.5);
+      d.duration = d.phrase.length/(i*.1);
       d.delay = prevElement.duration + prevElement.delay;
     } else {
       d.delay = 0;

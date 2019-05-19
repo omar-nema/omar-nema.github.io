@@ -15,7 +15,9 @@
 // });
 
 sentiment = new Sentimood();
-
+const colorPhrase = '#1ac261';
+const colorPerson = '#3498db';
+const colorEmotion = '#ef2971';
 
 
 ////COPY PASTE THIS PART
@@ -39,23 +41,26 @@ function getIndicesOf(searchStr, str, caseSensitive) {
 }
 function getTextIndices(inputRaw, phrases, numSections){
   //GET INDICES OF ALL PHRASES
-
   wordCount = inputRaw.length;
   numWordsPerSection = wordCount/numSections;
-  console.log(wordCount)
+  sliceIndices = [];
 
-  sliceIndices = []
+
   phrases.forEach(function(d, i){
-    phraseCleaned = d.trim();
+    phraseCleaned = d.text.trim();
     matchedIndices = getIndicesOf(phraseCleaned, inputRaw);
     matchedIndices.forEach(function(x){
-
       sliceIndices.push({
         indices:  [x.index, x.index+phraseCleaned.length],
         phraseId: i, //get a real id later
         order: x.order,
         phrase: phraseCleaned,
-        sectionNum: Math.floor(x.index/numWordsPerSection)
+        sectionNum: Math.floor(x.index/numWordsPerSection),
+        meInd: d.me,
+        personInd: d.person,
+        placeInd: d.place,
+        emotional: d.emotional,
+        color: d.color
       })
     })
   })
@@ -69,8 +74,6 @@ function getTextIndices(inputRaw, phrases, numSections){
         return d;
       }
     });
-  console.log(sliceIndices)
-
   //FILL INDICES OF ALL NON-PHRASES
   nonRepetitivePhrases = [];
   startingIndex = 0;
@@ -85,6 +88,11 @@ function getTextIndices(inputRaw, phrases, numSections){
       , phrase: inputRaw.substring(startingIndex, secondaryIndex) + ' '
       , phraseId: 0
       , sectionNum: Math.floor(startingIndex/numWordsPerSection)
+      , meInd: false
+      , personInd: false
+      , placeInd: false
+      , emotional: false
+      , color: 'white'
     })
     secondaryIndex = e.indices[1]
   })
@@ -94,49 +102,58 @@ function getTextIndices(inputRaw, phrases, numSections){
   allPhrases.forEach(function(d, i){ //needed for drawing out text
     prevElement = allPhrases[i-1];
     if (prevElement) {
-      d.delay = prevElement.phrase.length + prevElement.delay;
+      d.duration = d.phrase.length/(i*.5);
+      d.delay = prevElement.duration + prevElement.delay;
     } else {
       d.delay = 0;
+      d.duration = 0;
     }
   })
+  console.log(allPhrases)
   return allPhrases;
 }
 
-function getSubject(input){
-  var me = false; var person = false; var place = false; var emotional = false;
-  input.forEach(function(d, i){
-    // console.log(d.tags, d);
-
-
-    if (d.tags['Pronoun'] && d.tags['Singular'] ){
+function getHighlightFactors(input){
+  var me = false; var person = false; var place = false; var emotional = false; var color = 'black';
+  input['array'].forEach(function(d, i){
+    if (d['_text'] == 'i' || d['_text'] == 'me' || d['_text'] == 'my' || d['_text'] == 'mine'){
       me = true;
-    } else if (d.tags['Person'] || d.tags['Prounoun']){
+    }
+    if (d.tags['Person'] || d.tags['Pronoun'] && !me){
       person = true;
-    } else if (d.tags['Place']){
+      color = colorPerson;
+    }
+    if (d.tags['Place']){
       place = true;
     }
-
-    else if (Math.abs(sentiment.analyze(d['_text'])['score']) > 2){
+    if (Math.abs(sentiment.analyze(d['_text'])['score']) > 2){
       emotional = true;
     }
   })
-  return {'me': me, 'person': person, 'place': place, 'emotional': emotional };
+  if (emotional){
+    color = colorEmotion;
+  }
+  else if (person){
+    color = colorPerson;
+  }
+  else {
+    color = colorPhrase;
+  }
+
+  return {'text': input.string, 'me': me, 'person': person, 'place': place, 'emotional': emotional, 'color': color};
 }
 
 
 function getPhrases(doc){
-  return doc.ngrams().list.filter(function(e){
-    if (e.size == 2 && e.count > 1){
+  phraseOutput = [];
+  doc.ngrams().list.forEach(function(e){
+    if (e.size == 2 && e.count > 2){
       if (
           (e.terms[0].tags['Noun'] && e.terms[1].tags['Noun'] && !e.terms[0].tags['Pronoun'] && !e.terms[1].tags['Pronoun'])
           ||
           (e.terms[0].tags['Adjective'] && e.terms[1].tags['Noun'] && !e.terms[0].tags['Pronoun'] && !e.terms[1].tags['Pronoun'])
         ) {
-          // console.log('PASSED ', e.key);
-          //console.log(e.key, getSubject(e.terms))
-
-          // console.log(e.key, sentiment.analyze(e.key)['score'] )
-          return e.key; //also avail: uid, parent  terms
+           phraseOutput.push(getHighlightFactors({string: e.key, array: e.terms}));
         }
 
     }
@@ -148,33 +165,23 @@ function getPhrases(doc){
             !(e.terms[0].tags['Pronoun'] && e.terms[1].tags['QuestionWord'] && e.terms[2].tags['Pronoun']) //maybe ake this stricter and not have pronoun sandwich
           )
          {
-            // console.log(e.key, sentiment.analyze(e.key)['score'] )
-          return e.key;
+          phraseOutput.push(getHighlightFactors({string: e.key, array: e.terms}));
         }
 
     }
-    else if (e.size > 3 && e.count > 5){
+    else if (e.size > 3 && e.count > 3){
       return e.key;
     }
     // for unigrams, only take if high frequency and charged sentiment. not super effective. need to adjust library.
     else if (e.size == 1 && e.count > 2 ){
-      if (getSubject(e.terms)['Person']){
-        console.log(e.key)
+      highlightOutput = getHighlightFactors({string: e.key, array: e.terms});
+      if (highlightOutput['emotional'] || highlightOutput['person']){
+        phraseOutput.push(highlightOutput);
       }
-      // console.log(e.key, getSubject(e.terms))
-      //if e.tags['Person']
-      // if (e.terms[0].tags['Person']){
-      //   return [e.key, 'Person']
-      // }
-      // else if (Math.abs(sentiment.analyze(e.key)['score']) > 2){
-      //   return e.key;
-      // }
     }
-  }).map(function(i){return i.key})
+  })
+  return phraseOutput;
 };
-
-
-
 
 function supplementVocabulary(doc){
   doc.match('alisse').tag('Person', 'FemaleName');
@@ -186,15 +193,11 @@ function startSketch(inputRaw, numSections){
   doc= nlp(inputRaw).normalize();
   supplementVocabulary(doc);
   console.log('parsed', doc);
-
-  console.log('topics', doc.topics().data() )
-
   grams = getPhrases(doc);
   console.log('phrases processed. next: get indexed array');
-  console.log(grams)
-  // indexedArr = getTextIndices(inputRaw, grams, numSections)
-  // console.log('done', indexedArr)
-  // return [indexedArr, inputRaw.length]
+  indexedArr = getTextIndices(inputRaw, grams, numSections);
+  console.log('done', indexedArr)
+  return [indexedArr, inputRaw.length]
 }
 
 

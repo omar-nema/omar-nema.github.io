@@ -1,4 +1,20 @@
 
+.classed('emotional', function(d,i){
+  if (d.emotional){
+    return true
+  }
+})
+.classed('person', function(d,i){
+  if (d.personInd){
+    return true
+  }
+})
+.classed('place', function(d,i){
+  if (d.placeInd){
+    return true
+  }
+})
+
   var promises = [d3.text('./data/pocnote.txt'), d3.text('./data/phrases.txt')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];

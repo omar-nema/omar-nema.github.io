@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700|Open+Sans:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
 
 body {
   margin: 0;
@@ -6,10 +7,11 @@ body {
   background: #acb4b7;
   font-family: 'Karla';
   font-size: 14px;
+  overflow: hidden;
 }
 .header {
   width: 100%;
-  background: #635e96;
+  background: black;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -30,16 +32,17 @@ body {
   width: 85%;
   font-size: 14px;
 }
-.stat {
+.legend {
   margin-right: 22px;
   color: #F8CCFB;
-}
-.stat span {
-  color: white;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
 }
 
+
 .title {
-  color: white;
+  color: #e0d8d8;
   font-size: 18px;
   font-weight: 700;
 }
@@ -54,30 +57,27 @@ body {
 .about:hover {
   padding-bottom: 7px;
 }
-
 .canvas {
   height: 100%;
   padding: 30px 0;
   margin: auto;
-  font-size: 4.5px;
-  font-family:  'Arial';
+  font-size: 4px;
+  font-family:  'Lora';
   font-weight: 400;
   width: 85%;
   color: rgba(0,0,0,.6);
-  letter-spacing: 0.2px;
-
 }
 .fragment {
   display: inline;
   // transition: all .8s ease-in-out;
   opacity: 0;
   background: white;
+  color: white;
 }
-
-// .fragment.hidden {
-//   box-shadow: 1px 1px 1px 17px rgba(0, 0, 0, 0.1)
-// }
-
+.canvas-holder {
+  height: calc(100vh - 80px);
+  overflow: auto;
+}
 .textHolder {
   display: block;
   float: left;
@@ -86,23 +86,78 @@ body {
   margin-bottom: 10px;
 }
 
-// .fragment.hidden {
-//   background: #ff9c9c;
-//   color: rgba(0,0,0,.1);
+.title-holder {
+  display: flex;
+  align-content: baseline;
+  align-items: center;
+}
+.title-desc {
+  color: #cccaca;
+}
+
+.symbol {
+  width: auto;
+  display: flex;
+  background: #f4f4f9;
+  padding: 3px 6px;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
+}
+.symbol.repeat {
+  background: rgb(26, 194, 97);
+}
+.symbol.emotion {
+  background: #EF2971;
+}
+.symbol.person {
+  background: #3498DB;
+}
+
+// .circle {
+//   width: 8px;
+//   height: 8px;
+//   border-radius: 100%;
+//   margin-right: 8px;
+// }
+// .circle.repeat {
+//   background: #1AC261;
+//   color: #1AC261;
+//   border: 1px solid #109749;
+// // }
+// .repeat {
+//   color: #1AC261;;
+// }
+//
+// .circle.emotion {
+//   background: #EF2971;
+//   color: #EF2971;
+//   border: 1px solid #C62B63;
+// }
+// .emotion {
+//   color: #EF2971;;
+// }
+//
+// .circle.person {
+//   background: #3498DB;
+//   color: #3498DB;
+//   border: 1px solid #1C70A9;
+// }
+// .person {
+//   color: #3498DB;;
 // }
 
-// background: rgba(0,0,0,.05);
-// z-index: 100;
 
+// .fragment.hidden {
+//   color: white !important;
+//   background: #1ac261 !important;
+//   // border: .2px solid black;
+// }
 //
-// .canvas {
-//   width: 97vw;
-//   height: 96vh;
-//   box-sizing: border-box;
-//   padding: 100px;
-//   border: 1px solid rgba(0,0,0,.1);
-//   margin: auto;
-//   box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
-//   z-index: 1;
-//   background: white;
+// .fragment.person {
+//   background: #3498db !important;
+// }
+// .fragment.emotional {
+//   background: #ef2971 !important;
+//   color: white !important;
 // }

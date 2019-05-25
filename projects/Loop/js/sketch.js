@@ -27,6 +27,43 @@ document.addEventListener('DOMContentLoaded', function() {
       numRows = 2;
     }
     drawText(startSketch(inputRaw, numSections)[0]);
+
+    // panzoom(document.querySelector('.canvas'), {
+    //     zoomDoubleClickSpeed: 4,
+    //     minZoom: 1,
+    //     maxZoom: 3,
+    //
+    // });
+
+
+
+    d3.select('.canvas').on('click', zoomed)
+
+    //.call(d3.zoom().on('zoom', zoomed))
+
+
+    function zoomed(e) {
+      canvasNode = d3.select(this).node();
+      if (d3.select(this).classed('zoomed')){
+        d3.select(this)
+        .transition()
+        .duration(300)
+        .style('transform', 'scale(1)')
+        ;
+        d3.select(this).classed('zoomed', false);
+      } else {
+        d3.select(this).classed('zoomed', true);
+        xTrans = Number.parseFloat(d3.event.clientX) - canvasNode.offsetLeft;
+        yTrans = Number.parseFloat(d3.event.clientY) - canvasNode.offsetTop;
+        d3.select(this)
+        .style('transform-origin', xTrans + 'px ' + yTrans + 'px 0')
+        .transition()
+        .duration(300)
+        .style('transform', 'scale(4)')
+        ;
+      }
+  }
+
   });
 
 
@@ -61,7 +98,20 @@ document.addEventListener('DOMContentLoaded', function() {
       .attr('phraseId', function(d){
         return d.phraseId;
       })
-
+      .text(function(d){
+        return d.phrase;
+      })
+      .style('background', function(d,i){
+        if (d.order > 0){
+          return d.color;
+        }
+      })
+      .style('border', function(d,i){
+        if (d.order > 0){
+           return '0.1px solid rgb(74, 74, 74)';
+        }
+      })
+      ;
 
       var colors = ['#e6261f', '#f7d038', '#49da9a', '#49da9a', '#d23be7', '#d23be7' ];
       function getRandColor(){
@@ -79,25 +129,21 @@ document.addEventListener('DOMContentLoaded', function() {
           return 'black'
         }
       })
-      .style('background', function(d,i){
-        if (d.order > 0){
-          return d.color;
-        }
-      })
-      .tween("text", function(d) {
-            var newText = d.phrase;
-            var textLength = newText.length;
-            return function (t) {
-                this.textContent = newText.substr(0,
-                                   Math.round( t * textLength) );
-            };
-        })
-      .delay(function(d,i){
-        return d.delay*20;
-      })
-      .duration(function(d, i){
-        return d.duration*20
-      })
+
+      // .tween("text", function(d) {
+      //       var newText = d.phrase;
+      //       var textLength = newText.length;
+      //       return function (t) {
+      //           this.textContent = newText.substr(0,
+      //                              Math.round( t * textLength) );
+      //       };
+      //   })
+      // .delay(function(d,i){
+      //   return d.delay;
+      // })
+      // .duration(function(d, i){
+      //   return d.duration
+      // })
 
   }
 }, false);

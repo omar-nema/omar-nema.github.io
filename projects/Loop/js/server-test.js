@@ -15,7 +15,7 @@
 // });
 
 sentiment = new Sentimood();
-const colorPhrase = '#1ac261';
+const colorPhrase = '#009688';
 const colorPerson = '#3498db';
 const colorEmotion = '#ef2971';
 

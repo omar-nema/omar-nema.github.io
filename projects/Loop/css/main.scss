@@ -8,6 +8,7 @@ body {
   font-family: 'Karla';
   font-size: 14px;
   overflow: hidden;
+  background-image: linear-gradient(315deg, #7a96a3 0%, #51585c 72%);
 }
 .header {
   width: 100%;
@@ -57,8 +58,9 @@ body {
 .about:hover {
   padding-bottom: 7px;
 }
+.canvas-background {height: auto; min-height: 100%; background: #2f3132}
 .canvas {
-  height: 100%;
+  height: auto;
   padding: 30px 0;
   margin: auto;
   font-size: 4px;
@@ -66,7 +68,12 @@ body {
   font-weight: 400;
   width: 85%;
   color: rgba(0,0,0,.6);
+  cursor: zoom-in;
 }
+.canvas.zoomed {
+  cursor: zoom-out;
+}
+
 .fragment {
   display: inline;
   // transition: all .8s ease-in-out;
@@ -77,6 +84,7 @@ body {
 .canvas-holder {
   height: calc(100vh - 80px);
   overflow: auto;
+  overflow-x: hidden;
 }
 .textHolder {
   display: block;
@@ -101,11 +109,11 @@ body {
   background: #f4f4f9;
   padding: 3px 6px;
   align-items: center;
-  color: white;
+  color: black;
   margin-right: 10px;
 }
 .symbol.repeat {
-  background: rgb(26, 194, 97);
+  background: #009688;
 }
 .symbol.emotion {
   background: #EF2971;

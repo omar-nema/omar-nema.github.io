@@ -1,26 +1,8 @@
-//build api that will generate phrases from inputText
-
-// const nlp = require('compromise');
-// const express = require('express');
-// server = express();
-// var fs = require('fs');
-//
-// require.extensions['.txt'] = function (module, filename) {
-//     module.exports = fs.readFileSync(filename, 'utf8');
-// };
-// var inputRaw = require("./data/pocnote.txt");
-// server.set('port', process.env.PORT || 3000);
-// server.get('/', (request,response)=>{
-//    response.send('Home page');
-// });
-
 sentiment = new Sentimood();
 const colorPhrase = '#009688';
 const colorPerson = '#3498db';
 const colorEmotion = '#ef2971';
 
-
-////COPY PASTE THIS PART
 function getIndicesOf(searchStr, str, caseSensitive) {
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
@@ -39,6 +21,12 @@ function getIndicesOf(searchStr, str, caseSensitive) {
     }
     return indices;
 }
+function getTextByIndices(){
+
+}
+
+
+
 function getTextIndices(inputRaw, phrases, numSections){
   //GET INDICES OF ALL PHRASES
   wordCount = inputRaw.length;
@@ -46,12 +34,39 @@ function getTextIndices(inputRaw, phrases, numSections){
   sliceIndices = [];
 
 
+
+
   phrases.forEach(function(d, i){
     phraseCleaned = d.text.trim();
+    surroundingLength= 200;
+
     matchedIndices = getIndicesOf(phraseCleaned, inputRaw);
+    surroundingHtml = [];
+    highlightType = ''
+    if (d.person){
+      highlightType = 'person';
+    } else if (d.emotion) {
+      highlightType = 'emotion';
+    } else {
+      highlightType = 'repeat';
+    }
+    //getMatchedIndicesArray for the whole thing
+    surroundingHtmlArray = [];
+    circleHtml = '';
     matchedIndices.forEach(function(x){
+      startIndex = x.index;
+      endIndex = x.index+phraseCleaned.length
+      surroundingHtml = "<span>..." + inputRaw.substring(startIndex-surroundingLength, startIndex) + ' </span><span class="phrase ' + highlightType + '"> ' + phraseCleaned + '</span><span> ' + inputRaw.substring(endIndex, endIndex+surroundingLength) + '...</span>';
+      surroundingHtmlArray.push(surroundingHtml);
+      circleHtml = circleHtml + "<div class='tip-select'></div>"
+    })
+
+
+    matchedIndices.forEach(function(x){
+      startIndex = x.index;
+      endIndex = x.index+phraseCleaned.length
       sliceIndices.push({
-        indices:  [x.index, x.index+phraseCleaned.length],
+        indices:  [startIndex, endIndex],
         phraseId: i, //get a real id later
         order: x.order,
         phrase: phraseCleaned,
@@ -60,7 +75,13 @@ function getTextIndices(inputRaw, phrases, numSections){
         personInd: d.person,
         placeInd: d.place,
         emotional: d.emotional,
-        color: d.color
+        color: d.color,
+        textBefore: inputRaw.substring(startIndex-100, startIndex),
+        textAfter: inputRaw.substring(endIndex, endIndex+100),
+        surroundingHtml: surroundingHtmlArray,
+        circleHtml: circleHtml,
+        count: matchedIndices.length
+        //here is where we want to display aftertext, sentence, beforetext
       })
     })
   })
@@ -119,7 +140,7 @@ function getHighlightFactors(input){
     if (d['_text'] == 'i' || d['_text'] == 'me' || d['_text'] == 'my' || d['_text'] == 'mine'){
       me = true;
     }
-    if (d.tags['Person'] || d.tags['Pronoun'] && !me){
+    if (d.tags['Person']){
       person = true;
       color = colorPerson;
     }
@@ -143,6 +164,8 @@ function getHighlightFactors(input){
   return {'text': input.string, 'me': me, 'person': person, 'place': place, 'emotional': emotional, 'color': color};
 }
 
+
+//find element before ngram
 
 function getPhrases(doc){
   phraseOutput = [];

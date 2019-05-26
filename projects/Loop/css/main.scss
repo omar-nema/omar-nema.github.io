@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
+$color-person: #3498DB;
+$color-emotion: #EF2971;
+$color-repeat: #009688;
+
 
 body {
   margin: 0;
   padding: 0;
-  background: #acb4b7;
   font-family: 'Karla';
   font-size: 14px;
   overflow: hidden;
-  background-image: linear-gradient(315deg, #7a96a3 0%, #51585c 72%);
 }
 .header {
   width: 100%;
@@ -40,6 +42,65 @@ body {
   font-size: 12px;
   align-items: center;
 }
+.tooltip {
+  z-index: 5;
+  background: #000000e3;
+  padding: 20px;
+  position: absolute;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 400px;
+  transition: opacity .3s ease-in-out;
+  min-width: 200px;
+}
+.tooltip.active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.tip-header {
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+.select-holder {
+  margin-bottom: 10px;
+}
+.tooltip span {
+    font-size: 12px;
+    color: #d9d8d8;
+}
+.tooltip span.phrase {
+  color: white;
+}
+.tooltip span.phrase.person {
+  background: $color-person;
+}
+.tooltip span.phrase.repeat {
+  background: $color-repeat;
+}
+.tooltip span.phrase.emotion {
+  background: $color-emotion;
+}
+
+.tip-select {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 100%;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  opacity: .3;
+  transition: opacity .1s ease-in-out;
+}
+.tip-select.selected {
+  opacity: 1;
+}
+.tip-select:hover {
+  opacity: .5;
+}
 
 
 .title {
@@ -61,23 +122,29 @@ body {
 .canvas-background {height: auto; min-height: 100%; background: #2f3132}
 .canvas {
   height: auto;
+  padding-bottom: 300px;
   padding: 30px 0;
   margin: auto;
   font-size: 4px;
-  font-family:  'Lora';
   font-weight: 400;
   width: 85%;
   color: rgba(0,0,0,.6);
   cursor: zoom-in;
 }
 .canvas.zoomed {
-  cursor: zoom-out;
+  cursor: auto;
 }
+.canvas.zoomed .fragment.phrase {
+  cursor: pointer;
+}
+.canvas.zoomed .fragment.phrase:hover {
+  opacity: .8;
+}
+
 
 .fragment {
   display: inline;
   // transition: all .8s ease-in-out;
-  opacity: 0;
   background: white;
   color: white;
 }
@@ -85,6 +152,7 @@ body {
   height: calc(100vh - 80px);
   overflow: auto;
   overflow-x: hidden;
+  position: relative;
 }
 .textHolder {
   display: block;
@@ -92,6 +160,7 @@ body {
   padding: 0 5px;
   height: auto;
   margin-bottom: 10px;
+  opacity: 0;
 }
 
 .title-holder {
@@ -109,18 +178,39 @@ body {
   background: #f4f4f9;
   padding: 3px 6px;
   align-items: center;
-  color: black;
+  color: white;
   margin-right: 10px;
 }
 .symbol.repeat {
-  background: #009688;
+  background: $color-repeat;
 }
 .symbol.emotion {
-  background: #EF2971;
+  background: $color-emotion;
 }
 .symbol.person {
-  background: #3498DB;
+  background: $color-person;
 }
+
+.zoom-btn {
+  position: fixed;
+  background: black;
+  color: #F7FAA8;
+  padding: 10px 15px;
+  box-shadow: 0px 1px 2px 1px rgba(117, 113, 113, 0.48);
+  top: 100px;
+  right: 50px;
+  border: 1px solid black;
+  font-weight: 600;
+  cursor:pointer;
+  z-index: 1;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
+}
+.zoom-btn.enabled {
+  pointer-events: auto;
+  opacity: 1;
+}
+
 
 
 // .fragment.hidden {

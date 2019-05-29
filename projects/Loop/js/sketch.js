@@ -8,9 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var toastInd = false;
   var alreadyZoomed = false;
 
-  var promises = [d3.text('./data/allnotes.txt'), d3.text('./data/phrases.txt')]
+  var promises = [d3.text('./data/allnotes.txt'), d3.json('./data/grams.json')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
+    grams = values[1];
     //startSketch(inputRaw, numSections);
     if (window.innerWidth < 600) {
       numSections = 40;
@@ -19,19 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
       numSections = 12;
       numRows = 3;
     } else if  (window.innerWidth > 1000 && window.innerWidth <= 1500){
-      numSections = 16;
-      numRows = 4;
+      numSections = 24;
+      numRows = 8;
     }
     else if  (window.innerWidth > 1500){
       numSections = 8;
       numRows = 2;
     }
 
-    d3.json('./data/grams.json').then(function(grams){
-      indexedArr = getTextIndices(inputRaw, grams, numSections);
-      drawText(indexedArr);
-      d3.select('.canvas').on('click', zoomed);
-    })
+    //function generateGrams();
+    indexedArr = getTextIndices(inputRaw, grams, numSections);
+    drawText(indexedArr);
+    d3.select('.canvas').on('click', zoomed);
+
+    // d3.json('./data/grams.json').then(function(grams){
+    //
+    // })
 
 
     // drawText(startSketch(inputRaw, numSections)[0]);

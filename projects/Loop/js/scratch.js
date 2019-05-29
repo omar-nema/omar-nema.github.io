@@ -1,4 +1,11 @@
 
+// in sketch
+// axiosLocal = axios.create({baseURL: 'http://localhost:3000'});
+// test = axiosLocal.get('/processedText');
+// test.then(res => {console.log(res) })
+
+
+
 .classed('emotional', function(d,i){
   if (d.emotional){
     return true

@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var toastInd = false;
   var alreadyZoomed = false;
 
-  var promises = [d3.text('./data/allnotes.txt'), d3.json('./data/grams.json')]
+  var promises = [d3.text('./data/allnotes.txt'), d3.json('./data/phrases.json')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
-    grams = values[1];
+    phrases = values[1];
     //startSketch(inputRaw, numSections);
     if (window.innerWidth < 600) {
       numSections = 40;
@@ -27,27 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
       numSections = 8;
       numRows = 2;
     }
-
-    //function generateGrams();
-    indexedArr = getTextIndices(inputRaw, grams, numSections);
+    indexedArr = getTextIndices(inputRaw, phrases, numSections);
     drawText(indexedArr);
     d3.select('.canvas').on('click', zoomed);
-
-    // d3.json('./data/grams.json').then(function(grams){
-    //
-    // })
-
-
-    // drawText(startSketch(inputRaw, numSections)[0]);
-    // d3.select('.canvas').on('click', zoomed)
-
   });
-
-
-
-
-
-
 
   function hideWithTransition(sel){
     sel.style('display', 'none').style('opacity', '0')
@@ -55,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function showWithTransition(sel){
     sel.style('display', 'block').transition().duration(300).style('opacity', '1')
   }
-
   d3.select('.header .about').on('click', function(){
     if (canvas.classed('desc')){
       canvas.classed('desc', false);
@@ -70,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
       d3.select('.about').text('Back to Project')
     }
   })
-
   d3.select('.zoom-btn').on('click', function(e){
     d3.select('.canvas')
       .transition()
@@ -83,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
     d3.select('.zoom-instruction').classed('enabled', false);
     tooltip.classed('active', false)
   })
-
-
   function displayTooltip(){
       canvas.selectAll('.fragment.phrase').on('click', function(d){
         if (canvas.classed('zoomed')){
@@ -107,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
   }
-
   function zoomed(e) {
     canvasNode = d3.select(this).node();
     if (!d3.select(this).classed('zoomed')){ //ZOOM IN
@@ -200,16 +178,3 @@ document.addEventListener('DOMContentLoaded', function() {
       .style('opacity', 1);
   }
 }, false);
-
-
-
-
-//use async.each() to parse in parallel
-//1) function to parse phrases
-//let phraseLibrary = ['omar is', 'big cat']
-//2) read text and create this
-//go throug
-//phrases parsed =
-//{phrase: x, index: y, order: 2}
-//phrase lookup within dom
-//animate: go through phrases.

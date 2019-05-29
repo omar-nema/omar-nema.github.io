@@ -2,56 +2,35 @@ const nlp = require('compromise');
 const express = require('express');
 server = express();
 var fs = require('fs');
-// sentiment = new Sentimood();
 const sentiment = require('Sentimental');
 const colorPhrase = '#009688';
 const colorPerson = '#3498db';
 const colorEmotion = '#ef2971';
-
-
-// in sketch
-// axiosLocal = axios.create({baseURL: 'http://localhost:3000'});
-// test = axiosLocal.get('/processedText');
-// test.then(res => {console.log(res) })
-
-const numSections =
-
 require.extensions['.txt'] = function (module, filename) {
     module.exports = fs.readFileSync(filename, 'utf8');
 };
-process.stdout.write("text");
 var inputRaw = require("./data/allnotes.txt");
 
 
 server.set('port', process.env.PORT || 3000);
+server.listen(3000, ()=>{
+  console.log('Express server started at port 3000');
+  generatePhrases(inputRaw);
+  console.log('isudoneb')
+});
+
 server.get('/', (request,response)=>{
    response.send('meowza');
 });
 
-server.get('/processedText',(request,response)=>{
-  console.log('running nlp on text...'); console.time('nlp processing time');
+function generatePhrases(inputRaw){
   doc= nlp(inputRaw);
   supplementVocabulary(doc);
-  console.timeEnd('nlp processing time');
-  // console.log(doc);
-
-  //PARSE PHRASES
-  console.log('parsing phrases from text...'); console.time('phrase processing time');
+  console.log('parsed', doc);
   grams = getPhrases(doc);
-  console.timeEnd('phrase processing time')
-
-  //CREATE D3 FRIENDLY ARRAY
-  console.log('create viz friendly array...'); console.time('viz processing time');
-  indexedArr = getTextIndices(inputRaw, grams, numSections);
-  console.timeEnd('viz processing time')
-  // console.log(indexedArr)
-  return [indexedArr, inputRaw.length]
-});
-
-server.listen(3000, ()=>{
-  console.log('Express server started at port 3000');
-});
-
+  jsonOutput = JSON.stringify(grams);
+  fs.writeFileSync('./data/phrases.json', jsonOutput);
+}
 
 function getIndicesOf(searchStr, str, caseSensitive) {
     var searchStrLen = searchStr.length;
@@ -250,15 +229,4 @@ function getPhrases(doc){
 function supplementVocabulary(doc){
   doc.match('alisse').tag('Person', 'FemaleName');
   doc.match('w').tag('Preposition');
-}
-function startSketch(inputRaw, numSections){
-  console.log('starting to process text')
-  doc= nlp(inputRaw).normalize();
-  supplementVocabulary(doc);
-  console.log('parsed', doc);
-  grams = getPhrases(doc);
-  console.log('phrases processed. next: get indexed array');
-  indexedArr = getTextIndices(inputRaw, grams, numSections);
-  console.log('done', indexedArr)
-  return [indexedArr, inputRaw.length]
 }

@@ -21,10 +21,6 @@ function getIndicesOf(searchStr, str, caseSensitive) {
     }
     return indices;
 }
-function getTextByIndices(){
-
-}
-
 
 
 function getTextIndices(inputRaw, phrases, numSections){
@@ -32,9 +28,6 @@ function getTextIndices(inputRaw, phrases, numSections){
   wordCount = inputRaw.length;
   numWordsPerSection = wordCount/numSections;
   sliceIndices = [];
-
-
-
 
   phrases.forEach(function(d, i){
     phraseCleaned = d.text.trim();
@@ -60,8 +53,6 @@ function getTextIndices(inputRaw, phrases, numSections){
       surroundingHtmlArray.push(surroundingHtml);
       circleHtml = circleHtml + "<div class='tip-select'></div>"
     })
-
-
     matchedIndices.forEach(function(x){
       startIndex = x.index;
       endIndex = x.index+phraseCleaned.length
@@ -130,7 +121,6 @@ function getTextIndices(inputRaw, phrases, numSections){
       d.duration = 0;
     }
   })
-  console.log(allPhrases)
   return allPhrases;
 }
 
@@ -163,9 +153,6 @@ function getHighlightFactors(input){
 
   return {'text': input.string, 'me': me, 'person': person, 'place': place, 'emotional': emotional, 'color': color};
 }
-
-
-//find element before ngram
 
 function getPhrases(doc){
   phraseOutput = [];
@@ -211,39 +198,28 @@ function supplementVocabulary(doc){
   doc.match('w').tag('Preposition');
 }
 
-function startSketch(inputRaw, numSections){
-  console.log('starting to process text')
-  doc= nlp(inputRaw).normalize();
-  supplementVocabulary(doc);
-  console.log('parsed', doc);
-  grams = getPhrases(doc);
-  console.log('phrases processed. next: get indexed array');
-  indexedArr = getTextIndices(inputRaw, grams, numSections);
-  console.log('done', indexedArr)
-  return [indexedArr, inputRaw.length]
-}
+//used to generate grams file
 
-
-//isA: Person
-//isA: place
-//possessive
-
-//pronoun
-
-//COPY PASTE THIS PART
-
-// server.get('/processedText',(request,response)=>{
-//   console.log('starting to process text')
-//   normalized = nlp(inputRaw); //OPPORTUNITY TO NORMALIZE
-//   doc = nlp(normalized.out('text')); //seems redundant but somehow necessary
-//   supplementVocabulary(doc);
-//   grams = getPhrases(doc);
-//   console.log('phrases processed. next: get indexed array');
-//   indexedArr = getTextIndices(inputRaw, grams)
-//   response.send([indexedArr, inputRaw.length]);
-// });
-
-//Binding to a port
-// server.listen(3000, ()=>{
-//   console.log('Express server started at port 3000');
-// });
+// function startSketch(inputRaw, numSections){
+//
+//   // //NLP
+//   // console.log('running nlp on text...'); console.time('nlp processing time');
+//   // doc= nlp(inputRaw);
+//   // supplementVocabulary(doc);
+//   // console.timeEnd('nlp processing time');
+//   // console.log(doc);
+//   //
+//   // //PARSE PHRASES
+//   // console.log('parsing phrases from text...'); console.time('phrase processing time');
+//   // grams = getPhrases(doc);
+//   // console.timeEnd('phrase processing time')
+//
+//
+//
+//   //CREATE D3 FRIENDLY ARRAY
+//   // console.log('create viz friendly array...'); console.time('viz processing time');
+//   // indexedArr = getTextIndices(inputRaw, grams, numSections);
+//   // console.timeEnd('viz processing time')
+//   // console.log(indexedArr)
+//   // return [indexedArr, inputRaw.length]
+// }

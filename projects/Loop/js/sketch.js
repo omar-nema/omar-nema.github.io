@@ -5,69 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var tooltip = d3.select('.tooltip');
   var numSections;
   var numRows;
-  // axiosLocal = axios.create({baseURL: 'http://localhost:3000'});
-  // test = axiosLocal.get('/processedText');
-  // test.then(res => {console.log(res); drawText(res.data[0])})
+  var toastInd = false;
+  var alreadyZoomed = false;
 
-  d3.select('.zoom-btn').on('click', function(e){
-    d3.select('.canvas')
-      .transition()
-      .duration(300)
-      .style('transform', 'scale(1)')
-      ;
-    d3.select('.canvas').classed('zoomed', false);
-    d3.select(this).classed('enabled', false);
-    d3.selectAll('.fragment.phrase').on('click', null);
-    tooltip.classed('active', false)
-  })
-
-
-  function displayTooltip(){
-      canvas.selectAll('.fragment.phrase').on('click', function(d){
-        if (canvas.classed('zoomed')){
-          tooltip.select('.text-holder').html(function(){return d.surroundingHtml[d.order-1]});
-          tooltip.select('.select-holder').html(function(){return d.circleHtml});
-          rect = tooltip.node().getBoundingClientRect();
-          console.log(rect)
-
-
-          tooltip.style('left', d3.event.clientX - (rect.width/2) + 'px').style('top', d3.event.clientY - (rect.height/2)+ 'px');
-
-          //upperbounds
-
-          tooltip.classed('active', true);
-          tooltip.selectAll('.tip-select').on('click', function(z,i){
-            tooltip.selectAll('.tip-select').classed('selected', false);
-            d3.select(this).classed('selected', true);
-            tooltip.select('.text-holder').html(function(){return d.surroundingHtml[i]})
-          })
-          var selectString = '.tip-select:nth-child(' + d.order + ')';
-          tooltip.selectAll(selectString).classed('selected', true);
-          d3.event.stopPropagation();
-        }
-    })
-  }
-
-  function zoomed(e) {
-    canvasNode = d3.select(this).node();
-    if (!d3.select(this).classed('zoomed')){ //ZOOM IN
-
-      xTrans = Number.parseFloat(d3.event.clientX) - canvasNode.offsetLeft;
-      yTrans = Number.parseFloat(d3.event.clientY) + d3.select('.canvas-holder').node().scrollTop;
-      d3.select(this)
-      .style('transform-origin', xTrans + 'px ' + yTrans + 'px 0')
-      .transition()
-      .duration(300)
-      .style('transform', 'scale(3)')
-      d3.select('.zoom-btn').classed('enabled', true)
-      d3.select(this).classed('zoomed', true);
-      displayTooltip();
-    } else {
-      tooltip.classed('active', false)
-    }
-  }
-
-  var promises = [d3.text('./data/2018 notes.txt'), d3.text('./data/phrases.txt')]
+  var promises = [d3.text('./data/allnotes.txt'), d3.text('./data/phrases.txt')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
     //startSketch(inputRaw, numSections);
@@ -85,11 +26,105 @@ document.addEventListener('DOMContentLoaded', function() {
       numSections = 8;
       numRows = 2;
     }
-    drawText(startSketch(inputRaw, numSections)[0]);
-    d3.select('.canvas').on('click', zoomed)
+
+    d3.json('./data/grams.json').then(function(grams){
+      indexedArr = getTextIndices(inputRaw, grams, numSections);
+      drawText(indexedArr);
+      d3.select('.canvas').on('click', zoomed);
+    })
+
+
+    // drawText(startSketch(inputRaw, numSections)[0]);
+    // d3.select('.canvas').on('click', zoomed)
 
   });
 
+
+
+
+
+
+
+  function hideWithTransition(sel){
+    sel.style('display', 'none').style('opacity', '0')
+  }
+  function showWithTransition(sel){
+    sel.style('display', 'block').transition().duration(300).style('opacity', '1')
+  }
+
+  d3.select('.header .about').on('click', function(){
+    if (canvas.classed('desc')){
+      canvas.classed('desc', false);
+      hideWithTransition(d3.select('.project-desc'));
+      showWithTransition(canvas);
+      d3.select('.about').text('Tell me more!')
+      ;
+    } else {
+      canvas.classed('desc', true);
+      hideWithTransition(canvas);
+      showWithTransition(d3.select('.project-desc'))
+      d3.select('.about').text('Back to Project')
+    }
+  })
+
+  d3.select('.zoom-btn').on('click', function(e){
+    d3.select('.canvas')
+      .transition()
+      .duration(300)
+      .style('transform', 'scale(1)')
+      ;
+    d3.select('.canvas').classed('zoomed', false);
+    d3.select(this).classed('enabled', false);
+    d3.selectAll('.fragment.phrase').on('click', null);
+    d3.select('.zoom-instruction').classed('enabled', false);
+    tooltip.classed('active', false)
+  })
+
+
+  function displayTooltip(){
+      canvas.selectAll('.fragment.phrase').on('click', function(d){
+        if (canvas.classed('zoomed')){
+          tooltip.select('.text-holder').html(function(){return d.surroundingHtml[d.order-1]});
+          tooltip.select('.select-holder').html(function(){return d.circleHtml});
+          rect = tooltip.node().getBoundingClientRect();
+          d3.select('.zoom-instruction').classed('enabled', false);
+          tooltipX = Math.min(d3.event.clientX, window.innerWidth - rect.width - 10);
+          tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - 10)
+          tooltip.style('left', tooltipX + 'px').style('top', tooltipY + 'px');
+          tooltip.classed('active', true);
+          tooltip.selectAll('.tip-select').on('click', function(z,i){
+            tooltip.selectAll('.tip-select').classed('selected', false);
+            d3.select(this).classed('selected', true);
+            tooltip.select('.text-holder').html(function(){return d.surroundingHtml[i]})
+          })
+          var selectString = '.tip-select:nth-child(' + d.order + ')';
+          tooltip.selectAll(selectString).classed('selected', true);
+          d3.event.stopPropagation();
+        }
+    })
+  }
+
+  function zoomed(e) {
+    canvasNode = d3.select(this).node();
+    if (!d3.select(this).classed('zoomed')){ //ZOOM IN
+      xTrans = Number.parseFloat(d3.event.clientX) - canvasNode.offsetLeft;
+      yTrans = Number.parseFloat(d3.event.clientY) + d3.select('.canvas-holder').node().scrollTop;
+      d3.select(this)
+      .style('transform-origin', xTrans + 'px ' + yTrans + 'px 0')
+      .transition()
+      .duration(300)
+      .style('transform', 'scale(3)')
+      d3.select('.zoom-btn').classed('enabled', true)
+      d3.select(this).classed('zoomed', true);
+      displayTooltip();
+      if (!alreadyZoomed){
+          d3.select('.zoom-instruction').classed('enabled', true);
+      }
+      alreadyZoomed = true;
+    } else {
+      tooltip.classed('active', false)
+    }
+  }
 
   function drawText(textIndexed){
 
@@ -130,11 +165,11 @@ document.addEventListener('DOMContentLoaded', function() {
           return d.color;
         }
       })
-      .style('border', function(d,i){
-        if (d.order > 0){
-           return '0.1px solid rgb(74, 74, 74)';
-        }
-      })
+      // .style('border', function(d,i){
+      //   if (d.order > 0){
+      //      return '0.1px solid rgb(74, 74, 74)';
+      //   }
+      // })
       .style('color', function(d,i){
         if (d.order > 0){
           return 'white'

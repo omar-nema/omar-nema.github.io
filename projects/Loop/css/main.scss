@@ -11,6 +11,7 @@ body {
   font-family: 'Karla';
   font-size: 14px;
   overflow: hidden;
+  background: #2f3132;
 }
 .header {
   width: 100%;
@@ -130,12 +131,14 @@ body {
   width: 85%;
   color: rgba(0,0,0,.6);
   cursor: zoom-in;
+  transition: opacity .3s ease-in-out;
 }
 .canvas.zoomed {
   cursor: auto;
 }
 .canvas.zoomed .fragment.phrase {
   cursor: pointer;
+  transition: opacity .15s ease-in-out;
 }
 .canvas.zoomed .fragment.phrase:hover {
   opacity: .8;
@@ -154,6 +157,30 @@ body {
   overflow-x: hidden;
   position: relative;
 }
+.project-desc {
+  background: #d4d3d3;
+  margin: auto;
+  width: 85%;
+  max-width: 900px;
+  display: none;
+  opacity: 0;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 30px 50px;
+  min-height: 85%;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.16);
+  border: 1px solid black;
+}
+
+.para-header {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.text-section {
+  margin-bottom: 30px;
+}
+
 .textHolder {
   display: block;
   float: left;
@@ -190,7 +217,27 @@ body {
 .symbol.person {
   background: $color-person;
 }
-
+.zoom-instruction {
+  right: 100px;
+  width: 300px;
+  text-align: center;
+  font-weight: 300;
+  background: #000000;
+  color: white;
+  opacity: .9;
+  left: calc(50% - 150px);
+  position: fixed;
+  padding: 10px 15px;
+  box-shadow: 0px 1px 2px 1px rgba(117, 113, 113, 0.48);
+  z-index: 1;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  top: 100px;
+}
+.zoom-instruction.enabled {
+  opacity: 1;
+}
 .zoom-btn {
   position: fixed;
   background: black;

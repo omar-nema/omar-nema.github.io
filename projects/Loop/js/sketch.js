@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
   var toastInd = false;
   var alreadyZoomed = false;
 
-  var promises = [d3.text('./data/allnotes.txt'), d3.json('./data/phrases.json')]
+  var promises = [d3.text('./data/curatednotes.txt'), d3.json('./data/phrases.json')]
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
     phrases = values[1];
     //startSketch(inputRaw, numSections);
     if (window.innerWidth < 600) {
-      numSections = 40;
+      numSections = 20;
       numRows = 20;
     } else if  (window.innerWidth >= 600 && window.innerWidth < 1000){
       numSections = 12;
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
       numRows = 2;
     }
     indexedArr = getTextIndices(inputRaw, phrases, numSections);
+    console.log(indexedArr)
     drawText(indexedArr);
     d3.select('.canvas').on('click', zoomed);
   });

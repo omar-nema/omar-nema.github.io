@@ -154,6 +154,7 @@ body {
 .canvas-holder {
   height: calc(100vh - 80px);
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   position: relative;
 }
@@ -198,6 +199,12 @@ body {
 .title-desc {
   color: #cccaca;
 }
+@media only screen and (max-width: 600px) {
+  .title-desc {
+    display: none;
+  }
+}
+
 
 .symbol {
   width: auto;

@@ -1,18 +1,31 @@
 
-function getIndicesOf(searchStr, str, caseSensitive) {
+function getIndicesOf(searchStr, str,) {
     var searchStrLen = searchStr.length;
     if (searchStrLen == 0) {
         return [];
     }
     var startIndex = 0, index, indices = [];
-    if (!caseSensitive) {
-        str = str.toLowerCase();
-        searchStr = searchStr.toLowerCase();
-    }
+    str = str.toLowerCase();
+    searchStr = searchStr.toLowerCase();
     var i = 1;
+    //either period or space after
+
+    //make exception for love?
     while ((index = str.indexOf(searchStr, startIndex)) > -1) {
-        indices.push({index: index, order: i});
-        startIndex = index + searchStrLen;
+        endPhrase = searchStrLen + index;
+        charBeforePhrase = str.substring(index-1, index);
+        charAfterPhrase = str.substring(endPhrase, endPhrase+1);
+        if (!charBeforePhrase.match(/[a-z]/i) && !charAfterPhrase.match(/^(?:(?!s)[a-z])+$/i) ){ //only if phrase not found in the middle of word
+          indices.push({index: index, order: i});
+          // console.log('getme')
+        } else {
+          //console.log('4getme')
+          if (charAfterPhrase == 'd' ){
+            console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
+          }
+            //console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
+        }
+        startIndex = endPhrase;
         i = i+1;
     }
     return indices;

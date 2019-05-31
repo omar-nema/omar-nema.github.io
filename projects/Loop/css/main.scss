@@ -147,6 +147,7 @@ body {
   color: rgba(0,0,0,.6);
   cursor: zoom-in;
   opacity: 0;
+  z-index: 1;
 }
 .canvas.zoomed {
   cursor: auto;
@@ -299,6 +300,7 @@ body {
   transform: translateX(-50%);
   display: flex;
   justify-content: center;
+  pointer-events: none;
 }
 .zoom-span-holder {
   display: flex;

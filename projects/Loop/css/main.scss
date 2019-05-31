@@ -210,8 +210,8 @@ body {
       max-width: 60vw;
   }
   .zoom-instruction {
-    top: none;
-    bottom: 50px;
+    top: auto;
+    bottom: 20px;
     width: 80%;
     opacity: .8;
     transform: translateX(-50%);

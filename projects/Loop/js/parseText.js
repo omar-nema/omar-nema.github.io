@@ -18,13 +18,15 @@ function getIndicesOf(searchStr, str,) {
         if (!charBeforePhrase.match(/[a-z]/i) && !charAfterPhrase.match(/^(?:(?!s)[a-z])+$/i) ){ //only if phrase not found in the middle of word
           indices.push({index: index, order: i});
           // console.log('getme')
-        } else {
-          //console.log('4getme')
-          if (charAfterPhrase == 'd' ){
-            console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
-          }
-            //console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
         }
+
+        // else {
+        //   //console.log('4getme')
+        //   if (charAfterPhrase == 'd' ){
+        //     console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
+        //   }
+        //     //console.log(searchStr, '|', charAfterPhrase, '|', str.substring(index-20, index+20))
+        // }
         startIndex = endPhrase;
         i = i+1;
     }

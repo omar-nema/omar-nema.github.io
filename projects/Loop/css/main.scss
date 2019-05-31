@@ -121,7 +121,7 @@ body {
 
 .title {
   color: #e0d8d8;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
 }
 .about {
@@ -238,7 +238,8 @@ body {
   font-weight: 700;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -50%);
+  letter-spacing: .7px;
   z-index: -1;
 }
 

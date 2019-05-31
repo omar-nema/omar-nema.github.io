@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Promise.all(promises).then(function(values) {
     inputRaw = values[0];
     phrases = values[1];
+    console.log(phrases)
     //startSketch(inputRaw, numSections);
     if (window.innerWidth < 600) {
       numSections = 20;

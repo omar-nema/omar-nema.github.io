@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
           tooltip.select('.select-holder').html(function(){return d.circleHtml});
           rect = tooltip.node().getBoundingClientRect();
           d3.select('.zoom-instruction').classed('enabled', false);
+          d3.select('.zoom-btn').classed('enabled', true);
           tooltipX = Math.min(d3.event.clientX, window.innerWidth - rect.width - 10);
           tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - 10)
           tooltip.style('left', tooltipX + 'px').style('top', tooltipY + 'px');
@@ -97,11 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
       .transition()
       .duration(300)
       .style('transform', 'scale(3)')
-      d3.select('.zoom-btn').classed('enabled', true)
       d3.select(this).classed('zoomed', true);
       displayTooltip();
       if (!alreadyZoomed){
           d3.select('.zoom-instruction').classed('enabled', true);
+      } else {
+        d3.select('.zoom-btn').classed('enabled', true)
       }
       alreadyZoomed = true;
     } else {

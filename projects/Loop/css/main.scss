@@ -148,6 +148,7 @@ body {
   cursor: zoom-in;
   opacity: 0;
   z-index: 1;
+  -webkit-transform: translateZ(0);
 }
 .canvas.zoomed {
   cursor: auto;

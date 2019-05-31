@@ -55,6 +55,9 @@ body {
   transition: opacity .3s ease-in-out;
   min-width: 200px;
 }
+
+
+
 .tooltip.active {
   pointer-events: auto;
   opacity: 1;
@@ -203,6 +206,16 @@ body {
   .title-desc {
     display: none;
   }
+  .tooltip {
+      max-width: 60vw;
+  }
+  .zoom-instruction {
+    top: none;
+    bottom: 50px;
+    width: 80%;
+    opacity: .8;
+    transform: translateX(-50%);
+}
 }
 
 

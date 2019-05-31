@@ -175,9 +175,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return colors [randIndex];
       }
 
-      canvas.selectAll('.textHolder')
+      d3.select('.simple-loader').transition().style('opacity', 0).style('color', '#2f3132');
+
+      canvas
       .transition()
-      .duration(1000)
+      .duration(2000)
       .style('opacity', 1);
+
+
   }
 }, false);

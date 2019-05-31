@@ -179,8 +179,8 @@ document.addEventListener('DOMContentLoaded', function() {
       d3.select('.simple-loader').transition().style('opacity', 0).style('color', '#2f3132');
 
       canvas
-      .transition()
-      .duration(2000)
+      // .transition()
+      // .duration(2000)
       .style('opacity', 1);
 
 

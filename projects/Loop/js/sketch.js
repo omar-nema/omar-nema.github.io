@@ -35,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function hideWithTransition(sel){
-    sel.style('display', 'none').style('opacity', '0')
+    sel.transition().duration(150).style('opacity', '.1')
+    .transition().delay(150).duration(0).style('visibility', 'hidden');
   }
   function showWithTransition(sel){
-    sel.style('display', 'block').transition().duration(300).style('opacity', '1')
+    sel.style('visibility', 'visible').style('pointer-events', 'auto').transition().duration(700).style('opacity', 1);
   }
   d3.select('.header .about').on('click', function(){
     if (canvas.classed('desc')){
@@ -46,12 +47,16 @@ document.addEventListener('DOMContentLoaded', function() {
       hideWithTransition(d3.select('.project-desc'));
       showWithTransition(canvas);
       d3.select('.about').text('Tell me more!')
+      d3.select('.canvas-holder').style('overflow-y', 'auto');
       ;
     } else {
       canvas.classed('desc', true);
-      hideWithTransition(canvas);
+      canvas.transition().duration(150).style('opacity', '.2').style('pointer-events', 'none')
+      //
+      // hideWithTransition(canvas);
       showWithTransition(d3.select('.project-desc'))
       d3.select('.about').text('Back to Project')
+      d3.select('.canvas-holder').style('overflow-y', 'hidden');
     }
   })
   d3.select('.zoom-btn').on('click', function(e){

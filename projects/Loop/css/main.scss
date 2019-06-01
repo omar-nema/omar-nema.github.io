@@ -246,9 +246,6 @@ body {
   .title-desc {
     display: none;
   }
-  .tooltip {
-      max-width: 60vw;
-  }
   .title {
     font-size: 16px;
   }
@@ -271,6 +268,11 @@ body {
     width: 14px;
     height: 14px;
     margin-right: 8px;
+  }
+  .tooltip {
+    max-width: 90vw;
+    max-height: 60vh;
+    overflow-y: scroll;
   }
 }
 
@@ -329,6 +331,18 @@ body {
 .zoom-instruction.enabled {
   opacity: 1;
 }
+.canvas-holder.desc .zoom-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+.canvas-holder.desc .zoom-instruction.enabled {
+  opacity: 0;
+  pointer-events: none;
+}
+.canvas-holder.desc {
+  overflow-y: hidden;
+}
+
 .zoom-btn {
   position: fixed;
   background: black;

@@ -47,9 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
       hideWithTransition(d3.select('.project-desc'));
       showWithTransition(canvas);
       d3.select('.about').text('Tell me more!')
-      d3.select('.canvas-holder').style('overflow-y', 'auto');
+      d3.select('.canvas-holder').classed('desc', false)
       ;
     } else {
+      d3.select('.canvas-holder').classed('desc', true)
       canvas.classed('desc', true);
       canvas.transition().duration(150).style('opacity', '.2').style('pointer-events', 'none')
       showWithTransition(d3.select('.project-desc'))
@@ -82,7 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
           d3.select('.zoom-instruction').classed('enabled', false);
           d3.select('.zoom-btn').classed('enabled', true);
           tooltipX = Math.min(d3.event.clientX, window.innerWidth - rect.width - 10);
-          tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - 10)
+          console.log(window.innerHeight)
+          tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - 10);
           tooltip.style('left', tooltipX + 'px').style('top', tooltipY + 'px');
           tooltip.classed('active', true);
           tooltip.selectAll('.tip-select').on('click', function(z,i){

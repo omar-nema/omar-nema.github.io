@@ -115,15 +115,15 @@ body {
 
 
 .title {
-  color: #e0d8d8;
-  font-size: 16px;
+  color: white;
+  margin-right: 10px;
+  font-size: 18px;
   font-weight: 700;
 }
 .about {
   color: #F7FAA8;
   border-bottom: 1px solid #F7FAA8;
   padding-bottom: 4px;
-  font-weight: 700;
   cursor: pointer;
   transition: all .1s linear;
 }
@@ -200,7 +200,7 @@ body {
   max-height: calc(100vh - 105px);
   overflow-y: auto;
   position: fixed;
-  top: 60px;
+  top: 90px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -249,13 +249,15 @@ body {
   .tooltip {
       max-width: 60vw;
   }
+  .title {
+    font-size: 16px;
+  }
   .canvas {
     width: 92%;
   }
   .project-desc {
     width: 100%;
     border: none;
-    top: 50px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -315,7 +317,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
-  box-shadow: 0px 1px 2px 1px rgba(117, 113, 113, 0.48);
+  box-shadow: 0px 2px 2px 2px rgba(46, 44, 44, 0.48);
   z-index: 1;
   transition: opacity .3s ease-in-out;
   opacity: 0;
@@ -323,7 +325,6 @@ body {
   top: 100px;
   border-radius: 3px;
   padding: 10px 15px;
-  width: 250px;
 }
 .zoom-instruction.enabled {
   opacity: 1;
@@ -333,17 +334,16 @@ body {
   background: black;
   color: #F7FAA8;
   padding: 10px 15px;
-  box-shadow: 0px 1px 2px 1px rgba(117, 113, 113, 0.48);
+  box-shadow: 0px 2px 2px 2px rgba(46, 44, 44, 0.48);
   top: 100px;
   // right: 50px;
   border: 1px solid black;
-  font-weight: 600;
   cursor:pointer;
   z-index: 1;
   transition: opacity .2s ease-in-out;
   opacity: 0;
   border-radius: 3px;
-  width: 250px;
+  width: 300px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

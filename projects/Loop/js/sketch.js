@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function showWithTransition(sel){
     sel.style('visibility', 'visible').style('pointer-events', 'auto').transition().duration(700).style('opacity', 1);
   }
-  d3.select('.header .about').on('click', function(){
+  function descToggle(){
     if (canvas.classed('desc')){
       canvas.classed('desc', false);
       hideWithTransition(d3.select('.project-desc'));
@@ -52,13 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       canvas.classed('desc', true);
       canvas.transition().duration(150).style('opacity', '.2').style('pointer-events', 'none')
-      //
-      // hideWithTransition(canvas);
       showWithTransition(d3.select('.project-desc'))
       d3.select('.about').text('Back to Project')
       d3.select('.canvas-holder').style('overflow-y', 'hidden');
     }
-  })
+  }
+
+  d3.select('.close-btn').on('click', descToggle);
+  d3.select('.header .about').on('click', descToggle);
+
   d3.select('.zoom-btn').on('click', function(e){
     d3.select('.canvas')
       .transition()
@@ -122,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (i=0; i < numSections; i++){
       canvas.append('div').
       attr('class', 'textHolder' + ' num-' + i)
-      .style('width', (90/(numSections/numRows)).toString() + '%')
+      .style('width', (99/(numSections/numRows)).toString() + '%')
       .style('clear', function(d, z){
           if (i % (numSections/numRows) == 0){
             return 'both';

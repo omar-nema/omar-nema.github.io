@@ -39,19 +39,6 @@ body {
   align-items: center;
   border-bottom: 1px solid black;
 }
-.row.large {
-  width: 85%;
-  display: flex;
-  align-items: center;
-  align-content: center;
-  height: 54%;
-  justify-content: space-between;
-}
-.row.small {
-  display: flex;
-  width: 85%;
-  font-size: 14px;
-}
 .legend {
   margin-right: 22px;
   color: #F8CCFB;
@@ -144,14 +131,33 @@ body {
   padding-bottom: 7px;
 }
 .canvas-background {height: auto; min-height: 100%; background: #2f3132}
+.row.large {
+  width: 88%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  height: 54%;
+  justify-content: space-between;
+  max-width: 1500px;
+  padding-left: 10px;
+}
+.row.small {
+  display: flex;
+  width: 88%;
+  font-size: 14px;
+  max-width: 1500px;
+  padding-left: 10px;
+}
 .canvas {
+  max-width: 1500px;
   height: auto;
   padding-bottom: 300px;
   padding: 30px 0;
+  padding-left: 10px;
   margin: auto;
   font-size: 4px;
   font-weight: 400;
-  width: 85%;
+  width: 88%;
   color: rgba(0,0,0,.6);
   cursor: zoom-in;
   opacity: 0;
@@ -188,16 +194,27 @@ body {
   max-width: 900px;
   visibility: hidden;
   opacity: 0;
-  margin-top: 30px;
   padding: 30px 50px;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.16);
-  border: 2.5px solid black;
-  max-height: calc(100vh - 120px);
+  border: 1px solid black;
+  max-height: calc(100vh - 105px);
   overflow-y: auto;
   position: fixed;
-  top: 70px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
+}
+.close-btn {
+  color: blue;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  right: 40px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.close-btn:hover {
+  opacity: .7;
 }
 
 .para-header {
@@ -236,7 +253,17 @@ body {
     width: 92%;
   }
   .project-desc {
-    width: 92%;
+    width: 100%;
+    border: none;
+    top: 50px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    padding: 30px 35px;
+    height: 100%;
+    padding-bottom: 100px;
   }
   .tip-select {
     width: 14px;

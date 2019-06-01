@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var numRows;
   var toastInd = false;
   var alreadyZoomed = false;
+  var tipfactor = 10;
 
   var promises = [d3.text('./data/curatednotes.txt'), d3.json('./data/phrases.json')]
   Promise.all(promises).then(function(values) {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth < 600) {
       numSections = 20;
       numRows = 20;
+      tipfactor = 40;
     } else if  (window.innerWidth >= 600 && window.innerWidth < 1000){
       numSections = 12;
       numRows = 3;
@@ -83,8 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
           d3.select('.zoom-instruction').classed('enabled', false);
           d3.select('.zoom-btn').classed('enabled', true);
           tooltipX = Math.min(d3.event.clientX, window.innerWidth - rect.width - 10);
-          console.log(window.innerHeight)
-          tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - 10);
+          tooltipY = Math.min(d3.event.clientY, window.innerHeight - rect.height - tipfactor);
           tooltip.style('left', tooltipX + 'px').style('top', tooltipY + 'px');
           tooltip.classed('active', true);
           tooltip.selectAll('.tip-select').on('click', function(z,i){

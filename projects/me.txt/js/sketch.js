@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       hideWithTransition(d3.select('.project-desc'));
       showWithTransition(canvas);
       d3.select('.about').text('Tell me more!')
-      d3.select('.canvas-holder').classed('desc', false)
+      d3.select('.canvas-holder').classed('desc', false).style('overflow-y', 'auto')
       ;
     } else {
       d3.select('.canvas-holder').classed('desc', true)

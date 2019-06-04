@@ -113,12 +113,14 @@ header {
   height: auto;
   -webkit-overflow-scrolling: touch;
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} );
+  padding-bottom: 50px;
 }
 
 .project-filter {
   display: flex;
   justify-content: flex-start;
   margin-right: 50px;
+  padding: 10px 0;
 }
 
 .filter-option {

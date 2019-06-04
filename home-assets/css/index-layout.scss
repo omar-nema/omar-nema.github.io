@@ -64,7 +64,8 @@ header {
   padding-left: 20px;
 }
 .nav-item {
-  padding: 0 20px;
+  padding: 4px 10px;
+  margin-right: 8px;
   cursor: pointer;
   transition: color .15s linear;
 }
@@ -110,6 +111,7 @@ header {
   flex-wrap: wrap;
   overflow-y: auto;
   height: auto;
+  -webkit-overflow-scrolling: touch;
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} );
 }
 
@@ -138,18 +140,17 @@ header {
 
 .card {
   margin-bottom: 30px;
-
-  width: 30%;
   margin-right: 30px;
-  width: 250px;
-  height: 150px;
   border: 1px solid #b3aeae;
   padding: 20px;
   background: white;
-  box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
+  // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
   cursor:pointer;
   border: .5px dashed #a09e9e;
+  width: calc(33% - 30px);
+  height: auto;
+  opacity: 0;
 }
 
 
@@ -162,9 +163,9 @@ header {
   font-weight: 700;
   color: black;
 }
-.card-title span {
-  border-bottom: 1px solid #fca07d;
-}
+// .card-title span {
+//   border-bottom: .5px solid #fca07d;
+// }
 
 .card-body {
   height: 80px;
@@ -180,11 +181,13 @@ header {
     font-size: $font-size-label;
     margin-right: 10px;
     border-radius: 30px;
-
+    text-overflow: ellipsis;
+    white-space: nowrap;
     padding: 3px 5px;
     font-weight: 300;
     background: #aba4a4;
     color: white;
+    max-width: 31%;
   }
   .chip.date {
     background: #6b5f6b;
@@ -224,9 +227,7 @@ header {
     flex-wrap: inherit;
     align-items: center;
   }
-  .filter-holder {
-    display: none;
-  }
+
   .card {
     margin-right: 10%;
     width: 90%;

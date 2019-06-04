@@ -92,26 +92,25 @@ header {
   width: 90%;
   margin: auto;
   padding-left: 30px;
+  overflow: none;
 }
 
 .filter-holder {
-  padding-top: 20px;
   width: 100%;
-  flex-basis: 100%;
-  display: flex;
-  height: $filterheight;
+  height: 70px;
+  padding-top: 10px;
   // @extend .flex-center-layout;
 }
 
 
 .project-list-holder {
-  padding-top: 30px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   height: auto;
-  -webkit-overflow-scrolling: touch;
+
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} );
   padding-bottom: 50px;
 }

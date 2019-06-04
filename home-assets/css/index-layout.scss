@@ -53,7 +53,7 @@ header {
   align-content: center;
   justify-content: center;
   background: #A39C9C;
-  width: 200px;
+  width: 260px;
 }
 .header-nav {
   width: calc(100% - 200px);
@@ -90,6 +90,7 @@ header {
   max-width: 1000px;
   width: 90%;
   margin: auto;
+  padding-left: 30px;
 }
 
 .filter-holder {
@@ -142,24 +143,33 @@ header {
   margin-right: 30px;
   width: 250px;
   height: 150px;
-  border: 1px solid gray;
+  border: 1px solid #b3aeae;
   padding: 20px;
   background: white;
   box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
   cursor:pointer;
+  border: .5px dashed #a09e9e;
 }
+
+
+
 .card:hover {
   background: #fdfdfd;
   border-color: $color-secondary;
 }
 .card-title {
   font-weight: 700;
+  color: black;
+}
+.card-title span {
+  border-bottom: 1px solid #fca07d;
 }
 
 .card-body {
   height: 80px;
   padding-top: 10px;
+  color: #655f5f;
 }
 .list-row {
   display: flex;
@@ -176,6 +186,9 @@ header {
     background: #aba4a4;
     color: white;
   }
+  .chip.date {
+    background: #6b5f6b;
+  }
 }
 
 
@@ -191,7 +204,21 @@ header {
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (min-width:  600px) and (max-width: 800px) {
+  // .project-list-holder {
+  //   flex-direction: column;
+  //   flex-wrap: inherit;
+  //   align-items: center;
+  // }
+  // .filter-holder {
+  //   display: none;
+  // }
+  .card {
+    width: 45%;
+    margin-right: 4%;
+  }
+}
+@media only screen and (max-width:  600px) {
   .project-list-holder {
     flex-direction: column;
     flex-wrap: inherit;
@@ -199,5 +226,10 @@ header {
   }
   .filter-holder {
     display: none;
+  }
+  .card {
+    margin-right: 10%;
+    width: 90%;
+    box-shadow: none;
   }
 }

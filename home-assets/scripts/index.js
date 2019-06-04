@@ -1,22 +1,26 @@
 function populateCard(cards){
   cards.append('div').attr('class', 'list-row card-title')
+    .append('span')
     .text(function(d){return d.title})
   cards.append('div').attr('class', 'list-row card-body')
     .text(function(d){return d.description});
   footer = cards.append('div').attr('class', 'list-row card-footer');
 }
 
-d3.csv('../home-assets/data/project-data.csv').then(function(data){
-  console.log(data)
-
-  sorted = data.sort(function(a, b){
-    console.log(parseInt(a.datesort), b.datesort)
-    if (parseInt(a.datesort) >  parseInt(b.datesort)){
-      return a;
-    }
+function sortByDate(data){
+  return data.sort(function(a, b){
+    return parseInt(b.datesort) - parseInt(a.datesort);
   })
-  console.log(sorted)
+}
+function sortByType(data){
+  return data.sort(function(a, b){
+    return parseInt(b.datesort) - parseInt(a.datesort);
+  })
+}
 
+d3.csv('../home-assets/data/project-data.csv').then(function(data){
+
+  data = sortByDate(data);
   proj = d3.select('.project-list-holder').selectAll('.card').data(data);
   cards = proj.enter().append('div').attr('class', 'card');
   populateCard(cards);
@@ -25,16 +29,16 @@ d3.csv('../home-assets/data/project-data.csv').then(function(data){
     .each(function(d){
       sel = d3.select(this);
       if (d['tag-art'] == '1'){
-        sel.append('div').attr('class', 'chip').text('art')
+        sel.append('div').attr('class', 'chip art').text('art')
       }
       if (d['tag-datavis'] == '1'){
-        sel.append('div').attr('class', 'chip').text('datavis')
+        sel.append('div').attr('class', 'chip datavis').text('datavis')
       }
       if (d['tag-product'] == '1'){
-        sel.append('div').attr('class', 'chip').text('product')
+        sel.append('div').attr('class', 'chip product').text('product')
       }
       textDate = d['date-desc'];
-      sel.append('div').attr('class', 'chip').text(textDate)
+      sel.append('div').attr('class', 'chip date').text(textDate)
     })
 
     d3.selectAll('.project-filter.sort .filter-option').on('click', function(){

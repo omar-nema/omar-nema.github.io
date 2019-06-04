@@ -1,7 +1,12 @@
 function populateCard(cards){
-  cards.append('div').attr('class', 'list-row card-title')
+  title = cards.append('div').attr('class', 'list-row card-title');
+  title
     .append('span')
     .text(function(d){return d.title})
+  title
+      .append('span')
+      .html('<i class="material-icons link">open_in_new</i>')
+
   cards.append('div').attr('class', 'list-row card-body')
     .text(function(d){return d.description});
   footer = cards.append('div').attr('class', 'list-row card-footer');

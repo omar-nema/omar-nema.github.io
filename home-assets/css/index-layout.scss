@@ -157,17 +157,24 @@ header {
 
 
 
-.card:hover {
-  background: #fdfdfd;
-  border-color: $color-secondary;
-}
+
 .card-title {
   font-weight: 700;
   color: black;
+  justify-content: space-between;
+  align-items: center;
 }
-// .card-title span {
-//   border-bottom: .5px solid #fca07d;
-// }
+.material-icons {
+  font-size: 14px;
+  color: $color-secondary;
+  border-radius: 3px;
+}
+.material-icons.link {
+  padding: 4px 5px;
+  color: #ff0080;
+  background: #f9f5f5;
+}
+
 
 .card-body {
   height: 80px;

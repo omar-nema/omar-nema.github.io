@@ -4,7 +4,10 @@ function populateCard(cards){
     .append('span')
     .text(function(d){return d.title})
   title
-      .append('span')
+      .append('a').attr('class', 'link-external')
+      .attr('href', function(d){
+        return d.url;
+      })
       .html('<i class="material-icons link">open_in_new</i>')
 
   cards.append('div').attr('class', 'list-row card-body')
@@ -43,14 +46,10 @@ function sortByType(data){
 d3.csv('../home-assets/data/project-data.csv').then(function(data){
 
   data = sortByDate(data);
-  proj = d3.select('.project-list-holder').selectAll('.card').data(data);
+  proj = d3.select('.project-list-holder').selectAll('.card').data(data, function(d){return d.id});
   cards = proj.enter().append('div').attr('class', 'card');
   populateCard(cards);
 
-
-    d3.selectAll('.project-filter.sort .filter-option').on('click', function(){
-      //remove and re-add if it's different
-    });
 
     d3.selectAll('.project-filter.type .filter-option').on('click', function(){
       d3.selectAll('.project-filter.type .filter-option').classed('selected', false);
@@ -64,8 +63,9 @@ d3.csv('../home-assets/data/project-data.csv').then(function(data){
           return d;
         }
       });
+      console.log(newData);
 
-      newsel = d3.select('.project-list-holder').selectAll('.card').data(newData);
+      newsel = d3.select('.project-list-holder').selectAll('.card').data(newData, function(d){return d.id});
       enterGrp = newsel.enter()
         .append('div').attr('class','card');
 

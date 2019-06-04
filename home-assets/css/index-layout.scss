@@ -172,8 +172,16 @@ header {
   color: #ff0080;
   // background: #f9f5f5;
   border-bottom: 1px solid #ff008059;
+  transition: all .15s ease-in-out;
 }
+.link-external {
+  cursor: pointer;
 
+}
+.link-external:hover .link {
+  border-color: #ff0080;
+  transform: scale(1.1);
+}
 
 .card-body {
   height: 80px;

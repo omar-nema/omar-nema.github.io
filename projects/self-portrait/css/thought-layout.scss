@@ -32,6 +32,19 @@ body {
 div {
   box-sizing: border-box;
 }
+.back-btn {
+  font-family: 'Karla';
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  color:#b7b7b7;
+}
+.back-btn:hover {
+  color: $header-color;
+}
 h2 {
   font-weight: 700;
   font-size: 20px;

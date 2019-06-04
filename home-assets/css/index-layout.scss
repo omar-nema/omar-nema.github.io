@@ -149,7 +149,6 @@ header {
   background: white;
   // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
-  cursor:pointer;
   border: .5px dashed #a09e9e;
   width: calc(33% - 30px);
   height: auto;
@@ -168,13 +167,12 @@ header {
 .material-icons {
   font-size: 14px;
   color: $color-secondary;
-  border-radius: 3px;
 }
 .material-icons.link {
   padding: 2px 1px;
   color: #ff0080;
   // background: #f9f5f5;
-  border: 1px solid #ff008059;
+  border-bottom: 1px solid #ff008059;
 }
 
 

@@ -71,7 +71,7 @@ d3.csv('../home-assets/data/project-data.csv').then(function(data){
 
       newsel.exit()
       .transition()
-      .duration(300)
+      .duration(700)
       .style('opacity', '0')
       .remove()
       ;

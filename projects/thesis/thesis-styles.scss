@@ -1,0 +1,135 @@
+$color-primary: #37a6f0;
+$color-secondary: red;
+
+body {
+  background: #faf9ff;
+  font-family: 'Karla';
+  margin: 0;
+}
+
+
+
+.nav {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  left: 20px;
+}
+.nav-link {
+  margin-bottom: 8px;
+  color: gray;
+  border-left: 1px solid transparent;
+  padding-left: 8px;
+}
+.nav-link.active {
+  color: $color-primary;
+  border-left-color: $color-primary;
+}
+
+.container {
+  width: auto;
+  padding: 0 20px;
+  margin: auto;
+  font-size: 14px;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.back-btn {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  background: white;
+  padding: 5px 15px;
+  color: $color-primary;
+  border: 1px solid #7dc9fc;
+  opacity: 1;
+  box-shadow: 0 1px 1px 0px rgba(0,0,0,.1);
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+.back-btn:hover {
+  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);
+  background: #f5f8fb;
+}
+a {
+  color: $color-primary;
+  transition: opacity .1s linear;
+    text-decoration: none;
+}
+a:hover {
+  opacity: .7;
+}
+
+.block {
+  background: white;
+  padding: 20px 25px;
+  margin: auto;
+  margin-bottom: 30px;
+  border: 1px solid rgba(0,0,0,.1);
+  max-width: 750px;
+  box-shadow: 0 .5px 1px 1px rgba(0, 0, 0, 0.02);
+}
+.intro-prompt {
+  color: $color-secondary;
+}
+
+.block-header {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: $color-secondary;
+}
+.block-header span {
+  border-bottom: 1px dotted #ff6262;
+  padding-bottom: 3px;
+}
+
+.block-image-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+//    overflow: visible;
+}
+.block-image-medium {
+    max-width: 500px;
+}
+.block-image-small {
+    max-width: 250px;
+}
+.info-tooltip {
+    color: blue;
+    border: none;
+    display: none;
+}
+.info-tooltip:before {
+    content:"\a";
+    white-space: pre;
+}
+  .layered {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding-right: 4px;
+}
+
+.layered:hover {
+  border-right: 1px solid blue; }
+
+
+  @media only screen and (max-width: 800px) {
+    .nav {
+      display: none;
+    }
+    .block {
+      border: none;
+    }
+  }

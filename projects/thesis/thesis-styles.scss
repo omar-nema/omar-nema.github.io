@@ -5,6 +5,7 @@ body {
   background: #faf9ff;
   font-family: 'Karla';
   margin: 0;
+  line-height: 1.15rem;
 }
 
 
@@ -71,12 +72,11 @@ a:hover {
 
 .block {
   background: white;
-  padding: 20px 25px;
+  padding: 30px 35px;
   margin: auto;
   margin-bottom: 30px;
-  border: 1px solid rgba(0,0,0,.1);
-  max-width: 750px;
-  box-shadow: 0 .5px 1px 1px rgba(0, 0, 0, 0.02);
+  border: .5px solid rgba(0,0,0,0.1);
+  max-width: 700px;
 }
 .intro-prompt {
   color: $color-secondary;
@@ -84,13 +84,8 @@ a:hover {
 
 .block-header {
   font-weight: 700;
-  margin-bottom: 20px;
   font-size: 16px;
-  color: $color-secondary;
-}
-.block-header span {
-  border-bottom: 1px dotted #ff6262;
-  padding-bottom: 3px;
+  color: black;
 }
 
 .block-image-container {
@@ -107,18 +102,19 @@ a:hover {
     max-width: 250px;
 }
 .info-tooltip {
-    color: blue;
+    color: gray;
     border: none;
     display: none;
 }
 .info-tooltip:before {
     content:"\a";
     white-space: pre;
+    padding-top: 10px;
 }
   .layered {
     border-right: 1px solid rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    padding-right: 4px;
+    padding-right: 13px;
 }
 
 .layered:hover {

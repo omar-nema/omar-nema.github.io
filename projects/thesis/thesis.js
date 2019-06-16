@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       $('.info-tooltip').hide();
       $('.block-text.layered').one('click', showToolTip);
       //if it was the same one
-      $(this).find('.info-tooltip').show();
+      $(this).find('.info-tooltip').show().css('display', 'block');
       $(this).one('click', hideToolTip);
   };
   function hideToolTip(){

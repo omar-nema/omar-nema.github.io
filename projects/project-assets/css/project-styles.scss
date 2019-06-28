@@ -104,14 +104,20 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 500px;
+    margin-left: auto;
 //    overflow: visible;
 }
 .block-image-medium {
-    max-width: 500px;
+    max-width: 100%;
 }
 .block-image-small {
     max-width: 250px;
 }
+.block-image-container.two .block-image-small, .block-image-container.two .block-image-medium {
+  max-width: 50%;
+}
+
 .info-tooltip {
     color: gray;
     border: none;

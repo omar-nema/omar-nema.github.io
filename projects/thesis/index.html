@@ -4,7 +4,7 @@
     <title>thesis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="thought parser ">
-    <link rel="stylesheet" type="text/css" href="./thesis-styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles.min.css">
 </head>
 
 <body>
@@ -12,19 +12,20 @@
   <a class="back-btn" href="../../">
     < back
   </a>
-  <div class="nav">
-    <a class="nav-link active" href="#context">Context</a>
-    <a class="nav-link" href="#use-case">Result</a>
-    <a class="nav-link" href="#use-case">Physical Model</a>
-    <a class="nav-link" href="#use-case">Neural Model</a>
-    <a class="nav-link" href="#use-case">Integrated Model</a>
-    <a class="nav-link" href="#use-case">Optimization</a>
+  <div class="nav" id="nav">
+    <a class="nav-link active" href="#one">Tags</a>
+    <a class="nav-link" href="#two">Context</a>
+    <a class="nav-link" href="#three">Result</a>
+    <a class="nav-link" href="#four">Physical Model</a>
+    <a class="nav-link" href="#five">Neural Model</a>
+    <a class="nav-link" href="#six">Integrated Model</a>
+    <a class="nav-link" href="#seven">Optimization</a>
   </div>
   <div class="container">
-    <section class="intro block">
+    <section class="intro block" id="one">
       <div class="intro-text block-text">
-          <p class="intro-prompt"><strong>Biophysical spinal cord stimulation model for primates</strong>
-          </p>
+          <div class="intro-prompt"><strong>Thesis: Spinal Cord Stimulation Model</strong>
+          </div>
           <p style="line-height: 1.3rem">
             <strong>Advisor:</strong> David Borton (head of lab)
             <br>
@@ -45,7 +46,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="two">
       <header class="block-header" id="context"><span>Context</span></header>
 
       <div class="block-text">
@@ -69,7 +70,7 @@
     </section>
 
 
-    <section class="block" id="use-case">
+    <section class="block" id="three">
       <header class="block-header"><span>Result</span></header>
       <div>
           <p>
@@ -91,7 +92,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="four">
       <header class="block-header"><span>Physical Model</span></header>
       <div class="block-text layered">
           <p>Drawing was the first step in constructing our physical FEM model. We used images and dimensions of histological spinal cord slices as a blueprint for rendering a biologically-accurate spinal cord.
@@ -117,7 +118,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="five">
       <header class="block-header"><span>Neural Model</span></header>
       <div class="block-text">
           <p>Our neural model was written in .hoc, a scripting language built for NEURON (biophysical neural network modeling software). NEURON enables users to instantiate neural elements like fibers and axons as objects, and run simulations
@@ -136,7 +137,7 @@
 
     </section>
 
-    <section class="block">
+    <section class="block" id="six">
       <header class="block-header"><span>Integrated Model</span></header>
       <div class="block-text">
         <p>
@@ -160,7 +161,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block" id="seven">
       <header class="block-header"><span>Optimization</span></header>
       <div class="block-text">
           <p>In order to ensure that our model would be scalable, we integrated our NEURON script with the MPI parallel simulation environment, enabling parallel simulations (on multi-core processors).
@@ -181,7 +182,6 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-<script src="../../home-assets/scripts/vanillajs-scrollspy.min.js"></script>
-<script src="./thesis.js"></script>
+<script src="../project-assets/js/projects.js"></script>
 
 </html>

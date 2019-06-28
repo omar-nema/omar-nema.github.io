@@ -1,6 +1,8 @@
 $color-primary: #37a6f0;
 $color-secondary: red;
 
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
 body {
   background: #faf9ff;
   font-family: 'Karla';
@@ -8,12 +10,10 @@ body {
   line-height: 1.15rem;
 }
 
-
-
 .nav {
   position: fixed;
-  top: 20px;
-  left: 10px;
+  top: 45px;
+  left: 28px;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
@@ -22,14 +22,21 @@ body {
   left: 20px;
 }
 .nav-link {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   color: gray;
   border-left: 1px solid transparent;
   padding-left: 8px;
+  transition: all .15s linear;
+  padding-right: 10px;
 }
 .nav-link.active {
-  color: $color-primary;
-  border-left-color: $color-primary;
+  color: black;
+  font-weight: 700;
+  background: #ebebeb99;
+}
+.nav-link:hover {
+  color: black;
+  background: #ebebeb99;
 }
 
 .container {
@@ -79,7 +86,8 @@ a:hover {
   max-width: 700px;
 }
 .intro-prompt {
-  color: $color-secondary;
+  color: #f13131;
+  font-size: 16px;
 }
 
 .block-header {

@@ -20,7 +20,7 @@ body {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  left: calc(50% - 650px);
+  left: calc(50vw - 580px);
 }
 .nav-link {
   color: gray;
@@ -88,9 +88,15 @@ a:hover {
   border: .5px solid rgba(0,0,0,0.1);
   max-width: 700px;
 }
-.intro-prompt {
-  color: #f13131;
+.block.intro {
+  color: black;
+  background: #343538;
+  color: #e3dede;
+}
+
+.intro-prompt  {
   font-size: 16px;
+  color: white;
 }
 
 .block-header {
@@ -104,7 +110,6 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 500px;
     margin-left: auto;
 //    overflow: visible;
 }
@@ -119,14 +124,14 @@ a:hover {
 }
 
 .info-tooltip {
-    color: gray;
+    color: $color-primary;
     border: none;
     display: none;
 }
 .info-tooltip:before {
     content:"\a";
     white-space: pre;
-    padding-top: 10px;
+    padding-top: 5px;
 }
   .layered {
     border-right: 1px solid rgba(0, 0, 0, 0.2);

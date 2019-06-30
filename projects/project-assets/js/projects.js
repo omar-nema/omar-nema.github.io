@@ -1,6 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+var currSlide = 0;
+
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -35,6 +37,70 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 
+
+
+
+  numElements = $('.content-slide').length;
+
+  //3 to 0
+
+  function navRefresh(parentNav){
+    if (!parentNav){
+      parentNav = '';
+    }
+    $(parentNav + '.content-slide').each(function(i, d){
+      if (currSlide == 0) {
+        $('.prev-btn').addClass('disabled');
+      } else {
+        $('.prev-btn').removeClass('disabled')
+      }
+      if (currSlide == numElements-1){
+        $('.next-btn').addClass('disabled');
+      } else {
+        $('.next-btn').removeClass('disabled')
+      }
+      if (i == currSlide && !$(this).hasClass('curr')){
+        $(this).removeClass('prev').removeClass('next').addClass('curr');
+      } else if (i < currSlide && !$(this).hasClass('prev')){
+        $(this).removeClass('curr').removeClass('next').addClass('prev');
+      } else if (i > currSlide && !$(this).hasClass('next')){
+        $(this).removeClass('curr').removeClass('prev').addClass('next');
+      }
+    })
+    currCircle = $($('.circle').get(currSlide));
+    if (!currCircle.hasClass('active')){
+      $('.circle').removeClass('active');
+      currCircle.addClass('active');
+    }
+  }
+
+  //get navNumber
+
+  function getParentNav(e){
+    index = e.closest('.nav-wrapper')[0].className + ' ';
+  }
+
+  navRefresh();
+
+
+  $('.flat-btn.prev-btn').click(function(){
+    currSlide = currSlide - 1;
+    getParentNavIndex($(this))
+    navRefresh(getParentNav($(this)));
+  })
+  $('.flat-btn.next-btn').click(function(){
+    currSlide = currSlide + 1;
+    navRefresh(getParentNav($(this)));
+  })
+  $('.circle').click(function(){
+    currSlide = $(this).index();
+    navRefresh(getParentNav($(this)));
+  })
+
+
+
+
+
   function showToolTip(){
       $('.info-tooltip').hide();
       $('.block-text.layered').one('click', showToolTip);
@@ -48,6 +114,8 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   $('.block-text.layered').one('click', showToolTip);
+
+
 
   // document.querySelector('.').on('click', showToolTip);
 })

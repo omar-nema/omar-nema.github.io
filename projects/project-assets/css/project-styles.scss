@@ -142,6 +142,113 @@ a:hover {
 .layered:hover {
   border-right: 1px solid blue; }
 
+  .block-subheader {
+    font-weight: 700;
+    color: gray;
+  }
+  .block-nav-header, .block-nav-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1em;
+  }
+  .block-circles {
+    display:flex;
+    justify-content: flex-start;
+  }
+  .circle {
+    width: 8.5px;
+    height: 8.5px;
+    border-radius: 100%;
+    background: #d3cfcf;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all .15s linear;
+    border: 1px solid #b3bcc4;
+  }
+  .circle.active {
+    background: $color-primary;
+    box-shadow: 0 1px 1px 0px rgba(0,0,0,.1);
+    border: 1px solid #1592e5;
+  }
+  .circle:hover {
+    background: $color-primary;
+    opacity: .85;
+  }
+  .block-nav-footer {
+    color: $color-primary;
+  }
+  .flat-btn {
+    cursor: pointer;
+
+  }
+  .flat-btn:hover {
+    opacity: .85;
+  }
+  .flat-btn.disabled {
+    pointer-events: none;
+    opacity: .4;
+  }
+  .content-slide {
+    display: flex;
+    justify-content: space-between;
+  }
+  .slide-text, .slide-visual {
+    flex-basis: 47%;
+  }
+  .slide-visual {
+    width: 100%;
+    height: 200px;
+  }
+  .slide-visual img {
+    max-width: 100%;
+  }
+
+
+  .block-nav-content {
+    height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+  .content-slide {
+    position: absolute;
+    width: 0;
+    transition: transform .2s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .content-slide.curr {
+    transform: translateX(0);
+    width: 100%;
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .content-slide, .content-slide.prev {
+    transform: translateX(-100%);
+        width: 100%;
+  }
+  .content-slide.next {
+    transform: translateX(100%);
+        width: 100%;
+  }
+
+
+
+
+  ::-webkit-scrollbar-thumb {
+      -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.15);
+      background-color: #e5dcdc;
+      box-shadow: inset 0 0 1px rgba(0,0,0,.15);
+  }
+  ::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background: none;
+  }
+  ::-webkit-scrollbar {
+      width: 15px;
+  }
 
   @media only screen and (max-width: 1100px) {
     .nav {
@@ -155,3 +262,24 @@ a:hover {
       background: #f0f0f1;
     }
   }
+
+    @media only screen and (max-width: 700px) {
+      .slide-visual {
+        content: '';
+        width: 0;
+        height: 0;
+      }
+      .slide-visual::before {
+        content: 'See visual';
+        color: $color-primary;
+        display: inherit;
+        width: 250px;
+      }
+      .content-slide {
+        flex-direction: column;
+      }
+      .slide-text {
+        flex-basis: 100%;
+        margin-bottom: 0;
+      }
+    }

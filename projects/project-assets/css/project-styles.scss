@@ -24,7 +24,7 @@ body {
 }
 .nav-link {
   color: gray;
-  border-left: 1px solid transparent;
+  border-left: 2px solid transparent;
   transition: all .15s linear;
   padding-left: 15px;
   line-height: 30px;
@@ -32,14 +32,12 @@ body {
 .nav-link.active {
   color: black;
   font-weight: 700;
-  // background: #ebebeb99;
   color: black;
   font-weight: 700;
-  border-left: 1px solid $color-primary;
+  border-left: 2px solid $color-primary;
 }
 .nav-link:hover {
-  color: black;
-  background: rgba(0,0,0,.03);
+  color: $color-primary;
 }
 
 .container {
@@ -103,6 +101,8 @@ a:hover {
   font-weight: 700;
   font-size: 16px;
   color: black;
+  display: flex;
+  justify-content: space-between;
 }
 
 .block-image-container {
@@ -113,14 +113,12 @@ a:hover {
     margin-left: auto;
 //    overflow: visible;
 }
-.block-image-medium {
-    max-width: 100%;
-}
-.block-image-small {
-    max-width: 250px;
-}
-.block-image-container.two .block-image-small, .block-image-container.two .block-image-medium {
-  max-width: 50%;
+
+.block-image, .block-image-container.two .block-image, .block-image-container.two .block-image {
+  max-width: 40%;
+  margin: 10px;
+  border: 1px solid rgba(0,0,0,.03);
+  max-height: 300px;
 }
 
 .info-tooltip {
@@ -180,7 +178,7 @@ a:hover {
   }
   .flat-btn {
     cursor: pointer;
-
+    font-weight: 700;
   }
   .flat-btn:hover {
     opacity: .85;

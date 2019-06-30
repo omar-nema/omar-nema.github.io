@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-var currSlide = 0;
+var currSlides = [0, 0];
 
   $('.nav-link').click(function(e) {
    e.preventDefault();
@@ -36,28 +36,32 @@ var currSlide = 0;
   };
 })();
 
+  function createNavCircles(){
+    $('.nav-wrapper').each(function(e){
+      circleHolder = $(this).find('.block-circles');
+      numSlides = $(this).find('.content-slide').length;
+      for (i = 0; i < numSlides; i++){
+        circleHolder.append('<div class="circle"></div>');
+      }
+    })
+  }
 
+  var currSlides = [0, 0]
 
-
-
-  numElements = $('.content-slide').length;
-
-  //3 to 0
-
-  function navRefresh(parentNav){
-    if (!parentNav){
-      parentNav = '';
-    }
+  function navRefresh(input){
+    parentNav = input.id;
+    currSlide = currSlides[input.index];
+    numElements =   $(parentNav + '.content-slide').length;
     $(parentNav + '.content-slide').each(function(i, d){
       if (currSlide == 0) {
-        $('.prev-btn').addClass('disabled');
+        $(this).find('.prev-btn').addClass('disabled');
       } else {
-        $('.prev-btn').removeClass('disabled')
+        $(this).find('.prev-btn').removeClass('disabled')
       }
       if (currSlide == numElements-1){
-        $('.next-btn').addClass('disabled');
+        $(this).find('.next-btn').addClass('disabled');
       } else {
-        $('.next-btn').removeClass('disabled')
+        $(this).find('.next-btn').removeClass('disabled')
       }
       if (i == currSlide && !$(this).hasClass('curr')){
         $(this).removeClass('prev').removeClass('next').addClass('curr');
@@ -67,38 +71,40 @@ var currSlide = 0;
         $(this).removeClass('curr').removeClass('prev').addClass('next');
       }
     })
-    currCircle = $($('.circle').get(currSlide));
+    currCircle = $($(parentNav + '.circle').get(currSlide));
     if (!currCircle.hasClass('active')){
-      $('.circle').removeClass('active');
+      $(parentNav + '.circle').removeClass('active');
       currCircle.addClass('active');
     }
   }
-
-  //get navNumber
-
   function getParentNav(e){
-    index = e.closest('.nav-wrapper')[0].className + ' ';
+    parent = e.closest('.nav-wrapper');
+    returnobj =  {index: parent.index('.nav-wrapper'), id: $(parent[0]).id};
+    return {index: parent.index('.nav-wrapper'), id: '#' + $(parent[0])[0].id + ' '}
   }
-
-  navRefresh();
-
-
+  function initializeNavs(){
+    $('.nav-wrapper').each(function(d, i){
+      navRefresh(getParentNav($(this)))
+    })
+  }
+  createNavCircles();
+  initializeNavs();
+  
   $('.flat-btn.prev-btn').click(function(){
-    currSlide = currSlide - 1;
-    getParentNavIndex($(this))
-    navRefresh(getParentNav($(this)));
+    parentNav = getParentNav($(this));
+    currSlides[parentNav.index] = currSlides[parentNav.index] - 1;
+    navRefresh(parentNav);
   })
   $('.flat-btn.next-btn').click(function(){
-    currSlide = currSlide + 1;
-    navRefresh(getParentNav($(this)));
+    parentNav = getParentNav($(this));
+    currSlides[parentNav.index] = currSlides[parentNav.index] + 1;
+    navRefresh(parentNav);
   })
   $('.circle').click(function(){
-    currSlide = $(this).index();
-    navRefresh(getParentNav($(this)));
+    parentNav = getParentNav($(this));
+    currSlides[parentNav.index]  = $(this).index();
+    navRefresh(parentNav);
   })
-
-
-
 
 
   function showToolTip(){

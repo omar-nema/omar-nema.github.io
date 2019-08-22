@@ -42,11 +42,12 @@ body {
 
 .container {
   width: 100%;
-  max-width: 93%;
+  max-width: 96%;
   margin: auto;
   font-size: 14px;
   margin-bottom: 50px;
   margin-top: 30px;
+  overflow-x: hidden;
 }
 
 .back-btn {
@@ -56,7 +57,7 @@ body {
   background: white;
   padding: 5px 15px;
   color: $color-primary;
-  border: 1px solid #7dc9fc;
+  border: 1px solid $color-primary;
   opacity: 1;
   box-shadow: 0 1px 1px 0px rgba(0,0,0,.1);
   cursor: pointer;
@@ -78,6 +79,9 @@ a:hover {
   opacity: .7;
 }
 
+.block-nav-wrapper {
+  overflow-x: hidden;
+}
 .block {
   background: white;
   padding: 30px 35px;
@@ -114,11 +118,31 @@ a:hover {
 //    overflow: visible;
 }
 
-.block-image, .block-image-container.two .block-image, .block-image-container.two .block-image {
-  max-width: 40%;
+.block-image {
+  max-width: 55%;
   margin: 10px;
-  border: 1px solid rgba(0,0,0,.03);
+  border: 1px solid rgba(0,0,0,.1);
   max-height: 300px;
+  box-shadow: 0 1px 1px 0.5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: opacity .15s linear, transform .15s ease-in-out;
+}
+.block-image-container.two .block-image {
+  max-width: 40%;
+}
+
+.block-image:hover {
+  opacity: .85;
+}
+.block-image.image-zoom {
+  opacity: 1;
+  transform: scale(2);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+  // position: fixed;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%) scale(1.2)
 }
 
 .info-tooltip {
@@ -158,7 +182,7 @@ a:hover {
     width: 8.5px;
     height: 8.5px;
     border-radius: 100%;
-    background: #d3cfcf;
+    background: #f5f5f5;
     margin-right: 8px;
     cursor: pointer;
     transition: all .15s linear;
@@ -191,6 +215,38 @@ a:hover {
     display: flex;
     justify-content: space-between;
   }
+  .content-slide.curr.zoomed {
+    overflow-x: visible;
+    overflow-y: visible;
+  }
+  .content-slide.curr.zoomed div {
+    opacity: .4;
+  }
+// .block-image.image-zoom::before {
+//   content: '';
+//   z-index: -1;
+//  background: blue;
+//  width:800px;
+//  height:800px;
+//  position:absolute;
+//  top:0;
+//  left:0;
+//  opacity:1;
+// }
+.block.zoomed::before {
+  content: '';
+  // z-index: -1;
+ top:-500px;
+ left:-500px;
+ opacity:.5;
+background: white;
+width: 4000px;
+height: 4000px;
+position: absolute;
+
+}
+
+
   .slide-text, .slide-visual {
     flex-basis: 47%;
   }
@@ -205,8 +261,8 @@ a:hover {
 
   .block-nav-content {
     height: 250px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    // overflow-y: auto;
+    // overflow-x: hidden;
     position: relative;
   }
   .content-slide {
@@ -215,6 +271,7 @@ a:hover {
     transition: transform .2s ease-in-out;
     opacity: 0;
     pointer-events: none;
+    padding-right: 10px;
   }
   .content-slide.curr {
     transform: translateX(0);
@@ -222,6 +279,9 @@ a:hover {
     display: flex;
     opacity: 1;
     pointer-events: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
   }
   .content-slide, .content-slide.prev {
     transform: translateX(-100%);

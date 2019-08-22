@@ -4,6 +4,8 @@ $filterheight: 28.4px;
 
 $width-max: 1100px;
 
+$header-accent: #afafaf;
+
 
 .temp {
   text-align: center;
@@ -55,7 +57,7 @@ header {
   height: 100%;
 }
 .header-padding.left {
-  background: #A39C9C;
+  background: $header-accent;
 }
 .header-padding.right {
   background: #171717;
@@ -67,7 +69,7 @@ header {
   align-items: center;
   align-content: center;
   justify-content: center;
-  background: #A39C9C;
+  background: $header-accent;
   width: 260px;
 }
 .header-nav {
@@ -83,9 +85,10 @@ header {
   margin-right: 8px;
   cursor: pointer;
   transition: color .15s linear;
+  letter-spacing: .3px;
 }
 .nav-item.selected {
-  color: #7dc9fc;
+  color: #ffffaa;
 }
 .nav-item:hover {
   color: #7dc9fc;
@@ -93,7 +96,7 @@ header {
 
 .header-name {
   color: white;
-  background: #A39C9C;
+  background: $header-accent;
 }
 
 
@@ -162,7 +165,7 @@ header {
   background: white;
   // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
-  border: .5px dashed #a09e9e;
+  border: .7px dashed #a09e9e;
   width: calc(33% - 30px);
   height: auto;
   opacity: 0;
@@ -198,7 +201,7 @@ header {
 }
 
 .card-body {
-  height: 80px;
+  height: 90px;
   padding-top: 10px;
   color: #655f5f;
 }

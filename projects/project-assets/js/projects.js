@@ -1,8 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-var currSlides = [0, 0];
-
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -36,8 +34,11 @@ var currSlides = [0, 0];
   };
 })();
 
+  var currSlides = [];
+
   function createNavCircles(){
     $('.nav-wrapper').each(function(e){
+      currSlides.push(0);
       circleHolder = $(this).find('.block-circles');
       numSlides = $(this).find('.content-slide').length;
       for (i = 0; i < numSlides; i++){
@@ -46,22 +47,25 @@ var currSlides = [0, 0];
     })
   }
 
-  var currSlides = [0, 0]
+
+
 
   function navRefresh(input){
     parentNav = input.id;
     currSlide = currSlides[input.index];
     numElements =   $(parentNav + '.content-slide').length;
+
     $(parentNav + '.content-slide').each(function(i, d){
+      block = $($(this).parents('.block'));
       if (currSlide == 0) {
-        $(this).find('.prev-btn').addClass('disabled');
+        block.find('.prev-btn').addClass('disabled');
       } else {
-        $(this).find('.prev-btn').removeClass('disabled')
+        block.find('.prev-btn').removeClass('disabled')
       }
       if (currSlide == numElements-1){
-        $(this).find('.next-btn').addClass('disabled');
+        block.find('.next-btn').addClass('disabled');
       } else {
-        $(this).find('.next-btn').removeClass('disabled')
+        block.find('.next-btn').removeClass('disabled')
       }
       if (i == currSlide && !$(this).hasClass('curr')){
         $(this).removeClass('prev').removeClass('next').addClass('curr');
@@ -89,14 +93,14 @@ var currSlides = [0, 0];
   }
   createNavCircles();
   initializeNavs();
-  
+
   $('.flat-btn.prev-btn').click(function(){
     parentNav = getParentNav($(this));
     currSlides[parentNav.index] = currSlides[parentNav.index] - 1;
     navRefresh(parentNav);
   })
   $('.flat-btn.next-btn').click(function(){
-    parentNav = getParentNav($(this));
+    parentNav = getParentNav($(this))
     currSlides[parentNav.index] = currSlides[parentNav.index] + 1;
     navRefresh(parentNav);
   })
@@ -118,10 +122,30 @@ var currSlides = [0, 0];
       $(this).find('.info-tooltip').hide();
       $(this).one('click', showToolTip);
   };
+  //document click.
+  //get curr image in a class
+
+  function imageMouseover(e){
+    e.stopPropagation();
+    $(this).parents('.block').addClass('zoomed');
+    $(this).parents('.content-slide').addClass('zoomed');
+    $(this).addClass('image-zoom');
+    var me = $(this);
+    $('.container').one('click', function(e){
+      imageMouseLeave(me);
+    });
+  };
+  function imageMouseLeave(input){
+      input.parents('.block').removeClass('zoomed');
+      input.parents('.content-slide').removeClass('zoomed');
+      input.removeClass('image-zoom');
+      input.parents('.block').children().css('opacity', '1');
+      input.one('click', imageMouseover);
+  };
 
   $('.block-text.layered').one('click', showToolTip);
-
-
+  $('img').click(imageMouseover)
+  // .mouseleave(imageMouseleave);
 
   // document.querySelector('.').on('click', showToolTip);
 })

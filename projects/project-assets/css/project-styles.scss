@@ -137,6 +137,7 @@ a:hover {
 .img-modal .block-image {
   max-width: inherit;
   width: 100%;
+  margin: 0;
 }
 .img-modal .block-image:hover {
   opacity: 1;
@@ -163,8 +164,8 @@ a:hover {
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
   border-radius: 2px;
   z-index: 1000;
-  width: 75vw;
-  height: 80vh;
+  width: 90vw;
+  max-height: 80vh;
   max-width: 700px;
 }
 

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function showModal(content){
     var newCont = $(content).clone();
     $('.img-modal').html(newCont)
-    $('.img-modal').fadeIn(300)
+    $('.img-modal').fadeIn(500)
     return newCont;
   }
   function hideModal(){
@@ -147,6 +147,9 @@ document.addEventListener('DOMContentLoaded', function() {
     e.stopPropagation();
     vidPlayed = showModal(this);
     vidPlayed[0].play();
+    vidPlayed[0].onended = function(z){
+      hideModal();
+    }
     $(document).click(function(){
       hideModal();
     })

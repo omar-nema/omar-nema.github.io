@@ -49,7 +49,7 @@
       <header class="block-header" id="context"><span>Context</span></header>
       <div class="block-text">
           <p>
-            Similar to social communities, referral networks tend to cluster in groups. In most healthcare systems, primary care providers refer to known specialists. Specialists they've met, developed or a relationship with, or that a colleague may know. Referral circles build around these known relationships.
+            Similar to social communities, referral networks tend to cluster in groups. In most healthcare systems, primary care providers refer to known specialists. That is - specialists that the provider has met, developed a relationship with, or that a colleague may know. Referral circles build around these known relationships.
           </p>
           <p>
             These known specialists may not be the best option for the patient. Provider ratings, availability, and patient preferences are not always weighed in the process of choosing a specialist. Less costly, or more effective providers are often underlooked. To add to this, the process of referral submission and approval is convoluted - resulting in a high processing time.
@@ -58,14 +58,8 @@
             With a development team at Arcadia.io, <strong>we built a web application that empowers providers to find high-quality, in-network providers that are appropriate for a patient</strong>. My role was product design (UX/UI/user research), internal product management, and external product implementation.
           </p>
           <p>
-            The Referral product is currently being used Steward Healthcare (the largest private hospital system in the US <a href="https://www.healthcarefinancenews.com/news/steward-health-care-automated-referral-system-yields-161-increase-and-better-visibility-care">press here</a>), and is now being distributed to other healthcare systems.
+            The Referral product is currently being used Steward Healthcare (the largest private hospital system in the US - <a href="https://www.healthcarefinancenews.com/news/steward-health-care-automated-referral-system-yields-161-increase-and-better-visibility-care">press here</a>), and is now being distributed to other healthcare systems.
           </p>
-          <p>
-              Below, a visual I developed during the R&D phase of this project (using d3.js). Within a narrow geographical region of Massachussets, we see clear clustering of referral patterns. This network, like so many others, is complex and ripe for optimization.
-          </p>
-          <div class="block-image-container">
-            <img class="block-image" src="./visuals/referral-patterns.jpg"/>
-          </div>
       </div>
     </section>
 
@@ -102,7 +96,7 @@
               </p>
             </div>
             <p class="slide-visual">
-              <img src="./visuals/referral-style-guide.PNG" class="block-image" style="width:200px"/>
+              <img src="./visuals/referral-style-guide.PNG" class="block-image"/>
             </p>
           </div>
 
@@ -115,8 +109,8 @@
               In the case of a Behavioral Health referral: the provider submits a form with identifying patient information. Insurance information is verified in order to determine if the patient can pay for the referral. Clinical information, and specialist preferences are added.
               </p>
             </div>
-            <p class="slide-visual">
-              <img class="block-image" src="./visuals/referral-submit.gif"/>
+            <p class="slide-visual video-cont">
+              <video class="block-video" src="./visuals/referral-submit.mp4"/>
             </p>
           </div>
           <div class="content-slide">
@@ -143,8 +137,8 @@
                 Finding a provider typically involves a few exchanges with the patient and provider. Referral managers will typically opt to bookmark a few providers, and gradually narrow down to a single provider based on provider availability.
               </p>
             </div>
-            <p class="slide-visual">
-              <img class="block-image" src="./visuals/selection.gif"/>
+            <p class="slide-visual video-cont">
+              <video class="block-video" src="./visuals/referral-selection.mp4"/>
             </p>
           </div>
 
@@ -182,7 +176,7 @@
           </p>
       </div>
       <div class="block-image-container two">
-        <img src="./visuals/auto-process.PNG" class="block-image" style="width:200px"/>
+        <img src="./visuals/auto-process.PNG" class="block-image"/>
         <img src="./visuals/referral-processed.png" class="block-image"/>
       </div>
 
@@ -194,9 +188,12 @@
           <p>
           I developed a reporting schema, and set of visualized reports on Tableau to track referral outcome. The reports offer insight into network performance as a whole in keeping cases in network, and productivity by referral manager, and medical director.
           </p>
+          <p>
+            Below, a visual I developed (with d3.js) during the R&D phase of this project (using d3.js). Within a narrow geographical region of Massachussets, we see clear clustering of referral patterns. This network, like so many others, is complex and ripe for optimization. This visual is part of a poster that was displayed in the HIMSS health IT conference<a href="https://datagallery.arcadiasolutions.com/static/index.html#ReferralNetworks"> - link.</a>
+        </p>
       </div>
       <div class="block-image-container">
-        <img src="./visuals/referral-reporting.PNG" class="block-image"/>
+        <img class="block-image" src="./visuals/poster.jpg"/>
       </div>
     </section>
 

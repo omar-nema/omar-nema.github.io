@@ -1,6 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
+``
+
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -47,7 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   }
 
-
+  function showModal(content){
+    var newCont = $(content).clone();
+    $('.img-modal').html(newCont)
+    $('.img-modal').fadeIn(300)
+    return newCont;
+  }
+  function hideModal(){
+    $('.img-modal').fadeOut(300)
+  }
 
 
   function navRefresh(input){
@@ -122,30 +132,26 @@ document.addEventListener('DOMContentLoaded', function() {
       $(this).find('.info-tooltip').hide();
       $(this).one('click', showToolTip);
   };
-  //document click.
-  //get curr image in a class
-
-  function imageMouseover(e){
-    e.stopPropagation();
-    $(this).parents('.block').addClass('zoomed');
-    $(this).parents('.content-slide').addClass('zoomed');
-    $(this).addClass('image-zoom');
-    var me = $(this);
-    $('.container').one('click', function(e){
-      imageMouseLeave(me);
-    });
-  };
-  function imageMouseLeave(input){
-      input.parents('.block').removeClass('zoomed');
-      input.parents('.content-slide').removeClass('zoomed');
-      input.removeClass('image-zoom');
-      input.parents('.block').children().css('opacity', '1');
-      input.one('click', imageMouseover);
-  };
 
   $('.block-text.layered').one('click', showToolTip);
-  $('img').click(imageMouseover)
-  // .mouseleave(imageMouseleave);
 
-  // document.querySelector('.').on('click', showToolTip);
+  $('img').click(function(e){
+    e.stopPropagation();
+    showModal(this);
+    $('body').one('click', function(e){
+      hideModal();
+    });
+  })
+
+  $('video').click(function(e){
+    e.stopPropagation();
+    vidPlayed = showModal(this);
+    console.log(vidPlayed)
+    vidPlayed[0].play();
+    $('body').one('click', function(e){
+      hideModal();
+    });
+  })
+
+
 })

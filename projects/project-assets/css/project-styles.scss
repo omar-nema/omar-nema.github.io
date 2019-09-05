@@ -12,6 +12,7 @@ body {
 
 }
 
+
 .nav {
   position: fixed;
   top: 30px;
@@ -99,6 +100,9 @@ a:hover {
 .intro-prompt  {
   font-size: 16px;
   color: white;
+  border-bottom: 2px solid #f4ffc6;
+  display: inline;
+  padding-bottom: 2px;
 }
 
 .block-header {
@@ -130,6 +134,66 @@ a:hover {
 .block-image-container.two .block-image {
   max-width: 40%;
 }
+.img-modal .block-image {
+  max-width: inherit;
+  width: 100%;
+}
+.img-modal .block-image:hover {
+  opacity: 1;
+}
+
+.img-modal::before {
+  opacity: .9;
+  position: fixed;
+  width: 200vw;
+  height: 200vh;
+  content: '';
+  background: white;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.img-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+  border-radius: 2px;
+  z-index: 1000;
+  max-width: 75vw;
+  max-height: 80vh;
+}
+
+
+.block-video {
+  width: 100%;
+}
+.video-cont {
+  cursor: pointer;
+  opacity: .8;
+  transition: opacity .15s linear;
+}
+.video-cont::before {
+  top: 50%;
+  left: 45%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  content: '(play)';
+  color: gray;
+  font-size: 12px;
+  z-index: 10000;
+  transition: opacity .15s linear;
+}
+.video-cont:hover {
+  opacity: 1;
+}
+
+
+
 
 .block-image:hover {
   opacity: .85;
@@ -326,6 +390,9 @@ position: absolute;
         content: '';
         width: 0;
         height: 0;
+      }
+      .block-nav-content {
+        height: 330px
       }
       .slide-visual::before {
         content: 'See visual';

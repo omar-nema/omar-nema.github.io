@@ -44,6 +44,7 @@ header {
   height: $headerheight;
   width: 100%;
   font-size: 14px;
+  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 .inner-header {
   height: 100%;
@@ -155,6 +156,7 @@ header {
   border: 1px solid $color-secondary;
   font-weight: 700;
   background: white;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
 }
 
 .card {
@@ -165,13 +167,12 @@ header {
   background: white;
   // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
-  border: .7px dashed #a09e9e;
+  border: 1px dashed #a09e9e;
   width: calc(33% - 30px);
   height: auto;
   opacity: 0;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
 }
-
-
 
 
 .card-title {

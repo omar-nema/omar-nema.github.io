@@ -143,16 +143,13 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   });
 
-
-
   $('video').click(function(e){
     e.stopPropagation();
     vidPlayed = showModal(this);
-    console.log(vidPlayed)
     vidPlayed[0].play();
-    $('body').one('click', function(e){
+    $(document).click(function(){
       hideModal();
-    });
+    })
   })
 
 

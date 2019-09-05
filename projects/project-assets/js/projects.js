@@ -138,10 +138,12 @@ document.addEventListener('DOMContentLoaded', function() {
   $('img').click(function(e){
     e.stopPropagation();
     showModal(this);
-    $('body').one('click', function(e){
+    $(document).click(function(){
       hideModal();
-    });
-  })
+    })
+  });
+
+
 
   $('video').click(function(e){
     e.stopPropagation();

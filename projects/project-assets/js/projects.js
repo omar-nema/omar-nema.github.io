@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ``
 
+  $('body').append('<div class="img-modal"></div>');
+
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -146,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $('video').click(function(e){
     e.stopPropagation();
     vidPlayed = showModal(this);
+    vidPlayed[0].playbackRate = 0.7;
     vidPlayed[0].play();
     vidPlayed[0].onended = function(z){
       hideModal();

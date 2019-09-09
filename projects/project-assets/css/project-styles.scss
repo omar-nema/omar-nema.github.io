@@ -1,15 +1,15 @@
-$color-primary: #37a6f0;
+// $color-primary: #37a6f0;
+$color-primary: blue;
 $color-secondary: red;
 
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 body {
-  background: #f5f5f5;
+  background: #f3f6f9;
   font-family: 'Karla';
   margin: 0;
-  line-height: 1.15rem;
+  line-height: 1.23rem;
   width: 100%;
-
 }
 
 
@@ -21,21 +21,25 @@ body {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  left: calc(50vw - 580px);
+  left: calc(50vw - 480px);
 }
 .nav-link {
   color: gray;
-  border-left: 2px solid transparent;
+  // border-left: 2px solid transparent;
   transition: all .15s linear;
-  padding-left: 15px;
-  line-height: 30px;
+  // line-height: 26px;
+  // padding-left: 15px;
+  width: 9px;
+  height: 9px;
+  margin-bottom: 10px;
+  border-radius: 100%;
+  border:2px solid $color-primary;
+  background: $color-primary;
 }
 .nav-link.active {
-  color: black;
-  font-weight: 700;
-  color: black;
-  font-weight: 700;
-  border-left: 2px solid $color-primary;
+  color: $color-primary;
+  background: white;
+  // border-left: 2px solid $color-primary;
 }
 .nav-link:hover {
   color: $color-primary;
@@ -55,22 +59,19 @@ body {
   position: fixed;
   top: 20px;
   right: 30px;
-  background: white;
   padding: 5px 15px;
   color: $color-primary;
-  border: 1px solid #cccccc;
   opacity: 1;
-  box-shadow: 0 1px 1px 0px rgba(0,0,0,.1);
   cursor: pointer;
   transition: all .2s ease-in-out;
   font-weight: 700;
   font-size: 14px;
   text-decoration: none;
-  border-radius: 3px;
   opacity: .9;
+
 }
 .back-btn:hover {
-  box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);
+  // box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);
   background: #f5f8fb;
 }
 a {
@@ -92,6 +93,7 @@ a:hover {
   margin-bottom: 30px;
   border: .5px solid rgba(0,0,0,0.1);
   max-width: 700px;
+  border: 1px dashed #7a8284;
 }
 .block.intro {
   color: black;
@@ -102,7 +104,7 @@ a:hover {
 .intro-prompt  {
   font-size: 16px;
   color: white;
-  border-bottom: 2px solid #f4ffc6;
+  border-bottom: 2px solid #e6f79e;
   display: inline;
   padding-bottom: 2px;
 }
@@ -113,6 +115,11 @@ a:hover {
   color: black;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 17px;
+}
+.block-header span {
+  border-bottom: 1px solid $color-primary;
+  padding-bottom: 3px;
 }
 
 .block-image-container {
@@ -158,6 +165,8 @@ a:hover {
   background: #e1e3e3;
   transform: translate(-50%, -50%);
   z-index: -1;
+  background: #ffffffb8;
+  padding: 3px 6px;
 }
 
 .img-modal {
@@ -174,7 +183,9 @@ a:hover {
   height: auto;
 }
 
-
+.block-image-container .block-video {
+  max-width: 450px;
+}
 .block-video {
   width: 100%;
 }
@@ -182,16 +193,17 @@ a:hover {
   cursor: pointer;
   opacity: .8;
   transition: opacity .15s linear;
+  position: relative;
 }
 .video-cont::before {
-  top: 50%;
-  left: 45%;
+  top: 40%;
+  left: 48%;
   width: 40px;
   height: 40px;
-  position: relative;
-  content: '(play)';
+  position: absolute;
+  content: 'play';
   color: $color-primary;
-  font-size: 12px;
+  font-size: 16px;
   z-index: 10000;
   transition: opacity .15s linear;
 }
@@ -238,6 +250,7 @@ a:hover {
   .block-subheader {
     font-weight: 700;
     color: gray;
+    margin-top: 0;
   }
   .block-nav-header, .block-nav-footer {
     display: flex;
@@ -250,19 +263,18 @@ a:hover {
     justify-content: flex-start;
   }
   .circle {
-    width: 8.5px;
-    height: 8.5px;
+    width: 6px;
+    height: 6px;
     border-radius: 100%;
-    background: #f5f5f5;
+    background: $color-primary;
     margin-right: 8px;
     cursor: pointer;
     transition: all .15s linear;
-    border: 1px solid #b3bcc4;
+    border: 2px solid $color-primary;
   }
   .circle.active {
-    background: $color-primary;
-    box-shadow: 0 1px 1px 0px rgba(0,0,0,.1);
-    border: 1px solid #1592e5;
+    background: white;
+
   }
   .circle:hover {
     background: $color-primary;
@@ -273,7 +285,7 @@ a:hover {
   }
   .flat-btn {
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 400;
   }
   .flat-btn:hover {
     opacity: .85;

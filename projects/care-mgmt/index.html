@@ -13,12 +13,12 @@
     < back
   </a>
   <div class="nav" id="nav">
-    <a class="nav-link active" href="#one">Tags</a>
-    <a class="nav-link" href="#two">Context</a>
-    <a class="nav-link" href="#three">Web App</a>
-    <a class="nav-link" href="#four">Point of Care</a>
-    <a class="nav-link" href="#five">Automation</a>
-    <a class="nav-link" href="#six">Reporting</a>
+    <a class="nav-link active" href="#one"></a>
+    <a class="nav-link" href="#two"></a>
+    <a class="nav-link" href="#three"></a>
+    <a class="nav-link" href="#four"></a>
+    <a class="nav-link" href="#five"></a>
+    <a class="nav-link" href="#six"></a>
   </div>
   <div class="container">
     <section class="intro block" id="one">
@@ -40,24 +40,28 @@
     <section class="block" id="two">
       <header class="block-header" id="context"><span>Context</span></header>
 
-      <div class="block-text">
+      <div class="block-text layered">
           <p>
             American healthcare incentivizes procedures: sicker patient populations often result in higher revenue for hospitals. In my day job, I work with organizations that are shifting to <a href="https://www.nextstepsolutionsinc.com/what-is-value-based-healthcare/">value-based care models</a> that instead compensate for positive patient outcomes.
+            <span class="info-tooltip">
+              Value-based care necessitates holistic (addressing social needs) and preventive care. 'Care Management' programs are aimed at filling the gaps in care that a doctor does not typically provide: coordinating services, addressing social needs, and ensuring engagement with doctor recommendations. Typically, social workers and nurses work to fill these needs.
+            </span>
           </p>
-          <p>
-            Value-based care necessitates holistic (addressing social needs) and preventive care. 'Care Management' programs are aimed at filling the gaps in care that a doctor does not typically provide: coordinating services, addressing social needs, and ensuring engagement with doctor recommendations. Typically, social workers and nurses work to fill these needs.
-          </p>
-          <p>
-            For the past two years (2017 onwards), I have been leading product development for Arcadia's care management suite. <strong>The product enables clinicians to better address the social needs of patients, document, and communicate across disciplines. </strong> I designed the interface (UX, visual, and product), reporting model, and workflow automation engine. I've also managed its implementation - both externally with care teams, and internally with the engineers executing on development. The product continues to scale, and is now used by more eight large healthcare organizations (with patient populations that range from 100,000 to 1 million).
-          </p>
-      
+      </div>
+      <div class="block-text">
+        <p>
+          For the past two years (2017 onwards), I have been leading product development for Arcadia's care management suite. <strong>The product enables clinicians to provide multi-faceted care - addressing medical, social, and housing needs.</strong>
+        </p>
+        <p>
+          I designed the interface (UX, visual, and product), reporting model, and workflow automation engine. I've also managed its implementation - both externally with care teams, and internally with the engineers executing on development. The product continues to scale, and is now used by more eight large healthcare organizations (with patient populations that range from 100,000 to 1 million).
+        </p>
       </div>
     </section>
 
 
     <section class="block nav-wrapper" id="three">
       <header class="block-header">
-        <span>Web Application</span>
+        <span>Web App Walkthrough</span>
         <div class="block-circles"></div>
       </header>
       <div>
@@ -69,7 +73,7 @@
               <p>Care Manager is used to for the full spectrum of caring for a patient: from identifying candidates to care for, reaching out, creating a care plan, and tracking productivity.
               </p>
               <p>
-                For simplicity, I'll focus on one sample use case here: <strong>caring for a patient after they are discharged from an inpatient hospital stay.</strong>
+                To offer a sense of how the app is used, I'll step through one sample use case here: <strong>caring for a patient after they are discharged from an inpatient hospital stay.</strong>
               </p>
             </div>
             <p class="slide-visual">
@@ -78,23 +82,12 @@
           </div>
           <div class="content-slide">
             <div class="slide-text">
-              <p class="block-subheader">Style Guide Development</p>
-              <p>As part of a broader initiative to improve design across Arcadia's products, I developed a style guide that defined the 'building blocks' for all interfaces. The guide is intended to be simple, minimal, and noninvasive. Clinicians use multiple tools in their day to day, and we wanted to ensure that this tool did not impose - but instead seamless integrated with their other tools.
-              </p>
-            </div>
-            <p class="slide-visual">
-              <img class="block-image" src="./visuals/desktop-style-guide.png"/>
-            </p>
-
-          </div>
-          <div class="content-slide">
-            <div class="slide-text">
               <p class="block-subheader">Identify Patients in Need</p>
               <p>Within the platform, clinicians receive realtime alerts for patients discharged from inpatient stays. Clicking into the alert will surface the Patient Summary - a page containing rich clinical information. This information - particularly medications, conditions, and clinical visit history - is used to confirm whether the patient would benenfit from care management.
               </p>
             </div>
-            <p class="slide-visual">
-              <img class="block-image"  src="./visuals/cm-noti.gif"/>
+            <p class="slide-visual video-cont">
+              <video class="block-video"  src="./visuals/cm-noti.mp4"/>
             </p>
           </div>
           <div class="content-slide">
@@ -104,7 +97,7 @@
               </p>
             </div>
             <p class="slide-visual">
-              <img class="block-image" src="./visuals/cm-assess.gif"/>
+              <img class="block-image" src="./visuals/cm-assessment.PNG"/>
             </p>
           </div>
           <div class="content-slide">
@@ -116,8 +109,8 @@
                 Structurally, the care plan is a set of goals (i.e. 'Improve Patient's Diet'), with actionable interventions used to achieve those goals ('Start cooking daily', 'Track calories').
               </p>
             </div>
-            <p class="slide-visual">
-              <img class="block-image" src="./visuals/cm-curation.gif"/>
+            <p class="slide-visual video-cont">
+              <video class="block-video" src="./visuals/assess-flow.mp4"/>
             </p>
           </div>
           <div class="content-slide">
@@ -126,13 +119,21 @@
               <p>After the care plan is created, documentation is added within the context of a care plan.
               </p>
               <p>
-                Designing the care plan structure was a fascinating challenge. Care managers typically take free-text notes on patients, but managers are looking for structured information to track ROI on care management. The solution I devised - the Care Plan Review form - encourages users to take structured information, while enabling free-text documentation. The form turns the care plan into a questionaire, prompting users to mark status and add notes to individual care plan items.
-              </p>
-              <p>
+                Designing the care plan structure was challenging - as I had to adhere to clinical guidelines, administrative desire to track structured information, and user desire to take unstructured notes. The solution I devised - the Care Plan Review form - turns the Care Plan into a structured questionaire, with room for free-text notes.
               </p>
             </div>
             <p class="slide-visual">
-              <img class="block-image" src="./visuals/cm-cpr.gif"/>
+              <img class="block-image" src="./visuals/cm-cpr.PNG"/>
+            </p>
+          </div>
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Style Guide Development</p>
+              <p>As part of a broader initiative to improve design across Arcadia's products, I developed a style guide that defined the 'building blocks' for all interfaces. The guide is intended to be simple, minimal, and noninvasive. Clinicians use multiple tools in their day to day, and we wanted to ensure that this tool did not impose - but instead seamless integrated with their other tools.
+              </p>
+            </div>
+            <p class="slide-visual">
+              <img class="block-image" src="./visuals/desktop-style-guide.png"/>
             </p>
           </div>
         </div>
@@ -155,8 +156,8 @@
           Clicking on the notification will surface a small overlay screen containing insights and documentation from the Arcadia Care Management system.
           </p>
       </div>
-      <div class="block-image-container">
-          <img src="./visuals/cm-desktop.gif" class="block-image">
+      <div class="block-image-container video-cont">
+          <video src="./visuals/desktop-vid.mp4" class="block-video">
       </div>
 
     </section>

@@ -1,11 +1,9 @@
-// $color-primary: #37a6f0;
-$color-primary: blue;
-$color-secondary: red;
+@import '../../../home-assets/css/ref';
 
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 body {
-  background: #f3f6f9;
+  background: #f9f9f9;
   font-family: 'Karla';
   margin: 0;
   line-height: 1.23rem;
@@ -34,7 +32,7 @@ body {
   margin-bottom: 10px;
   border-radius: 100%;
   border:2px solid $color-primary;
-  background: $color-primary;
+  background: $color-primary-lite;
 }
 .nav-link.active {
   color: $color-primary;
@@ -68,6 +66,8 @@ body {
   font-size: 14px;
   text-decoration: none;
   opacity: .9;
+  background: white;
+  border: 1px solid $color-primary-lite;
 
 }
 .back-btn:hover {
@@ -97,14 +97,14 @@ a:hover {
 }
 .block.intro {
   color: black;
-  background: #343538;
+  background: black;
   color: #e3dede;
 }
 
 .intro-prompt  {
   font-size: 16px;
   color: white;
-  border-bottom: 2px solid #e6f79e;
+  border-bottom: 1px solid white;
   display: inline;
   padding-bottom: 2px;
 }
@@ -118,7 +118,7 @@ a:hover {
   margin-bottom: 17px;
 }
 .block-header span {
-  border-bottom: 1px solid $color-primary;
+  border-bottom: 1px solid black;
   padding-bottom: 3px;
 }
 
@@ -229,7 +229,7 @@ a:hover {
 }
 
 .info-tooltip {
-    color: $color-primary;
+    color: $color-secondary;
     border: none;
     display: none;
 }
@@ -245,7 +245,7 @@ a:hover {
 }
 
 .layered:hover {
-  border-right: 1px solid blue; }
+  border-right: 1px solid $color-secondary; }
 
   .block-subheader {
     font-weight: 700;
@@ -266,7 +266,7 @@ a:hover {
     width: 6px;
     height: 6px;
     border-radius: 100%;
-    background: $color-primary;
+    background: $color-primary-lite;
     margin-right: 8px;
     cursor: pointer;
     transition: all .15s linear;

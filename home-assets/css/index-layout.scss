@@ -1,11 +1,11 @@
 @import 'ref';
 $headerheight: 40px;
 $filterheight: 28.4px;
-
 $width-max: 1100px;
-
-$header-accent: #aba5a5;
-
+// $header-primary: #416bfd5e;
+// $header-accent: #f7c7e5;
+$header-accent: white;
+$header-primary: black;
 
 .temp {
   text-align: center;
@@ -44,7 +44,7 @@ header {
   height: $headerheight;
   width: 100%;
   font-size: 14px;
-  box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px dashed black;
 }
 .inner-header {
   height: 100%;
@@ -61,7 +61,7 @@ header {
   background: $header-accent;
 }
 .header-padding.right {
-  background: #171717;
+  background: $header-primary;
 }
 
 .name-holder {
@@ -72,14 +72,18 @@ header {
   justify-content: center;
   background: $header-accent;
   width: 260px;
+  font-weight: 700;
+  color: black;
 }
 .header-nav {
   width: calc(100% - 200px);
-  background-color: #171717;
+  background-color: $header-primary;
   color: white;
   display: flex;
   align-items: center;
   padding-left: 20px;
+  font-weight: 700;
+  border-left: 1px dashed black;
 }
 .nav-item {
   padding: 4px 10px;
@@ -89,16 +93,12 @@ header {
   letter-spacing: .3px;
 }
 .nav-item.selected {
-  color: #7dc9fc;
+  text-decoration: underline;
 }
 .nav-item:hover {
   color: #7dc9fc;
 }
 
-.header-name {
-  color: white;
-  background: $header-accent;
-}
 
 
 .content {
@@ -149,25 +149,23 @@ header {
   height: 30px;
 }
 .filter-option:hover {
-  color: $color-secondary;
+  color: $color-primary;
 }
 .filter-option.selected {
-  color: $color-secondary;
-  border: 1px solid $color-secondary;
+  color: $color-primary;
+  border: 1px dashed $color-primary;
   font-weight: 700;
   background: white;
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
 }
 
 .card {
   margin-bottom: 30px;
   margin-right: 30px;
-  border: 1px dashed #8389a1;
+  border: 1px dashed black;
   padding: 20px;
   background: white;
   // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
-  border: 1px dashed #a09e9e;
   width: calc(33% - 30px);
   height: auto;
   opacity: 0;
@@ -183,13 +181,12 @@ header {
 }
 .material-icons {
   font-size: 14px;
-  color: $color-secondary;
+  color: $color-primary;
 }
 .material-icons.link {
   padding: 2px 1px;
-  color: #ff0080;
+  color: $color-primary;
   // background: #f9f5f5;
-  border-bottom: 1px solid #ff008059;
   transition: all .15s ease-in-out;
 }
 .link-external {
@@ -217,14 +214,14 @@ header {
     border-radius: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 3px 5px;
+    padding: 4px 7px;
     font-weight: 300;
-    background: #aba4a4;
+    background: #a8a8ab;
     color: white;
     max-width: 31%;
   }
   .chip.date {
-    background: #6b5f6b;
+    background: black;
   }
 }
 

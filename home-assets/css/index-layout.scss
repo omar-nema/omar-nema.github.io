@@ -130,7 +130,7 @@ header {
   height: auto;
 
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .project-filter {

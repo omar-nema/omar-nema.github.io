@@ -13,18 +13,17 @@
     < back
   </a>
   <div class="nav" id="nav">
-    <a class="nav-link active" href="#one"></a>
-    <a class="nav-link" href="#two"></a>
-    <a class="nav-link" href="#three"></a>
-    <a class="nav-link" href="#four"></a>
-    <a class="nav-link" href="#five"></a>
-    <a class="nav-link" href="#six"></a>
-    <a class="nav-link" href="#seven"></a>
+    <a class="nav-link active" href="#one">Tags</a>
+    <a class="nav-link" href="#two">Context</a>
+    <a class="nav-link" href="#three">Result</a>
+    <a class="nav-link" href="#four">Physical Model</a>
+    <a class="nav-link" href="#five">Neural Model</a>
+    <a class="nav-link" href="#six">Integrated Model</a>
   </div>
   <div class="container">
     <section class="intro block" id="one">
       <div class="intro-text block-text">
-          <div class="intro-prompt"><span>Thesis: Spinal Cord Stimulation Model</span>
+          <div class="intro-prompt"><strong>Thesis: Spinal Cord Stimulation Model</strong>
           </div>
           <p style="line-height: 1.3rem">
             <span>Advisor:</span> David Borton (head of lab)
@@ -51,18 +50,17 @@
 
       <div class="block-text">
           <p>
-            Spinal cord injury - affects 250,000 americans/year, and can cause devastating, irreversible motor deficit. Currently, there are no viable treatments for re-generating movement due to lost motor control. Epidural Electrical Stimulation (EES) of the spinal cord has shown to improve motor control in humans and animals with spinal cord injury.
+            Spinal cord injury affects 250,000 americans/year, and can cause devastating, irreversible motor deficit. Epidural Electrical Stimulation (EES) is a promosing potential therapy, as it has been shown to improve motor control in humans and animals with spinal cord injury.
           </p>
       </div>
-
       <div class="block-text">
-        <p>Although devices to stimulate, record, and interpret electrical signals from movement are reliable, the exact input parameters and locations for stimulation devices are not usually known for experiments involving primates. <span class="highlight-grey">Researchers rely on visual/empirical observation for stimulation, which is unreliable and cruel to test animals</span>
+        <p>
+        In EES experiments, electrical currents are propagated through a test subject's (usually a primate) spinal cord with the aim of understanding which stimulation parameters are therapeutic. Research to date has largely been driven by a trial-and-error process, which can be inefficient, and inhumane to test animals.
         </p>
         <p>
-        Experimental simulations are a logical, and crucial next step in developing human & accurate neuroprosthetic systems.
+        With the aim of reducing reliance on live experimentation, I worked on a computational model for Epidural Electric Simulation. I designed and developed the model, with guidance from Radu Darie, a phD student in the Borton's Neuroengineering lab.
         </p>
       </div>
-
       <div class="block-image-container">
           <img src="./img/thesis-experiment.png" class="block-image">
       </div>
@@ -74,9 +72,9 @@
       <header class="block-header"><span>Result</span></header>
       <div>
           <p>
-          Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, our end product does not come close in complexity to an actual primate spinal cord. It does however, provide a <span class="highlight-grey">functioning framework of an EES experiment</span>. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
+          Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, our end product did not come close in complexity to an actual primate spinal cord. It does however, provide a <span class="highlight-grey">functioning, open-source framework for running  EES experiments</span>. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
           <br><br>
-          We ensured that our computational model was <a href="https://github.com/penguinscontrol/Spinal-Cord-Modeling"  class="underline">well-documented</a> to allow for other researchers to use the model and build on it. As more EES experiments are conducted, our model will have more data to draw from, and become more accurate. Though the project is no longer in my hands, the Borton Lab has continued to develop and refine the model.
+          More importantly, developers can look through the source code, and continue to build and refine the computational model we put together. We ensured that our computational model was <a href="https://github.com/penguinscontrol/Spinal-Cord-Modeling"  class="underline">well-documented</a> to allow for other researchers to use the model and build on it. As more EES experiments are conducted, our model will have more data to draw from, and become more accurate. Though the project is no longer in my hands, the Borton Lab has continued to develop and refine the model.
           </p>
       </div>
       <div class="block-text layered">
@@ -121,12 +119,15 @@
     <section class="block" id="five">
       <header class="block-header"><span>Neural Model</span></header>
       <div class="block-text">
-          <p>Our neural model was written in .hoc, a scripting language built for NEURON (biophysical neural network modeling software). NEURON enables users to instantiate neural elements like fibers and axons as objects, and run simulations
+          <p>Our neural model was written in .hoc, a scripting language built for NEURON (biophysical neural network modeling software). NEURON enables users to instantiate neural elements like fibers and axons as objects, and run simulations.
           </p>
       </div>
       <div class="block-text layered">
-           <p>Validation - in line with experimental procedures, the electrical stimulation is visualized as a square wave pulse. Additionally, plots of Ia axon and motor neuron display the typical signature of an action potential.
+           <p>
+           Our model matched the expected signature of an EES simulation.
            <span class="info-tooltip">
+             In line with experimental procedures, electrical stimulation is visualized as a square wave pulse. Additionally, plots of Ia axon and motor neuron display the typical signature of an action potential.
+             <br><br>
              Threshold, depolarization, repolarization, and refractory period phases are clearly shown. The motor neuron, pictured in orange, is recruited after the Ia fiber, which is expected given that the motor neuron is stimulated indirectly. At low stimulation values (200 mA and less), neither the Ia axon, nor the motor display peaks, as expected.
            </span>
           </p>
@@ -141,9 +142,9 @@
       <header class="block-header"><span>Integrated Model</span></header>
       <div class="block-text">
         <p>
-        Using MATLAB, we integrated our physical (finite element) and neural models. MATLAB scripts translated the physical model to discrete three dimensional point values with starting voltage values. These values are fed to the electrical simulation, and a series of changed voltage values is written back to MATLAB, and plotted.
-
-        We wrote a MATLAB script to generate geometric points representing fibers in the spinal cord. This geometric axon was transposed onto the physical Finite Element model, where voltage values along nodes of the axon (corresponding to points along internode intervals).
+        Using MATLAB, we integrated our physical (finite element) and neural models.
+        <br><br>
+        MATLAB scripts translated the physical model to discrete three dimensional point values with starting voltage values. These values are fed to the electrical simulation, and a series of changed voltage values is written back to MATLAB, and plotted.
         </p>
       </div>
 
@@ -161,18 +162,7 @@
       </div>
     </section>
 
-    <section class="block" id="seven">
-      <header class="block-header"><span>Optimization</span></header>
-      <div class="block-text">
-          <p>In order to ensure that our model would be scalable, we integrated our NEURON script with the MPI parallel simulation environment, enabling parallel simulations (on multi-core processors).
-          </p>
-      </div>
-      <div class="block-image-container">
-          <img src="./img/thesis-parallelization.png" class="block-image">
-      </div>
-      <div class="block-text">
-      </div>
-    </section>
+
 
   </div>
 

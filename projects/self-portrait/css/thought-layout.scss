@@ -38,7 +38,7 @@ div {
   text-decoration: none;
   display: flex;
   justify-content: flex-end;
-  color:#b7b7b7;
+  color: $header-color;
 }
 .back-btn:hover {
   color: $header-color;
@@ -268,7 +268,7 @@ color: #9d9d9d;
   height: calc(100vh - 50px);
   position: fixed;
   top: 50px;
-  overflow-y: auto;
+  overflow-y: none;
   -webkit-overflow-scrolling: touch;
 }
 

@@ -5,7 +5,7 @@ $width-max: 1100px;
 // $header-primary: #416bfd5e;
 // $header-accent: #f7c7e5;
 $header-accent: #aed2ff;
-$header-primary: #dc6db0;
+$header-primary: black;
 
 .temp {
   text-align: center;
@@ -44,7 +44,7 @@ header {
   height: $headerheight;
   width: 100%;
   font-size: 14px;
-  border-bottom: 1px dashed black;
+  border-bottom: 1px solid black;
 }
 .inner-header {
   height: 100%;

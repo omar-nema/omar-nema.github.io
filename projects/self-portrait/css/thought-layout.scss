@@ -7,7 +7,6 @@ $card-wide: 340px;
 $card-narrow: 240px;
 $header-color: #d798e7;
 
-
 //THE BASICS
 body {
   font-family: 'roboto mono';
@@ -40,7 +39,6 @@ div {
   display: flex;
   justify-content: flex-end;
   color:#b7b7b7;
-  flex-basis: 45%;
 }
 .back-btn:hover {
   color: $header-color;
@@ -54,6 +52,7 @@ h2 {
   margin-bottom: 10px;
   display: inline-block;
   border-bottom: 1px solid #797979;
+  color: #ffffad;
 }
 h3 {
   font-size: 16px;
@@ -63,16 +62,15 @@ color: #9d9d9d;
 //APP HEADER
 .header, .option-holder {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  flex-basis: 22%;
 }
 .header {
   height: 50px;
   width: 100%;
   background: black;
   border-bottom: .5px solid #1a1a1a;
-  padding: 0 20px;
+  padding: 0 50px;
   position: fixed;
   top: 0;
   .option-holder {
@@ -151,7 +149,7 @@ color: #9d9d9d;
   opacity: 0;
   display: block;
   width: $card-narrow;
-  background: #2a2a2a;
+  background: #3d3c44;
   font-weight: 400;
   color: #ffffffc7;;
   height: 30px;
@@ -180,16 +178,16 @@ color: #9d9d9d;
   position: absolute;
   top: 0;
   left: 0;
-  background: #191818;
+  background: #18191f;
   padding: 10px 13px;
   border: 1px solid rgba(255,255,255,.1);
-  opacity: .87;
+  opacity: .9;
   text-transform: lowercase;
   width: $card-narrow;
   .more-button {
     padding: 3px 5px;
     cursor: pointer;
-    color: #8e8efb;
+    color: #cd72e4;
   }
   .more-button:hover {
     text-decoration: underline;

@@ -3,11 +3,12 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
 body {
-  background: #f9f9f9;
+  background: #f7f7f8;
   font-family: 'Karla';
   margin: 0;
-  line-height: 1.23rem;
   width: 100%;
+  // line-height: 1.34em;
+  font-size: 14.3px;
 }
 
 
@@ -19,25 +20,18 @@ body {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  left: calc(50vw - 480px);
+  left: calc(50vw - 550px);
 }
 .nav-link {
   color: gray;
-  // border-left: 2px solid transparent;
   transition: all .15s linear;
-  // line-height: 26px;
-  // padding-left: 15px;
-  width: 9px;
-  height: 9px;
-  margin-bottom: 10px;
-  border-radius: 100%;
-  border:2px solid $color-primary;
-  background: $color-primary-lite;
+  border-left: 2px solid transparent;
+  line-height: 26px;
+  padding: 0 8px;
 }
 .nav-link.active {
   color: $color-primary;
   background: white;
-  // border-left: 2px solid $color-primary;
 }
 .nav-link:hover {
   color: $color-primary;
@@ -47,7 +41,6 @@ body {
   width: 100%;
   max-width: 96%;
   margin: auto;
-  font-size: 14px;
   margin-bottom: 50px;
   margin-top: 30px;
   overflow-x: hidden;
@@ -63,7 +56,6 @@ body {
   cursor: pointer;
   transition: all .2s ease-in-out;
   font-weight: 700;
-  font-size: 14px;
   text-decoration: none;
   opacity: .9;
   background: white;
@@ -100,11 +92,17 @@ a:hover {
   background: black;
   color: #e3dede;
 }
+.block.intro span {
+  color: #8e8e8e;
+}
+.block.intro p{
+  color: #d8d7d7;
+}
 
 .intro-prompt  {
   font-size: 16px;
   color: white;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #ffffad;
   display: inline;
   padding-bottom: 2px;
 }
@@ -221,15 +219,10 @@ a:hover {
   opacity: 1;
   transform: scale(2);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-
-  // position: fixed;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%) scale(1.2)
 }
 
 .info-tooltip {
-    color: $color-secondary;
+    color: $color-primary;
     border: none;
     display: none;
 }
@@ -238,11 +231,14 @@ a:hover {
     white-space: pre;
     padding-top: 5px;
 }
-  .layered {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    padding-right: 13px;
+.layered {
+  border-right: 1px solid $color-primary;
+  cursor: pointer;
+  padding-right: 13px;
+  position: relative;
 }
+
+
 
 .layered:hover {
   border-right: 1px solid $color-secondary; }
@@ -410,9 +406,9 @@ position: absolute;
       border: none;
       box-shadow: 0 1px 1px 0.5px hsla(0, 0%, 0%, 0.05);
     }
-    // body {
-    //   background: #f0f0f1;
-    // }
+    body {
+      background: #dfdfdf;
+    }
   }
 
     @media only screen and (max-width: 700px) {

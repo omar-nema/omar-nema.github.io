@@ -2,13 +2,7 @@ function populateCard(cards){
   title = cards.append('div').attr('class', 'list-row card-title');
   title
     .append('span')
-    .text(function(d){return d.title})
-  title
-      .append('a').attr('class', 'link-external')
-      .attr('href', function(d){
-        return d.url;
-      })
-      .html('<i class="material-icons link">open_in_new</i>')
+    .text(function(d){return d.title});
 
   cards.append('div').attr('class', 'list-row card-body')
     .text(function(d){return d.description});
@@ -47,7 +41,8 @@ d3.csv('../home-assets/data/project-data.csv').then(function(data){
 
   data = sortByDate(data);
   proj = d3.select('.project-list-holder').selectAll('.card').data(data, function(d){return d.id});
-  cards = proj.enter().append('div').attr('class', 'card');
+  cards = proj.enter().append('a').attr('class', 'card')
+    .attr('href', function(d){return d.url})
   populateCard(cards);
 
 

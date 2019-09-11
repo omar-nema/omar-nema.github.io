@@ -158,18 +158,23 @@ header {
   background: white;
 }
 
+
 .card {
+  text-decoration: none;
   margin-bottom: 30px;
   margin-right: 30px;
   border: 1px dashed black;
   padding: 20px;
   background: white;
-  // box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.1);
   position: relative;
   width: calc(33% - 30px);
   height: auto;
   opacity: 0;
-  // box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.card:hover {
+  border-color: $color-primary;
+  box-shadow: 1px 2px 1px 0 rgba(0,0,0,.15);
 }
 
 

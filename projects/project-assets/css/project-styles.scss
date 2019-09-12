@@ -14,24 +14,27 @@ body {
 
 .nav {
   position: fixed;
-  top: 30px;
+  top: 25px;
   font-size: 14px;
   cursor: pointer;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  left: calc(50vw - 550px);
+  left: calc(50vw - 570px);
 }
 .nav-link {
   color: gray;
-  transition: all .15s linear;
-  border-left: 2px solid transparent;
+  transition: all .15s ease-in-out;
   line-height: 26px;
-  padding: 0 8px;
+  padding: 0px 8px;
+  margin-bottom: 5px;
+  bordeR: 1px solid transparent;
 }
 .nav-link.active {
   color: $color-primary;
   background: white;
+  font-weight: 700;
+    border: 1px solid $color-primary-lite;
 }
 .nav-link:hover {
   color: $color-primary;
@@ -44,12 +47,12 @@ body {
   margin-bottom: 50px;
   margin-top: 30px;
   overflow-x: hidden;
+  position: relative;
 }
 
 .back-btn {
   position: fixed;
-  top: 20px;
-  right: 30px;
+  top: 25px;
   padding: 5px 15px;
   color: $color-primary;
   opacity: 1;
@@ -60,7 +63,7 @@ body {
   opacity: .9;
   background: white;
   border: 1px solid $color-primary-lite;
-
+  right: calc(50vw - 550px);
 }
 .back-btn:hover {
   // box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);
@@ -84,7 +87,7 @@ a:hover {
   margin: auto;
   margin-bottom: 30px;
   border: .5px solid rgba(0,0,0,0.1);
-  max-width: 700px;
+  max-width: 650px;
   border: 1px dashed #7a8284;
 }
 .block.intro {

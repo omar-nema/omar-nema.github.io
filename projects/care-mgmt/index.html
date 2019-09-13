@@ -121,14 +121,14 @@
                 Designing the care plan structure was challenging - as I had to adhere to clinical guidelines, administrative desire to track structured information, and user desire to take unstructured notes. The solution I devised - the Care Plan Review form - turns the Care Plan into a structured questionaire, with room for free-text notes.
               </p>
             </div>
-            <p class="slide-visual">
-              <img class="block-image" src="./visuals/cm-cpr.PNG"/>
+            <p class="slide-visual video-cont">
+              <video class="block-video" src="./visuals/cpr.mp4"/>
             </p>
           </div>
           <div class="content-slide">
             <div class="slide-text">
               <p class="block-subheader">Style Guide Development</p>
-              <p>As part of a broader initiative to improve design across Arcadia's products, I developed a style guide that defined the 'building blocks' for all interfaces. The guide is intended to be simple, minimal, and noninvasive. Clinicians use multiple tools in their day to day, and we wanted to ensure that this tool did not impose - but instead seamless integrated with their other tools.
+              <p>As part of a broader initiative to improve design across Arcadia's products, I developed a style guide that defined the 'building blocks' for all interfaces. The guide is intended to be simple, minimal, and noninvasive. Clinicians use multiple tools in their day to day, and we wanted to ensure that this tool did not impose - but instead seamlessly integrated with their other tools.
               </p>
             </div>
             <p class="slide-visual">
@@ -173,12 +173,10 @@
           After a series of in-depth user interviews, I designed, prototyped, and build a set of rules to automate repetitive tasks. The ruleset is expansive, covering clinical indicators (conditions, risk factors), organizational structure, and workload balancing. I translated the rules to a functioning proof-of-concept (data model, and stored procedures), which my team fleshed out further.
           </p>
       </div>
-      <div class="block-image-container">
-          <img src="./visuals/automation-overview.PNG" class="block-image">
-      </div>
+
       <div class="block-text">
         <p>
-          The resulting automation structure is powerful, and highly configurable. One example use case: accomodating a transition from an inpatient hospital visit to home. In realtime, our automation procedures look for any discharge event pulled into the Arcadia system. It then assigns someone to the case based off their attributed location. A notification will be triggered, and an assessment task (aimed at addressing the patient's needs) will be added to the user's calendar. The assessment tasks will then trigger a series of 'care plan goals' for the care manager to work with the patient and address.
+          The resulting automation structure is powerful, and highly configurable. One example use case: accomodating a transition from an inpatient hospital visit to home. In realtime, our automation procedures look for any discharge event pulled into the Arcadia system. It then assigns a nurse to the case based on the user's attributed location. The engine will trigger a notification to the user, and schedule an assessment task (aimed at addressing the patient's needs). The assessment tasks will then trigger a series of 'care plan goals' for the care manager to work with the patient and address.
         </p>
       </div>
       <div class="block-image-container">

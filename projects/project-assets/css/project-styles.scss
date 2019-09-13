@@ -135,7 +135,7 @@ a:hover {
 .block-image {
   max-width: 55%;
   margin: 10px;
-  border: 1px solid rgba(0,0,0,.1);
+  border: 1px solid rgba(0,0,0,.2);
   max-height: 300px;
   box-shadow: 0 1px 1px 0.5px rgba(0,0,0,0.05);
   cursor: pointer;
@@ -150,8 +150,6 @@ a:hover {
   width: auto;
   height: auto;
   margin: 0;
-  max-width: 80vw;
-  max-height: 90vh;
 }
 .img-modal .block-image:hover {
   opacity: 1;
@@ -163,10 +161,9 @@ a:hover {
   width: 200vw;
   height: 200vh;
   content: '';
-  background: #e1e3e3;
+  background: #e6e6eaf2;
   transform: translate(-50%, -50%);
   z-index: -1;
-  background: #ffffffb8;
   padding: 3px 6px;
 }
 
@@ -184,11 +181,22 @@ a:hover {
   height: auto;
 }
 
+.img-modal .block-video, .img-modal .block-image {
+  max-width: 93vw;
+  max-height: 93vh;
+  width: auto;
+  height: auto;
+}
+
 .block-image-container .block-video {
   max-width: 450px;
 }
 .block-video {
   width: 100%;
+  border: 1px solid rgba(0,0,0,.25);
+  box-shadow: 0 1px 1px 0.5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: opacity .15s linear, transform .15s ease-in-out;
 }
 .video-cont {
   cursor: pointer;
@@ -197,16 +205,19 @@ a:hover {
   position: relative;
 }
 .video-cont::before {
-  top: 40%;
-  left: 48%;
-  width: 40px;
-  height: 40px;
+  top: 50%;
+  left: 50%;
   position: absolute;
-  content: 'play';
+  content: 'play video';
   color: $color-primary;
-  font-size: 16px;
+  font-size: 14px;
   z-index: 10000;
   transition: opacity .15s linear;
+  border: 1px solid #416bfd;
+  color: #416bfd;
+  padding: 3px 9px;
+  background: white;
+  transform: translateX(-50%) translateY(-50%);
 }
 .video-cont:hover {
   opacity: 1;

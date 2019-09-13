@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
   $('video').click(function(e){
     e.stopPropagation();
     vidPlayed = showModal(this);
-    vidPlayed[0].playbackRate = 0.7;
     vidPlayed[0].play();
+    console.log(vidPlayed[0].currentTime);
     vidPlayed[0].onended = function(z){
       hideModal();
     }

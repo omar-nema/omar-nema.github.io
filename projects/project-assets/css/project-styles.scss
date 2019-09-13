@@ -15,12 +15,11 @@ body {
 .nav {
   position: fixed;
   top: 25px;
-  font-size: 14px;
-  cursor: pointer;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   left: calc(50vw - 570px);
+  z-index: 10000;
 }
 .nav-link {
   color: gray;
@@ -29,6 +28,7 @@ body {
   padding: 0px 8px;
   margin-bottom: 5px;
   bordeR: 1px solid transparent;
+  cursor: pointer;
 }
 .nav-link.active {
   color: $color-primary;

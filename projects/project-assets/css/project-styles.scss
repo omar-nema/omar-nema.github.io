@@ -18,7 +18,7 @@ body {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  left: calc(50vw - 570px);
+  left: calc(50vw - 540px);
   z-index: 1;
 }
 .nav-link {
@@ -63,7 +63,7 @@ body {
   opacity: .9;
   background: white;
   border: 1px solid $color-primary-lite;
-  right: calc(50vw - 550px);
+  right: calc(50vw - 480px);
 }
 .back-btn:hover {
   // box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);
@@ -87,7 +87,7 @@ a:hover {
   margin: auto;
   margin-bottom: 30px;
   border: .5px solid rgba(0,0,0,0.1);
-  max-width: 650px;
+  max-width: 630px;
   border: 1px dashed #7a8284;
 }
 .block.intro {
@@ -144,7 +144,7 @@ a:hover {
 }
 .block-image-container.two .block-image {
   max-width: 40%;
-  max-height: 150px;
+  max-height: 130px;
 }
 .img-modal .block-image {
   width: auto;
@@ -183,7 +183,7 @@ a:hover {
 
 .img-modal .block-video, .img-modal .block-image {
   max-width: 93vw;
-  max-height: 93vh;
+  max-height: 95vh;
   width: auto;
   height: auto;
 }
@@ -227,7 +227,7 @@ a:hover {
   color: #416bfd;
   padding: 3px 9px;
   background: white;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-40%);
 }
 .video-cont:hover {
   opacity: 1;
@@ -355,7 +355,7 @@ position: absolute;
   }
   .slide-visual {
     width: 100%;
-    height: 200px;
+    height: fit-content;
     margin-top: 0;
   }
   .slide-visual img {
@@ -425,6 +425,10 @@ position: absolute;
   @media only screen and (max-width: 1100px) {
     .nav {
       display: none;
+    }
+    .img-modal .block-video, .img-modal .block-image {
+      max-width: 98vw;
+      max-height: 98vh;
     }
     .block {
       border: none;

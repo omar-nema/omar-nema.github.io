@@ -39,7 +39,7 @@
       <header class="block-header" id="context"><span>Context</span></header>
       <div class="block-text layered">
         <p>
-          Referral networks - like the one I visualized below - are complex, and ripe for optimization. Similar to social communities, referral networks tend to cluster in groups. In most healthcare systems, primary care providers refer to known specialists. That is - specialists that the provider has met, developed a relationship with, or that a colleague may know. Referral circles build around these known relationships.
+          Referral networks - like the one I visualized below - are complex, and ripe for optimization. Similar to social communities, referral networks tend to cluster in groups. Referral circles build around social relationships between providers.
           <span class="info-tooltip">
           These known specialists may not be the best option for the patient. Provider ratings, availability, and patient preferences are not always weighed in the process of choosing a specialist. Less costly, or more effective providers are often underlooked. To add to this, the process of referral submission and approval is convoluted - resulting in a high processing time.
           </span>
@@ -69,23 +69,23 @@
 
           <div class="content-slide">
             <div class="slide-text">
-              <p class="block-subheader">Design Rationale & Process</p>
-              <p>Throughout the development process, I worked closely with providers and referral managers. Both teams interacted with a number of different software tools: payer portals, internal tracking tools, referral submission applications.
+              <p class="block-subheader">Design Process</p>
+              <p>Throughout the development process, I worked closely with providers and referral managers. Both teams interacted with a number of different software tools: payer portals, internal tracking tools, referral submission applications. Further, manual reliance
               </p>
               <p>
-                With the aim of reducing traction at deploying another software tool to these times: I arrived a simple, pared down design style. Few font weights, few colors, and an approachable design with clear headers. Image to the right is a small snippet of the style guide.
+               In redesigning the referral process and building a new platform, my goal was to both reduce patient wait time for referrals, and improve the quality of provider selection on referrals.
               </p>
             </div>
             <p class="slide-visual">
-              <img src="./visuals/referral-style-guide.PNG" class="block-image"/>
+              <img src="./visuals/referral-wiggles.PNG" class="block-image"/>
             </p>
           </div>
 
           <div class="content-slide">
             <div class="slide-text">
-              <p class="block-subheader">Flow</p>
+              <p class="block-subheader">User Flow</p>
               <p>
-                The application is built around four different clinician roles: the referring provider, referral manager, and medical director.
+                The application is built around three  clinician roles: the referring provider, referral manager, and medical director.
               </p>
               <p>
                 In the case of a behavioral health referral, the provider submits a referral request. The referral manager then contacts the patient, and works to understand their needs and preferences. The process ends when the patient is matched with a provider who they feel comfortable engaging with.
@@ -167,13 +167,10 @@
           <p>
           Based on the resulting categorization, referrals will have different suggested actions. For example, an out of network referral will have a suggested action to escalate to a medical director for approval. The resulting workflow is seamless and efficient: in network cases are auto approved, and all other cases are routed to referral managers with a suggested action.
           </p>
-          <p>
-          To the left: a referral that has been auto-processed during submission. And to the right, a suggested action to 'escalate' the referral to a medical director post submission.
-          </p>
       </div>
       <div class="block-image-container two">
-        <img src="./visuals/auto-process.PNG" class="block-image"/>
-        <img src="./visuals/escalated-case.PNG  " class="block-image"/>
+        <img src="./visuals/rules-config.PNG" class="block-image"/>
+        <img src="./visuals/auto-process.PNG  " class="block-image"/>
       </div>
 
     </section>

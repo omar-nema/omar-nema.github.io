@@ -161,14 +161,9 @@ document.addEventListener('DOMContentLoaded', function() {
     e.stopPropagation();
     vidPlayed = showModal(this);
     vidPlayed[0].play();
-    console.log(Math.round($(this)[0].duration, 2));
-    duration = Math.round($(this)[0].duration, 2);
-
-    console.log(this, this.currentTime, this.duration, 'e');
 
     $('.img-modal').append('<div id="video-timer"></div>');
     vidPlayed[0].ontimeupdate = function(d){
-        console.log(this.currentTime)
       videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
     }
     vidPlayed[0].onended = function(z){

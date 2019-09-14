@@ -393,13 +393,13 @@ position: absolute;
   }
   .content-slide, .content-slide.prev {
     transform: translateX(-150%);
-        width: 100%;
-      opacity: 0.8;
+      width: 100%;
+    opacity: 0.8;
   }
   .content-slide.next {
     transform: translateX(150%);
-      width: 100%;
-      opacity: .8;
+    width: 100%;
+    opacity: .8;
   }
 
 

@@ -376,7 +376,7 @@ position: absolute;
   .content-slide {
     position: absolute;
     width: 0;
-    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, opacity .2s ease-in-out;
     opacity: 0;
     pointer-events: none;
     padding-right: 10px;
@@ -392,12 +392,14 @@ position: absolute;
     height: 100%;
   }
   .content-slide, .content-slide.prev {
-    transform: translateX(-100%);
+    transform: translateX(-150%);
         width: 100%;
+      opacity: 0.8;
   }
   .content-slide.next {
-    transform: translateX(100%);
-        width: 100%;
+    transform: translateX(150%);
+      width: 100%;
+      opacity: .8;
   }
 
 

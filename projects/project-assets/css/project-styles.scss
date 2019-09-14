@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   left: calc(50vw - 570px);
-  z-index: 10000;
+  z-index: 1;
 }
 .nav-link {
   color: gray;
@@ -161,7 +161,7 @@ a:hover {
   width: 200vw;
   height: 200vh;
   content: '';
-  background: #e6e6eaf2;
+  background: #bbbbbdf2;
   transform: translate(-50%, -50%);
   z-index: -1;
   padding: 3px 6px;
@@ -197,6 +197,16 @@ a:hover {
   box-shadow: 0 1px 1px 0.5px rgba(0,0,0,0.05);
   cursor: pointer;
   transition: opacity .15s linear, transform .15s ease-in-out;
+}
+#video-timer {
+  position: absolute;
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+  right: 30px;
+  top: 20px;
+  background: white;
+  color: red;
 }
 .video-cont {
   cursor: pointer;

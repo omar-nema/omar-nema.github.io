@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
   $('body').append('<div class="img-modal"></div>');
 
 
-
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -147,15 +146,37 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   });
 
+  function secondsFormatting(seconds){
+    var date = new Date(null);
+    date.setSeconds(seconds); // specify value for SECONDS here
+    return date.toISOString().substr(15, 4);
+  }
+
+  function videoTimer(currTime, duration){
+    displayString = secondsFormatting(currTime) +  ' / ' + duration;
+    $('#video-timer').html(displayString);
+  }
+
   $('video').click(function(e){
     e.stopPropagation();
     vidPlayed = showModal(this);
     vidPlayed[0].play();
-    console.log(vidPlayed[0].currentTime);
-    vidPlayed[0].onended = function(z){
-      hideModal();
+    console.log(Math.round($(this)[0].duration, 2));
+    duration = Math.round($(this)[0].duration, 2);
+
+    console.log(this, this.currentTime, this.duration, 'e');
+
+    $('.img-modal').append('<div id="video-timer"></div>');
+    vidPlayed[0].ontimeupdate = function(d){
+        console.log(this.currentTime)
+      videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
     }
+    vidPlayed[0].onended = function(z){
+     $('#video-timer').html('');
+     hideModal();
+   }
     $(document).click(function(){
+
       hideModal();
     })
   })

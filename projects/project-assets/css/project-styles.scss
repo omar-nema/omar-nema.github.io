@@ -89,6 +89,7 @@ a:hover {
   border: .5px solid rgba(0,0,0,0.1);
   max-width: 630px;
   border: 1px dashed #7a8284;
+  overflow-x: hidden;
 }
 .block.intro {
   color: black;
@@ -375,7 +376,7 @@ position: absolute;
   .content-slide {
     position: absolute;
     width: 0;
-    transition: transform .2s ease-in-out;
+    transition: transform .3s ease-in-out;
     opacity: 0;
     pointer-events: none;
     padding-right: 10px;

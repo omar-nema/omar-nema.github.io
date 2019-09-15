@@ -192,6 +192,11 @@ a:hover {
 .block-image-container .block-video {
   max-width: 450px;
 }
+
+.block-image-container .block-video.tiny {
+  max-width: 150px;
+}
+
 .block-video {
   width: 100%;
   border: 1px solid rgba(0,0,0,.25);

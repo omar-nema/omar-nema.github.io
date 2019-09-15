@@ -278,7 +278,7 @@ function convertNumFields(inp,fields) {
             if (typeof d[dd] != 'undefined') {d[dd] = +d[dd]; }
         });
     });
-    return data;
+    return inp;
 }
 
 function pctCalc(d,stats,pcts) {

@@ -10,6 +10,7 @@ function prepData(costData) {
     console.log(costData)
     // BASIC COST DATA CLEANSE
     var numFields = ["Cost", "Frequency", "InNetwork", "PCPID", "ProviderID", "RiskAdjustedCost", "ServiceProviderID"];
+    console.log(costData, numFields)
     costData = convertNumFields(costData, numFields);
     costData.forEach(function(d) {
         d.CostPerEvent = d.Cost / d.Frequency;

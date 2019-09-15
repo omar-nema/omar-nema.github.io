@@ -3,13 +3,11 @@
 $primary:red;
 
 body {
-  font-family: 'Nunito Sans';
+  font-family: 'Karla';
   font-size: 14px;
   font-weight: 600;
   color: black;
 }
-
-
 
 
 .slider-block {
@@ -91,7 +89,6 @@ body {
     position: relative;
     top: 19.5px;
     /* color: gray; */
-    letter-spacing: .8px;
     font-size: 9px;
     // transform: TranslateX(-50%);
 }
@@ -245,7 +242,7 @@ opacity: 0;
   margin:auto;
   clear:both;
   padding-top: 4vh;
-  max-width: 1400px;
+  max-width: 850px;
   background: white;
   padding: 0 100px;
   padding-top: 5vh;
@@ -330,7 +327,6 @@ opacity: 0;
   position: absolute;
   font-weight: 800;
   right: 0;
-  letter-spacing: .3px;
   font-size: 15px;
 }
 .top-buttons div {
@@ -359,7 +355,6 @@ opacity: 0;
   margin-top: 0px;
   width: 120px;
   cursor: pointer;
-  letter-spacing: 0.5px;
   // background: rgba(0,0,0,.06);
 }
 .filterheader:hover {
@@ -465,13 +460,11 @@ transform: translateX(-50%);
 .title {
   font-size: 21px;
   font-weight: 900;
-  letter-spacing: .5px;
   color: #959494;
   padding-bottom: 10px;
-  letter-spacing: 1.5px;
 }
 .subtitle {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 800;
   float: left;
   width: calc(100% - 85px);
@@ -486,7 +479,6 @@ a.btn.btn-flat.cancel {
 }
 
 .graph-description {
-  font-size: 15px;
 // border-bottom: 1px solid rgba(0,0,0,.15);
 font-weight: 500;
 padding-bottom: 1.5vh;
@@ -732,7 +724,6 @@ h1, h3, h3 span {
   font-size: 20px;
   color: gray;
   font-weight: 700;
-  letter-spacing: 2px;
   visibility: hidden;
 }
 .loading.show {
@@ -913,7 +904,6 @@ h5 {
   opacity: .3;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: .3px;
   transform:translateX(-50%);
 }
 .pointer-label {

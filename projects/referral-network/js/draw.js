@@ -148,9 +148,9 @@ function start(error, costData) {
     setCostData(costData);
     var div = d3.select("#graph-1");
     var width, height;
-    width = $('#graph-1').width();
-    height = .65*width;
-    var offset = 70;
+    width = $('.scroll-holder').width()- 60;
+    height = .5*width;
+    var offset = 55;
     var innerWidth = width - offset;
     var innerHeight = height - offset;
 
@@ -162,13 +162,6 @@ function start(error, costData) {
     var filter;
     setWidth(innerWidth);
     setHeight(innerHeight);
-    // filter = defs
-    //     .append('filter')
-    //     .attr('id', 'gauss') /// !!! important - define id to reference it later
-    //     .append('feGaussianBlur')
-    //     .attr('in', 'SourceAlpha')
-    //     .attr('stdDeviation', 3) // !!! important parameter - blur
-    //     .attr('result', 'blur');
 
       var filter = defs.append("filter")
       	.attr("id","glow");

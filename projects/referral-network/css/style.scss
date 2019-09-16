@@ -1,13 +1,118 @@
-/*INSERT YOUR STYLE OVERRIDES HERE*/
-
 $primary:red;
+
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.15);
+    background-color: #e5dcdc;
+    box-shadow: inset 0 0 1px rgba(0,0,0,.15);
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    width: 8px;
+    background: none;
+
+}
+::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
 
 body {
   font-family: 'Karla';
   font-size: 14px;
   font-weight: 600;
   color: black;
+  overflow: hidden;
+  background: #f7f7f8 ;
 }
+* {
+  box-sizing: border-box;
+}
+
+
+
+
+
+.header {
+    height: 50px;
+    width: 100%;
+    background: black;
+    border-bottom: .5px solid #1a1a1a;
+    padding: 0 50px;
+    position: fixed;
+    top: 0;
+}
+#graph-1 {
+  width: 100%;
+  top: 50px;
+  overflow-y: none;
+  margin: auto;
+  margin-top: 80px;
+  max-width: 800px;
+}
+.main-holder {
+  border: 1px solid rgba(0,0,0,.1);
+  overflow-y: auto;
+  max-height: calc(100vh - 140px);
+  height: auto;
+  width: 100%;
+  background: white;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+  padding: 20px;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 900;
+  color: #959494;
+  padding-bottom: 10px;
+}
+.subtitle {
+  font-weight: 800;
+  float: left;
+  width: calc(100% - 85px);
+}
+
+.x-label, .y-label {
+  font-weight: 600;
+}
+
+
+//TYPE
+svg text, .main-holder {
+  font-family: 'Roboto Mono';
+  font-size: 13px;
+  font-weight: 300;
+}
+.axis path {
+  stroke-opacity: .5;
+}
+
+.tick text {
+    font-size: 14px;
+
+}
+.x.axis path {
+    fill:none;
+}
+
+.axis text {
+
+  color: black;
+  fill: black;
+  letter-spacing: .7px;
+}
+.axis .tick text {
+    font-size: 12px;
+    fill: black;
+    letter-spacing: normal;
+}
+
+
+
 
 
 .slider-block {
@@ -83,7 +188,6 @@ body {
 
 .thumb-tooltip {
     font-weight: 700;
-    /* margin-top: 19px; */
     transform: TranslateX(-50%);
     left: 50%;
     position: relative;
@@ -97,84 +201,6 @@ body {
   border-color: $primary;
 }
 
-// .slider-holder.profile-one .fill-inner {
-//     background-color: #00CED1;
-// }
-// .slider .fill-inner {
-//     border-radius: 20%;
-//     position: absolute;
-// }
-
-
-
-//
-// .slider-block {
-//     height: auto;
-//     width: 60px;
-//     float: left;
-//     transition: opacity .3s ease-in-out;
-//     height: 100px;
-// }
-// .slider-label {
-//     color: rgba(0, 0, 0, 0.7);
-//     text-align: center;
-//     margin-left: 0;
-//     margin-right: 0;
-//     font-size: 12px;
-//     text-align: center;
-//     padding-bottom: 10px;
-// }
-// .slider {
-//     position: relative;
-//     width: 100%;
-//     height: 60px;
-//     cursor: pointer;
-// }
-// .profile-one {
-//     color: #00CED1;
-// }
-// .slider.vertical .thumb.thumb-lower {
-//     bottom: 0%;
-//     transform: translateX(-50%) translateY(50%);
-// }
-// .slider.vertical .thumb {
-//     left: 50%;
-// }
-// .slider .thumb {
-//     height: 11px;
-//     width: 11px;
-//     border: 2px solid black;
-//     position: absolute;
-//     z-index: 5;
-//     border-radius: 100%;
-//     background-color: white;
-// }
-// .nodebody {
-//   margin-bottom: 20px;
-// }
-//
-// // .slider.vertical .thumb.thumb-upper {
-// //     bottom: 100%;
-// //     transform: translateX(-50%) translateY(50%);
-// // }
-// // .slider.vertical .thumb {
-// //     left: 50%;
-// // }
-//
-// .slider.vertical .fill-inner {
-//     // left: 50%;
-//     // height: 100%;
-//     // width: 2px;
-//     // transform: translateX(-50%);
-//     // background: black;
-//
-//     left: 0;
-//     height: 2px;
-//     width: 100%;
-//     transform: none;
-//     background: black;
-//
-// }
 
 
 .nodeheader {
@@ -223,6 +249,8 @@ body {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.1);
+    border: .5px solid rgba(0,0,0,0.1);
 }
 
 .chart-nav {
@@ -235,20 +263,7 @@ font-weight: 700;
 opacity: 0;
 }
 
-#graph-1 {
-  width: 85%;
-  min-height: 100vh;
-  height: auto;
-  margin:auto;
-  clear:both;
-  padding-top: 4vh;
-  max-width: 850px;
-  background: white;
-  padding: 0 100px;
-  padding-top: 5vh;
-  padding-bottom: 20px;
-  box-shadow: inset -1px 0px 3px 0px rgba(0,0,0,.4);
-}
+
 .myhead {
   font-weight: 600;
   // border-bottom: 1px solid rgba(0,0,0,.3);
@@ -345,9 +360,6 @@ opacity: 0;
   color: #ff000047;
 }
 .top-buttons div.filterheader {
-  font-size: 15px;
-  font-weight: 800;
-
   color: $primary;
   text-align: center;
   z-index: 1000;
@@ -457,18 +469,7 @@ margin: auto;
 margin-left: 50%;
 transform: translateX(-50%);
 }
-.title {
-  font-size: 21px;
-  font-weight: 900;
-  color: #959494;
-  padding-bottom: 10px;
-}
-.subtitle {
-  font-size: 16px;
-  font-weight: 800;
-  float: left;
-  width: calc(100% - 85px);
-}
+
 .row {
   margin-bottom: 0;
   clear: both;
@@ -626,22 +627,6 @@ pointer-events: auto;
 }
 
 
-.axis.big text {
-    font-size: 1.5em;
-    font-weight: 400;
-}
-
-.axis path {
-  stroke-opacity: .1;
-}
-
-.tick text {
-    font-size: 14px;
-
-}
-.x.axis path {
-    fill:none;
-}
 .material-icons.info {
   tranform: translateY(2px);
   font-size: 18px;
@@ -776,18 +761,10 @@ circle.showme {
   opacity: 1 !important;
 }
 
-// circle.hideme {
-//   fill-opacity: .2 !important;
-// }
-// circle.service-point.outNetwork.hideme {
-//   stroke-opacity:0;
-//   stroke-width: 0;
-// }
 
 .row.card-header {
     background-color: #31849a;
     color: #FFFFFF;
-    font-family: "Nunito Sans", sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     font-size: .9rem;
@@ -795,18 +772,8 @@ circle.showme {
 }
 
 
-
-
-
-
-//inherited
-
-
-
-
 h1,h2,h3,h4 {
     font-weight: 400;
-    font-family: "Nunito Sans", sans-serif;
 }
 h5 {
     font-weight: 400;
@@ -833,7 +800,6 @@ h5 {
     cursor: pointer; cursor: hand;
 }
 .material-icons.clicktip {
-  font-size: 11px;
   padding-left: 4px;
 
 }
@@ -902,7 +868,6 @@ h5 {
   background: rgba(255,255,255,.3);
   // border: .5px solid rgba(0,0,0,.1);
   opacity: .3;
-  font-size: 13px;
   font-weight: 700;
   transform:translateX(-50%);
 }
@@ -919,8 +884,7 @@ a.btn.btn-flat {
   border: .5px solid $primary;
   background: white;
 }
-.material-icons.infofilter {
-  font-size: 15px;
+.material-icons.infofilter {;
 margin-left: 5px;
 transform: translateY(1px);
 }
@@ -941,7 +905,6 @@ font-weight: 700;
 .tip-text {
   @extend .cutoff;
   padding-bottom: 10px;
-  font-size: 15px;
 }
 .clickable.right {
   display: none;
@@ -966,7 +929,6 @@ font-weight: 700;
   display: none
 }
 .material-icons.rightarrow {
-  font-size: 15px;
   padding: 0 3px;
   /* padding-top: 5px; */
   /* margin-top: 3px; */
@@ -975,9 +937,7 @@ font-weight: 700;
 
 
 .tipheader {
-  /*font-size: 16px;*/
   text-transform: capitalize;
-  font-size: 16px;
   color: black;
   text-align: left;
   font-weight:800;
@@ -987,11 +947,9 @@ font-weight: 700;
 }
 .secondary-tip {
   font-weight: 600;
-  font-size: 15px;
 }
 
 .tip-comp {
-  font-size: 15px;
   text-align: left;
 }
 
@@ -1015,31 +973,6 @@ strong {
     display: none;
 }
 
-.axis text {
-  font-size: 16px;
-  font-weight: 800;
-  color: black;
-  fill: black;
-  letter-spacing: .7px;
-}
-.axis .tick text {
-    font-size: 12px;
-    fill: black;
-    font-weight: 600;
-    letter-spacing: normal;
-}
-
-
-svg text {
-/*
-
-    font-weight: 400;
-    fill: #000000;
-*/
-    font-family: 'nunito sans';
-    font-weight: 300;
-    fill: rgba(0,0,0,.6);
-}
 
 
 
@@ -1142,21 +1075,7 @@ line.extent-path-very-wide {
       padding: 2% 2% !important;
 }
 
-body {
-  // background-color: #616161;
-  // background-image: linear-gradient(-45deg, #424242 25%, transparent 25%, transparent 50%, #424242 50%, #424242 75%, transparent 75%, transparent);
-  // background-size: 4px 4px;
 
-  background-color: #383737;
-
-}
-
-html,body {
-    // background-color: #e5e8e9;
-    padding:0!important;
-    height: 100% important;
-  margin:0 !important;
-}
 
 path.minorLine {
     stroke-width: 1px;
@@ -1198,39 +1117,4 @@ circle.target-prov:hover {
 .tick line {
   opacity:.1;
   stroke-width: 1.2px;
-}
-
-.row.card-header {
-    background-color: #31849a;
-    color: #FFFFFF;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: .9rem;
-    margin-bottom: 0;
-}
-
-
-
-
-
-.card .card-header {
-    padding: 8px 0;
-}
-.row .col.card {
-    padding:0;
-}
-
-.nav-btns {
-    margin-bottom: 2em;
-}
-.nav-btns a.btn {
-    background-color: #31849a;
-
-    font-size: .9em;
-    font-weight: 700;
-    height: 32px;
-    line-height: 32px;
-    padding-left: 12px;
-    padding-right: 12px;
 }

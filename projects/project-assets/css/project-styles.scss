@@ -64,6 +64,7 @@ body {
   background: white;
   border: 1px solid $color-primary-lite;
   right: calc(50vw - 480px);
+  z-index: 1;
 }
 .back-btn:hover {
   // box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.14);

@@ -149,13 +149,13 @@ function start(error, costData) {
     var div = d3.select("#graph-1");
     var width, height;
     width = $('.scroll-holder').width()- 60;
-    height = .5*width;
-    var offset = 55;
+    height = .65*width;
+    var offset = 0;
     var innerWidth = width - offset;
     var innerHeight = height - offset;
 
-    var svg = div.select('.main-holder').append('svg').attr('class', 'main').attr('height', height).attr('width', width);
-    svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', offset).attr('y', 5).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
+    var svg = div.select('.main-holder').append('svg').attr('class', 'main').attr('height', height).attr('width', width).attr('x', 0).attr('y', 0);
+    svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 0).attr('y', 0).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
     setSVG(svg);
     defs = svg.append('defs');
     var tooltip = d3.select('.tooltip');
@@ -178,14 +178,16 @@ function start(error, costData) {
 
         var widthtext = width-115;
 
-        var xheight = innerHeight + 5;
-    d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + offset +',' + xheight + ")")
-        .append('text').text('Cost/Event').attr('transform', 'translate(' + widthtext + ',' + offset/1.2 + ')')
-        .attr('class', 'x-label');
-    d3.select('.main').append("g").attr("class", "y axis")
-        .attr('transform', 'translate(' + offset + ',5)')
-        .append('text').text('Events/1000').attr('transform', 'translate(' + -offset/1.3 + ', ' + 0 + ') rotate(-90)')
-        .attr('class', 'y-label');
+        var xheight = innerHeight + 40;
+    // d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + offset +',' + xheight + ")")
+    //     .append('text').text('Cost/Event').attr('transform', 'translate(' + 50 + ',' + 20 + ')')
+    //     .attr('class', 'x-label');
+    //
+
+    // d3.select('.main').append("g").attr("class", "y axis")
+    //     .attr('transform', 'translate(' + offset + ',40)')
+    //     .append('text').text('Events/1000').attr('transform', 'translate(' + -20 + ', ' + (innerHeight-100) + ') rotate(-90)')
+    //     .attr('class', 'y-label');
 
     var zoom = d3.zoom()
     .scaleExtent([1, 5])

@@ -1,20 +1,11 @@
 var simulation, scaleColor, scaleOpacity, pointRadiusScale, minRad, maxRad;
-
-
-
-
-//EDIT PARAMETERS
-//line: stroke width. stroke color. stroke opacity.
-//points: scaleColor. size scale for service points.
-
-
 var inColorScale;
 var outColorScale;
 
 function plotNodes(nodes, clickedNode) {
 
 
-    $('.subtitle').text('(Graph 3/3) Referral Network - ' + getCurrBlob()[0].Minor + ' Visits');
+    //$('.subtitle').text('(Graph 3/3) Referral Network - ' + getCurrBlob()[0].Minor + ' Visits');
 
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);

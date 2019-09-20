@@ -1,10 +1,11 @@
 @import 'filters';
 @import 'graph';
 
+
 $primary:red;
 
 $max-width: 900px;
-$width: 80vw;
+$width: 65vw;
 
 
 ::-webkit-scrollbar-thumb {
@@ -47,7 +48,6 @@ body {
   align-content: center;
   height: 100%;
   justify-content: space-between;
-  padding-left: 10px;
   width: $width;
   max-width: $max-width;
 }
@@ -98,14 +98,17 @@ body {
   border-bottom: 1px solid black;
 }
 
-#graph-1 {
+.scroll-holder {
   overflow-y: auto;
+  width: 100%;
+}
+
+#graph-1 {
   height: calc(100vh - 80px);
   width: $width;
   margin: auto;
   margin-top: 20px;
   max-width: $max-width;
-  padding: 0 30px;
 }
 
 .back-btn {
@@ -122,14 +125,6 @@ body {
 .back-btn:hover {
   background:#504b4b;
 }
-
-// #graph-1 {
-//   width: 100%;
-//   top: 50px;
-//   overflow-y: none;
-//   margin: auto;
-//   max-width: 800px;
-// }
 .main-holder {
   position: relative;
   left: 50%;
@@ -138,12 +133,9 @@ body {
   height: auto;
   width: 100%;
   background: white;
-  padding: 30px;
+  padding: 20px;
   padding-right: 10px;
 }
-
-
-
 
 
 

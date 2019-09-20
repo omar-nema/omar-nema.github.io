@@ -1,4 +1,4 @@
-$primary:red;
+$primary:#416bfd;
 
 //FILTER STYLES
 .slider-block {
@@ -171,36 +171,29 @@ $primary:red;
   text-align: center;
   z-index: 1000;
   position: absolute;
-  font-weight: 800;
-  right: 0;
-  font-size: 15px;
+  right: 20px;
+  font-size: 14px;
 }
 .top-buttons div {
   float: right;
   padding: 8px 11px;
-  width: 120px;
+  width: 90px;
   background: #f8f7f7;
-    // border-left: .5px solid rgba(0,0,0,.09);
-    font-weight: 600;
-    cursor:pointer;
+  cursor:pointer;
+  margin-right: 10px;
 }
 .top-buttons div:hover {
   border-bottom: 1.5px solid $primary;
 }
 
 .top-buttons div.filterheader {
-  color: $primary;
   text-align: center;
   z-index: 1000;
   float: right;
   margin-top: 0px;
-  width: 120px;
   cursor: pointer;
-  // background: rgba(0,0,0,.06);
 }
 .filterheader:hover {
-    // max-width: inherit;
-    // width: 300px;
     background: rgba(0,0,0,.04);
 }
 .top-buttons div.filterheader.active {

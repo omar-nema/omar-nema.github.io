@@ -1,11 +1,11 @@
 
 $primary:red;
 
-//TYPE
+
 svg text, .main-holder {
-  font-family: 'Roboto Mono';
-  font-size: 13px;
+  font-family: 'karla';
   font-weight: 300;
+  font-size: 14px;
 }
 .axis path {
   stroke-opacity: 0;
@@ -13,12 +13,10 @@ svg text, .main-holder {
 
 
 .x-label, .y-label {
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 12px;
 }
-.tick text {
-    font-size: 14px;
 
-}
 .x.axis path {
     fill:none;
 }

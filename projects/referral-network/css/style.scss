@@ -2,11 +2,10 @@
 @import 'graph';
 
 
-$primary:red;
+$primary:#416bfd;
 
 $max-width: 900px;
 $width: 65vw;
-
 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.15);
@@ -30,11 +29,12 @@ $width: 65vw;
 body {
   font-family: 'Karla';
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   color: black;
   overflow: hidden;
   background: #f7f7f8 ;
   margin: 0;
+  line-height: 1.1rem;
 }
 * {
   box-sizing: border-box;
@@ -57,11 +57,16 @@ body {
   align-items: center;
 }
 
+
 .title {
   font-size: 18px;
   font-weight: 900;
   padding-bottom: 4px;
   color: #cccaca;
+}
+.subtitle {
+  font-weight: 700;
+  font-size: 15px;
 }
 
 .title-desc {
@@ -72,11 +77,16 @@ body {
 .breadcrumbs {
   display: flex;
   font-weight: 400;
+  font-size: 14px;
+  color: gray;
+  align-self: center;
   div {
     margin-right: 8px;
+    cursor: pointer;
   }
   .selected {
-    font-weight: 700;
+
+    color: $primary;
   }
 }
 
@@ -111,6 +121,19 @@ body {
   max-width: $max-width;
 }
 
+.btn-flat {
+  padding: 6px 12px;
+  transition: background-color .15s linear;
+  background: $primary;
+  color: white;
+  border: .5px solid $primary;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.btn-flat:hover {
+  box-shadow: inherit;
+  background-color: #2353f9;
+}
 .back-btn {
   cursor: pointer;
   text-decoration: none;
@@ -126,17 +149,29 @@ body {
   background:#504b4b;
 }
 .main-holder {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+.graph-holder {
+  width: auto;
+  background: white;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  border: .5px solid rgba(0,0,0,0.1);
-  height: auto;
-  width: 100%;
-  background: white;
-  padding: 20px;
-  padding-right: 10px;
+  margin-bottom: 30px;
 }
-
+.graph-header {
+  width: 100%;
+  height: 40px;
+  border-bottom: .5px solid rgba(0,0,0,.1);
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
 
 
 .chart-nav {
@@ -166,46 +201,6 @@ margin-bottom: 10px;
 }
 
 
-
-//
-//
-// .log {
-//   width: 180px;
-// margin: auto;
-// margin-left: 50%;
-// transform: translateX(-50%);
-// }
-
-// .zoom-out-button {
-//   float: right;
-//   width: auto;
-//   cursor: pointer;
-//   visibility: hidden;
-//   text-align: right;
-//   font-size: 16px;
-//   font-weight: 800;
-//   color: $primary;
-//   padding: 0px 8px;
-//   padding-right: 10px;
-//   transition: all .1s ease-in-out;
-//   border-radius: 4px;
-// }
-// .material-icons.back{
-//   font-size: 16px;
-//   cursor: pointer;
-//   transform: translateY(2px) scale(1.3);
-// }
-// .zoom-out-button:hover {
-//   background: Rgba(0,0,0,.1);
-// }
-//
-// .main {
-//
-//   background: white;
-//   // border: 1.5px solid rgba(0,0,0,0.2);
-// }
-
-//gradient scale for percent in network
 
 
 //LEGEND
@@ -278,13 +273,33 @@ circle.showme {
     padding: .2em 1em;
     visibility:hidden;
     z-index: 999999 !important;
-    max-width: 500px;
+    max-width: 400px;
     width: auto;
-    background: white;
+    background: #ffffffe6;
     padding: 15px 20px;
     color: black;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+    border: 1px solid rgba(0,0,0,.1);
+    min-width: 350px;
+}
+.tooltip.flat {
+  padding: 10px 15px;
+  width: auto;
+  min-width: inherit;
+  font-weight: 700;
+}
+.secondary-tip {
+  font-weight: 400;
+}
+.tooltip label {
+  font-weight: 400 !important;
+  color: gray;
 }
 
+.material-icons {
+  font-size: 10px;
+  margin-left: 5px;
+}
 
 
 .provspan {
@@ -296,10 +311,6 @@ font-weight: 700;
   color: gray;
 }
 
-.btn-flat:hover {
-  box-shadow: inherit;
-  background-color: rgba(0,0,0,.05) !important;
-}
 .tip-text {
   // @extend .cutoff;
   padding-bottom: 10px;
@@ -328,9 +339,7 @@ font-weight: 700;
   border-bottom: 1px solid rgba(0,0,0,.1);
   padding-bottom: 5px;
 }
-.secondary-tip {
-  font-weight: 600;
-}
+
 .tip-comp {
   text-align: left;
 }
@@ -343,117 +352,3 @@ font-weight: 700;
     visibility: hidden;
     display: none;
 }
-
-
-
-
-
-//
-// .tooltip.flat {
-//   color: black;
-//   // background: none;
-//   box-shadow: none;
-//   padding: 2px;
-//   background: rgba(255,255,255,.3);
-//   // border: .5px solid rgba(0,0,0,.1);
-//   opacity: .3;
-//   font-weight: 700;
-//   transform:translateX(-50%);
-// }
-// .pointer-label {
-//   font-size: 6px;
-//   fill: black;
-//   font-weight: 600;
-// }
-// a.btn.btn-flat {
-//   margin-bottom: 5px;
-//   font-weight: 800;
-//   color: $primary !important;
-//   text-transform: none;
-//   border: .5px solid $primary;
-//   background: white;
-// }
-// .material-icons.infofilter {;
-// margin-left: 5px;
-// transform: translateY(1px);
-// }
-
-// .btn {
-//     margin-left:2px;
-//     margin-right:2px;
-// }
-// .zip {
-//     cursor: pointer; cursor: hand;
-// }
-//
-// .material-tooltip {
-//     white-space: pre-wrap;
-//     text-align: left;
-//     min-width: 300px;
-// }
-// .label {
-//     color: #37474f;
-// }
-// .indiv-container .col {
-//     border-right: 1px solid #eceff1;
-// }
-
-//
-// .card-body {
-//     overflow: visible;
-//     height: 80vh;
-//     width: 80vw;
-//     margin: 0 !important;
-//       padding: 2% 2% !important;
-// }
-// #header-img {
-//     position: absolute;
-//     top: 0;
-// }
-// #footer-img {
-//     position: absolute;
-//     bottom: -120px;
-// }
-/*.material-icons.back:hover{
-  background-color: rgba(0,0,0,.7);
-  box-shadow: 0px 4px 0 #d8d7d7;
-}*/
-//
-// .btn-flat.remove {
-//   visibility: hidden;
-// }
-// .nav-item {
-//   color: rgba(0,0,0,.2);
-//   transition: color .1s ease-in-out, font-weight .1s ease-in-out;
-//   pointer-events: none;
-// }
-// .nav-item.possible {
-//   cursor: pointer;
-//   pointer-events: inherit;;
-// }
-// .nav-item.selected {
-//   color: black;
-//   font-weight: 700;
-//   pointer-events: inherit;;
-//   cursor: pointer;
-// }
-// .nav-item.possible:hover {
-//   color: black;
-// }
-// .network-legend {
-//   position: absolute;
-//   bottom: 0px;
-//   right: 10px;
-//   padding: 0 3%;
-//   /*box-shadow: 0 2px 8px rgba(0,0,0,.2);*/
-//   opacity: .9;
-//   border-top: 1px solid black;
-//   background: white;
-// }
-// .network-legend img {
-//   width: 100px;
-// }
-// .material-icons.info {
-//   tranform: translateY(2px);
-//   font-size: 18px;
-// }

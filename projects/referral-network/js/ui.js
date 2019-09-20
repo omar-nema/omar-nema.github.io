@@ -5,7 +5,7 @@ function setDescription(description){
 
 //more about the dataset
 
-var desc1 = 'In the first visual below, common outpatient procedures are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. Each blob represents referral patterns for a procedure category. Distribution of each variable is represented in shape. Color is used to indicate in-network percentage - red blobs have a low percentage of in-network referrals.'
+var desc1 = 'In the first visual below, common medical outpatient procedures are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. Each blob represents referral patterns for a procedure category. Distribution of each variable is represented in shape. Color is used to indicate in-network percentage - red blobs have a low percentage of in-network referrals.'
 
 var desc2 = "For the selected procedure category, individual practices are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. <strong>The size of each bubble corresponds to the quantity of patients managed</strong>. Similar to the previous graph, red denotes a higher percentage of out-of-network referrals. Click on an individual node to view a particular PCP's referral routes - or click the 'see network' button to see the full referral network"
 

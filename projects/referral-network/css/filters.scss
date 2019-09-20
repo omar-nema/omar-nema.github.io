@@ -6,6 +6,9 @@ $primary:#416bfd;
   height: 45px;
   clear: both;
 }
+.procedure-filters {
+  font-size: 12px;
+}
 
 .slider-label {
   float: left;
@@ -114,17 +117,17 @@ $primary:#416bfd;
   overflow-y: auto;
   height: auto;
   color: black;
-  font-size: 15px;
   position: absolute;
   right: 0;
-  top: 60px;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
+  top: 40px;
+  background: rgba(255,255,255,0.98);
   /* border-top: 1px solid $primary; */
   transition: all .2s ease-in-out;
   box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
   border-radius: 1px;
   display: none;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 10px;
 }
 .tier-2.selector {
   margin-left: 13px;
@@ -166,18 +169,16 @@ $primary:#416bfd;
 
 .top-buttons {
   width: 100%;
-  top: 22px;
   color: $primary;
   text-align: center;
   z-index: 1000;
-  position: absolute;
-  right: 20px;
   font-size: 14px;
+  align-self: center;
 }
 .top-buttons div {
   float: right;
-  padding: 8px 11px;
-  width: 90px;
+  padding: 3px 4px;
+  width: 80px;
   background: #f8f7f7;
   cursor:pointer;
   margin-right: 10px;
@@ -202,7 +203,7 @@ $primary:#416bfd;
 
 
 .rescale.inactive {
-  color: #ff000047;
+  opacity: .6;
 }
 
 
@@ -213,14 +214,15 @@ $primary:#416bfd;
 }
 
 
-
+.selector {
+display: flex;
+}
 .checkholder {
   width: auto;
-  display: block;
+  display: flex;
   cursor: pointer;
 }
 .checkholder:hover .content {
-  text-decoration: underline;
   opacity: .6;
 }
 .checkholder.unselected:hover .content {
@@ -239,17 +241,18 @@ $primary:#416bfd;
   background: white;
 }
 .checkholder:hover .box.unselected {
-  background: #726262;
-  // background: white;
+  background: white;
 }
 .checkholder.unselected:hover .box {
-  background: #726262;
+  background: white;
 }
 
 
 .box {
+
   height: 11px;
   width: 11px;
+  min-width: 11px;
   margin-top: 4px;
   border: 1.5px solid rgba(0,0,0,.3);
   background: $primary;
@@ -280,15 +283,23 @@ $primary:#416bfd;
 .collapse .material-icons {
   line-height: 18px;
   transform: rotate(-90deg);
-  font-size: 22px;
+  font-size: 20px !important;
   transition: transform .1s linear;
   color: rgba(0,0,0,.7);
 }
 
 
 .content {
-  width: calc(100% - 40px);
+  width: auto;
   padding-left: 7px;
-  // text-overflow: ellipsis;
-  //   white-space: nowrap;
+}
+
+.tier-2 .content {
+  font-weight: 700;
+  color: black;
+}
+.tier-3 .content {
+  font-weight: 400;
+  color:#3e3939;
+
 }

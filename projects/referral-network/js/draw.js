@@ -182,12 +182,12 @@ function start(error, costData) {
 
 
     d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + 0 +',' + xheight + ")")
-        .append('text').text('Cost/Event').attr('transform', 'translate(' + 80 + ',' + 25 + ')')
+        .append('text').text('Cost/Event').attr('transform', 'translate(' + 70 + ',' + 23.5 + ')')
         .attr('class', 'x-label');
 
     d3.select('.main').append("g").attr("class", "y axis")
         .attr('transform', 'translate(' + 40 + ',40)')
-        .append('text').text('Events/1000').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-140) + ') rotate(-90)')
+        .append('text').text('Events/1k').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-130) + ') rotate(-90)')
         .attr('class', 'y-label');
 
     var zoom = d3.zoom()
@@ -295,11 +295,11 @@ function start(error, costData) {
 
     $('.filterheader').on('click', function(){
       if (!$(this).hasClass('active')){
-        $(this).html('<i class="material-icons">close</i>Filter');
+        $(this).html('Filter');
         $(this).addClass('active');
         $('#filters').fadeIn(400);
       } else {
-        $(this).html('<i class="material-icons">filter_list</i>Filter');
+        $(this).html('Filter');
         $(this).removeClass('active');
         $('#filters').fadeOut(100);
       }

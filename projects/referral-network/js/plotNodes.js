@@ -5,7 +5,7 @@ var outColorScale;
 function plotNodes(nodes, clickedNode) {
 
 
-    //$('.subtitle').text('(Graph 3/3) Referral Network - ' + getCurrBlob()[0].Minor + ' Visits');
+    $('.subtitle').text('(Graph 3/3) Referral Network - ' + getCurrBlob()[0].Minor + ' Visits');
 
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);
@@ -208,7 +208,7 @@ function generateElements(parameters) {
                         '<br><span class="secondary-tip">' + blobName + ' Referrals</span></div><p class="tip-text" style="text-align:left; padding-left: 0; margin-left:0 ">' +
                         'Cost/Evt: $' + Math.round(d.CostPerEvent * 10) / 10 + ' (' + Math.round(100 * d.pctCost) + ' percentile)' +
                         '<br>Evt/1000: ' + Math.round(d.EventsPer1000 * 10) / 10 + ' (' + Math.round(d.Frequency) + ' events)' + '<br>' +  Math.round(d.PctInNet*100) + '% In Network' +
-                        '</p><p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Highlight referral path<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>' + '<a class="clickable right" style="padding-bottom:5px; font-size:14px" >CLOSE</div>';
+                        '</p><p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Highlight referral path<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>';
                 } else {
 
                     var networkString = '';
@@ -222,7 +222,7 @@ function generateElements(parameters) {
                         '' + d.ServiceFacility + '<br>'  +
                         'Cost/Evt: $' + Math.round(d.CostPerEvent * 10) / 10 + ' (' + Math.round(100 * d.pctCost) + ' percentile)' +
                         '<br># Referrals: ' + d.Frequency + ' (' + Math.round(100 * d.pctFrequency) + ' percentile)' +
-                        '</p><p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Highlight referral path<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>' + '<a class="clickable right" style="padding-bottom:5px; font-size:14px" >CLOSE</div>';
+                        '</p><p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Highlight referral path<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>';
                 }
                 onHover(text, null, d3.select('.tooltip'));
 

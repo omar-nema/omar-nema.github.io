@@ -3,7 +3,7 @@ function plotScatter(inputNodes) {
     blobName = inputNodes.minorName;
     setCurrentPage(2);
     scatterCanvas = getSVG();
-    // $('.subtitle').text('(Graph 2/3) Cost and Frequency by Practice - ' + blobName + ' Visits');
+    $('.subtitle').text('(Graph 2/3) Cost and Frequency by Practice - ' + blobName + ' Visits');
     d3.selectAll('.link').data([]).exit().transition().remove();
     svg.attr('transform', 'translate(0,0) scale(1)')
 
@@ -120,9 +120,8 @@ function plotScatter(inputNodes) {
             var route = this; //d.freq is an option
 
             var text = '<span class="col s12 center-align"><div class="tipheader">Practice Details' +
-                '</strong><br><div class="secondary-tip cutoff">' + blobName + ' Referrals</div></div><div class="tip-comp" style="padding-top:5px"><div style="font-weight:600; color: gray;">Practice</div><strong style="text-transform:capitalize">' + d.NPI.toLowerCase() + '</strong><br>' + d.Frequency + ' events (' + Math.round(d.EventsPer1000) + ' per 1000)<br>$' + Math.round(d.CostPerEvent) + ' per event - ' + Math.round(d.PctInNet * 100) + '% In Network' + '</div>' +
-                findTopSpecialists(d) +
-                '<p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Show Referral Paths<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>' + '<a class="clickable right" style="padding-bottom:5px; font-size:14px" >CLOSE</div>';
+                '</label><br><div class="secondary-tip cutoff">' + blobName + ' Referrals</div></div><div class="tip-text" style="padding-top:5px"><label style="text-transform:capitalize">' + d.NPI.toLowerCase() + '</label><br>' + d.Frequency + ' events (' + Math.round(d.EventsPer1000) + ' per 1000)<br>$' + Math.round(d.CostPerEvent) + ' per event - ' + Math.round(d.PctInNet * 100) + '% In Network' + '</div>' +
+                '<p class="center-align" style="text-align:center; margin-top:10px; font-size:14px"><a class="btn waves btn-flat refer white grey-text">Show Referral Paths<i class="material-icons" style="font-size:11px; padding-left:3px">launch</i></a></p>';
             onHover(text, null, tooltip);
             var orig = d3.select(this);
             // $('.clickable').on('click', function() {

@@ -148,7 +148,7 @@ function start(error, costData) {
     setCostData(costData);
     var div = d3.select("#graph-1");
     var width, height;
-    width = $('.scroll-holder').width()- 60;
+    width = $('.main-holder').width()- 60;
     height = .65*width;
     var offset = 0;
     var innerWidth = width - offset;
@@ -178,16 +178,17 @@ function start(error, costData) {
 
         var widthtext = width-115;
 
-        var xheight = innerHeight + 40;
-    // d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + offset +',' + xheight + ")")
-    //     .append('text').text('Cost/Event').attr('transform', 'translate(' + 50 + ',' + 20 + ')')
-    //     .attr('class', 'x-label');
-    //
+        var xheight = innerHeight - 30;
 
-    // d3.select('.main').append("g").attr("class", "y axis")
-    //     .attr('transform', 'translate(' + offset + ',40)')
-    //     .append('text').text('Events/1000').attr('transform', 'translate(' + -20 + ', ' + (innerHeight-100) + ') rotate(-90)')
-    //     .attr('class', 'y-label');
+
+    d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + 0 +',' + xheight + ")")
+        .append('text').text('Cost/Event').attr('transform', 'translate(' + 80 + ',' + 25 + ')')
+        .attr('class', 'x-label');
+
+    d3.select('.main').append("g").attr("class", "y axis")
+        .attr('transform', 'translate(' + 40 + ',40)')
+        .append('text').text('Events/1000').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-140) + ') rotate(-90)')
+        .attr('class', 'y-label');
 
     var zoom = d3.zoom()
     .scaleExtent([1, 5])

@@ -9,8 +9,8 @@ queue(2)
 // ON PAGE LOAD
 (function($){
     $(function(){
-			$('.tooltipped').tooltip();
-			$('.modal').modal();
+			// $('.tooltipped').tooltip();
+			// $('.modal').modal();
         // $('.tooltipped').tooltip({delay: 0});
 
     }); // end of document ready

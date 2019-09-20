@@ -21,7 +21,7 @@
             Network Explorer
           </div>
           <div class="title-desc">
-            &nbsp; Explore referral networks okay!
+            &nbsp; One year of medical referrals visualized
           </div>
         </div>
         <a class="back-btn" href="../../index.html">
@@ -30,121 +30,128 @@
       </div>
     </div>
 
-    <div class="scroll-holder">
-      <div id="graph-1">
-        <div id="modal1" class="modal" style="width:600px; overflow-x: hidden">
-          <div class="modal-content">
-            <img class="graph1" src="img/graph1.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-            <img class="graph2" src="img/graph2.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-            <img class="graph3" src="img/graph3.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
+
+    <div id="graph-1">
+      <div id="modal1" class="modal" style="width:600px; overflow-x: hidden">
+        <div class="modal-content">
+          <img class="graph1" src="img/graph1.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
+          <img class="graph2" src="img/graph2.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
+          <img class="graph3" src="img/graph3.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
+        </div>
+      </div>
+      <p class="subtitle">
+      </p>
+      <div class="breadcrumbs">
+        <div id="one" class="crumb">Procedures</div>
+        <div class="arrow">></div>
+        <div id="two"class="crumb">Practices</div>
+        <div class="arrow">></div>
+        <div id="three" class="crumb">Providers</div>
+      </div>
+      <p class="graph-description">
+      </p>
+      <div class="main-holder">
+        <div class="chart-nav row" >
+          Outpatient Referrals - Cost, Frequency, and Variation
+        </div>
+        <div class="top-buttons">
+          <div class="filterheader" data-position="top" data-delay="50" data-tooltip="Filter data by procedure categories">
+            <i class="material-icons">filter_list</i>
+            Filter
+          </div>
+          <div class="legend floating flat modal-trigger" data-target="modal1">
+            Legend
+          </div>
+          <div class="rescale inactive floating flat" style="margin-left:11px">
+            Rescale
+          </div>
+          <div class="netbutton floating flat" style="width: 138px">
+            See Network<i class="material-icons rightarrow" >chevron_right</i>
+          </div>
+          <div class=" floating flat zoom-out-button" style="width: auto; margin-left: 20px;padding-right:16px">
+            <i class="material-icons rightarrow" >chevron_left</i>
+            Procedures
           </div>
         </div>
-        <p class="subtitle">
-        </p>
-        <p class="graph-description">
-        </p>
-        <div class="main-holder">
-          <div class="chart-nav row" >
-            Outpatient Referrals - Cost, Frequency, and Variation
+        <div id="filters">
+          <div class="procedure-filters">
           </div>
-          <div class="top-buttons">
-            <div class="filterheader" data-position="top" data-delay="50" data-tooltip="Filter data by procedure categories">
-              <i class="material-icons">filter_list</i>
-              Filter
+          <div class="node-filters">
+            <div class="selection nodeheader">
+              Selected Provider
             </div>
-            <div class="legend floating flat modal-trigger" data-target="modal1">
-              Legend
+            <div class="selected-content">
             </div>
-            <div class="rescale inactive floating flat" style="margin-left:11px">
-              Rescale
+            <div class="values nodeheader">
+              Find Specialists
             </div>
-            <div class="netbutton floating flat" style="width: 138px">
-              See Network<i class="material-icons rightarrow" >chevron_right</i>
-            </div>
-            <div class=" floating flat zoom-out-button" style="width: auto; margin-left: 20px;padding-right:16px">
-              <i class="material-icons rightarrow" >chevron_left</i>
-              Procedures
+            <div class="nodebody specialists">
+              <div class="slider-block cost" filtertype="cost">
+                <div class="slider-label">Cost</div>
+                <div class="slider profile-one">
+                  <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
+                    <div class="thumb-tooltip">0.0</div>
+                  </div>
+                  <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"filtertype="discharge">
+                    <div class="thumb-tooltip">1</div>
+                  </div>
+                  <div class="fill-inner" filtertype="discharge"></div>
+                </div>
+              </div>
+              <div class="slider-block frequency" filtertype="cost">
+                <div class="slider-label">Frequency</div>
+                <div class="slider vertical profile-one">
+                  <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
+                    <div class="thumb-tooltip">0.0</div>
+                  </div>
+                  <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"  filtertype="discharge">
+                    <div class="thumb-tooltip" >1</div>
+                  </div>
+                  <div class="fill-inner" filtertype="discharge"></div>
+                </div>
+              </div>
+              <div style="clear:both">
+              </div>
+              <div class="left slider-label">
+                Type
+              </div>
+              <form>
+                <div class="left radio">
+                  <p style="margin-top:0">
+                    <label>
+                    <input id="in" class="with-gap" name="group3" type="radio" />
+                    <span>In Network</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                    <input id="out" class="with-gap" name="group3" type="radio" />
+                    <span>Out of network</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                    <input id="both" class="with-gap" name="group3" type="radio" checked/>
+                    <span>Both</span>
+                    </label>
+                  </p>
+                </div>
+              </form>
+              <div class="row" style="padding-top: 10px">
+                <a class="btn waves btn-flat node-remove-button cancel">Remove</a>
+                <a class="btn waves btn-flat node-filter-button active">Apply</a>
+              </div>
             </div>
           </div>
-          <div id="filters">
-            <div class="procedure-filters">
-            </div>
-            <div class="node-filters">
-              <div class="selection nodeheader">
-                Selected Provider
-              </div>
-              <div class="selected-content">
-              </div>
-              <div class="values nodeheader">
-                Find Specialists
-              </div>
-              <div class="nodebody specialists">
-                <div class="slider-block cost" filtertype="cost">
-                  <div class="slider-label">Cost</div>
-                  <div class="slider profile-one">
-                    <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
-                      <div class="thumb-tooltip">0.0</div>
-                    </div>
-                    <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"filtertype="discharge">
-                      <div class="thumb-tooltip">1</div>
-                    </div>
-                    <div class="fill-inner" filtertype="discharge"></div>
-                  </div>
-                </div>
-                <div class="slider-block frequency" filtertype="cost">
-                  <div class="slider-label">Frequency</div>
-                  <div class="slider vertical profile-one">
-                    <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
-                      <div class="thumb-tooltip">0.0</div>
-                    </div>
-                    <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"  filtertype="discharge">
-                      <div class="thumb-tooltip" >1</div>
-                    </div>
-                    <div class="fill-inner" filtertype="discharge"></div>
-                  </div>
-                </div>
-                <div style="clear:both">
-                </div>
-                <div class="left slider-label">
-                  Type
-                </div>
-                <form>
-                  <div class="left radio">
-                    <p style="margin-top:0">
-                      <label>
-                      <input id="in" class="with-gap" name="group3" type="radio" />
-                      <span>In Network</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                      <input id="out" class="with-gap" name="group3" type="radio" />
-                      <span>Out of network</span>
-                      </label>
-                    </p>
-                    <p>
-                      <label>
-                      <input id="both" class="with-gap" name="group3" type="radio" checked/>
-                      <span>Both</span>
-                      </label>
-                    </p>
-                  </div>
-                </form>
-                <div class="row" style="padding-top: 10px">
-                  <a class="btn waves btn-flat node-remove-button cancel">Remove</a>
-                  <a class="btn waves btn-flat node-filter-button active">Apply</a>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="myhead">
-              Collapse
-              </div> -->
-            <div style="clear:both">
-            </div>
+          <!-- <div class="myhead">
+            Collapse
+            </div> -->
+          <div style="clear:both">
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- <script src="js/lib/d3.min.js"></script> -->
     <script src="https://d3js.org/d3.v4.min.js"></script>

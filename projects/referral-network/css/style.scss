@@ -33,6 +33,7 @@ body {
   color: black;
   overflow: hidden;
   background: #f7f7f8 ;
+  margin: 0;
 }
 * {
   box-sizing: border-box;
@@ -55,10 +56,29 @@ body {
   align-content: baseline;
   align-items: center;
 }
-.title-desc {
+
+.title {
+  font-size: 18px;
+  font-weight: 900;
+  padding-bottom: 4px;
   color: #cccaca;
 }
 
+.title-desc {
+  color: #959494;
+  font-weight: 400;
+  margin-left: 15px;
+}
+.breadcrumbs {
+  display: flex;
+  font-weight: 400;
+  div {
+    margin-right: 8px;
+  }
+  .selected {
+    font-weight: 700;
+  }
+}
 
 
 .title-holder {
@@ -66,9 +86,7 @@ body {
   align-content: baseline;
   align-items: center;
 }
-.title-desc {
-  color: #cccaca;
-}
+
 .header {
   width: 100%;
   background: black;
@@ -80,24 +98,39 @@ body {
   border-bottom: 1px solid black;
 }
 
-.scroll-holder {
+#graph-1 {
   overflow-y: auto;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 80px);
   width: $width;
   margin: auto;
+  margin-top: 20px;
   max-width: $max-width;
+  padding: 0 30px;
 }
 
-#graph-1 {
-  width: 100%;
-  top: 50px;
-  overflow-y: none;
-  margin: auto;
-  margin-top: 80px;
-  max-width: 800px;
+.back-btn {
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-end;
+  color: #aed2ff;
+  font-weight: 400;
+  background: #423e3e;
+    padding: 3px 8px;
+    transition: background-color .15s linear;
 }
+.back-btn:hover {
+  background:#504b4b;
+}
+
+// #graph-1 {
+//   width: 100%;
+//   top: 50px;
+//   overflow-y: none;
+//   margin: auto;
+//   max-width: 800px;
+// }
 .main-holder {
-  padding-top: 20px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -105,30 +138,14 @@ body {
   height: auto;
   width: 100%;
   background: white;
-  padding: 0;
-
-}
-
-.subtitle, .graph-description {
-  display: none;
+  padding: 30px;
+  padding-right: 10px;
 }
 
 
-.title {
-  font-size: 21px;
-  font-weight: 900;
-  color: #959494;
-  padding-bottom: 4px;
-}
-.subtitle {
-  font-weight: 800;
-  float: left;
-  width: calc(100% - 85px);
-}
 
-.x-label, .y-label {
-  font-weight: 600;
-}
+
+
 
 .chart-nav {
 position: absolute;
@@ -145,7 +162,6 @@ font-weight: 500;
 padding-bottom: 1.5vh;
 font-weight: 500;
 margin-bottom: 10px;
-
 }
 .subrow {
   padding: 2px 0;

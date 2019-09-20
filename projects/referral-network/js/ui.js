@@ -5,7 +5,7 @@ function setDescription(description){
 
 //more about the dataset
 
-var desc1 = 'In the first visual below, common outpatient procedures are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. Each <strong>blob represents an aggregation of referrals conducted by each in-network practice</strong>. <strong>Distribution of each variable is represented in the shape</strong> of each point. <strong>Red denotes a higher percentage of out-of-network procedures, and blue denotes a low percentage</strong>. Click on an individual procedure category to zoom into a more granular distribution.'
+var desc1 = 'In the first visual below, common outpatient procedures are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. Each blob represents referral patterns for a procedure category. Distribution of each variable is represented in the shape of each point. Color is used to indicate in-network percentage - red blobs have a low percentage of in-network referrals.<br><br>Click on an individual procedure category to zoom into a more granular distribution.'
 
 var desc2 = "For the selected procedure category, individual practices are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. <strong>The size of each bubble corresponds to the quantity of patients managed</strong>. Similar to the previous graph, red denotes a higher percentage of out-of-network referrals. Click on an individual node to view a particular PCP's referral routes - or click the 'see network' button to see the full referral network"
 
@@ -16,6 +16,8 @@ var transitionTime = 150;
 function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
+    $('.crumbs').removeClass('selected');
+    $('#three').addClass('selected');
     $('.graph1').css('display', 'none');
     $('.graph2').css('display', 'none');
     $('.graph3').css('display', 'block');
@@ -39,7 +41,8 @@ function setCurrentPage(input){
   }
   if (input == 2){
     setDescription(desc2);
-
+    $('.crumbs').removeClass('selected');
+    $('#two').addClass('selected');
     $('.graph1').css('display', 'none');
     $('.graph2').css('display', 'block');
     $('.graph3').css('display', 'none');
@@ -66,6 +69,8 @@ function setCurrentPage(input){
   }
   if (input == 1){
     setDescription(desc1);
+    $('.crumbs').removeClass('selected');
+    $('#one').addClass('selected');
     $('.graph1').css('display', 'block');
     $('.graph2').css('display', 'none');
     $('.graph3').css('display', 'none');

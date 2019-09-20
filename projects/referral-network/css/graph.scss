@@ -10,10 +10,11 @@ svg text, .main-holder {
 .axis path {
   stroke-opacity: 0;
 }
-.axis {
-  opacity: 0;
-}
 
+
+.x-label, .y-label {
+  font-weight: 500;
+}
 .tick text {
     font-size: 14px;
 

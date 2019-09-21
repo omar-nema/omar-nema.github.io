@@ -141,16 +141,20 @@ $('#three').on('click', function(e){
   }
 });
 
-// $('.zoom-out-button').on('click', function(e) {
-//     zoomed = true;
-//     d3.selectAll('.axis').transition().style('opacity', 1);
-//     if (getCurrentPage() == 2) {
-//         plotBlobs(filterData(getFilters()));
-//     } else if (getCurrentPage() == 3) {
-//         plotScatter(getCurrNodes())
-//     }
-// });
-//
+$('.nav-page.context').on('click', function(){
+  $('.nav-page.visual').removeClass('selected');
+  $(this).attr('class', 'nav-page context selected');
+  $('.scroll-holder').hide(100);
+  $('.project-context').show(300);
+})
+$('.nav-page.visual').on('click', function(){
+  $('.nav-page.context').removeClass('selected');
+  $(this).attr('class', 'nav-page context selected');
+  $('.project-content').hide(100);
+  $('.scroll-holder').show(300);
+})
+
+
 
 
 

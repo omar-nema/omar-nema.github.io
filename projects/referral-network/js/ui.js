@@ -146,12 +146,14 @@ $('.nav-page.context').on('click', function(){
   $(this).attr('class', 'nav-page context selected');
   $('.scroll-holder').hide(100);
   $('.project-context').show(300);
+  $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
 })
 $('.nav-page.visual').on('click', function(){
   $('.nav-page.context').removeClass('selected');
-  $(this).attr('class', 'nav-page context selected');
+  $(this).attr('class', 'nav-page visual selected');
   $('.project-content').hide(100);
   $('.scroll-holder').show(300);
+  $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
 })
 
 

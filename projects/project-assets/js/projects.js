@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $('body').append('<div class="img-modal"></div>');
 
-
   $('.nav-link').click(function(e) {
    e.preventDefault();
    var target = this.hash, $target = $(target);
@@ -170,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
      $('#video-timer').html('');
      hideModal();
    }
+
     $(document).click(function(){
 
       hideModal();

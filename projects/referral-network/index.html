@@ -19,8 +19,9 @@
           <div class="title">
             Network Explorer
           </div>
-          <div class="title-desc">
-            &nbsp; One year of medical referrals visualized
+          <div class="nav-holder">
+            <div class="nav selected">Visual</div>
+            <div class="nav">Context</div>
           </div>
         </div>
         <a class="back-btn" href="../../index.html">
@@ -57,13 +58,6 @@
           <div class="rescale inactive floating flat" style="margin-left:11px">
             Rescale
           </div>
-          <div class="netbutton floating flat" style="width: 138px">
-            See Network<i class="material-icons rightarrow" >chevron_right</i>
-          </div>
-          <div class=" floating flat zoom-out-button" style="width: auto; margin-left: 20px;padding-right:16px">
-            <i class="material-icons rightarrow" >chevron_left</i>
-            Procedures
-          </div>
         </div>
       </div>
       <div class="main-holder">
@@ -84,7 +78,7 @@
               Find Specialists
             </div>
             <div class="nodebody specialists">
-              <div class="slider-block cost" filtertype="cost">
+              <div class="slider-block filter-block cost" filtertype="cost">
                 <div class="slider-label">Cost</div>
                 <div class="slider profile-one">
                   <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
@@ -96,7 +90,7 @@
                   <div class="fill-inner" filtertype="discharge"></div>
                 </div>
               </div>
-              <div class="slider-block frequency" filtertype="cost">
+              <div class="slider-block filter-block frequency" filtertype="cost">
                 <div class="slider-label">Frequency</div>
                 <div class="slider vertical profile-one">
                   <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
@@ -108,33 +102,36 @@
                   <div class="fill-inner" filtertype="discharge"></div>
                 </div>
               </div>
-              <div style="clear:both">
-              </div>
-              <div class="left slider-label">
-                Type
-              </div>
-              <form>
-                <div class="left radio">
-                  <p style="margin-top:0">
-                    <label>
-                    <input id="in" class="with-gap" name="group3" type="radio" />
-                    <span>In Network</span>
-                    </label>
-                  </p>
-                  <p>
-                    <label>
-                    <input id="out" class="with-gap" name="group3" type="radio" />
-                    <span>Out of network</span>
-                    </label>
-                  </p>
-                  <p>
-                    <label>
-                    <input id="both" class="with-gap" name="group3" type="radio" checked/>
-                    <span>Both</span>
-                    </label>
-                  </p>
+              <div class="filter-block">
+                <div class="left slider-label">
+                  Type
                 </div>
-              </form>
+                <form>
+                  <div class="left radio">
+                    <p style="margin-top:0">
+                      <label>
+                      <input id="in" class="with-gap" name="group3" type="radio" />
+                      <span>In Network</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                      <input id="out" class="with-gap" name="group3" type="radio" />
+                      <span>Out of network</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                      <input id="both" class="with-gap" name="group3" type="radio" checked/>
+                      <span>Both</span>
+                      </label>
+                    </p>
+                  </div>
+                </form>
+              </div>
+
+
+
               <div class="row" style="padding-top: 10px">
                 <a class="btn waves btn-flat node-remove-button cancel">Remove</a>
                 <a class="btn waves btn-flat node-filter-button active">Apply</a>

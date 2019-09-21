@@ -5,7 +5,7 @@ var outColorScale;
 function plotNodes(nodes, clickedNode) {
 
 
-    $('.subtitle').text('(Graph 3/3) Referral Network - ' + getCurrBlob()[0].Minor + ' Visits');
+    $('.subtitle').text('(Graph 3/3) Referral Network: ' + getCurrBlob()[0].Minor + ' Visits');
 
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);
@@ -393,7 +393,6 @@ function generateElements(parameters) {
         $('.node-provider-button').on('click', function() {
             setFilterState(true);
             resetNodes();
-
         });
 
         var filtered = filterNodeData(getCurrNodes());
@@ -535,7 +534,6 @@ function generateElements(parameters) {
     function nodeSelectionClick() {
         setFilterState(true);
         $('.selection-status.nodebody').html('<div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div>')
-
         $('.node-filter-button').trigger('click');
     };
 

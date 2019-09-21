@@ -9,14 +9,14 @@ var desc1 = 'In the first visual below, common medical outpatient procedures are
 
 var desc2 = "For the selected procedure category, individual practices are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. <strong>The size of each bubble corresponds to the quantity of patients managed</strong>. Similar to the previous graph, red denotes a higher percentage of out-of-network referrals. Click on an individual node to view a particular PCP's referral routes - or click the 'see network' button to see the full referral network"
 
-var desc3 = 'A full referral network, over a 12 month period, is visualized below. Select an individual point to highlights its referral routes, and use the filters to find alternative routes. <br>In this view - <strong>practices are denoted with small gray dots</strong>, and <strong>servicing facilities</<strong> are <strong>colored</strong>. </strong><strong>Blue represents good referral patterns</strong> (dark blue denotes low cost, in network) and <strong>red represents poor referral patterns</strong> (dark red means high cost, and out of network)'
+var desc3 = 'For the selected procedure category, all referrals (from PCP to specialist) over a 12 month period in the hospital network are visualized below. In this view - practices are denoted with small gray dots, and servicing facilities are colored. Blue represents good referral patterns (dark blue denotes low cost, in network) and red represents poor referral patterns (dark red means high cost, and out of network)'
 
 var transitionTime = 150;
 
 function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
-    $('.crumbs').removeClass('selected');
+    $('.crumb').attr('class', 'crumb');
     $('#three').addClass('selected');
     $('.graph1').css('display', 'none');
     $('.graph2').css('display', 'none');
@@ -41,7 +41,7 @@ function setCurrentPage(input){
   }
   if (input == 2){
     setDescription(desc2);
-    $('.crumbs').removeClass('selected');
+    $('.crumb').attr('class', 'crumb');
     $('#two').addClass('selected');
     $('.graph1').css('display', 'none');
     $('.graph2').css('display', 'block');
@@ -49,7 +49,6 @@ function setCurrentPage(input){
     $('#filters').hide()
     $('.axis').css('visbility', 'show');
     $('.nav-item.three').removeClass('possible');
-    // $('.btn-flat.remove').css('visibility', 'hidden')
     $('.nav-item').removeClass('selected');
     $('.nav-item.two').addClass('selected');
     $('.network-legend').removeClass('show');
@@ -68,9 +67,10 @@ function setCurrentPage(input){
     offHover(null, d3.select('.tooltip'));
   }
   if (input == 1){
+
     setDescription(desc1);
-    $('.crumbs').removeClass('selected');
-    $('#one').addClass('selected');
+    $('.crumb').attr('class', 'crumb disabled')
+    $('#one').addClass('selected').removeClass('disabled');
     $('.graph1').css('display', 'block');
     $('.graph2').css('display', 'none');
     $('.graph3').css('display', 'none');
@@ -105,16 +105,52 @@ function setCurrentPage(input){
 function getCurrentPage(){
   return currentPage;
 };
-$('.zoom-out-button').on('click', function(e) {
-    zoomed = true;
-    d3.selectAll('.axis').transition().style('opacity', 1);
-    if (getCurrentPage() == 2) {
-        plotBlobs(filterData(getFilters()));
-    } else if (getCurrentPage() == 3) {
-        plotScatter(getCurrNodes())
-    }
+
+//why not setcurrpage?
+
+function zoomMeOut(){
+  zoomed = true;
+  d3.selectAll('.axis').transition().style('opacity', 1);
+  if (getCurrentPage() == 2) {
+      plotBlobs(filterData(getFilters()));
+  } else if (getCurrentPage() == 3) {
+      plotScatter(getCurrNodes())
+  }
+}
+
+$('#one').on('click', function(e){
+  if (getCurrentPage() == 2){
+    zoomMeOut();
+  } else if (getCurrentPage() == 3){
+    zoomMeOut();
+    zoomMeOut();
+  }
+})
+$('#two').on('click', function(e){
+  if (getCurrentPage() == 3){
+    zoomMeOut();
+  }
+})
+$('#three').on('click', function(e){
+  if (getCurrentPage() == 2){
+    d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
+    setCurrentPage(3);
+    setFilterState(true)
+    resetNodes();
+    plotNodes(getCurrNodes().nodes);
+  }
 });
 
+// $('.zoom-out-button').on('click', function(e) {
+//     zoomed = true;
+//     d3.selectAll('.axis').transition().style('opacity', 1);
+//     if (getCurrentPage() == 2) {
+//         plotBlobs(filterData(getFilters()));
+//     } else if (getCurrentPage() == 3) {
+//         plotScatter(getCurrNodes())
+//     }
+// });
+//
 
 
 
@@ -181,8 +217,6 @@ function getNodeFilters(){
   //set initial values to 0 and 100
   //set and get methods
   //starts at 0 and 100
-
-
   nodeFilters = [];
   if (filterState){
     sliderWidth = $('.slider').width();
@@ -280,7 +314,7 @@ function setClickedNode(input){
     //routed to x specialists
 
 
-    text = '<div class="selection-status nodebody">' + typeString + '<br>Cost/Event: '+ Math.round(d.CostPerEvent) + ' (' + Math.round(100*d.pctCost) + ' percentile) '+ '<br> Frequency: ' + freqString + '<div style="clear:both"></div><a class="btn waves btn-flat dist node-provider-button centered">Remove</a></div>'
+    text = '<div class="selection-status nodebody">' + typeString + '<br>Cost/Event: '+ Math.round(d.CostPerEvent) + ' (' + Math.round(100*d.pctCost) + ' percentile) '+ '<br> Frequency: ' + freqString + '</div><div class="btn-flat dist node-provider-button">Remove</div></div>'
     d3.select('.selected-content').html(text);
   }
   clickedNode = input;
@@ -376,17 +410,17 @@ function getColors(){
 }
 
 
-$('.netbutton').on('click', function(){
-  d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
-  setCurrentPage(3);
-  setFilterState(true)
-  resetNodes();
-  plotNodes(getCurrNodes().nodes);
+// $('.netbutton').on('click', function(){
+//   d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
+//   setCurrentPage(3);
+//   setFilterState(true)
+//   resetNodes();
+//   plotNodes(getCurrNodes().nodes);
 
   // $('.selection-status.nodebody').html('<div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div>')
   // $('.node-filter-button').trigger('click');
 
-});
+// });
 
 
 

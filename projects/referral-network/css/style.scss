@@ -1,9 +1,6 @@
+@import '../../../home-assets/css/ref';
 @import 'filters';
 @import 'graph';
-
-
-$primary:#416bfd;
-
 $max-width: 900px;
 $width: 65vw;
 
@@ -59,14 +56,36 @@ body {
 
 
 .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
-  padding-bottom: 4px;
   color: #cccaca;
 }
 .subtitle {
   font-weight: 700;
   font-size: 15px;
+  text-transform: capitalize;
+}
+.nav-holder {
+  color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    /* padding-left: 50px; */
+    margin-left: 30px;
+}
+.nav {
+  padding: 5px;
+  cursor: pointer;
+  transition: color .15s ease-in-out;
+  color: white;
+}
+.nav:hover {
+    color: #ffffad;
+}
+.nav.selected {
+  border-bottom: 1px solid #ffffad;
+  color: #ffffad;
+    font-weight: 700;
 }
 
 .title-desc {
@@ -80,13 +99,22 @@ body {
   font-size: 14px;
   color: gray;
   align-self: center;
-  div {
-    margin-right: 8px;
+  .crumb {
     cursor: pointer;
+    padding: 10px 5px;
+  }
+  div {
+    padding: 10px 5px;
   }
   .selected {
-
-    color: $primary;
+    color: $color-primary;
+  }
+  .crumb:hover {
+    opacity: .8;
+    color: $color-primary;
+  }
+  .disabled {
+    pointer-events: none;
   }
 }
 
@@ -124,10 +152,11 @@ body {
 .btn-flat {
   padding: 6px 12px;
   transition: background-color .15s linear;
-  background: $primary;
+  background: $color-primary;
   color: white;
-  border: .5px solid $primary;
+  border: .5px solid $color-primary;
   cursor: pointer;
+  display: inline-block;
   border-radius: 3px;
 }
 .btn-flat:hover {
@@ -171,6 +200,7 @@ body {
   align-content: center;
   justify-content: space-between;
   padding: 0 30px;
+  box-shadow: 0 0.5px 2px 0px rgba(0,0,0,.05);
 }
 
 
@@ -189,6 +219,7 @@ font-weight: 500;
 padding-bottom: 1.5vh;
 font-weight: 500;
 margin-bottom: 10px;
+height: 80px;
 }
 .subrow {
   padding: 2px 0;
@@ -302,9 +333,8 @@ circle.showme {
 }
 
 
-.provspan {
+.provspan, .slider-label {
   color: gray;
-font-weight: 700;
 }
 
 .default-prov-msg {

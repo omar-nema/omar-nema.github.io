@@ -175,9 +175,7 @@ function start(error, costData) {
       	.attr("in","SourceGraphic");
 
         setStyleFilter(filter);
-
         var widthtext = width-115;
-
         var xheight = innerHeight - 30;
 
 

@@ -5,11 +5,11 @@ function setDescription(description){
 
 //more about the dataset
 
-var desc1 = 'In the first visual below, common medical outpatient procedures are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. Each blob represents referral patterns for a procedure category. Distribution of each variable is represented in shape. Color is used to indicate in-network percentage - red blobs have a low percentage of in-network referrals.'
+var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the pattern into individual points."
 
-var desc2 = "For the selected procedure category, individual practices are plotted along the axes of <strong>cost (x)</strong> and <strong>frequency (y)</strong>. <strong>The size of each bubble corresponds to the quantity of patients managed</strong>. Similar to the previous graph, red denotes a higher percentage of out-of-network referrals. Click on an individual node to view a particular PCP's referral routes - or click the 'see network' button to see the full referral network"
+var desc2 = "For the selected procedure category, referral patterns for individual practices are shown. Clicking an individual practice will zoom into the full referral network for the selected provider."
 
-var desc3 = 'For the selected procedure category, all referrals (from PCP to specialist) over a 12 month period in the hospital network are visualized below. In this view - practices are denoted with small gray dots, and servicing facilities are colored. Blue represents good referral patterns (dark blue denotes low cost, in network) and red represents poor referral patterns (dark red means high cost, and out of network)'
+var desc3 = "For the selected procedure category, all referrals over a 12 month period are visualized below. Each point in this graph represents an individual practice. Gray points are referring providers, and colored show servicing facilities."
 
 var transitionTime = 150;
 
@@ -17,6 +17,7 @@ function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
     $('.crumb').attr('class', 'crumb');
+    $('.axis-label').hide(100);
     $('#three').addClass('selected');
     $('.graph1').css('display', 'none');
     $('.graph2').css('display', 'none');
@@ -41,6 +42,7 @@ function setCurrentPage(input){
   }
   if (input == 2){
     setDescription(desc2);
+    $('.axis-label').show(100);
     $('.crumb').attr('class', 'crumb');
     $('#two').addClass('selected');
     $('.graph1').css('display', 'none');
@@ -67,8 +69,8 @@ function setCurrentPage(input){
     offHover(null, d3.select('.tooltip'));
   }
   if (input == 1){
-
     setDescription(desc1);
+    $('.axis-label').show(100);
     $('.crumb').attr('class', 'crumb disabled')
     $('#one').addClass('selected').removeClass('disabled');
     $('.graph1').css('display', 'block');
@@ -100,14 +102,11 @@ function setCurrentPage(input){
     offHover(null, d3.select('.tooltip'));
   }
 };
-
-
 function getCurrentPage(){
   return currentPage;
 };
 
 //why not setcurrpage?
-
 function zoomMeOut(){
   zoomed = true;
   d3.selectAll('.axis').transition().style('opacity', 1);
@@ -141,18 +140,34 @@ $('#three').on('click', function(e){
   }
 });
 
+$('.main-holder').on('click', function(e){
+  $('.legend-image').hide();
+})
+
+$('.legend-btn').on('click', function(e){
+  currPage = getCurrentPage();
+  if (currPage == 1 ){
+    $('.legend-image').hide();
+    $('.legend-one').fadeIn(100);
+  } else if (currPage == 2){
+    $('.legend-two').fadeIn(100);
+  } else if (currPage == 3) {
+    $('.legend-three').fadeIn(100);
+  }
+})
+
 $('.nav-page.context').on('click', function(){
   $('.nav-page.visual').removeClass('selected');
   $(this).attr('class', 'nav-page context selected');
-  $('.scroll-holder').hide(100);
-  $('.project-context').show(300);
+  $('.scroll-holder').fadeOut(200);
+  $('.project-context').fadeIn(400);
   $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
 })
 $('.nav-page.visual').on('click', function(){
   $('.nav-page.context').removeClass('selected');
   $(this).attr('class', 'nav-page visual selected');
-  $('.project-content').hide(100);
-  $('.scroll-holder').show(300);
+  $('.project-content').fadeOut(200);
+  $('.scroll-holder').fadeIn(400);
   $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
 })
 
@@ -297,7 +312,6 @@ var clickedNodeTargets;
 function setClickedNode(input){
 
   d3.selectAll('circle').classed('selected-node', false)
-
 
 
   if (input){

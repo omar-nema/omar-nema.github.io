@@ -1,6 +1,6 @@
 function plotBlobs(blobInput) {
     setCurrentPage(1);
-    $('.subtitle').text('(Graph 1/3) Procedure Categories: Cost, Frequency, and Variation');
+    $('.subtitle').text('Procedure Categories: Cost, Frequency, and Variation (Graph 1/3)');
 
     var svg = getSVG();
     var width = getWidth();

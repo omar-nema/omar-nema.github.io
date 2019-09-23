@@ -5,7 +5,7 @@ var outColorScale;
 function plotNodes(nodes, clickedNode) {
 
 
-    $('.subtitle').text('(Graph 3/3) Referral Network: ' + getCurrBlob()[0].Minor + ' Visits');
+    $('.subtitle').text('Referral Network: ' + getCurrBlob()[0].Minor + ' Visits (Graph 3/3)');
 
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);

@@ -155,7 +155,7 @@ function start(error, costData) {
     var innerHeight = height - offset;
 
     var svg = div.select('.main-holder').append('svg').attr('class', 'main').attr('height', height).attr('width', width).attr('x', 0).attr('y', 0);
-    svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 0).attr('y', 0).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
+    svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 30).attr('y',-20).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
     setSVG(svg);
     defs = svg.append('defs');
     var tooltip = d3.select('.tooltip');
@@ -177,16 +177,6 @@ function start(error, costData) {
         setStyleFilter(filter);
         var widthtext = width-115;
         var xheight = innerHeight - 30;
-
-
-    d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + 0 +',' + xheight + ")")
-        .append('text').text('Cost/Event').attr('transform', 'translate(' + 70 + ',' + 23.5 + ')')
-        .attr('class', 'x-label');
-
-    d3.select('.main').append("g").attr("class", "y axis")
-        .attr('transform', 'translate(' + 40 + ',40)')
-        .append('text').text('Events/1k').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-130) + ') rotate(-90)')
-        .attr('class', 'y-label');
 
     var zoom = d3.zoom()
     .scaleExtent([1, 5])
@@ -212,6 +202,22 @@ function start(error, costData) {
     var data = prepData(costData);
     setOrigData(data.MinorNest);
     setCurrData(data.MinorNest);
+
+    //ADD LABELS
+    d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + 0 +',' + xheight + ")")
+
+        // .append('text').text('Cost/Event').attr('transform', 'translate(' + 70 + ',' + 23.5 + ')')
+        // .attr('class', 'x-label');
+    d3.select('.main').append("g").attr("class", "y axis")
+        .attr('transform', 'translate(' + 40 + ',40)');
+
+    // yaxis.append('rect')
+    //   .attr('transform', 'translate(' + -33 + ', ' + (innerHeight-140) + ')')
+    //   .attr('width', '20').attr('height', '80')
+    //   .attr('fill', 'white');
+    // yaxis
+    //     .append('text').text('Events/1k').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-130) + ') rotate(-90)')
+    //     .attr('class', 'y-label');
 
 
     $('svg.main').on('click', function(e) {
@@ -248,8 +254,6 @@ function start(error, costData) {
 
     d3.selectAll('.tier-2.holder').selectAll('.tier-3.holder').data(function(d){return d.values}).enter().append('div').attr('class', 'tier-3 holder').append('div').attr('class', 'tier-3 selector row').html(function(d){return generateCheckBox(d.key)});
 
-
-//$(this).closest('.tier-1.holder')
     $('.collapse').on('click',function(){
       if ($(this).hasClass('expanded')){
         $(this).removeClass('expanded');

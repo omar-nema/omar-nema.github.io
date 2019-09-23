@@ -32,13 +32,7 @@
 
     <div class="scroll-holder">
       <div id="graph-1">
-      <div id="modal1" class="modal" style="width:600px; overflow-x: hidden">
-        <div class="modal-content">
-          <img class="graph1" src="img/graph1.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-          <img class="graph2" src="img/graph2.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-          <img class="graph3" src="img/graph3.svg" style="width: 599px; margin-left: 50%; transform: translateX(-50%)">
-        </div>
-      </div>
+
       <div class="subtitle"></div>
       <p class="graph-description">
       </p>
@@ -49,11 +43,14 @@
           <div class="arrow">></div>
           <div id="two"class="crumb">Practices</div>
           <div class="arrow">></div>
-          <div id="three" class="crumb">Providers</div>
+          <div id="three" class="crumb">Referrals</div>
         </div>
         <div class="top-buttons">
-          <div class="filterheader" data-position="top" data-delay="50" data-tooltip="Filter data by procedure categories">
+          <div class="filterheader">
             Filter
+          </div>
+          <div class="legend-btn">
+            Legend
           </div>
           <div class="rescale inactive floating flat" style="margin-left:11px">
             Rescale
@@ -61,6 +58,20 @@
         </div>
       </div>
       <div class="main-holder">
+        <div class="legend-holder">
+          <div class="legend-one legend-image">
+              <img src="./visuals/legend-one.svg"/>
+          </div>
+          <div class="legend-two legend-image">
+              <img src="./visuals/legend-two.svg"/>
+          </div>
+          <div class="legend-three legend-image">
+              <img src="./visuals/legend-three.svg"/>
+          </div>
+
+        </div>
+        <div class="y-label axis-label">Event/1000</div>
+        <div class="x-label axis-label">Cost/Event</div>
         <div class="chart-nav row" >
           Outpatient Referrals - Cost, Frequency, and Variation
         </div>
@@ -168,19 +179,16 @@
 
       <section class="block" id="two">
         <header class="block-header" id="context"><span>Context</span></header>
-
-        <div class="block-text layered">
-            <p>
-              While developing a product for managing provider referrals, I became deeply curious in the broader landscape of referrals. So I visualized it.
-            </p>
-        </div>
         <div class="block-text">
-          <p>
-            For the past two years (2017 onwards), I have been leading product development for Arcadia's care management suite. <strong>The product enables clinicians to provide multi-faceted care - addressing medical, social, and housing needs.</strong>
-          </p>
-          <p>
-            I designed the interface (UX, visual, and product), reporting model, and workflow automation engine. I've also managed its implementation - both externally with care teams, and internally with the engineers executing on development. The product continues to scale, and is now used by more eight large healthcare organizations (with patient populations that range from 100,000 to 1 million).
-          </p>
+            <p>
+              In my day job at Arcadia.io, I was tasked with designing and managing a <a target="_blank" href="../../projects/me.txt/">Referral Optimization Product</a>. In an attempt to understand the problem space, I started to explore referral pattern data.
+            </p>
+            <p>
+              Referral patterns are complex, composed of thousands of relationships between referring provider and specialist. While exploring the data, I found that standard analytic techniques were too rigid for understanding the data. To develop an intuition for the dataset, I needed to move fluidly between trends, and individual referral paths.
+            </p>
+            <p>
+              'Network Explorer' was created out of a desire to explore referral networks and the underlying relationships that hold them together. I designed and developed the project independently, and displayed it at the HIMSS Health IT conference.
+            </p>
         </div>
       </section>
 
@@ -188,42 +196,53 @@
 
       <section class="block" id="two">
         <header class="block-header" id="context"><span>Process</span></header>
-
+        <div class="subheader">Collecting Data</div>
         <div class="block-text">
           <p>
-            Building this project started first with the database. Within a SQL database at Arcadia.io, I combed through a list of all outpatient procedures. In order to assess cost variance in referrals, I had to constrain the data at a grain in which cost is consistent -- that is, the procedure (CPT) code level. I chose to focus on the most common procedure within each procedure category (i.e. 'Cardiovascular', 'Nervous'.
-
-          After cleansing, categorized, and deidentifying the data, I took to javascript to visualize the dataset.
-          My goal was to bring t
-          My goal was to allow users to fully explore the data, and convey the aberrations
-
-          The resulting visual allows users to view patterns at multiple grains: starting with the practice, and drilling down to the provider.
+            The underlying dataset for this project was taken from a client database at Arcadia.io. The dataset contains one year of referral data from a large health system in Northeastern US.
+          </p>
+          <p>
+            In order to assess cost variance, I aggregated the data set to the procedure (CPT) code level (as these codes are used directly for billing). I chose to focus on the most common procedure within each procedure category (i.e. 'Cardiovascular', 'Nervous'). I then sliced the data by 'referral path' - creating one row for each set of referrals from a given provider to a specialist.
+          </p>
+        </div>
+        <div class="subheader">Visualizing Dataset</div>
+        <div class="block-text">
+          <p>
+            After cleansing, categorized, and deidentifying the data, I took to javascript to visualize the dataset (in many, many iterations). My aim was to create a tool that visualizes all meaningful edges of the data. The resulting visual is highly interactive - enabling users to explore patterns across multiple dimensions and scales.
+          </p>
+          <p>
           </p>
         </div>
       </section>
 
       <section class="block" id="two">
         <header class="block-header" id="context"><span>Visual</span></header>
-        <div class="subheader"></div>
-        <div class="block-text layered">
-            <p>
-              While developing a product for managing provider referrals, I became deeply curious in the broader landscape of referrals. So I visualized it.
-            </p>
-        </div>
         <div class="block-text">
+          <div class="subheader">Visual Flow</div>
           <p>
-            For the past two years (2017 onwards), I have been leading product development for Arcadia's care management suite. <strong>The product enables clinicians to provide multi-faceted care - addressing medical, social, and housing needs.</strong>
-          </p>
-          <p>
-            I designed the interface (UX, visual, and product), reporting model, and workflow automation engine. I've also managed its implementation - both externally with care teams, and internally with the engineers executing on development. The product continues to scale, and is now used by more eight large healthcare organizations (with patient populations that range from 100,000 to 1 million).
+            'Network Explorer' is an interactive visual that enables the viewer to assess referral patterns at different grains: from procedures to individual referrals for a given provider.
           </p>
         </div>
+        <div class="block-image-container">
+            <img class="block-image" src="./visuals/referral-graph-flow.PNG"/>
+        </div>
+
+
+        <div class="block-text">
+          <div class="subheader">Visual Demo</div>
+          <p>
+            In the recording below, the user focuses on identifying poor referral patterns in which there is opportunity for improvement.
+          </p>
+        </div>
+        <div class="block-image-container video-cont">
+            <video src="./visuals/desktop-vid.mp4" class="block-video">
+        </div>
+
+
       </section>
     </div>
-
-    <!-- <script src="js/lib/d3.min.js"></script> -->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="../project-assets/js/projects.js"></script>
     <script src="js/lib/queue.min.js"></script>
     <script src="js/lib/jquery-1.10.2.min.js"></script>
     <script src="js/helpers.js"></script>

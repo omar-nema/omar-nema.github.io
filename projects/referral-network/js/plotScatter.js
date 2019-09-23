@@ -3,7 +3,7 @@ function plotScatter(inputNodes) {
     blobName = inputNodes.minorName;
     setCurrentPage(2);
     scatterCanvas = getSVG();
-    $('.subtitle').text('(Graph 2/3) Cost and Frequency by Practice: ' + blobName + ' Visits');
+    $('.subtitle').text('Cost and Frequency by Practice: ' + blobName + ' Visits (Graph 2/3)');
     d3.selectAll('.link').data([]).exit().transition().remove();
     svg.attr('transform', 'translate(0,0) scale(1)')
 

@@ -12,11 +12,6 @@ svg text, .main-holder {
 }
 
 
-.x-label, .y-label {
-  font-weight: 700;
-  font-size: 12px;
-}
-
 .x.axis path {
     fill:none;
 }
@@ -47,6 +42,7 @@ svg text, .main-holder {
 circle {
   transition: stroke .1s linear, stroke-opacity .1s linear, stroke-width .1s linear;
   cursor: pointer;
+  opacity: .95;
 }
 circle:hover{
   mix-blend-mode: inherit;

@@ -5,4 +5,4 @@ id,title,description,tag-datavis,tag-art,tag-product,year-2015,year-2017,year-20
 4,Thought Parser,"Linear journal, consumed and visualized by an algorithm",1,1,0,0,0,0,1,2019,../projects/me.txt/,2019,,1
 5,Floating Thoughts,"Nonlinear journal, categorized, and visualized manually",1,1,0,0,0,1,0,2018,../projects/self-portrait/,2018,,0
 6,Neuroengineering Thesis,Simulating spinal cord simulation in primates,0,0,1,1,0,0,0,2015,../projects/thesis/,2015,,0
-7,Referral Networks,Visualization of medical referral patterns,1,0,0,0,1,0,0,2017,../projects/referral-network/,2017,,0
+7,Referral Explorer,Visualization of medical referral patterns,1,0,0,0,1,0,0,2017,../projects/referral-network/,2017,,0

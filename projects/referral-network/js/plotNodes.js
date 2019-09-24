@@ -48,7 +48,8 @@ function plotNodes(nodes, clickedNode) {
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
     var scaleStrokeOpacity = d3.scaleLinear().domain([0, .1, .4, .6, 1]).range([.1, .5, .8, .9, .93]);
-    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
+  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.4, .7 ,1, 1, 1])    
+  //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
     var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.3, 1]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1])
 
@@ -170,11 +171,11 @@ function generateElements(parameters) {
                 }
             })
             .attr('z-index', 1)
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
-            ;
+            // .call(d3.drag()
+            //     .on("start", dragstarted)
+            //     .on("drag", dragged)
+            //     .on("end", dragended));
+            // ;
 
         minorBlob.selectAll('circle').attr('class', function(d) {
                 var classString = '';
@@ -310,9 +311,9 @@ function generateElements(parameters) {
         function dragstarted(d) {
           console.log('dragging')
           console.log(d3.event, simulation)
-          if (!d3.event.active) simulation.alphaTarget(0.1).restart();
-          d.fx = d.x;
-          d.fy = d.y;
+          // if (!d3.event.active) simulation.alphaTarget(0.1).restart();
+          // d.fx = d.x;
+          // d.fy = d.y;
             // if (type == 'dynamic') {
             //     if (!d3.event.active) simulation.alphaTarget(0.1).restart();
             //     d.fx = d.x;

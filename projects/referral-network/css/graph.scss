@@ -38,7 +38,6 @@ svg text, .main-holder {
 circle {
   transition: stroke .1s linear, stroke-opacity .1s linear, stroke-width .1s linear;
   cursor: pointer;
-  opacity: .95;
 }
 circle:hover{
   mix-blend-mode: inherit;

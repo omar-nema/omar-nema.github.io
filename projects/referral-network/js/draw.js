@@ -135,7 +135,6 @@ function filterNodeData(input){
     }
     // return filteredNodeIDs.indexOf(d.source.id) > -1 || filteredNodeIDs.indexOf(d.target.id) > -1 ;
   })
-
   newForceData.nodes = filteredNodes;
   newForceData.links = filteredLinks;
 
@@ -175,7 +174,7 @@ function start(error, costData) {
       	.attr("in","SourceGraphic");
         setStyleFilter(filter);
 
-        
+
         var widthtext = width-115;
         var xheight = innerHeight - 30;
 
@@ -296,18 +295,7 @@ function start(error, costData) {
       plotBlobs(filterData(getFilters()));
     };
 
-    $('.filterheader').on('click', function(){
-      if (!$(this).hasClass('active')){
-        $(this).html('Filter');
-        $(this).addClass('active');
-        $('#filters').fadeIn(400);
-      } else {
-        $(this).html('Filter');
-        $(this).removeClass('active');
-        $('#filters').fadeOut(100);
-      }
 
-    });
 
     $('.rescale').on('click', function(){
       $(this).removeClass('inactive')

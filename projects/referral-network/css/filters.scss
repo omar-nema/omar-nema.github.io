@@ -136,6 +136,7 @@ $primary:#416bfd;
   display: none;
   border: 1px solid rgba(0,0,0,.1);
   padding: 10px;
+  line-height: 1.4rem;
 }
 .tier-2.selector {
   margin-left: 13px;
@@ -190,23 +191,26 @@ $primary:#416bfd;
   background: #f8f7f7;
   cursor:pointer;
   margin-right: 10px;
+  transition: background-color .2s linear, border-color .2s linear, color .2s linear;
+  border: .5px solid transparent;
 }
 .top-buttons div:hover {
-  border-bottom: 1.5px solid $primary;
+  background: #efeded;
+}
+.top-buttons div.filterheader.applied:hover {
+  background: #416bfd2e;
+}
+.top-buttons div.filterheader.active:hover {
+  background: $primary;
 }
 
-.top-buttons div.filterheader {
-  text-align: center;
-  z-index: 1000;
-  float: right;
-  margin-top: 0px;
-  cursor: pointer;
+.filterheader.applied {
+  background: #416bfd2e;
 }
-.filterheader:hover {
-    background: rgba(0,0,0,.04);
-}
-.top-buttons div.filterheader.active {
-  border-bottom: 1.5px solid $primary;
+
+.top-buttons div.active {
+  background: $primary;
+  color: white;
 }
 
 
@@ -257,17 +261,14 @@ display: flex;
 
 
 .box {
-
-  height: 11px;
-  width: 11px;
-  min-width: 11px;
+  height: 10px;
+  width: 10px;
+  min-width: 10px;
   margin-top: 4px;
-  border: 1.5px solid rgba(0,0,0,.3);
-  background: $primary;
   border-radius: 3px;
   cursor: pointer;
-  // box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
-  background: #726262;
+  background: #416bfdbd;
+  border: 1.5px solid $primary;
   transition: all .15s ease-in-out;
 }
 

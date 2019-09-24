@@ -136,9 +136,13 @@ body {
   font-size: 14px;
   color: gray;
   align-self: center;
+  height: 100%;
   .crumb {
     cursor: pointer;
-    padding: 10px 5px;
+    padding: 0 5px;
+    height: 100%;
+    align-items: center;
+    display: flex;
   }
   div {
     padding: 10px 5px;

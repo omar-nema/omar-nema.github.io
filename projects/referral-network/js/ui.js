@@ -1,4 +1,58 @@
 
+function setWidth(input){
+  width = input;
+}
+function getWidth(){
+  return width;
+}
+function setHeight(input){
+  height = input;
+}
+function getHeight(){
+  return height;
+}
+function setSVG(input){
+  svg = input
+}
+function getSVG(){
+  return svg;
+}
+var currData;
+function setCurrData(input){
+  currData = input;
+}
+function getCurrData(){
+  return currData;
+}
+var origData;
+function setOrigData(input){
+  origData = input;
+}
+function getOrigData(){
+  return origData;
+}
+var costData;
+function setCostData(input){
+    costData = input;
+}
+function getCostData(){
+  return costData;
+}
+function filterData(filters){
+  origData = getOrigData();
+  filtered = origData.filter(function(d, i){
+    return filters.indexOf(d.Minor) > -1;
+  })
+  if (filtered.length < origData.length){
+    numFiltered = 'Filters (' + (origData.length - filtered.length).toString()+ ')';
+    d3.select('.filterheader').classed('applied', true).text(numFiltered);
+  } else {
+    d3.select('.filterheader').classed('applied', false).text('Filters (0)');
+  }
+  currData = filtered;
+  return currData;
+}
+
 function setDescription(description){
   $('.graph-description').html(description)
 }
@@ -33,11 +87,11 @@ function setCurrentPage(input){
     $('.axis').fadeOut(transitionTime);
     $('.procedure-filters').css('display', 'none');
     if ($('.filterheader').css('display') == 'none') {
+      $('.filterheader').text('Filter')
       $('.filterheader').fadeIn(transitionTime);
     }
     $('.netbutton').hide();
     $('.zoom-out-button').show();
-    // $('.network-legend').addClass('show');
     offHover(null, d3.select('.tooltip'));
   }
   if (input == 2){
@@ -53,8 +107,8 @@ function setCurrentPage(input){
     $('.nav-item.three').removeClass('possible');
     $('.nav-item').removeClass('selected');
     $('.nav-item.two').addClass('selected');
-    $('.network-legend').removeClass('show');
-    $('.network-button').removeClass('show');
+    // $('.network-legend').removeClass('show');
+    // $('.network-button').removeClass('show');
     $('.netbutton').show(transitionTime*1.5);
     $('.zoom-out-button').html('<i class="material-icons rightarrow" >chevron_left</i>Procedures');
     $('.zoom-out-button').show(transitionTime*1.5);
@@ -92,8 +146,8 @@ function setCurrentPage(input){
     $('.nav-item').removeClass('selected');
     $('.nav-item.one').addClass('selected');
     $('.netbutton').hide();
-    $('.network-legend').removeClass('show');
-    $('.network-button').removeClass('show');
+    // $('.network-legend').removeClass('show');
+    // $('.network-button').removeClass('show');
     $('.procedure-filters').css('display', 'block');
     if ($('.axis').css('display') == 'none') {
       $('.axis').fadeIn(100);
@@ -140,20 +194,41 @@ $('#three').on('click', function(e){
   }
 });
 
+
+$('.filterheader').on('click', function(){
+  if (!$(this).hasClass('active')){
+    $(this).addClass('active');
+    $('#filters').fadeIn(400);
+  } else {
+    $(this).removeClass('active');
+    $('#filters').fadeOut(100);
+  }
+});
+
 $('.main-holder').on('click', function(e){
   $('.legend-image').hide();
-})
+  d3.select('.legend-btn').classed('active', false)
+});
+
 
 $('.legend-btn').on('click', function(e){
   currPage = getCurrentPage();
-  if (currPage == 1 ){
-    $('.legend-image').hide();
-    $('.legend-one').fadeIn(100);
-  } else if (currPage == 2){
-    $('.legend-two').fadeIn(100);
-  } else if (currPage == 3) {
-    $('.legend-three').fadeIn(100);
+  var legendBtn = d3.select(this);
+  $('.legend-image').hide();
+  if (legendBtn.classed('active')){
+    legendBtn.classed('active', false);
+  } else {
+    legendBtn.classed('active', true);
+    if (currPage == 1 ){
+      $('.legend-one').fadeIn(100);
+    } else if (currPage == 2){
+      $('.legend-two').fadeIn(100);
+    } else if (currPage == 3) {
+      $('.legend-three').fadeIn(100);
+    }
   }
+
+
 })
 
 $('.nav-page.context').on('click', function(){
@@ -252,53 +327,9 @@ function getNodeFilters(){
 }
 
 
-function setWidth(input){
-  width = input;
-}
-function getWidth(){
-  return width;
-}
-function setHeight(input){
-  height = input;
-}
-function getHeight(){
-  return height;
-}
-function setSVG(input){
-  svg = input
-}
-function getSVG(){
-  return svg;
-}
-var currData;
-function setCurrData(input){
-  currData = input;
-}
-function getCurrData(){
-  return currData;
-}
-var origData;
-function setOrigData(input){
-  origData = input;
-}
-function getOrigData(){
-  return origData;
-}
-var costData;
-function setCostData(input){
-    costData = input;
-}
-function getCostData(){
-  return costData;
-}
-function filterData(filters){
-  filtered = getOrigData().filter(function(d){
-    return filters.indexOf(d.Minor) > -1
-    ;
-  })
-  currData = filtered;
-  return currData;
-}
+
+
+
 var currBlob;
 function setCurrBlob(input){
     currBlob = input;
@@ -405,16 +436,6 @@ function setFilters(input){
 function getFilters(){
   return filters;
 }
-
-//
-// $('.with-gap').on('click', function(e){
-//   e.preventDefault();
-//   $('.with-gap').attr('checked', false);
-//   if (!$(this).attr('checked')){
-//     $(this).attr('checked', 'checked')
-//   }
-// })
-//
 
 function resetNodes(){
   d3.selectAll('circle').classed('selected-node', false);

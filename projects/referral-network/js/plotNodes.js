@@ -32,26 +32,22 @@ function plotNodes(nodes, clickedNode) {
         };
     })
 
-
-
-
     outColorScale = d3.scaleQuantize()
         .domain([0, .25, .75, 1])
         .range(['#ffb6c1', '#ff7a95', '#ff7a95', '#ff0068']);
 
     inColorScale = d3.scaleQuantize()
         .domain([0, .25, .75, 1])
-        .range(['#0058ff', '#7f96f4', '#7f96f4', '#add8e6']);
-
+        .range(['#0058ff', '#7f96f4', '#7f9f6f4', '#add8e6']);
 
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, .1, .4, .6, 1]).range([.1, .5, .8, .9, .93]);
-  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.4, .7 ,1, 1, 1])    
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .5, .6, .8, .95, 1]);
+    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .9 ,1, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
-    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.3, 1]);
-    var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1])
+    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.2, 2.0]);
+    var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
     var simulation = d3.forceSimulation(nodes)
         .alphaDecay(.05)
@@ -84,7 +80,7 @@ function plotNodes(nodes, clickedNode) {
         }))
         .stop()
 
-    var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity]
+    var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity,maxFreq]
 
     setClickedNode(clickedNode);
     generateElements(parameters);
@@ -105,6 +101,7 @@ function generateElements(parameters) {
     scaleStrokeWidth = parameters[6];
     scaleFillOpacity = parameters[7];
     scalePCPOpacity = parameters[8];
+    maxFreq = parameters[9]
 
     function returnFillOpacity(d) {
         if (d.ProviderType == 'ServiceProvider') {
@@ -157,6 +154,50 @@ function generateElements(parameters) {
             return d.id
         });
 
+        var link = minorBlob.selectAll('.link').data(forceData.links, function(d) {
+                return d.index
+            }).enter().insert('line', 'circle')
+            .style('filter', function(d){
+              if (d.rawFrequency > maxFreq/8){ //REPLACE WITH PERCENTILE
+                return 'url(#glow-hard)'
+              }
+            })
+            .attr('class', function(d) {
+                // return 'link id' + d.source.id + ' id' + d.target.id
+                var classString = '';
+
+                if (d.inNetwork == -1) {
+                    classString = classString.concat('outNetwork');
+                    return classString.concat(' link');
+                } else {
+                    classString = classString.concat('inNetwork');
+                    return classString.concat(' link');
+                }
+            });
+        link
+          .on('mouseover', function(d){})
+          .transition(300)
+            .attr('stroke', function(d) {
+                return returnColor(d.target)
+                // return returnColor(d.target.pctCost)
+            })
+            .attr("stroke-width", function(d) {
+                return scaleStrokeWidth(d.value);
+            })
+            .attr("x1", function(d) {
+                return d.source.x;
+            })
+            .attr("y1", function(d) {
+                return d.source.y;
+            })
+            .attr("x2", function(d) {
+                return d.target.x;
+            })
+            .attr("y2", function(d) {
+                return d.target.y;
+            })
+            .attr('stroke-opacity', 0.05);
+
         allNodes.enter().append('circle')
             .attr('class', function(d) {
                 var classString = '';
@@ -190,7 +231,15 @@ function generateElements(parameters) {
                 }
             })
             .style('mix-blend-mode', 'inherit')
-            .style('filter', 'inherit')
+            .style('filter', function(d){
+              if (d.pctFrequency > 0.8){
+                return 'url(#glow-hard)';
+              } else if (d.pctFrequency > .5){
+                return  'url(#glow)';
+              } else {
+                return 'url(#glow-lite)'
+              }
+            })
             .attr('z-index', 1)
             .on('click', function(d) {
                 d3.select(this).on('mouseout', function(d) {
@@ -256,46 +305,7 @@ function generateElements(parameters) {
                 return 'rgba(255,255,255,.5)';
             });
 
-        var link = minorBlob.selectAll('.link').data(forceData.links, function(d) {
-                return d.index
-            }).enter().insert('line', 'circle')
-            //.append('line')
-            .attr('class', function(d) {
-                // return 'link id' + d.source.id + ' id' + d.target.id
-                var classString = '';
 
-                if (d.inNetwork == -1) {
-                    classString = classString.concat('outNetwork');
-                    return classString.concat(' link');
-                } else {
-                    classString = classString.concat('inNetwork');
-                    return classString.concat(' link');
-                }
-            });
-
-        link
-          .on('mouseover', function(d){})
-          .transition(300)
-            .attr('stroke', function(d) {
-                return returnColor(d.target)
-                // return returnColor(d.target.pctCost)
-            })
-            .attr("stroke-width", function(d) {
-                return scaleStrokeWidth(d.value);
-            })
-            .attr("x1", function(d) {
-                return d.source.x;
-            })
-            .attr("y1", function(d) {
-                return d.source.y;
-            })
-            .attr("x2", function(d) {
-                return d.target.x;
-            })
-            .attr("y2", function(d) {
-                return d.target.y;
-            })
-            .attr('stroke-opacity', 0.05);
 
         $('.remove.btn-flat').on('mousedown', function(d) {
             minorBlob.selectAll('.link').classed('showme', false);
@@ -508,9 +518,9 @@ function generateElements(parameters) {
                 .transition()
                 .attr('stroke-opacity', function(d) {
                     if (d.source.id ==  getClickedNode().data()[0].id){
-                        return Math.max(scaleStrokeOpacity(d.value), .4);
+                        return Math.max(scaleStrokeOpacity(d.value), .6);
                     } else {
-                        return Math.max(scaleStrokeOpacity(d.value), .85);
+                        return Math.max(scaleStrokeOpacity(d.value), .6);
                     }
 
                 })

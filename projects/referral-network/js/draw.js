@@ -174,6 +174,30 @@ function start(error, costData) {
       	.attr("in","SourceGraphic");
         setStyleFilter(filter);
 
+        glowHard = defs.append('filter').attr('id', 'glow-hard')
+        glowHard.append("feGaussianBlur")
+        	.attr("stdDeviation","1.2")
+        	.attr("result","coloredBlur");
+        var glowFeMerge = glowHard.append("feMerge");
+        glowFeMerge.append("feMergeNode")
+        	.attr("in","coloredBlur");
+        glowFeMerge.append("feMergeNode")
+        	.attr("in","SourceGraphic");
+          setStyleFilter(filter);
+
+          glowLite = defs.append('filter').attr('id', 'glow-lite')
+          glowLite.append("feGaussianBlur")
+          	.attr("stdDeviation","0.25")
+          	.attr("result","coloredBlur");
+          var liteFeMerge = glowLite.append("feMerge");
+          liteFeMerge.append("feMergeNode")
+          	.attr("in","coloredBlur");
+          liteFeMerge.append("feMergeNode")
+          	.attr("in","SourceGraphic");
+            setStyleFilter(filter);
+
+
+
 
         var widthtext = width-115;
         var xheight = innerHeight - 30;

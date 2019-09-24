@@ -7,6 +7,8 @@ function plotScatter(inputNodes) {
     d3.selectAll('.link').data([]).exit().transition().remove();
     svg.attr('transform', 'translate(0,0) scale(1)')
 
+
+
     var pcps, newScales;
     if (inputNodes) {
         pcps = inputNodes.nodes.filter(function(d) {
@@ -73,19 +75,23 @@ function plotScatter(inputNodes) {
     });
     band.enter().append('path').attr('class', 'inner-band');
 
-    scatterCanvas.selectAll('.inner-band').on('mouseover', function() {}).on('click', function() {})
+    scatterCanvas.selectAll('.inner-band')
+        .on('mouseover', function() {
+          text = '<div>Distribution curve (from previous graph)</div>'
+          flatToolTip(text,  tooltip);
+          band = d3.select(this);
+          band.attr('fill-opacity', .4);
+          band.on('mouseout', function(d){
+            band.attr('fill-opacity', .2);
+            offFlat(null, tooltip);
+          })
+        })
+        .on('click', function() {})
+        .style('mix-blend-mode', 'multiply')
+        .style('stroke', 'none')
         .style('filter', 'url(#glow)')
         .transition()
-        // .style('fill', function(d) {
-        //
-        //     if (d.PercentileBands.Bands[0][0].PctInNet < 0.7){
-        //       return redScale(d.PercentileBands.Bands[0][0].CostPerEvent);
-        //     } else {
-        //       return blueScale(d.PercentileBands.Bands[0][0].CostPerEvent);
-        //     }
-        //
-        // })
-        .attr('fill-opacity', .4)
+        .attr('fill-opacity', .2)
         .attr("d", function(d) {
             d = d.PercentileBands.Bands[0];
             return rescaleLine(d)

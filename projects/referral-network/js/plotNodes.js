@@ -4,13 +4,11 @@ var outColorScale;
 
 function plotNodes(nodes, clickedNode) {
 
-
     $('.subtitle').text('Referral Network: ' + getCurrBlob()[0].Minor + ' Visits (Graph 3/3)');
-
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);
     minRad = 5;
-    maxRad = 39;
+    maxRad = 30;
     var maxFreq = d3.max(forceData.nodes, function(d) {
         return d.Frequency;
     })
@@ -23,8 +21,6 @@ function plotNodes(nodes, clickedNode) {
     var minCost = d3.min(forceData.nodes, function(d) {
         return d.CostPerEvent;
     })
-
-
     var maxPCPFreq = d3.max(forceData.nodes, function(d) {
         if (d.ProviderType == 'PCP') {
             return d.Frequency
@@ -88,20 +84,14 @@ function plotNodes(nodes, clickedNode) {
         .stop()
 
     var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity]
-    //
 
     setClickedNode(clickedNode);
-
     generateElements(parameters);
-
-
 
 }
 
 
 function generateElements(parameters) {
-
-
 
 
     clickedInd = false;
@@ -124,7 +114,6 @@ function generateElements(parameters) {
             return 1
         }
     };
-
     function returnColor(d) {
         if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0) {
             return outColorScale(d.pctCost);
@@ -180,7 +169,12 @@ function generateElements(parameters) {
                     return classString.concat(' pcp-point');
                 }
             })
-            .attr('z-index', 1);
+            .attr('z-index', 1)
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+            ;
 
         minorBlob.selectAll('circle').attr('class', function(d) {
                 var classString = '';
@@ -314,27 +308,36 @@ function generateElements(parameters) {
         $('.network-button').addClass('show');
 
         function dragstarted(d) {
-            if (type == 'dynamic') {
-                if (!d3.event.active) simulation.alphaTarget(0.1).restart();
-                d.fx = d.x;
-                d.fy = d.y;
-            }
+          console.log('dragging')
+          console.log(d3.event, simulation)
+          if (!d3.event.active) simulation.alphaTarget(0.1).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+            // if (type == 'dynamic') {
+            //     if (!d3.event.active) simulation.alphaTarget(0.1).restart();
+            //     d.fx = d.x;
+            //     d.fy = d.y;
+            // }
         }
 
         function dragged(d) {
-            if (type == 'dynamic') {
-                d.fx = d3.event.x;
-                d.fy = d3.event.y;
-            }
+          d.fx = d3.event.x;
+          d.fy = d3.event.y;
+            // if (type == 'dynamic') {
+            //     d.fx = d3.event.x;
+            //     d.fy = d3.event.y;
+            // }
         }
 
         function dragended(d) {
-            if (type == 'dynamic') {
-                if (!d3.event.active) simulation.alphaTarget(0);
-                d.fx = null;
-                d.fy = null;
-            }
-
+          if (!d3.event.active) simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+            // if (type == 'dynamic') {
+            //     if (!d3.event.active) simulation.alphaTarget(0);
+            //     d.fx = null;
+            //     d.fy = null;
+            // }
         }
         if (type == 'dynamic') {
             function ticked() {
@@ -363,7 +366,7 @@ function generateElements(parameters) {
             }
 
             var simulation = d3.forceSimulation(nodes)
-                .alphaDecay(.05)
+                .alphaDecay(.02)
                 .on('tick', ticked)
                 .force('collide', d3.forceCollide().radius(function(d) {
                     if (d.ProviderType == 'ServiceProvider') {

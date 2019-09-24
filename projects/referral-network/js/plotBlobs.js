@@ -10,8 +10,9 @@ function plotBlobs(blobInput) {
         return d.Minor
     }).entries(getCostData());
 
-    svg.attr('transform', 'translate(0,0) scale(1)');
 
+
+    svg.attr('transform', 'translate(0,0) scale(1)');
     nestedByMinor.forEach(function(d) {
         d.Major = d.values[0].Major;
     })
@@ -108,8 +109,11 @@ function plotBlobs(blobInput) {
         .on('mouseover', function(d){
           text = '<div>' + d.key + '<i class="material-icons clicktip">launch</i></div>'
           flatToolTip(text,  tooltip)
-          d3.select(this).on('mouseout', function(d){
+          band = d3.select(this);
+          band.transition().style('filter', 'none').style('mix-blend-mode', 'inherit').style('stroke', 'rgba(0,0,0,.3)');
+          band.on('mouseout', function(d){
             offFlat(null, tooltip)
+            band.style('mix-blend-mode', 'multiply').style('filter', 'url(#glow)').style('stroke', 'none')
           })
         })
         .on('click', function(d) {
@@ -162,7 +166,6 @@ function plotBlobs(blobInput) {
 
             });
         })
-
         .style('filter', 'url(#glow)')
         .style('fill', function(d) {
             if (d.PercentileBands.Bands[0][0].PctInNet < 0.7){
@@ -170,8 +173,6 @@ function plotBlobs(blobInput) {
             } else {
               return blueScale(d.PercentileBands.Bands[0][0].CostPerEvent);
             }
-            // d = d.PercentileBands.Bands[0];
-            // return colorScale(d[0].PctInNet)
         })
         .transition()
         .attr("d", function(d) {
@@ -179,20 +180,7 @@ function plotBlobs(blobInput) {
             return innerline(d)
         })
         .attr('fill-opacity', 1)
-
         ;
-        // minorPoints.enter().append('circle').attr('class', 'minor-point median');
-        // svg.selectAll('.minor-point.median')
-        //     .attr('r', 2)
-        //     .attr('cx', function(d) {
-        //         d = d.PercentileBands;
-        //         return xScale(d.Median.CostPerEvent)
-        //     })
-        //     .attr('cy', function(d) {
-        //         d = d.PercentileBands;
-        //         return yScale(d.Median.EventsPer1000)
-        //     });
-
       minorBands.exit().transition().style('fill-opacity', 0).remove();
       minorPoints.exit().transition().style('fill-opacity', 0).remove();
 

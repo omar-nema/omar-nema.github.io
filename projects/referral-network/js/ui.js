@@ -5,7 +5,7 @@ function setDescription(description){
 
 //more about the dataset
 
-var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the pattern into individual points."
+var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the distribution into individual points."
 
 var desc2 = "For the selected procedure category, referral patterns for individual practices are shown. Clicking an individual practice will zoom into the full referral network for the selected provider."
 

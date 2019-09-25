@@ -1,3 +1,8 @@
+var width, height;
+width = $('.main-holder').width()- 60;
+height = .65*width;
+setWidth(width);
+setHeight(height);
 
 function setWidth(input){
   width = input;
@@ -295,7 +300,6 @@ function setStyleFilter(input){
 function getStyleFilter(){
   return styleFilter;
 }
-
 function getLinks(source, target){
   links = filterNodeData(getCurrNodes()).links;
   var sourceInd;
@@ -352,6 +356,14 @@ function resetNodes(){
 }
 var filterState = false;
 function setFilterState(ind){
+  if (!ind){
+    lowerThumb =  d3.selectAll('.thumb.thumb-lower');
+    upperThumb =  d3.selectAll('.thumb.thumb-upper');
+    lowerThumb.style('left', 0);
+    lowerThumb.selectAll('.thumb-tooltip').text('0.0')
+    upperThumb.style('left', '100%');
+    upperThumb.selectAll('.thumb-tooltip').text('1.0')
+  }
   filterState = ind;
 }
 function getFilterActive(){
@@ -365,10 +377,90 @@ function getNodeFilters(){
     nodeFilters.push([parseInt($('.cost .thumb-lower').get(0).style.left)/100,parseInt($('.cost .thumb-upper').get(0).style.left)/100]);
     nodeFilters.push([parseInt($('.frequency .thumb-lower').get(0).style.left)/100,parseInt($('.frequency .thumb-upper').get(0).style.left)/100]);
   } else {
-    nodeFilters = [[0,0], [0,0], 'both'];
+    nodeFilters = [[0,1], [0,1], 'both'];
   }
   return nodeFilters;
 }
+
+function filterNodeData(input){
+  thisfilter = getNodeFilters();
+  var newForceData = jQuery.extend({}, input);
+  var networkState = $("input:checked" ).attr('id')
+
+  var filteredNodes = newForceData.nodes.filter(function(d){
+    if (d.ProviderType == 'ServiceProvider'){
+      var netState;
+      if (networkState == 'both'){
+        netState = true;
+      } else {
+        netState = false;
+        if (d.InNetwork == 1 && networkState == 'in'){
+          netState = true;
+        } else if (d.InNetwork == 0 && networkState == 'out') {
+          netState = true;
+        }
+      }
+      return d.pctFrequency > thisfilter[1][0] && d.pctFrequency < thisfilter[1][1] && d.pctCost > thisfilter[0][0] && d.pctCost < thisfilter[0][1] && netState;
+    };
+  })
+  if (getClickedNode()){
+    filteredNodes.push(clickedNode.data()[0]);
+  }
+  filteredNodeIDs = filteredNodes.map(function(d){
+    return d.id
+  })
+
+  filteredLinks = newForceData.links.filter(function(d){
+    if (filteredNodeIDs.indexOf(d.source.id) > -1 || filteredNodeIDs.indexOf(d.target.id) > -1){
+      if (filteredNodeIDs.indexOf(d.source.id) == -1){
+        filteredNodes.push(d.source)
+      }
+      if (filteredNodeIDs.indexOf(d.target.id) == -1){
+        filteredNodes.push(d.target);
+      }
+      return d;
+    }
+    // return filteredNodeIDs.indexOf(d.source.id) > -1 || filteredNodeIDs.indexOf(d.target.id) > -1 ;
+  })
+  newForceData.nodes = filteredNodes;
+  newForceData.links = filteredLinks;
+
+  return newForceData;
+}
+
+var offset = 0;
+//ZOOM FUNCTIONS
+var svg = d3.select("#graph-1").select('.main-holder').append('svg').attr('class', 'main').attr('height', getHeight()).attr('width', getWidth()).attr('x', 0).attr('y', 0);
+svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 30).attr('y',-20).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
+setSVG(svg);
+
+var zoom = d3.zoom()
+.scaleExtent([1, 5])
+.translateExtent([[getWidth()/-10000, -99999999], [999999999,getHeight()+10]])
+.on('zoom', function() {
+    var t = d3.event.transform;
+    // t.x = Math.min
+    d3.select('.zoomable').attr("transform", t);
+    var xAxis = getAxes()[0];
+    var yAxis = getAxes()[1];
+    d3.select(".x.axis").call(xAxis.scale(d3.event.transform.rescaleX(getScales()[0])));
+    d3.select(".y.axis").call(yAxis.scale(d3.event.transform.rescaleY(getScales()[1])));
+    $('.rescale').removeClass('inactive');
+});
+function resetted() {
+    svg.transition()
+        .duration(750)
+        .call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(1));
+}
+d3.select('svg').call(zoom).on("dblclick.zoom", null).on("click.zoom", null);
+$('.rescale').on('click', function(){
+  $(this).removeClass('inactive')
+  // t.x = Math.min
+  d3.select('.zoomable').transition().duration(300).call(zoom.transform, d3.zoomIdentity.translate(0,0).scale(1));
+  $('.rescale').removeClass('inactive');
+
+})
+
 
 //NODE FILTER UI ELEMENTS
 function setThumbToolTip(thumb, slider){

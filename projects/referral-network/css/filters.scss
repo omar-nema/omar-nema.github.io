@@ -99,12 +99,7 @@ $primary:#416bfd;
   margin-top: 13px;
   margin-bottom: 10px;
 }
-.nodebody.specialists .slider, .nodebody.specialists .radio {
-    opacity: .3;
-}
-.nodebody.specialists:hover .radio, .nodebody.specialists:hover .slider, .nodebody.specialists.active .slider,  .nodebody.specialists.active .radio {
-  opacity: 1;
-}
+
 .node-filters {
    padding: 5px 10px;
 }

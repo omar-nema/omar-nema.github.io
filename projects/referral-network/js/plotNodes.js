@@ -32,17 +32,17 @@ function plotNodes(nodes, clickedNode) {
             return d.Frequency
         };
     })
-    var serviceColorScale =  d3.scaleLinear()
-        .domain([0, .25, .5, .75, 1])
-        .range(['#0058ff', '#7f96f4', '#a2a2a2' ,'#ff7a95', '#ff0068']);
+    var serviceColorScale =  d3.scaleQuantize()
+        .domain([0, 1])
+        .range(['#03caa5', '#03caa5','#c0c0c5' , '#d287ef', '#d287ef']);
 
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .6, .8, .9, .95, 1]);
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.15, .2, .8, .9, .95, 1]);
     var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .9 ,1, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
-    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.05, 3.5]);
+    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
     var simulation = d3.forceSimulation(nodes)
@@ -71,7 +71,7 @@ function plotNodes(nodes, clickedNode) {
                 return d.id
             }))
         .force('charge', d3.forceManyBody().strength(function(d) {
-            return -80;
+            return -60;
         }))
         .stop()
 
@@ -153,7 +153,7 @@ function generateElements(parameters) {
                 return d.index
             }).enter().insert('line', 'circle')
             .style('filter', function(d){
-              if (d.rawFrequency > maxFreq/8){ //REPLACE WITH PERCENTILE
+              if (d.rawFrequency > maxFreq/8){
                 return 'url(#glow-hard)'
               }
             })
@@ -227,10 +227,12 @@ function generateElements(parameters) {
             })
             .style('mix-blend-mode', 'inherit')
             .style('filter', function(d){
-              if (d.pctFrequency > 0.8){
-                return 'url(#glow-hard)';
-              } else {
-                return  'url(#glow)';
+              if (d.ProviderType == 'ServiceProvider'){
+                if (d.pctFrequency > 0.8 ){
+                  return 'url(#glow)';
+                } else {
+                  return  'url(#glow-lite)';
+                }
               }
             })
             .attr('z-index', 1)
@@ -274,16 +276,35 @@ function generateElements(parameters) {
                     highlightRoutes(clickedNode);
                 });
             })
-            .attr('stroke-opacity', '0.3')
             .attr('fill-opacity', '0.05')
             .attr('fill', function(d) {
-              console.log(d, returnColor(d))
-                return returnColor(d);
+              if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 1){
+                return serviceColorScale(d.pctCost);
+              } else if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
+                return '#f9f6f6';
+              }
+              else {
+                  return '#717171'
+              }
             })
-            // .transition()
+            .attr('stroke', function(d) {
+              if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
+                  return returnColor(d);
+              }
+              else  {
+                return '#808080a6';
+              }
+            })
+            .attr('stroke-width', function(d){
+              if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
+                  return pointRadiusScale(d.Frequency)/5;
+              } else  {
+                return 0.5;
+              }
+            })
             .attr('r', function(d) {
                 if (d.ProviderType == 'PCP') {
-                    return 3;
+                    return 2;
                 } else {
                     return pointRadiusScale(d.Frequency);
                 }
@@ -293,11 +314,8 @@ function generateElements(parameters) {
             })
             .attr("cy", function(d) {
                 return d.y;
-            })
-            .attr('stroke-width', '0.5')
-            .attr('stroke', function(d) {
-                return 'white';
             });
+
 
 
 
@@ -396,7 +414,6 @@ function generateElements(parameters) {
     function highlightRoutes() {
 
         minorBlob = getSVG();
-
         $('.node-provider-button').on('click', function() {
             setFilterState(true);
             resetNodes();
@@ -409,23 +426,6 @@ function generateElements(parameters) {
         var selectedLines = minorBlob.selectAll('.link').data(filtered.links, function(d) {
             return d.index
         });
-
-        // selectedNodes
-        //     .on('mouseover', function(d){ //only show servicing provider mouseovers
-        //       if (d.ProviderType == 'ServiceProvider') {
-        //          if (d.InNetwork == 1) {
-        //              networkString = 'In Network'
-        //          } else {
-        //              networkString = 'Out of Network'
-        //          }
-        //          text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
-        //          flatToolTip(text, tooltip);
-        //          d3.select(this).on('mouseout', function(d) {
-        //              offFlat(null, tooltip)
-        //          })
-        //      }
-        //
-        //    });
 
         selectedNodes.exit()
               .on('mouseover', function(d){ //only show servicing provider mouseovers
@@ -447,12 +447,14 @@ function generateElements(parameters) {
             .attr('fill-opacity', 0.05)
             ;
 
-        selectedLines.exit()
-            .transition()
-            .attr('stroke-opacity', 0.05);
-        selectedNodes
-            .attr('stroke-width', 0.3)
-            .attr('stroke', 'rgba(0,0,0,.1)')
+
+            //why does htis exist
+        // selectedLines.exit()
+        //     .transition()
+        //     .attr('stroke-opacity', 0.05);
+        // selectedNodes
+        //     .attr('stroke-width', 0.3)
+        //     .attr('stroke', 'rgba(0,0,0,.1)')
 
         if (getClickedNode()) {
           var clickednode = getClickedNode();

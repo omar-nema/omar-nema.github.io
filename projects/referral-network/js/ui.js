@@ -38,6 +38,14 @@ function setCostData(input){
 function getCostData(){
   return costData;
 }
+var currBlob;
+function setCurrBlob(input){
+    currBlob = input;
+}
+function getCurrBlob(){
+  return currBlob;
+}
+
 function filterData(filters){
   origData = getOrigData();
   filtered = origData.filter(function(d, i){
@@ -56,17 +64,6 @@ function filterData(filters){
 function setDescription(description){
   $('.graph-description').html(description)
 }
-
-//more about the dataset
-
-var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the distribution into individual points."
-
-var desc2 = "For the selected procedure category, referral patterns for individual practices are shown. Clicking an individual practice will zoom into the full referral network for the selected provider."
-
-var desc3 = "For the selected procedure category, all referrals over a 12 month period are visualized below. Each point in this graph represents an individual practice. Gray points are referring providers, and colored show servicing facilities."
-
-var transitionTime = 150;
-
 function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
@@ -160,7 +157,19 @@ function getCurrentPage(){
   return currentPage;
 };
 
-//why not setcurrpage?
+
+//more about the dataset
+
+var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the distribution into individual points."
+
+var desc2 = "For the selected procedure category, referral patterns for individual practices are shown. Clicking an individual practice will zoom into the full referral network for the selected provider."
+
+var desc3 = "For the selected procedure category, all referrals over a 12 month period are visualized below. Each point in this graph represents an individual practice. Gray points are referring providers, and colored show servicing facilities."
+
+var transitionTime = 150;
+
+
+//NAVIGATION
 function zoomMeOut(){
   zoomed = true;
   d3.selectAll('.axis').transition().style('opacity', 1);
@@ -171,6 +180,8 @@ function zoomMeOut(){
   }
 }
 
+
+//EVENT HANDLERS
 $('#one').on('click', function(e){
   if (getCurrentPage() == 2){
     zoomMeOut();
@@ -193,8 +204,6 @@ $('#three').on('click', function(e){
     plotNodes(getCurrNodes().nodes);
   }
 });
-
-
 $('.filterheader').on('click', function(){
   if (!$(this).hasClass('active')){
     $(this).addClass('active');
@@ -204,13 +213,10 @@ $('.filterheader').on('click', function(){
     $('#filters').fadeOut(100);
   }
 });
-
 $('.main-holder').on('click', function(e){
   $('.legend-image').hide();
   d3.select('.legend-btn').classed('active', false)
 });
-
-
 $('.legend-btn').on('click', function(e){
   currPage = getCurrentPage();
   var legendBtn = d3.select(this);
@@ -230,7 +236,6 @@ $('.legend-btn').on('click', function(e){
 
 
 })
-
 $('.nav-page.context').on('click', function(){
   $('.nav-page.visual').removeClass('selected');
   $(this).attr('class', 'nav-page context selected');
@@ -247,103 +252,12 @@ $('.nav-page.visual').on('click', function(){
 })
 
 
-
-
-
-function modalChecker() {
-    if (count == 0) {
-        count = count + 1;
-        $('.modal').removeClass('three').removeClass('two').removeClass('one').addClass('one');
-    } else if (count == 1) {
-        count = count + 1;
-        $('.modal').removeClass('three').removeClass('two').removeClass('one').addClass('two');
-    } else if (count == 2) {
-        $('.modal-next').text('Done')
-        count = count + 1;
-        $('.modal').removeClass('three').removeClass('two').removeClass('one').addClass('three');
-    } else {
-        count = 0;
-    }
-}
-$('.help-button').on('click', function() {
-    count = getCurrentPage() - 1;
-    $('.modal-next').text('Next')
-    modalChecker();
-    $('.modal').openModal();
-});
-$('.modal-linked').on('click', function() {
-    count = 0;
-    $('.modal-next').text('Next')
-    modalChecker();
-    $('.modal').openModal();
-});
-
-$('.modal-next').on('click', function() {
-    if (count == 3) {
-        $('.modal').closeModal();
-    } else {
-        modalChecker();
-    }
-});
-
-
-////first we show only the selected PCP and fields
-//click apply on filter and get all the specialists (filterActive)
-
-//click remove on filter to remove all the specialists (filterInactive)
-//click remove on selection to get all points (filterActive)
-
-//filterApplied, filterNotApplied
-
-var filterState = false;
-function setFilterState(ind){
-  filterState = ind;
-}
-function getFilterActive(){
-  return filterState;
-}
-
-
-var nodeFilters = [];
-
-
-
-function getNodeFilters(){
-  //only works after filter is actually opened ? say wha mama
-  //set initial values to 0 and 100
-  //set and get methods
-  //starts at 0 and 100
-  nodeFilters = [];
-  if (filterState){
-    sliderWidth = $('.slider').width();
-
-    nodeFilters.push([parseInt($('.cost .thumb-lower').get(0).style.left)/100,parseInt($('.cost .thumb-upper').get(0).style.left)/100]);
-    nodeFilters.push([parseInt($('.frequency .thumb-lower').get(0).style.left)/100,parseInt($('.frequency .thumb-upper').get(0).style.left)/100]);
-  } else {
-    nodeFilters = [[0,0], [0,0], 'both'];
-  }
-  console.log(nodeFilters)
-  return nodeFilters;
-}
-
-
-
-
-
-var currBlob;
-function setCurrBlob(input){
-    currBlob = input;
-}
-function getCurrBlob(){
-  return currBlob;
-}
-
+//NODE ACCESSORS
 var clickedNode;
 var clickedNodeTargets;
 function setClickedNode(input){
 
   d3.selectAll('circle').classed('selected-node', false)
-
 
   if (input){
     d = input.data()[0];
@@ -371,7 +285,16 @@ function setClickedNode(input){
   clickedNode = input;
 
 }
-
+function getClickedNode(){
+  return clickedNode;
+}
+var styleFilter;
+function setStyleFilter(input){
+  styleFilter = input;
+}
+function getStyleFilter(){
+  return styleFilter;
+}
 
 function getLinks(source, target){
   links = filterNodeData(getCurrNodes()).links;
@@ -387,23 +310,7 @@ function getLinks(source, target){
   })
   return [link[0], sourceInd];
 }
-
-
-
-function getClickedNode(){
-  return clickedNode;
-}
-var styleFilter;
-function setStyleFilter(input){
-  styleFilter = input;
-}
-function getStyleFilter(){
-  return styleFilter;
-}
-
-
 var currNodes;
-
 function nodeData(input) {
     forceData = getNetworkMapData(input);
 
@@ -436,7 +343,6 @@ function setFilters(input){
 function getFilters(){
   return filters;
 }
-
 function resetNodes(){
   d3.selectAll('circle').classed('selected-node', false);
   setClickedNode(undefined);
@@ -444,42 +350,38 @@ function resetNodes(){
   $('.selected-content').html(text)
   setTimeout(function(){$('.node-filter-button').trigger('click');}, 100)
 }
-
-function getColors(){
-  //dark blue, light blue , light red, dark red
-  return ['#7F96F4', '#c0c0fb','#ffb3bf', '#FF0068' ]
+var filterState = false;
+function setFilterState(ind){
+  filterState = ind;
+}
+function getFilterActive(){
+  return filterState;
+}
+var nodeFilters = [];
+function getNodeFilters(){
+  nodeFilters = [];
+  if (filterState){
+    sliderWidth = $('.slider').width();
+    nodeFilters.push([parseInt($('.cost .thumb-lower').get(0).style.left)/100,parseInt($('.cost .thumb-upper').get(0).style.left)/100]);
+    nodeFilters.push([parseInt($('.frequency .thumb-lower').get(0).style.left)/100,parseInt($('.frequency .thumb-upper').get(0).style.left)/100]);
+  } else {
+    nodeFilters = [[0,0], [0,0], 'both'];
+  }
+  return nodeFilters;
 }
 
-
-// $('.netbutton').on('click', function(){
-//   d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
-//   setCurrentPage(3);
-//   setFilterState(true)
-//   resetNodes();
-//   plotNodes(getCurrNodes().nodes);
-
-  // $('.selection-status.nodebody').html('<div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div>')
-  // $('.node-filter-button').trigger('click');
-
-// });
-
-
-
-
+//NODE FILTER UI ELEMENTS
 function setThumbToolTip(thumb, slider){
     var pct;
     pct = Math.abs(100*(thumb.offset().left-slider.offset().left+thumb.width())/slider.width());
     // thumb.find('.thumb-tooltip').html((pct/100).toFixed(1));
     return pct;
 };
-
 function mouseOverSlider(){
     // $(this).find('.thumb-tooltip').css('display', 'block');
     setThumbToolTip($(this).find('.thumb-upper'), $(this));
     setThumbToolTip($(this).find('.thumb-lower'), $(this));
 };
-
-//GET GRANULAR HERE
 function mouseDownThumb(){
 
     var thumb  = $(this);
@@ -501,6 +403,7 @@ function mouseDownThumb(){
     // };
     sliderParent.mouseup(mouseUpSlider).mouseleave(mouseUpSlider);
 };
+$('.thumb').mousedown(mouseDownThumb);
 function sliderMouseMove(sliderParent, thumb, lowerbound, upperbound, lower, upper, thumbToolTip, event){
     var cssproperty;
     event.preventDefault();
@@ -528,8 +431,6 @@ function sliderMouseMove(sliderParent, thumb, lowerbound, upperbound, lower, upp
     // sliderParent.mouseleave(function(){sliderParent.unbind('mousemove')});
 
 };
-
-//mouseleave triggers a data update
 function mouseUpSlider(){
     $(this).unbind('mousemove');
     if (!$('.node-filter-button').hasClass('active')){
@@ -538,7 +439,6 @@ function mouseUpSlider(){
     $(this).unbind('mouseup');
     $(this).unbind('mouseleave')
 };
-
 function mouseLeaveSlider(){
     // $(this).find('.thumb-tooltip').css('display', 'none');
 };
@@ -548,13 +448,7 @@ $('.with-gap').on('click', function(){
   }
 });
 
-
-$('.thumb').mousedown(mouseDownThumb);
-//.mouseout(function(){$(this).removeClass('thumb-active')})
-
-// $('.slider-block').mouseUp()
-// $('.slider').mouseup(function(){
-//   $('.thumb').mousemove(function(){})
-// });
-
-//.mouseover(function(){$(this).addClass('thumb-active')});
+//HELPERS
+function getColors(){
+  return ['#7F96F4', '#c0c0fb','#ffb3bf', '#FF0068' ]
+}

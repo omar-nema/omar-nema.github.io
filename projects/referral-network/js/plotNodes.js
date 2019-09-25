@@ -1,6 +1,7 @@
 var simulation, scaleColor, scaleOpacity, pointRadiusScale, minRad, maxRad;
 var inColorScale;
 var outColorScale;
+var serviceColorScale;
 
 function plotNodes(nodes, clickedNode) {
 
@@ -31,22 +32,17 @@ function plotNodes(nodes, clickedNode) {
             return d.Frequency
         };
     })
-
-    outColorScale = d3.scaleQuantize()
-        .domain([0, .25, .75, 1])
-        .range(['#ffb6c1', '#ff7a95', '#ff7a95', '#ff0068']);
-
-    inColorScale = d3.scaleQuantize()
-        .domain([0, .25, .75, 1])
-        .range(['#0058ff', '#7f96f4', '#7f9f6f4', '#add8e6']);
+    var serviceColorScale =  d3.scaleLinear()
+        .domain([0, .25, .5, .75, 1])
+        .range(['#0058ff', '#7f96f4', '#a2a2a2' ,'#ff7a95', '#ff0068']);
 
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .5, .6, .8, .95, 1]);
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .6, .8, .9, .95, 1]);
     var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .9 ,1, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
-    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.2, 2.0]);
+    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.05, 3.5]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
     var simulation = d3.forceSimulation(nodes)
@@ -75,12 +71,11 @@ function plotNodes(nodes, clickedNode) {
                 return d.id
             }))
         .force('charge', d3.forceManyBody().strength(function(d) {
-            // console.log(d);
-            return -50;
+            return -80;
         }))
         .stop()
 
-    var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity,maxFreq]
+    var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity,maxFreq, serviceColorScale]
 
     setClickedNode(clickedNode);
     generateElements(parameters);
@@ -102,6 +97,7 @@ function generateElements(parameters) {
     scaleFillOpacity = parameters[7];
     scalePCPOpacity = parameters[8];
     maxFreq = parameters[9]
+    serviceColorScale = parameters[10];
 
     function returnFillOpacity(d) {
         if (d.ProviderType == 'ServiceProvider') {
@@ -109,14 +105,13 @@ function generateElements(parameters) {
         } else if (d.ProviderType == 'PCP') {
             return scalePCPOpacity(d.Frequency);
         } else {
-            return 1
+            return 1;
         }
     };
     function returnColor(d) {
-        if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0) {
-            return outColorScale(d.pctCost);
-        } else if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 1)
-            return inColorScale(d.pctCost);
+        if (d.ProviderType == 'ServiceProvider'){
+          return serviceColorScale(d.pctCost);
+        }
         else {
             return '#717171'
         }
@@ -234,10 +229,8 @@ function generateElements(parameters) {
             .style('filter', function(d){
               if (d.pctFrequency > 0.8){
                 return 'url(#glow-hard)';
-              } else if (d.pctFrequency > .5){
-                return  'url(#glow)';
               } else {
-                return 'url(#glow-lite)'
+                return  'url(#glow)';
               }
             })
             .attr('z-index', 1)
@@ -281,15 +274,16 @@ function generateElements(parameters) {
                     highlightRoutes(clickedNode);
                 });
             })
-            .attr('stroke-opacity', '0.05')
+            .attr('stroke-opacity', '0.3')
             .attr('fill-opacity', '0.05')
             .attr('fill', function(d) {
+              console.log(d, returnColor(d))
                 return returnColor(d);
             })
             // .transition()
             .attr('r', function(d) {
                 if (d.ProviderType == 'PCP') {
-                    return 3.5;
+                    return 3;
                 } else {
                     return pointRadiusScale(d.Frequency);
                 }
@@ -300,9 +294,9 @@ function generateElements(parameters) {
             .attr("cy", function(d) {
                 return d.y;
             })
-            .attr('stroke-width', '0.3')
+            .attr('stroke-width', '0.5')
             .attr('stroke', function(d) {
-                return 'rgba(255,255,255,.5)';
+                return 'white';
             });
 
 
@@ -399,7 +393,6 @@ function generateElements(parameters) {
     }
 
 
-
     function highlightRoutes() {
 
         minorBlob = getSVG();
@@ -457,8 +450,6 @@ function generateElements(parameters) {
         selectedLines.exit()
             .transition()
             .attr('stroke-opacity', 0.05);
-
-
         selectedNodes
             .attr('stroke-width', 0.3)
             .attr('stroke', 'rgba(0,0,0,.1)')
@@ -557,7 +548,6 @@ function generateElements(parameters) {
         if ($(this).hasClass('active')) {
             setFilterState(false);
             $(this).removeClass('active')
-            $('.nodebody.specialists').removeClass('active');
             if (!$('.node-filter-button').hasClass('active')) {
                 $('.node-filter-button').addClass('active');
             }
@@ -569,7 +559,7 @@ function generateElements(parameters) {
         // filterNodeData(getCurrNodes());
         if ($(this).hasClass('active')) {
             $(this).removeClass('active')
-            $('.nodebody.specialists').addClass('active');
+            // $('.nodebody.specialists').addClass('active');
             $(this).removeClass('active');
             setFilterState(true);
             if (!$('.node-remove-button').hasClass('active')) {
@@ -578,8 +568,6 @@ function generateElements(parameters) {
         }
         highlightRoutes();
     });
-
-
 
 
 }

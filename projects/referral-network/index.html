@@ -181,13 +181,13 @@
         <header class="block-header" id="context"><span>Context</span></header>
         <div class="block-text">
             <p>
-              In my day job at Arcadia.io, I was tasked with designing and managing a <a target="_blank" href="../../projects/me.txt/">Referral Optimization Product</a>. In an attempt to understand the problem space, I started to explore referral pattern data.
+              In my day job at Arcadia.io, I was tasked with designing and managing a <a target="_blank" href="../../projects/me.txt/">Referral Optimization Product</a>. In an attempt to understand the problem space, I started to explore outpatient referral data.
             </p>
             <p>
-              Referral patterns are complex, composed of thousands of relationships between referring provider and specialist. While exploring the data, I found that standard analytic techniques were too rigid for developing an intution. I needed to move fluidly between trends, and individual referral paths.
+              Referral patterns are complex, composed of thousands of relationships between referring provider and specialist. While exploring the data, I found that standard analytic techniques were too rigid for developing an intution for referral networks. I needed to move fluidly between trends, and individual referral paths.
             </p>
             <p>
-              'Network Explorer' was created out of a desire to explore referral networks and the underlying relationships that hold them together. I designed and developed the project independently, and displayed it at the HIMSS Health IT conference.
+              'Network Explorer' was created out of a desire to explore networks and the underlying relationships that hold them together. I designed and developed the project independently, and displayed it at the HIMSS Health IT conference.
             </p>
         </div>
       </section>
@@ -199,10 +199,10 @@
         <div class="subheader">Collecting Data</div>
         <div class="block-text">
           <p>
-            The underlying dataset for this project was taken from a client database at Arcadia.io. The dataset contains one year of referral data from a large health system in Northeastern US.
+            The underlying dataset for this project was taken from a client database at Arcadia.io. It contains one year of referral data from a large health system in Northeastern US.
           </p>
           <p>
-            In order to assess cost variance, I aggregated the data set to the procedure (CPT) code level (as these codes are used directly for billing). I chose to focus on the most common procedure within each procedure category (i.e. 'Cardiovascular', 'Nervous'). I then sliced the data by 'referral path' - creating one row for each set of referrals from a given provider to a specialist.
+            In order to assess cost variance, I aggregated the data set to the procedure (CPT) code level (procedure codes are intended to be fixed in cost). I chose to focus on the most common procedure within each procedure category (i.e. 'Cardiovascular', 'Nervous'). I then sliced the data by 'referral path' - creating one row for each set of referrals from a given provider to a specialist.
           </p>
         </div>
         <div class="subheader">Visualizing Dataset</div>
@@ -220,7 +220,7 @@
         <div class="block-text">
           <div class="subheader">Visual Flow</div>
           <p>
-            'Network Explorer' is enables users assess referral patterns at different grains: from procedures to individual referrals for a given provider.
+            'Network Explorer' enables users to assess referral patterns at the procedure, practice, and referral level. The flow between these grains is sequential, as the user drills down further.
           </p>
         </div>
         <div class="block-image-container">
@@ -245,7 +245,7 @@
     <script src="../project-assets/js/projects.js"></script>
     <script src="js/lib/queue.min.js"></script>
     <script src="js/lib/jquery-1.10.2.min.js"></script>
-    <script src="js/ui.js"></script>    
+    <script src="js/ui.js"></script>
     <script src="js/helpers.js"></script>
     <script src="js/prepData.js"></script>
     <script src="js/plotBlobs.js"></script>

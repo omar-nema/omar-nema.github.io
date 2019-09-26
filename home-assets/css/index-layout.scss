@@ -17,6 +17,38 @@ $header-primary: black;
   font-size: 28px;
   font-weight: 700;
 }
+.about-page {
+  opacity: 0;
+  display: none;
+  margin: auto;
+  max-width: 600px;
+  margin-top: 50px;
+  line-height: 1.4rem;
+  font-size: 16px;
+}
+.about-header {
+  font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 40px;
+    span {
+      border-bottom: 2px solid black;
+      padding-bottom: 5px;
+    }
+}
+.download-btn {
+  width: auto;
+  display: inline-block;
+  color: #416bfd;
+  border: 1px solid #416bfd;
+  background: white;
+  padding: 5px 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color .15s linear;
+}
+.download-btn:hover {
+  background: #f3f3f9;
+}
 .constr {
   color: blue;
     border: 2px solid blue;

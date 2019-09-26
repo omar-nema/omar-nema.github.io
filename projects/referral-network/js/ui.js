@@ -321,7 +321,7 @@ function setClickedNode(input){
     var numberString = '';
     var freqString = '';
     if (d.ProviderType == 'PCP'){
-      typeString = '<span class="provspan">PCP (' + Math.round(100*d.PctInNet) + '% In Network)</span>';
+      typeString = '<span class="provspan">Practice (' + Math.round(100*d.PctInNet) + '% In Network)</span>';
       freqString = Math.round(d.EventsPer1000) + ' events/1000 (' + Math.round(100*d.pctFrequency) + ' percentile)';
     } else {
       freqString = Math.round(d.Frequency) + ' events (' + Math.round(100*d.pctFrequency) + ' percentile)';
@@ -331,9 +331,8 @@ function setClickedNode(input){
         typeString ='<span class="provspan">Specialist - Out of Network</span>'
       }
     }
-    //routed to x specialists
 
-
+    //update text inf ilter
     text = '<div class="selection-status nodebody">' + typeString + '<br>Cost/Event: '+ Math.round(d.CostPerEvent) + ' (' + Math.round(100*d.pctCost) + ' percentile) '+ '<br> Frequency: ' + freqString + '</div><div class="btn-flat dist node-provider-button">Remove</div></div>'
     d3.select('.selected-content').html(text);
   }
@@ -365,6 +364,7 @@ function getLinks(source, target){
   return [link[0], sourceInd];
 }
 var currNodes;
+//this is used by second graph
 function nodeData(input) {
     forceData = getNetworkMapData(input);
 
@@ -426,6 +426,8 @@ function getNodeFilters(){
     sliderWidth = $('.slider').width();
     nodeFilters.push([parseInt($('.cost .thumb-lower').get(0).style.left)/100,parseInt($('.cost .thumb-upper').get(0).style.left)/100]);
     nodeFilters.push([parseInt($('.frequency .thumb-lower').get(0).style.left)/100,parseInt($('.frequency .thumb-upper').get(0).style.left)/100]);
+  } else if (getClickedNode()) {
+    nodeFilters = [[0,0], [0,0]];
   } else {
     nodeFilters = [[0,1], [0,1], 'both'];
   }

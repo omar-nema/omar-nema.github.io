@@ -2,8 +2,8 @@
 @import '../../project-assets/css/project-styles';
 @import 'filters';
 @import 'graph';
-$max-width: 800px;
-$width: 65vw;
+$max-width: 1000px;
+$width: 80vw;
 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.15);
@@ -229,9 +229,6 @@ body {
   width: 100%;
   padding: 20px;
   padding-right: 10px;
-}
-.about-page {
-  opacity: 0;
 }
 .graph-holder {
   width: auto;

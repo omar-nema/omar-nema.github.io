@@ -6,6 +6,7 @@ var simulation;
 
 function plotNodes(nodes, clickedNode) {
 
+
     $('.subtitle').text('Referral Network: ' + getCurrBlob()[0].Minor + ' Visits (Graph 3/3)');
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);
@@ -41,6 +42,7 @@ function plotNodes(nodes, clickedNode) {
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
     var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.05, .2, .8, .9, .95, 1]);
+
     var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .1 ,.5, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
     var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
@@ -199,12 +201,7 @@ function generateElements(parameters) {
                     return classString.concat(' pcp-point');
                 }
             })
-            .attr('z-index', 1)
-            .call(d3.drag()
-                .on("start", dragstarted)
-                .on("drag", dragged)
-                .on("end", dragended));
-            ;
+            .attr('z-index', 1);
 
         minorBlob.selectAll('circle').attr('class', function(d) {
                 var classString = '';
@@ -322,7 +319,6 @@ function generateElements(parameters) {
         $('.network-button').addClass('show');
 
         function dragstarted(d) {
-          console.log(d3.event.active)
           simulation.restart();
           // if (!d3.event.active) simulation.alphaTarget(0.1).restart();
           //
@@ -401,6 +397,7 @@ function generateElements(parameters) {
         });
 
         var filtered = filterNodeData(getCurrNodes());
+
         var selectedNodes = minorBlob.selectAll('circle').data(filtered.nodes, function(d) {
             return d.id
         });
@@ -428,14 +425,12 @@ function generateElements(parameters) {
             .attr('fill-opacity', 0.05)
             ;
 
-
-            //why does htis exist
-        // selectedLines.exit()
-        //     .transition()
-        //     .attr('stroke-opacity', 0.05);
-        // selectedNodes
-        //     .attr('stroke-width', 0.3)
-        //     .attr('stroke', 'rgba(0,0,0,.1)')
+        selectedLines.exit()
+            .transition()
+            .attr('stroke-opacity', 0.05);
+        selectedNodes
+            .attr('stroke-width', 0.3)
+            .attr('stroke', 'rgba(0,0,0,.1)')
 
         if (getClickedNode()) {
           var clickednode = getClickedNode();

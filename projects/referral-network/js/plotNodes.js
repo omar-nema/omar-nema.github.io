@@ -2,6 +2,7 @@ var simulation, scaleColor, scaleOpacity, pointRadiusScale, minRad, maxRad;
 var inColorScale;
 var outColorScale;
 var serviceColorScale;
+var simulation;
 
 function plotNodes(nodes, clickedNode) {
 
@@ -34,34 +35,26 @@ function plotNodes(nodes, clickedNode) {
     })
     var serviceColorScale =  d3.scaleQuantize()
         .domain([0, 1])
-        .range(['#03caa5', '#03caa5','#c0c0c5' , '#d287ef', '#d287ef']);
+        .range(['#03caa5', '#03caa5','#c0c0c5' , '#ca31ca', '#ca31ca']);
 
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.15, .2, .8, .9, .95, 1]);
-    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .9 ,1, 1, 1])
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.05, .2, .8, .9, .95, 1]);
+    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .1 ,.5, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
     var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
     var simulation = d3.forceSimulation(nodes)
-        .alphaDecay(.05)
+        .alphaDecay(0.3)
         .force('collide', d3.forceCollide(function(d) {
             if (d.ProviderType == 'PCP') {
                 return 3.5;
             } else {
-                return 1.2*pointRadiusScale(d.Frequency);
+                return 2*pointRadiusScale(d.Frequency);
             }
         }))
-        // .radius(function(d) {
-        //     // console.log(d.ProviderType);
-        //     if (d.ProviderType == 'ServiceProvider') {
-        //         return pointRadiusScale(d.CostPerEvent) * 2.0;
-        //     } else {
-        //         return pointRadiusScale(d.CostPerEvent) * 1.3;
-        //     }
-        // }))
         .force('forceX', d3.forceX(width * .5).strength(0.04))
         .force('forceY', d3.forceY(height * .5).strength(0.04))
         .force('link', d3.forceLink().links(links).strength(function(d) {
@@ -207,11 +200,11 @@ function generateElements(parameters) {
                 }
             })
             .attr('z-index', 1)
-            // .call(d3.drag()
-            //     .on("start", dragstarted)
-            //     .on("drag", dragged)
-            //     .on("end", dragended));
-            // ;
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
+            ;
 
         minorBlob.selectAll('circle').attr('class', function(d) {
                 var classString = '';
@@ -229,7 +222,7 @@ function generateElements(parameters) {
             .style('filter', function(d){
               if (d.ProviderType == 'ServiceProvider'){
                 if (d.pctFrequency > 0.8 ){
-                  return 'url(#glow)';
+                  return 'url(#glow-hard)';
                 } else {
                   return  'url(#glow-lite)';
                 }
@@ -317,8 +310,6 @@ function generateElements(parameters) {
             });
 
 
-
-
         $('.remove.btn-flat').on('mousedown', function(d) {
             minorBlob.selectAll('.link').classed('showme', false);
             minorBlob.selectAll('circle').classed('showme', false);
@@ -331,36 +322,26 @@ function generateElements(parameters) {
         $('.network-button').addClass('show');
 
         function dragstarted(d) {
-          console.log('dragging')
-          console.log(d3.event, simulation)
+          console.log(d3.event.active)
+          simulation.restart();
           // if (!d3.event.active) simulation.alphaTarget(0.1).restart();
-          // d.fx = d.x;
-          // d.fy = d.y;
-            // if (type == 'dynamic') {
-            //     if (!d3.event.active) simulation.alphaTarget(0.1).restart();
-            //     d.fx = d.x;
-            //     d.fy = d.y;
-            // }
+          //
+          // simulation.alphaTarget(0.1).restart();
+          d.fx = d.x;
+          d.fy = d.y;
         }
 
         function dragged(d) {
           d.fx = d3.event.x;
           d.fy = d3.event.y;
-            // if (type == 'dynamic') {
-            //     d.fx = d3.event.x;
-            //     d.fy = d3.event.y;
-            // }
+          console.log('dragging')
         }
 
         function dragended(d) {
           if (!d3.event.active) simulation.alphaTarget(0);
           d.fx = null;
           d.fy = null;
-            // if (type == 'dynamic') {
-            //     if (!d3.event.active) simulation.alphaTarget(0);
-            //     d.fx = null;
-            //     d.fy = null;
-            // }
+          console.log('end')
         }
         if (type == 'dynamic') {
             function ticked() {
@@ -388,7 +369,7 @@ function generateElements(parameters) {
                     });
             }
 
-            var simulation = d3.forceSimulation(nodes)
+             simulation = d3.forceSimulation(nodes)
                 .alphaDecay(.02)
                 .on('tick', ticked)
                 .force('collide', d3.forceCollide().radius(function(d) {

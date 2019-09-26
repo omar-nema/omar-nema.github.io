@@ -109,10 +109,6 @@ function start(error, costData) {
     var innerHeight = height - offset;
 
     svg = getSVG();
-
-    // var svg = div.select('.main-holder').append('svg').attr('class', 'main').attr('height', height).attr('width', width).attr('x', 0).attr('y', 0);
-    // svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 30).attr('y',-20).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
-    // setSVG(svg);
     defs = svg.append('defs');
     var tooltip = d3.select('.tooltip');
     var filter;
@@ -156,29 +152,9 @@ function start(error, costData) {
 
 
 
-      var widthtext = width-115;
-      var xheight = innerHeight - 30;
+    var widthtext = width-115;
+    var xheight = innerHeight - 30;
 
-    //
-    // var zoom = d3.zoom()
-    // .scaleExtent([1, 5])
-    // .translateExtent([[getWidth()/-10000, -99999999], [999999999,getHeight()+offset+10]])
-    // .on('zoom', function() {
-    //     var t = d3.event.transform;
-    //     // t.x = Math.min
-    //     d3.select('.zoomable').attr("transform", t);
-    //     var xAxis = getAxes()[0];
-    //     var yAxis = getAxes()[1];
-    //     d3.select(".x.axis").call(xAxis.scale(d3.event.transform.rescaleX(getScales()[0])));
-    //     d3.select(".y.axis").call(yAxis.scale(d3.event.transform.rescaleY(getScales()[1])));
-    //     $('.rescale').removeClass('inactive');
-    // });
-    // function resetted() {
-    //     svg.transition()
-    //         .duration(750)
-    //         .call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(1));
-    // }
-    // d3.select('svg').call(zoom).on("dblclick.zoom", null).on("click.zoom", null);
     var leftOffset = $('.main').offset().left;
     var topOffset = $('.main').offset().top;
     var data = prepData(costData);

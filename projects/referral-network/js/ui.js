@@ -1,5 +1,5 @@
 var width, height;
-width = $('.main-holder').width()- 60;
+width = $('.main-holder').width()- 20;
 height = .65*width;
 setWidth(width);
 setHeight(height);
@@ -72,6 +72,8 @@ function setDescription(description){
 function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
+    setWideZoom();
+    d3.select('.main').style('background-image', 'radial-gradient(white, #f9f9f91a, white)').style('border', '.5px solid rgba(0,0,0,.1)');
     $('.crumb').attr('class', 'crumb');
     $('.axis-label').hide(100);
     $('#three').addClass('selected');
@@ -97,7 +99,9 @@ function setCurrentPage(input){
     offHover(null, d3.select('.tooltip'));
   }
   if (input == 2){
+    setNarrowZoom();
     setDescription(desc2);
+    d3.select('.main').style('background-image', 'none').style('border', 'none');
     $('.axis-label').show(100);
     $('.crumb').attr('class', 'crumb');
     $('#two').addClass('selected');
@@ -125,6 +129,8 @@ function setCurrentPage(input){
     offHover(null, d3.select('.tooltip'));
   }
   if (input == 1){
+    setNarrowZoom();
+    d3.select('.main').style('background-image', 'none').style('border', 'none');
     setDescription(desc1);
     $('.axis-label').show(100);
     $('.crumb').attr('class', 'crumb disabled')
@@ -162,8 +168,52 @@ function getCurrentPage(){
   return currentPage;
 };
 
+//DRAWING CONTAINERS
 
-//more about the dataset
+var offset = 0;
+//ZOOM FUNCTIONS
+var svg = d3.select("#graph-1").select('.main-holder').append('svg').attr('class', 'main').attr('height', getHeight()).attr('width', getWidth()).attr('x', 0).attr('y', 0);
+svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 0).attr('y',-20).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
+setSVG(svg);
+
+
+function resetted() {
+    svg.transition()
+        .duration(750)
+        .call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(1));
+}
+
+zoom = d3.zoom()
+.scaleExtent([1, 5])
+.on('zoom', function() {
+    var t = d3.event.transform;
+    // t.x = Math.min
+    d3.select('.zoomable').attr("transform", t);
+    var xAxis = getAxes()[0];
+    var yAxis = getAxes()[1];
+    d3.select(".x.axis").call(xAxis.scale(d3.event.transform.rescaleX(getScales()[0])));
+    d3.select(".y.axis").call(yAxis.scale(d3.event.transform.rescaleY(getScales()[1])));
+    $('.rescale').removeClass('inactive');
+});
+
+d3.select('svg').call(zoom).on("dblclick.zoom", null).on("click.zoom", null);
+$('.rescale').on('click', function(){
+  $(this).removeClass('inactive')
+  // t.x = Math.min
+  d3.select('.zoomable').transition().duration(300).call(zoom.transform, d3.zoomIdentity.translate(0,0).scale(1));
+  $('.rescale').removeClass('inactive');
+})
+
+function setNarrowZoom(){
+  zoom = zoom.translateExtent([[getWidth()/-10000, -99999999], [999999999,getHeight()+10]]);
+}
+
+function setWideZoom(){
+  zoom = zoom.translateExtent([[-getWidth()*3,-getHeight()*1.5], [getWidth()*3,getHeight()*1.5]])
+
+}
+
+
 
 var desc1 = "'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the distribution into individual points."
 
@@ -427,39 +477,6 @@ function filterNodeData(input){
 
   return newForceData;
 }
-
-var offset = 0;
-//ZOOM FUNCTIONS
-var svg = d3.select("#graph-1").select('.main-holder').append('svg').attr('class', 'main').attr('height', getHeight()).attr('width', getWidth()).attr('x', 0).attr('y', 0);
-svg = svg.append("svg").attr('height', innerHeight).attr('width', innerWidth).attr('x', 30).attr('y',-20).append('g').attr('class', 'zoomable').attr('transform', 'translate(0,0) scale(1)').attr('height', height-offset).attr('width', width-offset);
-setSVG(svg);
-
-var zoom = d3.zoom()
-.scaleExtent([1, 5])
-.translateExtent([[getWidth()/-10000, -99999999], [999999999,getHeight()+10]])
-.on('zoom', function() {
-    var t = d3.event.transform;
-    // t.x = Math.min
-    d3.select('.zoomable').attr("transform", t);
-    var xAxis = getAxes()[0];
-    var yAxis = getAxes()[1];
-    d3.select(".x.axis").call(xAxis.scale(d3.event.transform.rescaleX(getScales()[0])));
-    d3.select(".y.axis").call(yAxis.scale(d3.event.transform.rescaleY(getScales()[1])));
-    $('.rescale').removeClass('inactive');
-});
-function resetted() {
-    svg.transition()
-        .duration(750)
-        .call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(1));
-}
-d3.select('svg').call(zoom).on("dblclick.zoom", null).on("click.zoom", null);
-$('.rescale').on('click', function(){
-  $(this).removeClass('inactive')
-  // t.x = Math.min
-  d3.select('.zoomable').transition().duration(300).call(zoom.transform, d3.zoomIdentity.translate(0,0).scale(1));
-  $('.rescale').removeClass('inactive');
-
-})
 
 
 //NODE FILTER UI ELEMENTS

@@ -51,6 +51,8 @@ function populateCard(cards){
 };
 
 
+
+
 function sortByDate(data){
   return data.sort(function(a, b){
     return parseInt(b.datesort) - parseInt(a.datesort);
@@ -101,6 +103,22 @@ d3.csv('../home-assets/data/project-data.csv').then(function(data){
       populateCard(enterGrp);
     });
 
+    d3.select('.nav-item.work').on('click',function(d){
+      d3.selectAll('.nav-item').classed('selected', false);
+      d3.select(this).classed('selected', true);
+      d3.select('.about-page').transition().duration(100).style('opacity', '0').on('end',function(){
+        d3.select(this).style('display', 'none');
+        d3.select('.content').style('display', 'block').transition().duration(100).style('opacity', 1);
+      })
+    })
+    d3.select('.nav-item.about').on('click',function(d){
+      d3.selectAll('.nav-item').classed('selected', false);
+      d3.select(this).classed('selected', true);
+      d3.select('.content').transition().duration(100).style('opacity', '0').on('end',function(){
+        d3.select(this).style('display', 'none')
+        d3.select('.about-page').style('display', 'block').transition().duration(100).style('opacity', 1);
+      })
+    });
 
 
 })

@@ -73,6 +73,7 @@ function plotNodes(nodes, clickedNode) {
     var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity,maxFreq, serviceColorScale]
 
     setClickedNode(clickedNode);
+    setFilterState(false);
     generateElements(parameters);
 
 }
@@ -203,7 +204,8 @@ function generateElements(parameters) {
             })
             .attr('z-index', 1);
 
-        minorBlob.selectAll('circle').attr('class', function(d) {
+        minorBlob.selectAll('circle')
+        .attr('class', function(d) {
                 var classString = '';
                 if (d.ProviderType == 'ServiceProvider') {
                     if (d.InNetwork == -1) {
@@ -266,7 +268,7 @@ function generateElements(parameters) {
                     highlightRoutes(clickedNode);
                 });
             })
-            .attr('fill-opacity', '0.05')
+            // .attr('fill-opacity', '0.05')
             .attr('fill', function(d) {
               if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 1){
                 return serviceColorScale(d.pctCost);
@@ -282,8 +284,11 @@ function generateElements(parameters) {
                   return returnColor(d);
               }
               else  {
-                return '#808080a6';
+                return '#565353';
               }
+            })
+            .attr('stroke-opacity', function(d){
+
             })
             .attr('stroke-width', function(d){
               if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
@@ -395,6 +400,10 @@ function generateElements(parameters) {
             setFilterState(true);
             resetNodes();
         });
+        $('.selected-provider-chip').on('click', function(){
+          setFilterState(true);
+          resetNodes();
+        })
 
         var filtered = filterNodeData(getCurrNodes());
 

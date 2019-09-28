@@ -139,9 +139,6 @@ function plotScatter(inputNodes) {
                 setCurrentPage(3);
                 d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
                 plotNodes(currNodes.nodes, clickedNode);
-                setTimeout(function() {
-                    $('.filterheader').trigger('click');
-                }, 300)
             });
         })
         .style('filter', 'url(#glow)')

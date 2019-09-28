@@ -25,6 +25,13 @@ $header-primary: black;
   margin-top: 50px;
   line-height: 1.4rem;
   font-size: 16px;
+  background: white;
+  padding: 50px;
+  border: 1px dashed black;
+}
+.about-holder {
+  max-height: calc(100vh - #{$headerheight} - 10px );
+  overflow-y: auto;
 }
 .about-header {
   font-weight: 700;
@@ -43,6 +50,7 @@ $header-primary: black;
   background: white;
   padding: 5px 10px;
   margin-top: 15px;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color .15s linear;
 }

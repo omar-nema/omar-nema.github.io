@@ -51,6 +51,7 @@ function getCurrBlob(){
   return currBlob;
 }
 
+
 function filterData(filters){
   origData = getOrigData();
   filtered = origData.filter(function(d, i){
@@ -90,10 +91,8 @@ function setCurrentPage(input){
     $('.nav-item.two').addClass('possible');
     $('.axis').fadeOut(transitionTime);
     $('.procedure-filters').css('display', 'none');
-    if ($('.filterheader').css('display') == 'none') {
-      $('.filterheader').text('Filter')
-      $('.filterheader').fadeIn(transitionTime);
-    }
+    $('.filterheader').fadeIn(transitionTime).text('Filters');
+
     $('.netbutton').hide();
     $('.zoom-out-button').show();
     offHover(null, d3.select('.tooltip'));
@@ -270,7 +269,9 @@ $('.filterheader').on('click', function(){
 });
 $('.main-holder').on('click', function(e){
   $('.legend-image').hide();
-  d3.select('.legend-btn').classed('active', false)
+  d3.select('.legend-btn').classed('active', false);
+  $('#filters').hide();
+  d3.select('.filterheader').classed('active', false);
 });
 $('.legend-btn').on('click', function(e){
   currPage = getCurrentPage();
@@ -310,6 +311,8 @@ $('.nav-page.visual').on('click', function(){
 //NODE ACCESSORS
 var clickedNode;
 var clickedNodeTargets;
+
+var selectedProvChip = d3.select('.selected-provider-chip');
 function setClickedNode(input){
 
   d3.selectAll('circle').classed('selected-node', false)
@@ -320,24 +323,33 @@ function setClickedNode(input){
     var typeString = '';
     var numberString = '';
     var freqString = '';
+    var chipString = '';
     if (d.ProviderType == 'PCP'){
       typeString = '<span class="provspan">Practice (' + Math.round(100*d.PctInNet) + '% In Network)</span>';
       freqString = Math.round(d.EventsPer1000) + ' events/1000 (' + Math.round(100*d.pctFrequency) + ' percentile)';
+      chipString = 'Practice'
     } else {
       freqString = Math.round(d.Frequency) + ' events (' + Math.round(100*d.pctFrequency) + ' percentile)';
+      chipString = 'Service facility'
       if (d.InNetwork == 1) {
-        typeString = '<span class="provspan">Specialist - In Network</span>';
+        typeString = '<span class="provspan">Service Facility (In-network)</span>';
+
       } else {
-        typeString ='<span class="provspan">Specialist - Out of Network</span>'
+        typeString ='<span class="provspan">Service Facility (Out-of-network)</span>'
       }
     }
+
+
 
     //update text inf ilter
     text = '<div class="selection-status nodebody">' + typeString + '<br>Cost/Event: '+ Math.round(d.CostPerEvent) + ' (' + Math.round(100*d.pctCost) + ' percentile) '+ '<br> Frequency: ' + freqString + '</div><div class="btn-flat dist node-provider-button">Remove</div></div>'
     d3.select('.selected-content').html(text);
-  }
-  clickedNode = input;
 
+    textChip = chipString + ' routes selected (x)'
+    selectedProvChip.html(textChip).transition(300).style('opacity', '1');
+    clickedNode = input;
+
+  }
 }
 function getClickedNode(){
   return clickedNode;
@@ -401,12 +413,17 @@ function resetNodes(){
   d3.selectAll('circle').classed('selected-node', false);
   setClickedNode(undefined);
   text = '<div class="selection-status nodebody"><div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div></div>';
-  $('.selected-content').html(text)
-  setTimeout(function(){$('.node-filter-button').trigger('click');}, 100)
+  $('.selected-content').html(text);
+  selectedProvChip.transition(300).style('opacity', '0').on('end', function(){d3.select(this).html('')})
 }
 var filterState = false;
+var filterhead =  d3.select('.filterheader');
 function setFilterState(ind){
-  if (!ind){
+  if (getClickedNode() || ind){
+  filterhead.classed('active', false).classed('applied', true);
+  }
+  else if (!ind){
+    filterhead.classed('active', false).classed('applied', false);
     lowerThumb =  d3.selectAll('.thumb.thumb-lower');
     upperThumb =  d3.selectAll('.thumb.thumb-upper');
     lowerThumb.style('left', 0);

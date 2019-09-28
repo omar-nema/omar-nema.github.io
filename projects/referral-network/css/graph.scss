@@ -55,6 +55,21 @@ stroke-width: 1.5;
 stroke-opacity: 1 !important;
 fill-opacity: 1;
 }
+.selected-provider-chip{
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  background: #eaedef;
+  border-radius: 15px;
+  padding: 5px 10px;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.05);
+  font-size: 12px;
+  opacity: 0;
+  cursor: pointer;
+}
+.selected-provider-chip:hover {
+  background: #eaecec;
+}
 
 
 .minor-blob {

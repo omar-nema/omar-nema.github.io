@@ -74,7 +74,7 @@ function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
     setWideZoom();
-    d3.select('.main').style('background-image', 'radial-gradient(white, rgba(193, 191, 191, 0.22), white)').style('border', '.5px solid rgba(0,0,0,.1)');
+    d3.select('.main').style('border', '.5px solid rgba(0,0,0,.1)');
     $('.crumb').attr('class', 'crumb');
     $('.axis-label').hide(100);
     $('#three').addClass('selected');
@@ -471,7 +471,6 @@ function filterNodeData(input){
   thisfilter = getNodeFilters();
   var newForceData = jQuery.extend({}, input);
   var networkState = thisfilter[2];
-
   var filteredNodes = newForceData.nodes.filter(function(d){
     if (d.ProviderType == 'ServiceProvider'){
       var netState;

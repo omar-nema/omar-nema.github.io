@@ -36,7 +36,6 @@ svg text, .main-holder {
   cursor:pointer;
 }
 circle {
-  transition: stroke .1s linear, stroke-opacity .1s linear, stroke-width .1s linear;
   cursor: pointer;
 }
 circle:hover{
@@ -128,18 +127,6 @@ circle.target-prov:hover {
   position: absolute;
 }
 
-.link.hideme {
-  stroke-opacity: 0 !important;
-}
-
-.link.showme {
-  stroke-opacity: 1  !important;
-  stroke-width: 2px  !important;
-  stroke-dasharray: .5, .5;
-}
-.link {
-  transition: stroke-opacity .2s ease-in-out, stroke-width .2s ease-in-out;
-}
 .minor-blob {
     stroke-linejoin: round;
 }
@@ -150,7 +137,4 @@ circle.target-prov:hover {
     fill: none;
     stroke-width: 3px;
     stroke-linecap: round;
-}
-.link {
-    transition: stroke .1s ease-in-out, stroke-opacity .1s ease-in-out;
 }

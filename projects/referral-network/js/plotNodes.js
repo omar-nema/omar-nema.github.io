@@ -41,9 +41,9 @@ function plotNodes(nodes, clickedNode) {
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.05, .2, .8, .9, .95, 1]);
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .4, .8, .9, .95, 1]);
 
-    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.05, .1 ,.5, 1, 1])
+    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.3, .8 ,.9, 1, 1])
   //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
     var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
@@ -66,7 +66,7 @@ function plotNodes(nodes, clickedNode) {
                 return d.id
             }))
         .force('charge', d3.forceManyBody().strength(function(d) {
-            return -60;
+            return -90;
         }))
         .stop()
 
@@ -129,9 +129,9 @@ function generateElements(parameters) {
                 simulation.tick();
             }
             drawNodes();
-            // setTimeout(function() {
-            //     highlightRoutes(clickedNode)
-            // }, 1000)
+            setTimeout(function() {
+                highlightRoutes(clickedNode)
+            }, 1000)
         })
     } else {
         drawNodes();
@@ -147,25 +147,9 @@ function generateElements(parameters) {
         var link = minorBlob.selectAll('.link').data(forceData.links, function(d) {
                 return d.index
             }).enter().insert('line', 'circle')
-            .style('filter', function(d){
-              if (d.rawFrequency > maxFreq/8){
-                return 'url(#glow-hard)'
-              }
-            })
-            .attr('class', function(d) {
-                // return 'link id' + d.source.id + ' id' + d.target.id
-                var classString = '';
-                if (d.inNetwork == -1) {
-                    classString = classString.concat('outNetwork');
-                    return classString.concat(' link');
-                } else {
-                    classString = classString.concat('inNetwork');
-                    return classString.concat(' link');
-                }
-            });
+            ;
         link
           .on('mouseover', function(d){})
-          .transition(300)
             .attr('stroke', function(d) {
                 return returnColor(d.target)
                 // return returnColor(d.target.pctCost)
@@ -184,42 +168,16 @@ function generateElements(parameters) {
             })
             .attr("y2", function(d) {
                 return d.target.y;
-            })
-            .attr('stroke-opacity', 0.05);
+            });
 
-        allNodes.enter().append('circle')
-            .attr('class', function(d) {
-                var classString = '';
-                if (d.ProviderType == 'ServiceProvider') {
-                    if (d.InNetwork == -1) {
-                        return classString.concat('service-point outNetwork');
-                    } else {
-                        return classString.concat('service-point inNetwork');
-                    }
-                } else {
-                    return classString.concat(' pcp-point');
-                }
-            })
-            .attr('z-index', 1);
+        allNodes.enter().append('circle').attr('z-index', 1);
 
         minorBlob.selectAll('circle')
-        .attr('class', function(d) {
-                var classString = '';
-                if (d.ProviderType == 'ServiceProvider') {
-                    if (d.InNetwork == -1) {
-                        return classString.concat('service-point outNetwork');
-                    } else {
-                        return classString.concat('service-point inNetwork');
-                    }
-                } else {
-                    return classString.concat('pcp-point');
-                }
-            })
             .style('mix-blend-mode', 'inherit')
             .style('filter', function(d){
               if (d.ProviderType == 'ServiceProvider'){
                 if (d.pctFrequency > 0.8 ){
-                  return 'url(#glow-hard)';
+                  return 'url(#glow)';
                 } else {
                   return  'url(#glow-lite)';
                 }
@@ -271,10 +229,10 @@ function generateElements(parameters) {
               if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 1){
                 return serviceColorScale(d.pctCost);
               } else if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
-                return '#f9f6f6';
+                return '#f2f5f7';
               }
               else {
-                  return '#717171'
+                  return 'black'
               }
             })
             .attr('stroke', function(d) {
@@ -318,7 +276,7 @@ function generateElements(parameters) {
         d3.select('.loading').classed('show', false);
         $('.network-button').addClass('show');
 
-        highlightRoutes(clickedNode)
+
 
         function dragstarted(d) {
           simulation.restart();
@@ -331,7 +289,6 @@ function generateElements(parameters) {
           d.fy = d3.event.y;
           console.log('dragging')
         }
-
         function dragended(d) {
           if (!d3.event.active) simulation.alphaTarget(0);
           d.fx = null;
@@ -385,7 +342,6 @@ function generateElements(parameters) {
                 .force('charge', d3.forceManyBody().strength(-2))
         }
 
-        highlightRoutes();//new change
     }
 
 
@@ -401,7 +357,7 @@ function generateElements(parameters) {
           setFilterState(true);
           resetNodes();
         })
-
+        var filtered = filterNodeData(getCurrNodes());
         var selectedNodes = minorBlob.selectAll('circle').data(filtered.nodes, function(d) {
             return d.id
         });
@@ -409,36 +365,33 @@ function generateElements(parameters) {
             return d.index
         });
 
-        if (getClickedNode()) {
-          var clickednode = getClickedNode();
+        selectedNodes.exit()
+            .on('mouseover', function(d){ //only show servicing provider mouseovers
+                if (d.ProviderType == 'ServiceProvider') {
+                   if (d.InNetwork == 1) {
+                       networkString = 'In Network'
+                   } else {
+                       networkString = 'Out of Network'
+                   }
+                   text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
+                   flatToolTip(text, tooltip);
+                   d3.select(this).on('mouseout', function(d) {
+                       offFlat(null, tooltip)
+                   })
+               }
+             })
+            .attr('fill-opacity', 0.1)
+            .attr('stroke-opacity', 0.1)
+            ;
+        selectedLines.exit()
+            .attr('stroke-opacity', 0.1);
+
+        var clickednode = getClickedNode();
+
+
+
+        if (clickednode) {
           clickednode.classed('selected-node', true);
-
-          selectedNodes.exit() //why doesn't this work on the outside
-                .on('mouseover', function(d){ //only show servicing provider mouseovers
-                  if (d.ProviderType == 'ServiceProvider') {
-                     if (d.InNetwork == 1) {
-                         networkString = 'In Network'
-                     } else {
-                         networkString = 'Out of Network'
-                     }
-                     text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
-                     flatToolTip(text, tooltip);
-                     d3.select(this).on('mouseout', function(d) {
-                         offFlat(null, tooltip)
-                     })
-                 }
-
-               })
-              .transition()
-              .attr('fill-opacity', 0.05)
-              ;
-          selectedLines.exit()
-              .transition()
-              .attr('stroke-opacity', 0.05);
-          selectedNodes
-              .attr('stroke-width', 0.3)
-              .attr('stroke', 'rgba(0,0,0,.1)');
-
             selectedNodes
                 .on('mouseover', function(d) {
                     var text, networkString;
@@ -474,19 +427,12 @@ function generateElements(parameters) {
                         offFlat(null, tooltip)
                     })
                 })
+                .attr('stroke-opacity', 1)
+                .attr('fill-opacity', 1);
 
-                .transition()
-                .attr('fill-opacity', function(d) {
-                    if (d.id == clickednode.data().id){
-                      return 1
-                    } else {
-                      return Math.min(returnFillOpacity(d), .8);
-                      // return Math.max(returnFillOpacity(d), .4);
-                    }
-                })
             selectedLines
                 .attr('stroke-width', function(d){
-                  return 3*scaleStrokeWidth(d.value);
+                  return 2*scaleStrokeWidth(d.value);
                 })
                 .transition()
                 .attr('stroke-opacity', function(d) {
@@ -500,8 +446,6 @@ function generateElements(parameters) {
             clickednode.transition().attr('fill-opacity', 1).attr('stroke', 'black').attr('stroke-width', 1.5)
             ;
         } else {
-
-
             selectedNodes
                 .transition()
                 .attr('fill-opacity', function(d) {
@@ -514,6 +458,9 @@ function generateElements(parameters) {
                 .transition()
                 .attr('stroke-opacity', function(d) {
                     return scaleStrokeOpacity(d.value);
+                })
+                .attr('stroke-width', function(d){
+                  return scaleStrokeWidth(d.value);
                 })
         }
     };

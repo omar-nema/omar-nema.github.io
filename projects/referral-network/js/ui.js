@@ -74,7 +74,7 @@ function setCurrentPage(input){
   currentPage = input;
   if (input == 3){
     setWideZoom();
-    d3.select('.main').style('background-image', 'radial-gradient(white, #f9f9f91a, white)').style('border', '.5px solid rgba(0,0,0,.1)');
+    d3.select('.main').style('background-image', 'radial-gradient(white, rgba(193, 191, 191, 0.22), white)').style('border', '.5px solid rgba(0,0,0,.1)');
     $('.crumb').attr('class', 'crumb');
     $('.axis-label').hide(100);
     $('#three').addClass('selected');
@@ -254,10 +254,10 @@ $('#three').on('click', function(e){
     d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
     setCurrentPage(3);
     setFilterState(true)
-    resetNodes();
     plotNodes(getCurrNodes().nodes);
   }
 });
+
 $('.filterheader').on('click', function(){
   if (!$(this).hasClass('active')){
     $(this).addClass('active');
@@ -267,12 +267,23 @@ $('.filterheader').on('click', function(){
     $('#filters').fadeOut(100);
   }
 });
-$('.main-holder').on('click', function(e){
+$('.graph-holder').on('click', function(e){
   $('.legend-image').hide();
   d3.select('.legend-btn').classed('active', false);
   $('#filters').hide();
   d3.select('.filterheader').classed('active', false);
 });
+d3.select('.legend-btn').on('click', function(e){
+  d3.event.stopPropagation();
+})
+d3.select('.filterheader').on('click', function(e){
+  d3.event.stopPropagation();
+})
+d3.select('#filters').on('click', function(e){
+  d3.event.stopPropagation();
+})
+
+
 $('.legend-btn').on('click', function(e){
   currPage = getCurrentPage();
   var legendBtn = d3.select(this);
@@ -314,9 +325,7 @@ var clickedNodeTargets;
 
 var selectedProvChip = d3.select('.selected-provider-chip');
 function setClickedNode(input){
-
   d3.selectAll('circle').classed('selected-node', false)
-
   if (input){
     d = input.data()[0];
     var text ='';
@@ -338,18 +347,13 @@ function setClickedNode(input){
         typeString ='<span class="provspan">Service Facility (Out-of-network)</span>'
       }
     }
-
-
-
-    //update text inf ilter
     text = '<div class="selection-status nodebody">' + typeString + '<br>Cost/Event: '+ Math.round(d.CostPerEvent) + ' (' + Math.round(100*d.pctCost) + ' percentile) '+ '<br> Frequency: ' + freqString + '</div><div class="btn-flat dist node-provider-button">Remove</div></div>'
     d3.select('.selected-content').html(text);
 
     textChip = chipString + ' routes selected (x)'
     selectedProvChip.html(textChip).transition(300).style('opacity', '1');
-    clickedNode = input;
-
   }
+  clickedNode = input;
 }
 function getClickedNode(){
   return clickedNode;
@@ -409,21 +413,31 @@ function setFilters(input){
 function getFilters(){
   return filters;
 }
-function resetNodes(){
-  d3.selectAll('circle').classed('selected-node', false);
-  setClickedNode(undefined);
-  text = '<div class="selection-status nodebody"><div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div></div>';
-  $('.selected-content').html(text);
-  selectedProvChip.transition(300).style('opacity', '0').on('end', function(){d3.select(this).html('')})
-}
+//this is resetting from selection really.
+//what if you have filters and then select. should it just clear? or restore. prob restore
+
 var filterState = false;
 var filterhead =  d3.select('.filterheader');
-function setFilterState(ind){
-  if (getClickedNode() || ind){
-  filterhead.classed('active', false).classed('applied', true);
-  }
-  else if (!ind){
-    filterhead.classed('active', false).classed('applied', false);
+
+//disabled
+
+//filters are active but not really applied
+//really filters are not active with clicked node
+function setFilterState(ind){ //false means they may be paused. true means working, but no filtered prov. filtered prov is from clickednode.
+  nodeFilters = getNodeFilters();
+  if (getClickedNode()){
+    filterhead.classed('active', false).classed('applied', true);
+    d3.select('.nodebody.specialists').classed('disabled', true);
+  } else if (ind){
+    d3.select('.nodebody.specialists').classed('disabled', false);
+    if (nodeFilters[0][0] != 0 || nodeFilters[1][0] != 0 || nodeFilters[0][1] != 1 || nodeFilters[1][1] != 1){
+      filterhead.classed('applied', true);
+    } else {
+      filterhead.classed('active', false).classed('applied', false);
+    }
+  } else if (!ind){
+    bothbtn = document.getElementById("both-types");
+    both.checked = true;
     lowerThumb =  d3.selectAll('.thumb.thumb-lower');
     upperThumb =  d3.selectAll('.thumb.thumb-upper');
     lowerThumb.style('left', 0);
@@ -437,16 +451,18 @@ function getFilterActive(){
   return filterState;
 }
 var nodeFilters = [];
+
+//these are just the slider filters. in or out of network state is in the next.
 function getNodeFilters(){
   nodeFilters = [];
-  if (filterState){
+  networkState =  $("input:checked" ).attr('id');
+  if (getClickedNode()) {
+    nodeFilters = [[0,0], [0,0]];
+  } else {
     sliderWidth = $('.slider').width();
     nodeFilters.push([parseInt($('.cost .thumb-lower').get(0).style.left)/100,parseInt($('.cost .thumb-upper').get(0).style.left)/100]);
     nodeFilters.push([parseInt($('.frequency .thumb-lower').get(0).style.left)/100,parseInt($('.frequency .thumb-upper').get(0).style.left)/100]);
-  } else if (getClickedNode()) {
-    nodeFilters = [[0,0], [0,0]];
-  } else {
-    nodeFilters = [[0,1], [0,1], 'both'];
+    nodeFilters.push(networkState);
   }
   return nodeFilters;
 }
@@ -454,7 +470,7 @@ function getNodeFilters(){
 function filterNodeData(input){
   thisfilter = getNodeFilters();
   var newForceData = jQuery.extend({}, input);
-  var networkState = $("input:checked" ).attr('id')
+  var networkState = thisfilter[2];
 
   var filteredNodes = newForceData.nodes.filter(function(d){
     if (d.ProviderType == 'ServiceProvider'){
@@ -469,7 +485,7 @@ function filterNodeData(input){
           netState = true;
         }
       }
-      return d.pctFrequency > thisfilter[1][0] && d.pctFrequency < thisfilter[1][1] && d.pctCost > thisfilter[0][0] && d.pctCost < thisfilter[0][1] && netState;
+      return d.pctFrequency >= thisfilter[1][0] && d.pctFrequency <= thisfilter[1][1] && d.pctCost >= thisfilter[0][0] && d.pctCost <= thisfilter[0][1] && netState;
     };
   })
   if (getClickedNode()){

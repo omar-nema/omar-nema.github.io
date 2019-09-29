@@ -99,6 +99,9 @@ $primary:#416bfd;
   margin-top: 13px;
   margin-bottom: 10px;
 }
+.nodebody.specialists.disabled {
+  opacity: .4;
+}
 
 .node-filters {
    padding: 5px 10px;

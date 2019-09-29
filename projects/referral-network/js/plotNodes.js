@@ -129,9 +129,9 @@ function generateElements(parameters) {
                 simulation.tick();
             }
             drawNodes();
-            setTimeout(function() {
-                highlightRoutes(clickedNode)
-            }, 1000)
+            // setTimeout(function() {
+            //     highlightRoutes(clickedNode)
+            // }, 1000)
         })
     } else {
         drawNodes();
@@ -144,7 +144,6 @@ function generateElements(parameters) {
         var allNodes = minorBlob.selectAll('circle').data(forceData.nodes, function(d) {
             return d.id
         });
-
         var link = minorBlob.selectAll('.link').data(forceData.links, function(d) {
                 return d.index
             }).enter().insert('line', 'circle')
@@ -156,7 +155,6 @@ function generateElements(parameters) {
             .attr('class', function(d) {
                 // return 'link id' + d.source.id + ' id' + d.target.id
                 var classString = '';
-
                 if (d.inNetwork == -1) {
                     classString = classString.concat('outNetwork');
                     return classString.concat(' link');
@@ -323,11 +321,10 @@ function generateElements(parameters) {
         d3.select('.loading').classed('show', false);
         $('.network-button').addClass('show');
 
+        highlightRoutes(clickedNode)
+
         function dragstarted(d) {
           simulation.restart();
-          // if (!d3.event.active) simulation.alphaTarget(0.1).restart();
-          //
-          // simulation.alphaTarget(0.1).restart();
           d.fx = d.x;
           d.fy = d.y;
         }
@@ -390,9 +387,12 @@ function generateElements(parameters) {
                     }))
                 .force('charge', d3.forceManyBody().strength(-2))
         }
+
+        highlightRoutes();//new change
     }
 
 
+    //this is changing fill based on filters?
     function highlightRoutes() {
 
         minorBlob = getSVG();
@@ -405,8 +405,6 @@ function generateElements(parameters) {
           resetNodes();
         })
 
-        var filtered = filterNodeData(getCurrNodes());
-
         var selectedNodes = minorBlob.selectAll('circle').data(filtered.nodes, function(d) {
             return d.id
         });
@@ -414,36 +412,36 @@ function generateElements(parameters) {
             return d.index
         });
 
-        selectedNodes.exit()
-              .on('mouseover', function(d){ //only show servicing provider mouseovers
-                if (d.ProviderType == 'ServiceProvider') {
-                   if (d.InNetwork == 1) {
-                       networkString = 'In Network'
-                   } else {
-                       networkString = 'Out of Network'
-                   }
-                   text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
-                   flatToolTip(text, tooltip);
-                   d3.select(this).on('mouseout', function(d) {
-                       offFlat(null, tooltip)
-                   })
-               }
-
-             })
-            .transition()
-            .attr('fill-opacity', 0.05)
-            ;
-
-        selectedLines.exit()
-            .transition()
-            .attr('stroke-opacity', 0.05);
-        selectedNodes
-            .attr('stroke-width', 0.3)
-            .attr('stroke', 'rgba(0,0,0,.1)')
-
         if (getClickedNode()) {
           var clickednode = getClickedNode();
-          clickednode.classed('selected-node', true)
+          clickednode.classed('selected-node', true);
+
+          selectedNodes.exit() //why doesn't this work on the outside
+                .on('mouseover', function(d){ //only show servicing provider mouseovers
+                  if (d.ProviderType == 'ServiceProvider') {
+                     if (d.InNetwork == 1) {
+                         networkString = 'In Network'
+                     } else {
+                         networkString = 'Out of Network'
+                     }
+                     text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
+                     flatToolTip(text, tooltip);
+                     d3.select(this).on('mouseout', function(d) {
+                         offFlat(null, tooltip)
+                     })
+                 }
+
+               })
+              .transition()
+              .attr('fill-opacity', 0.05)
+              ;
+          selectedLines.exit()
+              .transition()
+              .attr('stroke-opacity', 0.05);
+          selectedNodes
+              .attr('stroke-width', 0.3)
+              .attr('stroke', 'rgba(0,0,0,.1)');
+
             selectedNodes
                 .on('mouseover', function(d) {
                     var text, networkString;
@@ -521,16 +519,27 @@ function generateElements(parameters) {
         }
     };
 
-
-
     function nodeSelectionClick() {
         setFilterState(true);
         $('.selection-status.nodebody').html('<div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div>')
         $('.node-filter-button').trigger('click');
     };
 
+    function resetNodes(){
+      d3.selectAll('circle').classed('selected-node', false);
+      setClickedNode(undefined);
+      setFilterState(true);
+      text = '<div class="selection-status nodebody"><div class="default-prov-msg">Click on a provider from the graph to show highlighted routes</div></div>';
+      $('.selected-content').html(text);
+      selectedProvChip.transition(300).style('opacity', '0').on('end', function(){
+        d3.select(this).html('');
+        highlightRoutes();
+      });
+    }
 
 
+
+    //this is the clear button
     $('.node-remove-button').on('click', function() {
         if ($(this).hasClass('active')) {
             setFilterState(false);
@@ -541,7 +550,6 @@ function generateElements(parameters) {
         }
         highlightRoutes();
     })
-
     $('.node-filter-button').on('click', function() {
         // filterNodeData(getCurrNodes());
         if ($(this).hasClass('active')) {
@@ -557,7 +565,11 @@ function generateElements(parameters) {
     });
 
 
+
 }
+
+///this is gon
+
 
 
 

@@ -66,9 +66,13 @@ fill-opacity: 1;
   font-size: 12px;
   opacity: 0;
   cursor: pointer;
+  background: 1px solid rgba(0,0,0,.1);
+  background: #d3daf5;
+  color: #416bfd;
+  transition: background-color .15s ease-in-out;
 }
 .selected-provider-chip:hover {
-  background: #eaecec;
+  background: #c1ccf5;
 }
 
 

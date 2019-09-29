@@ -7,8 +7,6 @@ function plotScatter(inputNodes) {
     d3.selectAll('.link').data([]).exit().transition().remove();
     svg.attr('transform', 'translate(0,0) scale(1)')
 
-
-
     var pcps, newScales;
     if (inputNodes) {
         pcps = inputNodes.nodes.filter(function(d) {

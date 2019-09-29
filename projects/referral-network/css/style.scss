@@ -154,10 +154,11 @@ body {
     opacity: .8;
     color: $color-primary;
   }
-  .disabled {
-    pointer-events: none;
-    opacity: .5;
-  }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: .35;
 }
 
 

@@ -42,9 +42,7 @@ function plotNodes(nodes, clickedNode) {
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
     var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .4, .8, .9, .95, 1]);
-
-    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.3, .8 ,.9, 1, 1])
-  //  var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.1, .5 ,.7, .8, .82])
+    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.5, .8 ,.9, 1, 1])
     var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
@@ -129,8 +127,9 @@ function generateElements(parameters) {
                 simulation.tick();
             }
             drawNodes();
+            // updateNodes();
             setTimeout(function() {
-                highlightRoutes(clickedNode)
+                updateNodes(clickedNode)
             }, 1000)
         })
     } else {
@@ -139,8 +138,7 @@ function generateElements(parameters) {
 
 
 
-    function drawNodes() {
-
+    function drawNodes() { //initialize nodes and add unchanging values
         var allNodes = minorBlob.selectAll('circle').data(forceData.nodes, function(d) {
             return d.id
         });
@@ -149,14 +147,6 @@ function generateElements(parameters) {
             }).enter().insert('line', 'circle')
             ;
         link
-          .on('mouseover', function(d){})
-            .attr('stroke', function(d) {
-                return returnColor(d.target)
-                // return returnColor(d.target.pctCost)
-            })
-            .attr("stroke-width", function(d) {
-                return scaleStrokeWidth(d.value);
-            })
             .attr("x1", function(d) {
                 return d.source.x;
             })
@@ -168,10 +158,14 @@ function generateElements(parameters) {
             })
             .attr("y2", function(d) {
                 return d.target.y;
-            });
-
+            })
+            .attr('stroke', function(d) {
+                return returnColor(d.target)
+            })
+            .attr('opacity', 0.1)
+            .attr('class', 'link')
+            ;
         allNodes.enter().append('circle').attr('z-index', 1);
-
         minorBlob.selectAll('circle')
             .style('mix-blend-mode', 'inherit')
             .style('filter', function(d){
@@ -221,10 +215,9 @@ function generateElements(parameters) {
                     setClickedNode(me);
                     setFilterState(false);
                     offHover(null, tooltip);
-                    highlightRoutes(clickedNode);
+                    updateNodes(clickedNode);
                 });
             })
-            // .attr('fill-opacity', '0.05')
             .attr('fill', function(d) {
               if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 1){
                 return serviceColorScale(d.pctCost);
@@ -262,91 +255,24 @@ function generateElements(parameters) {
             })
             .attr("cy", function(d) {
                 return d.y;
-            });
-
+            })
+            .attr('opacity', 0.1)
+            ;
 
         $('.remove.btn-flat').on('mousedown', function(d) {
             minorBlob.selectAll('.link').classed('showme', false);
             minorBlob.selectAll('circle').classed('showme', false);
             d3.selectAll('.pointer-holder').remove();
         });
-
+        //should all be handed in ui.js
         d3.select('minorBlob.main').classed('loading', false);
         $('.network-legend').addClass('show');
         d3.select('.loading').classed('show', false);
         $('.network-button').addClass('show');
-
-
-
-        function dragstarted(d) {
-          simulation.restart();
-          d.fx = d.x;
-          d.fy = d.y;
-        }
-
-        function dragged(d) {
-          d.fx = d3.event.x;
-          d.fy = d3.event.y;
-          console.log('dragging')
-        }
-        function dragended(d) {
-          if (!d3.event.active) simulation.alphaTarget(0);
-          d.fx = null;
-          d.fy = null;
-          console.log('end')
-        }
-        if (type == 'dynamic') {
-            function ticked() {
-                console.log('tick');
-                node = minorBlob.selectAll('circle');
-                link
-                    .attr("x1", function(d) {
-                        return d.source.x;
-                    })
-                    .attr("y1", function(d) {
-                        return d.source.y;
-                    })
-                    .attr("x2", function(d) {
-                        return d.target.x;
-                    })
-                    .attr("y2", function(d) {
-                        return d.target.y;
-                    })
-                node
-                    .attr("cx", function(d) {
-                        return d.x;
-                    })
-                    .attr("cy", function(d) {
-                        return d.y;
-                    });
-            }
-
-             simulation = d3.forceSimulation(nodes)
-                .alphaDecay(.02)
-                .on('tick', ticked)
-                .force('collide', d3.forceCollide().radius(function(d) {
-                    if (d.ProviderType == 'ServiceProvider') {
-                        return pointRadiusScale(d.Frequency) + 20;
-                    } else {
-                        return pointRadiusScale(d.Frequency) + 2;
-                    }
-                }))
-                .force('forceX', d3.forceX(width * .5).strength(0.03))
-                .force('forceY', d3.forceY(height / 2).strength(0.05))
-                .force('link', d3.forceLink().links(links).strength(function(d) {
-                        return d.value
-                    })
-                    .id(function(d) {
-                        return d.id
-                    }))
-                .force('charge', d3.forceManyBody().strength(-2))
-        }
-
     }
 
 
-    //this is changing fill based on filters?
-    function highlightRoutes() {
+    function updateNodes() {
 
         minorBlob = getSVG();
         $('.node-provider-button').on('click', function() {
@@ -380,6 +306,7 @@ function generateElements(parameters) {
                    })
                }
              })
+            .transition()
             .attr('fill-opacity', 0.1)
             .attr('stroke-opacity', 0.1)
             ;
@@ -387,9 +314,6 @@ function generateElements(parameters) {
             .attr('stroke-opacity', 0.1);
 
         var clickednode = getClickedNode();
-
-
-
         if (clickednode) {
           clickednode.classed('selected-node', true);
             selectedNodes
@@ -427,14 +351,18 @@ function generateElements(parameters) {
                         offFlat(null, tooltip)
                     })
                 })
+                .transition()
                 .attr('stroke-opacity', 1)
-                .attr('fill-opacity', 1);
+                .attr('fill-opacity', 1)
+                .attr('opacity', .02)
+                ;
 
             selectedLines
+                .transition()
+                .attr('opacity', .02)
                 .attr('stroke-width', function(d){
                   return 2*scaleStrokeWidth(d.value);
                 })
-                .transition()
                 .attr('stroke-opacity', function(d) {
                     if (d.source.id ==  getClickedNode().data()[0].id){
                         return Math.max(scaleStrokeOpacity(d.value), .6);
@@ -453,10 +381,14 @@ function generateElements(parameters) {
                 })
                 .attr('stroke-opacity', function(d) {
                     return returnFillOpacity(d);
-                });
+                })
+                .attr('opacity', 1)
+                ;
             selectedLines
                 .transition()
+                .attr('opacity', 1)
                 .attr('stroke-opacity', function(d) {
+                  console.log(d);
                     return scaleStrokeOpacity(d.value);
                 })
                 .attr('stroke-width', function(d){
@@ -479,7 +411,7 @@ function generateElements(parameters) {
       $('.selected-content').html(text);
       selectedProvChip.transition(300).style('opacity', '0').on('end', function(){
         d3.select(this).html('');
-        highlightRoutes();
+        updateNodes();
       });
     }
 
@@ -494,7 +426,7 @@ function generateElements(parameters) {
                 $('.node-filter-button').addClass('active');
             }
         }
-        highlightRoutes();
+        updateNodes();
     })
     $('.node-filter-button').on('click', function() {
         // filterNodeData(getCurrNodes());
@@ -507,7 +439,7 @@ function generateElements(parameters) {
                 $('.node-remove-button').addClass('active');
             }
         }
-        highlightRoutes();
+        updateNodes();
     });
 
 

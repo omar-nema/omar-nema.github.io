@@ -285,9 +285,6 @@ function generateElements(parameters) {
                 return '#565353';
               }
             })
-            .attr('stroke-opacity', function(d){
-
-            })
             .attr('stroke-width', function(d){
               if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
                   return pointRadiusScale(d.Frequency)/5;
@@ -503,6 +500,8 @@ function generateElements(parameters) {
             clickednode.transition().attr('fill-opacity', 1).attr('stroke', 'black').attr('stroke-width', 1.5)
             ;
         } else {
+
+
             selectedNodes
                 .transition()
                 .attr('fill-opacity', function(d) {
@@ -510,7 +509,7 @@ function generateElements(parameters) {
                 })
                 .attr('stroke-opacity', function(d) {
                     return returnFillOpacity(d);
-                })
+                });
             selectedLines
                 .transition()
                 .attr('stroke-opacity', function(d) {

@@ -268,8 +268,8 @@ $('.filterheader').on('click', function(){
   }
 });
 $('.graph-holder').on('click', function(e){
-  $('.legend-image').hide();
-  d3.select('.legend-btn').classed('active', false);
+  // $('.legend-image').hide();
+  // d3.select('.legend-btn').classed('active', false);
   $('#filters').hide();
   d3.select('.filterheader').classed('active', false);
 });

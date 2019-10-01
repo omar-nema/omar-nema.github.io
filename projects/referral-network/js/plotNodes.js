@@ -390,6 +390,13 @@ function generateElements(parameters) {
                        offFlat(null, tooltip)
                    })
                  })
+                 .attr('stroke-width', function(d){
+                   if (d.ProviderType == 'ServiceProvider' && d.InNetwork == 0){
+                       return pointRadiusScale(d.Frequency)/5;
+                   } else  {
+                     return 0.5;
+                   }
+                 })
                 .transition()
                 .attr('fill-opacity', function(d) {
                     return Math.max(minOpacity, returnFillOpacity(d));

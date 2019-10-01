@@ -105,7 +105,7 @@ body {
   font-weight: 700;
   font-size: 12px;
   position: absolute;
-  background: white;
+  background: #ffffffc7;
   padding: 0 15px;
   display: none;
 }
@@ -350,6 +350,12 @@ circle.showme {
   stroke-opacity: 1 !important;
   opacity: 1 !important;
 }
+.circle:hover {
+  opacity: 1;
+  fill-opacity: 1;
+  filter: url(#glow-hard);
+  stroke: black;
+}
 .tip-text {
   text-align:left;
   padding-left: 0;
@@ -375,6 +381,9 @@ circle.showme {
   width: auto;
   min-width: inherit;
   font-weight: 700;
+}
+.tooltip.flat .tip-text {
+  font-weight: 400;
 }
 .secondary-tip {
   font-weight: 400;

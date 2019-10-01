@@ -24,20 +24,18 @@ function getScales(){
 }
 
 function scale(xmin, xinput, ymin, yinput) {
-    // var xscale = d3.scaleLinear().range([30, getWidth()-40]).domain([0, xinput]);
-    // var yscale = d3.scaleLinear().range([getHeight()-27, 27]).domain([0, yinput]);
     var xscale = d3.scalePow().exponent(0.3).range([0, getWidth()]).domain([xmin, xinput]);
     var yscale = d3.scalePow().exponent(0.4).range([getHeight(), 0]).domain([ymin, yinput]);
-    // setScales(xscale, yscale);
-    // var yscale = d3.scaleLinear().range([getHeight(), 0]).domain([0, yinput]);
+
+    // var xscale = d3.scaleLinear().range([50, getWidth()]).domain([xmin, xinput/4]);
+    // var yscale = d3.scaleLinear().range([getHeight(), 0]).domain([ymin, yinput/5]);
+
     setScales(xscale, yscale);
     var newXaxis = d3.axisBottom(xscale).ticks(8).tickSize(0).tickPadding(15);
     var newYaxis = d3.axisLeft(yscale).ticks(6).tickSize(0).tickPadding(15);
     setAxes(newXaxis, newYaxis);
     d3.select('.x.axis').call(newXaxis);
     d3.select('.y.axis').call(newYaxis);
-
-
     return [xscale, yscale];
 };
 
@@ -52,10 +50,7 @@ function findTopSpecialists(input){
   });
   var targetVals = filteredLinks.map(function(d){return d.target});
 
-// getCurrNodes().links.filter(function(d){
-//   if (d.source.ProviderType == 'PCP' && d.target.ProviderType == 'PCP')
-//     {console.log('yamma', d)}
-//   })
+
 
   var filteredNodes = newForceData.nodes.filter(function(d){
     if (targetVals.indexOf(d.id) > -1){
@@ -164,25 +159,16 @@ function start(error, costData) {
     //ADD LABELS
     d3.select('.main').append('g').attr('class', 'x axis').attr("transform", "translate(" + 0 +',' + xheight + ")")
 
-        // .append('text').text('Cost/Event').attr('transform', 'translate(' + 70 + ',' + 23.5 + ')')
-        // .attr('class', 'x-label');
     d3.select('.main').append("g").attr("class", "y axis")
         .attr('transform', 'translate(' + 40 + ',40)');
 
-    // yaxis.append('rect')
-    //   .attr('transform', 'translate(' + -33 + ', ' + (innerHeight-140) + ')')
-    //   .attr('width', '20').attr('height', '80')
-    //   .attr('fill', 'white');
-    // yaxis
-    //     .append('text').text('Events/1k').attr('transform', 'translate(' + -18 + ', ' + (innerHeight-130) + ') rotate(-90)')
-    //     .attr('class', 'y-label');
 
-
+    //remove tooltips
     $('svg.main').on('click', function(e) {
-        if (!$(e.target).attr('class').includes('inner-band') && !$(e.target).attr('class').includes('pcp-point') && !$(e.target).hasClass('tooltip') && !$(e.target).attr('class').includes('service-point')) {
+      target = d3.select(e.target);
+        if (!target.classed('inner-band') && !target.classed('pcp-point') && !target.classed('tooltip') && !target.classed('service-point') && !target.classed('circle')) {
           d3.selectAll('circle').classed('selected-node', false);
             offHover(null, tooltip);
-
         }
     });
 

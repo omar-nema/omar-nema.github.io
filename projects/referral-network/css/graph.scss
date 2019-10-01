@@ -42,7 +42,6 @@ circle:hover{
   mix-blend-mode: inherit;
   filter: none;
   stroke: rgba(0,0,0,.8);
-  fill-opacity: .8;
 }
 
 
@@ -97,17 +96,6 @@ circle.target-prov {
 circle.target-prov:hover {
     fill-opacity: .75;
 }
-//
-// .radial-line {
-//     stroke: rgba(0,0,0,.2);
-//     stroke-width: 1px;
-//     fill: none;
-// }
-// .tick line {
-//   opacity:.1;
-//   stroke-width: 1.2px;
-// }
-
 
 .loading {
   position: absolute;

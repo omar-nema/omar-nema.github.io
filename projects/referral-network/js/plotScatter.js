@@ -7,6 +7,9 @@ function plotScatter(inputNodes) {
     d3.selectAll('.link').data([]).exit().transition().remove();
     svg.attr('transform', 'translate(0,0) scale(1)')
 
+    setFilterState(false);
+    svg.select('.selected-provider-chip').style('opacity', '0');
+
     var pcps, newScales;
     if (inputNodes) {
         pcps = inputNodes.nodes.filter(function(d) {
@@ -44,19 +47,9 @@ function plotScatter(inputNodes) {
     }
 
     var newScales = scale(xMin/1.5, xMax, 0, yMax);
-
-    var colorScale = d3.scaleQuantize()
-                .domain([0, 1])
-                .range(['#ff0068','#ff7a95', '#eea7b2', '#8dc7da','#7f96f4'])
-
-    var blueScale = d3.scaleQuantize()
-                  .domain([0,1])
-                  .range([getColors()[0], getColors()[1]])
-
-    var redScale = d3.scaleQuantize()
-                  .domain([0,1])
-                    .range([getColors()[2], getColors()[3]])
-
+    var colorScale = d3.scaleLinear()
+              .domain([0, .4, 1])
+              .range(['#800080', '#b75eb2', '#e1e1e1']);
 
     var rescaleLine = d3.line().curve(d3.curveBasisClosed)
         .x(function(d) {
@@ -75,20 +68,22 @@ function plotScatter(inputNodes) {
 
     scatterCanvas.selectAll('.inner-band')
         .on('mouseover', function() {
-          text = '<div>Distribution curve (from previous graph)</div>'
+          text = '<div>Distribution curve (from previous graph) representing median quartiles</div>'
           flatToolTip(text,  tooltip);
           band = d3.select(this);
-          band.attr('fill-opacity', .4);
           band.on('mouseout', function(d){
-            band.attr('fill-opacity', .2);
             offFlat(null, tooltip);
           })
         })
         .on('click', function() {})
         .style('mix-blend-mode', 'multiply')
-        .style('stroke', 'none')
         .style('filter', 'url(#glow)')
+        .style('stroke', '#c5c3c336')
+        .style('fill', function(d) {
+          return colorScale(d.PercentileBands.Bands[0][0].PctInNet);
+        })
         .transition()
+        .style('stroke-width', '15')
         .attr('fill-opacity', .2)
         .attr("d", function(d) {
             d = d.PercentileBands.Bands[0];
@@ -97,7 +92,8 @@ function plotScatter(inputNodes) {
 
 
 
-    var pcpPoints = scatterCanvas.selectAll('circle').data(pcps);
+    scatterCanvas.selectAll('.circle').data([]).exit().remove();
+    var pcpPoints = scatterCanvas.selectAll('.pcp-point').data(pcps);
     ///EXIT
     pcpPoints.exit().transition().remove(); //keep the rite ones
     ///ENTER PCP POINTS
@@ -147,12 +143,7 @@ function plotScatter(inputNodes) {
         })
         .attr('fill-opacity', 1)
         .attr('fill', function(d) {
-          if (d.PctInNet < 0.7){
-            return redScale(d.pctCost);
-          } else {
-            return blueScale(d.pctCost);
-          }
-            // return colorScale(d.PctInNet)
+          return colorScale(d.PctInNet);
         })
         .attr('r', function(d){
           return sizeScale(d.MemberMonths);

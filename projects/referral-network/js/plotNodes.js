@@ -10,8 +10,8 @@ function plotNodes(nodes, clickedNode) {
     $('.subtitle').text('Referral Network: ' + getCurrBlob()[0].Minor + ' Visits (Graph 3/3)');
     var tooltip = d3.select('.tooltip');
     setCurrentPage(3);
-    minRad = 5;
-    maxRad = 30;
+    minRad = 7;
+    maxRad = 45;
     var maxFreq = d3.max(forceData.nodes, function(d) {
         return d.Frequency;
     })
@@ -34,16 +34,20 @@ function plotNodes(nodes, clickedNode) {
             return d.Frequency
         };
     })
-    var serviceColorScale =  d3.scaleQuantize()
-        .domain([0, 1])
-        .range(['#03caa5', '#03caa5','#c0c0c5' , '#ca31ca', '#ca31ca']);
+    var serviceColorScale =  d3
+        .scaleLinear()
+        .domain([0, 0.5, 1])
+        .range(['#078c07', '#a7a5a5', '#d60459'])
+
+    // var serviceColorScale = d3.scaleSequential(d3.interpolateRdGy)  ;
+        // .range(['#03caa5', '#03caa5','#c0c0c5' , '#ca31ca', '#ca31ca']);
 
     var scaleColor = d3.scaleSequential(d3.interpolatePRGn).domain([0, 1])
     var scaleOpacity = d3.scaleLinear().domain([minServ, maxServ]).range([.9, 1]);
     var pointRadiusScale = d3.scalePow(0.3).domain([minFreq, maxFreq]).range([minRad, maxRad]);
-    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.1, .4, .8, .9, .95, 1]);
-    var scaleFillOpacity = d3.scaleLinear().domain([minRad, maxRad/4, maxRad/3, maxRad/2, maxRad]).range([.5, .8 ,.9, 1, 1])
-    var scaleStrokeWidth = d3.scalePow(0.3).domain([0, 1]).range([.5, 3.5]);
+    var scaleStrokeOpacity = d3.scaleLinear().domain([0, 0.05, .1, .4, .6, 1]).range([.05, .25, .8, .9, .95, 1]);
+    var scaleFillOpacity = d3.scaleLinear().domain([0, .1, .2, .5,  1]).range([.1, .15, .2, .4, 1])
+    var scaleStrokeWidth = d3.scalePow(0.8).domain([0, 1]).range([.5, 6.0]);
     var scalePCPOpacity = d3.scalePow(0.3).domain([minPCPFreq, maxPCPFreq / 3]).range([0, 1]);
 
     var simulation = d3.forceSimulation(nodes)
@@ -64,12 +68,13 @@ function plotNodes(nodes, clickedNode) {
                 return d.id
             }))
         .force('charge', d3.forceManyBody().strength(function(d) {
-            return -90;
+            return -100;
         }))
         .stop()
 
     var parameters = ['static', simulation, scaleColor, scaleOpacity, pointRadiusScale, scaleStrokeOpacity, scaleStrokeWidth, scaleFillOpacity, scalePCPOpacity,maxFreq, serviceColorScale]
 
+    d3.selectAll('.pcp-point').data([]).exit().remove();
     setClickedNode(clickedNode);
     setFilterState(false);
     generateElements(parameters);
@@ -94,13 +99,7 @@ function generateElements(parameters) {
     serviceColorScale = parameters[10];
 
     function returnFillOpacity(d) {
-        if (d.ProviderType == 'ServiceProvider') {
-            return scaleFillOpacity(pointRadiusScale(d.Frequency));
-        } else if (d.ProviderType == 'PCP') {
-            return scalePCPOpacity(d.Frequency);
-        } else {
-            return 1;
-        }
+      return scaleFillOpacity(d.pctFrequency);
     };
     function returnColor(d) {
         if (d.ProviderType == 'ServiceProvider'){
@@ -136,6 +135,7 @@ function generateElements(parameters) {
         drawNodes();
     }
 
+    var fadeOpacity = 0.06;
 
 
     function drawNodes() { //initialize nodes and add unchanging values
@@ -162,7 +162,7 @@ function generateElements(parameters) {
             .attr('stroke', function(d) {
                 return returnColor(d.target)
             })
-            .attr('opacity', 0.1)
+            .attr('opacity', fadeOpacity)
             .attr('class', 'link')
             ;
         allNodes.enter().append('circle').attr('z-index', 1);
@@ -177,6 +177,7 @@ function generateElements(parameters) {
                 }
               }
             })
+            .attr('class', 'circle')
             .attr('z-index', 1)
             .on('click', function(d) {
                 d3.select(this).on('mouseout', function(d) {
@@ -245,7 +246,7 @@ function generateElements(parameters) {
             })
             .attr('r', function(d) {
                 if (d.ProviderType == 'PCP') {
-                    return 2;
+                    return 3.5;
                 } else {
                     return pointRadiusScale(d.Frequency);
                 }
@@ -307,11 +308,19 @@ function generateElements(parameters) {
                }
              })
             .transition()
-            .attr('fill-opacity', 0.1)
-            .attr('stroke-opacity', 0.1)
+            .attr('opacity', fadeOpacity)
             ;
         selectedLines.exit()
-            .attr('stroke-opacity', 0.1);
+            .attr('opacity', fadeOpacity);
+
+
+        var minOpacity = 0;
+        var minStrokeOpacity=  0;
+        if (getFilterActive()){
+          console.log(getFilterActive())
+          minOpacity = 0.65;
+          minStrokeOpacity = 0.3;
+        }
 
         var clickednode = getClickedNode();
         if (clickednode) {
@@ -338,7 +347,6 @@ function generateElements(parameters) {
                       } else {
                         totalFreq = linkreturn[0].target.Frequency;
                       }
-                      console.log(linkreturn[0])
                       pctTotalFreq = Math.round(100*(linkreturn[0].rawFrequency/totalFreq));
                       if (d.ProviderType == 'PCP') {
                           text = '<div>Practice - ' + pctTotalFreq + "% of referrals for selected facility" + '<i class="material-icons clicktip">launch</i></div>'
@@ -354,12 +362,11 @@ function generateElements(parameters) {
                 .transition()
                 .attr('stroke-opacity', 1)
                 .attr('fill-opacity', 1)
-                .attr('opacity', .02)
+                .attr('opacity', 1)
                 ;
-
             selectedLines
                 .transition()
-                .attr('opacity', .02)
+                .attr('opacity', 1)
                 .attr('stroke-width', function(d){
                   return 2*scaleStrokeWidth(d.value);
                 })
@@ -377,10 +384,10 @@ function generateElements(parameters) {
             selectedNodes
                 .transition()
                 .attr('fill-opacity', function(d) {
-                    return returnFillOpacity(d);
+                    return Math.max(minOpacity, returnFillOpacity(d));
                 })
                 .attr('stroke-opacity', function(d) {
-                    return returnFillOpacity(d);
+                    return Math.max(minOpacity, returnFillOpacity(d));
                 })
                 .attr('opacity', 1)
                 ;
@@ -388,8 +395,7 @@ function generateElements(parameters) {
                 .transition()
                 .attr('opacity', 1)
                 .attr('stroke-opacity', function(d) {
-                  console.log(d);
-                    return scaleStrokeOpacity(d.value);
+                    return Math.max(minStrokeOpacity, scaleStrokeOpacity(d.value));
                 })
                 .attr('stroke-width', function(d){
                   return scaleStrokeWidth(d.value);
@@ -429,7 +435,6 @@ function generateElements(parameters) {
         updateNodes();
     })
     $('.node-filter-button').on('click', function() {
-        // filterNodeData(getCurrNodes());
         if ($(this).hasClass('active')) {
             $(this).removeClass('active')
             // $('.nodebody.specialists').addClass('active');

@@ -251,7 +251,7 @@ $('#two').on('click', function(e){
 })
 $('#three').on('click', function(e){
   if (getCurrentPage() == 2){
-    d3.selectAll('.inner-band').data([]).exit().transition(300).remove();
+    d3.selectAll('.inner-band').data([]).exit().remove();
     setCurrentPage(3);
     setFilterState(true)
     plotNodes(getCurrNodes().nodes);
@@ -471,7 +471,8 @@ function filterNodeData(input){
   thisfilter = getNodeFilters();
   var newForceData = jQuery.extend({}, input);
   var networkState = thisfilter[2];
-  var filteredNodes = newForceData.nodes.filter(function(d){
+  var filteredNodes = new Array();
+  filteredNodes = newForceData.nodes.filter(function(d){
     if (d.ProviderType == 'ServiceProvider'){
       var netState;
       if (networkState == 'both'){
@@ -485,7 +486,7 @@ function filterNodeData(input){
         }
       }
       return d.pctFrequency >= thisfilter[1][0] && d.pctFrequency <= thisfilter[1][1] && d.pctCost >= thisfilter[0][0] && d.pctCost <= thisfilter[0][1] && netState;
-    };
+    }
   })
   if (getClickedNode()){
     filteredNodes.push(clickedNode.data()[0]);
@@ -493,7 +494,6 @@ function filterNodeData(input){
   filteredNodeIDs = filteredNodes.map(function(d){
     return d.id
   })
-
   filteredLinks = newForceData.links.filter(function(d){
     if (filteredNodeIDs.indexOf(d.source.id) > -1 || filteredNodeIDs.indexOf(d.target.id) > -1){
       if (filteredNodeIDs.indexOf(d.source.id) == -1){
@@ -508,7 +508,6 @@ function filterNodeData(input){
   })
   newForceData.nodes = filteredNodes;
   newForceData.links = filteredLinks;
-
   return newForceData;
 }
 

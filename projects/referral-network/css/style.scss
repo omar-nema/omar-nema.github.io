@@ -272,7 +272,6 @@ height: 45px;
 .link {
   color: $color-primary;
   transition: text-decoration .2s ease-in-out;
-  cursor: pointer;
 }
 .link:hover {
   text-decoration: underline;
@@ -344,18 +343,7 @@ svg.main.loading {
 .network-button.show {
   visibility: visible;
 }
-circle.showme {
-  fill-opacity: 1  !important;
-  /*stroke: black  !important;*/
-  stroke-opacity: 1 !important;
-  opacity: 1 !important;
-}
-.circle:hover {
-  opacity: 1;
-  fill-opacity: 1;
-  filter: url(#glow-hard);
-  stroke: black;
-}
+
 .tip-text {
   text-align:left;
   padding-left: 0;

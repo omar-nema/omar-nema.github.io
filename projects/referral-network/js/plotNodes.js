@@ -293,20 +293,9 @@ function generateElements(parameters) {
         });
 
         selectedNodes.exit()
-            .on('mouseover', function(d){ //only show servicing provider mouseovers
-                if (d.ProviderType == 'ServiceProvider') {
-                   if (d.InNetwork == 1) {
-                       networkString = 'In Network'
-                   } else {
-                       networkString = 'Out of Network'
-                   }
-                   text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
-                   flatToolTip(text, tooltip);
-                   d3.select(this).on('mouseout', function(d) {
-                       offFlat(null, tooltip)
-                   })
-               }
-             })
+            .on('mouseover', null)
+            .style('pointer-events', 'none')
+            .style('cursor', 'inherit')
             .transition()
             .attr('opacity', fadeOpacity)
             ;
@@ -316,8 +305,7 @@ function generateElements(parameters) {
 
         var minOpacity = 0;
         var minStrokeOpacity=  0;
-        if (getFilterActive()){
-          console.log(getFilterActive())
+        if (filterhead.classed('applied')){ //bad practice oh well
           minOpacity = 0.65;
           minStrokeOpacity = 0.3;
         }
@@ -326,6 +314,7 @@ function generateElements(parameters) {
         if (clickednode) {
           clickednode.classed('selected-node', true);
             selectedNodes
+                .style('pointer-events', 'inherit')
                 .on('mouseover', function(d) {
                     var text, networkString;
                     if (d.id == clickednode.data()[0].id){
@@ -359,6 +348,7 @@ function generateElements(parameters) {
                         offFlat(null, tooltip)
                     })
                 })
+                .style('cursor', 'pointer')
                 .transition()
                 .attr('stroke-opacity', 1)
                 .attr('fill-opacity', 1)
@@ -382,6 +372,24 @@ function generateElements(parameters) {
             ;
         } else {
             selectedNodes
+                .style('cursor', 'pointer')
+                .style('pointer-events', 'inherit')
+                .on('mouseover', function(d){
+                    var text;
+                    if (d.ProviderType == 'ServiceProvider') {
+                       if (d.InNetwork == 1) {
+                           networkString = 'In Network'
+                       } else {
+                           networkString = 'Out of Network'
+                       }
+                       text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
+                   } else {
+                       text = '<div>Practice - ' + d.Frequency + ' referrals $' + Math.round(d.CostPerEvent, 2) + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';                   }
+                   flatToolTip(text, tooltip);
+                   d3.select(this).on('mouseout', function(d) {
+                       offFlat(null, tooltip)
+                   })
+                 })
                 .transition()
                 .attr('fill-opacity', function(d) {
                     return Math.max(minOpacity, returnFillOpacity(d));

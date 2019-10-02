@@ -291,14 +291,6 @@ header {
 
 
 @media only screen and (min-width:  600px) and (max-width: 800px) {
-  // .project-list-holder {
-  //   flex-direction: column;
-  //   flex-wrap: inherit;
-  //   align-items: center;
-  // }
-  // .filter-holder {
-  //   display: none;
-  // }
   .card {
     width: 45%;
     margin-right: 4%;
@@ -337,6 +329,7 @@ header {
     font-size: 15px;
     line-height: 1.38;
     -webkit-overflow-scrolling: inherit;
+    height: 100vh;
   }
   .filter-option.selected {
     border: 1px solid #416bfdad;

@@ -174,7 +174,7 @@ header {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   height: auto;
-  max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
+  max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 65px );
   padding-bottom: 100px;
 }
 
@@ -299,10 +299,13 @@ header {
   .about-page {
     margin-top: 0px;
     margin-bottom: 0;
-    background: white;
+    background: none;
     width: 100%;
     border: none;
     padding: 50px 35px;
+  }
+  .about-holder {
+      max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
   }
   .header-nav, .name-holder {
     flex-basis: 50%;
@@ -315,7 +318,6 @@ header {
     flex-direction: column;
     flex-wrap: inherit;
     align-items: center;
-    max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 65px );
   }
   .content {
     width: 92%;

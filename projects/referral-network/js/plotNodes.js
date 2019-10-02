@@ -68,7 +68,7 @@ function plotNodes(nodes, clickedNode) {
                 return d.id
             }))
         .force('charge', d3.forceManyBody().strength(function(d) {
-            return -100;
+            return -70;
         }))
         .stop()
 
@@ -384,7 +384,7 @@ function generateElements(parameters) {
                        }
                        text = '<div>Service Facility - ' + d.Frequency + ' referrals $' + d.CostPerEvent + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';
                    } else {
-                       text = '<div>Practice - ' + d.Frequency + ' referrals $' + Math.round(d.CostPerEvent, 2) + ' (' + networkString + ')<i class="material-icons clicktip">launch</i></div>';                   }
+                       text = '<div>Practice - ' + d.Frequency + ' referrals $' + Math.round(d.CostPerEvent, 2) + '<i class="material-icons clicktip">launch</i></div>';                   }
                    flatToolTip(text, tooltip);
                    d3.select(this).on('mouseout', function(d) {
                        offFlat(null, tooltip)

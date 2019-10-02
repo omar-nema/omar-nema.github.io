@@ -476,8 +476,24 @@ position: absolute;
         height: 330px
       }
       body {
-        font-size: 18.5px;
+        font-size: 16px;
         line-height: 1.38;
+      }
+      .container {
+        max-width: inherit;
+        width: inherit;
+      }
+      .block-header {
+        font-size: 16px;
+      }
+      .block-nav-content {
+        height: 500px;
+      }
+      .block-image {
+        max-width: 100%;
+      }
+      .block, body {
+        background: white;
       }
       // .slide-visual::before {
       //   content: 'See visual';

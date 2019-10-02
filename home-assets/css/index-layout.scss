@@ -336,6 +336,7 @@ header {
   body {
     font-size: 15px;
     line-height: 1.38;
+    -webkit-overflow-scrolling: inherit;
   }
   .filter-option.selected {
     border: 1px solid #416bfdad;

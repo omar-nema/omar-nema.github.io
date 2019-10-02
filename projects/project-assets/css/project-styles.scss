@@ -456,17 +456,28 @@ position: absolute;
   }
 
     @media only screen and (max-width: 700px) {
-      // .slide-visual {
-      //   content: '';
-      //   width: 0;
-      //   height: 0;
-      // }
+      .back-btn {
+        right: 20px;
+        opacity: 1;
+        top: 20px;
+      }
       .slide-visual img {
         margin: auto;
         display: block;
       }
+      .container {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .block {
+        padding: 30px 25px;
+      }
       .block-nav-content {
         height: 330px
+      }
+      body {
+        font-size: 18.5px;
+        line-height: 1.38;
       }
       // .slide-visual::before {
       //   content: 'See visual';

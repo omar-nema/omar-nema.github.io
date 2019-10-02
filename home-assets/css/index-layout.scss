@@ -304,15 +304,43 @@ header {
   }
 }
 @media only screen and (max-width:  600px) {
+  .about-page {
+    margin-top: 0px;
+    margin-bottom: 0;
+    background: white;
+    width: 100%;
+    border: none;
+  }
+  .header-nav, .name-holder {
+    flex-basis: 50%;
+  }
   .project-list-holder {
     flex-direction: column;
     flex-wrap: inherit;
     align-items: center;
   }
-
+  .content {
+    width: 92%;
+    margin: auto;
+    overflow: hidden;
+  }
+  header {
+    font-size: 16px;
+  }
+  body {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+  .filter-option.selected {
+    border: 1px solid #416bfdad;
+  }
+  .card-footer .chip {
+    font-size: 13px;
+  }
   .card {
     margin-right: 10%;
     width: 90%;
-    box-shadow: none;
+    border-style: solid;
+    border: 1px solid #ff000066;
   }
 }

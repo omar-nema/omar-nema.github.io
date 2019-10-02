@@ -313,6 +313,10 @@ header {
   }
   .header-nav, .name-holder {
     flex-basis: 50%;
+    font-weight: 400;
+  }
+  .filter-option.selected {
+    font-weight: 400;
   }
   .project-list-holder {
     flex-direction: column;
@@ -341,9 +345,12 @@ header {
   .filter-option {
     height: auto;
   }
+  header {
+    border-bottom: none;
+  }
   .card {
     margin-right: 10%;
     width: 90%;
-    border: 1px dotted #ff00009e;
+    border: 1px dotted rgba(0,0,0,.3);
   }
 }

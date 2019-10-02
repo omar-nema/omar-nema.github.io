@@ -336,11 +336,14 @@ header {
   }
   .card-footer .chip {
     font-size: 13px;
+    letter-spacing: .3pxl
+  }
+  .filter-option {
+    height: auto;
   }
   .card {
     margin-right: 10%;
     width: 90%;
-    border-style: solid;
-    border: 1px solid #ff000066;
+    border: 1px dotted #ff00009e;
   }
 }

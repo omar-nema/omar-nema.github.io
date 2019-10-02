@@ -33,7 +33,7 @@ function populateCard(cards){
           while (testV < 3) {
             if (!pass1)
               console.log(pass1)
-            if (pass1.toLowerCase() == "secrets") {
+            if (pass1.toLowerCase() == "spillit") {
               window.location.replace(d.url);
               break;
             }

@@ -36,6 +36,7 @@ a {
 .about-holder {
   max-height: calc(100vh - #{$headerheight} - 10px );
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .about-header {
   font-weight: 700;
@@ -171,7 +172,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   height: auto;
 
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
@@ -310,6 +311,7 @@ header {
     background: white;
     width: 100%;
     border: none;
+    padding: 50px 35px;
   }
   .header-nav, .name-holder {
     flex-basis: 50%;
@@ -347,6 +349,9 @@ header {
   }
   header {
     border-bottom: none;
+  }
+  .chip {
+    max-width: inherit;
   }
   .card {
     margin-right: 10%;

@@ -174,7 +174,6 @@ header {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   height: auto;
-
   max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
   padding-bottom: 100px;
 }
@@ -316,6 +315,7 @@ header {
     flex-direction: column;
     flex-wrap: inherit;
     align-items: center;
+    max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 65px );
   }
   .content {
     width: 92%;

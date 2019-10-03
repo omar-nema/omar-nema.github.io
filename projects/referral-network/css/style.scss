@@ -26,7 +26,6 @@ $width: 80vw;
 
 body {
   font-family: 'Karla';
-  font-size: 14px;
   font-weight: 400;
   color: black;
   overflow: hidden;
@@ -184,7 +183,6 @@ body {
   width: 100%;
   height: auto;
   max-height: calc(100vh - 55px);
-  padding-bottom: 50px;
 }
 
 #graph-1 {

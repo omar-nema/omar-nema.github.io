@@ -172,6 +172,14 @@ color: #9d9d9d;
 }
 
 
+.overlay-text .info-header {
+  font-weight: 400;
+  color: #d798e7;
+  border-bottom: .5px solid #d798e7c9;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+  width: 55px;
+}
 
 .thought-container {
   z-index: 0;
@@ -207,6 +215,7 @@ color: #9d9d9d;
     margin-bottom: 3px;
     width: 55px;
   }
+
   .overlay-text .info-header {
     border-bottom: none;
   }
@@ -268,8 +277,9 @@ color: #9d9d9d;
   height: calc(100vh - 50px);
   position: fixed;
   top: 50px;
-  overflow-y: none;
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  max-height: calc(100vh - 50px);
 }
 
 .project-holder-overlay {
@@ -285,7 +295,7 @@ color: #9d9d9d;
 }
 .canvas-opacity-layer {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;

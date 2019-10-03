@@ -304,9 +304,7 @@ header {
     border: none;
     padding: 50px 35px;
   }
-  .about-holder {
-      max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 10px );
-  }
+
   .header-nav, .name-holder {
     flex-basis: 50%;
     font-weight: 400;

@@ -30,7 +30,7 @@
       <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2014)">
         <circle id="Ellipse_2014-2" data-name="Ellipse 2014" cx="5" cy="5" r="5" transform="translate(23 69)" fill="#adadad"/>
       </g>
-      <text id="low_in-network_2" data-name="low in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">low in-network %</tspan></text>
+      <text id="high_in-network_" data-name="high in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">high in-network %</tspan></text>
     </g>
     <text id="wide_cost_dist." data-name="wide cost dist." transform="translate(52 137)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">wide cost dist.</tspan></text>
     <path id="Path_5726" data-name="Path 5726" d="M357.637,42.191c-.013-1.5-.039-3.372,1.022-4.31a3.363,3.363,0,0,1,4.118,0c.908.938.578,2.814.412,4.31a15.778,15.778,0,0,0,0,3.951c.166,1.338.5,2.9-.412,3.675a3.917,3.917,0,0,1-4.118,0c-1.061-.779-1.035-2.337-1.022-3.675s.014-2.455,0-3.951" transform="translate(-330.5 89.875)" fill="#514d4d"/>

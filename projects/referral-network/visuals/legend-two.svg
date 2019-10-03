@@ -53,7 +53,7 @@
       <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2014)">
         <circle id="Ellipse_2014-2" data-name="Ellipse 2014" cx="5" cy="5" r="5" transform="translate(23 69)" fill="#adadad"/>
       </g>
-      <text id="low_in-network_2" data-name="low in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">low in-network %</tspan></text>
+      <text id="high_in-network_" data-name="high in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">high in-network %</tspan></text>
     </g>
     <text id="Color" transform="translate(21 29)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Color</tspan></text>
   </g>

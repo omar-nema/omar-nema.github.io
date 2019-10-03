@@ -88,7 +88,6 @@ header {
   align-items: center;
   height: $headerheight;
   width: 100%;
-  font-size: 14px;
   border-bottom: 1px solid black;
 }
 .inner-header {
@@ -209,7 +208,7 @@ header {
   margin-bottom: 30px;
   margin-right: 30px;
   border: 1px dashed black;
-  padding: 20px;
+  padding: 24px;
   background: white;
   position: relative;
   width: calc(33% - 30px);

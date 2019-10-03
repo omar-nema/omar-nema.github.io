@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
    // }
    //
     $(document).click(function(){
-      // vidPlayed[0].stop();
+      vidPlayed[0].stop();
       // hideModal();
     })
   })

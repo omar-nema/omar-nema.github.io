@@ -158,21 +158,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $('video').click(function(e){
     e.stopPropagation();
-    vidPlayed = showModal(this);
-    vidPlayed[0].play();
 
-    $('.img-modal').append('<div id="video-timer"></div>');
-    vidPlayed[0].ontimeupdate = function(d){
-      videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
-    }
-    vidPlayed[0].onended = function(z){
-     $('#video-timer').html('');
-     hideModal();
-   }
+    vidPlayed = $(this);
+    vidPlayed[0].webkitRequestFullScreen();
+    //.play();
 
+    //.play();
+
+   //  vidPlayed = showModal(this);
+   //  vidPlayed[0].play();
+   //
+   //  $('.img-modal').append('<div id="video-timer"></div>');
+   //  vidPlayed[0].ontimeupdate = function(d){
+   //    videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
+   //  }
+   //  vidPlayed[0].onended = function(z){
+   //   $('#video-timer').html('');
+   //   hideModal();
+   // }
+   //
     $(document).click(function(){
-
-      hideModal();
+      // vidPlayed[0].stop();
+      // hideModal();
     })
   })
 

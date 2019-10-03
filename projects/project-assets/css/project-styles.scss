@@ -27,14 +27,13 @@ body {
   line-height: 26px;
   padding: 0px 8px;
   margin-bottom: 5px;
-  bordeR: 1px solid transparent;
+  bordeR: 2px solid transparent;
   cursor: pointer;
 }
 .nav-link.active {
   color: $color-primary;
-  background: white;
   font-weight: 700;
-    border: 1px solid $color-primary-lite;
+  border-left: 2px solid $color-primary;
 }
 .nav-link:hover {
   color: $color-primary;

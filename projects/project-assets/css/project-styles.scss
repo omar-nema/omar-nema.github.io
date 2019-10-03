@@ -7,8 +7,8 @@ body {
   font-family: 'Karla';
   margin: 0;
   width: 100%;
-  font-size: 14.3px;
-  line-height: 1.4rem;
+  font-size: 15px;
+  line-height: 1.5rem;
 }
 
 
@@ -25,7 +25,7 @@ body {
   color: gray;
   transition: all .15s ease-in-out;
   line-height: 26px;
-  padding: 0px 8px;
+  padding: 0px 12px;
   margin-bottom: 5px;
   bordeR: 2px solid transparent;
   cursor: pointer;
@@ -62,7 +62,7 @@ body {
   opacity: .9;
   background: white;
   border: 1px solid $color-primary-lite;
-  right: calc(50vw - 480px);
+  right: calc(50vw - 510px);
   z-index: 1;
 }
 .back-btn:hover {
@@ -381,9 +381,7 @@ position: absolute;
 
 
   .block-nav-content {
-    height: 250px;
-    // overflow-y: auto;
-    // overflow-x: hidden;
+    height: 300px;
     position: relative;
   }
   .content-slide {
@@ -445,9 +443,7 @@ position: absolute;
       max-width: 98vw;
       max-height: 98vh;
     }
-    body {
-      background: #dfdfdf;
-    }
+
   }
 
     @media only screen and (max-width: 700px) {
@@ -488,9 +484,7 @@ position: absolute;
       .block-image {
         max-width: 100%;
       }
-      .block, body {
-        background: white;
-      }
+
       // .slide-visual::before {
       //   content: 'See visual';
       //   color: $color-primary;

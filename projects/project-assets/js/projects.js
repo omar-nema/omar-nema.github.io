@@ -143,6 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
     $(document).click(function(){
       hideModal();
     })
+    $(document).on('touchstart', function(){
+      hideModal();
+    })
   });
 
   function secondsFormatting(seconds){
@@ -156,11 +159,35 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#video-timer').html(displayString);
   }
 
+  $('video').on('webkitExitFullscreen', function(){
+    console.log('adasdasdad')
+  })
+
+    $(document).on('webkitExitFullscreen', function(){
+      console.log('adasdasdad')
+    })
+
+    // $(document).on('exitFullscreen', function(){
+    //   console.log('adasdadddasdas2222sdad')
+    // })
+
+    // document.addEventListener("fullscreenchange", function(){console.log("f")
+    // })
+
+
   $('video').click(function(e){
     e.stopPropagation();
 
     vidPlayed = $(this);
     vidPlayed[0].webkitRequestFullScreen();
+    vidPlayed[0].play();
+
+    document.addEventListener("fullscreenchange", function(){console.log("f")
+    })
+
+
+
+
     //.play();
 
     //.play();
@@ -177,10 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
    //   hideModal();
    // }
    //
-    $(document).click(function(){
-      vidPlayed[0].stop();
-      // hideModal();
-    })
+    // $(document).click(function(){
+    //   vidPlayed[0].pause();
+    // })
   })
 
 

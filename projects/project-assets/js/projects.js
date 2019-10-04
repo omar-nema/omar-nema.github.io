@@ -137,14 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $('.block-text.layered').one('click', showToolTip);
 
-  $('img').click(function(e){
-    if (!$(this).hasClass('block-video')){
+  $('.block-image').click(function(e){
+
       e.stopPropagation();
       showModal(this);
       $(document).click(function(){
         hideModal();
       })
-    }
+
   });
 
   function secondsFormatting(seconds){

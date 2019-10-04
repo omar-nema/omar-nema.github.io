@@ -143,9 +143,9 @@ document.addEventListener('DOMContentLoaded', function() {
     $(document).click(function(){
       hideModal();
     })
-    $(document).on('touchstart', function(){
-      hideModal();
-    })
+    // $(document).on('touchstart', function(){
+    //   hideModal();
+    // })
   });
 
   function secondsFormatting(seconds){

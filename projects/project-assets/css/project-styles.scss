@@ -164,31 +164,22 @@ a:hover {
   opacity: 1;
 }
 
-.img-modal::before {
-  opacity: .9;
-  position: fixed;
-  width: 200vw;
-  height: 200vh;
-  cursor: pointer;
-  content: '';
-  background: #2e2e31f2;
+.img-inner {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
   transform: translate(-50%, -50%);
-  z-index: -1;
-  padding: 3px 6px;
-}
-
-.img-modal {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
-  background-color: white;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-  border-radius: 2px;
+}
+.img-modal {
+  display: none;
+  position: fixed;
+  background-color: #2e2e31e6;
   z-index: 1000;
-  width: auto;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0
 }
 
 .img-modal .block-video, .img-modal .block-image {

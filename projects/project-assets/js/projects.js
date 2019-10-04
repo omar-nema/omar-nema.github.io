@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ``
 
-  $('body').append('<div class="img-modal"></div>');
+  $('body').append('<div class="img-modal"><div class="img-inner"></div></div>');
 
   $('.nav-link').click(function(e) {
    e.preventDefault();
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function showModal(content){
     var newCont = $(content).clone();
-    $('.img-modal').html(newCont)
+    $('.img-inner').html(newCont)
     $('.img-modal').fadeIn(500)
     return newCont;
   }

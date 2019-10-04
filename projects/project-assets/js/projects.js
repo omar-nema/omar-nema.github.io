@@ -159,13 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
     $('#video-timer').html(displayString);
   }
 
-  $('video').on('webkitExitFullscreen', function(){
-    console.log('adasdasdad')
-  })
-
-    $(document).on('webkitExitFullscreen', function(){
-      console.log('adasdasdad')
-    })
+  // $('video').on('webkitExitFullscreen', function(){
+  //   console.log('adasdasdad')
+  // })
+  //
+  //   $(document).on('webkitExitFullscreen', function(){
+  //     console.log('adasdasdad')
+  //   })
 
     // $(document).on('exitFullscreen', function(){
     //   console.log('adasdadddasdas2222sdad')
@@ -175,39 +175,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // })
 
 
-  $('video').click(function(e){
-    e.stopPropagation();
-
-    vidPlayed = $(this);
-    vidPlayed[0].webkitRequestFullScreen();
-    vidPlayed[0].play();
-
-    document.addEventListener("fullscreenchange", function(){console.log("f")
-    })
-
-
-
-
-    //.play();
-
-    //.play();
-
-   //  vidPlayed = showModal(this);
-   //  vidPlayed[0].play();
-   //
-   //  $('.img-modal').append('<div id="video-timer"></div>');
-   //  vidPlayed[0].ontimeupdate = function(d){
-   //    videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
-   //  }
-   //  vidPlayed[0].onended = function(z){
-   //   $('#video-timer').html('');
-   //   hideModal();
-   // }
-   //
-    // $(document).click(function(){
-    //   vidPlayed[0].pause();
-    // })
-  })
-
+  // $('video').click(function(e){
+  //   e.stopPropagation();
+  //
+  //   vidPlayed = $(this);
+  //   vidPlayed[0].webkitRequestFullScreen();
+  //   vidPlayed[0].play();
+  //
+  //   document.addEventListener("fullscreenchange", function(){console.log("f")
+  //   })
+  //
+  //
+  //
+  //
+  //   //.play();
+  //
+  //   //.play();
+  //
+  //  //  vidPlayed = showModal(this);
+  //  //  vidPlayed[0].play();
+  //  //
+  //  //  $('.img-modal').append('<div id="video-timer"></div>');
+  //  //  vidPlayed[0].ontimeupdate = function(d){
+  //  //    videoTimer(Math.round(this.currentTime, 2), secondsFormatting(this.duration));
+  //  //  }
+  //  //  vidPlayed[0].onended = function(z){
+  //  //   $('#video-timer').html('');
+  //  //   hideModal();
+  //  // }
+  //  //
+  //   // $(document).click(function(){
+  //   //   vidPlayed[0].pause();
+  //   // })
+  // })
+  //
 
 })

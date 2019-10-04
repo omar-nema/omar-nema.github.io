@@ -290,14 +290,15 @@ a:hover {
     align-items: center;
   }
   .circle {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 100%;
     background: $color-primary-lite;
     margin-right: 8px;
     cursor: pointer;
     transition: all .15s linear;
     border: 2px solid $color-primary;
+    box-shadow: 0 1px 2px 0px rgba(0,0,0,.1);
   }
   .circle.active {
     background: white;

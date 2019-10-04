@@ -332,8 +332,10 @@ header {
     border: 1px solid #416bfdad;
   }
   .card-footer .chip {
-    font-size: 13px;
-    letter-spacing: .3pxl
+    font-size: 12px;
+    letter-spacing: .3px;
+    padding: 4px 10px;
+    max-width: inherit;
   }
   .filter-option {
     height: auto;
@@ -350,6 +352,6 @@ header {
     border: 1px dotted rgba(0,0,0,.5);
   }
   .card-body {
-    height: 75px;
+    height: 85px;
   }
 }

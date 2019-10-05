@@ -138,14 +138,19 @@ document.addEventListener('DOMContentLoaded', function() {
   $('.block-text.layered').one('click', showToolTip);
 
   $('.block-image').click(function(e){
-
       e.stopPropagation();
       showModal(this);
       $(document).click(function(){
         hideModal();
       })
-
   });
+
+  $('.block-video').click(function(e){
+    if ($(document).width() < 600){
+      e.preventDefault();
+      $(this)[0].webkitRequestFullscreen();
+    }
+  })
 
   function secondsFormatting(seconds){
     var date = new Date(null);

@@ -313,6 +313,10 @@ header {
     flex-direction: column;
     flex-wrap: inherit;
     align-items: center;
+    max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 80px );
+  }
+  .about-holder {
+    max-height: calc(100vh - #{$headerheight} - 30px );
   }
   .content {
     width: 88%;
@@ -333,7 +337,6 @@ header {
   }
   .card-footer .chip {
     font-size: 11px;
-    letter-spacing: .3px;
     padding: 4px 10px;
     max-width: inherit;
   }

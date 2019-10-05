@@ -315,7 +315,7 @@ header {
     align-items: center;
   }
   .content {
-    width: 92%;
+    width: 88%;
     margin: auto;
     overflow: hidden;
   }
@@ -332,7 +332,7 @@ header {
     border: 1px solid #416bfdad;
   }
   .card-footer .chip {
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: .3px;
     padding: 4px 10px;
     max-width: inherit;
@@ -343,13 +343,12 @@ header {
   header {
     border-bottom: none;
   }
-  .chip {
-    max-width: inherit;
-  }
+
   .card {
     margin-right: 10%;
     width: 90%;
     border: 1px dotted rgba(0,0,0,.5);
+    padding: 18px;
   }
   .card-body {
     height: 85px;

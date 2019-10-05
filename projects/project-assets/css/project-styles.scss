@@ -96,6 +96,10 @@ a:hover {
   background: black;
   color: #e3dede;
 }
+.block.intro a {
+  color: $color-primary-lite;
+}
+
 .block.intro span {
   color: #8e8e8e;
 }

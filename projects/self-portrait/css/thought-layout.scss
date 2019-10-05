@@ -39,6 +39,7 @@ div {
   display: flex;
   justify-content: flex-end;
   color: $header-color;
+  border-bottom: none;
 }
 .back-btn:hover {
   color: $header-color;
@@ -342,11 +343,14 @@ color: #9d9d9d;
   margin-bottom: 40px;
 }
 
-.clickable-span {
+.clickable-span, a{
   border-bottom: 1px solid #6600ff;
   color: #c4c4c4;
   cursor: pointer;
   transition: border-color .15s linear;
+}
+a {
+  text-decoration: none;
 }
 
 

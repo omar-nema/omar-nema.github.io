@@ -34,7 +34,7 @@ a {
   border: 1px dashed black;
 }
 .about-holder {
-  max-height: calc(100vh - #{$headerheight} - 15px );
+  max-height: calc(100vh - #{$headerheight} - 50px );
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

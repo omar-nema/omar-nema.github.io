@@ -145,7 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
       })
   });
 
-  $('.block-video').click(function(e){
+
+  $('.block-video').on('touchstart click', function(e){
     if ($(document).width() < 600){
       e.preventDefault();
       vidSrc = $(this).attr('data-src');
@@ -157,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
       $('.mobile-vid-holder').attr('src', vidSrc);
       $('.mobile-vid-holder')[0].webkitRequestFullScreen();
     }
-  })
+  });
 
   function secondsFormatting(seconds){
     var date = new Date(null);

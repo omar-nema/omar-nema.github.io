@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   window.onscroll = function() {
     var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-
     for (i in sections) {
       if (sections[i] <= scrollPosition) {
         document.querySelector('.active').setAttribute('class', 'nav-link');
@@ -146,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  $('.block-video').on('touchstart click', function(e){
+  $('.block-video').on('click', function(e){
     if ($(document).width() < 600){
       e.preventDefault();
       vidSrc = $(this).attr('data-src');

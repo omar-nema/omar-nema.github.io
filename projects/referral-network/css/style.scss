@@ -3,7 +3,7 @@
 @import 'filters';
 @import 'graph';
 $max-width: 1000px;
-$width: 80vw;
+$width: 70vw;
 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 1px rgba(0,0,0,.15);
@@ -81,6 +81,7 @@ body {
   cursor: pointer;
   transition: color .15s ease-in-out;
   color: white;
+  margin-right: 10px;
 }
 .nav-page:hover {
     color: #ffffad;

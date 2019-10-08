@@ -134,6 +134,9 @@ a:hover {
 .block-header span {
   border-bottom: 1px solid black;
   padding-bottom: 3px;
+  span {
+    border-bottom: none;
+  }
 }
 
 .block-image-container {

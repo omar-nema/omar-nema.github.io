@@ -291,7 +291,9 @@ header {
 }
 @media only screen and (max-width:  600px) {
   .about-holder {
-    max-height: calc(100vh - #{$headerheight} - 100px );
+    max-height: calc(100vh - #{$headerheight} - 50px );
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .about-page {
     margin-top: 0px;
@@ -313,11 +315,6 @@ header {
     flex-wrap: inherit;
     align-items: center;
     max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 140px );
-  }
-  .about-holder {
-    max-height: calc(100vh - #{$headerheight} - 10px );
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
   }
   .content {
     margin: auto;

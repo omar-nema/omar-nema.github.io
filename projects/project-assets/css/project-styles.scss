@@ -24,7 +24,7 @@ body {
 .nav-link {
   color: gray;
   transition: all .15s ease-in-out;
-  line-height: 26px;
+  line-height: 22px;
   padding: 0px 12px;
   margin-bottom: 5px;
   bordeR: 2px solid transparent;
@@ -95,6 +95,7 @@ a:hover {
   color: black;
   background: black;
   color: #e3dede;
+  border: none;
 }
 .block.intro a {
   color: $color-primary-lite;
@@ -367,7 +368,7 @@ position: absolute;
 
   .slide-text, .slide-visual {
     flex-basis: 47%;
-    padding: 0 5px;
+    padding-right: 5px;
   }
   .slide-visual {
     width: 100%;

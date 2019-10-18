@@ -291,7 +291,7 @@ header {
 }
 @media only screen and (max-width:  600px) {
   .about-holder {
-    max-height: calc(100vh - #{$headerheight} - 60px );
+    max-height: calc(100vh - #{$headerheight} - 100px );
   }
   .about-page {
     margin-top: 0px;
@@ -312,7 +312,7 @@ header {
     flex-direction: column;
     flex-wrap: inherit;
     align-items: center;
-    max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 100px );
+    max-height: calc(100vh - #{$headerheight} - #{$filterheight} - 140px );
   }
   .about-holder {
     max-height: calc(100vh - #{$headerheight} - 10px );

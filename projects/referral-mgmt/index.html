@@ -86,7 +86,7 @@
             <div class="slide-text">
               <p class="block-subheader">User Flow</p>
               <p class="mobile-hide">
-                The application is built around three  clinician roles: the referring provider, referral manager, and medical director.
+                The application is built around three clinician roles: the referring provider, referral manager, and medical director.
               </p>
               <p>
                 In the case of a behavioral health referral, the provider submits a referral request. The referral manager then contacts the patient, and works to understand their needs and preferences. The process ends when the patient is matched with a provider who they feel comfortable engaging with.
@@ -100,10 +100,10 @@
           <div class="content-slide">
             <div class="slide-text">
               <p class="block-subheader">Submit Referral</p>
-              <p>The process of finding a specialist starts with referral submission. Within the app, clinicians can submit behavioral health, or medical referrals. The submission is routed directly to a referral manager, who will work more closely with the patient to understand their needs.
+              <p>The process of finding a specialist starts with referral submission. Within the app, clinicians can submit behavioral health, or medical referrals.
               </p>
               <p class="mobile-hide">
-              In the case of a Behavioral Health referral: the provider submits a form with identifying patient information. Insurance information is verified in order to determine if the patient can pay for the referral. Clinical information, and specialist preferences are added.
+              In the case of a behavioral health referral, the submission is routed directly to a referral manager, who will work more closely with the patient to understand their needs.
               </p>
             </div>
             <p class="slide-visual video-cont">
@@ -162,12 +162,22 @@
     <section class="block" id="four">
       <header class="block-header" id="context"><span>Medical Referrals</span></header>
       <div class="block-text">
+          <div class="subheader">Rules Engine</div>
           <p>
-          In additional to Behavioral Health referrals, providers can submit requests for procedural medical referrals. Medical referrals requests are automatically processed using a configured rules engine. These referrals are categorized as in network, out of network, or exceptions.
+          In additional to Behavioral Health referrals, providers can submit requests for procedural medical referrals. Medical referrals requests are automatically processed (as in-network, out-of-network, or exception) using a rules engine that is configured by the client.
           </p>
           <p>
-          Based on the resulting categorization, referrals will have different suggested actions. For example, an out of network referral will have a suggested action to escalate to a medical director for approval. The resulting workflow is seamless and efficient: in network cases are auto approved, and all other cases are routed to referral managers with a suggested action.
+          The 'referral network' is a surprisingly fluid concept, as health systems frequently adjust the specialties that they are looking to retain in-network, or direct externally. I designed the rules engine to accommodate this flexibility. Users can group patient insurance, specialties, patient age, and region into individual rules.
           </p>
+      </div>
+      <div class="block-text">
+        <div class="subheader">Referral Submission</div>
+        <p>
+        Given the complexity of referral networks - providers are not always aware of whether a given referral is in or out of network. To address this, our referral management system displays the applied rule prior to referral submission (see bottom right image).
+        </p>
+        <p>
+          After a medical referral is submitted, it is routed to referral manager with a suggested action for moving the case forward. This action is dynamic, and dependent on the applied rule. For example, an out of network referral will show a suggested action to escalate to a medical director for approval.
+        </p>
       </div>
       <div class="block-image-container two">
         <img src="./visuals/rules-config.jpg" class="block-image"/>
@@ -180,14 +190,11 @@
       <header class="block-header" id="context"><span>Reporting</span></header>
       <div class="block-text">
           <p>
-          I developed a reporting schema, and set of visualized reports on Tableau to track referral outcomes. The reports offer insight into network performance as a whole in keeping cases in network, and productivity by referral manager, and medical director.
+          Actions from the referral management system feed into reporting tables (used by analysts and clinical leadership). I developed a reporting schema (in SQL), and set of visualized reports on Tableau to track referral outcomes. These reporting tables offer insight into network performance, and productivity by referral manager, and medical director.
           </p>
-          <p>
-            Below, a visual I developed using the data model using this data model, and javascript.</a>
-        </p>
       </div>
       <div class="block-image-container">
-        <img class="block-image" src="./visuals/poster.jpg"/>
+        <img class="block-image" src="./visuals/referral-reporting.PNG"/>
       </div>
     </section>
 

@@ -144,21 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
       })
   });
 
-
-  // $('.block-video').on('click', function(e){
-  //   if ($(document).width() < 600){
-  //     e.preventDefault();
-  //     vidSrc = $(this).attr('data-src');
-  //     if ($('.mobile-vid-holder').length == 0){
-  //       $('body').append('<video style="width:100%;height:100%" class="mobile-vid-holder"></video>');
-  //     } else {
-  //       $('.mobile-vid-holder')[0].webkitExitFullscreen();
-  //     }
-  //     $('.mobile-vid-holder').attr('src', vidSrc);
-  //     $('.mobile-vid-holder')[0].webkitRequestFullScreen();
-  //   }
-  // });
-
   function secondsFormatting(seconds){
     var date = new Date(null);
     date.setSeconds(seconds); // specify value for SECONDS here

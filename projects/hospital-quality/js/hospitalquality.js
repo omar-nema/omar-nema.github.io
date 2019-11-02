@@ -79,12 +79,12 @@ var yAxis = d3.axisLeft(yscale).ticks(3, 's').tickFormat(function(d) { return 10
 var origLineData;
 var currData;
 //
-var tooltip = d3.select('.chartwrapper').append("div").attr("class", "tooltip");
-//
+var tooltip = d3.select('#graph-1').append("div").attr("class", "tooltip");
+
 var axisArrangement = {
-    2: [width*.2, width*.8],
+    2: [width*.25, width*.75],
     3: [0, width*.5, width],
-    4: [0, width*.4, width*.56, width],
+    4: [0, width*.33333, width*.6666, width],
 };
 var providerSelections = [];
 var axisDataObject; //object that is generated using above axisArr. and user-generated axisOrder based on filters
@@ -248,11 +248,11 @@ function generateLines(input, updateTransition){
         .attr("points", function(d){ return generatePointArray(d) } )
         .style('stroke', function(d){return d.color})
         .on('mousemove', function(d, i){
-            tooltip
+            d3.select('.tooltip')
                 .style("display", "block")
                 .html(d.provider + '<br>' + d.city + ' , ' + d.state)
-                .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
-                .style("top", 15+(d3.event.pageY)-$('.chartwrapper').offset().top + "px");
+                .style("left", (d3.event.pageX)-$('#graph-1').offset().left + "px")
+                .style("top", 15+(d3.event.pageY)-$('#graph-1').offset().top + "px");
         }).on('mouseleave', function(){
             tooltip.style('display', 'none');
             $('.tooltip').css('display', 'none');
@@ -304,39 +304,29 @@ function generateLines(input, updateTransition){
 
 function generateAxes(updateTransition){
 
-    //axisHighlight  = {discharge, size, cost, x: null}
-
-//LABELS - fix me / put me in an svg
-    var axislabel = d3.select('.axislabels').selectAll('.axis-label').data(axisDataObject, function(d){return d.name});
-
-    //ENTER
-    var enterlabel =
-        axislabel.enter().append('text').attr('class', 'axis-label')
-       .attr('x', function(d,i){return d.value;}).attr("dy", "20px").style('opacity', '0')
-        .text(function(d,i){ return axisLabels[axisOrder[i]]})
-        .on('mousemove', function(d, i){
-         tooltip.style("display", "block")
-             .html(function(){return axisLabelContent[d.name] })
-             .style("left", (d3.event.pageX)-$('.chartwrapper').offset().left + "px")
-             .style("top", "10%").style('width', '170px')
-             .style('background-color', 'rgba(255,255,255,.8)')
-            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)').style('padding', '5px');})
-        .on('mouseleave', function(){
-            tooltip.style('background', 'none').style('box-shadow', 'none').style('display', 'none').html('');
-        });
-    //UPDATE/ANIMATE
-    d3.selectAll('.axis-label').transition(updateTransition).style('opacity', '1').attr('x', function(d,i){return d.value;}).attr("dy", "20px");
-    //EXIT
-    axislabel.exit().remove();
 
 
 //AXES
     var axishold = d3.select('.axisholder').selectAll('.y-axis.axis').data(axisDataObject, function(d){return d.name});
+
     //ENTER
     var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', function(d){return 'y-axis axis num-' + d.value}).attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');
+
+    enteraxis.append('text').html(function(d){
+      if (d.name == 'discharge'){
+        return 'Size'
+      } else if (d.name =='patexp'){
+        return 'Experience'
+      } else if (d.name == 'outcome'){
+        return 'Outcomes'
+      } else if (d.name == 'cost'){
+        return 'Cost'
+      }
+    }).attr('fill', 'black').attr('x', 15).attr('y', -25).style('font-size', '14px').attr('fill', 'gray');
 //    var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');
     //UPDATE ANIMATION
-    d3.transition(updateTransition).select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '.4').attr('class', function(d){return 'y-axis axis num-' + d.value});
+    d3.transition(updateTransition).select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '1').attr('class', function(d){return 'y-axis axis num-' + d.value})
+    ;
     //EXIT
     axishold.exit().remove().transition().styleTween('stroke-opacity', function(){return d3.interpolate(0, 1)});
 
@@ -655,23 +645,27 @@ function initialLoad(){
 var item;
 function dataDependency(){
     //SEARCH AUTOCOMPLETE
-    $( function() {
-        $( "#tags" ).autocomplete({
-            source: autoCompleteSource.values,
-            focus: function (event, ui){
-                if (item){
-                   item.css('color', 'gray')
-                };
-                item =  $('#ui-id-1').find(".ui-menu-item-wrapper:contains(" + ui.item.value + ")")
-                item .css('color', 'blue');
-            }
-        });
-    }) ;
-    prepareAutoCompleteInput($('#tags'));
+    // $( function() {
+    //     $( "#tags" ).autocomplete({
+    //         source: autoCompleteSource.values,
+    //         focus: function (event, ui){
+    //             if (item){
+    //                item.css('color', 'gray')
+    //             };
+    //             item =  $('#ui-id-1').find(".ui-menu-item-wrapper:contains(" + ui.item.value + ")")
+    //             item .css('color', 'blue');
+    //         }
+    //     });
+    // }) ;
+    // prepareAutoCompleteInput($('#tags'));
     //EVEN LISTENERS
-    function filterMouseOverClick(){
-        $(this).removeClass('hide');
-        $(document).unbind('click');
+    function filterClick(){
+        filter = $('.filter');
+        if (filter.hasClass('hide')){
+            filter.removeClass('hide');
+        } else {
+          filter.addClass('hide');
+        }
     };
     function showProjectInfo(){
         $('.chart-info').mouseleave(function(){
@@ -700,14 +694,9 @@ function dataDependency(){
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});
     $('.slider').mouseover(mouseOverSlider).mouseleave(mouseLeaveSlider);
     //mouseup(mouseUpSlider).mouseleave(mouseUpSlider).
-    $('.filter').mouseover(filterMouseOverClick)
-    .click(filterMouseOverClick)
-    .mouseleave(function(){
-        var filter = $(this);
-        $(document).click(function(){
-                filter.addClass('hide');
-            });
-        });
+
+    $('.filterheader').click(filterClick);///new me
+
 };
 
 $(document).ready(function(){

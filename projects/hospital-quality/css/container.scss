@@ -3,4 +3,56 @@
 
 body {
   color: black;
+  font-size: 14px;
+}
+.graph-header {
+  box-shadow: none;
+}
+
+.top-buttons {
+width: 100%;
+color: #416bfd;
+text-align: center;
+z-index: 1000;
+font-size: 14px;
+align-self: center;
+
+div {
+  padding: 3px 4px;
+    width: 80px;
+    background: #f8f7f7;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color .2s linear, border-color .2s linear, color .2s linear;
+    border: .5px solid transparent;
+    float: right;
+}
+div:hover {
+  background: #eae9e9;
+}
+}
+.filter-header{
+  align-self: center;
+}
+
+.filter {
+  background: #f8f7f7;
+  opacity: .95;
+  position: absolute;
+  top: 42px;
+  right: 0%;
+  width: 300px;
+  height: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  z-index: 1000;
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.15);
+  pointer-events: auto;
+  transition: height .15s ease-in-out, width .15s ease-in-out, right .15 ease-in-out, opacity .3s ease-in-out; }
+  .filter .filter-icon {
+    display: none; }
+
+.filter.hide {
+  opacity: 0;
+  pointer-events: none;
 }

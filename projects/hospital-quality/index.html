@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="./css/main.css"> -->
     <link rel="stylesheet" href="./css/hospitalquality.css" media="screen" type="text/css">
     <link href="css/container.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
@@ -19,7 +18,7 @@
     <div class="large row">
       <div class="title-holder">
         <div class="title">
-          Network Explorer
+          Weaving Variation
         </div>
         <div class="nav-holder">
           <div class="nav-page visual selected">Visual</div>
@@ -32,170 +31,155 @@
     </div>
   </div>
   <div class="scroll-holder">
-    <div class="filter hide">
-        <section class="hide-wrapper">
-            <div class="filter-header values profile-one">profile 1</div>
-            <section class="slider-holder profile-one">
-                <div class="slider-block discharge" filterType="discharge">
-                    <div class="slider-label">size</div>
-                    <div class="slider vertical profile-one">
-                        <div class="thumb thumb-lower vertical profile-one" filterType="discharge">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-one" filterType="discharge">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="discharge"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="discharge">-</div>
-                </div>
-                <div class="slider-block patexp" filterType="patexp">
-                    <div class="slider-label">pat. exp.</div>
-                    <div class="slider vertical profile-one">
-                        <div class="thumb thumb-lower vertical profile-one" filterType="patexp">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-one" filterType="patexp">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="patexp">
-
-                        </div>
-                    </div>
-                    <div class="collapse-button minus" filterType="patexp">-</div>
-                </div>
-                <div class="slider-block outcome" filterType="outcome">
-                    <div class="slider-label">outcome</div>
-                    <div class="slider vertical profile-one">
-                        <div class="thumb thumb-lower vertical profile-one" filterType="outcome">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-one" filterType="outcome">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="outcome"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="outcome">-</div>
-                </div>
-                <div class="slider-block cost" filterType="cost">
-                    <div class="slider-label">cost</div>
-                    <div class="slider vertical profile-one">
-                        <div class="thumb thumb-lower vertical profile-one" filterType="cost">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-one" filterType="cost">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="cost"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="cost">-</div>
-                </div>
-            </section>
-
-            <div class="filter-header values profile-two">+ compare</div>
-            <section class="slider-holder profile-two">
-                <div class="slider-block discharge" filterType="discharge">
-                    <div class="slider-label">size</div>
-                    <div class="slider vertical profile-two">
-                        <div class="thumb thumb-lower vertical profile-two" filterType="discharge">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-two" filterType="discharge">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="discharge"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="discharge">-</div>
-                </div>
-                <div class="slider-block patexp" filterType="patexp">
-                    <div class="slider-label">pat. exp.</div>
-                    <div class="slider vertical profile-two">
-                        <div class="thumb thumb-lower vertical profile-two" filterType="patexp">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-two" filterType="patexp">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="patexp">
-
-                        </div>
-                    </div>
-                    <div class="collapse-button minus" filterType="patexp">-</div>
-                </div>
-                <div class="slider-block outcome" filterType="outcome">
-                    <div class="slider-label">outcome</div>
-                    <div class="slider vertical profile-two">
-                        <div class="thumb thumb-lower vertical profile-two" filterType="outcome">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-two" filterType="outcome">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="outcome"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="outcome">-</div>
-                </div>
-                <div class="slider-block cost" filterType="cost">
-                    <div class="slider-label">cost</div>
-                    <div class="slider vertical profile-two">
-                        <div class="thumb thumb-lower vertical profile-two" filterType="cost">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="thumb thumb-upper vertical profile-two" filterType="cost">
-                            <div class="thumb-tooltip"></div>
-                        </div>
-                        <div class="fill-inner" filterType="cost"></div>
-                    </div>
-                    <div class="collapse-button minus" filterType="cost">-</div>
-                </div>
-            </section>
-
-            <div class="filter-header filter-header-search">search</div>
-            <textarea class="search" placeholder="provider, state, zip" id="tags"></textarea>
-            <div class="reset-button">reset</div>
-
-        </section>
-
-        <svg class="filter-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 459 459" style="enable-background:new 0 0 459 459;" xml:space="preserve">
-            <g>
-                <g id="filter">
-                    <path d="M178.5,382.5h102v-51h-102V382.5z M0,76.5v51h459v-51H0z M76.5,255h306v-51h-306V255z" fill="black" />
-                </g>
-            </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-        </svg>
-
-    </div>
     <div id="graph-1">
-      <div class="subtitle">Hospital Quality Stuff</div>
       <p class="graph-description">
-        'Network Explorer' begins with a procedure-level comparison of referral patterns. Each blob below represents referral patterns across a procedure category. Clicking into a procedure will break apart the distribution into individual points.
+        Using d3.js, I visualized patient survey data for the Medicare/Medicaid population of over two thousand hospitals. Each hospital 'thread' below weaves along a path based on four key factors: size, patient experience, clinical outcomes, and cost. Collectively, the threads visualize the complex, textured relationship between these four patterns.
       </p>
       <div class="graph-holder">
-          <svg class="axislabels"></svg>
-          <div style="clear:both"></div>
-          <div class="chart-height-holder">
-              <div class="chart-tooltip-holder">
-                  <svg class="chart">
-                      <g class="lineholder"></g>
-                      <g class="axisholder"></g>
-                  </svg>
+          <div class="tooltip"></div>
+          <div class="graph-header">
+            <div class="breadcrumbs">
+            </div>
+            <div class="top-buttons">
+              <div class="filterheader">
+                Filter
               </div>
+            </div>
+
+                      <div class="filter hide">
+                          <section class="hide-wrapper">
+                              <div class="filter-header values profile-one">profile 1</div>
+                              <section class="slider-holder profile-one">
+                                  <div class="slider-block discharge" filterType="discharge">
+                                      <div class="slider-label">size</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="discharge"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="discharge">-</div>
+                                  </div>
+                                  <div class="slider-block patexp" filterType="patexp">
+                                      <div class="slider-label">pat. exp.</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="patexp">
+
+                                          </div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="patexp">-</div>
+                                  </div>
+                                  <div class="slider-block outcome" filterType="outcome">
+                                      <div class="slider-label">outcome</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="outcome"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="outcome">-</div>
+                                  </div>
+                                  <div class="slider-block cost" filterType="cost">
+                                      <div class="slider-label">cost</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="cost"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="cost">-</div>
+                                  </div>
+                              </section>
+
+                              <div class="filter-header values profile-two">+ compare</div>
+                              <section class="slider-holder profile-two">
+                                  <div class="slider-block discharge" filterType="discharge">
+                                      <div class="slider-label">size</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="discharge"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="discharge">-</div>
+                                  </div>
+                                  <div class="slider-block patexp" filterType="patexp">
+                                      <div class="slider-label">pat. exp.</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="patexp">
+
+                                          </div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="patexp">-</div>
+                                  </div>
+                                  <div class="slider-block outcome" filterType="outcome">
+                                      <div class="slider-label">outcome</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="outcome"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="outcome">-</div>
+                                  </div>
+                                  <div class="slider-block cost" filterType="cost">
+                                      <div class="slider-label">cost</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="cost"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="cost">-</div>
+                                  </div>
+                              </section>
+                              <!-- <div class="filter-header filter-header-search">search</div>
+                              <textarea class="search" placeholder="provider, state, zip" id="tags"></textarea> -->
+                              <div class="reset-button">reset</div>
+
+                          </section>
+                      </div>
           </div>
+
+
+          <svg class="chart">
+              <g class="lineholder"></g>
+              <g class="axisholder"></g>
+          </svg>
+          <!-- <div class="chart-tooltip-holder">
+
+          </div> -->
+
       </div>
     </div>
   </div>
@@ -205,7 +189,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script src="//js/jqueryui.js" src=></script>
+    <script src="./js/jqueryui.js" src=></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="./js/hospitalquality.js"></script>
 

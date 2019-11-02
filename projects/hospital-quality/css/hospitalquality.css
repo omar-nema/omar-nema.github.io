@@ -1,3 +1,5 @@
+
+
 .chartwrapper {
   position: relative;
   font-family: 'Inconsolata';
@@ -10,6 +12,11 @@
 .project-info-collapse {
   opacity: .05; }
 
+.graph-description {
+  font-size: 14px;
+  height: auto !important;
+}
+
 .project-info.project-info-collapse {
   background-color: white; }
 
@@ -17,12 +24,13 @@
   z-index: 1000000; }
 
 .chart {
-  position: relative;
-  float: right;
   width: 100%;
   cursor: crosshair;
-  padding: 30px;
-  padding-top: 10px; }
+  padding: 50px;
+  margin-top: 40px;
+  padding-top: 10px;
+  overflow: visible;
+}
 
 .profile-one {
   color: #00CED1; }
@@ -88,6 +96,10 @@
   height: auto;
   position: relative; }
 
+  text {
+    font-family: 'Karla';
+  }
+
 .question-mark {
   position: absolute;
   font-size: 14px;
@@ -125,31 +137,7 @@
   -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
 
-.filter {
-  background-color: white;
-  opacity: .8;
-  position: absolute;
-  top: 15%;
-  right: 0%;
-  width: 300px;
-  height: auto;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  z-index: 1000;
-  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  transition: height .15s ease-in-out, width .15s ease-in-out, right .15 ease-in-out, opacity .15s ease-in-out; }
-  .filter .filter-icon {
-    display: none; }
 
-.filter.hide {
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  right: 0%; }
   .filter.hide .filter-icon {
     display: block;
     position: absolute;
@@ -412,17 +400,17 @@ svg rect:hover {
   overflow-y: auto;
   position: relative; }
 
-.y-axis {
+/* .y-axis {
   position: relative;
-  opacity: .4; }
+} */
 
-.y-axis-label {
+/* .y-axis-label {
   position: absolute;
   left: 50%;
   transform: translateX(-50%) translateY(-20px);
   font-size: 18px;
   letter-spacing: 3px;
-  opacity: .5; }
+  opacity: .5; } */
 
 .polyline {
   fill: none;

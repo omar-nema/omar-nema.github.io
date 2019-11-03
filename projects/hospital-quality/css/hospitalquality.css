@@ -154,13 +154,6 @@
   font-family: 'Karla';
   font-size: 12px; }
 
-.filter-header.profile-two {
-  cursor: pointer; }
-
-.filter-header.profile-two:hover {
-  transform: scaleX(1.1) scaleY(1.1);
-  text-decoration: underline; }
-
 .search {
   text-align: center;
   width: 100%;
@@ -197,16 +190,6 @@
   text-align: center;
   padding-bottom: 10px; }
 
-.reset-button {
-  font-size: 12px;
-  opacity: .3;
-  position: absolute;
-  right: 4%;
-  bottom: 4%;
-  color: blue;
-  cursor: pointer;
-  transition: opacity .2s ease-in-out; }
-
 .reset-button:hover {
   opacity: 1; }
 
@@ -231,13 +214,14 @@
     position: absolute;
     z-index: 5;
     border-radius: 100%;
-    background-color: white; }
+    background-color: white;
+    transition: transform .15s linear;
+   }
   .slider .thumb-tooltip {
     position: absolute;
     pointer-events: none;
     z-index: 3000;
     display: none;
-    font-family: Inconsolata;
     font-size: 10px; }
 
 .slider.vertical .fill-inner {
@@ -307,11 +291,10 @@
   cursor: pointer; }
 
 .slider-holder {
-  width: 240px;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  height: 100px; }
+ }
 
 .slider-holder.profile-two {
   margin-bottom: 20px; }
@@ -358,8 +341,6 @@
 .collapse-button.compare {
   display: none; }
 
-.collapse-button:hover {
-  transform: scaleX(1.5) scaleY(1.5); }
 
 .collapse-button.minus:hover {
   color: red; }

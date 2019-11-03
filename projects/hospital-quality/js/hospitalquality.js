@@ -1,66 +1,3 @@
-
-
-
-
-
-
-// $(document).ready(function(event){
-//
-//     $('.project-border').scroll(function(){
-//         collapseNav();
-//     });
-//
-//     $(document).one('click touchstart', function(){
-//         collapseNav();
-//     });
-//
-//     $('.home-button').one('click', homeClick);
-//     $('.view-button.one').click(function(){
-//         changeView('textView', $(this))
-//     });
-//     $('.view-button.two').click(function(){
-//         changeView('imageView', $(this))
-//     });
-//     $('.view-button.three').click(function(){
-//         changeView('defaultView', $(this))
-//     });
-//
-//     $('.block-image').click(imageMouseover).mouseleave(imageMouseleave);
-//
-//
-//     //revise?!
-//     function showToolTip(){
-//         $('.info-tooltip').hide();
-//             $('.block-text.layered').one('click', showToolTip);
-//         //if it was the same one
-//         $(this).find('.info-tooltip').show();
-//         $(this).one('click', hideToolTip);
-//     };
-//     function hideToolTip(){
-//         $(this).find('.info-tooltip').hide();
-//         $(this).one('click', showToolTip);
-//     };
-//
-//     $('.block-text.layered').one('click', showToolTip);
-//
-//
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////
-
-
 var width = 900; var height = 450;
 var yscale = d3.scaleLinear().range([height, 0]).domain([0, 1]);
 var lineholder = [];
@@ -611,9 +548,8 @@ function secondCollapseBtnClick(){
 
 
 function showSecondProfile(){
-    $(this).html('profile 2');
     $('.slider-holder.profile-one .collapse-button').addClass('compare');
-    $('.slider-holder.profile-two').css('display', 'block');
+    $('.slider-holder.profile-two').css('display', 'flex');
     rangeFilterArray[1] = {
         cost: [0, 100],
         discharge: [0, 100],

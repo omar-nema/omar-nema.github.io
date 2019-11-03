@@ -297,7 +297,8 @@
  }
 
 .slider-holder.profile-two {
-  margin-bottom: 20px; }
+  margin: 20px 0;
+ }
 
 .slider-holder.profile-two {
   display: none; }
@@ -321,11 +322,9 @@
   z-index: 14000; }
 
 .textbox {
-  transform: translateX(-50%);
   display: none;
   z-index: 20000;
   font-size: 12px;
-  letter-spacing: 2px;
   text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.1); }
 
 .polyline-holder:hover .textbox {
@@ -356,9 +355,9 @@ svg rect:hover {
   pointer-events: none;
   line-height: 1rem;
   transform: translateX(-60%);
+  visibility: visible;
   z-index: 90000;
   display: none;
-  font-family: Inconsolata;
   font-size: 11px;
   text-shadow: 0px 0px 0.5px rgba(0, 0, 0, 0.3); }
 

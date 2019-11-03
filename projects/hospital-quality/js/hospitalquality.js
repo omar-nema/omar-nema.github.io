@@ -15,8 +15,27 @@ var yAxis = d3.axisLeft(yscale).ticks(3, 's').tickFormat(function(d) { return 10
 //.tickValues([0,50,100]);
 var origLineData;
 var currData;
+
+
+///some ui navigation functions out of place HER
+$('.nav-page.context').on('click', function(){
+  $('.nav-page.visual').removeClass('selected');
+  $(this).attr('class', 'nav-page context selected');
+  $('.scroll-holder').fadeOut(200);
+  $('.project-context').fadeIn(400);
+  $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
+})
+$('.nav-page.visual').on('click', function(){
+  $('.nav-page.context').removeClass('selected');
+  $(this).attr('class', 'nav-page visual selected');
+  $('.project-content').fadeOut(200);
+  $('.scroll-holder').fadeIn(400);
+  $(".scroll-holder").animate({ scrollTop: 0 }, "fast");
+})
+
+
 //
-var tooltip = d3.select('#graph-1').append("div").attr("class", "tooltip");
+var tooltip = d3.select('.graph-holder').append("div").attr("class", "tooltip");
 
 var axisArrangement = {
     2: [width*.25, width*.75],
@@ -188,8 +207,8 @@ function generateLines(input, updateTransition){
             d3.select('.tooltip')
                 .style("display", "block")
                 .html(d.provider + '<br>' + d.city + ' , ' + d.state)
-                .style("left", (d3.event.pageX)-$('#graph-1').offset().left + "px")
-                .style("top", 15+(d3.event.pageY)-$('#graph-1').offset().top + "px");
+                .style("left", (d3.event.pageX)-$('.graph-holder').offset().left + "px")
+                .style("top", (d3.event.pageY)-$('.graph-holder').offset().top+60 + "px");
         }).on('mouseleave', function(){
             tooltip.style('display', 'none');
             $('.tooltip').css('display', 'none');
@@ -548,7 +567,8 @@ function secondCollapseBtnClick(){
 
 
 function showSecondProfile(){
-    $('.slider-holder.profile-one .collapse-button').addClass('compare');
+    // $('.slider-holder.profile-one .collapse-button').addClass('compare');
+    $(this).html('Remove filter set')
     $('.slider-holder.profile-two').css('display', 'flex');
     rangeFilterArray[1] = {
         cost: [0, 100],
@@ -562,7 +582,7 @@ function showSecondProfile(){
 };
 function hideSecondProfile(){
     rangeFilterArray[1] = null;
-    $(this).html('+ compare');
+    $(this).html('Add second filter set');
     $('.slider-holder.profile-one .collapse-button').removeClass('compare');
     $('.slider-holder.profile-two').css('display', 'none');
     update(filterData());
@@ -595,10 +615,14 @@ function dataDependency(){
     // }) ;
     // prepareAutoCompleteInput($('#tags'));
     //EVEN LISTENERS
-    function filterClick(){
+    function filterClick(e){
         filter = $('.filter');
+        e.stopPropagation();
         if (filter.hasClass('hide')){
             filter.removeClass('hide');
+            $('.graph-holder').one('click', function(){
+              filter.addClass('hide');
+            })
         } else {
           filter.addClass('hide');
         }
@@ -613,19 +637,18 @@ function dataDependency(){
         $(this).hide();
     };
 
-//    $('.tooltip-click').mouseover(function(){console.log('HIII')});
-    $('.filter-header.profile-two').one('click', showSecondProfile);
+    $('.compare-me').one('click', showSecondProfile);
     $('.reset-button').click(resetFilters);
     $('.collapse-button').one('click', firstCollapseBtnClick);
-    $('.chart-label-holder').mousemove(function(){
-        tooltip.style("display", "block")
-            .html('Variables displayed on percentile-rank basis. High cost percentile indicates an expensive hospital, and higher experience/outcome indicate higher quality value')
-            .style("left", (event.pageX)-$('.chartwrapper').offset().left  + "px")
-            .style('width', '130px').style('padding', '5px')
-            .style('background-color', 'rgba(255,255,255,.8)')
-            .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
-            .style("top", 15+(event.pageY)-$('.chartwrapper').offset().top + "px");
-    }).mouseleave(function(){ tooltip.style('display', 'none').style('background', 'none').style('box-shadow', 'none')  });
+    // $('.chart-label-holder').mousemove(function(){
+    //     tooltip.style("display", "block")
+    //         .html('Variables displayed on percentile-rank basis. High cost percentile indicates an expensive hospital, and higher experience/outcome indicate higher quality value')
+    //         .style("left", (event.pageX)-$('.chartwrapper').offset().left  + "px")
+    //         .style("top", 15+(event.pageY)-$('.chartwrapper').offset().top + "px");
+    //         .style('width', '130px').style('padding', '5px')
+    //         .style('background-color', 'rgba(255,255,255,.8)')
+    //         .style('box-shadow', '0 0 2px rgba(0,0,0,.3)')
+    // }).mouseleave(function(){ tooltip.style('display', 'none').style('background', 'none').style('box-shadow', 'none')  });
     $('.question-mark').click(showProjectInfo);
     $('.thumb').mousedown(mouseDownThumb).mouseover(function(){$(this).addClass('thumb-active')}).mouseout(function(){$(this).removeClass('thumb-active')});
     $('.slider').mouseover(mouseOverSlider).mouseleave(mouseLeaveSlider);

@@ -62,14 +62,23 @@ div:hover {
   border-bottom: .5px solid rgba(0,0,0,.1);
   padding-bottom: 10px;
 }
-.reset-button {
+.reset-button, .compare-me {
   font-size: 14px;
   color: $color-primary;
   cursor: pointer;
   background: rgba(130, 127, 127, 0.1);
-  padding: 0 10px;
+  padding: 3px 10px;
 }
-.reset-button:hover {
+.compare-me {
+  margin-right: 15px;
+}
+
+.tooltip {
+  visibility: visible;
+  min-width: 180px;
+}
+
+.reset-button:hover, .compare-me:hover {
   background: #eae9e9;
 }
 

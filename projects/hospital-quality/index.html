@@ -18,7 +18,7 @@
     <div class="large row">
       <div class="title-holder">
         <div class="title">
-          Weaving Variation
+          Hospital Quality Loom
         </div>
         <div class="nav-holder">
           <div class="nav-page visual selected">Visual</div>
@@ -36,7 +36,6 @@
         Using d3.js, I visualized patient survey data for the Medicare/Medicaid population of over two thousand hospitals. Each hospital 'thread' below weaves along a path based on four key factors: size, patient experience, clinical outcomes, and cost. Collectively, the threads visualize the complex, textured relationship between these four patterns.
       </p>
       <div class="graph-holder">
-          <div class="tooltip"></div>
           <div class="graph-header">
             <div class="breadcrumbs">
             </div>
@@ -48,7 +47,10 @@
 
                       <div class="filter hide">
                           <section class="hide-wrapper">
-                              <div class="reset-holder"><div class="reset-button">Reset</div></div>
+                              <div class="reset-holder">
+                                <div class="values compare-me">Add second filter set</div>
+                                <div class="reset-button">Reset</div>
+                              </div>
                               <section class="slider-holder profile-one">
                                   <div class="slider-block discharge" filterType="discharge">
                                       <div class="slider-label">Size</div>
@@ -105,8 +107,6 @@
                                       <div class="collapse-button minus" filterType="cost">-</div>
                                   </div>
                               </section>
-
-                              <div class="filter-header values">+ Add second filter set</div>
                               <section class="slider-holder profile-two">
                                   <div class="slider-block discharge" filterType="discharge">
                                       <div class="slider-label">size</div>
@@ -181,7 +181,63 @@
       </div>
     </div>
   </div>
+  <div class="project-context container scroll-holder">
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Hospital Quality Loom</strong>
+          </div>
+          <p style="line-height: 1.3rem">
+            <span>Organization:</span> Independent, data from Arcadia.io
+            <br>
+            <span>Role:</span> Design & development
+            <br>
+            <span>Tags:</span> data visualization
+            <br>
+            <span>Tech:</span> SQL, Python, d3.js
+            <br>
+            <span>Code:</span> Github <a href="https://github.com/omar-nema/omar-nema.github.io/tree/master/projects/hospital-quality">repository</a>
+          </p>
+      </div>
+    </section>
 
+    <section class="block" id="two">
+      <header class="block-header" id="context"><span>Context</span></header>
+      <div class="block-text">
+          <div class="subheader">Aim</div>
+          <p>
+            Cost variability in American healthcare is a well-known phenomenon: billed amounts for common procedures vary wildly from hospital to hospital. 'Hospital Loom' aims to provide texture to this trend, and enable users to visualize the nuance of healthcare pricing.
+      </div>
+      <div class="block-text">
+          <div class="subheader">Dataset</div>
+          <p>
+            This visual relies on a public dataset: the Center for Medicare/Medicaid Services (CMS) Cost and Quality Report. The dataset provides patient survey data, as well as costs for individual procedure categories. In order to distill cost data to percentile ranks, I first created a cost index for each hospital. This cost index aggregates billed amounts for procedures and weights each procedure by frequency and price in comparison to other hospitals (i.e. a hospital doing an expensive procedure at a low relative cost is considered a low cost hospital). Quality information was drawn from patient surveys: the CMS 'patient experience' rating is based on a survey encompassing medical staff communication, pain management, and hospital environment, and 'outcome' takes into account mortality, infection rate, and functional ability following discharge.
+          </p>
+      </div>
+
+    </section>
+
+
+    <section class="block" id="three">
+      <header class="block-header" id="context"><span>Visual</span></header>
+      <div class="block-text">
+        <p>
+          'Hospital Loom' displays size, patient experience, outcome, and cost values for over two-thousand hospitals. Each individual hospital weaves a single thread in the loom. Collectively, the threads draw a picture representing the variability between each of these variables.
+        </p>
+        <p>
+          The visual allows users to filter for specific values along each axis. Additionally, a second filter set can be added, allowing the viewer to compare multiple hospital types. For example, we can compare hospitals of the highest and lowest cost values, and attempt to determine if there is any noticeable correlation with size, outcome, and patient experience.
+        </p>
+      </div>
+      <div class="block-image-container video-cont">
+          <img data-fancybox src="./visuals/hospital-quality-prev.PNG" data-src="./visuals/hospital-quality.mp4" class="block-video"/>
+      </div>
+
+
+    </section>
+
+
+
+
+  </div>
 
 
 

@@ -278,7 +278,7 @@ function generateAxes(updateTransition){
       } else if (d.name == 'cost'){
         return 'Cost'
       }
-    }).attr('fill', 'black').attr('x', 15).attr('y', -25).style('font-size', '14px').attr('fill', 'gray');
+    }).attr('fill', 'black').attr('x', 15).attr('y', -25).style('font-size', '16px').attr('fill', 'gray');
 //    var enteraxis = axishold.enter().append('g').call(yAxis).attr('class', 'y-axis axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '0');
     //UPDATE ANIMATION
     d3.transition(updateTransition).select('.axisholder').selectAll('.y-axis.axis').attr('transform', function(d, i){return "translate(" + d.value + ",0)" }).style('opacity', '1').attr('class', function(d){return 'y-axis axis num-' + d.value})
@@ -620,9 +620,9 @@ function dataDependency(){
         e.stopPropagation();
         if (filter.hasClass('hide')){
             filter.removeClass('hide');
-            $('.graph-holder').one('click', function(){
-              filter.addClass('hide');
-            })
+            // $('.graph-holder').one('click', function(){
+            //   filter.addClass('hide');
+            // })
         } else {
           filter.addClass('hide');
         }

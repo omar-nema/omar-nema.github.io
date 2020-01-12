@@ -53,6 +53,11 @@
           </p>
       </div>
       <div class="block-text">
+        <p class="subheader">Portfolio Context</p>
+        <p>
+      This project outlines the work of my undergraduate engineering thesis focused on neuro-engineering. This thesis paved the groundwork for my development as a technologist. Stepping out of my engineering education, I was able to work across disciplines, and merge software tools to create a computational model. The project also speaks to my concern for using technology to advance social good.
+        </p>
+      <p class="subheader">Project Context</p>
         <p>
         In EES experiments, electrical currents are propagated through a test subject's (usually a primate) spinal cord with the aim of understanding which stimulation parameters are therapeutic. Research to date has largely been driven by a trial-and-error process, which can be inefficient, and inhumane to test animals.
         </p>
@@ -68,21 +73,15 @@
 
 
     <section class="block" id="three">
-      <header class="block-header"><span>Result</span></header>
+      <header class="block-header"><span>Process</span></header>
       <div>
-          <p>
-          Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, our end product did not come close in complexity to an actual primate spinal cord. It does however, provide a <span class="highlight-grey">functioning, open-source framework for running  EES experiments</span>. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
-          <br><br>
-          More importantly, developers can look through the source code, and continue to build and refine the computational model we put together. We ensured that our computational model was <a href="https://github.com/penguinscontrol/Spinal-Cord-Modeling"  class="underline">well-documented</a> to allow for other researchers to use the model and build on it. As more EES experiments are conducted, our model will have more data to draw from, and become more accurate. Though the project is no longer in my hands, the Borton Lab has continued to develop and refine the model.
-          </p>
-      </div>
-      <div class="block-text layered">
-          <p>
-          We used three pieces of software to create a hybrid physical-neural model of the spinal cord.   After developing and validating a functional hybrid model, we worked to make our model modular and scalable.
-          <span class="info-tooltip">
-          Current software can be used to create physics simulations, or neural simulations, but not both. We used MATLAB to mediate between a finite element model (physical model) constructed on COMSOL, and a neural model created on NEURON software.
-          </span>
-          </p>
+        <p>
+          I started this project with a mandate to create a computational model, but little context in neuroscience (or epidural stimulation in particular), or computer science. In the initial phase of this project, then, I approached two parallel threads of work. In the first, I read neuroscience literature, and reviewed my understanding regularly with Radu Darie (phD student at the lab). Additionally, I visited the physical lab where experiments were done to better visualize the experimental set-up that I was modeling.
+        </p>
+        <p>In parallel, I started coding. There is no single piece of software designed to simulate spinal cord stimulation experiments. So I tested out different pieces of software that could handle portions of epidural electrical stimulation. I worked with COMSOL, physics simulation software to model the spinal cord. NEURON was used for biophysical modeling. And lastly, I used MATLAB to communicate between both pieces of software.
+        </p>
+        <p>  After developing a basis in neuroscience (in the context of spinal cord stimulation experiments), and the three aforementioned software tools, I moved forward in attempting to represent biological and engineering concepts in code. Along the way, I referenced results in research literature to ensure the model was accurate.
+        </p>
       </div>
       <div class="block-image-container">
           <img src="./img/thesis-process.png" class="block-image">
@@ -140,20 +139,14 @@
     <section class="block" id="six">
       <header class="block-header"><span>Integrated Model</span></header>
       <div class="block-text">
-        <p>
-        Using MATLAB, we integrated our physical (finite element) and neural models.
-        <br><br>
-        MATLAB scripts translated the physical model to discrete three dimensional point values with starting voltage values. These values are fed to the electrical simulation, and a series of changed voltage values is written back to MATLAB, and plotted.
+        <p>Using MATLAB, I integrated the physical (finite element) and neural models. MATLAB scripts translated the physical model to discrete three dimensional point values with starting voltage values. These values were fed to the biophysical model (as simple coordinates). A series of changed voltage values was written back to MATLAB, and plotted. The model matched the sigmoidal shape of a recruitment curve generated from actual EES experiments.
         </p>
-      </div>
-
-      <div class="block-text layered">
-          <p>
-            Our model matched the sigmoidal shape of a recruitment curve generated from actual EES experiments.
-            <span class="info-tooltip">
-              The graph below reveals typical characteristics of a recruitment curve that literature describes. The slope of this sigmoid shape is a result of our diameter distribution — larger diameter fibers are the first to be recruited, and smaller fibers are gradually recruited afterwards. We also see a flat-line preceding a certain threshold voltage, a positive slope where fibers start to reach threshold and elicit action potentials, and a peak value where all fibers are recruited.
-            </span>
-          </p>
+        <p>
+          Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, my end product did not come close in complexity to an actual primate spinal cord. It does however, provide a functioning, open-source framework for running EES experiments. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
+        </p>
+        <p>
+          More importantly, developers can look through the thoroughly-documented source code, and continue to build and refine the computational model we put together. As more EES experiments are conducted, the model will have more data to draw from, and become more accurate.
+        </p>
       </div>
       <div class="block-image-container two">
           <img src="./img/thesis-transposed.png" class="block-image" style="width:200px">

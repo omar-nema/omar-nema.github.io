@@ -203,14 +203,21 @@
     <section class="block" id="two">
       <header class="block-header" id="context"><span>Context</span></header>
       <div class="block-text">
-          <div class="subheader">Aim</div>
+        <div class="subheader">Portfolio Context</div>
+        <p>
+          Hospital Loom is my first independent (outside of academia and work) exploration of creative coding. Prior to building this piece, I was working as a data engineer at Arcadia. Driven by a curiosity to visualize the data I was working with, I took a two-month break from work to build visualization and development skills. The process of giving life to the data that I viewed day to day was fascinating, and helped spark my interest in information processing and data visualization.
+        </p>
+          <div class="subheader">Project Context</div>
           <p>
             Cost variability in American healthcare is a well-known phenomenon: billed amounts for common procedures vary wildly from hospital to hospital. 'Hospital Loom' aims to provide texture to this trend, and enable users to visualize the nuance of healthcare pricing.
+          </p>
       </div>
       <div class="block-text">
-          <div class="subheader">Dataset</div>
+          <div class="subheader">Dataset & Process</div>
           <p>
-            This visual relies on a public dataset: the Center for Medicare/Medicaid Services (CMS) Cost and Quality Report. The dataset provides patient survey data, as well as costs for individual procedure categories. In order to distill cost data to percentile ranks, I first created a cost index for each hospital. This cost index aggregates billed amounts for procedures and weights each procedure by frequency and price in comparison to other hospitals (i.e. a hospital doing an expensive procedure at a low relative cost is considered a low cost hospital). Quality information was drawn from patient surveys: the CMS 'patient experience' rating is based on a survey encompassing medical staff communication, pain management, and hospital environment, and 'outcome' takes into account mortality, infection rate, and functional ability following discharge.
+            This visual relies on a public dataset: the Center for Medicare/Medicaid Services (CMS) Cost and Quality Report. The dataset provides patient survey data, as well as costs for individual procedure categories. In order to distill cost data to percentile ranks, I first created a cost index for each hospital. This cost index aggregates billed amounts for procedures and weighs each procedure by frequency and price in comparison to other hospitals (i.e. a hospital doing an expensive procedure at a low relative cost is considered a low cost hospital). Quality information was drawn from patient surveys: the CMS 'patient experience' rating is based on a survey encompassing medical staff communication, pain management, and hospital environment, and 'outcome' takes into account mortality, infection rate, and functional ability following discharge.
+            <br><br>
+            When I started this project, my coding knowledge was limited. I thus relied on paper sketches to iterate and experiment with ideas for comparing four dimensions. The 'loom' idea elegantly allowed for comparison across a number of variables, so I proceeded to build it out in code (using d3.js)
           </p>
       </div>
 
@@ -221,7 +228,7 @@
       <header class="block-header" id="context"><span>Visual</span></header>
       <div class="block-text">
         <p>
-          'Hospital Loom' displays size, patient experience, outcome, and cost values for over two-thousand hospitals. Each individual hospital weaves a single thread in the loom. Collectively, the threads draw a picture representing the variability between each of these variables.
+          Hospital Loom displays size, patient experience, outcome, and cost values for over two-thousand hospitals. Each individual hospital weaves a single thread in the loom. Collectively, the threads draw a picture representing the variability between each of these variables. There is no single way to interpret Hospital Loom. The viewer can start on either side, and choose any number of variables to compare. 
         </p>
         <p>
           The visual allows users to filter for specific values along each axis. Additionally, a second filter set can be added, allowing the viewer to compare multiple hospital types. For example, we can compare hospitals of the highest and lowest cost values, and attempt to determine if there is any noticeable correlation with size, outcome, and patient experience.

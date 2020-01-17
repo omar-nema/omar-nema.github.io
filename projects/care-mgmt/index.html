@@ -13,8 +13,7 @@
     <a class="nav-link active" href="#one">Tags</a>
     <a class="nav-link" href="#two">Context</a>
     <a class="nav-link" href="#design">Process</a>
-    <a class="nav-link" href="#three">Web App</a>
-    <a class="nav-link" href="#four">Point of Care</a>
+    <a class="nav-link" href="#three">App Overview</a>
     <a class="nav-link" href="#five">Automation</a>
     <a class="nav-link" href="#six">Reporting</a>
   </div>
@@ -147,7 +146,7 @@
 
     <section class="block nav-wrapper" id="three">
       <header class="block-header">
-        <span>Care Web App</span>
+        <span>App Overview</span>
         <div class="block-circles"></div>
       </header>
       <div>
@@ -227,26 +226,6 @@
         </div>
     </section>
 
-    <section class="block" id="four">
-      <header class="block-header" id="context"><span>Point of Care Application</span></header>
-      <div class="block-text">
-          <p>
-          The Care Management web app is used by all members of the care team except for the primary care physician. Doctors are restricted to using Electronic Health Records (EHR) as the primary way to view patient documentation. Most EHRs do not (easily) allow for bidirectional interfaces,  so we had to get creative in brainstorming a way to get care management information in front of the patient's provider.
-          </p>
-          <p>
-          After months of R&D and prototyping (done by our engineering team), we arrived at a new product: Arcadia Desktop. The product is a native windows application that scans the provider's screen, looks for patient identifiers, and then surfaces a notification stating that Arcadia has additional data on the patient.
-          </p>
-          <p>
-          Clicking on the notification will surface a small overlay screen containing insights and documentation from the Arcadia Care Management system.
-          </p>
-      </div>
-      <div class="block-image-container video-cont">
-          <img data-fancybox data-src="./visuals/desktop-vid.mp4" class="block-video" src="./visuals/desktop-vid-preview.PNG"/>
-      </div>
-
-    </section>
-
-
     <section class="block" id="five">
       <header class="block-header" id="context"><span>Automation</span></header>
 
@@ -255,17 +234,15 @@
           After observing the product in action for one year, it started to become clear that certain parts of the care management workflow are repetitive. We wanted to eliminate the repetitive, administrative, portions of the job, while still giving the user the flexibility they need to make clinical decisions.
           </p>
           <p>
-          After a series of in-depth user interviews, I designed, prototyped, and build a set of rules to automate repetitive tasks. The ruleset is expansive, covering clinical indicators (conditions, risk factors), organizational structure, and workload balancing. I translated the rules to a functioning proof-of-concept (data model, and stored procedures), which my team fleshed out further.
+            After a series of in-depth user interviews, I designed, prototyped, and built a set of rules to automate repetitive tasks. The ruleset is expansive, covering clinical indicators (conditions, risk factors), organizational structure, and workload balancing. I translated the rules to a functioning proof-of-concept (SQL data model and stored procedures), which my engineering colleagues fleshed out further. This automation engine has been perceived by the market as innovative, and has distinguished Arcadia's Care Management product from competitors. All eight clients have opted to incorporate this functionality into their workflow the first half of 2020. Below, a snapshot of the schema I initially developed.
+          </p>
+          <p>
+            The resulting automation structure is powerful, and highly configurable. One example use case: accomodating a transition from an inpatient hospital visit to home. In realtime, our automation procedures look for any discharge event pulled into the Arcadia system. It then assigns a nurse to the case based on the user's attributed location. The engine will trigger a notification to the user, and schedule an assessment task (aimed at addressing the patient's needs). The assessment tasks will then trigger a series of 'care plan goals' for the care manager to work with the patient and address.
           </p>
       </div>
 
-      <div class="block-text">
-        <p>
-          The resulting automation structure is powerful, and highly configurable. One example use case: accomodating a transition from an inpatient hospital visit to home. In realtime, our automation procedures look for any discharge event pulled into the Arcadia system. It then assigns a nurse to the case based on the user's attributed location. The engine will trigger a notification to the user, and schedule an assessment task (aimed at addressing the patient's needs). The assessment tasks will then trigger a series of 'care plan goals' for the care manager to work with the patient and address.
-        </p>
-      </div>
       <div class="block-image-container">
-          <img src="./visuals/automation-example.PNG" class="block-image">
+          <img src="./visuals/automation-schema.PNG" class="block-image">
       </div>
     </section>
 

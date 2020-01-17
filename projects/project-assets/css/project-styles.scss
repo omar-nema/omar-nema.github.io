@@ -370,6 +370,9 @@ position: absolute;
     flex-basis: 47%;
     padding-right: 5px;
   }
+  .slide-text.full-width {
+    flex-basis: 100%;
+  }
   .slide-visual {
     width: 100%;
     height: fit-content;

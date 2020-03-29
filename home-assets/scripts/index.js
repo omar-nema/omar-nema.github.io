@@ -1,8 +1,18 @@
 function populateCard(cards){
   title = cards.append('div').attr('class', 'list-row card-title');
+  // title
+  //   .append('span')
+  //   .text(function(d){return d.title});
   title
-    .append('span')
-    .text(function(d){return d.title});
+      .each(function(d){
+        sel=d3.select(this);
+        sel.append('span')
+        .text(function(d){return d.title});
+        if (d['protected'] == '1'){
+          sel.append('svg').attr('width', '15').attr('height', '15')
+            .append('image').attr('href', '../home-assets/visuals/lock-black-18dp.svg').attr('width', '15px').attr('height', '15px')
+        }
+      });
 
   cards.append('div').attr('class', 'list-row card-body')
     .text(function(d){return d.description});

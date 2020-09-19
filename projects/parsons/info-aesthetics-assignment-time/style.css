@@ -5,12 +5,10 @@
 }
 body {
   background: #fafdfd;
-  overflow: hidden;
 }
 .content {
   width: 85%;
   margin: auto;
-  padding-top: 15px;  
   margin-bottom: 30px;
   max-width: 1100px;
   transition: opacity .5s ease-in-out;
@@ -30,6 +28,7 @@ body {
     font-size: 40px;
     font-weight: 700;
     text-decoration: underline;
+    transform: translate(-50%, -50%)
 }
 .canvas {
   position: relative;
@@ -83,7 +82,7 @@ strong {
 #container .canvas {
   flex-grow: 1;
   flex-basis: 100%;
-  height: calc(100vh - 420px);
+  height: 600px;
   overflow-y: auto;
 
 }

@@ -150,10 +150,8 @@ function draw(data) {
         .style('height', getStyleProp(rectHeight));
     
     comps.exit().transition().duration(100).style('width', 0).style('height', 0).remove();
-
-    // d3.selectAll('.time-group').exit().remove();   
-    // d3.selectAll('.comp').exit().remove();
-    // d3.selectAll('.time-group').selectAll('.comp').exit().remove();   
+    d3.select('.content').classed('loading', false);
+    d3.select('.loading-ind').classed('loading', false);
 }
 
 function setSelectedDay(dayNum){
@@ -186,7 +184,7 @@ function heatmap(data){
                 .style("top", (e.pageY + 22) + "px");
             numComplaints = d3.select(this).data()[0][1].length;
             dayOfWeek = getDayOfWeek(d3.select(this).data()[0][0])
-            str = '<div>Number of complaints on ' + dayOfWeek + ': ' + numComplaints + '</div>'
+            str = 'Number of complaints on ' + dayOfWeek + ': ' + numComplaints + ''
             tooltip.html(str)
         })
         .on('mouseout', function(d){
@@ -272,14 +270,3 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
 });
-
-
-
-
-        // data = filterData(selectedZip, selectedDay);
-        // draw(data);
-
-            // console.log(selectedZip)
-            // heatmap(selectedZip);
-            // data = filterData(selectedZip, selectedDay);
-            // draw(data);

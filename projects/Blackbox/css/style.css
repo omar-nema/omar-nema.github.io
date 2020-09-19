@@ -1,0 +1,61 @@
+body {
+  color: #ceccc3;
+  background: #25252d;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.block, .block.intro {
+  background: none;
+  border: none;
+  margin-bottom: 0;
+  background: #131317;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(33, 32, 32, 0.1);
+          box-shadow: 0 1px 4px 0 rgba(33, 32, 32, 0.1);
+  padding: 45px;
+  max-width: 650px;
+  border: 1px solid black;
+}
+
+.block.into .block-text {
+  color: #b9b3b3;
+}
+
+.block-header span {
+  color: white;
+  border-bottom-color: #ffffad;
+}
+
+.block-image-container .block-video {
+  max-width: 240px;
+  margin-top: 50px;
+  border: 1px solid #211e1e;
+  -webkit-box-shadow: 1px 2px 17px 1px rgba(127, 120, 120, 0.05);
+          box-shadow: 1px 2px 17px 1px rgba(127, 120, 120, 0.05);
+}
+
+.back-btn {
+  background: #141415;
+  border: none;
+  font-weight: 400;
+  top: 49px;
+  color: #92a8f7;
+}
+
+.back-btn:hover {
+  border: none;
+  background: #313030;
+}
+
+.video-cont::before {
+  top: 28px;
+  color: #847d7d;
+  padding: 0;
+  background: none;
+  padding: 3px 0;
+  border: none;
+  content: 'demo video';
+}
+/*# sourceMappingURL=style.css.map */

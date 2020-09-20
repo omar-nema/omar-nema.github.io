@@ -13,7 +13,7 @@ var zipGroup;
 function plotAll(){
     zg = zipGroup.get(selectedZip).get(selectedDay);
     heatmap(selectedZip);
-    textStr = 'Complaint Detail: ' + selectedZip + ' on ' + getDayOfWeek(selectedDay);
+    textStr = 'Service Request Detail: ' + selectedZip + ' on ' + getDayOfWeek(selectedDay);
     d3.select('.detail-text').node().textContent = textStr;
     draw(zg);
 

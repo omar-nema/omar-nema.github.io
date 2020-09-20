@@ -4,7 +4,7 @@ function getStyleProp(int) {
 canvas = d3.select('.canvas');
 tooltip = d3.select('body').append('div').attr('class', 'tooltip').style("opacity", 0);
 
-var maxComplaints = 500;
+var maxComplaints = 200;
 var selectedDay;
 var selectedZip;
 var zipGroup;
@@ -165,9 +165,10 @@ function filterByZip(zipBor){
 }
 
 function heatmap(data){
+    
     data = Array.from(filterByZip(data));
     //d3.schemeReds
-    heatScale = d3.scaleLinear().domain([0, maxComplaints]).range(['white', 'red']);
+    heatScale = d3.scaleSequential(d3.interpolateReds).domain([0,  maxComplaints]);
     hmap = d3.select('.heatmap').selectAll('.day').data(data);
     hmap.selectAll('.day').attr('background', 'white')
     hmap

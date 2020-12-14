@@ -1,8 +1,9 @@
-id,title,description,tag-datavis,tag-art,tag-product,year-2015,year-2017,year-2018,year-2019,date-desc,url,datesort,other,protected
-1,Care Management,Platform for collaborating on patient care,0,0,1,0,1,1,1,2017 - curr,../projects/care-mgmt/index.html,2019,,1
-3,Blackbox,Anonymous recording exchange,0,1,1,0,0,0,1,2019,../projects/Blackbox/index.html,2019,,0
-4,Thought Parser,"Linear journal, consumed and visualized by an algorithm",1,1,0,0,0,0,1,2019,../projects/me.txt/,2019,,1
-5,Floating Thoughts,"Nonlinear journal, categorized, and visualized manually",1,1,0,0,0,1,0,2018,../projects/self-portrait/,2018,,0
-6,Neuroengineering Thesis,Simulating spinal cord simulation in primates,0,0,1,1,0,0,0,2015,../projects/thesis/,2015,,0
-7,Referral Explorer,Visualization of medical referral patterns,1,0,0,0,1,0,0,2017,../projects/referral-network/,2018,,0
-8,Hospital Loom,Interactive loom-like visualization of hospital quality performance,1,0,0,0,1,0,0,2017,../projects/hospital-quality/,2017,,0
+id,title,description,tag-datavis,tag-art,tag-product,year-2015,year-2017,year-2018,year-2019,year-2020,date-desc,url,datesort,other,protected
+1,Care Management,Platform for collaborating on patient care,0,0,1,0,1,1,1,1,2017-2020,../projects/care-mgmt/index.html,2019,,1
+3,Blackbox,Anonymous recording exchange,0,1,1,0,0,0,1,0,2019,../projects/Blackbox/index.html,2019,,0
+4,Thought Parser,"Linear journal, consumed and visualized by an algorithm",1,1,0,0,0,0,1,0,2019,../projects/me.txt/,2019,,1
+5,Floating Thoughts,"Nonlinear journal, categorized, and visualized manually",1,1,0,0,0,1,0,0,2018,../projects/self-portrait/,2018,,0
+6,Neuroengineering Thesis,Simulating spinal cord simulation in primates,0,0,1,1,0,0,0,0,2015,../projects/thesis/,2015,,0
+7,Referral Explorer,Visualization of medical referral patterns,1,0,0,0,1,0,0,0,2017,../projects/referral-network/,2018,,0
+8,NYC Housing Explorer,Tool for exploring housing structure in NYC,1,0,0,0,0,0,0,1,2020,http://omarnema.com/parsons-info-aesthetics/final-housing/,2020,,0
+9,Sound and Space,Visualization of how sound can occupy space,1,0,0,0,0,0,0,1,2020,http://omarnema.com/parsons-info-aesthetics/assignment-3-sound/index.html,2020,,0

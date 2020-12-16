@@ -16,6 +16,24 @@ body {
     padding-top: 20px;
     margin-bottom: 110px;
 }
+.back-btn {
+    position: fixed;
+    top: 75px;
+    right: 50px;
+    font-size: 18px;
+    padding: 5px 10px;
+    transform: TranslateY(-50%);
+    font-weight: 400;
+    transition: opacity .1s linear;
+   
+    a {
+        text-decoration: none;
+        color: gray;
+    }
+}
+.back-btn:hover {
+    opacity: .9;
+}
 h1 {
 
     font-size: 36px;
@@ -159,5 +177,8 @@ h1 {
     }
     .content {
         margin-bottom: 50px;
+    }
+    .back-btn {
+        display: none;
     }
   }

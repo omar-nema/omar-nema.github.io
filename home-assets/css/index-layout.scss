@@ -222,6 +222,7 @@ header {
 .card-title {
   font-weight: 700;
   color: black;
+  font-size: 15px;
   justify-content: space-between;
   align-items: center;
 }
@@ -255,16 +256,15 @@ header {
 .card-footer {
   display: flex;
   .chip {
-    font-size: $font-size-label;
+    font-size: 14px;;
     margin-right: 10px;
     border-radius: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding: 2px 7px;
-    font-weight: 300;
+    padding: 2px 10px;
+    font-weight: 400;
     background: #a8a8ab;
     color: white;
-    max-width: 31%;
   }
   .chip.date {
     background: black;

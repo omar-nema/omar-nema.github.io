@@ -17,6 +17,28 @@ body {
   margin-bottom: 110px;
 }
 
+.back-btn {
+  position: fixed;
+  top: 75px;
+  right: 50px;
+  font-size: 18px;
+  padding: 5px 10px;
+  -webkit-transform: TranslateY(-50%);
+          transform: TranslateY(-50%);
+  font-weight: 400;
+  -webkit-transition: opacity .1s linear;
+  transition: opacity .1s linear;
+}
+
+.back-btn a {
+  text-decoration: none;
+  color: gray;
+}
+
+.back-btn:hover {
+  opacity: .9;
+}
+
 h1 {
   font-size: 36px;
   margin-bottom: 30px;
@@ -157,6 +179,9 @@ h1 {
   }
   .content {
     margin-bottom: 50px;
+  }
+  .back-btn {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

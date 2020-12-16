@@ -14,7 +14,7 @@ body {
     width: 80%;
     margin: auto;
     padding-top: 20px;
-    margin-bottom: 200px;
+    margin-bottom: 110px;
 }
 h1 {
 
@@ -46,23 +46,85 @@ h1 {
     justify-content: space-between;
     margin-bottom: 30px;;
 
-    img {
+    .block-image, .video-cont {
         border: 1px solid #e1e1e1;
         margin-bottom: 20px;
-        // box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
+        cursor: pointer;
+        transition: opacity .1s linear;
+    }
+    img:hover {
+        opacity: .9;
     }
  
 }
+
+.block-video {
+    width: 100%;
+}
+
 .img-row.three {
-    img {
+    .block-image, .video-cont {
         width: 28%;
     }
 }
 .img-row.two {
-    img {
+    .block-image , .video-cont {
         width: 45%;
     }
 }
+
+.video-cont {
+    // cursor: pointer;
+    // opacity: .8;
+    // transition: opacity .15s linear;
+    position: relative;
+  }
+//from project styles
+.video-cont::before {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    content: 'play video';
+    z-index: 10000;
+    transition: opacity .15s linear;
+    background: white;
+    transform: translateX(-50%) translateY(-40%);
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 20px;
+    background: #0000009e;
+    color: white;
+    opacity: .6;
+    border: black;
+  }
+.img-modal .block-image {
+    width: auto;
+    height: auto;
+    margin: 0;
+    max-width: 800px;
+    width: 90%;
+  }
+  .img-modal .block-image:hover {
+    opacity: 1;
+  }
+  
+  .img-inner {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+  .img-modal {
+    display: none;
+    position: fixed;
+    background-color: #2e2e31e6;
+    z-index: 10000000;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0
+  }
 
 
 
@@ -84,14 +146,14 @@ h1 {
 
   @media only screen and (max-width: 600px) {
     h1 {
-        font-size: 26px;
+        font-size: 22px;
     }
     .page-desc {
-        font-size: 16px;
+        font-size: 15px;
     }
     .img-row, .img-row.two, .img-row.three {
         display: inherit;
-        img {
+        .block-image, .video-cont {
             width: 100%;
         }
     }

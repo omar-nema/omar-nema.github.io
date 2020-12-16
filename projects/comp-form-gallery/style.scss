@@ -42,12 +42,17 @@ h1 {
 
     img {
         border: 1px solid #e1e1e1;
-        box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
+        // box-shadow: 0 1px 3px 1px rgb(0 0 0 / 8%);
     }
  
 }
 .img-row.three {
     img {
         width: 28%;
+    }
+}
+.img-row.two {
+    img {
+        width: 45%;
     }
 }

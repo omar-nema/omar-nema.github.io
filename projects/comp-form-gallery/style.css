@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Work Sans';
+  font-family: 'Karla';
 }
 
 body {
@@ -18,12 +19,14 @@ body {
 
 h1 {
   font-size: 36px;
+  margin-bottom: 30px;
+  font-weight: 800;
 }
 
 .page-desc {
   margin-bottom: 50px;
-  font-size: 18px;
-  color: #626262;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .img-row-desc {
@@ -31,10 +34,6 @@ h1 {
   margin-bottom: 15px;
   color: gray;
   font-weight: 400;
-}
-
-.img-row-holder {
-  margin-bottom: 50px;
 }
 
 .img-row {
@@ -49,6 +48,7 @@ h1 {
 
 .img-row img {
   border: 1px solid #e1e1e1;
+  margin-bottom: 20px;
 }
 
 .img-row.three img {
@@ -72,5 +72,23 @@ h1 {
 
 ::-webkit-scrollbar {
   width: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 26px;
+  }
+  .page-desc {
+    font-size: 16px;
+  }
+  .img-row, .img-row.two, .img-row.three {
+    display: inherit;
+  }
+  .img-row img, .img-row.two img, .img-row.three img {
+    width: 100%;
+  }
+  .content {
+    margin-bottom: 50px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

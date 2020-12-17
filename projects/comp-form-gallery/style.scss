@@ -19,16 +19,22 @@ body {
 .back-btn {
     position: fixed;
     top: 75px;
-    right: 50px;
+    right: calc((100vw - 1050px)/4);
     font-size: 18px;
     padding: 5px 10px;
     transform: TranslateY(-50%);
     font-weight: 400;
+    opacity: .85;
     transition: opacity .1s linear;
    
     a {
         text-decoration: none;
         color: gray;
+
+        background: white;
+        padding: 5px 10px;
+        border: 1px solid rgba(0,0,0,.2);
+
     }
 }
 .back-btn:hover {
@@ -161,6 +167,12 @@ h1 {
     width: 10px;
   }
   
+  
+  @media only screen and (max-width: 1300px) {
+    .back-btn {
+        right: 0;
+    }
+  }
 
   @media only screen and (max-width: 600px) {
     h1 {

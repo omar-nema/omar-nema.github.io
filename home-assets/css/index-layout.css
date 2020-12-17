@@ -309,10 +309,22 @@ header {
 }
 
 .filter-option.selected {
-  color: #416bfd;
-  border: 1px dashed #416bfd;
+  color: #515152;
+  border: 1px dashed #515152;
   font-weight: 700;
   background: white;
+}
+
+.filter-option.selected.art, .filter-option.art:hover {
+  color: red;
+}
+
+.filter-option.selected.datavis, .filter-option.datavis:hover {
+  color: #009aff;
+}
+
+.filter-option.selected.product, .filter-option.product:hover {
+  color: #04987a;
 }
 
 .card {
@@ -334,7 +346,7 @@ header {
 }
 
 .card:hover {
-  border-color: #416bfd;
+  border-color: black;
   -webkit-box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.15);
 }
@@ -401,7 +413,7 @@ header {
   padding: 2px 10px;
   font-weight: 400;
   color: white;
-  border: 1.5px solid transparent;
+  border: 1.3px solid transparent;
   font-weight: 600;
   background: none;
 }
@@ -413,16 +425,19 @@ header {
 .card-footer .chip.datavis {
   color: #009aff;
   border-color: #009aff;
+  background: #009aff0a;
 }
 
 .card-footer .chip.art {
   color: red;
   border-color: red;
+  background: #ff00000f;
 }
 
 .card-footer .chip.product {
   color: #04987a;
   border-color: #04987a;
+  background: #04987a0d;
 }
 
 .project-description {
@@ -492,7 +507,7 @@ header {
     -webkit-overflow-scrolling: inherit;
   }
   .filter-option.selected {
-    border: 1px solid #416bfdad;
+    border: 1px solid #515152;
   }
   .card-footer .chip {
     font-size: 12px;

@@ -342,7 +342,7 @@ header {
 .card-title {
   font-weight: 700;
   color: black;
-  font-size: 15px;
+  font-size: 15.5px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -375,8 +375,9 @@ header {
 
 .card-body {
   height: 100px;
-  padding-top: 10px;
-  color: #655f5f;
+  padding-top: 15px;
+  color: black;
+  font-weight: 400;
 }
 
 .list-row {
@@ -399,12 +400,29 @@ header {
   white-space: nowrap;
   padding: 2px 10px;
   font-weight: 400;
-  background: #a8a8ab;
   color: white;
+  border: 1.5px solid transparent;
+  font-weight: 600;
+  background: none;
 }
 
 .card-footer .chip.date {
-  background: black;
+  background: #3f3e3e;
+}
+
+.card-footer .chip.datavis {
+  color: #009aff;
+  border-color: #009aff;
+}
+
+.card-footer .chip.art {
+  color: red;
+  border-color: red;
+}
+
+.card-footer .chip.product {
+  color: #04987a;
+  border-color: #04987a;
 }
 
 .project-description {
@@ -466,7 +484,7 @@ header {
     overflow: hidden;
   }
   header {
-    font-size: 15px;
+    font-size: 15.5px;
   }
   body {
     font-size: 15px;

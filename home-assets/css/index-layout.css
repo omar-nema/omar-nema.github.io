@@ -302,7 +302,7 @@ header {
   padding: 5px 10px;
   color: gray;
   height: 30px;
-  border: 1px solid transparent;
+  font-weight: 400;
 }
 
 .filter-option .circle {
@@ -322,7 +322,6 @@ header {
 .filter-option.selected {
   color: black;
   font-weight: 700;
-  background: white;
 }
 
 .filter-option.datavis .circle {

@@ -186,7 +186,8 @@ header {
   padding: 5px 10px;
   color: gray;
   height: 30px;
-  border: 1px solid transparent;
+  font-weight: 400;
+
   .circle {
     width: 10px;
     height: 10px;
@@ -203,7 +204,7 @@ header {
 .filter-option.selected {
   color: black;
   font-weight: 700;
-  background: white;
+
 }
 .filter-option.datavis {
   .circle {

@@ -297,12 +297,12 @@ header {
 }
 
 .filter-option {
-  padding: 8px;
-  margin-right: 7px;
-  padding: 5px 10px;
+  margin-right: 20px;
+  padding: 5px 0px;
   color: gray;
   height: 30px;
-  font-weight: 400;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
 }
 
 .filter-option .circle {
@@ -322,51 +322,60 @@ header {
   font-weight: 700;
 }
 
-.filter-option.datavis .circle {
-  border-color: #009aff;
+.filter-option.datavis {
+  color: #009aff;
 }
 
-.filter-option.selected.datavis, .filter-option.datavis:hover {
+.filter-option.datavis .circle {
   border-color: #009aff;
-  color: #009aff;
 }
 
 .filter-option.selected.datavis .circle, .filter-option.datavis:hover .circle {
   background: #009aff;
 }
 
-.filter-option.all.selected, .filter-option.all:hover {
-  border-color: #3f3e3e;
+.filter-option.selected.datavis {
+  border-color: #009aff;
 }
 
 .filter-option.all.selected .circle, .filter-option.all:hover .circle {
   background: #3f3e3e;
 }
 
-.filter-option.art .circle {
-  border-color: red;
+.filter-option.all.selected {
+  border-color: #3f3e3e;
 }
 
-.filter-option.selected.art, .filter-option.art:hover {
-  border-color: red;
+.filter-option.art {
   color: red;
+}
+
+.filter-option.art .circle {
+  border-color: red;
 }
 
 .filter-option.selected.art .circle, .filter-option.art:hover .circle {
   background: red;
 }
 
+.filter-option.selected.art {
+  border-color: red;
+}
+
+.filter-option.product {
+  color: #04987a;
+}
+
 .filter-option.product .circle {
   border-color: #04987a;
 }
 
-.filter-option.selected.product, .filter-option.product:hover {
-  border-color: #04987a;
-  color: #04987a;
-}
-
 .filter-option.selected.product .circle, .filter-option.product:hover .circle {
   background: #04987a;
+}
+
+.filter-option.selected.product {
+  border-color: #04987a;
 }
 
 .card {

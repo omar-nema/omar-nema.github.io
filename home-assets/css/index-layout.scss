@@ -181,12 +181,12 @@ header {
 
 .filter-option {
   @extend .clickable;
-  padding: 8px;
-  margin-right: 7px;
-  padding: 5px 10px;
+  margin-right: 20px;
+  padding: 5px 0px;
   color: gray;
   height: 30px;
-  font-weight: 400;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
 
   .circle {
     width: 10px;
@@ -203,54 +203,60 @@ header {
 .filter-option.selected {
   color: $color-all;
   font-weight: 700;
-
 }
 .filter-option.datavis {
+  color: $color-datavis;
   .circle {
     border-color: $color-datavis;
   }
 }
 .filter-option.selected.datavis, .filter-option.datavis:hover {
-  border-color: $color-datavis;
-  color: $color-datavis;
   .circle {
     background: $color-datavis;
   }
 }
+.filter-option.selected.datavis {
+  border-color: $color-datavis;
+}
 
 .filter-option.all.selected, .filter-option.all:hover {
-  border-color: $color-all;
   .circle {
     background: $color-all;
   }
 }
-
+.filter-option.all.selected {
+  border-color: $color-all;
+}
 
 .filter-option.art {
+  color: $color-art;
   .circle {
     border-color: $color-art;
   }
 }
 .filter-option.selected.art, .filter-option.art:hover  {
-  border-color: $color-art;
-  color: $color-art;
   .circle {
     background: $color-art;
   }
 }
 
+.filter-option.selected.art {
+  border-color: $color-art;
+}
 
 .filter-option.product {
+  color: $color-product;
   .circle {
     border-color: $color-product;
   }
 }
-.filter-option.selected.product, .filter-option.product:hover  {
-  border-color: $color-product;
-  color: $color-product;
+.filter-option.selected.product, .filter-option.product:hover  {  
   .circle {
     background: $color-product;
   }
+}
+.filter-option.selected.product {
+  border-color: $color-product;
 }
 
 

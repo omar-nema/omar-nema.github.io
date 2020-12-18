@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Quicksand:300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Quicksand:300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap");
 body {
   padding: 0;
   margin: 0;
@@ -10,8 +10,8 @@ body {
 
 .body-font, html {
   font-family: 'Karla', 'arial';
-  font-size: 14.5px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .h1 {
@@ -684,8 +684,8 @@ body {
 
 .body-font, html {
   font-family: 'Karla', 'arial';
-  font-size: 14.5px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
 }
 
 .h1 {

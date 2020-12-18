@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <title>referral optimization app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="thought parser ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles.min.css">
+</head>
+
+<body>
+  <div class="nav" id="nav">
+    <a class="nav-link active" href="#one">Overview</a>
+    <a class="nav-link" href="#two">Context</a>
+    <a class="nav-link" href="#three">Visual Aims</a>
+    <a class="nav-link" href="#four">Deisgn Process</a>
+  </div>
+  <div class="container">
+    <a class="back-btn" href="../../">
+      < back
+    </a>
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Sound and Space</strong>
+          </div>
+          <p style="line-height: 1.3rem">
+            <span>Organization:</span> Arcadia.io
+            <br>
+            <span>Role:</span> UX design, UX research, visual design, proof of concept development, strategy, implementation
+            <br>
+            <span>Title:</span> Product Manager, Care Product Line
+            <br>
+            <span>Advisor:</span> <a href="https://www.linkedin.com/in/nickstepro/">Nick Stepro</a>, SVP of Product Strategy
+          </p>
+      </div>
+    </section>
+
+    <section class="block" id="two">
+      <header class="block-header" id="context"><span>Context</span></header>
+      <div class="block-text">
+        <p>
+          'Sound and Space' is a data visualization showing how sound (particularly, the song 'Skin' by Grimes) occupies sonic and visual space. In this project, sound is broken down into waveforms, and visualized as a set of pulsating particles. As the song progresses, these particles continually transform to reflect the track's sonic properties. The user can manipulate different aspects of the track and visualize changes in particle shape and movement.
+        </p>
+      </div>
+    
+      <div>
+        View the Project Here
+      </div>
+      <div class="block-image-container">
+        <img class="block-image" src="./visuals/over.png"/>
+      </div>
+    </section>
+
+    <section class="block" id="two">
+      <header class="block-header" id="aims"><span>Aims</span></header>
+      <div class="block-text">
+        <p>
+          Visuals are frequently paired with music in a variety of forms: music video, installation, lighting. However, audio visualization linked to sonic data is far more limited. Audio data visualization is typically only used in audio production or playback software. Audio visualizers embedded in software usually display sound as a bar or line waveform. Audio spectrum visualizers tend to display a limited set of variables -- usually just frequency and amplitude. The result is that these visuals are flat: useful for technical purposes (albeit in a limited set of parameters), but not compelling as a visual accompaniment for a song.
+        </p>
+        <p>
+          Bearing in mind current limitations in audio visualization, my aims with 'Sound and Space' were to:
+          <br>
+          - Visualize how sound occupies space
+          <br>
+          - Create a compelling experience that reflects a chosen track's emotional and sonic properties 
+          <br>
+          - Allow users to interact - manipulate sound and visualize the output
+          <br>
+          - Break down sound into a few individual sonic attributes, and educate the viewer about what these attributes mean
+        </p>
+      </div>
+    
+  
+  
+    </section>
+
+
+
+    
+
+    <section class="block nav-wrapper" id="three">
+      <header class="block-header">
+        <span>Design Choices</span>
+        <div class="block-circles"></div>
+      </header>
+      <div>
+        <div class="block-nav-content">
+
+    
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Data Parsing</p>
+              <p>
+                The p5.js library was used to parse and visualize sound. I used native p5.js functions to load the sound, and convert it to a waveform. I then then wrote code to manipulate, parse, and visualize the waveform. .
+                Additionally, quicksettings.js was used to render the sliders used for manipulating audio.
+              </p>
+            </div>
+            <a class="slide-visual">
+              <img class="block-image" src="./visuals/data-parse.png"/>
+            </a>
+          </div>
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Aesthetic Choices</p>
+              <p>The visual is intended to mirror the way sound occupies space -- how different frequencies and textures can be drifting all over the room.  For this reason, the visual is rendered in 3D. I used a dark theme, with small bright pulsing particles to represent the brooding, yet upbeat quality of the chosen track. The particles are somewhat jagged, reflecting the 'lo-fi' nature of the chosen track. 
+
+                Spheres were used to visualize particles primarily due to their flexibility. I had confidence that I would be able to manipulate the rotation, size, and vibration of a sphere given that it is a core element of the p5.js library.
+                
+                The visual is intentionally immersive. It takes up the user's full screen and allows for panning and zooming. Contextual information is available on request (by hovering over question marks), but stays in the background otherwise to ensure that the user is fully immersed in the experience. Additionally parameters to manipulate the visual are shown as a draggable, partly transparent overlay to ensure that the visual field is not disrupted.
+              </p>
+    
+            </div>
+            <div class="slide-visual">
+              <img class="block-image" src="./visuals/cm-overview.png"/>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="block-nav block-nav-footer">
+          <div class="flat-btn prev-btn">< &nbsp Prev</div>
+          <div class="flat-btn next-btn">Next &nbsp  ></div>
+        </div>
+    </section>
+
+
+
+  </div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="../project-assets/js/projects.js"></script>
+
+</html>

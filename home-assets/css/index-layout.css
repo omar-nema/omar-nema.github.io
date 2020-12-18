@@ -313,14 +313,12 @@ header {
   border-radius: 100%;
   margin-right: 5px;
   background: white;
-}
-
-.filter-option:hover {
-  color: #416bfd;
+  -webkit-transition: background .1s linear;
+  transition: background .1s linear;
 }
 
 .filter-option.selected {
-  color: black;
+  color: #3f3e3e;
   font-weight: 700;
 }
 
@@ -328,56 +326,47 @@ header {
   border-color: #009aff;
 }
 
-.filter-option.selected.datavis {
-  border-color: #009aff;
-}
-
-.filter-option.selected.datavis .circle {
-  background: #009aff;
-}
-
 .filter-option.selected.datavis, .filter-option.datavis:hover {
+  border-color: #009aff;
   color: #009aff;
 }
 
-.filter-option.all.selected {
-  border-color: black;
+.filter-option.selected.datavis .circle, .filter-option.datavis:hover .circle {
+  background: #009aff;
 }
 
-.filter-option.all.selected .circle {
-  background: black;
+.filter-option.all.selected, .filter-option.all:hover {
+  border-color: #3f3e3e;
+}
+
+.filter-option.all.selected .circle, .filter-option.all:hover .circle {
+  background: #3f3e3e;
 }
 
 .filter-option.art .circle {
   border-color: red;
 }
 
-.filter-option.selected.art {
-  border-color: red;
-}
-
-.filter-option.selected.art .circle {
-  background: red;
-}
-
 .filter-option.selected.art, .filter-option.art:hover {
+  border-color: red;
   color: red;
+}
+
+.filter-option.selected.art .circle, .filter-option.art:hover .circle {
+  background: red;
 }
 
 .filter-option.product .circle {
   border-color: #04987a;
 }
 
-.filter-option.selected.product {
-  border-color: #04987a;
-}
-
-.filter-option.selected.product .circle {
-  background: #04987a;
-}
-
 .filter-option.selected.product, .filter-option.product:hover {
+  border-color: #04987a;
   color: #04987a;
+}
+
+.filter-option.selected.product .circle, .filter-option.product:hover .circle {
+  background: #04987a;
 }
 
 .card {
@@ -559,16 +548,19 @@ header {
     line-height: 1.38;
     -webkit-overflow-scrolling: inherit;
   }
-  .filter-option.selected {
-    border: 1px solid #515152;
-  }
   .card-footer .chip {
     font-size: 12px;
     padding: 4px 10px;
     max-width: inherit;
   }
+  .project-filter {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .filter-option {
     height: auto;
+    margin-right: 0;
   }
   header {
     border-bottom: none;

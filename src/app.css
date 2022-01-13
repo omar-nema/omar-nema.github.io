@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+:root {
+  --dim-header-height: 45px;
+  --dim-filter-height: 28.4px;
+  --dim-width-max: 1100px;
+  --header-accent: #aed2ff;
+  --header-primary: black;
+  --color-tag-art: red;
+  --color-tag-art-bg: #ff00000f;
+  --color-tag-datavis: #009aff;
+  --color-tag-datavis-bg: #009aff0a;
+  --color-tag-product: #04987a;
+  --color-tag-product-bg: #04987a0d;
+  --color-tag-all: black;
+}
+
+body {
+  font-family: 'DM Sans';
+  margin: 0;
+  padding: 0;
+  background: #f7f9fd;
+  line-height: 1.4rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.content-inner {
+  max-width: 1000px;
+  width: 90%;
+}
+
+.content-outer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.container {
+  margin-top: 80px;
+  overflow-x: hidden;
+  position: relative;
+  margin-bottom: 10px;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  background: rgba(255, 255, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: #88888826;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    overflow: hidden;
+    width: 100%;
+  }
+  body {
+    font-size: 15px;
+    line-height: 1.38;
+    -webkit-overflow-scrolling: inherit;
+  }
+  .content-inner {
+    width: 100%;
+  }
+  .container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

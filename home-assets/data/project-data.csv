@@ -1,0 +1,10 @@
+id,title,description,tag-datavis,tag-art,tag-product,year-2015,year-2017,year-2018,year-2019,year-2020,year-2021,date-desc,url,datesort,other,protected
+3,Blackbox,Anonymous recording exchange app,0,0,1,0,0,0,1,0,0,2019,../projects/Blackbox/index.html,2019,,0
+4,Thought Parser,"My journal, consumed and visualized by an algorithm",1,1,0,0,0,0,1,0,0,2019,./projects/parser/,2019,,0
+5,Floating Thoughts,Nonlinear writing collage,0,1,0,0,0,1,0,0,0,2018,./projects/floating/,2018,,0
+6,Neuroengineering Thesis,"Undergrad thesis, simulating spinal cord simulation in primates",0,0,1,1,0,0,0,0,0,2015,../projects/thesis/,2015,,0
+8,Computational Sketches,A series of two-hour sketches made with code,0,1,0,0,0,0,0,1,0,2020,../projects/comp-sketches/,2020,,0
+9,NYC Housing Explorer,Visualizing New York City housing through generative floor plans,1,0,0,0,0,0,0,1,0,2020,./projects/housing,2020,,0
+10,Sound and Space,Visualization of sound properties in 3D space,1,0,0,0,0,0,0,1,0,2020,./projects/sound-space/,2020,,0
+11,How We Gaze,Crowd-sourced meta-gallery showing how individuals look at artwork,1,0,0,0,0,0,0,0,1,2021,./projects/gaze/,2021,,0
+12,Tell Me,"A meditation on routine and structure, conveyed through the interface",0,1,0,0,0,0,0,0,1,2021,./projects/tell-me/,2021,,0

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>omar nema </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="./css/hospitalquality.css" media="screen" type="text/css">
+    <link href="css/container.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+</head>
+
+<body>
+
+
+  <div class="header">
+    <div class="large row">
+      <div class="title-holder">
+        <div class="title">
+          Hospital Quality Loom
+        </div>
+        <div class="nav-holder">
+          <div class="nav-page visual selected">Visual</div>
+          <div class="nav-page context">Context</div>
+        </div>
+      </div>
+      <a class="back-btn" href="../../index.html">
+      &lt; Back
+      </a>
+    </div>
+  </div>
+  <div class="scroll-holder">
+    <div id="graph-1">
+      <p class="graph-description">
+        Using d3.js, I visualized patient survey data for the Medicare/Medicaid population of over two thousand hospitals. Each hospital 'thread' below weaves along a path based on four key factors: size, patient experience, clinical outcomes, and cost. Collectively, the threads visualize the complex, textured relationship between these four patterns.
+      </p>
+      <div class="graph-holder">
+          <div class="graph-header">
+            <div class="breadcrumbs">
+            </div>
+            <div class="top-buttons">
+              <div class="filterheader">
+                Filter
+              </div>
+            </div>
+
+                      <div class="filter hide">
+                          <section class="hide-wrapper">
+                              <div class="reset-holder">
+                                <div class="values compare-me">Add second filter set</div>
+                                <div class="reset-button">Reset</div>
+                              </div>
+                              <section class="slider-holder profile-one">
+                                  <div class="slider-block discharge" filterType="discharge">
+                                      <div class="slider-label">Size</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="discharge"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="discharge">-</div>
+                                  </div>
+                                  <div class="slider-block patexp" filterType="patexp">
+                                      <div class="slider-label">Experience</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="patexp">
+
+                                          </div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="patexp">-</div>
+                                  </div>
+                                  <div class="slider-block outcome" filterType="outcome">
+                                      <div class="slider-label">Outcome</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="outcome"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="outcome">-</div>
+                                  </div>
+                                  <div class="slider-block cost" filterType="cost">
+                                      <div class="slider-label">Cost</div>
+                                      <div class="slider vertical profile-one">
+                                          <div class="thumb thumb-lower vertical profile-one" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-one" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="cost"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="cost">-</div>
+                                  </div>
+                              </section>
+                              <section class="slider-holder profile-two">
+                                  <div class="slider-block discharge" filterType="discharge">
+                                      <div class="slider-label">size</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="discharge">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="discharge"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="discharge">-</div>
+                                  </div>
+                                  <div class="slider-block patexp" filterType="patexp">
+                                      <div class="slider-label">pat. exp.</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="patexp">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="patexp">
+
+                                          </div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="patexp">-</div>
+                                  </div>
+                                  <div class="slider-block outcome" filterType="outcome">
+                                      <div class="slider-label">outcome</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="outcome">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="outcome"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="outcome">-</div>
+                                  </div>
+                                  <div class="slider-block cost" filterType="cost">
+                                      <div class="slider-label">cost</div>
+                                      <div class="slider vertical profile-two">
+                                          <div class="thumb thumb-lower vertical profile-two" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="thumb thumb-upper vertical profile-two" filterType="cost">
+                                              <div class="thumb-tooltip"></div>
+                                          </div>
+                                          <div class="fill-inner" filterType="cost"></div>
+                                      </div>
+                                      <div class="collapse-button minus" filterType="cost">-</div>
+                                  </div>
+                              </section>
+                              <!-- <div class="filter-header filter-header-search">search</div>
+                              <textarea class="search" placeholder="provider, state, zip" id="tags"></textarea> -->
+                          </section>
+                      </div>
+          </div>
+
+
+          <svg class="chart">
+              <g class="lineholder"></g>
+              <g class="axisholder"></g>
+          </svg>
+          <!-- <div class="chart-tooltip-holder">
+
+          </div> -->
+
+      </div>
+    </div>
+  </div>
+  <div class="project-context container scroll-holder">
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Hospital Quality Loom</strong>
+          </div>
+          <p style="line-height: 1.3rem">
+            <span>Organization:</span> Independent, data from Arcadia.io
+            <br>
+            <span>Role:</span> Design & development
+            <br>
+            <span>Tags:</span> data visualization
+            <br>
+            <span>Tech:</span> SQL, Python, d3.js
+            <br>
+            <span>Code:</span> Github <a href="https://github.com/omar-nema/omar-nema.github.io/tree/master/projects/hospital-quality">repository</a>
+          </p>
+      </div>
+    </section>
+
+    <section class="block" id="two">
+      <header class="block-header" id="context"><span>Context</span></header>
+      <div class="block-text">
+        <div class="subheader">Portfolio Context</div>
+        <p>
+          Hospital Loom is my first independent (outside of academia and work) exploration of creative coding. Prior to building this piece, I was working as a data engineer at Arcadia. Driven by a curiosity to visualize the data I was working with, I took a two-month break from work to build visualization and development skills. The process of giving life to the data that I viewed day to day was fascinating, and helped spark my interest in information processing and data visualization.
+        </p>
+          <div class="subheader">Project Context</div>
+          <p>
+            Cost variability in American healthcare is a well-known phenomenon: billed amounts for common procedures vary wildly from hospital to hospital. 'Hospital Loom' aims to provide texture to this trend, and enable users to visualize the nuance of healthcare pricing.
+          </p>
+      </div>
+      <div class="block-text">
+          <div class="subheader">Dataset & Process</div>
+          <p>
+            This visual relies on a public dataset: the Center for Medicare/Medicaid Services (CMS) Cost and Quality Report. The dataset provides patient survey data, as well as costs for individual procedure categories. In order to distill cost data to percentile ranks, I first created a cost index for each hospital. This cost index aggregates billed amounts for procedures and weighs each procedure by frequency and price in comparison to other hospitals (i.e. a hospital doing an expensive procedure at a low relative cost is considered a low cost hospital). Quality information was drawn from patient surveys: the CMS 'patient experience' rating is based on a survey encompassing medical staff communication, pain management, and hospital environment, and 'outcome' takes into account mortality, infection rate, and functional ability following discharge.
+            <br><br>
+            When I started this project, my coding knowledge was limited. I thus relied on paper sketches to iterate and experiment with ideas for comparing four dimensions. The 'loom' idea elegantly allowed for comparison across a number of variables, so I proceeded to build it out in code (using d3.js)
+          </p>
+      </div>
+
+    </section>
+
+
+    <section class="block" id="three">
+      <header class="block-header" id="context"><span>Visual</span></header>
+      <div class="block-text">
+        <p>
+          Hospital Loom displays size, patient experience, outcome, and cost values for over two-thousand hospitals. Each individual hospital weaves a single thread in the loom. Collectively, the threads draw a picture representing the variability between each of these variables. There is no single way to interpret Hospital Loom. The viewer can start on either side, and choose any number of variables to compare. 
+        </p>
+        <p>
+          The visual allows users to filter for specific values along each axis. Additionally, a second filter set can be added, allowing the viewer to compare multiple hospital types. For example, we can compare hospitals of the highest and lowest cost values, and attempt to determine if there is any noticeable correlation with size, outcome, and patient experience.
+        </p>
+      </div>
+      <div class="block-image-container video-cont">
+          <img data-fancybox src="./visuals/hospital-quality-prev.PNG" data-src="./visuals/hospital-quality.mp4" class="block-video"/>
+      </div>
+
+
+    </section>
+
+
+
+
+  </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <!-- <script src="./js/jqueryui.js" src=></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="./js/hospitalquality.js"></script>
+
+</body>
+
+</html>

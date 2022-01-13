@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="454" height="308" viewBox="0 0 454 308">
+  <defs>
+    <filter id="Ellipse_2020" x="27" y="237" width="23" height="23" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2021" x="24" y="254" width="30" height="30" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5778" x="24" y="149.856" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2023" x="24" y="172" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2013" x="23" y="66" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-5"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2014" x="23" y="90" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-6"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2024" x="23" y="44" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-7"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5779" x="293" y="81.856" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-8"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2025" x="218" y="87" width="27" height="27" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-9"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5779-2" x="293" y="157.856" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-10"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-10"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2025-2" x="218" y="163" width="27" height="27" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-11"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-11"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-legend-three">
+      <rect width="454" height="308"/>
+    </clipPath>
+  </defs>
+  <g id="legend-three" clip-path="url(#clip-legend-three)">
+    <rect width="454" height="308" fill="#fff"/>
+    <g id="Group_8360" data-name="Group 8360" transform="translate(31 217.842)">
+      <g id="Group_8352" data-name="Group 8352">
+        <text id="few_referrals_serviced" data-name="few referrals serviced" transform="translate(30 31.158)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">few referrals serviced</tspan></text>
+        <g id="Group_8351" data-name="Group 8351">
+          <text id="Size" transform="translate(0 11.158)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Size</tspan></text>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -31, -217.84)" filter="url(#Ellipse_2020)">
+          <circle id="Ellipse_2020-2" data-name="Ellipse 2020" cx="2.5" cy="2.5" r="2.5" transform="translate(36 243)" fill="#514d4d"/>
+        </g>
+        <g transform="matrix(1, 0, 0, 1, -31, -217.84)" filter="url(#Ellipse_2021)">
+          <circle id="Ellipse_2021-2" data-name="Ellipse 2021" cx="6" cy="6" r="6" transform="translate(33 260)" fill="#514d4d"/>
+        </g>
+        <text id="many_referrals_serviced" data-name="many referrals serviced" transform="translate(31 51.158)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">many referrals serviced</tspan></text>
+      </g>
+    </g>
+    <g id="Group_8361" data-name="Group 8361" transform="translate(31 129.856)">
+      <g transform="matrix(1, 0, 0, 1, -31, -129.86)" filter="url(#Path_5778)">
+        <g id="Path_5778-2" data-name="Path 5778" transform="translate(33 155.86)" fill="#fff">
+          <path d="M 5 9 C 2.794389963150024 9 1 7.205609798431396 1 5 C 1 2.794389963150024 2.794389963150024 1 5 1 C 7.205609798431396 1 9 2.794389963150024 9 5 C 9 7.205609798431396 7.205609798431396 9 5 9 Z" stroke="none"/>
+          <path d="M 5 2 C 3.345789909362793 2 2 3.345789909362793 2 5 C 2 6.654210090637207 3.345789909362793 8 5 8 C 6.654210090637207 8 8 6.654210090637207 8 5 C 8 3.345789909362793 6.654210090637207 2 5 2 M 5 0 C 7.761420249938965 0 10 2.238580226898193 10 5 C 10 7.761420249938965 7.761420249938965 10 5 10 C 2.238580226898193 10 0 7.761420249938965 0 5 C 0 2.238580226898193 2.238580226898193 0 5 0 Z" stroke="none" fill="#514d4d"/>
+        </g>
+      </g>
+      <text id="out_of_network" data-name="out of network" transform="translate(27 35.144)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">out of network</tspan></text>
+      <g transform="matrix(1, 0, 0, 1, -31, -129.86)" filter="url(#Ellipse_2023)">
+        <circle id="Ellipse_2023-2" data-name="Ellipse 2023" cx="5" cy="5" r="5" transform="translate(33 178)" fill="#514d4d"/>
+      </g>
+      <text id="in_network" data-name="in network" transform="translate(27 57.144)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">in network</tspan></text>
+      <text id="Fill" transform="translate(0 11.144)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Fill</tspan></text>
+    </g>
+    <g id="Group_8356" data-name="Group 8356" transform="translate(203 -3)">
+      <text id="Examples" transform="translate(24 38)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Examples</tspan></text>
+    </g>
+    <g id="Group_8362" data-name="Group 8362" transform="translate(31 24)">
+      <g id="Group_8358" data-name="Group 8358" transform="translate(1 46)">
+        <g transform="matrix(1, 0, 0, 1, -32, -70)" filter="url(#Ellipse_2013)">
+          <circle id="Ellipse_2013-2" data-name="Ellipse 2013" cx="5" cy="5" r="5" transform="translate(32 72)" fill="#d60459"/>
+        </g>
+        <text id="high_cost_servicing_prov." data-name="high cost servicing prov." transform="translate(25)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="11">high cost servicing prov.</tspan></text>
+      </g>
+      <g id="Group_8359" data-name="Group 8359" transform="translate(1 69)">
+        <g transform="matrix(1, 0, 0, 1, -32, -93)" filter="url(#Ellipse_2014)">
+          <circle id="Ellipse_2014-2" data-name="Ellipse 2014" cx="5" cy="5" r="5" transform="translate(32 96)" fill="#078c07"/>
+        </g>
+        <text id="low_cost_servicing_prov." data-name="low cost servicing prov." transform="translate(25 11)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">low cost servicing prov.</tspan></text>
+      </g>
+      <text id="Color" transform="translate(0 11)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Color</tspan></text>
+      <g id="Group_8357" data-name="Group 8357" transform="translate(1 23)">
+        <g transform="matrix(1, 0, 0, 1, -32, -47)" filter="url(#Ellipse_2024)">
+          <circle id="Ellipse_2024-2" data-name="Ellipse 2024" cx="5" cy="5" r="5" transform="translate(32 50)"/>
+        </g>
+        <text id="referring_provider" data-name="referring provider" transform="translate(25 11)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">referring provider</tspan></text>
+      </g>
+    </g>
+    <text id="Referral_to_high_cost_out-of-network_specialist" data-name="Referral to high cost, out-of-network specialist" transform="translate(227 49)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="11">Referral to high cost, out-of-network </tspan><tspan x="0" y="25">specialist</tspan></text>
+    <g id="Group_8363" data-name="Group 8363" transform="translate(0 13)">
+      <line id="Line_1781" data-name="Line 1781" x1="69" transform="translate(234.5 84.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.19"/>
+      <g transform="matrix(1, 0, 0, 1, 0, -13)" filter="url(#Path_5779)">
+        <g id="Path_5779-3" data-name="Path 5779" transform="translate(302 87.86)" fill="#f1f1f1">
+          <path d="M 10 18.5 C 5.313079833984375 18.5 1.5 14.68692016601563 1.5 10 C 1.5 5.313079833984375 5.313079833984375 1.5 10 1.5 C 14.68692016601563 1.5 18.5 5.313079833984375 18.5 10 C 18.5 14.68692016601563 14.68692016601563 18.5 10 18.5 Z" stroke="none"/>
+          <path d="M 10 3 C 6.140190124511719 3 3 6.140190124511719 3 10 C 3 13.85980987548828 6.140190124511719 17 10 17 C 13.85980987548828 17 17 13.85980987548828 17 10 C 17 6.140190124511719 13.85980987548828 3 10 3 M 10 0 C 15.52285003662109 0 20 4.477149963378906 20 10 C 20 15.52285003662109 15.52285003662109 20 10 20 C 4.477149963378906 20 0 15.52285003662109 0 10 C 0 4.477149963378906 4.477149963378906 0 10 0 Z" stroke="none" fill="#d60459"/>
+        </g>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, -13)" filter="url(#Ellipse_2025)">
+        <circle id="Ellipse_2025-3" data-name="Ellipse 2025" cx="4.5" cy="4.5" r="4.5" transform="translate(227 93)"/>
+      </g>
+    </g>
+    <text id="Referral_to_low_cost_in-network_specialist" data-name="Referral to low cost, in-network specialist" transform="translate(227 125)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="11">Referral to low cost, in-network </tspan><tspan x="0" y="25">specialist</tspan></text>
+    <g id="Group_8364" data-name="Group 8364" transform="translate(0 89)">
+      <line id="Line_1781-2" data-name="Line 1781" x1="69" transform="translate(234.5 84.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.19"/>
+      <g transform="matrix(1, 0, 0, 1, 0, -89)" filter="url(#Path_5779-2)">
+        <path id="Path_5779-4" data-name="Path 5779" d="M10,0A10,10,0,1,1,0,10,10,10,0,0,1,10,0Z" transform="translate(302 163.86)" fill="#078c07"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 0, -89)" filter="url(#Ellipse_2025-2)">
+        <circle id="Ellipse_2025-4" data-name="Ellipse 2025" cx="4.5" cy="4.5" r="4.5" transform="translate(227 169)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="189" height="194" viewBox="0 0 189 194">
+  <defs>
+    <filter id="Ellipse_2013" x="14" y="40" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2014" x="14" y="63" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-legend-one">
+      <rect width="189" height="194"/>
+    </clipPath>
+  </defs>
+  <g id="legend-one" clip-path="url(#clip-legend-one)">
+    <rect width="189" height="194" fill="#fff"/>
+    <g id="Group_8381" data-name="Group 8381">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2013)">
+        <circle id="Ellipse_2013-2" data-name="Ellipse 2013" cx="5" cy="5" r="5" transform="translate(23 46)" fill="purple"/>
+      </g>
+      <text id="low_in-network_" data-name="low in-network %" transform="translate(48 55)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">low in-network %</tspan></text>
+    </g>
+    <g id="Group_8380" data-name="Group 8380">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2014)">
+        <circle id="Ellipse_2014-2" data-name="Ellipse 2014" cx="5" cy="5" r="5" transform="translate(23 69)" fill="#adadad"/>
+      </g>
+      <text id="high_in-network_" data-name="high in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">high in-network %</tspan></text>
+    </g>
+    <text id="wide_cost_dist." data-name="wide cost dist." transform="translate(52 137)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">wide cost dist.</tspan></text>
+    <path id="Path_5726" data-name="Path 5726" d="M357.637,42.191c-.013-1.5-.039-3.372,1.022-4.31a3.363,3.363,0,0,1,4.118,0c.908.938.578,2.814.412,4.31a15.778,15.778,0,0,0,0,3.951c.166,1.338.5,2.9-.412,3.675a3.917,3.917,0,0,1-4.118,0c-1.061-.779-1.035-2.337-1.022-3.675s.014-2.455,0-3.951" transform="translate(-330.5 89.875)" fill="#514d4d"/>
+    <path id="Path_5724" data-name="Path 5724" d="M.043,8.086C.1,6.068.216,2.832,1.016,1.214S3.3-.4,4.427,1.214,6.316,6.068,6.7,8.086a9.288,9.288,0,0,1,0,4.583c-.382,1.765-1.146,4.5-2.271,5.861s-2.611,1.365-3.411,0S.1,14.434.043,12.669s-.057-2.565,0-4.583" transform="translate(41.031 157.125) rotate(90)" fill="#514d4d"/>
+    <text id="wide_freq._dist." data-name="wide freq. dist." transform="translate(54 163)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">wide freq. dist.</tspan></text>
+    <text id="Color" transform="translate(21 29)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Color</tspan></text>
+    <text id="Shape" transform="translate(21 111)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Shape</tspan></text>
+  </g>
+</svg>

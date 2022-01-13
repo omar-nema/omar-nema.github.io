@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>Instagram Mirror</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="thought parser ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />    
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+  <div class="nav" id="nav">
+    <a class="nav-link active" href="#one">Overview</a>
+    <a class="nav-link" href="#two">Concept</a>
+    <a class="nav-link" href="#three">Demo</a>
+    <a class="nav-link" href="#four">Tech Details</a>
+  </div>
+
+
+  <a class="back-btn" href="../../">
+    < back
+  </a>
+
+  <div class="container">
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Instagram Mirror</strong>
+          </div>
+          <p>
+            A Chrome extension that watches your Instagram browsing activity, and plays it back to you. 
+          </p>
+          <p style="line-height: 1.3rem">
+            <span>Product Type:</span> Chrome Web Extension (Desktop Only)
+            <br>
+            <span>Role:</span> Concept, design, development
+            <br>
+            <span>Download Link:</span> <a href="https://chrome.google.com/webstore/detail/disembodied-browsing/dganaigefglenjpnigpegoahhdpaofij?hl=en">here</a>
+            <br>
+            <span>Code:</span> <a href="https://github.com/omar-nema/parsons-big-tech/tree/master/Instagram%20Mirror%20Extension">Git repo</a>
+          </p>
+      </div>
+ 
+    </section>
+
+
+    <section class="block" id="two">
+      <header class="block-header"><span>Concept</span></header>
+      <div class="block-text ">
+        <p>
+          I'm often taken aback when watching a stranger use social media on their phone. From a distance, it's easy to see the dull trance that someone can fall into when using a social media platform - scrolling mindlessly to pass time. 
+          <br><br>
+          Although I fall into the same mindless trance when using social media, I am unable to really *see* what my browsing activity looks like from a detached perspective. I see, but I cannot see myself see. And so I continue to consume.
+          <br><br>
+          Social media platforms like Instagram are designed for breadth, not depth. Their business models rely on ad revenue, incentivizing us to consume as much content as possible. It's easy to forget this fact while browsing. Though we are aware of our social media usage, we do not always internalize the power that this business model has over our attention.
+          <br><br>
+          This project is an attempt to make the viewer aware of their own Instagram browsing patterns, and expose the power the attention economy can hold over our actions. The process of developing and using this project has allowed me to internalize my own browsing habits. I've become acutely aware of how quickly I scroll through content, and how little information I process at a deep, meaningful level. 
+        </p>
+      </div>
+   
+    </section>
+
+    
+    <section class="block" id="three">
+      <header class="block-header"><span>Demo</span></header>
+      <div class="block-text">
+        <p>
+        Upon installing 'Instagram Mirror', Instagram.com will look a little different. The extension will replace the Instagram header with a custom header that allows the viewer to 'end' a browsing session. Upon doing so, browsing behavior is played back to the viewer (meaning, your computer will start scrolling on its own, and mimic your activity). Content is greyed out when played back - prompting the viewer to question whether or not they processed the content, and can recall it readily. 
+        <br><br>
+        The extension can be downloaded from <a href="  https://chrome.google.com/webstore/detail/disembodied-browsing/dganaigefglenjpnigpegoahhdpaofij?hl=en">the Chrome Play Store</a>. Click the video below to watch a demo.
+        </p>
+      </div>
+      
+      <div class="block-image-container video-cont">
+        <img data-fancybox data-src="./visuals/demoVid.mp4" src="./visuals/demoPrev.png" class="block-video"/>
+    </div>
+      
+    </section>
+
+
+    <section class="block" id="four">
+      <header class="block-header"><span>Technical Details</span></header>
+      <div class="block-text ">
+        <p>
+          'Instagram Mirror' was built using vanilla javascript/html/css, and Google's Chrome web extension API. The extension watches for the Instagram URL, and  injects a custom 'content script', along with a custom stylesheet if the URL matches. Note that the extension only works with Desktop devices (not mobile-friendly.)
+        </p>
+      <p>
+        The content script record all scrolling activity (position and time) into an array that is stored in cache for the duration of a browsing session. When prompted by the viewer, the content script will also take over the viewer's scrolling activity and play it back. The custom stylesheet is responsible for overriding the Instagram header, and instead placing action buttons to navigate the extension. See code <a href="https://github.com/omar-nema/parsons-big-tech">here</a>.
+      </p>
+
+        <p>
+          Note that the extension only works with the landing page of Instagram.com. Clicking into other websites or subdomains will deactivate it. 
+        </p>
+      </div>
+   
+    </section>
+
+
+
+  </div>
+
+
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script src="../project-assets/js/projects.js"></script>
+
+</html>

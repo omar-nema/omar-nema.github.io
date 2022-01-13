@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="190" height="194" viewBox="0 0 190 194">
+  <defs>
+    <filter id="Ellipse_2017" x="17" y="122" width="23" height="23" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2019" x="14" y="142" width="30" height="30" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2013" x="14" y="40" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2014" x="14" y="63" width="28" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-4"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-legend-two">
+      <rect width="190" height="194"/>
+    </clipPath>
+  </defs>
+  <g id="legend-two" clip-path="url(#clip-legend-two)">
+    <rect width="190" height="194" fill="#fff"/>
+    <text id="small_practice" data-name="small practice" transform="translate(51 135)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">small practice</tspan></text>
+    <text id="Size" transform="translate(21 112)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Size</tspan></text>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2017)">
+      <circle id="Ellipse_2017-2" data-name="Ellipse 2017" cx="2.5" cy="2.5" r="2.5" transform="translate(26 128)" fill="#514d4d"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2019)">
+      <circle id="Ellipse_2019-2" data-name="Ellipse 2019" cx="6" cy="6" r="6" transform="translate(23 148)" fill="#514d4d"/>
+    </g>
+    <text id="large_practice" data-name="large practice" transform="translate(52 157)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">large practice</tspan></text>
+    <g id="Group_8381" data-name="Group 8381">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2013)">
+        <circle id="Ellipse_2013-2" data-name="Ellipse 2013" cx="5" cy="5" r="5" transform="translate(23 46)" fill="purple"/>
+      </g>
+      <text id="low_in-network_" data-name="low in-network %" transform="translate(48 55)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">low in-network %</tspan></text>
+    </g>
+    <g id="Group_8380" data-name="Group 8380">
+      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Ellipse_2014)">
+        <circle id="Ellipse_2014-2" data-name="Ellipse 2014" cx="5" cy="5" r="5" transform="translate(23 69)" fill="#adadad"/>
+      </g>
+      <text id="high_in-network_" data-name="high in-network %" transform="translate(48 78)" fill="#756969" font-size="12" font-family="Karla-Regular, Karla"><tspan x="0" y="0">high in-network %</tspan></text>
+    </g>
+    <text id="Color" transform="translate(21 29)" font-size="12" font-family="Karla-Bold, Karla" font-weight="700"><tspan x="0" y="0">Color</tspan></text>
+  </g>
+</svg>

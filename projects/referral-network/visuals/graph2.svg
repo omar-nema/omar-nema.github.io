@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="4789 -246 517 535">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_4);
+      }
+
+      .cls-14, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #bcbcbc;
+      }
+
+      .cls-2, .cls-4 {
+        stroke-width: 0.5px;
+      }
+
+      .cls-11, .cls-3 {
+        font-size: 10px;
+      }
+
+      .cls-3 {
+        font-family: NunitoSans-Bold, Nunito Sans;
+        font-weight: 700;
+      }
+
+      .cls-13, .cls-4 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #000;
+        opacity: 0.14;
+      }
+
+      .cls-5 {
+        fill: #ff0068;
+      }
+
+      .cls-6 {
+        fill: #ffb3bf;
+      }
+
+      .cls-7 {
+        fill: #b1b1fa;
+      }
+
+      .cls-8 {
+        fill: #6a86f6;
+      }
+
+      .cls-9 {
+        fill: #b1b1b1;
+      }
+
+      .cls-10 {
+        font-size: 14px;
+        font-family: NunitoSans-ExtraBold, Nunito Sans;
+        font-weight: 800;
+        letter-spacing: 0.015em;
+      }
+
+      .cls-11 {
+        font-family: NunitoSans-SemiBold, Nunito Sans;
+        font-weight: 600;
+      }
+
+      .cls-12 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-Web_1920_4">
+      <rect x="4789" y="-246" width="517" height="535"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_4" data-name="Web 1920 – 4" class="cls-1">
+    <rect class="cls-14" x="4789" y="-246" width="517" height="535"/>
+    <g id="Group_30" data-name="Group 30" transform="translate(4790 -255.353)">
+      <g id="Group_26" data-name="Group 26" transform="translate(36.556 34)">
+        <g id="Rectangle_1" data-name="Rectangle 1" class="cls-2">
+          <rect class="cls-12" width="441.695" height="231.353"/>
+          <rect class="cls-13" x="0.25" y="0.25" width="441.195" height="230.853"/>
+        </g>
+      </g>
+    </g>
+    <text id="In_network" data-name="Innetwork" class="cls-3" transform="translate(4849 -143)"><tspan x="0" y="10">In</tspan><tspan x="0" y="20">network</tspan></text>
+    <text id="high_cost" data-name="high cost" class="cls-3" transform="translate(4946 -156)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="low_cost" data-name="low cost" class="cls-3" transform="translate(4946 -38)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="low_cost-2" data-name="low cost" class="cls-3" transform="translate(4946 -121)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="high_cost-2" data-name="high cost" class="cls-3" transform="translate(4946 -75)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="Out_of_network" data-name="Out of network" class="cls-3" transform="translate(4849 -59)"><tspan x="0" y="10">Out of </tspan><tspan x="0" y="20">network</tspan></text>
+    <text id="Small_practice" data-name="Small practice" class="cls-3" transform="translate(5103 -157)"><tspan x="19.075" y="10">Small practice</tspan></text>
+    <line id="Line_23" data-name="Line 23" class="cls-4" x2="143" transform="translate(4849.5 -91.5)"/>
+    <text id="Large_practice" data-name="Large practice" class="cls-3" transform="translate(5088 -81)"><tspan x="33.85" y="10">Large practice</tspan></text>
+    <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-5" cx="7.5" cy="7.5" r="7.5" transform="translate(4916 -157)"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" class="cls-6" cx="7.5" cy="7.5" r="7.5" transform="translate(4916 -122)"/>
+    <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-7" cx="7.5" cy="7.5" r="7.5" transform="translate(4916 -76)"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-8" cx="7.5" cy="7.5" r="7.5" transform="translate(4916 -39)"/>
+    <circle id="Ellipse_6" data-name="Ellipse 6" class="cls-9" cx="7.5" cy="7.5" r="7.5" transform="translate(5147 -133)"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" class="cls-9" cx="19" cy="19" r="19" transform="translate(5135 -57)"/>
+    <g id="Group_21" data-name="Group 21" transform="translate(4792.556 -237)">
+      <text id="Color" class="cls-10" transform="translate(34 30)"><tspan x="79.218" y="14">Color</tspan></text>
+    </g>
+    <g id="Group_22" data-name="Group 22" transform="translate(5025 -237)">
+      <text id="Size" class="cls-10" transform="translate(34 30)"><tspan x="81.805" y="14">Size</tspan></text>
+    </g>
+    <g id="Group_28" data-name="Group 28" transform="translate(4787.556 2)">
+      <g id="Rectangle_1-2" data-name="Rectangle 1" class="cls-2" transform="translate(39 36)">
+        <rect class="cls-12" width="441.695" height="223"/>
+        <rect class="cls-13" x="0.25" y="0.25" width="441.195" height="222.5"/>
+      </g>
+    </g>
+    <text id="Examples" class="cls-10" transform="translate(4842 50)"><tspan x="174.517" y="14">Examples</tspan></text>
+    <text id="Small_practice_with_undesirable_referral_behavior._Utilizing_out_of_network_service_facilities_at_a_high_cost." data-name="Small practice, with undesirable referral behavior. Utilizing out of network service facilities, at a high cost." class="cls-11" transform="translate(4849 185)"><tspan x="1.47" y="10">Small practice, with undesirable referral </tspan><tspan x="15.705" y="23">behavior. Utilizing out of network </tspan><tspan x="21.175" y="36">service facilities, at a high cost.</tspan></text>
+    <text id="Large_practice_with_desirable_referral_behavior:_to_low-cost_in-network_providers." data-name="Large practice with desirable referral behavior: to low-cost, in-network providers." class="cls-11" transform="translate(5052 187)"><tspan x="12.615" y="10">Large practice with desirable referral </tspan><tspan x="20.06" y="23">behavior: to low-cost, in-network </tspan><tspan x="73.19" y="36">providers.</tspan></text>
+    <circle id="Ellipse_9" data-name="Ellipse 9" class="cls-5" cx="7.5" cy="7.5" r="7.5" transform="translate(4939 120)"/>
+    <circle id="Ellipse_10" data-name="Ellipse 10" class="cls-8" cx="23.5" cy="23.5" r="23.5" transform="translate(5126 103)"/>
+  </g>
+</svg>

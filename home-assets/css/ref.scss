@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+// $color-primary: #3F58FC;
+
+$color-primary: #416bfd;
+$color-primary-lite: #98aef9;
+$color-secondary: #61aee2;
+$color-border: rgba(0, 0, 0, 0.15);
+$color-gray: #515152;
+$header-gray: #d9e1eb;
+$width-content-max: 950px;
+$padding-content-left: 40px;
+$padding-content-right: 40px;
+$font-size-label: 12px;
+$color-body: #f7f9fd;
+
+$color-datavis: #009aff;
+$color-data-vis-bg: #009aff0a;
+$color-art: red;
+$color-art-bg: #ff00000f;
+$color-product: #04987a;
+$color-product-bg: #04987a0d;
+$color-all: #3f3e3e;
+
+body {
+  padding: 0;
+  margin: 0;
+  background: $color-body;
+  line-height: 1.4rem;
+}
+
+.body-font,
+html {
+  font-family: 'DM Sans', 'arial';
+  font-size: 16px;
+  font-weight: 400;
+}
+.h1 {
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: 700;
+}
+.h2 {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.clickable {
+  transition: color 0.15s ease-in-out, border 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.flex-center-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row-layout {
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.15);
+  background-color: rgba(130, 127, 127, 0.08);
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}

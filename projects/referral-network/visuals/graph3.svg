@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="5395 -241 517 535">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_6);
+      }
+
+      .cls-2, .cls-25 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #bcbcbc;
+      }
+
+      .cls-2, .cls-4 {
+        stroke-width: 0.5px;
+      }
+
+      .cls-11, .cls-3 {
+        font-size: 10px;
+      }
+
+      .cls-3 {
+        font-family: NunitoSans-Bold, Nunito Sans;
+        font-weight: 700;
+      }
+
+      .cls-24, .cls-4 {
+        fill: none;
+      }
+
+      .cls-4 {
+        stroke: #000;
+        opacity: 0.14;
+      }
+
+      .cls-5 {
+        fill: #ff0068;
+      }
+
+      .cls-17, .cls-6 {
+        fill: #ffb3bf;
+      }
+
+      .cls-20, .cls-7 {
+        fill: #b1b1fa;
+      }
+
+      .cls-15, .cls-8 {
+        fill: #7f96f4;
+      }
+
+      .cls-9 {
+        fill: #919191;
+      }
+
+      .cls-10 {
+        font-size: 14px;
+        font-family: NunitoSans-ExtraBold, Nunito Sans;
+        font-weight: 800;
+        letter-spacing: 0.015em;
+      }
+
+      .cls-11 {
+        font-family: NunitoSans-SemiBold, Nunito Sans;
+        font-weight: 600;
+      }
+
+      .cls-12, .cls-16 {
+        fill: #6a86f6;
+      }
+
+      .cls-13 {
+        stroke: rgba(255,122,149,0.46);
+        stroke-width: 0.673px;
+      }
+
+      .cls-14, .cls-18, .cls-19, .cls-21 {
+        stroke: #7f96f4;
+        stroke-width: 0.555px;
+      }
+
+      .cls-14 {
+        opacity: 0.55;
+      }
+
+      .cls-15, .cls-16, .cls-20 {
+        stroke: rgba(0,0,0,0.08);
+      }
+
+      .cls-15, .cls-16, .cls-17, .cls-20, .cls-22 {
+        stroke-width: 0.3px;
+      }
+
+      .cls-17 {
+        stroke: rgba(0,0,0,0.07);
+      }
+
+      .cls-18 {
+        opacity: 0.77;
+      }
+
+      .cls-21 {
+        opacity: 0.42;
+      }
+
+      .cls-22 {
+        fill: #717171;
+        stroke: rgba(0,0,0,0.1);
+      }
+
+      .cls-23 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-Web_1920_6">
+      <rect x="5395" y="-241" width="517" height="535"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_6" data-name="Web 1920 – 6" class="cls-1">
+    <rect class="cls-25" x="5395" y="-241" width="517" height="535"/>
+    <g id="Group_29" data-name="Group 29" transform="translate(5396 -253.045)">
+      <g id="Group_26" data-name="Group 26" transform="translate(36.556 34)">
+        <g id="Rectangle_1" data-name="Rectangle 1" class="cls-2" transform="translate(0 0)">
+          <rect class="cls-23" width="441.695" height="231.045"/>
+          <rect class="cls-24" x="0.25" y="0.25" width="441.195" height="230.545"/>
+        </g>
+      </g>
+    </g>
+    <text id="Low_in-network" data-name="Low % in-network" class="cls-3" transform="translate(5455 -143)"><tspan x="0" y="10">Low % </tspan><tspan x="0" y="20">in-network</tspan></text>
+    <text id="high_cost" data-name="high cost" class="cls-3" transform="translate(5552 -154)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="low_cost" data-name="low cost" class="cls-3" transform="translate(5552 -36)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="low_cost-2" data-name="low cost" class="cls-3" transform="translate(5552 -119)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="high_cost-2" data-name="high cost" class="cls-3" transform="translate(5552 -73)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="High_in-network" data-name="High % in-network" class="cls-3" transform="translate(5455 -64)"><tspan x="0" y="10">High % </tspan><tspan x="0" y="20">in-network</tspan></text>
+    <text id="Small_service_facility" data-name="Small service facility" class="cls-3" transform="translate(5665 -169)"><tspan x="8.21" y="10">Small service </tspan><tspan x="23.27" y="22">facility</tspan></text>
+    <line id="Line_23" data-name="Line 23" class="cls-4" x2="143" transform="translate(5455.5 -89.5)"/>
+    <text id="Practice" class="cls-3" transform="translate(5687 -53)"><tspan x="47.98" y="10">Practice</tspan></text>
+    <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-5" cx="7.5" cy="7.5" r="7.5" transform="translate(5522 -155)"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" class="cls-6" cx="7.5" cy="7.5" r="7.5" transform="translate(5522 -120)"/>
+    <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-7" cx="7.5" cy="7.5" r="7.5" transform="translate(5522 -74)"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-8" cx="7.5" cy="7.5" r="7.5" transform="translate(5522 -37)"/>
+    <circle id="Ellipse_6" data-name="Ellipse 6" class="cls-6" cx="5" cy="5" r="5" transform="translate(5691 -119)"/>
+    <circle id="Ellipse_7" data-name="Ellipse 7" class="cls-9" cx="5" cy="5" r="5" transform="translate(5748 -29)"/>
+    <g id="Group_21" data-name="Group 21" transform="translate(5398.556 -235)">
+      <text id="Color" class="cls-10" transform="translate(34 30)"><tspan x="89.565" y="14">Color</tspan></text>
+    </g>
+    <g id="Group_22" data-name="Group 22" transform="translate(5631 -235)">
+      <text id="Type" class="cls-10" transform="translate(34 30)"><tspan x="79.901" y="14">Type</tspan></text>
+    </g>
+    <g id="Group_28" data-name="Group 28" transform="translate(5393.556 -3)">
+      <g id="Rectangle_1-2" data-name="Rectangle 1" class="cls-2" transform="translate(39 36)">
+        <rect class="cls-23" width="441.695" height="223"/>
+        <rect class="cls-24" x="0.25" y="0.25" width="441.195" height="222.5"/>
+      </g>
+    </g>
+    <text id="Example" class="cls-10" transform="translate(5447 45)"><tspan x="178.031" y="14">Example</tspan></text>
+    <text id="Practice_exhibiting_desirable_referral_behavior._Strong_connections_to_low-cost_in-network_providers_and_weaker_more_distant_connections_to_high_cost_or_out_of_network_providers." data-name="Practice exhibiting desirable referral behavior. Strong connections to low-cost, in-network providers and weaker, more distant connections to high cost, or out of network providers." class="cls-11" transform="translate(5462 199)"><tspan x="5.8" y="10">Practice exhibiting desirable referral behavior. Strong connections to low-cost, in-</tspan><tspan x="12.01" y="23">network providers and weaker, more distant connections to high cost, or out of </tspan><tspan x="147.63" y="36">network providers.</tspan></text>
+    <path id="Path_91" data-name="Path 91" class="cls-5" d="M5,0A5,5,0,1,1,0,5,5,5,0,0,1,5,0Z" transform="translate(5706 -119)"/>
+    <text id="Large_service_facility" data-name="Large service facility" class="cls-3" transform="translate(5768 -169)"><tspan x="13.985" y="10">Large service </tspan><tspan x="29.27" y="22">facility</tspan></text>
+    <circle id="Ellipse_12" data-name="Ellipse 12" class="cls-12" cx="11.5" cy="11.5" r="11.5" transform="translate(5784 -132)"/>
+    <circle id="Ellipse_13" data-name="Ellipse 13" class="cls-5" cx="11.5" cy="11.5" r="11.5" transform="translate(5815 -132)"/>
+    <circle id="Ellipse_14" data-name="Ellipse 14" class="cls-6" cx="11.5" cy="11.5" r="11.5" transform="translate(5815 -103)"/>
+    <circle id="Ellipse_15" data-name="Ellipse 15" class="cls-12" cx="5" cy="5" r="5" transform="translate(5706 -104)"/>
+    <circle id="Ellipse_16" data-name="Ellipse 16" class="cls-7" cx="5" cy="5" r="5" transform="translate(5691 -104)"/>
+    <circle id="Ellipse_17" data-name="Ellipse 17" class="cls-7" cx="11.5" cy="11.5" r="11.5" transform="translate(5784 -103)"/>
+    <line id="Line_809" data-name="Line 809" class="cls-13" x2="255" y2="2" transform="translate(5538.5 121.5)"/>
+    <line id="Line_810" data-name="Line 810" class="cls-14" x1="37.579" y2="4.202" transform="translate(5497.921 121.5)"/>
+    <circle id="Ellipse_237" data-name="Ellipse 237" class="cls-15" cx="7.91" cy="7.91" r="7.91" transform="translate(5509.271 136.429)"/>
+    <circle id="Ellipse_238" data-name="Ellipse 238" class="cls-16" cx="18.326" cy="18.326" r="18.326" transform="translate(5464.595 111.376)"/>
+    <circle id="Ellipse_239" data-name="Ellipse 239" class="cls-17" cx="16.044" cy="16.044" r="16.044" transform="translate(5793.448 106.765)"/>
+    <circle id="Ellipse_240" data-name="Ellipse 240" class="cls-16" cx="7.91" cy="7.91" r="7.91" transform="translate(5507.271 95.429)"/>
+    <line id="Line_812" data-name="Line 812" class="cls-18" x1="15.579" y1="13.798" transform="translate(5519.921 105.702)"/>
+    <line id="Line_813" data-name="Line 813" class="cls-19" x1="19" y2="20" transform="translate(5517.5 122.5)"/>
+    <circle id="Ellipse_241" data-name="Ellipse 241" class="cls-16" cx="7.91" cy="7.91" r="7.91" transform="translate(5509.271 136.429)"/>
+    <circle id="Ellipse_242" data-name="Ellipse 242" class="cls-20" cx="7.91" cy="7.91" r="7.91" transform="translate(5751.271 142.429)"/>
+    <line id="Line_814" data-name="Line 814" class="cls-21" x1="214" y1="26" transform="translate(5537.5 122.5)"/>
+    <circle id="Ellipse_243" data-name="Ellipse 243" class="cls-16" cx="7.91" cy="7.91" r="7.91" transform="translate(5555.271 140.429)"/>
+    <line id="Line_815" data-name="Line 815" class="cls-14" x1="20.579" y1="21.798" transform="translate(5537.921 122.702)"/>
+    <circle id="Ellipse_236" data-name="Ellipse 236" class="cls-22" cx="3.5" cy="3.5" r="3.5" transform="translate(5533.157 118.236)"/>
+  </g>
+</svg>

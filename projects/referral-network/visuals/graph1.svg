@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="4166 -246 517 535">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-Web_1920_3);
+      }
+
+      .cls-16, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #bcbcbc;
+      }
+
+      .cls-2, .cls-3, .cls-8 {
+        stroke-width: 0.5px;
+      }
+
+      .cls-15, .cls-3, .cls-8 {
+        fill: none;
+      }
+
+      .cls-4 {
+        font-size: 14px;
+        font-family: NunitoSans-ExtraBold, Nunito Sans;
+        font-weight: 800;
+        letter-spacing: 0.015em;
+      }
+
+      .cls-5 {
+        fill: #b1b1b1;
+      }
+
+      .cls-13, .cls-6 {
+        font-size: 10px;
+      }
+
+      .cls-6 {
+        font-family: NunitoSans-Bold, Nunito Sans;
+        font-weight: 700;
+      }
+
+      .cls-7 {
+        fill: #ff0068;
+      }
+
+      .cls-8 {
+        stroke: #000;
+        opacity: 0.14;
+      }
+
+      .cls-9 {
+        fill: #ffb3bf;
+      }
+
+      .cls-10 {
+        fill: #b1b1fa;
+      }
+
+      .cls-11 {
+        fill: #6a86f6;
+      }
+
+      .cls-12 {
+        fill: #bfbfbf;
+      }
+
+      .cls-13 {
+        font-family: NunitoSans-SemiBold, Nunito Sans;
+        font-weight: 600;
+      }
+
+      .cls-14 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-Web_1920_3">
+      <rect x="4166" y="-246" width="517" height="535"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_3" data-name="Web 1920 – 3" class="cls-1">
+    <rect class="cls-16" x="4166" y="-246" width="517" height="535"/>
+    <g id="Group_31" data-name="Group 31" transform="translate(4160 -254.965)">
+      <g id="Group_26" data-name="Group 26" transform="translate(36.556 34)">
+        <g id="Rectangle_1" data-name="Rectangle 1" class="cls-2">
+          <rect class="cls-14" width="441.695" height="230.956"/>
+          <rect class="cls-15" x="0.25" y="0.25" width="441.195" height="230.456"/>
+        </g>
+      </g>
+      <path id="Path_92" data-name="Path 92" class="cls-3" d="M0,223" transform="translate(253.5 42.465)"/>
+    </g>
+    <text id="Color" class="cls-4" transform="translate(4213 -205)"><tspan x="76.996" y="14">Color</tspan></text>
+    <text id="Shape" class="cls-4" transform="translate(4432 -204)"><tspan x="75.014" y="14">Shape</tspan></text>
+    <path id="Path_58" data-name="Path 58" class="cls-5" d="M298.494,120.361c-.13-4.575-.392-12.1,2.051-15.867s7.589-3.764,9.644,0,1.021,11.292.5,15.867-.518,6.2,0,8.655,1.552,5.751-.5,7.4-7.2,1.647-9.644,0-2.181-4.939-2.051-7.4.131-4.08,0-8.655" transform="translate(4216.846 -233.786)"/>
+    <text id="Low_in-network" data-name="Low % in-network" class="cls-6" transform="translate(4232 -142)"><tspan x="0" y="10">Low % </tspan><tspan x="0" y="20">in-network</tspan></text>
+    <text id="high_cost" data-name="high cost" class="cls-6" transform="translate(4329 -156)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="low_cost" data-name="low cost" class="cls-6" transform="translate(4329 -38)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="low_cost-2" data-name="low cost" class="cls-6" transform="translate(4329 -121)"><tspan x="0" y="10">low cost</tspan></text>
+    <text id="high_cost-2" data-name="high cost" class="cls-6" transform="translate(4329 -75)"><tspan x="0" y="10">high cost</tspan></text>
+    <text id="High_in-network" data-name="High % in-network" class="cls-6" transform="translate(4232 -66)"><tspan x="0" y="10">High % </tspan><tspan x="0" y="20">in-network</tspan></text>
+    <path id="Path_82" data-name="Path 82" class="cls-7" d="M896.2,508.648c.422-2.566,1.265-6.62,2.766-8.647s3.661-2.027,5.413,0,3.094,6.081,3.766,8.647.672,3.645,0,4.909A7.882,7.882,0,0,1,904.384,517a7,7,0,0,1-5.413,0,5.72,5.72,0,0,1-2.766-3.441c-.422-1.264-.422-2.343,0-4.909" transform="translate(3405.846 -657.786)"/>
+    <text id="High_cost_variability" data-name="High cost variability" class="cls-6" transform="translate(4470 -158)"><tspan x="5.67" y="10">High cost variability</tspan></text>
+    <line id="Line_23" data-name="Line 23" class="cls-8" x2="143" transform="translate(4232.5 -91.5)"/>
+    <path id="Path_83" data-name="Path 83" class="cls-9" d="M896.2,508.648c.422-2.566,1.265-6.62,2.766-8.647s3.661-2.027,5.413,0,3.094,6.081,3.766,8.647.672,3.645,0,4.909A7.882,7.882,0,0,1,904.384,517a7,7,0,0,1-5.413,0,5.72,5.72,0,0,1-2.766-3.441c-.422-1.264-.422-2.343,0-4.909" transform="translate(3405.846 -621.786)"/>
+    <path id="Path_84" data-name="Path 84" class="cls-10" d="M896.2,508.648c.422-2.566,1.265-6.62,2.766-8.647s3.661-2.027,5.413,0,3.094,6.081,3.766,8.647.672,3.645,0,4.909A7.882,7.882,0,0,1,904.384,517a7,7,0,0,1-5.413,0,5.72,5.72,0,0,1-2.766-3.441c-.422-1.264-.422-2.343,0-4.909" transform="translate(3405.846 -576.786)"/>
+    <path id="Path_85" data-name="Path 85" class="cls-11" d="M896.2,508.648c.422-2.566,1.265-6.62,2.766-8.647s3.661-2.027,5.413,0,3.094,6.081,3.766,8.647.672,3.645,0,4.909A7.882,7.882,0,0,1,904.384,517a7,7,0,0,1-5.413,0,5.72,5.72,0,0,1-2.766-3.441c-.422-1.264-.422-2.343,0-4.909" transform="translate(3405.846 -540.786)"/>
+    <text id="High_frequency_variability" data-name="High frequency variability" class="cls-6" transform="translate(4462 -69)"><tspan x="7.37" y="10">High frequency variability</tspan></text>
+    <path id="Path_86" data-name="Path 86" class="cls-12" d="M123.885-93.909c.154-5.546.46-14.441,2.593-18.887s6.095-4.448,9.094,0,5.038,13.341,6.056,18.887,1.019,7.745,0,12.6-3.057,12.357-6.056,16.109-6.96,3.752-9.094,0-2.44-11.257-2.593-16.109-.153-7.05,0-12.6" transform="translate(4435.205 -161.667) rotate(90)"/>
+    <g id="Group_24" data-name="Group 24" transform="translate(4157.556 2)">
+      <g id="Rectangle_1-2" data-name="Rectangle 1" class="cls-2" transform="translate(39 36)">
+        <rect class="cls-14" width="441.695" height="223"/>
+        <rect class="cls-15" x="0.25" y="0.25" width="441.195" height="222.5"/>
+      </g>
+    </g>
+    <text id="Examples" class="cls-4" transform="translate(4212 50)"><tspan x="174.517" y="14">Examples</tspan></text>
+    <path id="Path_89" data-name="Path 89" class="cls-7" d="M348.7,312.572c.839-11.192,2.516-32.066,4.868-42.5s5.378-10.437,7.2,0,2.433,31.31,2.741,42.5.307,12.7,0,16.475-.921,9.8-2.741,12.822-4.847,3.016-7.2,0-4.029-9.05-4.868-12.822-.839-5.283,0-16.475" transform="translate(3945.846 -174.786)"/>
+    <text id="This_procedure_category_displays_high_frequency_varability_and_a_low_percentage_of_in-network_referrals_at_a_high_cost." data-name="This procedure category displays high frequency varability, and a low percentage of in-network referrals at a high cost." class="cls-13" transform="translate(4219 185)"><tspan x="5.15" y="10">This procedure category displays high </tspan><tspan x="22.11" y="23">frequency varability, and a low </tspan><tspan x="3.725" y="36">percentage of in-network referrals at a </tspan><tspan x="69.075" y="49">high cost.</tspan></text>
+    <path id="Path_90" data-name="Path 90" class="cls-10" d="M318.709,493.875c1.554-7.03,4.663-19.586,7.723-25.864s6.072-6.278,13.711,0,19.906,18.834,26.039,25.864,6.134,8.533,0,9.872-18.4,2.513-26.039,3.1-10.651.587-13.711,0-6.169-1.761-7.723-3.1-1.554-2.842,0-9.872" transform="translate(4181.846 -357.786)"/>
+    <text id="This_procedure_category_displays_moderate_frequency_and_cost_varability_and_a_high_percentage_of_in-network_referrals_at_a_high_cost." data-name="This procedure category displays moderate frequency and cost varability, and a high percentage of in-network referrals at a high cost." class="cls-13" transform="translate(4426 190)"><tspan x="20.915" y="10">This procedure category displays </tspan><tspan x="6.505" y="23">moderate frequency and cost varability, </tspan><tspan x="12.895" y="36">and a high percentage of in-network </tspan><tspan x="43.815" y="49">referrals at a high cost.</tspan></text>
+  </g>
+</svg>

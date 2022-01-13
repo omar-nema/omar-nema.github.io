@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <!-- PAGE TITLE -->
+    <title>Referral Networks</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  </head>
+  <body>
+    <div id="tooltip" class="tooltip"></div>
+    <!-- <div id="node-label"></div> -->
+    <!-- MAIN PAGE -->
+    <div class="header">
+      <div class="large row">
+        <div class="title-holder">
+          <div class="title">
+            Network Explorer
+          </div>
+          <div class="nav-holder">
+            <div class="nav-page visual selected">Visual</div>
+            <div class="nav-page context">Context</div>
+          </div>
+        </div>
+        <a class="back-btn" href="../../index.html">
+        &lt; Back
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-holder">
+      <div id="graph-1">
+
+      <div class="subtitle"></div>
+      <p class="graph-description">
+      </p>
+      <div class="graph-holder">
+      <div class="graph-header">
+        <div class="breadcrumbs">
+          <div id="one" class="crumb">Procedures</div>
+          <div class="arrow">></div>
+          <div id="two"class="crumb">Practices</div>
+          <div class="arrow">></div>
+          <div id="three" class="crumb">Referrals</div>
+        </div>
+        <div class="top-buttons">
+          <div class="filterheader">
+            Filter (0)
+          </div>
+          <div class="legend-btn">
+            Legend
+          </div>
+          <div class="rescale inactive floating flat" style="margin-left:11px">
+            Rescale
+          </div>
+        </div>
+      </div>
+      <div class="main-holder">
+        <div class="selected-provider-chip"></div>
+        <div class="legend-holder">
+          <div class="legend-one legend-image">
+              <img src="./visuals/legend-one.svg"/>
+          </div>
+          <div class="legend-two legend-image">
+              <img src="./visuals/legend-two.svg"/>
+          </div>
+          <div class="legend-three legend-image">
+              <img src="./visuals/legend-three.svg"/>
+          </div>
+
+        </div>
+        <div class="y-label axis-label">Cost/Event</div>
+        <div class="x-label axis-label">Events/1000</div>
+        <div class="chart-nav row" >
+          Outpatient Referrals - Cost, Frequency, and Variation
+        </div>
+
+        <div id="filters">
+          <div class="procedure-filters">
+          </div>
+          <div class="node-filters">
+            <div class="selection nodeheader">
+              Selected Provider
+            </div>
+            <div class="selected-content">
+            </div>
+            <div class="nodebody specialists">
+              <div class="values nodeheader">
+                Find Specialists
+              </div>
+              <div class="slider-block filter-block cost" filtertype="cost">
+                <div class="slider-label">Cost</div>
+                <div class="slider profile-one">
+                  <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
+                    <div class="thumb-tooltip">0.0</div>
+                  </div>
+                  <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"filtertype="discharge">
+                    <div class="thumb-tooltip">1</div>
+                  </div>
+                  <div class="fill-inner" filtertype="discharge"></div>
+                </div>
+              </div>
+              <div class="slider-block filter-block frequency" filtertype="cost">
+                <div class="slider-label">Frequency</div>
+                <div class="slider vertical profile-one">
+                  <div class="thumb thumb-lower vertical profile-one" style="left:0%" filtertype="discharge">
+                    <div class="thumb-tooltip">0.0</div>
+                  </div>
+                  <div class="thumb thumb-upper vertical profile-one thumb-active" style="left:100%"  filtertype="discharge">
+                    <div class="thumb-tooltip" >1</div>
+                  </div>
+                  <div class="fill-inner" filtertype="discharge"></div>
+                </div>
+              </div>
+              <div class="filter-block">
+                <div class="left slider-label">
+                  Type
+                </div>
+                <form>
+                  <div class="left radio">
+                    <p style="margin-top:0">
+                      <label>
+                      <input id="in" class="with-gap" name="group3" type="radio" />
+                      <span>In Network</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                      <input id="out" class="with-gap" name="group3" type="radio" />
+                      <span>Out of network</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                      <input id="both" class="with-gap" name="group3" type="radio" checked/>
+                      <span>Both</span>
+                      </label>
+                    </p>
+                  </div>
+                </form>
+              </div>
+
+
+
+              <div class="row" style="padding-top: 10px">
+                <a class="btn waves btn-flat node-remove-button cancel">Clear</a>
+                <a class="btn waves btn-flat node-filter-button active">Apply</a>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="myhead">
+            Collapse
+            </div> -->
+          <div style="clear:both">
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="project-context container scroll-holder">
+      <section class="intro block" id="one">
+        <div class="intro-text block-text">
+            <div class="intro-prompt"><strong>Referral Network Explorer</strong>
+            </div>
+            <p style="line-height: 1.3rem">
+              <span>Organization:</span> Independent, data from Arcadia.io
+              <br>
+              <span>Role:</span> Design & development
+              <br>
+              <span>Tags:</span> data visualization
+              <br>
+              <span>Tech:</span> d3.js
+              <br>
+              <span>Code:</span> Github <a href="https://github.com/omar-nema/omar-nema.github.io/tree/master/projects/referral-network">repository</a>
+            </p>
+        </div>
+      </section>
+
+      <section class="block" id="two">
+        <header class="block-header" id="context"><span>Context</span></header>
+        <div class="block-text">
+            <p class="subheader">Portfolio Context</p>
+            <p>As my interest in information design has taken root, I have experimented with creating dynamic visual forms to capture complex patterns and interactions. My work on Referral Networks speaks to this pattern, and to my sustained interest in the way we process and visualize information. </p>
+            <p class="subheader">Project Context</p>
+            <p>
+              While researching medical referral networks as part of my job at Arcadia, I observed how static reporting tools were used to inform decisions on hospital network structure. The static nature of these reports stands in stark contrast to the complexity of referral networks. Referral patterns are complex, composed of thousands of relationships between referring providers and specialists. To develop a more accurate intuition for referral networks, I thought, one would have to see the data – visualize its texture, patterns, and aberrations.
+              <br><br>
+            In order to create a more representative view of a referral network, I independently prototyped an interactive visual. Referral Networks brings to life the individual provider relationships that compose a referral network. Providers are visualized as nodes, and their relationships are shown as attractive and repulsive forces. The resulting form is venous, layered, and chaotic. I designed and developed the project independently, and displayed it at the HIMSS Health IT conference.
+            </p>
+        </div>
+      </section>
+
+
+
+      <section class="block" id="three">
+        <header class="block-header" id="context"><span>Process</span></header>
+        <div class="subheader">Collecting Data</div>
+        <div class="block-text">
+          <p>
+            The underlying dataset for this project was taken from a client database at Arcadia.io. It contains one year of referral data from a large health system in Northeastern US.
+          </p>
+          <p>
+            In order to assess cost variance, I aggregated the data set to the procedure (CPT) code level (procedure codes are intended to be fixed in cost). I chose to focus on the most common procedure within each procedure category (i.e. 'Cardiovascular', 'Nervous'). I then sliced the data by 'referral path' - creating one row for each set of referrals from a given provider to a specialist.
+          </p>
+        </div>
+        <div class="subheader">Visualizing Dataset</div>
+        <div class="block-text">
+          <p>
+            After cleansing, categorized, and deidentifying the data, I took to javascript to visualize the dataset (in many, many iterations). My aim was to create a tool that visualizes all meaningful edges of the data. The resulting visual is highly interactive - enabling users to explore patterns across multiple dimensions and scales.
+          </p>
+          <p>
+          </p>
+        </div>
+      </section>
+
+      <section class="block" id="four">
+        <header class="block-header" id="context"><span>Visual</span></header>
+        <div class="block-text">
+          <div class="subheader">Visual Flow</div>
+          <p>
+            'Network Explorer' enables users to assess referral patterns at the procedure, practice, and referral level. The flow between these grains is sequential, as the user drills down to greater levels of detail.
+          </p>
+        </div>
+        <div class="block-image-container">
+            <img class="block-image" src="./visuals/referral-graph-flow.png"/>
+        </div>
+
+
+        <div class="block-text">
+          <div class="subheader">Visual Demo</div>
+          <p>
+            In the recording below, the user focuses on identifying poor referral patterns in which there is opportunity for improvement.
+          </p>
+        </div>
+        <div class="block-image-container video-cont">
+            <img data-fancybox src="./visuals/referral-walkthrough-prev.PNG" data-src="./visuals/referral-walkthrough.mp4" class="block-video"/>
+        </div>
+
+
+      </section>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="js/lib/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="../project-assets/js/projects.js"></script>
+    <script src="js/lib/queue.min.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/prepData.js"></script>
+    <script src="js/plotBlobs.js"></script>
+    <script src="js/plotScatter.js"></script>
+    <script src="js/plotNodes.js"></script>
+    <script src="js/draw.js"></script>
+    <script src="js/init.js"></script>
+    <script></script>
+  </body>
+</html>

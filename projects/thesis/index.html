@@ -1,0 +1,195 @@
+<html>
+
+<head>
+    <title>thesis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="thought parser ">
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles-updated.css">
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles.css">
+</head>
+
+<body>
+ 
+  <header>
+    <div class="header-padding left">
+
+    </div>
+    <div class="inner-header">
+      <div class="name-holder">
+        <div class="header-name">
+          omar nema
+        </div>
+      </div>
+      <div class="header-nav">
+        <div class="nav-left">
+          <div >
+            work
+          </div>
+          <div>/</div>
+          <div class="work selected">
+            undergrad thesis
+          </div>
+        
+        </div>
+        <div class="nav-right">
+          <a class="btn-back" href="/">< back</a>
+        </div>
+      
+      </div>
+    </div>
+
+    <div class="header-padding right">
+    </div>
+
+  </header>
+
+
+  <div class="container">
+
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Thesis: Spinal Cord Stimulation Model</strong>
+          </div>
+          <p style="line-height: 1.3rem">
+            <span>Advisor:</span> <a href="http://borton.engin.brown.edu/">Professor David Borton</a>
+            <br>
+            <span>Collaborator:</span> Radu Darie, phD candidate
+            <br>
+            <span>Institution:</span> Brown University (http://borton.engin.brown.edu/)
+            <br>
+            <span>Role:</span> Programming primarily. I came in with little neuroscience knowledge, so my collaborator Radu guided the broader strategy.
+          </p>
+          <p>
+          </p>
+          <p>
+
+          </p>
+          <p>
+
+          </p>
+      </div>
+    </section>
+
+    <section class="block" id="two">
+      <div class="block-header" id="context"><span>Context</span></div>
+
+      <div class="block-text">
+          <p>
+            Spinal cord injury affects 250,000 americans/year, and can cause devastating, irreversible motor deficit. Epidural Electrical Stimulation (EES) is a promosing potential therapy, as it has been shown to improve motor control in humans and animals with spinal cord injury.
+          </p>
+      </div>
+      <div class="block-text">
+        <p class="subheader">Portfolio Context</p>
+        <p>
+      This project outlines the work of my undergraduate engineering thesis focused on neuro-engineering. This thesis paved the groundwork for my development as a technologist. Stepping out of my engineering education, I was able to work across disciplines, and merge software tools to create a computational model. 
+        </p>
+      <p class="subheader">Project Context</p>
+        <p>
+        In EES experiments, electrical currents are propagated through a test subject's (usually a primate) spinal cord with the aim of understanding which stimulation parameters are therapeutic. Research to date has largely been driven by a trial-and-error process, which can be inefficient, and inhumane to test animals.
+        </p>
+        <p>
+        With the aim of reducing reliance on live experimentation, I worked on a computational model for Epidural Electric Simulation. I designed and developed the model, with guidance from Radu Darie, a phD student in the Borton's Neuroengineering lab.
+        </p>
+      </div>
+      <div class="block-image-container">
+          <img src="./img/thesis-experiment.png" class="block-image">
+      </div>
+
+    </section>
+
+
+    <section class="block" id="three">
+      <div class="block-header"><span>Process</span></div>
+      <div>
+        <p>
+          I started this project with a mandate to create a computational model, but little context in neuroscience (or epidural stimulation in particular), or computer science. In the initial phase of this project, then, I approached two parallel threads of work. In the first, I read neuroscience literature, and reviewed my understanding regularly with Radu Darie (phD student at the lab). Additionally, I visited the physical lab where experiments were done to better visualize the experimental set-up that I was modeling.
+        </p>
+        <p>In parallel, I started coding. There is no single piece of software designed to simulate spinal cord stimulation experiments. So I tested out different pieces of software that could handle portions of epidural electrical stimulation. I worked with COMSOL, physics simulation software to model the spinal cord. NEURON was used for biophysical modeling. And lastly, I used MATLAB to communicate between both pieces of software.
+        </p>
+        <p>  After developing a basis in neuroscience (in the context of spinal cord stimulation experiments), and the three aforementioned software tools, I moved forward in attempting to represent biological and engineering concepts in code. Along the way, I referenced results in research literature to ensure the model was accurate.
+        </p>
+      </div>
+      <div class="block-image-container">
+          <img src="./img/thesis-process.png" class="block-image">
+      </div>
+    </section>
+
+    <section class="block" id="four">
+      <div class="block-header"><span>Physical Model</span></div>
+      <div class="block-text layered">
+          <p>Drawing was the first step in constructing our physical FEM model. We used images and dimensions of histological spinal cord slices as a blueprint for rendering a biologically-accurate spinal cord.
+          <span class="info-tooltip">
+          Conductivity values were assigned to different layers of the spinal cord to ensure that it could emulate a real stimulation experiment. Note that this model is simply a volume conductor - and does not actually have any neurons! Neurons were later superimposed onto the model.</span> </p>
+      </div>
+      <div class="block-image-container">
+          <img src="./img/thesis-finiteelement.png" class="block-image">
+      </div>
+      <div class="block-text">
+          <p>
+          We tested our model by running simulations, and, simply, doing the math. Each 3D spinal cord component to be imported into COMSOL, a physics simulator, as a volume conductor. Our electrode, approximated as a surface current source, was placed in the epidural space to imitate EES experiments. (Later on, electrode placement was reduced to a simple parameter in MATLAB, allowing for quicker iteration in determining electrode placement).
+          </p>
+      </div>
+      <div class="block-text layered">
+          <p>
+          Our model matched mathematical predictions. The next step was to combine this physical model with a electrical model to simulate electrical stimulation.
+          <span class="info-tooltip">The graph below bears a 1/r relationship of voltage, which resembles Maxwell's equations.  Given that current and conductivity (equation 1) are constant, distance from the source is responsible for the relationship shown. At the top center of the graph (dark area), the distance to the point source is lowest, and voltage is at a maximum). Anatomically, we see the same patterns that were demonstrated in real experiments: the highest concentration of current in the epidural space, with a large voltage drop-off in the CSF, and some current carried over into the dura.</span>
+          </p>
+      </div>
+      <div class="block-image-container">
+          <img src="./img/thesis-voltage-distribution.png" class="block-image">
+      </div>
+    </section>
+
+    <section class="block" id="five">
+      <div class="block-header"><span>Neural Model</span></div>
+      <div class="block-text">
+          <p>Our neural model was written in .hoc, a scripting language built for NEURON (biophysical neural network modeling software). NEURON enables users to instantiate neural elements like fibers and axons as objects, and run simulations.
+          </p>
+      </div>
+      <div class="block-text layered">
+           <p>
+           Our model matched the expected signature of an EES simulation.
+           <span class="info-tooltip">
+             In line with experimental procedures, electrical stimulation is visualized as a square wave pulse. Additionally, plots of Ia axon and motor neuron display the typical signature of an action potential.
+             <br><br>
+             Threshold, depolarization, repolarization, and refractory period phases are clearly shown. The motor neuron, pictured in orange, is recruited after the Ia fiber, which is expected given that the motor neuron is stimulated indirectly. At low stimulation values (200 mA and less), neither the Ia axon, nor the motor display peaks, as expected.
+           </span>
+          </p>
+      </div>
+      <div class="block-image-container two">
+          <img src="./img/thesis-neural.png" class="block-image">
+      </div>
+
+    </section>
+
+    <section class="block" id="six">
+      <div class="block-header"><span>Integrated Model</span></div>
+      <div class="block-text">
+        <p>Using MATLAB, I integrated the physical (finite element) and neural models. MATLAB scripts translated the physical model to discrete three dimensional point values with starting voltage values. These values were fed to the biophysical model (as simple coordinates). A series of changed voltage values was written back to MATLAB, and plotted. The model matched the sigmoidal shape of a recruitment curve generated from actual EES experiments.
+        </p>
+        <p>
+          Creating a tool for EES simulation entails re-creating the spinal cord (physically and biologically) from scratch. As you might imagine, my end product did not come close in complexity to an actual primate spinal cord. It does however, provide a functioning, open-source framework for running EES experiments. Users can place an electrode in a physically-accurate spinal cord, run a simulation, and determine which motor fibers were recruited as a result of the virtual experiment.
+        </p>
+        <p>
+          More importantly, developers can look through the thoroughly-documented source code, and continue to build and refine the computational model we put together. As more EES experiments are conducted, the model will have more data to draw from, and become more accurate.
+        </p>
+      </div>
+      <div class="block-image-container two">
+          <img src="./img/thesis-transposed.png" class="block-image" style="width:200px">
+          <img src="./img/img-integrated.png" class="block-image">
+      </div>
+    </section>
+
+
+
+  </div>
+
+
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="../project-assets/js/projects.js"></script>
+
+</html>

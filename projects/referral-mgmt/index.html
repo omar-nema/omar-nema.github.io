@@ -1,0 +1,216 @@
+<html>
+
+<head>
+    <title>referral optimization app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="thought parser ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link rel="stylesheet" type="text/css" href="../project-assets/css/project-styles.min.css">
+</head>
+
+<body>
+  <div class="nav" id="nav">
+    <a class="nav-link active" href="#one">Tags</a>
+    <a class="nav-link" href="#two">Context</a>
+    <a class="nav-link" href="#three">BH Referrals</a>
+    <a class="nav-link" href="#four">Med Referrals</a>
+    <a class="nav-link" href="#five">Reporting</a>
+  </div>
+  <div class="container">
+    <a class="back-btn" href="../../">
+      < back
+    </a>
+    <section class="intro block" id="one">
+      <div class="intro-text block-text">
+          <div class="intro-prompt"><strong>Referral Optimization Product</strong>
+          </div>
+          <p style="line-height: 1.3rem">
+            <span>Organization:</span> Arcadia.io
+            <br>
+            <span>Role:</span> UX design, UX research, visual design, proof of concept development, strategy, implementation
+            <br>
+            <span>Title:</span> Product Manager, Care Product Line
+            <br>
+            <span>Advisor:</span> <a href="https://www.linkedin.com/in/nickstepro/">Nick Stepro</a>, SVP of Product Strategy
+          </p>
+      </div>
+    </section>
+
+    <section class="block" id="two">
+      <header class="block-header" id="context"><span>Context</span></header>
+      <div class="block-text layered">
+        <p>
+          Medical referral networks - like the one I visualized below - are complex, and ripe for optimization. Similar to social communities, referral networks tend to cluster in groups. Referral circles build around social relationships between providers.
+          <span class="info-tooltip">
+          These known specialists may not be the best option for the patient. Provider ratings, availability, and patient preferences are not always weighed in the process of choosing a specialist. Less costly, or more effective providers are often underlooked. To add to this, the process of referral submission and approval is convoluted - resulting in a high processing time.
+          </span>
+        </p>
+      </div>
+      <div>
+        <p>
+          I collaborated with a development team at Arcadia.io to build <strong>a web application that empowers physicians to find high-quality, in-network providers for patients</strong>. My role in this project spanned research, product design (UX/UI/user research), internal product management, and external product implementation.
+        </p>
+        <p>
+          The Referral product is currently being used Steward Healthcare (the largest private hospital system in the US - <a href="https://www.healthcarefinancenews.com/news/steward-health-care-automated-referral-system-yields-161-increase-and-better-visibility-care">press here</a>), and is now being distributed to other healthcare systems.
+        </p>
+      </div>
+      <div class="block-image-container">
+        <img class="block-image" src="./visuals/referral-patterns.jpg"/>
+      </div>
+    </section>
+
+
+    <section class="block nav-wrapper" id="three">
+      <header class="block-header">
+        <span>Behavioral Health <span class="mobile-hide">Referrals</span></span>
+        <div class="block-circles"></div>
+      </header>
+      <div>
+        <div class="block-nav-content">
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Design Process</p>
+              <p>Throughout the development process, I worked closely with providers and referral managers. Both teams interacted with a number of different software tools: payer portals, internal tracking tools, referral submission applications.
+              </p>
+              <p>
+               In redesigning the referral process and building a new platform, my goal was to both reduce patient wait time for referrals, and improve the quality of provider selection on referrals.
+              </p>
+            </div>
+            <p class="slide-visual">
+              <img src="./visuals/referral-wiggles.png" class="block-image mobile-hide"/>
+            </p>
+          </div>
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">User Flow</p>
+              <p class="mobile-hide">
+                The application is built around three clinician roles: the referring provider, referral manager, and medical director.
+              </p>
+              <p>
+                In the case of a behavioral health referral, the provider submits a referral request. The referral manager then contacts the patient, and works to understand their needs and preferences. The process ends when the patient is matched with a provider who they feel comfortable engaging with.
+              </p>
+            </div>
+            <p class="slide-visual">
+              <img class="block-image" src="./visuals/process-flow.PNG"/>
+            </p>
+          </div>
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Submit Referral</p>
+              <p>The process of finding a specialist starts with referral submission. Within the app, clinicians can submit behavioral health, or medical referrals.
+              </p>
+              <p class="mobile-hide">
+              In the case of a behavioral health referral, the submission is routed directly to a referral manager, who will work more closely with the patient to understand their needs.
+              </p>
+            </div>
+            <p class="slide-visual video-cont">
+              <img class="block-video" data-fancybox data-src="./visuals/referral-submit.mp4" src="./visuals/referral-submit-preview.PNG"/>
+            </p>
+          </div>
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Obtain Patient Preferences for Provider</p>
+              <p>
+                After the referral is submitted - it will appear in an 'unassigned' referral manager queue. The referral manager will then reach out to the patient, and ask a templated set of questions to stratify their needs.
+              </p>
+              <p class="mobile-hide">
+                Some of these preferences (insurance type, gender preference, transportation needs, service needs) will automatically filter out suggested providers. Others will be listed on the case record for the provider and referral manager to reference.
+              </p>
+            </div>
+            <p class="slide-visual">
+              <img class="block-image" src="./visuals/patient-pref.PNG"/>
+            </p>
+          </div>
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Match Patient with Provider</p>
+              <p>After patient preferences are added, referral managers match a patient to a provider. Documented patient preferences will auto-filter the list of recommended providers for the patient.
+              </p>
+              <p class="mobile-hide">
+                Finding a provider typically involves a few exchanges with the patient and provider. Referral managers will typically opt to bookmark a few providers, and gradually narrow down to a single provider based on  availability and fit.
+              </p>
+            </div>
+            <p class="slide-visual video-cont">
+              <img class="block-video" data-fancybox data-src="./visuals/referral-match.mp4" src="./visuals/referral-match-preview.PNG"/>
+            </p>
+          </div>
+
+          <div class="content-slide">
+            <div class="slide-text">
+              <p class="block-subheader">Communication</p>
+              <p>
+                After the patient is matched with a provider, the referring provider is auto-notified via email. <span class="mobile-hide">If configured - an outbound data feed will also write back to the provider's Electronic Health Record stating that the referral has been completed, with an attached PDF of the referral summary.</span>
+              </p>
+
+            </div>
+            <p class="slide-visual">
+              <img class="block-image" src="./visuals/referral-summary.PNG"/>
+            </p>
+          </div>
+
+        </div>
+        <div class="block-nav block-nav-footer">
+          <div class="flat-btn prev-btn">< &nbsp Prev</div>
+          <div class="flat-btn next-btn">Next &nbsp  ></div>
+        </div>
+    </section>
+
+    <section class="block" id="four">
+      <header class="block-header" id="context"><span>Medical Referrals</span></header>
+      <div class="block-text">
+          <div class="subheader">Rules Engine</div>
+          <p>
+          In additional to Behavioral Health referrals, providers can submit requests for procedural medical referrals. Medical referrals requests are automatically processed (as in-network, out-of-network, or exception) using a rules engine that is configured by the client.
+          </p>
+          <p>
+          The 'referral network' is a surprisingly fluid concept, as health systems frequently adjust the specialties that they are looking to retain in-network, or direct externally. I designed the rules engine to accommodate this flexibility. Users can group patient insurance, specialties, patient age, and region into individual rules.
+          </p>
+      </div>
+      <div class="block-text">
+        <div class="subheader">Referral Submission</div>
+        <p>
+        Given the complexity of referral networks - providers are not always aware of whether a given referral is in or out of network. To address this, our referral management system displays the applied rule prior to referral submission (see bottom right image).
+        </p>
+        <p>
+          After a medical referral is submitted, it is routed to referral manager with a suggested action for moving the case forward. This action is dynamic, and dependent on the applied rule. For example, an out of network referral will show a suggested action to escalate to a medical director for approval.
+        </p>
+      </div>
+      <div class="block-image-container two">
+        <img src="./visuals/rules-config.jpg" class="block-image"/>
+        <img src="./visuals/auto-process.PNG  " class="block-image"/>
+      </div>
+
+    </section>
+
+    <section class="block" id="five">
+      <header class="block-header" id="context"><span>Reporting</span></header>
+      <div class="block-text">
+          <p>
+          Actions from the referral management system feed into reporting tables (used by analysts and clinical leadership). I developed a reporting schema (in SQL), and set of visualized reports on Tableau to track referral outcomes. These reporting tables offer insight into network performance, and productivity by referral manager, and medical director.
+          </p>
+          <p>
+            Below, a visual I built using the reporting model, and d3.js. This visual focuses on x-ray referrals and MRI referrals in a large medical network. In both procedure categories, we see clustering around high-cost, or out-of-network providers -- and thus an opportunity to improve referral patterns.
+          </p>
+      </div>
+      <div class="block-image-container">
+        <img class="block-image" src="./visuals/poster.jpg"/>
+      </div>
+    </section>
+
+
+  </div>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="../project-assets/js/projects.js"></script>
+
+</html>

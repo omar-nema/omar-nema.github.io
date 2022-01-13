@@ -1,0 +1,3 @@
+[submodule "projects/loops"]
+	path = projects/loops
+	url = https://github.com/omar-nema/loops.git

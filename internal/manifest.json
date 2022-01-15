@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-facdd743.js",
+    "file": "start-3df67381.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -42,13 +42,13 @@
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-55455d71.js",
+    "file": "pages/index.svelte-9626e77d.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_Header-caa67d1c.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js",
       "_Filters.svelte_svelte_type_style_lang-8bf409c6.js"
     ],
@@ -57,121 +57,121 @@
     ]
   },
   "src/routes/projects/floating-thoughts.svelte": {
-    "file": "pages/projects/floating-thoughts.svelte-29d55f6c.js",
+    "file": "pages/projects/floating-thoughts.svelte-81a260ea.js",
     "src": "src/routes/projects/floating-thoughts.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/thought-parser.svelte": {
-    "file": "pages/projects/thought-parser.svelte-5e7f0953.js",
+    "file": "pages/projects/thought-parser.svelte-9306676a.js",
     "src": "src/routes/projects/thought-parser.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/comp-sketches.svelte": {
-    "file": "pages/projects/comp-sketches.svelte-1e16541b.js",
+    "file": "pages/projects/comp-sketches.svelte-91611922.js",
     "src": "src/routes/projects/comp-sketches.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/nyc-housing.svelte": {
-    "file": "pages/projects/nyc-housing.svelte-3ce1282c.js",
+    "file": "pages/projects/nyc-housing.svelte-7094bffa.js",
     "src": "src/routes/projects/nyc-housing.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/sound-space.svelte": {
-    "file": "pages/projects/sound-space.svelte-be4d5602.js",
+    "file": "pages/projects/sound-space.svelte-a80f3fbe.js",
     "src": "src/routes/projects/sound-space.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/blackbox.svelte": {
-    "file": "pages/projects/blackbox.svelte-0b5decae.js",
+    "file": "pages/projects/blackbox.svelte-4305c3a1.js",
     "src": "src/routes/projects/blackbox.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/tell-me.svelte": {
-    "file": "pages/projects/tell-me.svelte-bf3c08e0.js",
+    "file": "pages/projects/tell-me.svelte-4e9948e1.js",
     "src": "src/routes/projects/tell-me.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/thesis.svelte": {
-    "file": "pages/projects/thesis.svelte-5f6b2f25.js",
+    "file": "pages/projects/thesis.svelte-6d0d3537.js",
     "src": "src/routes/projects/thesis.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/projects/gaze.svelte": {
-    "file": "pages/projects/gaze.svelte-d0d4f171.js",
+    "file": "pages/projects/gaze.svelte-4ea54801.js",
     "src": "src/routes/projects/gaze.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_ProjectPage-82a5fa46.js",
-      "_Header-caa67d1c.js",
+      "_ProjectPage-6b276ee6.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js"
     ]
   },
   "src/routes/about.svelte": {
-    "file": "pages/about.svelte-e2088514.js",
+    "file": "pages/about.svelte-8c1add59.js",
     "src": "src/routes/about.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_vendor-1827c632.js",
-      "_Header-caa67d1c.js",
+      "_Header-62833931.js",
       "_paths-28a87002.js",
       "_Filters.svelte_svelte_type_style_lang-8bf409c6.js"
     ],
@@ -185,14 +185,14 @@
   "_paths-28a87002.js": {
     "file": "chunks/paths-28a87002.js"
   },
-  "_Header-caa67d1c.js": {
-    "file": "chunks/Header-caa67d1c.js",
+  "_Header-62833931.js": {
+    "file": "chunks/Header-62833931.js",
     "imports": [
       "_vendor-1827c632.js",
       "_paths-28a87002.js"
     ],
     "css": [
-      "assets/Header-1df4d23d.css"
+      "assets/Header-6ff43231.css"
     ]
   },
   "_Filters.svelte_svelte_type_style_lang-8bf409c6.js": {
@@ -204,11 +204,11 @@
       "assets/Filters.svelte_svelte_type_style_lang-43625826.css"
     ]
   },
-  "_ProjectPage-82a5fa46.js": {
-    "file": "chunks/ProjectPage-82a5fa46.js",
+  "_ProjectPage-6b276ee6.js": {
+    "file": "chunks/ProjectPage-6b276ee6.js",
     "imports": [
       "_vendor-1827c632.js",
-      "_Header-caa67d1c.js"
+      "_Header-62833931.js"
     ],
     "css": [
       "assets/ProjectPage-d71656e8.css"

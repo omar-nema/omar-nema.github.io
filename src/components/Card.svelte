@@ -45,19 +45,23 @@
     text-decoration: none;
     margin-bottom: 30px;
     margin-right: 30px;
-    border: 1px dashed #a9a9a9;
+    border: 1px dashed black;
     padding: 20px;
     background: white;
     position: relative;
     width: calc(33% - 30px);
     height: auto;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+      transform 0.1s ease-in-out, border-style 0.15s ease-in-out;
     cursor: pointer;
     font-size: 16px;
+    min-width: 250px;
   }
   .card:hover {
     border-color: black;
-    box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.15);
+    /* box-shadow: 1px 2px 1px 0 rgba(0, 0, 0, 0.15); */
+    transform: scale(1.03);
+    border-style: solid;
   }
 
   .card-title {

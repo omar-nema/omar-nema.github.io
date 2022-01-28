@@ -11,8 +11,8 @@
 <Header />
 <div
   class="content"
-  in:fade={{ delay: 300, duration: 500 }}
-  out:fade={{ duration: 300 }}
+  in:fade={{ delay: 300, duration: 300 }}
+  out:fade={{ duration: 200 }}
 >
   <div class="about-page">
     <div class="about-header">
@@ -39,7 +39,7 @@
       <p>
         I am currently finishing up my degree (set to graduate in May 2022),
         doing freelance work, and teaching creative coding course at Parsons.
-        <span color="gray">
+        <span style="color: gray">
           Note: this website only contains my independent creative tech work.
           Professional product management and freelance work are *not* shown
           here.</span
@@ -63,7 +63,7 @@
     margin: auto;
     max-width: 750px;
     margin-bottom: 30px;
-    margin-top: 30px;
+    margin-top: 80px;
     line-height: 1.4rem;
     background: white;
     padding: 50px;
@@ -102,7 +102,8 @@
       background: none;
       width: 100%;
       border: none;
-      padding: 50px 25px;
+      padding: 0px 25px;
+      margin-top: 60px;
     }
   }
 

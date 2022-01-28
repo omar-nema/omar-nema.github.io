@@ -12,12 +12,14 @@
 
 <Header />
 <div
-  class="container"
+  class="content"
   in:fade={{ delay: 300, duration: 500 }}
   out:fade={{ duration: 300 }}
 >
-  <Carousel {imgs} />
-  <InfoSection description={desc} {info} {link} />
+  <div class="container">
+    <Carousel {imgs} />
+    <InfoSection description={desc} {info} {link} />
+  </div>
 </div>
 
 <style>

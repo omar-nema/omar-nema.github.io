@@ -3,7 +3,7 @@
 :root {
   --dim-header-height: 45px;
   --dim-filter-height: 28.4px;
-  --dim-width-max: 1100px;
+  --dim-width-max: 1000px;
   --header-accent: #aed2ff;
   --header-primary: black;
   --color-tag-art: red;
@@ -21,6 +21,7 @@ body {
   padding: 0;
   background: #f7f9fd;
   line-height: 1.4rem;
+  overflow: hidden;
 }
 
 * {
@@ -28,7 +29,7 @@ body {
 }
 
 .content-inner {
-  max-width: 1000px;
+  max-width: var(--dim-width-max);
   width: 90%;
 }
 
@@ -44,24 +45,36 @@ body {
 }
 
 .container {
-  margin-top: 80px;
   overflow-x: hidden;
   position: relative;
-  margin-bottom: 10px;
   padding-bottom: 70px;
-  width: 100%;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  padding-top: 50px;
+}
+
+.content {
+  overflow: auto;
+  max-height: calc(100vh - var(--dim-header-height));
+  margin-top: 30px;
 }
 
 ::-webkit-scrollbar {
   background: rgba(255, 255, 255, 0.1);
+  -moz-background: rgba(255, 255, 255, 0.1);
 }
 ::-webkit-scrollbar-thumb {
   background: #88888826;
+  -moz-background: #88888826;
+}
+
+html {
+  scrollbar-color: rgba(0, 0, 0, 0.1) rgba(255, 255, 255, 0.1);
 }
 
 @media only screen and (max-width: 600px) {
   .content {
-    overflow: hidden;
     width: 100%;
   }
   body {
@@ -76,5 +89,6 @@ body {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 40px;
   }
 }

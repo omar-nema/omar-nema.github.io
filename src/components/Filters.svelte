@@ -58,6 +58,7 @@
     font-weight: 500;
     border-bottom: 1px solid transparent;
     cursor: pointer;
+    transition: all 0.3s linear;
   }
 
   .circle {
@@ -68,7 +69,7 @@
     border-radius: 100%;
     margin-right: 5px;
     background: white;
-    transition: background 0.1s linear;
+    transition: background 0.3s linear;
   }
 
   .filter-option.all {
@@ -128,9 +129,13 @@
   }
 
   @media only screen and (max-width: 600px) {
+    .filter-holder {
+      display: flex;
+      justify-content: center;
+    }
     .project-filter {
       justify-content: space-between;
-      width: 95%;
+      width: 90%;
     }
     .filter-option {
       height: auto;

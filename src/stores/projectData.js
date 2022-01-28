@@ -60,21 +60,21 @@ let projects = [
     protected: 0,
   },
   {
-    title: 'Tell Me',
-    description:
-      'A meditation on routine and structure, conveyed through the interface',
-    tags: ['datavis', 'art'],
-    years: [2021],
-    url: '/projects/tell-me',
-    protected: 0,
-  },
-  {
     title: 'How We Gaze',
     description:
       'Crowd-sourced meta-gallery showing how individuals look at artwork',
-    tags: ['art'],
+    tags: ['art', 'datavis'],
     years: [2021],
     url: '/projects/gaze',
+    protected: 0,
+  },
+  {
+    title: 'Tell Me',
+    description:
+      'A meditation on routine and structure, conveyed through the interface',
+    tags: ['art'],
+    years: [2021],
+    url: '/projects/tell-me',
     protected: 0,
   },
 ];

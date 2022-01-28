@@ -12,7 +12,7 @@
   let info = '2021 • Web App • Independent';
   let desc = [
     'How We Gaze is a meta-gallery that shows how individuals gaze at pieces of artwork. The gazes hosted in the gallery are crowd-sourced - individuals are invited to view pieces of artwork, and see their gaze visualized in realtime.',
-    'This project was built using the Svelte framework, d3.js for visualization, webgazer.js for eye-tracking, and Firebase for data storage. Observable was used for data exploration.',
+    'This project was built using the Svelte.js as a framework, d3.js for visualization, webgazer.js for eye-tracking, and Firebase for data storage. Observable was used for data exploration.',
   ];
   let link =
     'https://omarnema.com/parsons-studio-1/qual/gaze-study-svelte/public/';

@@ -1,8 +1,5 @@
 <script>
-  import '../../app.css';
-  import Header from '../../components/Header.svelte';
-  import Carousel from '../../components/Carousel.svelte';
-  import InfoSection from '../../components/InfoSection.svelte';
+  import ProjectPage from '../../components/ProjectPage.svelte';
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Neuroengineering Thesis';
   let imgs = [
@@ -19,8 +16,4 @@
   ];
 </script>
 
-<Header />
-<div class="container">
-  <Carousel {imgs} imgCap={'800px'} />
-  <InfoSection description={desc} {info} />
-</div>
+<ProjectPage {imgs} {desc} {info} />

@@ -10,7 +10,7 @@
   <div class="inner-header">
     <div class="name-holder">
       <div class="header-name">
-        <a sveltekit:prefetch href={base}>omar nema</a>
+        <a sveltekit:prefetch href={base + '/'}>omar nema</a>
       </div>
     </div>
     <div
@@ -18,27 +18,41 @@
       class:split={$page.url.pathname.includes('project')}
     >
       {#if !$page.url.pathname.includes('project')}
-        <div
+        <a
+          in:fade={{ duration: 300, delay: 200 }}
+          out:fade={{ duration: 150 }}
+          sveltekit:prefetch
+          href={base + '/'}
           class="nav-item work"
           class:selected={!$page.url.pathname.includes('about')}
-          in:fade={{ duration: $transitionTime }}
         >
-          <a sveltekit:prefetch href={base + '/'}>work</a>
-        </div>
-        <div
+          <span>work</span>
+        </a>
+        <a
+          in:fade={{ duration: 300, delay: 200 }}
+          out:fade={{ duration: 150 }}
+          sveltekit:prefetch
+          href={base + '/about'}
           class="nav-item about"
           class:selected={$page.url.pathname.includes('about')}
-          in:fade={{ duration: 500 }}
         >
-          <a sveltekit:prefetch href={base + '/about'}>about</a>
-        </div>
+          about
+        </a>
       {:else}
-        <div class="nav-left" in:fade={{ duration: $transitionTime }}>
+        <div
+          class="nav-left"
+          in:fade={{ duration: 300, delay: 200 }}
+          out:fade={{ duration: 150 }}
+        >
           <div>work</div>
           <div>/</div>
           <div class="selected project-title">{$selectedProject}</div>
         </div>
-        <div class="nav-right" in:fade={{ duration: $transitionTime }}>
+        <div
+          class="nav-right"
+          in:fade={{ duration: 300, delay: 200 }}
+          out:fade={{ duration: 150 }}
+        >
           <a class="btn-back" href={base + '/'}>{'< back'}</a>
         </div>
       {/if}
@@ -85,7 +99,7 @@
     align-content: center;
     justify-content: center;
     background: var(--header-accent);
-    width: 260px;
+    width: 200px;
     font-weight: 700;
     color: black;
   }
@@ -109,16 +123,19 @@
     cursor: pointer;
     transition: color 0.15s linear;
     letter-spacing: 0.3px;
-  }
-  .nav-item a {
     text-decoration: none;
     color: white;
+    transition: all 0.2s linear;
   }
+  a.nav-item:hover {
+    color: #ffffad;
+  }
+
   .header-name a {
     text-decoration: none;
     color: black;
   }
-  .nav-item.selected a {
+  .nav-item.selected {
     text-decoration: underline;
     color: #ffffad;
   }

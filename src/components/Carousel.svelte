@@ -17,7 +17,10 @@
   $: {
     sampleImage;
     if (sampleImage) {
-      maxH = sampleImage.getBoundingClientRect().height;
+      let ht = sampleImage.getBoundingClientRect().height;
+      if (ht > 300) {
+        maxH = ht;
+      }
     }
   }
 
@@ -49,7 +52,7 @@
             on:load={() => {
               initSlideSize();
             }}
-            style="max-width: min(90vw, {imgCap})"
+            style="max-width: min(90vw, {imgCap}); max-height: {maxH}px;"
             src={img}
             bind:this={sampleImage}
           />
@@ -76,6 +79,7 @@
     margin: auto;
     height: auto;
     width: 100%;
+    padding-bottom: 30px;
   }
 
   .slides {
@@ -83,7 +87,7 @@
     height: 100%;
     position: relative;
     overflow: hidden;
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 170px);
   }
   .slide {
     transition: transform ease-in-out 0.65s, opacity ease-in-out 0.8s;
@@ -108,7 +112,7 @@
     opacity: 0;
   }
   img {
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 170px);
     border: 1px solid #aea3a3;
     padding: 5px;
   }

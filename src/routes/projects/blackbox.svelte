@@ -2,7 +2,7 @@
   import ProjectPage from '../../components/ProjectPage.svelte';
 
   import { selectedProject } from '../../stores/state';
-  $selectedProject = 'Tell Me';
+  $selectedProject = 'Blackbox';
   let imgs = [
     '../assets/blackbox/blackbox1.jpg',
     '../assets/blackbox/blackbox2.jpg',

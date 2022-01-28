@@ -1,4 +1,12 @@
-# create-svelte
+# portfolio
+
+## commands needed
+
+npm run deploy - needed to deploy project gh-pages branch. automatically takes care of just taking what's in the build/build folder.
+
+npm run dev - get that server going locally sourced.
+
+# create-svelte stuff
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
 

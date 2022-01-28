@@ -9,11 +9,14 @@
   import { onMount } from 'svelte';
 </script>
 
+<svelte:head>
+  <title>omar nema</title>
+</svelte:head>
 <Header />
 <div
   class="content-outer"
   in:fade={{ delay: 300, duration: 500 }}
-  out:fade={{ duration: 300 }}
+  out:fade={{ duration: 200 }}
 >
   <div class="content-inner">
     <Filters />
@@ -31,6 +34,7 @@
 <style>
   .project-outer {
     width: 100%;
+    padding-top: 5px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     height: auto;
@@ -43,7 +47,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    justify-content: center;
   }
 
   @media only screen and (max-width: 600px) {
@@ -51,6 +54,7 @@
       flex-direction: column;
       flex-wrap: inherit;
       align-items: center;
+      justify-content: center;
     }
   }
 </style>

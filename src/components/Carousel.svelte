@@ -9,7 +9,10 @@
 
   function initSlideSize() {
     if (document.querySelector('img')) {
-      maxH = document.querySelector('img').getBoundingClientRect().height;
+      let ht = document.querySelector('img').getBoundingClientRect().height;
+      if (ht > 300) {
+        maxH = ht;
+      }
     }
   }
 

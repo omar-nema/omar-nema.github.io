@@ -4,10 +4,10 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Blackbox';
   let imgs = [
-    '../assets/blackbox/blackbox1.jpg',
-    '../assets/blackbox/blackbox2.jpg',
-    '../assets/blackbox/blackbox3.jpg',
-    '../assets/blackbox/blackbox4.jpg',
+    '/assets/blackbox/blackbox1.jpg',
+    '/assets/blackbox/blackbox2.jpg',
+    '/assets/blackbox/blackbox3.jpg',
+    '/assets/blackbox/blackbox4.jpg',
   ];
   let info = '2018 • Mobile App • Independent';
   let desc = [

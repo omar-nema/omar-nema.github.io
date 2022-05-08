@@ -2,10 +2,7 @@
   import ProjectPage from '../../components/ProjectPage.svelte';
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Thought Parser';
-  let imgs = [
-    '../assets/thoughtParser/tp1.png',
-    '../assets/thoughtParser/tp2.png',
-  ];
+  let imgs = ['/assets/thoughtParser/tp1.png', '/assets/thoughtParser/tp2.png'];
   let info = '2018 • Data Visualization • Independent';
   let desc = [
     'Download your most revealing, personal moments. Share them with a machine. Now: remove yourself from the picture. Outside of your body, your narrative now stands as text. The machine explains your story. ',

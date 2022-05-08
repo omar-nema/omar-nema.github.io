@@ -3,9 +3,9 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'NYC Housing Explorer';
   let imgs = [
-    '../assets/housing/housing1.png',
-    '../assets/housing/housing2.png',
-    '../assets/housing/housing3.png',
+    '/assets/housing/housing1.png',
+    '/assets/housing/housing2.png',
+    '/assets/housing/housing3.png',
   ];
   let info = '2021 • Web App • Independent';
   let desc = [

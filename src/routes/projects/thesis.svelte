@@ -3,10 +3,10 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Neuroengineering Thesis';
   let imgs = [
-    '../assets/thesis/thesis-finiteelement.png',
-    '../assets/thesis/thesis-process.png',
-    '../assets/thesis/thesis-voltage-distribution.png',
-    '../assets/thesis/img-integrated.png',
+    '/assets/thesis/thesis-finiteelement.png',
+    '/assets/thesis/thesis-process.png',
+    '/assets/thesis/thesis-voltage-distribution.png',
+    '/assets/thesis/img-integrated.png',
   ];
   let info = '2015 • Computational Model • David Borton Lab, Brown University';
   let desc = [

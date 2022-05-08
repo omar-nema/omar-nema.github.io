@@ -3,10 +3,10 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Tell Me';
   let imgs = [
-    '../assets/tellMe/tell.png',
-    '../assets/tellMe/tell2.png',
-    '../assets/tellMe/tell3.png',
-    '../assets/tellMe/tell4.png',
+    '/assets/tellMe/tell.png',
+    '/assets/tellMe/tell2.png',
+    '/assets/tellMe/tell3.png',
+    '/assets/tellMe/tell4.png',
   ];
   let info = '2021 • Web App • Independent';
   let desc = [

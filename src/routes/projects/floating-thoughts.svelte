@@ -3,10 +3,10 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Floating Thoughts';
   let imgs = [
-    '../assets/floatingThoughts/ft1.png',
-    '../assets/floatingThoughts/ft2.png',
-    '../assets/floatingThoughts/ft3.png',
-    '../assets/floatingThoughts/ft4.png',
+    '/assets/floatingThoughts/ft1.png',
+    '/assets/floatingThoughts/ft2.png',
+    '/assets/floatingThoughts/ft3.png',
+    '/assets/floatingThoughts/ft4.png',
   ];
   let info = '2021 • Web App • Independent';
   let desc = [

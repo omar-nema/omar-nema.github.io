@@ -139,6 +139,9 @@
       margin-bottom: 30px;
       /* padding: 18px; */
     }
+    .card:hover {
+      transform: none;
+    }
     .card-body {
       height: 100px;
     }

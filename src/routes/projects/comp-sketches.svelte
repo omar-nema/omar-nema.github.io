@@ -3,14 +3,14 @@
   import { selectedProject } from '../../stores/state';
   $selectedProject = 'Computational Sketches';
   let imgs = [
-    '../assets/compSketches/ff-1.png',
-    '../assets/compSketches/ff-2.png',
-    '../assets/compSketches/pixels-2-2.png',
-    '../assets/compSketches/pixels-2-3.png',
-    '../assets/compSketches/shape-1.png',
-    '../assets/compSketches/shape-3.png',
-    '../assets/compSketches/3d-prev-1.png',
-    '../assets/compSketches/3d-prev-3.png',
+    '/assets/compSketches/ff-1.png',
+    '/assets/compSketches/ff-2.png',
+    '/assets/compSketches/pixels-2-2.png',
+    '/assets/compSketches/pixels-2-3.png',
+    '/assets/compSketches/shape-1.png',
+    '/assets/compSketches/shape-3.png',
+    '/assets/compSketches/3d-prev-1.png',
+    '/assets/compSketches/3d-prev-3.png',
   ];
 
   let info = '2020 • Generative Art • Independent';

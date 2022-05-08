@@ -1,9 +1,9 @@
 <script>
   import ProjectPage from '../../components/ProjectPage.svelte';
   let imgs = [
-    '../assets/soundAndSpace/ss0.png',
-    '../assets/soundAndSpace/ss1.png',
-    '../assets/soundAndSpace/ss2.png',
+    '/assets/soundAndSpace/ss0.png',
+    '/assets/soundAndSpace/ss1.png',
+    '/assets/soundAndSpace/ss2.png',
   ];
   let info = '2020 • Web App • Independent';
   let desc = [

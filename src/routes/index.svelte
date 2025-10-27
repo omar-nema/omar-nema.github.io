@@ -1,6 +1,6 @@
 <script>
   import "../app.css";
- // import Header from "../components/Header.svelte";
+  // import Header from "../components/Header.svelte";
   import Carousel from '../components/Carousel.svelte';
   import Card from "../components/Card.svelte";
   import Filters from "../components/Filters.svelte";
@@ -9,13 +9,49 @@
   import { transitionTime } from "../stores/state";
   import { onMount } from "svelte";
 
+  let imgCap = "825px";
+  let textContainer;
+
+  function updateImgCap() {
+    if (textContainer) {
+      const style = window.getComputedStyle(textContainer);
+      const paddingLeft = parseFloat(style.paddingLeft);
+      const paddingRight = parseFloat(style.paddingRight);
+      const contentWidth = textContainer.offsetWidth - paddingLeft - paddingRight;
+      imgCap = contentWidth + "px";
+      console.log(imgCap);
+    }
+  }
+
+  onMount(() => {
+    updateImgCap();
+
+    // Update on window resize
+    window.addEventListener('resize', updateImgCap);
+
+    return () => {
+      window.removeEventListener('resize', updateImgCap);
+    };
+  });
+
 </script>
 
 <svelte:head>
   <title>omar nema</title>
 </svelte:head>
 
-<header></header>
+<header>
+  <div class="header-container">
+
+  
+    <div class="update-container">
+      <span class="name">Omar Nema</span> 
+      <span class="update">• Updated Oct 2025</span>
+    </div>
+
+  </div>
+
+</header>
 <div class="content-outer" in:fade={{ delay: 300, duration: 500 }} out:fade={{ duration: 200 }}>
   <div class="intro">
     <h2>Hi, I'm Omar!</h2>
@@ -25,7 +61,7 @@
     </p>
   </div>
 
-  <div class="text-container">
+  <div class="text-container" bind:this={textContainer}>
     <div class="text-block">
       <h1>Automating Investigation at Datadog</h1>
       <p>
@@ -51,7 +87,7 @@
         transforms software monitoring.
       </p>
       <div >
-        <Carousel imgs={['/assets/dog/expdemo2.gif', '/assets/dog/expconceptres.png']} imgCap="825px" addTopMargin={true} />
+        <Carousel imgs={['/assets/dog/expdemo2.gif', '/assets/dog/expconceptres.png']} imgCap={imgCap} addTopMargin={true} />
       </div>
     </div>
     <div class="text-block">
@@ -67,7 +103,7 @@
           After scaling the Data Visualization team, I saw an opportunity to tackle the next bottleneck: customers still spend too much time hunting for answers. I created a new scope and teams around Automated Investigation and Search, where I'm now building features that surface insights even faster.
         </p>
         <div >
-          <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap="825px" addTopMargin={true} />
+          <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap={imgCap} addTopMargin={true} />
         </div>
       
     </div>
@@ -110,16 +146,35 @@
 </div>
 <style>
   header{
-    height: 30px;
+    height: 40px;
     background-color: black;
     width: 100%;
     position:fixed;
     z-index: 10;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: start;
+    color: black;
+  
+    font-weight: 400;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+  }
+  .header-container {
+    display: flex;
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    justify-content: end;
+    background-color: #aed2ff;
+  }
+  .name {
+    font-weight: 600;
   }
 
   .content-outer {
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.5;
     margin-top:0;
     z-index: 100;
@@ -134,7 +189,7 @@
   }
 
   h1 {
-    font-size: 28px;
+    font-size: 32px;
     margin-bottom: 30px;
   }
   h2 {
@@ -170,19 +225,19 @@
 
   @media only screen and (max-width: 700px) {
     h1 {
-      font-size: 24px;
+      font-size: 28px;
     }
     .content-outer {
-      font-size: 16px;
+      font-size: 18px;
     }
     .text-container{
       padding: 0 10px;
     }
     .intro {
-      padding:5px 15px;
-
-      margin-top: 100px;
-      margin-bottom: 70px;
+      padding:12px 22px;
+      border-radius: 8px;
+      margin-top: 80px;
+      margin-bottom: 50px;
    
     }
     .text-block {
@@ -190,6 +245,10 @@
     }
     header {
       height: 10px;
+    }
+ 
+    .header-container {
+      display: none;
     }
   }
     

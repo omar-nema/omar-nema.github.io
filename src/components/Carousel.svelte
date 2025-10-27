@@ -9,6 +9,7 @@
   export let addTopMargin = false;
   let carouselContainer;
 
+
   let imgsWithTypes = [];
   imgs.forEach((d) => {
     let type;

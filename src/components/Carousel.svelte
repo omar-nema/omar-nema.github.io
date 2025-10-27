@@ -6,6 +6,7 @@
   let currSlide = 0;
   let maxH;
   export let imgCap = '1200px';
+  export let addTopMargin = false;
   let carouselContainer;
 
   let imgsWithTypes = [];
@@ -54,7 +55,7 @@
 </script>
 
 <section in:fade={{ duration: $transitionTime }} bind:this={carouselContainer}>
-  <div class="slider">
+  <div class="slider" class:with-top-margin={addTopMargin}>
     <div class="slides" style="height: {maxH}px">
       <div
         class="nav-btn left"
@@ -138,6 +139,10 @@
     height: auto;
     width: 100%;
     padding-bottom: 30px;
+  }
+
+  .slider.with-top-margin {
+    margin-top: 30px;
   }
 
   .slides {

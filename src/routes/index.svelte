@@ -51,7 +51,7 @@
         transforms software monitoring.
       </p>
       <div >
-        <Carousel imgs={['/assets/dog/expdemo2.gif', '/assets/dog/expconceptres.png']} imgCap="825px" />
+        <Carousel imgs={['/assets/dog/expdemo2.gif', '/assets/dog/expconceptres.png']} imgCap="825px" addTopMargin={true} />
       </div>
     </div>
     <div class="text-block">
@@ -67,7 +67,7 @@
           After scaling the Data Visualization team, I saw an opportunity to tackle the next bottleneck: customers still spend too much time hunting for answers. I created a new scope and teams around Automated Investigation and Search, where I'm now building features that surface insights even faster.
         </p>
         <div >
-          <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap="825px" />
+          <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap="825px" addTopMargin={true} />
         </div>
       
     </div>
@@ -102,7 +102,7 @@
         out:fade={{ duration: 300 }}
       >
         <div >
-          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="600px" />
+          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="600px" addTopMargin={true} />
         </div>
       </div>
     </div>
@@ -114,7 +114,8 @@
     background-color: black;
     width: 100%;
     position:fixed;
-    z-index: 0;
+    z-index: 10;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   .content-outer {
@@ -149,7 +150,7 @@
     padding: 30px 50px;
     margin-top: 150px;
     margin-bottom: 120px;
-    background: linear-gradient(90deg, #ffffff 0%, #f4f4f4 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #f6f6f6 100%);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
@@ -166,7 +167,5 @@
   a:hover{
     color: #a60d0d;
   }
-  .slider {
-    margin-top: 30px;
-  }
+  
 </style>

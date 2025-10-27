@@ -167,5 +167,30 @@
   a:hover{
     color: #a60d0d;
   }
-  
+
+  @media only screen and (max-width: 700px) {
+    h1 {
+      font-size: 24px;
+    }
+    .content-outer {
+      font-size: 16px;
+    }
+    .text-container{
+      padding: 0 10px;
+    }
+    .intro {
+      padding:5px 15px;
+
+      margin-top: 100px;
+      margin-bottom: 70px;
+   
+    }
+    .text-block {
+      margin-bottom: 70px;
+    }
+    header {
+      height: 10px;
+    }
+  }
+    
 </style>

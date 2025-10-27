@@ -115,7 +115,6 @@
     width: 100%;
     position:fixed;
     z-index: 0;
-    border-bottom:5px solid #b5aeff;
   }
 
   .content-outer {

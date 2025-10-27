@@ -73,6 +73,7 @@
     top: 0;
     left: 0;
     z-index: 5;
+    font-size: 18px;
   }
   .inner-header {
     height: 100%;

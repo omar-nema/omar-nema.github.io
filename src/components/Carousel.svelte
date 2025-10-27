@@ -6,6 +6,7 @@
   let currSlide = 0;
   let maxH;
   export let imgCap = '1200px';
+  let carouselContainer;
 
   let imgsWithTypes = [];
   imgs.forEach((d) => {
@@ -22,10 +23,13 @@
   });
 
   function initSlideSize() {
-    if (document.querySelector('img')) {
-      let ht = document.querySelector('img').getBoundingClientRect().height;
-      if (ht > 70) {
-        maxH = ht;
+    if (carouselContainer) {
+      const img = carouselContainer.querySelector('img');
+      if (img) {
+        let ht = img.getBoundingClientRect().height;
+        if (ht > 70) {
+          maxH = ht;
+        }
       }
     }
   }
@@ -42,13 +46,14 @@
   }
 
   onMount(() => {
+    initSlideSize();
     window.addEventListener('resize', () => {
       initSlideSize();
     });
   });
 </script>
 
-<section in:fade={{ duration: $transitionTime }}>
+<section in:fade={{ duration: $transitionTime }} bind:this={carouselContainer}>
   <div class="slider">
     <div class="slides" style="height: {maxH}px">
       <div
@@ -167,8 +172,10 @@
   img,
   video {
     max-height: calc(100vh - 170px);
-    border: 1px solid #aea3a3;
-    padding: 5px;
+    border: 2px solid #aea3a3;
+    border-color: black;
+    padding: 3px;
+  
   }
 
   .dots {

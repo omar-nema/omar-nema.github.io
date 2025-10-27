@@ -110,12 +110,12 @@
 </div>
 <style>
   header{
-    height: 20px;
+    height: 30px;
     background-color: black;
     width: 100%;
     position:fixed;
     z-index: 0;
-    border-bottom:5px solid #aed2ff;
+    border-bottom:5px solid #b5aeff;
   }
 
   .content-outer {

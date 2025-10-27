@@ -1,8 +1,8 @@
 <script>
   import '../app.css';
-  import Header from '../components/Header.svelte';
-  import Carousel from '../components/Carousel.svelte';
-  import InfoSection from '../components/InfoSection.svelte';
+  import Header from './Header.svelte';
+  import Carousel from './Carousel.svelte';
+  import InfoSection from './InfoSection.svelte';
   export let imgs = [];
   export let info;
   export let desc = [];

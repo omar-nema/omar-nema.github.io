@@ -3,6 +3,9 @@
   import { fade } from 'svelte/transition';
   import { base } from '$app/paths';
   import { selectedProject, transitionTime } from '../stores/state';
+  import { browser } from '$app/env';
+  
+  $: pathname = browser ? $page.url.pathname : '';
 </script>
 
 <header>
@@ -15,29 +18,10 @@
     </div>
     <div
       class="header-nav"
-      class:split={$page.url.pathname.includes('project')}
+      class:split={pathname.includes('project')}
     >
-      {#if !$page.url.pathname.includes('project')}
-        <a
-          in:fade={{ duration: 300, delay: 200 }}
-          out:fade={{ duration: 150 }}
-          sveltekit:prefetch
-          href={base + '/'}
-          class="nav-item work"
-          class:selected={!$page.url.pathname.includes('about')}
-        >
-          <span>work</span>
-        </a>
-        <a
-          in:fade={{ duration: 300, delay: 200 }}
-          out:fade={{ duration: 150 }}
-          sveltekit:prefetch
-          href={base + '/about'}
-          class="nav-item about"
-          class:selected={$page.url.pathname.includes('about')}
-        >
-          about
-        </a>
+      {#if !pathname.includes('project')}
+        <div>work</div>
       {:else}
         <div
           class="nav-left"
@@ -53,7 +37,7 @@
           in:fade={{ duration: 300, delay: 200 }}
           out:fade={{ duration: 150 }}
         >
-          <a class="btn-back" href={base + '/'}>{'< back'}</a>
+          <a class="btn-back" href={base + '/work'}>{'< back'}</a>
         </div>
       {/if}
     </div>

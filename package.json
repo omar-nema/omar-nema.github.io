@@ -6,7 +6,8 @@
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
-    "deploy": "npm run build && npx gh-pages -d build"
+    "deploy": "npm run build && npx gh-pages -d build",
+    "deploy2": "npm run build && git checkout gh-pages && rm -rf * && cp -r build/* . && git add -A && git commit -m 'Deploy' && git push origin gh-pages && git checkout master"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",

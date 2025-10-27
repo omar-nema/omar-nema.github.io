@@ -148,9 +148,10 @@
     border: 2px solid black;
     max-width: 1000px;
     padding: 30px 50px;
-    margin-top: 120px;
+    margin-top: 150px;
     margin-bottom: 120px;
     background: linear-gradient(90deg, #ffffff 0%, #f4f4f4 100%);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
   img {

@@ -46,7 +46,7 @@
   
     <div class="update-container">
       <span class="name">Omar Nema</span> 
-      <span class="update">• Updated Oct 2025</span>
+      <!-- <span class="update">• Updated Oct 2025</span> -->
     </div>
 
   </div>

@@ -1,0 +1,16 @@
+build
+internal
+node_modules
+.DS_Store
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.gif
+**/*.mp4
+**/*.pdf
+
+# SvelteKit output
+.svelte-kit
+
+# Git
+.git

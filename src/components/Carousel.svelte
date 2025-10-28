@@ -101,14 +101,14 @@
               on:load={() => {
                 initSlideSize();
               }}
-              style="max-width: min(90vw, {imgCap}); max-height: {maxH}px"
+              style="max-width: min(98vw, {imgCap}); max-height: {maxH}px"
               src={img.path}
               bind:this={sampleImage}
             />
           {:else}
             <video
               controls
-              style="max-width: min(90vw, {imgCap}); max-height: {maxH}px"
+              style="max-width: min(98vw, {imgCap}); max-height: {maxH}px"
               on:click={(e) => {
                 e.stopPropagation();
               }}
@@ -151,7 +151,7 @@
     height: 100%;
     position: relative;
     overflow: hidden;
-    max-height: calc(100vh - 170px);
+    max-height: calc(100vh - 100px);
   }
   .slide {
     transition: transform ease-in-out 0.65s, opacity ease-in-out 0.8s;
@@ -177,7 +177,7 @@
   }
   img,
   video {
-    max-height: calc(100vh - 170px);
+    max-height: calc(100vh - 100px);
     border: 2px solid #aea3a3;
     border-color: black;
     padding: 3px;
@@ -239,5 +239,13 @@
   .nav-btn .material-icons-round {
     font-size: 28px;
     color: black;
+  }
+  @media only screen and (max-width: 700px) {
+    img,video {
+      padding: 0;
+      border-radius: 8px;
+      border:2px solid black;
+    }
+
   }
 </style>

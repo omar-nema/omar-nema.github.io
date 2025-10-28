@@ -9,7 +9,7 @@
   import { transitionTime } from "../stores/state";
   import { onMount } from "svelte";
 
-  let imgCap = "825px";
+  let imgCap = "1050px";
   let textContainer;
 
   function updateImgCap() {
@@ -19,7 +19,6 @@
       const paddingRight = parseFloat(style.paddingRight);
       const contentWidth = textContainer.offsetWidth - paddingLeft - paddingRight;
       imgCap = contentWidth + "px";
-      console.log(imgCap);
     }
   }
 
@@ -45,7 +44,7 @@
 
   
     <div class="update-container">
-      <span class="name">Omar Nema</span> 
+      <span class="name">omar nema</span> 
       <!-- <span class="update">• Updated Oct 2025</span> -->
     </div>
 
@@ -62,37 +61,39 @@
   </div>
 
   <div class="text-container" bind:this={textContainer}>
-    <div class="text-block">
-      <h1>Automating Investigation at Datadog</h1>
-      <p>
-        At Datadog, I conceived Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing any metric anomaly. It's now
-        core infrastructure powering our broader AI strategy, including Bits AI.
-      </p>
-      <p>
-        Watchdog Explains detects anomalies in metrics, then uses our proprietary high-performance
-        covariance algorithm to test every tag combination in real-time, isolating the exact root
-        cause in seconds rather than requiring manual investigation across dozens of dimensions.
-      </p>
-      <p></p>
-      <p>
-        I established Datadog's first Applied AI team within Graphing to build this. I owned it
-        end-to-end: early sketches, algorithm iteration, and incremental improvements through dozens
-        of evals and A/B tests. Beyond direct customer impact, it now serves as the anomaly
-        detection engine for Bits AI, our ML/LLM-powered SRE agent.
-      </p>
-      <p>
-        I'm now expanding this foundation by developing ML-based correlation algorithms that detect
-        system-wide patterns across multiple metrics. As a recognized leader in automated
-        investigation at Datadog, I'm shaping the vision for how AI fundamentally
-        transforms software monitoring.
-      </p>
+    <div class="content-block">
+      <div class="text-block">
+        <h1>Automating Investigation at Datadog</h1>
+        <p>
+          At Datadog, I conceived Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing any metric anomaly. It's now
+          core infrastructure powering our broader AI strategy, including Bits AI.
+        </p>
+        <p>
+          Watchdog Explains detects anomalies in metrics, then uses our proprietary high-performance
+          covariance algorithm to test every tag combination in real-time, isolating the exact root
+          cause in seconds rather than requiring manual investigation across dozens of dimensions.
+        </p>
+        <p></p>
+        <p>
+          I established Datadog's first Applied AI team within Graphing to build this. I owned it
+          end-to-end: early sketches, algorithm iteration, and incremental improvements through dozens
+          of evals and A/B tests. Beyond direct customer impact, it now serves as the anomaly
+          detection engine for Bits AI, our ML/LLM-powered SRE agent.
+        </p>
+        <p>
+          I'm now expanding this foundation by developing ML-based correlation algorithms that detect
+          system-wide patterns across multiple metrics. As a recognized leader in automated
+          investigation at Datadog, I'm shaping the vision for how AI fundamentally
+          transforms software monitoring.
+        </p>
+      </div>
       <div >
         <Carousel imgs={['/assets/dog/expdemo2.gif', '/assets/dog/expconceptres.png']} imgCap={imgCap} addTopMargin={true} />
       </div>
     </div>
-    <div class="text-block">
-      <h1>Product Leadership at Datadog</h1>
- 
+    <div class="content-block">
+      <div class="text-block">
+        <h1>Product Leadership at Datadog</h1>
         <p>
           As a Staff Product Manager of Investigation and Search at Datadog, I focus on helping customers answer questions faster.
         </p>
@@ -102,43 +103,51 @@
         <p>
           After scaling the Data Visualization team, I saw an opportunity to tackle the next bottleneck: customers still spend too much time hunting for answers. I created a new scope and teams around Automated Investigation and Search, where I'm now building features that surface insights even faster.
         </p>
+      </div>
+    
         <div >
           <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap={imgCap} addTopMargin={true} />
         </div>
       
     </div>
-    <div class="text-block">
-      <h1>Teaching students to use code as a creative medium</h1>
-      <p>
-        I teach Software Design Lab at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I'm fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">course website</a> if you’re curious.
-      </p>
+    <div class="content-block">
+      <div class="text-block">
+        <h1>Teaching students to use code as a creative medium</h1>
+        <p>
+          I teach Software Design Lab at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I'm fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">course website</a> if you’re curious.
+        </p>
+      </div>
     </div>
 
-    <div class="text-block">
-      <h1>At Parsons, I got to explore interactive art</h1>
-      <p>
-        After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
-      </p>
-      <p>
-        My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award.
-      </p>
+    <div class="content-block">
+      <div class="text-block">
+        <h1>At Parsons, I got to explore interactive art</h1>
+        <p>
+          After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
+        </p>
+        <p>
+          My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award.
+        </p>
+      </div>
       <img src="/assets/gaze/gaze2.png" alt="Gaze 2" />
     </div>
-    <div class="text-block">
-      <h1>I launched two healthcare products at Arcadia from the ground up</h1>
-      <p>
-        I launched two healthcare products at Arcadia, a healthcare tech startup,  from 0 to $XM: a <a href="https://arcadia.io/care-manager"  target="_blank">Care Management product</a> to guide nurses in coaching patients through health progress, and a <a href="https://arcadia.io/referrals" target="_blank">Referral Management</a> tool to help physicians to find the best, low-cost providers to meet their patients' needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
-      </p>
-      <p>
-        At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also had the chance to be a nerd and build some fun visuals with healthcare data, below.
-      </p>
+    <div class="content-block">
+      <div class="text-block">
+        <h1>I launched two healthcare products at Arcadia from the ground up</h1>
+        <p>
+          I launched two healthcare products at Arcadia, a healthcare tech startup,  from 0 to $XM: a <a href="https://arcadia.io/care-manager"  target="_blank">Care Management product</a> to guide nurses in coaching patients through health progress, and a <a href="https://arcadia.io/referrals" target="_blank">Referral Management</a> tool to help physicians to find the best, low-cost providers to meet their patients' needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
+        </p>
+        <p>
+          At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also had the chance to be a nerd and build some fun visuals with healthcare data, below.
+        </p>
+      </div>
       <div
         class="content"
         in:fade={{ delay: 300, duration: 500 }}
         out:fade={{ duration: 300 }}
       >
         <div >
-          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="600px" addTopMargin={true} />
+          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="550px" addTopMargin={true} />
         </div>
       </div>
     </div>
@@ -165,7 +174,7 @@
     width: auto;
     display: flex;
     align-items: center;
-    padding: 0 80px;
+    padding: 0 120px;
     justify-content: end;
     background-color: #aed2ff;
   }
@@ -180,12 +189,17 @@
     z-index: 100;
   }
   .text-container {
-    max-width: 825px;
     width: 100%;
+    max-width: min(1050px, 90vw);
     margin-top: 50px;
   }
-  .text-block {
+  .content-block {
     margin-bottom: 150px;
+  }
+  .text-block {
+    margin: auto;
+    max-width: 825px;
+    margin-bottom: 50px;
   }
 
   h1 {
@@ -203,8 +217,8 @@
     border: 2px solid black;
     max-width: 1000px;
     padding: 30px 50px;
-    margin-top: 150px;
-    margin-bottom: 120px;
+    margin-top: 250px;
+    margin-bottom: 150px;
     background: linear-gradient(90deg, #ffffff 0%, #f6f6f6 100%);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
@@ -225,23 +239,30 @@
 
   @media only screen and (max-width: 700px) {
     h1 {
-      font-size: 28px;
+      font-size: 26px;
     }
     .content-outer {
-      font-size: 18px;
+      font-size: 17px;
+      padding: 0;
+      
     }
-    .text-container{
-      padding: 0 10px;
+    .text-container {
+      max-width: 100%;
     }
+ 
     .intro {
       padding:12px 22px;
-      border-radius: 8px;
-      margin-top: 80px;
+      border-radius: 15px;
       margin-bottom: 50px;
+      border: 2px dashed black;
+      margin: 0 20px;
+      margin-top: 170px;
+      margin-bottom: 90px;
    
     }
     .text-block {
-      margin-bottom: 70px;
+      margin-bottom: 20px;
+      padding: 0 22px;
     }
     header {
       height: 10px;
@@ -250,6 +271,15 @@
     .header-container {
       display: none;
     }
+    img {
+      padding: 0;
+      border-radius: 8px;
+      border:2px solid black;
+      max-width: 98vw;
+      margin:auto;
+      display: flex;
+    }
+
   }
     
 </style>

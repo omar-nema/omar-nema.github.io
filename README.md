@@ -3,6 +3,8 @@
 ## commands needed
 
 npm run deploy - needed to deploy project gh-pages branch. automatically takes care of just taking what's in the build/build folder.
+Basically the gh-pages branch has just the "build" folder. Worst case if struggling just switch to gh-pages, copy files from build, and you're gucci.
+Another thing is HTTPS don't work so you have to set up ssh
 
 npm run dev - get that server going locally sourced.
 

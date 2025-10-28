@@ -126,10 +126,12 @@
           After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
         </p>
         <p>
-          My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award.
+          My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
         </p>
       </div>
-      <img src="/assets/gaze/gaze2.png" alt="Gaze 2" />
+      <Carousel imgs={['/assets/gaze/gaze2.png', '/assets/housing/housing3.png', '/assets/soundAndSpace/ss2.png', '/assets/tellMe/tell3.png']} imgCap={imgCap} addTopMargin={true} />
+    
+      
     </div>
     <div class="content-block">
       <div class="text-block">
@@ -261,7 +263,7 @@
    
     }
     .text-block {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       padding: 0 22px;
     }
     header {

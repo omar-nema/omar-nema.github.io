@@ -4,9 +4,11 @@
 
 npm run deploy - needed to deploy project gh-pages branch. automatically takes care of just taking what's in the build/build folder.
 Basically the gh-pages branch has just the "build" folder. Worst case if struggling just switch to gh-pages, copy files from build, and you're gucci.
-Another thing is HTTPS don't work so you have to set up ssh
+Another thing is HTTPS don't work so you have to set up SSH. create a local key, register it with github, and then make github reference that
 
 npm run dev - get that server going locally sourced.
+
+---
 
 # create-svelte stuff
 

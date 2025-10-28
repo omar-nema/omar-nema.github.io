@@ -221,6 +221,7 @@
     cursor: pointer;
     transition: border-color 0.1s linear;
     transform: translateY(-50%);
+   
   }
   .nav-btn.left {
     left: 20px;

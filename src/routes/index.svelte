@@ -37,6 +37,14 @@
 
 <svelte:head>
   <title>omar nema</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVRRR6SLNG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-GVRRR6SLNG');
+  </script>
 </svelte:head>
 
 <header>

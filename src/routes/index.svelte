@@ -64,26 +64,17 @@
       <div class="text-block">
         <h1>Automating Investigation at Datadog</h1>
         <p>
-          At Datadog, I conceived Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing any metric anomaly. It's now
-          core infrastructure powering our broader AI strategy, including Bits AI.
+          At Datadog, I conceived and launched Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within 3s of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
         </p>
         <p>
-          Watchdog Explains detects anomalies in metrics, then uses our proprietary high-performance
-          covariance algorithm to test every tag combination in real-time, isolating the exact root
-          cause in seconds rather than requiring manual investigation across dozens of dimensions.
+          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze metrics, which make up the majority of data sources in Datadog.
         </p>
         <p></p>
         <p>
-          I established Datadog's first Applied AI team within Graphing to build this. I owned it
-          end-to-end: early sketches, algorithm iteration, and incremental improvements through dozens
-          of evals and A/B tests. Beyond direct customer impact, it now serves as the anomaly
-          detection engine for Bits AI, our ML/LLM-powered SRE agent.
+          I established Datadog's first Applied AI team within Graphing to build this. I owned the feature end-to-end: from early sketches to algorithm iteration, to incremental improvements through dozens of evals and A/B tests. 
         </p>
         <p>
-          I'm now expanding this foundation by developing ML-based correlation algorithms that detect
-          system-wide patterns across multiple metrics. As a recognized leader in automated
-          investigation at Datadog, I'm shaping the vision for how AI fundamentally
-          transforms software monitoring.
+          I'm now expanding this foundation by developing ML-based correlation algorithms that detect system-wide patterns across multiple metrics. As a recognized leader in automated investigation at Datadog, I'm shaping the vision for how AI fundamentally transforms software monitoring.
         </p>
       </div>
       <div >
@@ -97,10 +88,10 @@
           As a Staff Product Manager of Investigation and Search at Datadog, I focus on helping customers answer questions faster.
         </p>
         <p>
-          My initial scope was Data Visualization and Querying, where I created more powerful and expressive data analysis tools. I rebuilt the Datadog graph editor to center investigation workflows, shipped a low-code visualization interface that lets customers build any chart on their own, and introduced advanced querying with joins and transformations so customers can contextualize their data. The result: customers are able to answer questions not just about their software systems, but about their business. This keeps them in Datadog instead of subscribing to other tools.
+          My initial scope was Data Visualization and Querying, where I created more powerful and expressive data analysis tools. I rebuilt the Datadog graph editor to center investigation workflows, shipped a low-code visualization interface that lets customers build any chart on their own, and introduced advanced querying with joins and transformations so customers can contextualize their data. The result: customers are able to answer questions not just about their software systems, but about their business. This keeps customers in Datadog instead of subscribing to other tools.
         </p>
         <p>
-          After scaling the Data Visualization team, I saw an opportunity to tackle the next bottleneck: customers still spend too much time hunting for answers. I created the Automated Investigation team and joined Search as its first PM, building features that surface insights even faster.
+          After scaling the Data Visualization team, I saw the next opportunity: customers had the tools to analyze their data, but finding the answer still required too much manual work. To address this, I created the Automated Investigation team and joined Search as its first PM. I'm now building tools to proactively investigate issues for customers.
         </p>
       </div>
     
@@ -199,7 +190,7 @@
   }
   .text-block {
     margin: auto;
-    max-width: 825px;
+    max-width: 800px;
     margin-bottom: 50px;
   }
 

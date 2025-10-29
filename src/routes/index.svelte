@@ -72,17 +72,14 @@
       <div class="text-block">
         <h1>Automating Investigation at Datadog</h1>
         <p>
-          At Datadog, I conceived and launched Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within 3s of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
+          At Datadog, I conceived and launched Watchdog Explains, an AI feature used by all 30k+ Datadog customers. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within 3 seconds of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
         </p>
         <p>
-          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze metrics, which make up the majority of data sources in Datadog.
+          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze metrics, which make up most Datadog data.
         </p>
         <p></p>
         <p>
-          I established Datadog's first Applied AI team within Graphing to build this. I owned the feature end-to-end: from early sketches to algorithm iteration, to incremental improvements through dozens of evals and A/B tests. 
-        </p>
-        <p>
-          I'm now expanding this foundation by developing ML-based correlation algorithms that detect system-wide patterns across multiple metrics, shaping how AI can transform software monitoring.
+          I established Datadog's first Applied AI team within Graphing to build this. I owned the feature end-to-end: from early sketches to algorithm iteration, to incremental improvements through dozens of evals and A/B tests.  I'm now expanding this foundation by developing ML-based correlation algorithms that detect system-wide patterns across multiple metrics.
         </p>
       </div>
       <div >

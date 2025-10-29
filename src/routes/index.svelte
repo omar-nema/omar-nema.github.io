@@ -127,7 +127,7 @@
       <div class="text-block">
         <h1>I launched two healthcare products at Arcadia from the ground up</h1>
         <p>
-          I launched two health tech products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Management</a> to guide nurses in coaching patients through health progress, and a <a href="https://arcadia.io/referrals" target="_blank">Referral Management</a> tool to help physicians to find the best, low-cost providers to meet their patients' needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
+          I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a>, which helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a>, which streamlines specialist referrals by automatically suggesting in-network, high-quality providers based on patient needs and cost data (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
         </p>
         <p>
           At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also got to be a nerd and build some fun visuals with healthcare data, below.

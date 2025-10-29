@@ -25,14 +25,33 @@
   });
 
   function initSlideSize() {
-    if (carouselContainer) {
-      const img = carouselContainer.querySelector('img');
-      if (img) {
-        let ht = img.getBoundingClientRect().height;
-        if (ht > 80) {
-          maxH = ht;
+    // Guard for SSR
+    if (typeof window === 'undefined') return;
+
+    // First, use viewport height so size grows/shrinks with window
+    const viewportMax = Math.max(0, window.innerHeight - 100);
+    if (viewportMax > 80) {
+      maxH = viewportMax;
+    }
+
+    // Then, on the next frame, measure the actually rendered media height
+    // and tighten the container if the media is shorter (e.g., very wide image)
+    const measure = () => {
+      let el = sampleImage;
+      if (!el && carouselContainer) {
+        el = carouselContainer.querySelector('img, video');
+      }
+      if (el) {
+        const rendered = el.getBoundingClientRect().height;
+        if (rendered > 0 && rendered < maxH) {
+          maxH = rendered;
         }
       }
+    };
+    if (typeof requestAnimationFrame === 'function') {
+      requestAnimationFrame(measure);
+    } else {
+      setTimeout(measure, 0);
     }
   }
 

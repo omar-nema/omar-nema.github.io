@@ -139,7 +139,7 @@
         out:fade={{ duration: 300 }}
       >
         <div >
-          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="450px" addTopMargin={true} />
+          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="500px" addTopMargin={true} />
         </div>
       </div>
     </div>
@@ -191,7 +191,7 @@
   .text-block {
     margin: auto;
     max-width: 800px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   h1 {
@@ -241,6 +241,9 @@
     .text-container {
       max-width: 100%;
     }
+    .content-block {
+      margin-bottom: 100px;
+    }
  
     .intro {
       padding:12px 22px;
@@ -253,7 +256,7 @@
    
     }
     .text-block {
-      margin-bottom: 40px;
+      margin-bottom: 0px;
       padding: 0 22px;
     }
     header {

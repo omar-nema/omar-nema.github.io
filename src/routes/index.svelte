@@ -91,7 +91,7 @@
           My initial scope was Data Visualization and Querying, where I created more powerful and expressive data analysis tools. I rebuilt the Datadog graph editor to center investigation workflows, shipped a low-code visualization interface that lets customers build any chart on their own, and introduced advanced querying with joins and transformations so customers can contextualize their data. The result: customers are able to answer questions not just about their software systems, but about their business. This keeps customers in Datadog instead of subscribing to other tools.
         </p>
         <p>
-          After scaling the Data Visualization team, I saw the next opportunity: customers had the tools to analyze their data, but finding the answer still required too much manual work. To address this, I created the Automated Investigation team and joined Search as its first PM. I'm now building tools to proactively investigate issues for customers.
+          After scaling the Data Visualization team, I saw the next opportunity: customers had the tools to analyze their data, but finding the answer still required too much manual work. To address this, I created the Automated Investigation team and joined Search as its first PM. I'm now focused on building tools to proactively investigate issues for customers.
         </p>
       </div>
     

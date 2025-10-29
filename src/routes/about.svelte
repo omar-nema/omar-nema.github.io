@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import '../app.css';
   import Header from '../components/Header.svelte';
   import Card from '../components/Card.svelte';
@@ -116,4 +116,4 @@
   :global(body) {
     padding-left: calc(100vw - 100%);
   }
-</style>
+</style> -->

@@ -55,7 +55,7 @@
   <div class="intro">
     <h2>Hi, I'm Omar!</h2>
     <p>
-      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, and built healthcare products at <strong>Arcadia</strong>. I live in Queens, New York.
+      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, built healthcare products at <strong>Arcadia</strong>, and studied engineering at <strong>Brown</strong>. I live in Queens, New York.
     </p>
   </div>
 
@@ -139,7 +139,7 @@
         out:fade={{ duration: 300 }}
       >
         <div >
-          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="550px" addTopMargin={true} />
+          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="450px" addTopMargin={true} />
         </div>
       </div>
     </div>
@@ -207,11 +207,11 @@
 
   .intro {
     border: 2px solid black;
-    max-width: 1000px;
+    max-width: min(950px, 90vw);
     padding: 30px 50px;
     margin-top: 250px;
     margin-bottom: 150px;
-    background: linear-gradient(90deg, #ffffff 0%, #f6f6f6 100%);
+    background: linear-gradient(90deg, #ffffff 0%, #f4f4f4 100%);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 

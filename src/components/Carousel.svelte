@@ -29,7 +29,7 @@
       const img = carouselContainer.querySelector('img');
       if (img) {
         let ht = img.getBoundingClientRect().height;
-        if (ht > 70) {
+        if (ht > 80) {
           maxH = ht;
         }
       }
@@ -41,7 +41,7 @@
     sampleImage;
     if (sampleImage) {
       let ht = sampleImage.getBoundingClientRect().height;
-      if (ht > 70) {
+      if (ht > 80) {
         maxH = ht;
       }
     }
@@ -56,7 +56,7 @@
 </script>
 
 <section in:fade={{ duration: $transitionTime }} bind:this={carouselContainer}>
-  <div class="slider" class:with-top-margin={addTopMargin}>
+  <div class="slider" class:with-top-margin={addTopMargin} style="max-width: min(98vw, {imgCap}">
     <div class="slides" style="height: {maxH}px">
       <div
         class="nav-btn left"
@@ -221,6 +221,7 @@
     cursor: pointer;
     transition: border-color 0.1s linear;
     transform: translateY(-50%);
+    z-index: 2;
    
   }
   .nav-btn.left {

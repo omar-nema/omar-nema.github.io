@@ -107,10 +107,10 @@
             />
           {:else}
             <video
-              controls
+              autoplay loop muted playsinline
               style="max-width: min(98vw, {imgCap}); max-height: {maxH}px"
               on:click={(e) => {
-                e.stopPropagation();
+                // e.stopPropagation();
               }}
             >
               <source src={img.path} type="video/mp4" />

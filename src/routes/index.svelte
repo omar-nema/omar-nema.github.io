@@ -55,7 +55,7 @@
   <div class="intro">
     <h2>Hi, I'm Omar!</h2>
     <p>
-      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before that: I studied design at <strong>Parsons</strong>, and built healthcare products at <strong>Arcadia</strong>. I live in Queens,
+      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, and built healthcare products at <strong>Arcadia</strong>. I live in Queens,
       New York.
     </p>
   </div>
@@ -140,7 +140,7 @@
           I launched two health tech products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Management</a> to guide nurses in coaching patients through health progress, and a <a href="https://arcadia.io/referrals" target="_blank">Referral Management</a> tool to help physicians to find the best, low-cost providers to meet their patients' needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
         </p>
         <p>
-          At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also had the chance to be a nerd and build some fun visuals with healthcare data, below.
+          At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also got to be a nerd and build some fun visuals with healthcare data, below.
         </p>
       </div>
       <div

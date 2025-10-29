@@ -55,8 +55,7 @@
   <div class="intro">
     <h2>Hi, I'm Omar!</h2>
     <p>
-      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, and built healthcare products at <strong>Arcadia</strong>. I live in Queens,
-      New York.
+      I build Search & Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, and built healthcare products at <strong>Arcadia</strong>. I live in Queens, New York.
     </p>
   </div>
 

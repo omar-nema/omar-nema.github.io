@@ -109,7 +109,7 @@
       <div class="text-block">
         <h1>Teaching students to use code as a creative medium</h1>
         <p>
-          I teach Software Design Lab at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I'm fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">course website</a> if you’re curious.
+          I teach Creative Computing at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I'm fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">course website</a> if you’re curious.
         </p>
       </div>
     </div>

@@ -75,7 +75,7 @@
           At Datadog, I conceived and launched Watchdog Explains, an widely-adopted AI feature. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within a few seconds of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
         </p>
         <p>
-          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze metrics, which make up most Datadog data.
+          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze all Datadog metrics.
         </p>
         <p></p>
         <p>

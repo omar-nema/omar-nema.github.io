@@ -141,7 +141,7 @@
           I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
         </p>
         <p>
-          At Arcadia, I developed my product practice by learning to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
+           I got my hands dirty at Arcadia: I learned to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
         </p>
       </div>
       <div

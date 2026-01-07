@@ -75,7 +75,7 @@
           As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
         </p>
         <p>
-          My initial scope was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation from end to end. As my understanding in this space matured in my first year at Datadog, I developed an idea of how to automate investigation. 
+          My initial scope was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation. 
         </p>  
         <p>
           In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it is efficient enough to run for free, and shows few false positives.
@@ -84,7 +84,7 @@
           My focus now is moving beyond triage to automating root cause analysis. This is challenging to do at Datadog’s scale: how do you proactively scan for issues without incurring too much cost? How do you take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? 
         </p>
         <p>
-          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation (akin to a text-based adventure games). 
+          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation, akin to a text-based adventure games.
         </p>
 
       </div>
@@ -138,10 +138,10 @@
       <div class="text-block">
         <h1>I launched two healthcare products at Arcadia from the ground up</h1>
         <p>
-          I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
+          I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
         </p>
         <p>
-           I got my hands dirty at Arcadia: I learned to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
+          At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
         </p>
       </div>
       <div

@@ -14,16 +14,16 @@
 	<link rel="stylesheet" href="/internal/assets/state-cf4bc3cf.css">
 	<link rel="stylesheet" href="/internal/assets/Carousel-1767a41a.css">
 	<link rel="stylesheet" href="/internal/assets/Filters.svelte_svelte_type_style_lang-c252f0c7.css">
-	<link rel="modulepreload" href="/internal/start-643e7681.js">
+	<link rel="modulepreload" href="/internal/start-19d333b9.js">
 	<link rel="modulepreload" href="/internal/chunks/vendor-0b846e11.js">
 	<link rel="modulepreload" href="/internal/chunks/paths-28a87002.js">
 	<link rel="modulepreload" href="/internal/layout.svelte-4dede253.js">
-	<link rel="modulepreload" href="/internal/pages/index.svelte-11e1b377.js">
+	<link rel="modulepreload" href="/internal/pages/index.svelte-4037f91c.js">
 	<link rel="modulepreload" href="/internal/chunks/state-5273a6e8.js">
 	<link rel="modulepreload" href="/internal/chunks/Carousel-fac924c1.js">
 	<link rel="modulepreload" href="/internal/chunks/Filters.svelte_svelte_type_style_lang-e79fae64.js">
 			<script type="module">
-				import { start } from "/internal/start-643e7681.js";
+				import { start } from "/internal/start-19d333b9.js";
 				start({
 					target: document.querySelector("#svelte"),
 					paths: {"base":"","assets":""},
@@ -36,7 +36,7 @@
 						error: null,
 						nodes: [
 							import("/internal/layout.svelte-4dede253.js"),
-						import("/internal/pages/index.svelte-11e1b377.js")
+						import("/internal/pages/index.svelte-4037f91c.js")
 						],
 						url: new URL("http://prerender/"),
 						params: {}
@@ -57,44 +57,34 @@
     </p></div>
 
   <div class="text-container svelte-16gthl0"><div class="content-block svelte-16gthl0"><div class="text-block svelte-16gthl0"><h1 class="svelte-16gthl0">Automating Investigation at Datadog</h1>
-        <p>At Datadog, I conceived and launched Watchdog Explains, an widely-adopted AI feature. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within a few seconds of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
+        <p>As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
         </p>
-        <p>Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog&#39;s AI agent relies on Explains to analyze all Datadog metrics.
+        <p>My initial scope was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation from end to end. As my understanding in this space matured in my first year at Datadog, I developed an idea of how to automate investigation. 
+        </p>  
+        <p>In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it is accurate, efficient enough to run for free, and shows few false positives.
         </p>
-        <p></p>
-        <p>I established Datadog&#39;s first Applied AI team within Graphing to build this. I owned the feature end-to-end: from early sketches to algorithm iteration, to incremental improvements through dozens of evals and A/B tests.  I&#39;m now expanding this foundation by developing ML-based correlation algorithms that detect system-wide patterns across multiple metrics.
+        <p>My focus now is moving beyond triage to automating root cause analysis. This is challenging to do at Datadog’s scale: how do you proactively scan for issues without incurring too much cost? How do you take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? 
+        </p>
+        <p>I am working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation (akin to a text-based adventure games). My team has expanded to now encompass Search in order to build a context layer that grounds LLM and improves its accuracy.
         </p></div>
       <div><section><div class="slider svelte-wwx5kt with-top-margin" style="max-width: min(98vw, 1050px"><div class="slides svelte-wwx5kt" style="height: undefinedpx"><div class="nav-btn left svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_left </span></div>
       <div class="nav-btn right svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_right </span></div>
       <div class="slide svelte-wwx5kt curr"><video autoplay loop muted playsinline style="max-width: min(98vw, 1050px); max-height: undefinedpx" class="svelte-wwx5kt"><source src="/assets/dog/mp4demo.mp4" type="video/mp4"></video>
         </div><div class="slide svelte-wwx5kt   after"><img style="max-width: min(98vw, 1050px); max-height: undefinedpx" src="/assets/dog/expconceptres.png" class="svelte-wwx5kt">
-        </div></div>
-    <div class="dots svelte-wwx5kt"><div class="dot svelte-wwx5kt active" data-index="0"></div><div class="dot svelte-wwx5kt" data-index="1"></div></div></div>
-</section></div></div>
-    <div class="content-block svelte-16gthl0"><div class="text-block svelte-16gthl0"><h1 class="svelte-16gthl0">Product Leadership at Datadog</h1>
-        <p>As a Staff Product Manager of Investigation and Search at Datadog, I focus on helping customers answer questions faster.
-        </p>
-        <p>My initial scope was Data Visualization and Querying, where I created more powerful and expressive data analysis tools. I rebuilt the Datadog graph editor to center investigation workflows, shipped a low-code visualization interface that lets customers build any chart on their own, and introduced advanced querying with joins and transformations so customers can contextualize their data. The result: customers are able to answer questions not just about their software systems, but about their business. This keeps customers in Datadog instead of subscribing to other tools.
-        </p>
-        <p>After scaling the Data Visualization team, I saw the next opportunity: customers had the tools to analyze their data, but finding the answer still required too much manual work. To address this, I created the Automated Investigation team and joined Search as its first PM. I&#39;m now focused on building tools to proactively investigate issues for customers.
-        </p></div>
-    
-        <div><section><div class="slider svelte-wwx5kt with-top-margin" style="max-width: min(98vw, 1050px"><div class="slides svelte-wwx5kt" style="height: undefinedpx"><div class="nav-btn left svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_left </span></div>
-      <div class="nav-btn right svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_right </span></div>
-      <div class="slide svelte-wwx5kt curr"><img style="max-width: min(98vw, 1050px); max-height: undefinedpx" src="/assets/dog/dashannotate.png" class="svelte-wwx5kt">
+        </div><div class="slide svelte-wwx5kt   after"><img style="max-width: min(98vw, 1050px); max-height: undefinedpx" src="/assets/dog/dashannotate.png" class="svelte-wwx5kt">
         </div><div class="slide svelte-wwx5kt   after"><img style="max-width: min(98vw, 1050px); max-height: undefinedpx" src="/assets/dog/wilddouble.png" class="svelte-wwx5kt">
-        </div><div class="slide svelte-wwx5kt   after"><img style="max-width: min(98vw, 1050px); max-height: undefinedpx" src="/assets/dog/omnimap.png" class="svelte-wwx5kt">
         </div></div>
-    <div class="dots svelte-wwx5kt"><div class="dot svelte-wwx5kt active" data-index="0"></div><div class="dot svelte-wwx5kt" data-index="1"></div><div class="dot svelte-wwx5kt" data-index="2"></div></div></div>
+    <div class="dots svelte-wwx5kt"><div class="dot svelte-wwx5kt active" data-index="0"></div><div class="dot svelte-wwx5kt" data-index="1"></div><div class="dot svelte-wwx5kt" data-index="2"></div><div class="dot svelte-wwx5kt" data-index="3"></div></div></div>
 </section></div></div>
+    
     <div class="content-block svelte-16gthl0"><div class="text-block svelte-16gthl0"><h1 class="svelte-16gthl0">Teaching students to use code as a creative medium</h1>
-        <p>I teach Creative Computing at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I&#39;m fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank" class="svelte-16gthl0">course website</a> if you’re curious.
+        <p>I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank" class="svelte-16gthl0">Creative Computing</a> at CUNY Graduate Center, where grad students learn to code as a medium for creative expression.  We explore how computation can make things that couldn&#39;t exist any other way: generative systems, interactive installations, and data-driven narratives. I love seeing students discover what becomes possible.
         </p></div></div>
 
     <div class="content-block svelte-16gthl0"><div class="text-block svelte-16gthl0"><h1 class="svelte-16gthl0">At Parsons, I got to explore interactive art</h1>
         <p>After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
         </p>
-        <p>My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank" class="svelte-16gthl0">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
+        <p>My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it in realtime. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank" class="svelte-16gthl0">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
         </p></div>
       <section><div class="slider svelte-wwx5kt with-top-margin" style="max-width: min(98vw, 1050px"><div class="slides svelte-wwx5kt" style="height: undefinedpx"><div class="nav-btn left svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_left </span></div>
       <div class="nav-btn right svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_right </span></div>
@@ -108,7 +98,7 @@
     <div class="content-block svelte-16gthl0"><div class="text-block svelte-16gthl0"><h1 class="svelte-16gthl0">I launched two healthcare products at Arcadia from the ground up</h1>
         <p>I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager" target="_blank" class="svelte-16gthl0">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank" class="svelte-16gthl0">Referrals</a> streamlines specialist referrals by automatically suggesting in-network, high-quality providers based on patient needs and cost data (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination" class="svelte-16gthl0">press</a>).
         </p>
-        <p>At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also got to be a nerd and build some fun visuals with healthcare data, below.
+        <p>At Arcadia, I developed my product practice by learning to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
         </p></div>
       <div class="content"><div><section><div class="slider svelte-wwx5kt with-top-margin" style="max-width: min(98vw, 500px"><div class="slides svelte-wwx5kt" style="height: undefinedpx"><div class="nav-btn left svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_left </span></div>
       <div class="nav-btn right svelte-wwx5kt"><span class="material-icons-round svelte-wwx5kt">arrow_right </span></div>

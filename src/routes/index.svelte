@@ -72,21 +72,27 @@
       <div class="text-block">
         <h1>Automating Investigation at Datadog</h1>
         <p>
-          At Datadog, I conceived and launched Watchdog Explains, an widely-adopted AI feature. Explains automatically identifies which specific dimension is causing a metric anomaly, resulting in proactive issue detection within a few seconds of loading a dashboard. This isolates the root cause right away rather than requiring manual investigation across dozens of dimensions.
+          As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
         </p>
         <p>
-          Watchdog Explains feature is also a critical tool powering our AI agent: Bits AI. Datadog's AI agent relies on Explains to analyze all Datadog metrics.
-        </p>
-        <p></p>
+          My initial scope was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation from end to end. As my understanding in this space matured in my first year at Datadog, I developed an idea of how to automate investigation. 
+        </p>  
         <p>
-          I established Datadog's first Applied AI team within Graphing to build this. I owned the feature end-to-end: from early sketches to algorithm iteration, to incremental improvements through dozens of evals and A/B tests.  I'm now expanding this foundation by developing ML-based correlation algorithms that detect system-wide patterns across multiple metrics.
+          In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it is efficient enough to run for free, and shows few false positives.
         </p>
+        <p> 
+          My focus now is moving beyond triage to automating root cause analysis. This is challenging to do at Datadog’s scale: how do you proactively scan for issues without incurring too much cost? How do you take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? 
+        </p>
+        <p>
+          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation (akin to a text-based adventure games). 
+        </p>
+
       </div>
       <div >
-        <Carousel imgs={['/assets/dog/mp4demo.mp4',  '/assets/dog/expconceptres.png']} imgCap={imgCap} addTopMargin={true} />
+        <Carousel imgs={['/assets/dog/mp4demo.mp4',  '/assets/dog/expconceptres.png', '/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png']} imgCap={imgCap} addTopMargin={true} />
       </div>
     </div>
-    <div class="content-block">
+    <!-- <div class="content-block">
       <div class="text-block">
         <h1>Product Leadership at Datadog</h1>
         <p>
@@ -104,12 +110,12 @@
           <Carousel imgs={['/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png', '/assets/dog/omnimap.png']} imgCap={imgCap} addTopMargin={true} />
         </div>
       
-    </div>
+    </div> -->
     <div class="content-block">
       <div class="text-block">
         <h1>Teaching students to use code as a creative medium</h1>
         <p>
-          I teach Creative Computing at CUNY Graduate Center, where grad students learn to code by building interactive projects from scratch. I'm fascinated by code for creative expression, and love seeing what students create. See my <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">course website</a> if you’re curious.
+          I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn to code as a medium for creative expression.  We explore how computation can make things that couldn't exist any other way. I love seeing students discover what becomes possible with code.
         </p>
       </div>
     </div>
@@ -121,7 +127,7 @@
           After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
         </p>
         <p>
-          My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
+          My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it in realtime. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
         </p>
       </div>
       <Carousel imgs={['/assets/gaze/gaze2.png', '/assets/housing/housing3.png', '/assets/soundAndSpace/ss2.png', '/assets/tellMe/tell3.png']} imgCap={imgCap} addTopMargin={true} />
@@ -132,10 +138,10 @@
       <div class="text-block">
         <h1>I launched two healthcare products at Arcadia from the ground up</h1>
         <p>
-          I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting in-network, high-quality providers based on patient needs and cost data (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
+          I launched two enterprise workflow products at Arcadia from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
         </p>
         <p>
-          At Arcadia, I learned a lot, made mistakes, and developed my product practice. I also got to be a nerd and build some fun visuals with healthcare data, below.
+          At Arcadia, I developed my product practice by learning to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
         </p>
       </div>
       <div
@@ -218,6 +224,7 @@
     margin-bottom: 150px;
     background: linear-gradient(90deg, #ffffff 0%, #f4f4f4 100%);
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 22px;
   }
 
   img {

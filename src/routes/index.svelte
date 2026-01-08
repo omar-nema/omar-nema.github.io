@@ -138,7 +138,7 @@
       <div class="text-block">
         <h1>I launched two healthcare products at Arcadia from the ground up</h1>
         <p>
-          I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas. My obsession with making sense of data led me to create the visuals below.
+          I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas. My obsession with making sense of the data we had led me to create the visuals below.
         </p>
         <p>
           At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
@@ -258,13 +258,13 @@
     }
  
     .intro {
-      padding:12px 22px;
-      border-radius: 15px;
+      padding:10px 22px;
       margin-bottom: 50px;
-      border: 2px dashed black;
+      border: 1px solid #ab7c7c;
       margin: 0 20px;
       margin-top: 170px;
       margin-bottom: 90px;
+      font-size: 18px;
    
     }
     .text-block {

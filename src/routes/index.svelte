@@ -89,7 +89,7 @@
 
       </div>
       <div >
-        <Carousel imgs={['/assets/dog/mp4demo.mp4',  '/assets/dog/expconceptres.png', '/assets/dog/dashannotate.png', '/assets/dog/wilddouble.png']} imgCap={imgCap} addTopMargin={true} />
+        <Carousel imgs={['/assets/dog/autosketch.png','/assets/dog/explains.png', '/assets/dog/dashannotate.png', '/assets/dog/locode2.png']} imgCap={imgCap} addTopMargin={true} />
       </div>
     </div>
     <!-- <div class="content-block">

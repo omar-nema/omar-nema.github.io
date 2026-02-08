@@ -75,16 +75,16 @@
           As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
         </p>
         <p>
-          My initial scope was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation. 
+          My initial focus was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation.
         </p>  
         <p>
-          In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it is efficient enough to run for free, and shows few false positives.
+          In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it's efficient enough to run for free, and shows few false positives.
         </p>
         <p> 
-          My focus now is moving beyond triage to automating root cause analysis. This is challenging to do at Datadog’s scale: how do you proactively scan for issues without incurring too much cost? How do you take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? 
+          My focus now is moving beyond triage to automating root cause analysis. I’m working through challenges like: how do we proactively scan for issues without incurring too much cost at Datadog’s scale? How do we take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? And how do we bring in the user's expertise without making them do too much work?
         </p>
         <p>
-          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation, akin to a text-based adventure games.
+          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation, akin to a text-based adventure game.
         </p>
 
       </div>
@@ -115,7 +115,7 @@
       <div class="text-block">
         <h1>Teaching students to use code as a creative medium</h1>
         <p>
-          I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn to code as a medium for creative expression.  We explore how computation can make things that couldn't exist any other way. I love seeing students discover what becomes possible with code.
+          I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn code as a creative medium. Students build generative art and expressive websites. interfaces designed to linger and explore.
         </p>
       </div>
     </div>
@@ -124,13 +124,13 @@
       <div class="text-block">
         <h1>At Parsons, I got to explore interactive art</h1>
         <p>
-          After years of designing and building interactive apps on the side, I went to grad school for Data Visualization to scratch my creative itch. 
+          After years of straddling design, data, and product at Arcadia, I wanted to push this practice further than I could on my own. I went to Parsons Design School to study computational design and data visualization.
         </p>
         <p>
           My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it in realtime. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
         </p>
       </div>
-      <Carousel imgs={['/assets/gaze/gaze2.png', '/assets/housing/housing3.png', '/assets/soundAndSpace/ss2.png', '/assets/tellMe/tell3.png']} imgCap={imgCap} addTopMargin={true} />
+      <Carousel imgs={['/assets/gaze/gaze2.png', '/assets/housing/housing3.png', '/assets/soundAndSpace/ss2.png' ,'/assets/compSketches/ff-2.png']} imgCap={imgCap} addTopMargin={true} />
     
       
     </div>
@@ -138,11 +138,20 @@
       <div class="text-block">
         <h1>I launched two healthcare products at Arcadia from the ground up</h1>
         <p>
-          I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas. My obsession with making sense of the data we had led me to create the visuals below.
+          I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas.
         </p>
+
         <p>
-          At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> helps care teams efficiently manage large patient caseloads with predictive risk models and automated workflows, and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> streamlines specialist referrals by automatically suggesting high-quality providers based on patient needs (see <a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).
+          At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> (<a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>). I found both products by getting curious about how practitioners actually work. I sat with nurse care managers and saw how they struggled to reach out to patients, so I built a product centered first around automating early outreach. For Referrals, I watched admins carry entire decision trees from their own knowledge into order to make referral choices. I turned that tacit knowledge into a tool.
         </p>
+        
+        <p>Both tools went on to become core to Arcadia’s product suite.</p>
+       
+       
+        
+
+        
+    
       </div>
       <div
         class="content"
@@ -150,7 +159,7 @@
         out:fade={{ duration: 300 }}
       >
         <div >
-          <Carousel imgs={['/assets/arcadia/cm.png', '/assets/arcadia/hospitalvar.png', '/assets/arcadia/referral.png']} imgCap="500px" addTopMargin={true} />
+          <Carousel imgs={['/assets/arcadia/cm-caption.png', '/assets/arcadia/referral-net-caption.png']} imgCap="500px" addTopMargin={true} />
         </div>
       </div>
     </div>

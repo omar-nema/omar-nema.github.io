@@ -37,10 +37,7 @@
     // Then, on the next frame, measure the actually rendered media height
     // and tighten the container if the media is shorter (e.g., very wide image)
     const measure = () => {
-      let el = sampleImage;
-      if (!el && carouselContainer) {
-        el = carouselContainer.querySelector('img, video');
-      }
+      const el = carouselContainer ? carouselContainer.querySelector('img, video') : null;
       if (el) {
         const rendered = el.getBoundingClientRect().height;
         if (rendered > 0 && rendered < maxH) {
@@ -52,17 +49,6 @@
       requestAnimationFrame(measure);
     } else {
       setTimeout(measure, 0);
-    }
-  }
-
-  let sampleImage;
-  $: {
-    sampleImage;
-    if (sampleImage) {
-      let ht = sampleImage.getBoundingClientRect().height;
-      if (ht > 80) {
-        maxH = ht;
-      }
     }
   }
 
@@ -122,7 +108,6 @@
               }}
               style="max-width: min(98vw, {imgCap}); max-height: {maxH}px"
               src={img.path}
-              bind:this={sampleImage}
             />
           {:else}
             <video

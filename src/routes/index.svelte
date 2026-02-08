@@ -75,7 +75,7 @@
           As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
         </p>
         <p>
-          My initial focus was Data Visualization and Querying, where I first focused on creating more powerful and expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation.
+          My initial focus was Data Visualization and Querying: creating more expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation.
         </p>  
         <p>
           In year two, I conceived and shipped Datadog’s first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it's efficient enough to run for free, and shows few false positives.
@@ -84,7 +84,7 @@
           My focus now is moving beyond triage to automating root cause analysis. I’m working through challenges like: how do we proactively scan for issues without incurring too much cost at Datadog’s scale? How do we take advantage of an LLM’s creativity while ensuring it returns quick and accurate results? And how do we bring in the user's expertise without making them do too much work?
         </p>
         <p>
-          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. The user is still central to the investigation, akin to a text-based adventure game.
+          My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue. 
         </p>
 
       </div>

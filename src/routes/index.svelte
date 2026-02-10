@@ -115,7 +115,7 @@
       <div class="text-block">
         <h1>Teaching students to use code as a creative medium</h1>
         <p>
-          I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn code as a creative medium. Students build generative art and expressive websites. interfaces designed to linger and explore.
+          I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn to use code for creative expression. I love seeing students discover what becomes possible with code.
         </p>
       </div>
     </div>
@@ -124,7 +124,7 @@
       <div class="text-block">
         <h1>At Parsons, I got to explore interactive art</h1>
         <p>
-          After years of straddling design, data, and product at Arcadia, I wanted to push this practice further than I could on my own. I went to Parsons Design School to study computational design and data visualization.
+          After years of building interactive art with code outside of work, I wanted to push my practice further. I went to Parsons Design School to study computational design and data visualization.
         </p>
         <p>
           My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it in realtime. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
@@ -142,10 +142,10 @@
         </p>
 
         <p>
-          At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> (<a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>). I found both products by getting curious about how practitioners actually work. I sat with nurse care managers and saw how they struggled to reach out to patients, so I built a product centered first around automating early outreach. For Referrals, I watched admins carry entire decision trees from their own knowledge into order to make referral choices. I turned that tacit knowledge into a tool.
+          At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager"  target="_blank">Care Manager</a> and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> (<a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>).  It was fascinating to step into an unknown domain with the goal of encoding human judgment into systems. I translated the complex decisions trees that referral administrators work with into a deterministic product. In Care Manager, I worked to automate risk stratification and patient outreach, freeing nurses to focus on caring for patients. Both products went on to become core to Arcadia's suite.
         </p>
         
-        <p>Both tools went on to become core to Arcadia’s product suite.</p>
+
        
        
         

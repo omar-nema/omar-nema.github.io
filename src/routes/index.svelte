@@ -269,11 +269,15 @@
     .intro {
       padding:10px 22px;
       margin-bottom: 50px;
-      border: 1px solid #ab7c7c;
+      border: 1px solid #8080805e;
       margin: 0 20px;
       margin-top: 170px;
       margin-bottom: 90px;
       font-size: 18px;
+    
+      border-radius: 10px;
+      box-shadow: rgba(100, 100, 111, 0.35) 0px 7px 29px 0px;
+   
    
     }
     .text-block {
@@ -281,7 +285,7 @@
       padding: 0 22px;
     }
     header {
-      height: 10px;
+      display: none;
     }
  
     .header-container {

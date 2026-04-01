@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
 
 :root {
   --dim-header-height: 45px;
@@ -254,10 +255,36 @@ strong {
   color: black;
 }
 
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(29 28 28 / 80%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: 25px 50px;
+  text-align: center;
+  pointer-events: none;
+  line-height: normal;
+}
+
 /* Mobile */
 @media only screen and (max-width: 700px) {
   h1 {
     font-size: 26px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  .slide-caption {
+    font-size: 8px;
+    padding: 10px 30px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
   }
 
   .content-outer {
@@ -272,12 +299,12 @@ strong {
 
 
   .intro {
-    padding: 8px 18px;
+    padding: 8px 20px;
     border: 1px solid #808080e6;
     margin: 0 20px;
     margin-top: 130px;
     font-size: 16px;
-    border-radius: 6px;
+    border-radius: 15px;
    
   }
   .content-block, .intro {
@@ -302,6 +329,10 @@ strong {
     padding: 0;
     border-radius: 8px;
     border: 2px solid black;
+  }
+  .slide {
+    overflow:hidden;
+    border-radius: 8px;
   }
 }
 

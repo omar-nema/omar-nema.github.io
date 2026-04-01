@@ -5,12 +5,14 @@ class Carousel {
     this._maxH = Math.max(80, window.innerHeight - 100);
 
     const imgPaths = JSON.parse(container.dataset.imgs);
+    this.captions = container.dataset.captions ? JSON.parse(container.dataset.captions) : [];
     this.imgCap = container.dataset.cap || '1200px';
     const addTopMargin = container.dataset.topMargin === 'true';
 
-    this.imgsWithTypes = imgPaths.map((d) => ({
+    this.imgsWithTypes = imgPaths.map((d, i) => ({
       path: d,
-      type: d.includes('mp4') || d.includes('avi') ? 'video' : 'image',
+      type: d.includes('mp4') || d.includes('avi') || d.includes('mov') ? 'video' : 'image',
+      caption: this.captions[i] || null,
     }));
 
     this.render(addTopMargin);
@@ -100,10 +102,17 @@ class Carousel {
         videoEl.style.maxHeight = `${this._maxH}px`;
         const source = document.createElement('source');
         source.src = img.path;
-        source.type = 'video/mp4';
+        source.type = img.path.includes('.mov') ? 'video/quicktime' : 'video/mp4';
         videoEl.appendChild(source);
         videoEl.addEventListener('loadedmetadata', () => this.initSlideSize());
         slideDiv.appendChild(videoEl);
+      }
+
+      if (img.caption) {
+        const cap = document.createElement('div');
+        cap.className = 'slide-caption';
+        cap.textContent = img.caption;
+        slideDiv.appendChild(cap);
       }
 
       slideDiv.addEventListener('click', () => this.next());

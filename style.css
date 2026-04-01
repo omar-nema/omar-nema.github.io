@@ -272,14 +272,13 @@ strong {
 
 
   .intro {
-    padding: 10px 22px;
-    border: 2px solid #808080e6;
+    padding: 8px 18px;
+    border: 1px solid #808080e6;
     margin: 0 20px;
     margin-top: 130px;
     font-size: 16px;
     border-radius: 6px;
-    box-shadow: none;
-    
+   
   }
   .content-block, .intro {
     margin-bottom: 90px;

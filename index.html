@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Omar Nema: product and creative work" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>omar nema</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVRRR6SLNG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GVRRR6SLNG');
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="update-container">
+          <span class="name">omar nema</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-outer">
+      <div class="intro">
+        <h2>Hi, I'm Omar!</h2>
+        <p>
+          I build Search &amp; Graphing products at <strong>Datadog</strong>. I also teach at <strong>CUNY Graduate Center</strong>. Before: I studied design at <strong>Parsons</strong>, built healthcare products at <strong>Arcadia</strong>, and studied engineering at <strong>Brown</strong>. I live in Queens, New York.
+        </p>
+      </div>
+
+      <div class="text-container">
+        <div class="content-block">
+          <div class="text-block">
+            <h1>Automating Investigation at Datadog</h1>
+            <p>
+              As a Staff Product Manager of Investigation and Search at Datadog, I work on enabling users to find answers in complex systems.
+            </p>
+            <p>
+              My initial focus was Data Visualization and Querying: creating more expressive data analysis tools. In parallel, I studied how customers move through an investigation. As my understanding in this space matured in my first year at Datadog, I developed a vision for how to automate investigation.
+            </p>
+            <p>
+              In year two, I conceived and shipped Datadog's first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it's efficient enough to run for free, and shows few false positives.
+            </p>
+            <p>
+              My focus now is moving beyond triage to automating root cause analysis. I'm working through challenges like: how do we proactively scan for issues without incurring too much cost at Datadog's scale? How do we take advantage of an LLM's creativity while ensuring it returns quick and accurate results? And how do we bring in the user's expertise without making them do too much work?
+            </p>
+            <p>
+              My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue.
+            </p>
+          </div>
+          <div
+            data-carousel
+            data-imgs='["/assets/dog/autosketch.png","/assets/dog/explains.png","/assets/dog/dashannotate.png","/assets/dog/locode2.png"]'
+            data-top-margin="true"
+          ></div>
+        </div>
+
+        <div class="content-block">
+          <div class="text-block">
+            <h1>Teaching students to use code as a creative medium</h1>
+            <p>
+              I teach <a href="https://cuny-software-design.notion.site/Creative-Computing-Spring-2025-1642f3b3e67d8021baead71fb6f6ed60?source=copy_link" target="_blank">Creative Computing</a> at CUNY Graduate Center, where grad students learn to use code for creative expression. I love seeing students discover what becomes possible with code.
+            </p>
+          </div>
+        </div>
+
+        <div class="content-block">
+          <div class="text-block">
+            <h1>At Parsons, I got to explore interactive art</h1>
+            <p>
+              After years of building interactive art with code outside of work, I wanted to push my practice further. I went to Parsons Design School to study computational design and data visualization.
+            </p>
+            <p>
+              My thesis at Parsons, How We Gaze, was a gallery of gazes: it distorts art to reflect how the viewer looks at it in realtime. How We Gaze was selected as a winner for the <a href="https://pudding.cool/process/pudding-cup-2021/" target="_blank">Pudding Cup</a>, an independent data visualization award. Snippets of this project and others below.
+            </p>
+          </div>
+          <div
+            data-carousel
+            data-imgs='["/assets/gaze/gaze2.png","/assets/housing/housing3.png","/assets/soundAndSpace/ss2.png","/assets/compSketches/ff-2.png"]'
+            data-top-margin="true"
+          ></div>
+        </div>
+
+        <div class="content-block">
+          <div class="text-block">
+            <h1>I launched two healthcare products at Arcadia from the ground up</h1>
+            <p>
+              I started my career at Arcadia, a healthcare tech startup. I got my hands dirty, teaching myself to design, code, model data, and pitch new product ideas.
+            </p>
+            <p>
+              At Arcadia, I launched two enterprise workflow products from 0 to $XM: <a href="https://arcadia.io/care-manager" target="_blank">Care Manager</a> and <a href="https://arcadia.io/referrals" target="_blank">Referrals</a> (<a href="https://www.healthcarefinancenews.com/news/steward-health-care-network-workflow-automation-yields-161-increase-care-coordination">press</a>). It was fascinating to step into an unknown domain with the goal of encoding human judgment into systems. I translated the complex decisions trees that referral administrators work with into a deterministic product. In Care Manager, I worked to automate risk stratification and patient outreach, freeing nurses to focus on caring for patients. Both products went on to become core to Arcadia's suite.
+            </p>
+          </div>
+          <div
+            data-carousel
+            data-imgs='["/assets/arcadia/cm-caption.png","/assets/arcadia/referral-net-caption.png"]'
+            data-cap="500px"
+            data-fixed-cap="true"
+            data-top-margin="true"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="carousel.js"></script>
+  </body>
+</html>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons+Round');
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
 
 :root {
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: 'Figtree';
+  font-family: 'Plus Jakarta Sans', sans-serif;
   margin: 0;
   padding: 0;
   background: #f7f9fd;

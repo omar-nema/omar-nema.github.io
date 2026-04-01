@@ -334,6 +334,10 @@ strong {
     overflow:hidden;
     border-radius: 8px;
   }
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 @media only screen and (max-width: 600px) {

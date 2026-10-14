@@ -47,16 +47,16 @@
               In year two, I conceived and shipped Datadog's first widely used AI feature, Watchdog Explains. In near-realtime, this feature automatically detects anomalies on dashboards, and picks apart the exact dimension contributing to the anomaly. The feature was a good start for automating investigation: it's efficient enough to run for free, and shows few false positives.
             </p>
             <p>
-              My focus now is moving beyond triage to automating root cause analysis. I'm working through challenges like: how do we proactively scan for issues without incurring too much cost at Datadog's scale? How do we take advantage of an LLM's creativity while ensuring it returns quick and accurate results? And how do we bring in the user's expertise without making them do too much work?
+              As LLMs matured, we moved beyond triage to automating root cause analysis. The challenge then became: how do we meet the user in their workflow, build trust, and gradually change their approach to investigation?
             </p>
             <p>
-              My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation. We are working on building a multi-layered investigation system that takes multiple, gradually more comprehensive passes at detecting an issue.
+              My team has expanded to include Search, in order to build context layers and semantic search models to ground an LLM in its investigation.
             </p>
           </div>
           <div
             data-carousel
-            data-imgs='["/assets/dog/autosketch.png","/assets/dog/explains.png","/assets/dog/sre.png","/assets/dog/locode.png","/assets/dog/ccm-nlq.png"]'
-            data-captions='["My early concept sketches for automating investigation in dashboards and graphs","I shipped Datadog\u0027s first widely used AI tool -- by both humans and agents. This tool highlights anomalies on dashboards, and points out which specific dimension is causing a spike.","Now working on building end to end investigation on dashboards, using cheap internal LLMs to scan for issues, and frontier models to handle reasoning","Low-code visual and querying editor: concept \u2192 reality. Gave customers more expressive tools so my team can focus on automating investigation.","I led natural language querying for Datadog\u0027s cloud cost product, across dozens of eval cycles and prototypes"]'
+            data-imgs='["/assets/dog/bits-investigate.mp4","/assets/dog/explains.png","/assets/dog/autosketch.png","/assets/dog/locode.png"]'
+            data-captions='["Now working on building end to end investigation on dashboards, using cheap internal LLMs to scan for issues, and frontier models to handle reasoning","I shipped Datadog\u0027s first widely used AI tool -- by both humans and agents. This tool highlights anomalies on dashboards, and points out which specific dimension is causing a spike.","My early concept sketches for automating investigation in dashboards and graphs","Low-code visual and querying editor: concept \u2192 reality. Gave customers more expressive tools so my team can focus on automating investigation."]'
             data-top-margin="true"
           ></div>
         </div>

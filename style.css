@@ -113,12 +113,19 @@ h2 {
 }
 
 .section-date {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid #d3d9ef;
+  border-radius: 10px;
+  background: #f3f4f7;
+  font-size: 0.85em;
   font-weight: 400;
-  color: #6b7280;
+  line-height: 1.2;
+  color: black;
 }
 
 h1 + .section-date {
-  margin-top: -16px;
+  margin-top: -12px;
 }
 
 .text-block li {

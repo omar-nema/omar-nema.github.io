@@ -42,7 +42,7 @@ button[style*="background: transparent"]:not(.acc):not(.defrow):hover{background
 a[style*="border-radius: 999px"]:not([aria-current]):not(.seg):hover{border-color:#2272B4 !important;color:#0E538B !important}
 .seg-off:hover{color:#161616 !important;background-color:rgba(16,24,40,0.05) !important}
 a[href]:not([class]):not([style*="background"]):not([style*="border-radius: 999px"]):hover{background-color:rgba(34,114,180,0.08);color:#0E538B !important}
-.cap-btn{height:28px;box-sizing:border-box;padding:0 12px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:18px;font-weight:600;white-space:nowrap}
+.cap-btn{height:36px;box-sizing:border-box;padding:0 16px;border-radius:6px;display:inline-flex;align-items:center;gap:6px;font-size:14px;line-height:20px;font-weight:600;white-space:nowrap}
 .cap-back{color:#E6E6E6 !important;border:1px solid rgba(255,255,255,0.2)}
 .cap-back:hover{background-color:rgba(255,255,255,0.1) !important;color:#FFFFFF !important}
 .cap-next{background:#FFFFFF;color:#161616 !important}
@@ -51,6 +51,7 @@ a[href]:not([class]):not([style*="background"]):not([style*="border-radius: 999p
 </style>
 </helmet>
 <div style="width: 100%; height: 100vh; box-sizing: border-box; background: #F7F7F7; color: #161616; font-family: -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; font-size: 13px; line-height: 18px; display: flex; flex-direction: column; overflow: hidden">
+<div role="region" aria-label="Prototype caption" style="flex: none; margin: 0; box-sizing: border-box; padding: 16px 24px; border-radius: 0; background: #161616; color: #FFFFFF; display: flex; align-items: center; gap: 20px; font-family: inherit"><span style="flex: none; font-size: 14px; line-height: 20px; font-weight: 600; color: rgba(255,255,255,0.6); font-variant-numeric: tabular-nums">2 of 6</span><p style="flex: 1; min-width: 0; margin: 0; font-size: 16px; line-height: 24px; color: #FFFFFF">The data team is alerted that multiple users are asking about sentiment, which is not defined and requires extraction. Genie proposes to add a new column.</p><span style="flex: none; display: flex; align-items: center; gap: 8px"><a class="cap-btn cap-back" href="Main.dc.html"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4L6 8l4 4"></path></svg>Back</a><a class="cap-btn cap-next" href="Pipeline.dc.html">Next<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"></path></svg></a></span></div>
 
 <header class="tb" style="height: 48px; flex: none; display: grid; grid-template-columns: minmax(max-content, 1fr) minmax(0, 560px) minmax(max-content, 1fr); align-items: center; background: #F7F7F7; padding: 0 14px 0 16px; box-sizing: border-box">
 <div style="display: flex; align-items: center; gap: 4px; height: 48px">
@@ -344,7 +345,6 @@ a[href]:not([class]):not([style*="background"]):not([style*="border-radius: 999p
 </div>
 </sc-if>
 
-<div role="region" aria-label="Prototype caption" style="flex: none; margin: 0 4px 4px 4px; box-sizing: border-box; padding: 12px 12px 12px 16px; border-radius: 8px; background: #161616; color: #FFFFFF; display: flex; align-items: center; gap: 16px; font-family: inherit"><span style="flex: none; font-size: 12px; line-height: 18px; font-weight: 600; color: rgba(255,255,255,0.6); font-variant-numeric: tabular-nums">2 of 6</span><p style="flex: 1; min-width: 0; margin: 0; font-size: 13px; line-height: 20px; color: #FFFFFF">The data team is alerted that multiple users are asking about sentiment, which is not defined and requires extraction. Genie proposes to add a new column.</p><span style="flex: none; display: flex; align-items: center; gap: 6px"><a class="cap-btn cap-back" href="Main.dc.html"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4L6 8l4 4"></path></svg>Back</a><a class="cap-btn cap-next" href="Pipeline.dc.html">Next<svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"></path></svg></a></span></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1518,"height":1000}}'>

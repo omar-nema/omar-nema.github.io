@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta charset="utf-8">
+<title>Franchise CX Insights – pipeline recommendations</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#F7F7F7}
+a{color:#11171C;text-decoration:none}a:hover{color:#11171C}
+.nav-item:hover{background:rgba(34,114,180,0.08)}
+.icon-btn:hover{background:rgba(34,114,180,0.08)}
+.seg:hover{color:#11171C}
+.lnk{color:#2272B4}.lnk:hover{color:#0E538B;text-decoration:underline}
+.btn-o:hover{background:#F7F7F7}
+.btn-p:hover{background:#0E538B !important;border-color:#0E538B !important;color:#FFFFFF}
+.rowlink:hover{background:#F7F7F7}
+.defrow:hover{background:#F7F7F7}
+.acc:hover{background:#FAFAFA}
+input::placeholder{color:#6F6F6F;opacity:1}
+.code{font-family:Menlo,Consolas,'Liberation Mono',monospace;font-size:12px;line-height:20px;white-space:pre}
+.kw{color:#0E538B;font-weight:600}.fn{color:#6B2FBF}.st{color:#A3341A}.cm{color:#6F6F6F;font-style:italic}
+@media (max-width:760px){.tb{grid-template-columns:auto 1fr !important}.tb-search{display:none !important}.sb{width:100% !important;max-height:200px}.ph{grid-template-columns:1fr !important;height:auto !important}.ph-r{justify-content:flex-start !important}.ev{grid-template-columns:repeat(2, minmax(0, 1fr)) !important}.cols{grid-template-columns:1fr !important}}
+.seg-off:hover{color:#161616;background:rgba(16,24,40,0.04)}
+@media (max-width:760px){.shell-row{flex-wrap:wrap !important}}
+/* prototype hover states */
+a[href],button{transition:background-color .15s ease,color .15s ease,border-color .15s ease,box-shadow .15s ease,transform .1s ease}
+a[href]:active,button:active{transform:translateY(1px)}
+a[href]:focus-visible,button:focus-visible{outline:2px solid #2272B4;outline-offset:2px}
+.btn-o:hover,button[style*="background: #FFFFFF"]:not(.icon-btn):hover,a[style*="background: #FFFFFF"]:not(.seg):hover{background-color:#F3F4F6 !important;border-color:#A3A3A3 !important}
+.btn-p:hover,button[style*="background: #2272B4"]:hover,a[style*="background: #2272B4"]:hover{background-color:#0E538B !important;border-color:#0E538B !important;color:#FFFFFF !important;box-shadow:0 2px 8px rgba(14,83,139,.28)}
+button[style*="background: #F7F7F7"]:hover{background-color:#ECEDEF !important}
+button[style*="background: transparent"]:not(.acc):not(.defrow):hover{background-color:rgba(34,114,180,0.08) !important}
+.icon-btn:hover{background-color:rgba(34,114,180,0.08) !important}
+.nav-item:not([aria-current]):hover{background-color:rgba(34,114,180,0.06) !important;color:#0E538B !important}
+.acc:hover,.defrow:hover,.rowlink:hover{background-color:#F6F8FA !important}
+.lnk:hover{color:#0E538B !important;text-decoration:underline}
+a[style*="border-radius: 999px"]:not([aria-current]):not(.seg):hover{border-color:#2272B4 !important;color:#0E538B !important}
+.seg-off:hover{color:#161616 !important;background-color:rgba(16,24,40,0.05) !important}
+a[href]:not([class]):not([style*="background"]):not([style*="border-radius: 999px"]):hover{background-color:rgba(34,114,180,0.08);color:#0E538B !important}
+.cap-btn{height:28px;box-sizing:border-box;padding:0 12px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:18px;font-weight:600;white-space:nowrap}
+.cap-back{color:#E6E6E6 !important;border:1px solid rgba(255,255,255,0.2)}
+.cap-back:hover{background-color:rgba(255,255,255,0.1) !important;color:#FFFFFF !important}
+.cap-next{background:#FFFFFF;color:#161616 !important}
+.cap-next:hover{background-color:#E9EBEE !important;color:#161616 !important}
+.cap-off{color:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.12)}
+</style>
+</helmet>
+<div style="width: 100%; height: 100vh; box-sizing: border-box; background: #F7F7F7; color: #161616; font-family: -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; font-size: 13px; line-height: 18px; display: flex; flex-direction: column; overflow: hidden">
+
+<header class="tb" style="height: 48px; flex: none; display: grid; grid-template-columns: minmax(max-content, 1fr) minmax(0, 560px) minmax(max-content, 1fr); align-items: center; background: #F7F7F7; padding: 0 14px 0 16px; box-sizing: border-box">
+<div style="display: flex; align-items: center; gap: 4px; height: 48px">
+<button class="icon-btn" aria-label="Collapse sidebar" style="width: 32px; height: 32px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #525252; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="1.5"></rect><path d="M6 2.75v10.5"></path></svg></button>
+</div>
+<div class="tb-search" style="display: flex; align-items: center; justify-content: center; min-width: 0">
+<label style="width: 100%; max-width: 560px; height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 12px; background: #FFFFFF; border: 1px solid #CBCBCB; border-radius: 4px; cursor: text"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" style="flex: none"><circle cx="7" cy="7" r="4.75"></circle><path d="M10.5 10.5l3.5 3.5"></path></svg><input type="search" aria-label="Search" placeholder="Search data, notebooks, recents, and more..." style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; padding: 0; height: 20px; font: inherit; font-size: 13px; color: #161616"><span style="flex: none; color: #6F6F6F; font-size: 13px; line-height: 20px">⌘ + P</span></label>
+</div>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 4px">
+<button style="height: 34px; box-sizing: border-box; padding: 0 8px; border: 0; border-radius: 4px; background: transparent; color: #161616; display: flex; align-items: center; font: inherit; font-size: 13px; cursor: pointer">bakehouse-prod<svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></button>
+<button class="icon-btn" aria-label="Assistant" style="width: 32px; height: 32px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #8A4FE0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5c.4 2.8 1.7 4.1 4.5 4.5-2.8.4-4.1 1.7-4.5 4.5-.4-2.8-1.7-4.1-4.5-4.5 2.8-.4 4.1-1.7 4.5-4.5z"></path><path d="M3 13.5h10"></path></svg></button>
+<button class="icon-btn" aria-label="Switch apps" style="width: 32px; height: 32px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #525252; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="3" cy="3" r="1.4"></circle><circle cx="8" cy="3" r="1.4"></circle><circle cx="13" cy="3" r="1.4"></circle><circle cx="3" cy="8" r="1.4"></circle><circle cx="8" cy="8" r="1.4"></circle><circle cx="13" cy="8" r="1.4"></circle><circle cx="3" cy="13" r="1.4"></circle><circle cx="8" cy="13" r="1.4"></circle><circle cx="13" cy="13" r="1.4"></circle></svg></button>
+<button aria-label="Account: Dana Okafor" style="width: 32px; height: 32px; border: 0; padding: 0; border-radius: 4px; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer"><span style="width: 24px; height: 24px; border-radius: 50%; background: #0E7C66; color: #FFFFFF; font-size: 12px; line-height: 24px; text-align: center">D</span></button>
+</div>
+</header>
+
+<div class="shell-row" style="flex: 1; min-height: 0; display: flex; flex-wrap: nowrap; align-items: stretch">
+
+<nav class="sb" aria-label="Main" style="width: 200px; flex: none; box-sizing: border-box; padding: 0 12px 12px 12px; background: #F7F7F7; display: flex; flex-direction: column; overflow-y: auto">
+<a href="#" style="height: 40px; flex: none; box-sizing: border-box; padding: 6px 11px; display: flex; align-items: center; gap: 8px; border-radius: 8px; background: rgba(255,73,73,0.08); border: 1px solid rgba(255,73,73,0.08); color: #11171C; font-size: 13px; line-height: 16px; font-weight: 600"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#FF4949" stroke-width="1.5" stroke-linecap="round" style="flex: none"><path d="M8 2.25v11.5M2.25 8h11.5"></path></svg>New</a>
+<div style="display: flex; flex-direction: column; gap: 2px; margin-top: 9px">
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2.5 7L8 2.5 13.5 7v6.5H10v-4H6v4H2.5z"></path></svg>Home</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M1.5 6L8 3l6.5 3L8 9z"></path><path d="M4 7.3v3.4c1 1 2.5 1.5 4 1.5s3-.5 4-1.5V7.3"></path></svg>Learn</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="3" y="2" width="10.5" height="12" rx="1"></rect><path d="M5.75 2v12M1.75 5h2.5M1.75 8h2.5M1.75 11h2.5"></path></svg>Workspace</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="8" cy="8" r="6.25"></circle><path d="M8 4.5V8l2.5 1.5"></path></svg>Recents</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M8 1.75l2.75 4.75h-5.5z"></path><circle cx="4.75" cy="11.25" r="2.5"></circle><rect x="9" y="8.75" width="5" height="5" rx=".5"></rect></svg>Catalog</a>
+<a class="nav-item" href="Pipeline.dc.html" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="4" cy="4" r="2"></circle><circle cx="12" cy="12" r="2"></circle><path d="M6 4h4a2 2 0 0 1 0 4H6a2 2 0 0 0 0 4h4"></path></svg>Jobs &amp; Pipelines</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M4.5 12.5h7a3 3 0 0 0 .3-6 4 4 0 0 0-7.6-.9A3.5 3.5 0 0 0 4.5 12.5z"></path></svg>Compute</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="8" cy="8" r="6.25"></circle><path d="M10.5 5.5L9 9l-3.5 1.5L7 7z"></path></svg>Discover</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2 6l1-3.5h10L14 6"></path><path d="M2 6a2 2 0 0 0 4 0 2 2 0 0 0 4 0 2 2 0 0 0 4 0"></path><path d="M3 7.5v6h10v-6M6.5 13.5V10h3v3.5"></path></svg>Marketplace</a>
+</div>
+<div style="height: 28px; box-sizing: border-box; padding: 6px 12px; margin-top: 17px; color: #6F6F6F; font-size: 12px; line-height: 16px">SQL</div>
+<div style="display: flex; flex-direction: column; gap: 1px; margin-top: 1px">
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="1"></rect><path d="M4.5 6.5l2 2-2 2M8 10.5h3"></path></svg>SQL Editor</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M9.5 1.75H4a1 1 0 0 0-1 1v10.5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5.25z"></path><path d="M9.5 1.75v3.5H13M6.5 8.5L5 10l1.5 1.5M9.5 8.5L11 10l-1.5 1.5"></path></svg>Queries</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="1.75" y="1.75" width="12.5" height="12.5" rx="1"></rect><path d="M1.75 6.5h12.5M7 6.5v7.75"></path></svg>Dashboards</a>
+<a class="nav-item" href="Main.dc.html" aria-current="page" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; background: rgba(34,114,180,0.08); color: #0E538B; font-size: 13px; line-height: 16px; font-weight: 600"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#0E538B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2 3.5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H6l-3 2.5v-2.5a1 1 0 0 1-1-1z"></path><path d="M8 5v3M6.5 6.5h3"></path></svg>Genie Agents</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M4 11V7a4 4 0 0 1 8 0v4l1.25 1.5H2.75z"></path><path d="M6.5 14h3"></path></svg>Alerts</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9"></path><path d="M2 2.5V5h2.5"></path><path d="M8 5v3l2 1.25"></path></svg>Query History</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M4.5 10.5h7a3 3 0 0 0 .3-6 4 4 0 0 0-7.6-.9A3.5 3.5 0 0 0 4.5 10.5z"></path><path d="M8 10.5v3M5.5 13.5h5"></path></svg>SQL Warehouses</a>
+</div>
+<div style="height: 28px; box-sizing: border-box; padding: 6px 12px; margin-top: 17px; color: #6F6F6F; font-size: 12px; line-height: 16px">Data Engineering</div>
+<div style="display: flex; flex-direction: column; gap: 1px; margin-top: 1px">
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M7 4h7M7 8h7M7 12h7"></path><path d="M2 4l1 1 2-2M2 8l1 1 2-2M2 12l1 1 2-2"></path></svg>Runs</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><ellipse cx="10" cy="4" rx="4" ry="1.75"></ellipse><path d="M6 4v8c0 1 1.8 1.75 4 1.75s4-.75 4-1.75V4"></path><path d="M1.5 8.5h5M4.5 6.5l2 2-2 2"></path></svg>Data Ingestion</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="1.75" y="1.75" width="5" height="4" rx=".75"></rect><rect x="9.25" y="10.25" width="5" height="4" rx=".75"></rect><path d="M4.25 5.75v3.5a1 1 0 0 0 1 1h4"></path></svg>Visual Data Prep</a>
+</div>
+<div style="height: 28px; box-sizing: border-box; padding: 6px 12px; margin-top: 17px; color: #6F6F6F; font-size: 12px; line-height: 16px">AI/ML</div>
+<div style="display: flex; flex-direction: column; gap: 1px; margin-top: 1px">
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2.5 13.5l7-7"></path><path d="M11 1.75v2.5M11 7.75v2.5M7.75 5h-1.5M15 5h-1.5"></path></svg>Playground</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="8" cy="5.5" r="3"></circle><path d="M2.5 14a5.5 5.5 0 0 1 11 0"></path></svg>Agents</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="8" cy="8" r="2"></circle><circle cx="3" cy="3" r="1.5"></circle><circle cx="13" cy="3" r="1.5"></circle><circle cx="3" cy="13" r="1.5"></circle><circle cx="13" cy="13" r="1.5"></circle><path d="M4.1 4.1l2.5 2.5M11.9 4.1L9.4 6.6M4.1 11.9l2.5-2.5M11.9 11.9L9.4 9.4"></path></svg>AI Gateway</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M6 1.75v4.5L2.5 12.5a1 1 0 0 0 .9 1.75h9.2a1 1 0 0 0 .9-1.75L10 6.25v-4.5M5 1.75h6M4.5 9.5h7"></path></svg>Experiments</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><rect x="2" y="4.5" width="9.5" height="9.5" rx="1"></rect><path d="M4.5 2H13a1 1 0 0 1 1 1v8.5"></path></svg>Features</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M8 1.75l5.5 3.1v6.3L8 14.25l-5.5-3.1V4.85z"></path><path d="M2.5 4.85L8 8l5.5-3.15M8 8v6.25"></path></svg>Models</a>
+<a class="nav-item" href="#" style="height: 28px; box-sizing: border-box; padding: 6px 12px; display: flex; align-items: center; gap: 8px; border-radius: 4px; color: #11171C; font-size: 13px; line-height: 16px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M5 10.5H4.5A3.5 3.5 0 0 1 4.2 3.6a4 4 0 0 1 7.6.9 3 3 0 0 1-.3 6H11"></path><path d="M8 7v7M6 12l2 2 2-2"></path></svg>Serving</a>
+</div>
+</nav>
+
+<main style="flex: 999 1 560px; min-width: 0; margin: 0 4px 4px 0; box-sizing: border-box; background: #FFFFFF; border: 1px solid #EBEBEB; border-radius: 8px; box-shadow: rgba(0,0,0,0.05) 0px 2px 3px -1px, rgba(0,0,0,0.02) 0px 1px 0px 0px; display: flex; flex-direction: column; overflow: hidden">
+
+<div class="ph" style="height: 56px; flex: none; box-sizing: border-box; padding: 8px 16px 16px 17px; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px">
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 12px; min-width: 0; font-size: 13px; line-height: 20px; font-weight: 600; color: #161616">
+<a href="Main.dc.html" style="padding: 2px 5px; border-radius: 4px; color: #161616; white-space: nowrap">Franchise CX Insights</a>
+<span aria-hidden="true" style="font-weight: 400">/</span>
+<span aria-current="page" style="white-space: nowrap">Monitoring</span>
+</nav>
+<div style="display: flex; align-items: center; gap: 4px; height: 32px; background: #F7F7F7; border-radius: 999px">
+<a class="seg" href="Main.dc.html" style="height: 32px; box-sizing: border-box; padding: 0 8px; display: flex; align-items: center; gap: 4px; border-radius: 999px; color: #6F6F6F; font-size: 13px; line-height: 20px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.5a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v6.5a1 1 0 0 1-1 1H7l-3 2.5V11H3.5a1 1 0 0 1-1-1z"></path></svg>Chat</a>
+<a class="seg" href="Monitor.dc.html" aria-current="page" style="height: 32px; box-sizing: border-box; padding: 0 8px; display: flex; align-items: center; gap: 4px; border-radius: 999px; background: #FFFFFF; box-shadow: inset 0 0 0 1px #CBCBCB; color: #11171C; font-size: 13px; line-height: 20px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z"></path><circle cx="8" cy="8" r="2"></circle></svg>Monitor</a>
+<a class="seg" href="#" style="height: 32px; box-sizing: border-box; padding: 0 8px; display: flex; align-items: center; gap: 4px; border-radius: 999px; color: #6F6F6F; font-size: 13px; line-height: 20px"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2v12h12M5 11V7M8 11V4.5M11 11V8.5"></path></svg>Benchmark</a>
+</div>
+<div class="ph-r" style="display: flex; align-items: center; justify-content: flex-end; gap: 8px">
+<button class="icon-btn" aria-label="New chat" style="width: 24px; height: 24px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #6F6F6F; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 8.5v4a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h4"></path><path d="M11.5 2l2.5 2.5-5.5 5.5H6v-2.5z"></path></svg></button>
+<button class="icon-btn" aria-label="Chat history" style="width: 24px; height: 24px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #11171C; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9"></path><path d="M2 2.5V5h2.5"></path><path d="M8 5v3l2 1.25"></path></svg></button>
+<button style="height: 32px; box-sizing: border-box; padding: 1px 12px; border: 1px solid #CBCBCB; border-radius: 999px; background: transparent; color: #161616; display: flex; align-items: center; gap: 4px; font: inherit; font-size: 13px; line-height: 20px; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2"></circle><path d="M8 1.5v1.75M8 12.75v1.75M1.5 8h1.75M12.75 8h1.75M3.4 3.4l1.25 1.25M11.35 11.35l1.25 1.25M3.4 12.6l1.25-1.25M11.35 4.65l1.25-1.25"></path></svg>Configure</button>
+<button style="height: 32px; box-sizing: border-box; padding: 1px 12px; border: 1px solid #2272B4; border-radius: 999px; background: #2272B4; color: #FFFFFF; display: flex; align-items: center; gap: 4px; font: inherit; font-size: 13px; line-height: 20px; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="10" height="7" rx="1"></rect><path d="M5.25 7V5a2.75 2.75 0 0 1 5.5 0v2"></path></svg>Share</button>
+<button class="icon-btn" aria-label="More options" style="width: 24px; height: 24px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #6F6F6F; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><circle cx="8" cy="3" r="1.25"></circle><circle cx="8" cy="8" r="1.25"></circle><circle cx="8" cy="13" r="1.25"></circle></svg></button>
+</div>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: auto; box-sizing: border-box; padding: 24px">
+
+<nav aria-label="Monitoring views" style="display: inline-flex; align-items: center; gap: 2px; padding: 2px; border-radius: 8px; background: #F2F3F5"><a class="seg" href="Monitor.dc.html" aria-current="page" style="height: 28px; box-sizing: border-box; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 6px; background: #FFFFFF; box-shadow: rgba(16,24,40,0.08) 0px 1px 2px 0px, rgba(16,24,40,0.06) 0px 0px 0px 1px; color: #161616; font-size: 13px; line-height: 20px; font-weight: 600">Pipeline Recommendations</a><a class="seg seg-off" href="#" style="height: 28px; box-sizing: border-box; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 6px; color: #5F5F5F; font-size: 13px; line-height: 20px; font-weight: 500">Conversations</a></nav>
+
+<div style="margin-top: 16px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<div role="group" aria-label="Filter by status" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<a href="Monitor.dc.html" aria-current="true" style="height: 24px; box-sizing: border-box; padding: 0 10px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; border: 1px solid #2272B4; background: rgba(34,114,180,0.08); color: #0E538B; font-size: 12px; line-height: 18px; font-weight: 600">Needs approval<span style="font-weight: 400">4</span></a>
+<a href="AutoFix.dc.html" style="height: 24px; box-sizing: border-box; padding: 0 10px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; border: 1px solid #CBCBCB; background: #FFFFFF; color: #161616; font-size: 12px; line-height: 18px">Applied<span style="color: #6F6F6F">13</span></a>
+<a href="#" style="height: 24px; box-sizing: border-box; padding: 0 10px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; border: 1px solid #CBCBCB; background: #FFFFFF; color: #161616; font-size: 12px; line-height: 18px">Dismissed<span style="color: #6F6F6F">3</span></a>
+</div>
+<a class="btn-o" href="Rules.dc.html" style="margin-left: auto; height: 28px; box-sizing: border-box; padding: 0 10px; border: 1px solid #CBCBCB; border-radius: 4px; background: #FFFFFF; color: #161616; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 18px"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2"></circle><path d="M8 1.75v1.5M8 12.75v1.5M3.6 3.6l1.05 1.05M11.35 11.35l1.05 1.05M1.75 8h1.5M12.75 8h1.5M3.6 12.4l1.05-1.05M11.35 4.65l1.05-1.05"></path></svg>Pipeline Rules</a>
+</div>
+
+<div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px">
+<article aria-labelledby="rec-title" style="border: 1px solid #ECEEF1; border-radius: 12px; background: #FFFFFF; box-shadow: rgba(16,24,40,0.04) 0px 1px 2px 0px, rgba(16,24,40,0.05) 0px 8px 24px -8px">
+<h2 id="rec-title" style="margin: 0; font-size: inherit; font-weight: inherit"><button class="acc" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 16px 20px; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 16px; align-items: center; font: inherit; color: inherit; cursor: pointer; border-radius: 12px" onClick="{{ toggleRec }}" aria-expanded="{{ recOpenStr }}" aria-controls="rec-body"><sc-if value="{{ recOpen }}" hint-placeholder-val="{{ true }}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></sc-if><sc-if value="{{ recClosed }}" hint-placeholder-val="{{ false }}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5L10 8l-3.5 3.5"></path></svg></sc-if><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; line-height: 20px; font-weight: 600">Proposing to add a standardized review sentiment column</span><span style="font-size: 12px; line-height: 18px; color: #6F6F6F">214 questions · 23 people · $1,840 compute in the last 30 days</span></span><span style="display: flex; align-items: center; gap: 16px; font-size: 12px; line-height: 18px; color: #3D3D3D; white-space: nowrap"><span style="height: 20px; box-sizing: border-box; padding: 0 6px; display: inline-flex; align-items: center; gap: 4px; border-radius: 4px; background: #F3ECFC; color: #6B2FBF; font-size: 12px; line-height: 20px; font-weight: 600"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1.5c.4 2.8 1.7 4.1 4.5 4.5-2.8.4-4.1 1.7-4.5 4.5-.4-2.8-1.7-4.1-4.5-4.5 2.8-.4 4.1-1.7 4.5-4.5z"></path></svg>Drafted by Genie</span><span>New column · <code style="font-family: Menlo, Consolas, monospace; font-size: 11px">cx_reviews_etl</code></span><span style="color: #6F6F6F">Today</span></span></button></h2>
+<sc-if value="{{ recOpen }}" hint-placeholder-val="{{ true }}">
+<div id="rec-body">
+
+<div style="padding: 0 20px 16px 52px; border-bottom: 1px solid #EBEBEB; display: flex; align-items: flex-start; gap: 12px; flex-wrap: wrap">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; color: #3D3D3D; font-size: 13px; line-height: 20px">23 people asked 214 sentiment questions in the last 30 days. Sentiment isn’t in your data, so Genie is proposing to create a standardized sentiment column and definition:<span style="color: rgb(22, 22, 22)">&nbsp;as a </span><code style="color: rgb(22, 22, 22); font-family: Menlo, Consolas, monospace; font-size: 12px; background: rgb(247, 247, 247); padding: 1px 4px; border-radius: 3px">review_sentiment</code><span style="color: rgb(22, 22, 22)"> column on </span><code style="color: rgb(22, 22, 22); font-family: Menlo, Consolas, monospace; font-size: 12px; background: rgb(247, 247, 247); padding: 1px 4px; border-radius: 3px">reviews_enriched</code><span style="color: rgb(22, 22, 22)"> in </span><code style="color: rgb(22, 22, 22); font-family: Menlo, Consolas, monospace; font-size: 12px; background: rgb(247, 247, 247); padding: 1px 4px; border-radius: 3px">cx_reviews_etl</code><span style="color: rgb(22, 22, 22)">, labeled once per review with the definition below.</span></p>
+
+</div>
+<div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+<button class="btn-o" style="height: 32px; box-sizing: border-box; padding: 0 12px; border: 1px solid #CBCBCB; border-radius: 4px; background: #FFFFFF; color: #161616; font: inherit; font-size: 13px; line-height: 20px; cursor: pointer">Dismiss…</button>
+<a class="btn-p" href="Pipeline.dc.html" style="height: 32px; box-sizing: border-box; padding: 0 12px; border: 1px solid #2272B4; border-radius: 4px; background: #2272B4; color: #FFFFFF; display: flex; align-items: center; gap: 6px; font-size: 13px; line-height: 20px">Review pipeline change<svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+</div>
+</div>
+
+<section aria-labelledby="why-title">
+<div style="padding: 20px 20px 0 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+
+<h3 id="why-title" style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 600">Why Genie is flagging this</h3>
+<span style="color: #6F6F6F; font-size: 12px; line-height: 18px">Four people asked about Shibuya’s Q4 sentiment and got four different numbers.</span>
+<a class="lnk" href="#" style="margin-left: auto; font-size: 12px; line-height: 18px">View all 214 questions</a>
+</div>
+<div class="cols" style="padding: 12px 20px 4px 20px; display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); gap: 16px; align-items: start">
+<div style="border: 1px solid #EBEBEB; border-radius: 8px; overflow-x: auto">
+<table style="width: 100%; min-width: 560px; border-collapse: collapse; table-layout: fixed; font-size: 12px; line-height: 18px">
+
+<thead><tr style="background: #F7F7F7">
+<th scope="col" style="text-align: left; padding: 8px 12px 4px 12px; font-weight: 600; color: #6F6F6F">Question</th>
+<th scope="col" style="text-align: left; padding: 8px 12px 4px 12px; font-weight: 600; color: #6F6F6F">Asked by</th>
+<th scope="col" style="text-align: left; padding: 8px 12px 4px 12px; font-weight: 600; color: #6F6F6F">Labeled with</th>
+<th scope="col" style="text-align: right; padding: 8px 12px 4px 12px; font-weight: 600; color: #6F6F6F">Returned</th>
+</tr></thead>
+<tbody>
+<tr><td style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><a class="lnk" href="Main.dc.html">Which franchises saw the biggest drop in customer sentiment this quarter?</a></td><td style="padding: 6px 12px; color: #3D3D3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Priya Raman · Ops</td><td style="padding: 6px 12px; white-space: nowrap"><code style="font-family: Menlo, Consolas, monospace; font-size: 11px">ai_analyze_sentiment</code></td><td style="padding: 6px 12px; text-align: right; font-weight: 600">+17</td></tr>
+<tr><td style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><a class="lnk" href="#">How are Tokyo stores trending on reviews since the October menu change?</a></td><td style="padding: 6px 12px; color: #3D3D3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Sam Patel · Product</td><td style="padding: 6px 12px; white-space: nowrap"><span style="display: inline-flex; align-items: center; gap: 4px"><code style="font-family: Menlo, Consolas, monospace; font-size: 11px">ILIKE '%great%'</code><span title="Misreads “not great”" style="height: 16px; box-sizing: border-box; padding: 0 4px; border-radius: 3px; background: #FFF4D6; color: #6A4300; font-size: 10px; line-height: 16px; font-weight: 600">misreads</span></span></td><td style="padding: 6px 12px; text-align: right; font-weight: 600">+29</td></tr>
+<tr><td style="padding: 6px 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><a class="lnk" href="#">Net sentiment by store for the Q4 exec review</a></td><td style="padding: 6px 12px; color: #3D3D3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Lena Fischer · Finance</td><td style="padding: 6px 12px; white-space: nowrap"><code style="font-family: Menlo, Consolas, monospace; font-size: 11px">ai_classify</code> · 3 labels</td><td style="padding: 6px 12px; text-align: right; font-weight: 600">+11</td></tr>
+<tr><td style="padding: 6px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><a class="lnk" href="#">What share of Japan reviews were positive in Q4?</a></td><td style="padding: 6px 10px; color: #3D3D3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Kofi Osei · CX</td><td style="padding: 6px 10px; white-space: nowrap"><code style="font-family: Menlo, Consolas, monospace; font-size: 11px">ai_classify</code> · 4 labels</td><td style="padding: 6px 10px; text-align: right; font-weight: 600">58% pos.</td></tr>
+</tbody>
+</table>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+<div style="box-sizing: border-box; padding: 8px 10px; border-radius: 8px; background: #F7F7F7; display: flex; flex-direction: column; gap: 2px">
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">Sentiment questions</span>
+<span style="font-size: 18px; line-height: 24px; font-weight: 600">214</span>
+<svg role="img" aria-label="Daily sentiment questions, rising over 30 days" width="100%" height="20" viewBox="0 0 200 20" preserveAspectRatio="none" fill="none"><polyline points="0,16 14,17 28,14 42,15 56,13 70,14 84,11 98,12 112,9 126,11 140,8 154,9 168,6 182,7 200,3" stroke="#2272B4" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg>
+</div>
+<div style="box-sizing: border-box; padding: 8px 10px; border-radius: 8px; background: #F7F7F7; display: flex; flex-direction: column; gap: 2px">
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">Query-time AI compute</span>
+<span style="font-size: 18px; line-height: 24px; font-weight: 600">$1,840</span>
+<svg role="img" aria-label="Daily query-time AI compute, rising over 30 days" width="100%" height="20" viewBox="0 0 200 20" preserveAspectRatio="none" fill="none"><polyline points="0,17 14,16 28,17 42,15 56,15 70,13 84,14 98,12 112,12 126,10 140,10 154,8 168,7 182,5 200,2" stroke="#2272B4" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-linejoin="round"></polyline></svg>
+</div>
+<div style="box-sizing: border-box; padding: 8px 10px; border-radius: 8px; background: #F7F7F7; display: flex; flex-direction: column; gap: 2px">
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">People asking</span>
+<span style="font-size: 18px; line-height: 24px; font-weight: 600">23</span>
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">Ops, CX, Product, Finance</span>
+</div>
+<div style="box-sizing: border-box; padding: 8px 10px; border-radius: 8px; background: #F7F7F7; display: flex; flex-direction: column; gap: 2px">
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">Definitions in use</span>
+<span style="font-size: 18px; line-height: 24px; font-weight: 600">3</span>
+<span style="color: #6F6F6F; font-size: 12px; line-height: 16px">Disagree on 1 in 5 reviews</span>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="prop-title">
+<div style="padding: 20px 20px 0 20px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap">
+
+<h3 id="prop-title" style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 600">Genie’s proposal</h3>
+<span style="color: #6F6F6F; font-size: 12px; line-height: 18px">Draft change #142 to <code style="font-family: Menlo, Consolas, monospace; font-size: 11px">cx_reviews_etl</code></span>
+</div>
+<div class="cols" style="padding: 12px 20px 4px 20px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px">
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h4 style="margin: 0; font-size: 12px; line-height: 18px; font-weight: 600; color: #3D3D3D">Drafted definition</h4>
+<div style="border: 1px solid #EBEBEB; border-radius: 8px; overflow: hidden">
+<button class="defrow" onClick="{{ togglePositive }}" aria-expanded="{{ posOpenStr }}" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 8px 12px; display: grid; grid-template-columns: 76px minmax(0, 1fr) 14px; gap: 12px; align-items: center; font: inherit; color: inherit; cursor: pointer"><code style="font-family: Menlo, Consolas, monospace; font-size: 12px; line-height: 20px">positive</code><span style="font-size: 13px; line-height: 20px; color: #3D3D3D">A good visit overall; would return or recommend</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></button>
+<sc-if value="{{ posOpen }}" hint-placeholder-val="{{ true }}">
+<div style="padding: 8px 12px 10px 100px; background: #FAFAFA; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; color: #3D3D3D">
+<span>“Line was out the door but staff kept it moving, and the Outback Oatmeal was still warm. We’ll be back.” <span style="color: #6F6F6F">· Fitzroy, Melbourne</span></span>
+<span>“Best cookie stop of our Tokyo trip. We went twice.” <span style="color: #6F6F6F">· Bakehouse Shibuya</span></span>
+</div>
+</sc-if>
+<button class="defrow" onClick="{{ toggleNegative }}" aria-expanded="{{ negOpenStr }}" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 8px 12px; display: grid; grid-template-columns: 76px minmax(0, 1fr) 14px; gap: 12px; align-items: center; font: inherit; color: inherit; cursor: pointer"><code style="font-family: Menlo, Consolas, monospace; font-size: 12px; line-height: 20px">negative</code><span style="font-size: 13px; line-height: 20px; color: #3D3D3D">A poor visit overall; the complaints decide the verdict</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></button>
+<sc-if value="{{ negOpen }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 8px 12px 10px 100px; background: #FAFAFA; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; color: #3D3D3D">
+<span>“Loved the Golden Gate Ginger, but we waited 25 minutes and the store was a mess. Not worth it.” <span style="color: #6F6F6F">· East 6th Street, Austin</span></span>
+<span>“Not great. Stale cookies and nowhere to sit.” <span style="color: #6F6F6F">· Arts District, Las Vegas</span></span>
+</div>
+</sc-if>
+<button class="defrow" onClick="{{ toggleMixed }}" aria-expanded="{{ mixOpenStr }}" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 8px 12px; display: grid; grid-template-columns: 76px minmax(0, 1fr) 14px; gap: 12px; align-items: center; font: inherit; color: inherit; cursor: pointer"><code style="font-family: Menlo, Consolas, monospace; font-size: 12px; line-height: 20px">mixed</code><span style="font-size: 13px; line-height: 20px; color: #3D3D3D">Real praise and real complaints, no overall verdict</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></button>
+<sc-if value="{{ mixOpen }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 8px 12px 10px 100px; background: #FAFAFA; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; color: #3D3D3D">
+<span>“Friendly staff and great cookies, but prices went up again and half the menu was sold out.” <span style="color: #6F6F6F">· Ginza, Tokyo</span></span>
+<span>“Cozy spot. The Tokyo Tidbits were too sweet for me.” <span style="color: #6F6F6F">· Tenmonkan, Kagoshima</span></span>
+</div>
+</sc-if>
+<button class="defrow" onClick="{{ toggleNeutral }}" aria-expanded="{{ neuOpenStr }}" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 8px 12px; display: grid; grid-template-columns: 76px minmax(0, 1fr) 14px; gap: 12px; align-items: center; font: inherit; color: inherit; cursor: pointer"><code style="font-family: Menlo, Consolas, monospace; font-size: 12px; line-height: 20px">neutral</code><span style="font-size: 13px; line-height: 20px; color: #3D3D3D">Factual, no opinion about the visit</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5L8 10l3.5-3.5"></path></svg></button>
+<sc-if value="{{ neuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 8px 12px 10px 100px; background: #FAFAFA; display: flex; flex-direction: column; gap: 6px; font-size: 12px; line-height: 18px; color: #3D3D3D">
+<span>“Opens at 10am, card only, six flavors on the menu.” <span style="color: #6F6F6F">· Bakehouse Shibuya</span></span>
+<span>“Picked up a catering order for the office.” <span style="color: #6F6F6F">· Fitzroy, Melbourne</span></span>
+</div>
+</sc-if>
+
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h4 style="margin: 0; font-size: 12px; line-height: 18px; font-weight: 600; color: #3D3D3D">Proposed SQL</h4>
+<div style="border: 1px solid #EBEBEB; border-radius: 8px; overflow: hidden">
+<div style="padding: 6px 8px 6px 12px; display: flex; align-items: center; gap: 8px; background: #F7F7F7; font-size: 12px; line-height: 18px">
+<span style="font-weight: 600">Proposed SQL</span>
+<code style="font-family: Menlo, Consolas, monospace; font-size: 11px; color: #3D3D3D; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">reviews_enriched.sql</code>
+<span style="color: #1E6B3A; font-weight: 600">+12</span><span style="color: #C82D4C; font-weight: 600">−1</span>
+<button class="btn-o" onClick="{{ openSql }}" style="margin-left: auto; height: 26px; box-sizing: border-box; padding: 0 8px; border: 1px solid #CBCBCB; border-radius: 4px; background: #FFFFFF; color: #161616; display: flex; align-items: center; gap: 4px; font: inherit; font-size: 12px; line-height: 18px; cursor: pointer"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5L9 7M2.5 13.5L7 9"></path></svg>Full screen</button>
+</div>
+<div style="position: relative; height: 168px; overflow: hidden">
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">14</span><span style="color: #1E6B3A">+</span><span>  <span class="cm">-- Governed sentiment (#142). Labeled once per review.</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">15</span><span style="color: #1E6B3A">+</span><span>  <span class="fn">ai_classify</span>(</span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">16</span><span style="color: #1E6B3A">+</span><span>    r.review_text,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">17</span><span style="color: #1E6B3A">+</span><span>    <span class="st">'{"positive": "A good visit overall; would return or recommend",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">18</span><span style="color: #1E6B3A">+</span><span><span class="st">      "negative": "A poor visit overall; the complaints decide the verdict",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">19</span><span style="color: #1E6B3A">+</span><span><span class="st">      "mixed": "Real praise and real complaints, no overall verdict",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">20</span><span style="color: #1E6B3A">+</span><span><span class="st">      "neutral": "Factual, no opinion about the visit"}'</span>,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 30px 16px minmax(0, 1fr); background: #E6F4EA"><span style="text-align: right; padding-right: 6px; color: #6FA884">21</span><span style="color: #1E6B3A">+</span><span>    <span class="fn">MAP</span>(<span class="st">'version'</span>, <span class="st">'2.0'</span>, <span class="st">'instructions'</span>, <span class="st">'Rate the store visit as a whole…'</span>)</span></div>
+<div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 40px; background: linear-gradient(rgba(255,255,255,0), #FFFFFF)"></div>
+</div>
+</div>
+<h4 style="margin: 6px 0 0 0; font-size: 12px; line-height: 18px; font-weight: 600; color: #3D3D3D">What it touches</h4>
+<div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 20px">
+<div style="display: flex; gap: 8px; align-items: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><circle cx="4" cy="4" r="2"></circle><circle cx="12" cy="12" r="2"></circle><path d="M6 4h4a2 2 0 0 1 0 4H6a2 2 0 0 0 0 4h4"></path></svg><span><code style="font-family: Menlo, Consolas, monospace; font-size: 12px">cx_reviews_etl</code> · 1 file, <span style="color: #277C43; font-weight: 600">+12</span> <span style="color: #C82D4C; font-weight: 600">−1</span></span></div>
+<div style="display: flex; gap: 8px; align-items: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M8 1.75l2.75 4.75h-5.5z"></path><circle cx="4.75" cy="11.25" r="2.5"></circle><rect x="9" y="8.75" width="5" height="5" rx=".5"></rect></svg><span>Unity Catalog · column description and <em>certified</em> tag</span></div>
+<div style="display: flex; gap: 8px; align-items: center"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M2 3.5a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H6l-3 2.5v-2.5a1 1 0 0 1-1-1z"></path></svg><span>Franchise CX Insights · 1 instruction: use <code style="font-family: Menlo, Consolas, monospace; font-size: 12px">review_sentiment</code> for sentiment</span></div>
+</div>
+<p style="margin: 0; font-size: 12px; line-height: 18px; color: #6F6F6F">One-time backfill: 1,240,382 reviews, about $680.</p>
+</div>
+</div>
+</section>
+
+<div style="padding: 20px 20px 20px 20px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 12px; line-height: 18px; color: #6F6F6F">
+<span>Evidence:</span>
+<a class="lnk" href="#">214 questions</a>
+<a class="lnk" href="#">Generated SQL samples</a>
+<a class="lnk" href="#">Label disagreements (412 reviews)</a>
+<span style="margin-left: auto">Needs approval because it adds an AI-derived column</span>
+</div>
+</div>
+</sc-if>
+</article>
+<article style="border: 1px solid #ECEEF1; border-radius: 12px; background: #FFFFFF; box-shadow: rgba(16,24,40,0.04) 0px 1px 2px 0px, rgba(16,24,40,0.05) 0px 8px 24px -8px"><h2 style="margin: 0; font-size: inherit; font-weight: inherit"><button class="acc" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 16px 20px; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 16px; align-items: center; font: inherit; color: inherit; cursor: pointer; border-radius: 12px" aria-expanded="false"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5L10 8l-3.5 3.5"></path></svg><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; line-height: 20px; font-weight: 600">Proposing to dedupe POS orders replayed by the Square sync</span><span style="font-size: 12px; line-height: 18px; color: #6F6F6F">46 questions · 12 people · revenue overcounted 2.1% at 4 stores</span></span><span style="display: flex; align-items: center; gap: 16px; font-size: 12px; line-height: 18px; color: #3D3D3D; white-space: nowrap"><span>Dedup rule · <code style="font-family: Menlo, Consolas, monospace; font-size: 11px">pos_orders_silver</code></span><span style="color: #6F6F6F">Today</span></span></button></h2></article>
+<article style="border: 1px solid #ECEEF1; border-radius: 12px; background: #FFFFFF; box-shadow: rgba(16,24,40,0.04) 0px 1px 2px 0px, rgba(16,24,40,0.05) 0px 8px 24px -8px"><h2 style="margin: 0; font-size: inherit; font-weight: inherit"><button class="acc" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 16px 20px; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 16px; align-items: center; font: inherit; color: inherit; cursor: pointer; border-radius: 12px" aria-expanded="false"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5L10 8l-3.5 3.5"></path></svg><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; line-height: 20px; font-weight: 600">Proposing a shared fiscal calendar table</span><span style="font-size: 12px; line-height: 18px; color: #6F6F6F">33 questions · 8 people · fiscal weeks computed 3 different ways</span></span><span style="display: flex; align-items: center; gap: 16px; font-size: 12px; line-height: 18px; color: #3D3D3D; white-space: nowrap"><span>New table · <code style="font-family: Menlo, Consolas, monospace; font-size: 11px">dim_fiscal_calendar</code></span><span style="color: #6F6F6F">Yesterday</span></span></button></h2></article>
+<article style="border: 1px solid #ECEEF1; border-radius: 12px; background: #FFFFFF; box-shadow: rgba(16,24,40,0.04) 0px 1px 2px 0px, rgba(16,24,40,0.05) 0px 8px 24px -8px"><h2 style="margin: 0; font-size: inherit; font-weight: inherit"><button class="acc" style="width: 100%; box-sizing: border-box; text-align: left; border: 0; background: transparent; padding: 16px 20px; display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 16px; align-items: center; font: inherit; color: inherit; cursor: pointer; border-radius: 12px" aria-expanded="false"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#525252" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5L10 8l-3.5 3.5"></path></svg><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 14px; line-height: 20px; font-weight: 600">Proposing a daily store sales rollup</span><span style="font-size: 12px; line-height: 18px; color: #6F6F6F">52 questions · 14 people · $620 compute scanning raw orders</span></span><span style="display: flex; align-items: center; gap: 16px; font-size: 12px; line-height: 18px; color: #3D3D3D; white-space: nowrap"><span>Materialized view · <code style="font-family: Menlo, Consolas, monospace; font-size: 11px">store_sales_daily</code></span><span style="color: #6F6F6F">Oct 21</span></span></button></h2></article>
+</div>
+
+</div>
+</main>
+</div>
+
+<sc-if value="{{ showSql }}" hint-placeholder-val="{{ false }}">
+<div style="position: fixed; left: 0; top: 0; right: 0; bottom: 0; z-index: 10; background: rgba(17,23,28,0.45); display: flex; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box">
+<div role="dialog" aria-modal="true" aria-labelledby="sql-title" style="width: 100%; max-width: 1080px; max-height: 100%; box-sizing: border-box; background: #FFFFFF; border-radius: 8px; box-shadow: rgba(0,0,0,0.2) 0px 8px 32px; display: flex; flex-direction: column; overflow: hidden">
+<div style="padding: 12px 16px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #EBEBEB">
+<h2 id="sql-title" style="margin: 0; font-size: 15px; line-height: 22px; font-weight: 600">Proposed change #142</h2>
+<code style="font-family: Menlo, Consolas, monospace; font-size: 12px; color: #3D3D3D">cx_reviews_etl / transformations/reviews_enriched.sql</code>
+<span style="font-size: 12px; color: #1E6B3A; font-weight: 600">+12</span><span style="font-size: 12px; color: #C82D4C; font-weight: 600">−1</span>
+<a class="lnk" href="Pipeline.dc.html" style="margin-left: auto; font-size: 13px; line-height: 20px">Open in pipeline</a>
+<button class="icon-btn" aria-label="Close" onClick="{{ closeSql }}" style="width: 28px; height: 28px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #525252; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"></path></svg></button>
+</div>
+<div style="overflow: auto; padding: 8px 0">
+<div style="min-width: 900px">
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">1</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">1</span><span></span><span><span class="kw">CREATE OR REFRESH STREAMING TABLE</span> reviews_enriched (</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #FDECEE"><span style="text-align: right; padding-right: 8px; color: #C08A93">2</span><span></span><span style="color: #C82D4C">−</span><span>  <span class="kw">CONSTRAINT</span> valid_franchise <span class="kw">EXPECT</span> (franchise_id <span class="kw">IS NOT NULL</span>)</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">2</span><span style="color: #1E6B3A">+</span><span>  <span class="kw">CONSTRAINT</span> valid_franchise <span class="kw">EXPECT</span> (franchise_id <span class="kw">IS NOT NULL</span>),</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">3</span><span style="color: #1E6B3A">+</span><span>  <span class="kw">CONSTRAINT</span> valid_sentiment <span class="kw">EXPECT</span> (review_sentiment <span class="kw">IN</span> (<span class="st">'positive'</span>, <span class="st">'negative'</span>, <span class="st">'mixed'</span>, <span class="st">'neutral'</span>))</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">3</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">4</span><span></span><span>)</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">4</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">5</span><span></span><span><span class="kw">COMMENT</span> <span class="st">'Customer reviews joined to franchise attributes. Source for Franchise CX Insights.'</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">5</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">6</span><span></span><span><span class="kw">AS SELECT</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); color: #6F6F6F"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">⋯</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">⋯</span><span></span><span>  r.review_id, r.franchise_id, f.franchise_name, f.city, f.country, r.review_date,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">12</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">13</span><span></span><span>  r.review_text,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">14</span><span style="color: #1E6B3A">+</span><span>  <span class="cm">-- Governed sentiment (#142). Labeled once per review. Definition owned by CX Analytics.</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">15</span><span style="color: #1E6B3A">+</span><span>  <span class="fn">ai_classify</span>(</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">16</span><span style="color: #1E6B3A">+</span><span>    r.review_text,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">17</span><span style="color: #1E6B3A">+</span><span>    <span class="st">'{"positive": "A good visit overall; would return or recommend",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">18</span><span style="color: #1E6B3A">+</span><span><span class="st">      "negative": "A poor visit overall; the complaints decide the verdict",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">19</span><span style="color: #1E6B3A">+</span><span><span class="st">      "mixed": "Real praise and real complaints, no overall verdict",</span></span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">20</span><span style="color: #1E6B3A">+</span><span><span class="st">      "neutral": "Factual, no opinion about the visit"}'</span>,</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">21</span><span style="color: #1E6B3A">+</span><span>    <span class="fn">MAP</span>(<span class="st">'version'</span>, <span class="st">'2.0'</span>, <span class="st">'instructions'</span>, <span class="st">'Rate the store visit as a whole. Ignore opinions about individual cookies unless they decide the verdict. Read negation: "not great" is negative.'</span>)</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr); background: #E6F4EA"><span></span><span style="text-align: right; padding-right: 8px; color: #6FA884">22</span><span style="color: #1E6B3A">+</span><span>  ):response[0]::<span class="kw">STRING AS</span> review_sentiment</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">13</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">23</span><span></span><span><span class="kw">FROM STREAM</span>(reviews_clean) r</span></div>
+<div class="code" style="display: grid; grid-template-columns: 40px 40px 20px minmax(0, 1fr)"><span style="text-align: right; padding-right: 8px; color: #A2A2A2">14</span><span style="text-align: right; padding-right: 8px; color: #A2A2A2">24</span><span></span><span><span class="kw">LEFT JOIN</span> ref.franchises f <span class="kw">USING</span> (franchise_id);</span></div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+<div role="region" aria-label="Prototype caption" style="flex: none; margin: 0 4px 4px 4px; box-sizing: border-box; padding: 12px 12px 12px 16px; border-radius: 8px; background: #161616; color: #FFFFFF; display: flex; align-items: center; gap: 16px; font-family: inherit"><span style="flex: none; font-size: 12px; line-height: 18px; font-weight: 600; color: rgba(255,255,255,0.6); font-variant-numeric: tabular-nums">2 of 6</span><p style="flex: 1; min-width: 0; margin: 0; font-size: 13px; line-height: 20px; color: #FFFFFF">The data team is alerted that multiple users are asking about sentiment, which is not defined and requires extraction. Genie proposes to add a new column.</p><span style="flex: none; display: flex; align-items: center; gap: 6px"><a class="cap-btn cap-back" href="Main.dc.html"><svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4L6 8l4 4"></path></svg>Back</a><a class="cap-btn cap-next" href="Pipeline.dc.html">Next<svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"></path></svg></a></span></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1518,"height":1000}}'>
+class Component extends DCLogic {
+renderVals() {
+const st = this.state || {};
+const open = st.openDef === undefined ? 'positive' : st.openDef;
+const toggle = (k) => () => this.setState({ openDef: open === k ? null : k });
+return {
+recOpen: st.recOpen !== false, recClosed: st.recOpen === false, recOpenStr: String(st.recOpen !== false),
+toggleRec: () => this.setState({ recOpen: st.recOpen === false }),
+showSql: !!st.showSql,
+openSql: () => this.setState({ showSql: true }),
+closeSql: () => this.setState({ showSql: false }),
+posOpen: open === 'positive', negOpen: open === 'negative', mixOpen: open === 'mixed', neuOpen: open === 'neutral',
+posOpenStr: String(open === 'positive'), negOpenStr: String(open === 'negative'), mixOpenStr: String(open === 'mixed'), neuOpenStr: String(open === 'neutral'),
+togglePositive: toggle('positive'), toggleNegative: toggle('negative'), toggleMixed: toggle('mixed'), toggleNeutral: toggle('neutral')
+};
+}
+}
+</script>
+</body>
+</html>
